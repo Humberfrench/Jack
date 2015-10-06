@@ -1,0 +1,9 @@
+C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Model\bin\Debug\Jack.Model.dll
+C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Model\bin\Debug\Jack.Model.pdb
+C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Model\bin\Debug\Jack.Model.xml
+C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Model\obj\Debug\Jack.Model.vbprojResolveAssemblyReference.cache
+C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Model\obj\Debug\Jack.Model.Resources.resources
+C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Model\obj\Debug\Jack.Model.vbproj.GenerateResource.Cache
+C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Model\obj\Debug\Jack.Model.dll
+C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Model\obj\Debug\Jack.Model.xml
+C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Model\obj\Debug\Jack.Model.pdb

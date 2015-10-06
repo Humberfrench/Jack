@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" assembly="CECAMAdm.Struct" namespace="CECAMAdm.Struct">
+	<class name="Criancas" table="tb_crianca">
+		<id name="Codigo" column="id_crianca">
+			<generator class="native"/>
+		</id>
+    <property column="nm_crianca" name="Nome" not-null="true"/>
+    <property column="nr_idade" name="Idade" not-null="false"/>
+    <property column="ds_medida_idade" name="MedidaIdade" not-null="false"/>
+    <property column="dt_nascimento" name="DataNascimento" not-null="true"/>
+    <property column="ds_sexo" name="Sexo" not-null="true"/>
+    <property column="nr_calcado" name="Calcado" not-null="false"/>
+    <property column="nr_roupa" name="Roupa" not-null="false"/>
+    <property column="id_kit" name="Kit" not-null="true"/>
+    <property column="is_sacolinha" name="IsSacolinha" not-null="false"/>
+    <property column="is_consistente" name="IsConsistente" not-null="false"/>
+    <property column="id_status" name="Status" not-null="true"/>
+    <property column="is_necessidade_especial" name="IsNecessidadeEspecial" not-null="false"/>
+    <property column="is_moral_crista" name="IsMoralCrista" not-null="true"/>
+    <property column="dt_update" name="DataAtualizacao" not-null="false"/>
+  </class>
+</hibernate-mapping>
+
