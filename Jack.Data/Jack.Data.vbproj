@@ -43,6 +43,13 @@
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Consumer.Data.Basic">
+      <HintPath>..\Lib\Consumer.Data.Basic.dll</HintPath>
+    </Reference>
+    <Reference Include="Consumer.Tools, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Lib\Consumer.Tools.dll</HintPath>
+    </Reference>
     <Reference Include="Iesi.Collections, Version=4.0.0.0, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
       <HintPath>..\packages\Iesi.Collections.4.0.0.4000\lib\net40\Iesi.Collections.dll</HintPath>
       <Private>True</Private>
@@ -71,6 +78,15 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Repository\BaseData.vb" />
+    <Compile Include="Calcado.vb" />
+    <Compile Include="Colaborador.vb" />
+    <Compile Include="ColaboradorCrianca.vb" />
+    <Compile Include="Criancas.vb" />
+    <Compile Include="Familia.vb" />
+    <Compile Include="FamiliaCrianca.vb" />
+    <Compile Include="Kit.vb" />
+    <Compile Include="KitItem.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -86,10 +102,18 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="Presenca.vb" />
+    <Compile Include="Processos.vb" />
     <Compile Include="Repository\GenericDao.vb" />
     <Compile Include="Repository\IGenericDao.vb" />
     <Compile Include="Repository\NHibernateHelper.vb" />
     <Compile Include="Repository\NHProvider.vb" />
+    <Compile Include="Representante.vb" />
+    <Compile Include="Reuniao.vb" />
+    <Compile Include="Roupa.vb" />
+    <Compile Include="Sacolas.vb" />
+    <Compile Include="Status.vb" />
+    <Compile Include="TipoItem.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="My Project\Resources.resx">
@@ -115,10 +139,6 @@
     <ProjectReference Include="..\Jack.Model\Jack.Model.vbproj">
       <Project>{ba095dc2-0e43-4875-8eca-6fd42ee9b21a}</Project>
       <Name>Jack.Model</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Jack.Util\Jack.Util.vbproj">
-      <Project>{12a27cc7-5727-4958-8a9f-70bba59708e8}</Project>
-      <Name>Jack.Util</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />
