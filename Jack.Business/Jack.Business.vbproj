@@ -98,6 +98,20 @@
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Jack.Data\Jack.Data.vbproj">
+      <Project>{a42998a3-02d2-4769-b30f-051db6e2dcd1}</Project>
+      <Name>Jack.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Jack.Model\Jack.Model.vbproj">
+      <Project>{ba095dc2-0e43-4875-8eca-6fd42ee9b21a}</Project>
+      <Name>Jack.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Jack.Util\Jack.Util.vbproj">
+      <Project>{12a27cc7-5727-4958-8a9f-70bba59708e8}</Project>
+      <Name>Jack.Util</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -114,6 +114,7 @@
     <Import Include="System.Web.UI.HtmlControls" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="CECAM.xml" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -128,6 +129,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="perez.xml" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Content\toastr.scss" />
@@ -195,6 +197,20 @@
     <Folder Include="App_Data\" />
     <Folder Include="Controllers\" />
     <Folder Include="Models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Jack.Business\Jack.Business.vbproj">
+      <Project>{9e4c1da5-fbac-4ed8-b6fd-58df1c49aa97}</Project>
+      <Name>Jack.Business</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Jack.Model\Jack.Model.vbproj">
+      <Project>{ba095dc2-0e43-4875-8eca-6fd42ee9b21a}</Project>
+      <Name>Jack.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Jack.Util\Jack.Util.vbproj">
+      <Project>{12a27cc7-5727-4958-8a9f-70bba59708e8}</Project>
+      <Name>Jack.Util</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
