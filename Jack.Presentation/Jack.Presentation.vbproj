@@ -115,12 +115,26 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="CECAM.xml" />
+    <Content Include="Content\Jack.css">
+      <DependentUpon>Jack.scss</DependentUpon>
+    </Content>
+    <Content Include="Content\Jack.min.css">
+      <DependentUpon>Jack.css</DependentUpon>
+    </Content>
+    <Content Include="Content\Site.css">
+      <DependentUpon>Site.scss</DependentUpon>
+    </Content>
+    <Content Include="Content\Site.min.css">
+      <DependentUpon>Site.css</DependentUpon>
+    </Content>
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Sacolas.css" />
     <Content Include="Content\toastr.css" />
     <Content Include="Content\toastr.min.css" />
+    <Content Include="Default.aspx" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -129,11 +143,22 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="Ild.html" />
     <Content Include="perez.xml" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Content\toastr.scss" />
     <Content Include="Content\toastr.less" />
+    <Content Include="Content\Site.scss" />
+    <Content Include="Content\_mixins.scss" />
+    <Content Include="Content\_reset.scss" />
+    <Content Include="Content\_var_defs_default.scss" />
+    <Content Include="Jack.Master" />
+    <Content Include="Content\Jack.scss" />
+    <Content Include="Content\Jack.css.map" />
+    <Content Include="Content\Site.css.map" />
+    <Content Include="Content\toastr.css.map" />
+    <Content Include="Content\Conrad.scss" />
     <None Include="Scripts\jquery-2.1.4.intellisense.js" />
     <Content Include="Scripts\jquery-2.1.4.js" />
     <Content Include="Scripts\jquery-2.1.4.min.js" />
@@ -143,8 +168,22 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.vb" />
+    <Compile Include="Default.aspx.designer.vb">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Default.aspx.vb">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
     <Compile Include="Global.asax.vb">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Jack.Master.designer.vb">
+      <DependentUpon>Jack.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Jack.Master.vb">
+      <DependentUpon>Jack.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">

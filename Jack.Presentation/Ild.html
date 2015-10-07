@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+</head>
+<body>
+    <div class="menu-bar" style="width:200px;"><div id="divCadastros"><a href="Cadastros.aspx">Cadastros</a></div></div>
+    <div class="menu-bar" style="width:200px;"><div id="divSacolinhas"><a href="Sacolinhas.aspx">Sacolinhas</a></div></div>
+    <div class="menu-bar" style="width:200px;"><div id="divConsultas"><a href="Sacolinhas.aspx">Consultas</a></div></div>
+    <div class="menu-bar" style="width:200px;"><div id="divProcessos"><a href="Processar.aspx">Processar</a></div></div>
+    <div class="menu-bar" style="width:200px;"><div id="divRelatorios"><a href="Relatorios.aspx">Relatórios</a></div></div>
+    <div class="menu-bar" style=""><div id="divHome"><a href="Default.aspx"><img src="imagens/home.png" alt="home" /></a></div></div>
+
+    <!-- SUB -->
+    <div id="menuContainer" style="width:1024px; position:absolute;">
+        <div id="divCadastrosItem" class="Menu" style="height:250px;display:none; left:1px; ">
+            <div id="Item101" class="Item"><a id="lnkCalcados" href="Calcados.aspx">Calçados</a></div>
+            <div id="Item102" class="Item"><a id="lnkRoupas" href="Roupas.aspx">Roupas</a></div>
+            <div id="Item103" class="Item"><a id="lnkColaborador" href="#.aspx">Colaborador</a></div>
+            <div id="Item104" class="Item"><a id="lnkKits" href="Kit.aspx">Kits</a></div>
+            <div id="Item105" class="Item"><a id="lnkKitsItem" href="KitItem.aspx">Item dos Kits</a></div>
+            <div id="Item106" class="Item"><a id="lnkColocation" href="TipoItem.aspx">Tipo de Item</a></div>
+            <div id="Item107" class="Item"><a id="lnkDatasReuniao" href="DatasReuniao.aspx">Datas de Reunião</a></div>
+        </div>
+        <div id="divSacolinhasItem" class="Menu" style="height:320px;display:none; left:200px; ">
+            <div id="Item201" class="Item"><a id="lnkFamilia" href="Familia.aspx">Familia</a></div>
+            <div id="Item202" class="Item"><a id="lnkFamiliaLote" href="FamiliaLote.aspx">Familia - Lote</a></div>
+            <div id="Item203" class="Item"><a id="lnkCriancas" href="Criancas.aspx">Crianças</a></div>
+            <div id="Item204" class="Item"><a id="lnkCriancasUpdate" href="AlteraDadosCrianca.aspx">Alterar Dados Crianças</a></div>
+            <div id="Item205" class="Item"><a id="lnkCopyCriancas" href="CopyCriancas.aspx"> Transferir Crianças</a></div>
+            <div id="Item206" class="Item"><a id="lnkCadPresenca" href="CadastroPresenca.aspx">Cadastro de Presença</a></div>
+            <div id="Item207" class="Item"><a id="lnkSacolasColaborador" href="SacolinaColaboradorCadastro.aspx">Sacolas p/ Colaborador</a></div>
+            <div id="Item208" class="Item"><a id="lnkSacolasAdd" href="SacolinaAdd.aspx">Adicionar Sacolas</a></div>
+            <div id="Item209" class="Item"><a id="lnkRepresentantes" href="Representantes.aspx">Representantes</a></div>
+        </div>
+        <div id="divConsultasItem" class="Menu" style="height:280px;display:none; left:400px; ">
+            <div id="Item211" class="Item"><a id="lnkCriancasConsulta" href="CriancasConsulta.aspx">Consulta Crianças</a></div>
+            <div id="Item212" class="Item"><a id="lnkCriancasFamilia" href="CriancasFamilia.aspx">Crianças Por Familia</a></div>
+            <div id="Item213" class="Item"><a id="lnkCriancasFamiliaRep" href="CriancasFamiliaRep.aspx">Crianças Por Familia/Representante</a></div>
+            <div id="Item214" class="Item"><a id="lnkSacolasdoLivres" href="SacolasLivres.aspx">Sacolas Livres</a></div>
+            <div id="Item215" class="Item"><a id="lnkSacolasdoColaborador" href="SacolaColaboradorView.aspx">Sacolas do Colaborador</a></div>
+            <div id="Item216" class="Item"><a id="lnkQtdeSacolasdoColaborador" href="SacolaColaboradorQtdeView.aspx">Qtde. Sacolas do Colaborador</a></div>
+            <div id="Item217" class="Item"><a id="lnkPresencaPorReuniao" href="PresencaPorReuniao.aspx">Presença Por Reunião</a></div>
+            <div id="Item218" class="Item"><a id="lnkPresencaPorReuniaoMae" href="PresencaMae.aspx">Presença de Mães</a></div>
+        </div>
+        <div id="divProcessosItem" class="Menu" style="height:180px;display:none; left:600px; ">
+            <div id="Item301" class="Item"><a id="lnkProcessa" href="ProcessaSacola.aspx">Procesar e Gerar Sacolinhas</a></div>
+            <div id="Item302" class="Item"><a id="lnkPrint" href="PrintSacolas.aspx">Imprimir Sacolinhas</a></div>
+            <div id="Item303" class="Item"><a id="lnkPresença" href="ProcessaPresenca.aspx">Presenças de Representante</a></div>
+            <div id="Item304" class="Item"><a id="lnkAnaliseMaes" href="AnaliseProcesso.aspx">Processar Atualizações</a></div>
+            <div id="Item305" class="Item"><a id="lnkNotificaColaborador" href="AnaliseProcesso.aspx">Notifica Colaborador</a></div>
+        </div>
+        <div id="divRelatoriosItem" class="Menu" style="height:250px;display:none; left:800px; ">
+            <div id="Item501" class="Item"><a id="lnkListaSacolas" href="RelSacolas.aspx">Lista de Sacolinhas</a></div>
+            <div id="Item502" class="Item"><a id="lnkEstatisticasSacolas" href="#.aspx">Estatística de Sacolas</a></div>
+            <div id="Item503" class="Item"><a id="lnkPresenca" href="RelatorioPresenca.aspx">Relatório de Presença</a></div>
+            <div id="Item504" class="Item"><a id="lnkChamada" href="ListaChamada.aspx">Lista de Chamada</a></div>
+            <div id="Item505" class="Item"><a id="lnkInconsistencia1" href="InconsistenciaFamilia.aspx">Inconsistências Famílias</a></div>
+            <div id="Item506" class="Item"><a id="lnkInconsistencia2" href="InconsistenciaCrianca.aspx">Inconsistências Crianças</a></div>
+            <div id="Item507" class="Item"><a id="lnkInconsistencia3" href="FamiliaSemCrianca.aspx">Famílias Sem Crianças</a></div>
+            <div id="Item508" class="Item" style="display:none;"><a id="#2" href="#">A Definir</a></div>
+            <div id="Item509" class="Item" style="display:none;"><a id="#3" href="#">A Definir</a></div>
+        </div>
+    </div>
+
+</body>
+</html>
