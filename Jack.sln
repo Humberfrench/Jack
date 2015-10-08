@@ -11,6 +11,8 @@ Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Jack.Data", "Jack.Data\Jack
 EndProject
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Jack.Presentation", "Jack.Presentation\Jack.Presentation.vbproj", "{1984A0D1-97C1-4088-B610-68B31032136B}"
 EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Jack.Extensions", "Jack.Extensions\Jack.Extensions.vbproj", "{2A452197-C030-4DA4-8EE1-EAA17CB9B5D3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{1984A0D1-97C1-4088-B610-68B31032136B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1984A0D1-97C1-4088-B610-68B31032136B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1984A0D1-97C1-4088-B610-68B31032136B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2A452197-C030-4DA4-8EE1-EAA17CB9B5D3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2A452197-C030-4DA4-8EE1-EAA17CB9B5D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2A452197-C030-4DA4-8EE1-EAA17CB9B5D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2A452197-C030-4DA4-8EE1-EAA17CB9B5D3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

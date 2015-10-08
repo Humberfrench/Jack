@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{A42998A3-02D2-4769-B30F-051DB6E2DCD1}</ProjectGuid>
+    <ProjectGuid>{2A452197-C030-4DA4-8EE1-EAA17CB9B5D3}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>Jack.Data</RootNamespace>
-    <AssemblyName>Jack.Data</AssemblyName>
+    <RootNamespace>Jack.Extensions</RootNamespace>
+    <AssemblyName>Jack.Extensions</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <MyType>Windows</MyType>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
@@ -18,7 +18,7 @@
     <DefineDebug>true</DefineDebug>
     <DefineTrace>true</DefineTrace>
     <OutputPath>bin\Debug\</OutputPath>
-    <DocumentationFile>Jack.Data.xml</DocumentationFile>
+    <DocumentationFile>Jack.Extensions.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
@@ -27,7 +27,7 @@
     <DefineTrace>true</DefineTrace>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <DocumentationFile>Jack.Data.xml</DocumentationFile>
+    <DocumentationFile>Jack.Extensions.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
   <PropertyGroup>
@@ -43,23 +43,9 @@
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Consumer.Data.Basic">
-      <HintPath>..\Lib\Consumer.Data.Basic.dll</HintPath>
-    </Reference>
-    <Reference Include="Consumer.Tools, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Lib\Consumer.Tools.dll</HintPath>
-    </Reference>
-    <Reference Include="Iesi.Collections, Version=4.0.0.0, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
-      <HintPath>..\packages\Iesi.Collections.4.0.0.4000\lib\net40\Iesi.Collections.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="NHibernate, Version=4.0.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
-      <HintPath>..\packages\NHibernate.4.0.4.4000\lib\net40\NHibernate.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -78,15 +64,7 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Repository\BaseData.vb" />
-    <Compile Include="Calcado.vb" />
-    <Compile Include="Colaborador.vb" />
-    <Compile Include="ColaboradorCrianca.vb" />
-    <Compile Include="Criancas.vb" />
-    <Compile Include="Familia.vb" />
-    <Compile Include="FamiliaCrianca.vb" />
-    <Compile Include="Kit.vb" />
-    <Compile Include="KitItem.vb" />
+    <Compile Include="Basic.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -102,18 +80,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="Presenca.vb" />
-    <Compile Include="Processos.vb" />
-    <Compile Include="Repository\GenericDao.vb" />
-    <Compile Include="Repository\IGenericDao.vb" />
-    <Compile Include="Repository\NHibernateHelper.vb" />
-    <Compile Include="Repository\NHProvider.vb" />
-    <Compile Include="Representante.vb" />
-    <Compile Include="Reuniao.vb" />
-    <Compile Include="Roupa.vb" />
-    <Compile Include="Sacolas.vb" />
-    <Compile Include="Status.vb" />
-    <Compile Include="TipoItem.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="My Project\Resources.resx">
@@ -133,19 +99,7 @@
       <CustomToolNamespace>My</CustomToolNamespace>
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
-    <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Jack.Extensions\Jack.Extensions.vbproj">
-      <Project>{2a452197-c030-4da4-8ee1-eaa17cb9b5d3}</Project>
-      <Name>Jack.Extensions</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Jack.Model\Jack.Model.vbproj">
-      <Project>{ba095dc2-0e43-4875-8eca-6fd42ee9b21a}</Project>
-      <Name>Jack.Model</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

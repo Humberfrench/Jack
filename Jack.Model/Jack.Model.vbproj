@@ -131,6 +131,12 @@
     <Content Include="Mappings\Status.hbm.xml" />
     <Content Include="Mappings\TipoItem.hbm.xml" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Jack.Extensions\Jack.Extensions.vbproj">
+      <Project>{2a452197-c030-4da4-8ee1-eaa17cb9b5d3}</Project>
+      <Name>Jack.Extensions</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

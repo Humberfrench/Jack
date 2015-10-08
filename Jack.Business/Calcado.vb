@@ -1,4 +1,5 @@
-﻿Public Class Calcado
+﻿Imports Jack.Extensions.Basic
+Public Class Calcado
 
     Implements ICrud(Of Model.Calcado, Integer)
 

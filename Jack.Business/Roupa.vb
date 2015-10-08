@@ -47,6 +47,7 @@
         Dim oDados As Data.Roupa = Nothing
         Dim blnRetorno As Boolean = False
 
+
         Try
             oDados = New Data.Roupa
             blnRetorno = oDados.Insert(oTipo)
