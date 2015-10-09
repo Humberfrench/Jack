@@ -7,10 +7,12 @@
     <link href="Content/bootstrap-theme.min.css" rel="stylesheet" />
     <link href="Content/bootstrap.min.css" rel="stylesheet" />
     <link href="Content/toastr.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="content/awesomplete.css" />
     <script src="Scripts/jquery-2.1.4.min.js"></script>
     <script src="Scripts/toastr.min.js"></script>
     <script src="Scripts/jquery-2.1.4.intellisense.js"></script>
     <script src="Scripts/bootstrap.min.js"></script>
+    <script src="Scripts/awesomplete.js" async></script>
     <script type="text/javascript">
         $(document).ready(function ()
         {
