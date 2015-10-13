@@ -3,3 +3,7 @@ Jack.Model/bin/Debug/Jack.Model.pdb
 Jack.Model/obj/Debug/Jack.Model.Resources.resources
 Jack.Model/obj/Debug/Jack.Model.pdb
 Jack.Business/bin/Debug/Jack.Business.dll
+Jack.Business/obj/Debug/Jack.Business.dll
+Jack.Business/obj/Debug/Jack.Business.pdb
+Jack.Business/obj/Debug/Jack.Business.vbprojResolveAssemblyReference.cache
+Jack.Extensions/obj/Debug/Jack.Extensions.Resources.resources
