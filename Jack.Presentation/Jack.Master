@@ -9,6 +9,7 @@
     <link href="Content/toastr.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="content/awesomplete.css" />
     <script src="Scripts/jquery-2.1.4.min.js"></script>
+    <script src="Scripts/angular.min.js"></script>    
     <script src="Scripts/toastr.min.js"></script>
     <script src="Scripts/jquery-2.1.4.intellisense.js"></script>
     <script src="Scripts/bootstrap.min.js"></script>
@@ -17,13 +18,20 @@
         $(document).ready(function ()
         {
             $("#divPrincipal").fadeIn('slow');
-        }); 
+        });
+        (function ()
+        {
+            'use strict';
+
+            angular.module('CECAM', ['ngRoute']);
+        })();
+
     </script>
     <asp:ContentPlaceHolder ID="head" runat="server" />
 </head>
 <body>
     <form id="form1" runat="server">
-    <div id="divPrincipal" style="display:none;">
+    <div id="divPrincipal" style="display:none;" ng-app="CECAM">
         <div id="header">
             <img src="#" alt="header" width="1024" />
         </div>
@@ -103,9 +111,6 @@
             &nbsp;
         </div>
     </div>
-
-
-
     </form>
 </body>
 </html>

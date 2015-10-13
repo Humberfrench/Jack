@@ -1,5 +1,6 @@
 ﻿<%@ Page Title="" Language="vb" AutoEventWireup="false" MasterPageFile="~/Jack.Master" CodeBehind="ModelTableForm.aspx.vb" Inherits="Jack.Presentation.ModelTableForm" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <script src="engine/engine.js"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 <div class="Titulo">Title Form</div><br /><br />
