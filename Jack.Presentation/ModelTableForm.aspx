@@ -3,6 +3,7 @@
     <script src="engine/engine.js"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+<div ng-controller="ngAppDemoController">
 <div class="Titulo">Title Form</div><br /><br />
 <div class="SubTitulo">Edição de Dados</div>
 <table class="table table-striped">
@@ -102,5 +103,6 @@
         <div style="width:10px;">&nbsp;</div>
     </div>
     <div style="display:table-row;">&nbsp;</div>
+</div>
 </div>
 </asp:Content>
