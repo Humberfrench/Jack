@@ -4,14 +4,15 @@
 
 body 
 {
-     
+    font-family: $fonts;
+    font-size: $default_text_size;
 }
-
 
 /* All Site */
 #divPrincipal 
 {
     font-family: $fonts;
+    font-size: $default_text_size;
     width: $total_size;
     @include border_shadow($zero_width $zero_width $min_size_box, $shadow);
     @include box_sizing;
@@ -57,3 +58,39 @@ body
 @include get_grids($total_size_main, 1); 
 @include col-x-list($total_size_main);
 
+
+.Titulo
+{
+  font-family: $fonts;
+  font-size: $default_text_title_big;
+  font-weight:500;
+  color:$title_color;
+  width: $total_size_main;
+  @include center_text(50px,50px);  
+  text-align: center;
+}
+.SubTitulo
+{
+  font-family: $fonts;
+  font-size: $default_text_title_small;
+  font-weight:500;
+  color:$title_color;
+  width: $total_size_main;
+  @include center_text(50px,50px);  
+  text-align: center;
+}
+
+.col-form-left 
+{
+  width: 300px;
+  display: table-cell; 
+  @include center_text(30px, 30px)
+}
+
+.col-form-right 
+{
+  width: 600px;
+  display: table-cell; 
+  @include center_text(40px, 40px)
+
+}

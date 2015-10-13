@@ -115,6 +115,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="CECAM.xml" />
+    <Content Include="Content\Conrad.css">
+      <DependentUpon>Conrad.scss</DependentUpon>
+    </Content>
+    <Content Include="Content\Conrad.min.css">
+      <DependentUpon>Conrad.css</DependentUpon>
+    </Content>
     <Content Include="Content\Jack.css">
       <DependentUpon>Jack.scss</DependentUpon>
     </Content>
@@ -144,6 +150,7 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Ild.html" />
+    <Content Include="ModelTableForm.aspx" />
     <Content Include="perez.xml" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -186,6 +193,13 @@
     <Compile Include="Jack.Master.vb">
       <DependentUpon>Jack.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ModelTableForm.aspx.designer.vb">
+      <DependentUpon>ModelTableForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ModelTableForm.aspx.vb">
+      <DependentUpon>ModelTableForm.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">

@@ -4,10 +4,10 @@ Sass Reset - Converted by Hampton Catlin
 A modification of the original found at...
 http://meyerweb.com/eric/tools/css/reset/
 */
-html, body, div, span, applet, object, iframe, h1, h2, h3, h4,
-h5, h6, p, blockquote, pre, a, abbr, acronym, address, big,
+html, body, div, span, object, iframe, h1, h2, h3, h4,
+h5, h6, p, blockquote, pre, a, abbr, acronym, address,
 cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small,
-strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd,
+strong, sub, sup, var, b, u, i, center, dl, dt, dd,
 ol, ul, li, fieldset, form, label, legend, table, caption,
 tbody, tfoot, thead, tr, th, td, article, aside, canvas,
 details, embed, figure, figcaption, footer, header, hgroup,
@@ -241,15 +241,15 @@ A {
   height: 35px;
   vertical-align: middle;
   color: #f5f5f5;
-  background-color: #4285f4;
+  background-color: #3baae3;
   /*Gradiente*/
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#4285f4', endColorstr='#3b77db');
-  background: -moz-linear-gradient(#4285f4, #3b77db, #4285f4);
-  background: -webkit-linear-gradient(#4285f4, #3b77db, #4285f4);
-  background: -o-linear-gradient(#4285f4, #3b77db, #4285f4);
-  background: -ms-linear-gradient(#4285f4, #3b77db, #4285f4);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#3baae3', endColorstr='#0070a3');
+  background: -moz-linear-gradient(#3baae3, #0070a3, #3baae3);
+  background: -webkit-linear-gradient(#3baae3, #0070a3, #3baae3);
+  background: -o-linear-gradient(#3baae3, #0070a3, #3baae3);
+  background: -ms-linear-gradient(#3baae3, #0070a3, #3baae3);
   /* default */
-  background: linear-gradient(#4285f4, #3b77db, #4285f4);
+  background: linear-gradient(#3baae3, #0070a3, #3baae3);
   /*border radius*/
   -moz-border-top-left-radius: 5px;
   -moz-border-top-right-radius: 5px;
@@ -341,7 +341,7 @@ A {
 
 .linha_master {
   font-size: 12px;
-  background-color: #4285f4;
+  background-color: #132749;
   line-height: 25px;
   height: 25px;
   vertical-align: middle;
@@ -593,15 +593,15 @@ table.tablegradiente {
   font-family: Verdana, Tahona, Arial, Helvetica, sans-serif;
   font-size: 14px;
   color: #ffffff;
-  background-color: #4285f4;
+  background-color: #3baae3;
   /*Gradiente*/
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#4285f4', endColorstr='#3b77db');
-  background: -moz-linear-gradient(#4285f4, #3b77db, #4285f4);
-  background: -webkit-linear-gradient(#4285f4, #3b77db, #4285f4);
-  background: -o-linear-gradient(#4285f4, #3b77db, #4285f4);
-  background: -ms-linear-gradient(#4285f4, #3b77db, #4285f4);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#3baae3', endColorstr='#0070a3');
+  background: -moz-linear-gradient(#3baae3, #0070a3, #3baae3);
+  background: -webkit-linear-gradient(#3baae3, #0070a3, #3baae3);
+  background: -o-linear-gradient(#3baae3, #0070a3, #3baae3);
+  background: -ms-linear-gradient(#3baae3, #0070a3, #3baae3);
   /* default */
-  background: linear-gradient(#4285f4, #3b77db, #4285f4);
+  background: linear-gradient(#3baae3, #0070a3, #3baae3);
   height: 36px;
   line-height: 36px;
   vertical-align: middle;
@@ -624,15 +624,15 @@ table.tablegradiente {
   font-family: Verdana, Tahona, Arial, Helvetica, sans-serif;
   font-size: 11px;
   color: #ffffff;
-  background-color: #4285f4;
+  background-color: #3baae3;
   /*Gradiente*/
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#4285f4', endColorstr='#3b77db');
-  background: -moz-linear-gradient(#4285f4, #3b77db, #4285f4);
-  background: -webkit-linear-gradient(#4285f4, #3b77db, #4285f4);
-  background: -o-linear-gradient(#4285f4, #3b77db, #4285f4);
-  background: -ms-linear-gradient(#4285f4, #3b77db, #4285f4);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#3baae3', endColorstr='#0070a3');
+  background: -moz-linear-gradient(#3baae3, #0070a3, #3baae3);
+  background: -webkit-linear-gradient(#3baae3, #0070a3, #3baae3);
+  background: -o-linear-gradient(#3baae3, #0070a3, #3baae3);
+  background: -ms-linear-gradient(#3baae3, #0070a3, #3baae3);
   /* default */
-  background: linear-gradient(#4285f4, #3b77db, #4285f4);
+  background: linear-gradient(#3baae3, #0070a3, #3baae3);
   height: auto;
   line-height: 20px;
   vertical-align: middle;
@@ -944,15 +944,15 @@ table.tablegradiente {
   width: 300px;
   height: auto;
   color: #f5f5f5;
-  background-color: #4285f4;
+  background-color: #3baae3;
   /*Gradiente*/
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#4285f4', endColorstr='#3b77db');
-  background: -moz-linear-gradient(#4285f4, #3b77db, #4285f4);
-  background: -webkit-linear-gradient(#4285f4, #3b77db, #4285f4);
-  background: -o-linear-gradient(#4285f4, #3b77db, #4285f4);
-  background: -ms-linear-gradient(#4285f4, #3b77db, #4285f4);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#3baae3', endColorstr='#0070a3');
+  background: -moz-linear-gradient(#3baae3, #0070a3, #3baae3);
+  background: -webkit-linear-gradient(#3baae3, #0070a3, #3baae3);
+  background: -o-linear-gradient(#3baae3, #0070a3, #3baae3);
+  background: -ms-linear-gradient(#3baae3, #0070a3, #3baae3);
   /* default */
-  background: linear-gradient(#4285f4, #3b77db, #4285f4);
+  background: linear-gradient(#3baae3, #0070a3, #3baae3);
   /*box-sizing*/
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
