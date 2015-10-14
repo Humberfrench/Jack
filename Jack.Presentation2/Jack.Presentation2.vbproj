@@ -114,7 +114,6 @@
     <Import Include="System.Web.UI.HtmlControls" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="CECAM.xml" />
     <Content Include="Content\Conrad.css">
       <DependentUpon>Conrad.scss</DependentUpon>
     </Content>
@@ -158,7 +157,6 @@
     <Content Include="Imagens\ok.png" />
     <Content Include="Mocks\Ild.html" />
     <Content Include="Mocks\ModelTableForm.aspx" />
-    <Content Include="perez.xml" />
     <Content Include="Mocks\Lista.cshtml" />
     <None Include="Scripts\angular.intellisense.js" />
     <Content Include="Scripts\angular-mocks.js" />
@@ -188,8 +186,6 @@
     <Content Include="Scripts\toastr.min.js" />
     <Content Include="Mocks\Teste.html" />
     <None Include="Scripts\_references.js" />
-    <Content Include="Teste.aspx" />
-    <Content Include="UsageLinks.txt" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -243,13 +239,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
-    </Compile>
-    <Compile Include="Teste.aspx.designer.vb">
-      <DependentUpon>Teste.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Teste.aspx.vb">
-      <DependentUpon>Teste.aspx</DependentUpon>
-      <SubType>ASPXCodebehind</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
