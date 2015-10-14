@@ -150,9 +150,10 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
-    <Content Include="Ild.html" />
+    <Content Include="Mocks\Ild.html" />
     <Content Include="ModelTableForm.aspx" />
     <Content Include="perez.xml" />
+    <Content Include="Mocks\Lista.cshtml" />
     <None Include="Scripts\angular.intellisense.js" />
     <Content Include="Scripts\angular-mocks.js" />
     <Content Include="Scripts\angular.js" />
@@ -179,7 +180,7 @@
     <Content Include="Scripts\jquery-2.1.4.min.js" />
     <Content Include="Scripts\toastr.js" />
     <Content Include="Scripts\toastr.min.js" />
-    <Content Include="Teste.html" />
+    <Content Include="Mocks\Teste.html" />
     <Content Include="UsageLinks.txt" />
     <Content Include="Web.config" />
   </ItemGroup>
