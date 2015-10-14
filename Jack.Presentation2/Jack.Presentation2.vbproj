@@ -151,6 +151,11 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="Imagens\bag.png" />
+    <Content Include="Imagens\editar.png" />
+    <Content Include="Imagens\excluir.png" />
+    <Content Include="Imagens\no.png" />
+    <Content Include="Imagens\ok.png" />
     <Content Include="Mocks\Ild.html" />
     <Content Include="Mocks\ModelTableForm.aspx" />
     <Content Include="perez.xml" />
@@ -277,7 +282,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Controllers\" />
-    <Folder Include="Imagens\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
