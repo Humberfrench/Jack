@@ -15,5 +15,27 @@ Public Module WebApiConfig
             routeTemplate:="api/{controller}/{id}",
             defaults:=New With {.id = RouteParameter.Optional}
         )
+
+        config.Routes.MapHttpRoute(
+            name:="ActionApi1",
+            routeTemplate:="api/{controller}/{action}/{id}",
+            defaults:=New With {.id = RouteParameter.Optional}
+        )
+
+        'config.Routes.MapHttpRoute(
+        '    name:="ActionApi2",
+        '    routeTemplate:="api/{controller}/{MasterID}/{DetailID}",
+        '    defaults:=New With {.MasterID = RouteParameter.Optional, .DetailID = RouteParameter.Optional}
+        ')
+
+        'config.Routes.MapHttpRoute(
+        '    name:="ActionApi2",
+        '    routeTemplate:="api/{controller}/{MasterID}/{DetailID}",
+        '    defaults:=New With {.MasterID = RouteParameter.Optional, .DetailID = RouteParameter.Optional}
+        ')
+
+        config.Formatters.Remove(config.Formatters.XmlFormatter)
+        config.Formatters.JsonFormatter.Indent = True
+
     End Sub
 End Module
