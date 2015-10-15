@@ -12,6 +12,7 @@ Public Class Global_asax
         'GlobalConfiguration.Configure(AddressOf WebApiConfig.Register)
         'RouteConfig.RegisterRoutes(RouteTable.Routes)
 
+        Dim config As HttpConfiguration = GlobalConfiguration.Configuration
         AreaRegistration.RegisterAllAreas()
 
         WebApiConfig.Register(GlobalConfiguration.Configuration)
@@ -20,6 +21,11 @@ Public Class Global_asax
         BundleConfig.RegisterBundles(BundleTable.Bundles)
 
         ValueProviderFactories.Factories.Add(New JsonValueProviderFactory())
+
+
+        config.Formatters.JsonFormatter.SerializerSettings.Formatting = Newtonsoft.Json.Formatting.Indented
+
+        GlobalConfiguration.Configuration.EnsureInitialized()
 
     End Sub
 End Class
