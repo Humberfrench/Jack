@@ -271,6 +271,20 @@
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Jack.Business\Jack.Business.vbproj">
+      <Project>{9e4c1da5-fbac-4ed8-b6fd-58df1c49aa97}</Project>
+      <Name>Jack.Business</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Jack.Extensions\Jack.Extensions.vbproj">
+      <Project>{2a452197-c030-4da4-8ee1-eaa17cb9b5d3}</Project>
+      <Name>Jack.Extensions</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Jack.Model\Jack.Model.vbproj">
+      <Project>{ba095dc2-0e43-4875-8eca-6fd42ee9b21a}</Project>
+      <Name>Jack.Model</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
