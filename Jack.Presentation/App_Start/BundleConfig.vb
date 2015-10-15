@@ -1,9 +1,9 @@
 ﻿Imports System.Web.Optimization
 
-Public Class BundleConfig
+Public Module BundleConfig
 
-    Public Shared Sub RegisterBundles(bundles As BundleCollection)
+    Public Sub RegisterBundles(bundles As BundleCollection)
 
     End Sub
 
-End Class
+End Module

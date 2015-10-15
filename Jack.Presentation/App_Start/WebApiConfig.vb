@@ -8,7 +8,7 @@ Public Module WebApiConfig
         ' Web API configuration and services
 
         ' Web API routes
-        config.MapHttpAttributeRoutes()
+        'config.MapHttpAttributeRoutes()
 
         config.Routes.MapHttpRoute(
             name:="DefaultApi",
@@ -16,11 +16,11 @@ Public Module WebApiConfig
             defaults:=New With {.id = RouteParameter.Optional}
         )
 
-        'config.Routes.MapHttpRoute(
-        '    name:="ActionApi1",
-        '    routeTemplate:="api/{controller}/{action}/{id}",
-        '    defaults:=New With {.id = RouteParameter.Optional}
-        ')
+        config.Routes.MapHttpRoute(
+            name:="ActionApi1",
+            routeTemplate:="api/{controller}/{action}/{id}",
+            defaults:=New With {.id = RouteParameter.Optional}
+        )
 
         'config.Routes.MapHttpRoute(
         '    name:="ActionApi2",

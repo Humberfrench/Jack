@@ -2,20 +2,15 @@
 Imports System.Web.Http
 
 Namespace Controllers.API
-    <RoutePrefix("api/Teste")>
     Public Class TesteController
         Inherits ApiController
 
         ' GET: api/Teste
-        '<Route("~/")>
-        '<HttpGet()>
         Public Function GetValues() As IEnumerable(Of String)
             Return New String() {"value1", "value2"}
         End Function
 
         ' GET: api/Teste/5
-        '<Route("~/{ID:int}")>
-        '<HttpGet()>
         Public Function GetValue(ByVal id As Integer) As String
             Return "value"
         End Function

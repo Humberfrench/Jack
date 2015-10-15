@@ -1,11 +1,11 @@
 ﻿Imports System.Web.Mvc
 
-Public Class FilterConfig
+Public Module FilterConfig
 
 
-    Public Shared Sub RegisterGlobalFilters(filters As GlobalFilterCollection)
+    Public Sub RegisterGlobalFilters(filters As GlobalFilterCollection)
         filters.Add(New HandleErrorAttribute())
     End Sub
 
 
-End Class
+End Module
