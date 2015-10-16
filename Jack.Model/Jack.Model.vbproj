@@ -119,18 +119,18 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="engine\engine.js" />
-    <Content Include="Mappings\Calcado.hbm.xml" />
-    <Content Include="Mappings\Colaborador.hbm.xml" />
-    <Content Include="Mappings\ColaboradorCrianca.hbm.xml" />
-    <Content Include="Mappings\Crianca.hbm.xml" />
-    <Content Include="Mappings\Familia.hbm.xml" />
-    <Content Include="Mappings\Kit.hbm.xml" />
-    <Content Include="Mappings\KitItem.hbm.xml" />
-    <Content Include="Mappings\Presenca.hbm.xml" />
-    <Content Include="Mappings\Reuniao.hbm.xml" />
-    <Content Include="Mappings\Roupa.hbm.xml" />
-    <Content Include="Mappings\Status.hbm.xml" />
-    <Content Include="Mappings\TipoItem.hbm.xml" />
+    <EmbeddedResource Include="Mappings\Calcado.hbm.xml" />
+    <EmbeddedResource Include="Mappings\Colaborador.hbm.xml" />
+    <EmbeddedResource Include="Mappings\ColaboradorCrianca.hbm.xml" />
+    <EmbeddedResource Include="Mappings\Crianca.hbm.xml" />
+    <EmbeddedResource Include="Mappings\Familia.hbm.xml" />
+    <EmbeddedResource Include="Mappings\Kit.hbm.xml" />
+    <EmbeddedResource Include="Mappings\KitItem.hbm.xml" />
+    <EmbeddedResource Include="Mappings\Presenca.hbm.xml" />
+    <EmbeddedResource Include="Mappings\Reuniao.hbm.xml" />
+    <EmbeddedResource Include="Mappings\Roupa.hbm.xml" />
+    <EmbeddedResource Include="Mappings\Status.hbm.xml" />
+    <EmbeddedResource Include="Mappings\TipoItem.hbm.xml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Jack.Extensions\Jack.Extensions.vbproj">

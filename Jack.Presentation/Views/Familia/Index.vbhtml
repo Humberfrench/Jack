@@ -1,8 +1,8 @@
 ﻿@Code
-    ViewData("Title") = "Index"
+    ViewData("Title") = "Família"
     Layout = "~/Views/SharedFolder/_JackLayoutPage.vbhtml
 End Code
-<script src="~/engine/familia.js"></script>
+@System.Web.Optimization.Scripts.Render("~/bundles/familia")
 <div ng-controller="ngFamiliaController">
     <div class="Titulo">Família</div><br /><br />
     <div class="SubTitulo">Lista</div>
