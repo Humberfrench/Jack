@@ -6,3 +6,4 @@ C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jac
 C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Extensions\obj\Debug\Jack.Extensions.dll
 C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Extensions\obj\Debug\Jack.Extensions.xml
 C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Extensions\obj\Debug\Jack.Extensions.pdb
+C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Extensions\obj\Debug\Jack.Extensions.vbprojResolveAssemblyReference.cache
