@@ -1,6 +1,6 @@
 ﻿@Code
     ViewData("Title") = "Família"
-    Layout = "~/Views/SharedFolder/_JackLayoutPage.vbhtml
+    Layout = "~/Views/SharedFolder/_JackLayoutPage.vbhtml"
 End Code
 @System.Web.Optimization.Scripts.Render("~/bundles/familia")
 <div ng-controller="ngFamiliaController">
