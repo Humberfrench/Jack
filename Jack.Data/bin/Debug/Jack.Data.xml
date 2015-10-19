@@ -6,463 +6,222 @@ Jack.Data
 </name>
 </assembly>
 <members>
-<member name="M:Jack.Data.BaseData`2.Insert(`0)">
- <summary>
- Método para inserir o registro
- </summary>
- <param name="oTipo">Entidade com os dados Preenchidos</param>
- <returns>Boolean. Se a operação foi um sucesso, true.</returns>
- <remarks></remarks>
-</member>
-<member name="M:Jack.Data.BaseData`2.Update(`0)">
- <summary>
- Método para atualizar o registro
- </summary>
- <param name="oTipo">Entidade com os dados Preenchidos</param>
- <returns>Boolean. Se a operação foi um sucesso, true.</returns>
- <remarks></remarks>
-</member>
-<member name="M:Jack.Data.BaseData`2.Delete(`0)">
- <summary>
- Método para excluir o registro
- </summary>
- <param name="oTipo">Entidade com os dados Preenchidos</param>
- <returns>Boolean. Se a operação foi um sucesso, true.</returns>
- <remarks></remarks>
-</member>
-<member name="M:Jack.Data.BaseData`2.Find(`1)">
- <summary>
- Método para procurar um registro
- </summary>
- <param name="Identifier">Código para a Procura do Valor</param>
- <returns>Entidade. Se a operação foi um sucesso, A Entidade Virá preenchida.</returns>
- <remarks></remarks>
-</member>
-<member name="M:Jack.Data.BaseData`2.LoadAll">
- <summary>
- Método para carregar a lista dos registros
- </summary>
- <returns>Lista. Se a operação foi um sucesso, a lista virá carregada.</returns>
- <remarks></remarks>
-</member>
-<member name="M:Jack.Data.Calcado.Insert(Jack.Model.Calcado)">
- <summary>
- Método para inserir o registro
- </summary>
- <param name="oTipo">Entidade com os dados Preenchidos</param>
- <returns>Boolean. Se a operação foi um sucesso, true.</returns>
- <remarks></remarks>
-</member>
-<member name="M:Jack.Data.Calcado.Update(Jack.Model.Calcado)">
- <summary>
- Método para atualizar o registro
- </summary>
- <param name="oTipo">Entidade com os dados Preenchidos</param>
- <returns>Boolean. Se a operação foi um sucesso, true.</returns>
- <remarks></remarks>
-</member>
-<member name="M:Jack.Data.Calcado.Delete(Jack.Model.Calcado)">
- <summary>
- Método para excluir o registro
- </summary>
- <param name="oTipo">Entidade com os dados Preenchidos</param>
- <returns>Boolean. Se a operação foi um sucesso, true.</returns>
- <remarks></remarks>
-</member>
-<member name="M:Jack.Data.Calcado.Find(System.Int32)">
- <summary>
- Método para procurar um registro
- </summary>
- <param name="Identifier">Código para a Procura do Valor</param>
- <returns>Entidade. Se a operação foi um sucesso, A Entidade Virá preenchida.</returns>
- <remarks></remarks>
-</member>
-<member name="M:Jack.Data.Calcado.LoadAll">
- <summary>
- Método para carregar a lista dos registros
- </summary>
- <returns>Lista. Se a operação foi um sucesso, a lista virá carregada.</returns>
- <remarks></remarks>
-</member>
-<member name="M:Jack.Data.Colaborador.Insert(Jack.Model.Colaborador)">
- <summary>
- Método para inserir o registro
- </summary>
- <param name="oTipo">Entidade com os dados Preenchidos</param>
- <returns>Boolean. Se a operação foi um sucesso, true.</returns>
- <remarks></remarks>
-</member>
-<member name="M:Jack.Data.Colaborador.Update(Jack.Model.Colaborador)">
- <summary>
- Método para atualizar o registro
- </summary>
- <param name="oTipo">Entidade com os dados Preenchidos</param>
- <returns>Boolean. Se a operação foi um sucesso, true.</returns>
- <remarks></remarks>
-</member>
-<member name="M:Jack.Data.Colaborador.Delete(Jack.Model.Colaborador)">
- <summary>
- Método para excluir o registro
- </summary>
- <param name="oTipo">Entidade com os dados Preenchidos</param>
- <returns>Boolean. Se a operação foi um sucesso, true.</returns>
- <remarks></remarks>
-</member>
-<member name="M:Jack.Data.Colaborador.Find(System.Int32)">
- <summary>
- Método para procurar um registro
- </summary>
- <param name="Identifier">Código para a Procura do Valor</param>
- <returns>Entidade. Se a operação foi um sucesso, A Entidade Virá preenchida.</returns>
- <remarks></remarks>
-</member>
-<member name="M:Jack.Data.Colaborador.LoadAll">
- <summary>
- Método para carregar a lista dos registros
- </summary>
- <returns>Lista. Se a operação foi um sucesso, a lista virá carregada.</returns>
- <remarks></remarks>
-</member>
 <member name="M:Jack.Data.ColaboradorCrianca.Insert(Jack.Model.ColaboradorCrianca)">
- <summary>
+	<summary>
  Método para inserir o registro
  </summary>
- <param name="oTipo">Entidade com os dados Preenchidos</param>
- <returns>Boolean. Se a operação foi um sucesso, true.</returns>
- <remarks></remarks>
-</member>
-<member name="M:Jack.Data.ColaboradorCrianca.Update(Jack.Model.ColaboradorCrianca)">
- <summary>
+	<param name="oTipo">Entidade com os dados Preenchidos</param>
+	<returns>Boolean. Se a operação foi um sucesso, true.</returns>
+	<remarks></remarks>
+</member><member name="M:Jack.Data.ColaboradorCrianca.Update(Jack.Model.ColaboradorCrianca)">
+	<summary>
  Método para atualizar o registro
  </summary>
- <param name="oTipo">Entidade com os dados Preenchidos</param>
- <returns>Boolean. Se a operação foi um sucesso, true.</returns>
- <remarks></remarks>
-</member>
-<member name="M:Jack.Data.ColaboradorCrianca.Delete(Jack.Model.ColaboradorCrianca)">
- <summary>
+	<param name="oTipo">Entidade com os dados Preenchidos</param>
+	<returns>Boolean. Se a operação foi um sucesso, true.</returns>
+	<remarks></remarks>
+</member><member name="M:Jack.Data.ColaboradorCrianca.Delete(Jack.Model.ColaboradorCrianca)">
+	<summary>
  Método para excluir o registro
  </summary>
- <param name="oTipo">Entidade com os dados Preenchidos</param>
- <returns>Boolean. Se a operação foi um sucesso, true.</returns>
- <remarks></remarks>
-</member>
-<member name="M:Jack.Data.ColaboradorCrianca.Find(System.Int32)">
- <summary>
+	<param name="oTipo">Entidade com os dados Preenchidos</param>
+	<returns>Boolean. Se a operação foi um sucesso, true.</returns>
+	<remarks></remarks>
+</member><member name="M:Jack.Data.ColaboradorCrianca.Find(System.Int32)">
+	<summary>
  Método para procurar um registro
  </summary>
- <param name="Identifier">Código para a Procura do Valor</param>
- <returns>Entidade. Se a operação foi um sucesso, A Entidade Virá preenchida.</returns>
- <remarks></remarks>
-</member>
-<member name="M:Jack.Data.ColaboradorCrianca.LoadAll">
- <summary>
+	<param name="Identifier">Código para a Procura do Valor</param>
+	<returns>Entidade. Se a operação foi um sucesso, A Entidade Virá preenchida.</returns>
+	<remarks></remarks>
+</member><member name="M:Jack.Data.ColaboradorCrianca.LoadAll">
+	<summary>
  Método para carregar a lista dos registros
  </summary>
- <returns>Lista. Se a operação foi um sucesso, a lista virá carregada.</returns>
- <remarks></remarks>
-</member>
-<member name="M:Jack.Data.ColaboradorCrianca.ObterCriancasPorColaborador(System.Int32,System.Int32)">
- <summary>
+	<returns>Lista. Se a operação foi um sucesso, a lista virá carregada.</returns>
+	<remarks></remarks>
+</member><member name="M:Jack.Data.ColaboradorCrianca.ObterCriancasPorColaborador(System.Int32,System.Int32)">
+	<summary>
  Lista Todas as Crianças que tem sacolinhas na mão de um colaborador
  </summary>
- <param name="intColaborador">Código do Colaborador</param>
- <returns>List(Of Model.ColaboradorCrianca) - Lista de Criancas por Colaborador </returns>
- <remarks></remarks>
-</member>
-<member name="M:Jack.Data.Criancas.Insert(Jack.Model.Criancas)">
- <summary>
+	<param name="intColaborador">Código do Colaborador</param>
+	<returns>List(Of Model.ColaboradorCrianca) - Lista de Criancas por Colaborador </returns>
+	<remarks></remarks>
+</member><member name="M:Jack.Data.Presenca.Insert(Jack.Model.Presenca)">
+	<summary>
  Método para inserir o registro
  </summary>
- <param name="oTipo">Entidade com os dados Preenchidos</param>
- <returns>Boolean. Se a operação foi um sucesso, true.</returns>
- <remarks></remarks>
-</member>
-<member name="M:Jack.Data.Criancas.Update(Jack.Model.Criancas)">
- <summary>
+	<param name="oTipo">Entidade com os dados Preenchidos</param>
+	<returns>Boolean. Se a operação foi um sucesso, true.</returns>
+	<remarks></remarks>
+</member><member name="M:Jack.Data.Presenca.Update(Jack.Model.Presenca)">
+	<summary>
  Método para atualizar o registro
  </summary>
- <param name="oTipo">Entidade com os dados Preenchidos</param>
- <returns>Boolean. Se a operação foi um sucesso, true.</returns>
- <remarks></remarks>
-</member>
-<member name="M:Jack.Data.Criancas.Delete(Jack.Model.Criancas)">
- <summary>
+	<param name="oTipo">Entidade com os dados Preenchidos</param>
+	<returns>Boolean. Se a operação foi um sucesso, true.</returns>
+	<remarks></remarks>
+</member><member name="M:Jack.Data.Presenca.Delete(Jack.Model.Presenca)">
+	<summary>
  Método para excluir o registro
  </summary>
- <param name="oTipo">Entidade com os dados Preenchidos</param>
- <returns>Boolean. Se a operação foi um sucesso, true.</returns>
- <remarks></remarks>
-</member>
-<member name="M:Jack.Data.Criancas.Find(System.Int32)">
- <summary>
+	<param name="oTipo">Entidade com os dados Preenchidos</param>
+	<returns>Boolean. Se a operação foi um sucesso, true.</returns>
+	<remarks></remarks>
+</member><member name="M:Jack.Data.Presenca.Find(System.Int32)">
+	<summary>
  Método para procurar um registro
  </summary>
- <param name="Identifier">Código para a Procura do Valor</param>
- <returns>Entidade. Se a operação foi um sucesso, A Entidade Virá preenchida.</returns>
- <remarks></remarks>
-</member>
-<member name="M:Jack.Data.Criancas.LoadAll">
- <summary>
+	<param name="Identifier">Código para a Procura do Valor</param>
+	<returns>Entidade. Se a operação foi um sucesso, A Entidade Virá preenchida.</returns>
+	<remarks></remarks>
+</member><member name="M:Jack.Data.Presenca.LoadAll">
+	<summary>
  Método para carregar a lista dos registros
  </summary>
- <returns>Lista. Se a operação foi um sucesso, a lista virá carregada.</returns>
- <remarks></remarks>
-</member>
-<member name="M:Jack.Data.Criancas.AtualizaDadosCrianca(System.Int32,System.Int32,System.String)">
- <summary>
- Atualiza os Dados das Crianças
+	<returns>Lista. Se a operação foi um sucesso, a lista virá carregada.</returns>
+	<remarks></remarks>
+</member><member name="M:Jack.Data.Presenca.Load(System.Int32)">
+	<summary>
+ Método para carregar a lista dos registros
  </summary>
- <param name="intCrianca">Código da Criança</param>
- <param name="intCalcado">Número do Calçado</param>
- <param name="strRoupa">Número da Roupa</param>
- <returns>Boolean</returns>
- <remarks></remarks>
-</member>
-<member name="M:Jack.Data.Familia.Insert(Jack.Model.Familia)">
- <summary>
+	<returns>Lista. Se a operação foi um sucesso, a lista virá carregada.</returns>
+	<remarks></remarks>
+</member><member name="M:Jack.Data.Roupa.Insert(Jack.Model.Roupa)">
+	<summary>
  Método para inserir o registro
  </summary>
- <param name="oTipo">Entidade com os dados Preenchidos</param>
- <returns>Boolean. Se a operação foi um sucesso, true.</returns>
- <remarks></remarks>
-</member>
-<member name="M:Jack.Data.Familia.Update(Jack.Model.Familia)">
- <summary>
+	<param name="oTipo">Entidade com os dados Preenchidos</param>
+	<returns>Boolean. Se a operação foi um sucesso, true.</returns>
+	<remarks></remarks>
+</member><member name="M:Jack.Data.Roupa.Update(Jack.Model.Roupa)">
+	<summary>
  Método para atualizar o registro
  </summary>
- <param name="oTipo">Entidade com os dados Preenchidos</param>
- <returns>Boolean. Se a operação foi um sucesso, true.</returns>
- <remarks></remarks>
-</member>
-<member name="M:Jack.Data.Familia.Delete(Jack.Model.Familia)">
- <summary>
+	<param name="oTipo">Entidade com os dados Preenchidos</param>
+	<returns>Boolean. Se a operação foi um sucesso, true.</returns>
+	<remarks></remarks>
+</member><member name="M:Jack.Data.Roupa.Delete(Jack.Model.Roupa)">
+	<summary>
  Método para excluir o registro
  </summary>
- <param name="oTipo">Entidade com os dados Preenchidos</param>
- <returns>Boolean. Se a operação foi um sucesso, true.</returns>
- <remarks></remarks>
-</member>
-<member name="M:Jack.Data.Familia.Find(System.Int32)">
- <summary>
+	<param name="oTipo">Entidade com os dados Preenchidos</param>
+	<returns>Boolean. Se a operação foi um sucesso, true.</returns>
+	<remarks></remarks>
+</member><member name="M:Jack.Data.Roupa.Find(System.Int32)">
+	<summary>
  Método para procurar um registro
  </summary>
- <param name="Identifier">Código para a Procura do Valor</param>
- <returns>Entidade. Se a operação foi um sucesso, A Entidade Virá preenchida.</returns>
- <remarks></remarks>
-</member>
-<member name="M:Jack.Data.Familia.LoadAll">
- <summary>
+	<param name="Identifier">Código para a Procura do Valor</param>
+	<returns>Entidade. Se a operação foi um sucesso, A Entidade Virá preenchida.</returns>
+	<remarks></remarks>
+</member><member name="M:Jack.Data.Roupa.LoadAll">
+	<summary>
  Método para carregar a lista dos registros
  </summary>
- <returns>Lista. Se a operação foi um sucesso, a lista virá carregada.</returns>
- <remarks></remarks>
-</member>
-<member name="M:Jack.Data.FamiliaCrianca.Insert(System.Int32,System.Int32)">
- <summary>
- Método para inserir o registro
- </summary>
- <param name="intCrianca">Criança</param>
- <param name="intFamilia">Familia</param>
- <returns>Boolean. Se a operação foi um sucesso, true.</returns>
- <remarks></remarks>
-</member>
-<member name="M:Jack.Data.FamiliaCrianca.DeleteFamilia(System.Int32)">
- <summary>
- Método para excluir o registro
- </summary>
- <param name="intFamilia">Familia</param>
- <returns>Boolean. Se a operação foi um sucesso, true.</returns>
- <remarks></remarks>
-</member>
-<member name="M:Jack.Data.FamiliaCrianca.DeleteCrianca(System.Int32,System.Int32)">
- <summary>
- Método para excluir o registro
- </summary>
- <param name="intFamilia">Familia</param>
- <param name="intCrianca">Criança</param>
- <returns>Boolean. Se a operação foi um sucesso, true.</returns>
- <remarks></remarks>
-</member>
-<member name="M:Jack.Data.Kit.Insert(Jack.Model.Kit)">
- <summary>
- Método para inserir o registro
- </summary>
- <param name="oTipo">Entidade com os dados Preenchidos</param>
- <returns>Boolean. Se a operação foi um sucesso, true.</returns>
- <remarks></remarks>
-</member>
-<member name="M:Jack.Data.Kit.Update(Jack.Model.Kit)">
- <summary>
- Método para atualizar o registro
- </summary>
- <param name="oTipo">Entidade com os dados Preenchidos</param>
- <returns>Boolean. Se a operação foi um sucesso, true.</returns>
- <remarks></remarks>
-</member>
-<member name="M:Jack.Data.Kit.Delete(Jack.Model.Kit)">
- <summary>
- Método para excluir o registro
- </summary>
- <param name="oTipo">Entidade com os dados Preenchidos</param>
- <returns>Boolean. Se a operação foi um sucesso, true.</returns>
- <remarks></remarks>
-</member>
-<member name="M:Jack.Data.Kit.Find(System.Int32)">
- <summary>
- Método para procurar um registro
- </summary>
- <param name="Identifier">Código para a Procura do Valor</param>
- <returns>Entidade. Se a operação foi um sucesso, A Entidade Virá preenchida.</returns>
- <remarks></remarks>
-</member>
-<member name="M:Jack.Data.Kit.LoadAll">
- <summary>
- Método para carregar a lista dos registros
- </summary>
- <returns>Lista. Se a operação foi um sucesso, a lista virá carregada.</returns>
- <remarks></remarks>
-</member>
-<member name="M:Jack.Data.KitItem.Insert(Jack.Model.KitItem)">
- <summary>
- Método para inserir o registro
- </summary>
- <param name="oTipo">Entidade com os dados Preenchidos</param>
- <returns>Boolean. Se a operação foi um sucesso, true.</returns>
- <remarks></remarks>
-</member>
-<member name="M:Jack.Data.KitItem.Update(Jack.Model.KitItem)">
- <summary>
- Método para atualizar o registro
- </summary>
- <param name="oTipo">Entidade com os dados Preenchidos</param>
- <returns>Boolean. Se a operação foi um sucesso, true.</returns>
- <remarks></remarks>
-</member>
-<member name="M:Jack.Data.KitItem.Delete(Jack.Model.KitItem)">
- <summary>
- Método para excluir o registro
- </summary>
- <param name="oTipo">Entidade com os dados Preenchidos</param>
- <returns>Boolean. Se a operação foi um sucesso, true.</returns>
- <remarks></remarks>
-</member>
-<member name="M:Jack.Data.KitItem.Find(System.Int32)">
- <summary>
- Método para procurar um registro
- </summary>
- <param name="Identifier">Código para a Procura do Valor</param>
- <returns>Entidade. Se a operação foi um sucesso, A Entidade Virá preenchida.</returns>
- <remarks></remarks>
-</member>
-<member name="M:Jack.Data.KitItem.LoadAll">
- <summary>
- Método para carregar a lista dos registros
- </summary>
- <returns>Lista. Se a operação foi um sucesso, a lista virá carregada.</returns>
- <remarks></remarks>
-</member>
-<member name="T:Jack.Data.My.Resources.Resources">
-<summary>
-  A strongly-typed resource class, for looking up localized strings, etc.
-</summary>
-</member>
-<member name="P:Jack.Data.My.Resources.Resources.ResourceManager">
-<summary>
-  Returns the cached ResourceManager instance used by this class.
-</summary>
-</member>
-<member name="P:Jack.Data.My.Resources.Resources.Culture">
-<summary>
-  Overrides the current thread's CurrentUICulture property for all
-  resource lookups using this strongly typed resource class.
-</summary>
-</member>
-<member name="M:Jack.Data.Presenca.Insert(Jack.Model.Presenca)">
- <summary>
- Método para inserir o registro
- </summary>
- <param name="oTipo">Entidade com os dados Preenchidos</param>
- <returns>Boolean. Se a operação foi um sucesso, true.</returns>
- <remarks></remarks>
-</member>
-<member name="M:Jack.Data.Presenca.Update(Jack.Model.Presenca)">
- <summary>
- Método para atualizar o registro
- </summary>
- <param name="oTipo">Entidade com os dados Preenchidos</param>
- <returns>Boolean. Se a operação foi um sucesso, true.</returns>
- <remarks></remarks>
-</member>
-<member name="M:Jack.Data.Presenca.Delete(Jack.Model.Presenca)">
- <summary>
- Método para excluir o registro
- </summary>
- <param name="oTipo">Entidade com os dados Preenchidos</param>
- <returns>Boolean. Se a operação foi um sucesso, true.</returns>
- <remarks></remarks>
-</member>
-<member name="M:Jack.Data.Presenca.Find(System.Int32)">
- <summary>
- Método para procurar um registro
- </summary>
- <param name="Identifier">Código para a Procura do Valor</param>
- <returns>Entidade. Se a operação foi um sucesso, A Entidade Virá preenchida.</returns>
- <remarks></remarks>
-</member>
-<member name="M:Jack.Data.Presenca.LoadAll">
- <summary>
- Método para carregar a lista dos registros
- </summary>
- <returns>Lista. Se a operação foi um sucesso, a lista virá carregada.</returns>
- <remarks></remarks>
-</member>
-<member name="M:Jack.Data.Presenca.Load(System.Int32)">
- <summary>
- Método para carregar a lista dos registros
- </summary>
- <returns>Lista. Se a operação foi um sucesso, a lista virá carregada.</returns>
- <remarks></remarks>
-</member>
-<member name="M:Jack.Data.Processos.ProcessaPresencasRepresentantesReuniao(System.Int32)">
- <summary>
+	<returns>Lista. Se a operação foi um sucesso, a lista virá carregada.</returns>
+	<remarks></remarks>
+</member><member name="M:Jack.Data.Processos.ProcessaPresencasRepresentantesReuniao(System.Int32)">
+	<summary>
  Processa Presença de Representante na Reunião
  </summary>
- <param name="intReuniao">Código da Reunião</param>
- <returns>Boolean</returns>
- <remarks></remarks>
-</member>
-<member name="M:Jack.Data.Processos.AtualizaDadosCrianca">
- <summary>
+	<param name="intReuniao">Código da Reunião</param>
+	<returns>Boolean</returns>
+	<remarks></remarks>
+</member><member name="M:Jack.Data.Processos.AtualizaDadosCrianca">
+	<summary>
  Atualiza os Dados das Crianças
  </summary>
- <returns>Boolean</returns>
- <remarks></remarks>
-</member>
-<member name="M:Jack.Data.Processos.AtualizaDadosCrianca(System.Int32)">
- <summary>
+	<returns>Boolean</returns>
+	<remarks></remarks>
+</member><member name="M:Jack.Data.Processos.AtualizaDadosCrianca(System.Int32)">
+	<summary>
  Atualiza os Dados das Crianças
  </summary>
- <param name="intCrianca">Código da Criança</param>
- <returns>Boolean</returns>
- <remarks></remarks>
-</member>
-<member name="M:Jack.Data.Processos.AtualizaDadosMae">
- <summary>
+	<param name="intCrianca">Código da Criança</param>
+	<returns>Boolean</returns>
+	<remarks></remarks>
+</member><member name="M:Jack.Data.Processos.AtualizaDadosMae">
+	<summary>
  Atualiza os Dados das Mães
  </summary>
- <returns>Boolean</returns>
- <remarks></remarks>
-</member>
-<member name="M:Jack.Data.Processos.ObterCriancasInconsistentes">
- <summary>
+	<returns>Boolean</returns>
+	<remarks></remarks>
+</member><member name="M:Jack.Data.Processos.ObterCriancasInconsistentes">
+	<summary>
  Relatório de Inconsistências de Crianças
  </summary>
- <returns>List(Of Model.CriancasInconsistentes) - Lista de Crianças Inconsistentes</returns>
- <remarks></remarks>
-</member>
-<member name="T:Jack.Data.GenericDao`2">
- <summary>
+	<returns>List(Of Model.CriancasInconsistentes) - Lista de Crianças Inconsistentes</returns>
+	<remarks></remarks>
+</member><member name="M:Jack.Data.GenericDao`2.#ctor(System.Boolean)">
+	<summary>
+ Construtor, obtém a sessão do NHibernateHelper e inicia a transação.
+ </summary>
+</member><member name="M:Jack.Data.GenericDao`2.Insert(`0)">
+	<summary>
+ Persiste um novo objeto.
+ </summary>
+	<param name="Obj">Objeto a ser persistido</param>
+	<returns>True para sucesso, False para erro.</returns>
+</member><member name="M:Jack.Data.GenericDao`2.Update(`0)">
+	<summary>
+ Atualiza um objeto existente.
+ </summary>
+	<param name="Obj">Objeto a ser atualizado</param>
+	<returns>True para sucesso, False para erro.</returns>
+</member><member name="M:Jack.Data.GenericDao`2.Delete(`0)">
+	<summary>
+ Exclui um objeto existente.
+ </summary>
+	<param name="Obj">Objeto a ser atualizado</param>
+	<returns>True para sucesso, False para erro.</returns>
+</member><member name="M:Jack.Data.GenericDao`2.Find(`1)">
+	<summary>
+ Recupera um objeto persistido na base de dados.
+ </summary>
+	<param name="Identifier">Chave primária do objeto</param>
+	<returns>Objeto</returns>
+</member><member name="M:Jack.Data.GenericDao`2.LoadAll">
+	<summary>
+ Retorna todos os objetos persistidos na base de dados.
+ </summary>
+	<returns>Coleção de objetos</returns>
+</member><member name="M:Jack.Data.GenericDao`2.Commit">
+	<summary>
+ Confirma a transação corrente (commit)
+ </summary>
+</member><member name="M:Jack.Data.GenericDao`2.BeginTransaction">
+	<summary>
+ Desfaz a transação corrente (rollback)
+ </summary>
+</member><member name="M:Jack.Data.GenericDao`2.Rollback">
+	<summary>
+ Begin Trans
+ </summary>
+	<remarks></remarks>
+</member><member name="M:Jack.Data.GenericDao`2.Finish">
+	<summary>
+ Reinicia a Sessão
+ </summary>
+	<remarks></remarks>
+</member><member name="P:Jack.Data.GenericDao`2.HasTransaction">
+	<summary>
+ Verifica se há ou não transação
+ </summary>
+	<value>Boolean</value>
+	<returns>Boolean</returns>
+	<remarks></remarks>
+</member><member name="M:Jack.Data.GenericDao`2.LoadByQuery(System.String,System.String,System.String)">
+	<summary>
+ Retorna dados através de uma query
+ </summary>
+	<param name="strQuery">Query</param>
+	<param name="strValue">Valor a Filtrar</param>
+	<param name="strParName">Nome do Parametro</param>
+	<returns>Lista Tipada</returns>
+	<remarks></remarks>
+</member><member name="T:Jack.Data.GenericDao`2">
+	<summary>
  Classe genérica para acesso a dados utilizando NHibernate. Como utiliza generics, é possível persistir
  qualquer objeto, bastando definir os tipos a serem usados no lugar de Tipo e ID.
  <example>
@@ -479,303 +238,444 @@ Jack.Data
       Console.WriteLine("Erro ao inserir registro!")
  End If
  </example>
+	</summary>
+	<typeparam name="Tipo">Tipo do objeto persistível</typeparam>
+	<typeparam name="ID">Tipo de dado do identificador único (chave primária)</typeparam>
+</member><member name="M:Jack.Data.Criancas.Insert(Jack.Model.Criancas)">
+	<summary>
+ Método para inserir o registro
  </summary>
- <typeparam name="Tipo">Tipo do objeto persistível</typeparam>
- <typeparam name="ID">Tipo de dado do identificador único (chave primária)</typeparam>
- 
-</member>
-<member name="M:Jack.Data.GenericDao`2.#ctor(System.Boolean)">
- <summary>
- Construtor, obtém a sessão do NHibernateHelper e inicia a transação.
+	<param name="oTipo">Entidade com os dados Preenchidos</param>
+	<returns>Boolean. Se a operação foi um sucesso, true.</returns>
+	<remarks></remarks>
+</member><member name="M:Jack.Data.Criancas.Update(Jack.Model.Criancas)">
+	<summary>
+ Método para atualizar o registro
  </summary>
-</member>
-<member name="M:Jack.Data.GenericDao`2.Insert(`0)">
- <summary>
- Persiste um novo objeto.
+	<param name="oTipo">Entidade com os dados Preenchidos</param>
+	<returns>Boolean. Se a operação foi um sucesso, true.</returns>
+	<remarks></remarks>
+</member><member name="M:Jack.Data.Criancas.Delete(Jack.Model.Criancas)">
+	<summary>
+ Método para excluir o registro
  </summary>
- <param name="Obj">Objeto a ser persistido</param>
- <returns>True para sucesso, False para erro.</returns>
-</member>
-<member name="M:Jack.Data.GenericDao`2.Update(`0)">
- <summary>
- Atualiza um objeto existente.
+	<param name="oTipo">Entidade com os dados Preenchidos</param>
+	<returns>Boolean. Se a operação foi um sucesso, true.</returns>
+	<remarks></remarks>
+</member><member name="M:Jack.Data.Criancas.Find(System.Int32)">
+	<summary>
+ Método para procurar um registro
  </summary>
- <param name="Obj">Objeto a ser atualizado</param>
- <returns>True para sucesso, False para erro.</returns>
-</member>
-<member name="M:Jack.Data.GenericDao`2.Delete(`0)">
- <summary>
- Exclui um objeto existente.
+	<param name="Identifier">Código para a Procura do Valor</param>
+	<returns>Entidade. Se a operação foi um sucesso, A Entidade Virá preenchida.</returns>
+	<remarks></remarks>
+</member><member name="M:Jack.Data.Criancas.LoadAll">
+	<summary>
+ Método para carregar a lista dos registros
  </summary>
- <param name="Obj">Objeto a ser atualizado</param>
- <returns>True para sucesso, False para erro.</returns>
-</member>
-<member name="M:Jack.Data.GenericDao`2.Find(`1)">
- <summary>
- Recupera um objeto persistido na base de dados.
+	<returns>Lista. Se a operação foi um sucesso, a lista virá carregada.</returns>
+	<remarks></remarks>
+</member><member name="M:Jack.Data.Criancas.AtualizaDadosCrianca(System.Int32,System.Int32,System.String)">
+	<summary>
+ Atualiza os Dados das Crianças
  </summary>
- <param name="Identifier">Chave primária do objeto</param>
- <returns>Objeto</returns>
-</member>
-<member name="M:Jack.Data.GenericDao`2.LoadAll">
- <summary>
- Retorna todos os objetos persistidos na base de dados.
+	<param name="intCrianca">Código da Criança</param>
+	<param name="intCalcado">Número do Calçado</param>
+	<param name="strRoupa">Número da Roupa</param>
+	<returns>Boolean</returns>
+	<remarks></remarks>
+</member><member name="M:Jack.Data.Reuniao.Insert(Jack.Model.Reuniao)">
+	<summary>
+ Método para inserir o registro
  </summary>
- <returns>Coleção de objetos</returns>
-</member>
-<member name="M:Jack.Data.GenericDao`2.Commit">
- <summary>
- Confirma a transação corrente (commit)
+	<param name="oTipo">Entidade com os dados Preenchidos</param>
+	<returns>Boolean. Se a operação foi um sucesso, true.</returns>
+	<remarks></remarks>
+</member><member name="M:Jack.Data.Reuniao.Update(Jack.Model.Reuniao)">
+	<summary>
+ Método para atualizar o registro
  </summary>
-</member>
-<member name="M:Jack.Data.GenericDao`2.BeginTransaction">
- <summary>
- Desfaz a transação corrente (rollback)
+	<param name="oTipo">Entidade com os dados Preenchidos</param>
+	<returns>Boolean. Se a operação foi um sucesso, true.</returns>
+	<remarks></remarks>
+</member><member name="M:Jack.Data.Reuniao.Delete(Jack.Model.Reuniao)">
+	<summary>
+ Método para excluir o registro
  </summary>
-</member>
-<member name="M:Jack.Data.GenericDao`2.Rollback">
- <summary>
- Begin Trans
+	<param name="oTipo">Entidade com os dados Preenchidos</param>
+	<returns>Boolean. Se a operação foi um sucesso, true.</returns>
+	<remarks></remarks>
+</member><member name="M:Jack.Data.Reuniao.Find(System.Int32)">
+	<summary>
+ Método para procurar um registro
  </summary>
- <remarks></remarks>
-</member>
-<member name="M:Jack.Data.GenericDao`2.Finish">
- <summary>
- Reinicia a Sessão
+	<param name="Identifier">Código para a Procura do Valor</param>
+	<returns>Entidade. Se a operação foi um sucesso, A Entidade Virá preenchida.</returns>
+	<remarks></remarks>
+</member><member name="M:Jack.Data.Reuniao.LoadAll">
+	<summary>
+ Método para carregar a lista dos registros
  </summary>
- <remarks></remarks>
-</member>
-<member name="P:Jack.Data.GenericDao`2.HasTransaction">
- <summary>
- Verifica se há ou não transação
- </summary>
- <value>Boolean</value>
- <returns>Boolean</returns>
- <remarks></remarks>
-</member>
-<member name="M:Jack.Data.GenericDao`2.LoadByQuery(System.String,System.String,System.String)">
- <summary>
- Retorna dados através de uma query
- </summary>
- <param name="strQuery">Query</param>
- <param name="strValue">Valor a Filtrar</param>
- <param name="strParName">Nome do Parametro</param>
- <returns>Lista Tipada</returns>
- <remarks></remarks>
-</member>
-<member name="T:Jack.Data.NHProvider`2">
- <summary>
- Classe Provider, de acesso a dados via NHibernate.
- </summary>
- <typeparam name="ClassName">Nome da Classe Base a ser usada</typeparam>
- <typeparam name="ClassID">Tipo de ID da classe</typeparam>
- <remarks></remarks>
-</member>
-<member name="M:Jack.Data.NHProvider`2.#ctor">
- <summary>
+	<returns>Lista. Se a operação foi um sucesso, a lista virá carregada.</returns>
+	<remarks></remarks>
+</member><member name="M:Jack.Data.NHProvider`2.#ctor">
+	<summary>
  Construtor do Objeto
  </summary>
- <remarks></remarks>
-</member>
-<member name="M:Jack.Data.NHProvider`2.Add(`0)">
- <summary>
+	<remarks></remarks>
+</member><member name="M:Jack.Data.NHProvider`2.Add(`0)">
+	<summary>
  Efetua a inclusão de um registro
  </summary>
- <param name="oPersist">Objeto do Model contendo os dados</param>
- <remarks></remarks>
-</member>
-<member name="M:Jack.Data.NHProvider`2.Update(`0)">
- <summary>
+	<param name="oPersist">Objeto do Model contendo os dados</param>
+	<remarks></remarks>
+</member><member name="M:Jack.Data.NHProvider`2.Update(`0)">
+	<summary>
  Efetua a atualização de um registro
  </summary>
- <param name="oPersist">Objeto do Model contendo os dados</param>
- <remarks></remarks>
-</member>
-<member name="M:Jack.Data.NHProvider`2.Get(`1)">
- <summary>
+	<param name="oPersist">Objeto do Model contendo os dados</param>
+	<remarks></remarks>
+</member><member name="M:Jack.Data.NHProvider`2.Get(`1)">
+	<summary>
  Efetua a buasca de um registro
  </summary>
- <param name="oValue">Valor do ID para a busca</param>
- <returns>Booleando para a função</returns>
- <remarks></remarks>
-</member>
-<member name="M:Jack.Data.NHProvider`2.List">
- <summary>
+	<param name="oValue">Valor do ID para a busca</param>
+	<returns>Booleando para a função</returns>
+	<remarks></remarks>
+</member><member name="M:Jack.Data.NHProvider`2.List">
+	<summary>
  Efetua a lista de registros
  </summary>
- <returns>Booleando para a função</returns>
- <remarks></remarks>
-</member>
-<member name="M:Jack.Data.NHProvider`2.Del(`0@)">
- <summary>
+	<returns>Booleando para a função</returns>
+	<remarks></remarks>
+</member><member name="M:Jack.Data.NHProvider`2.Del(`0@)">
+	<summary>
  Efetua a exclusão de um registro
  </summary>
- <param name="oPersist">Objeto do Model contendo os dados</param>
- <remarks></remarks>
-</member>
-<member name="M:Jack.Data.Reuniao.Insert(Jack.Model.Reuniao)">
- <summary>
+	<param name="oPersist">Objeto do Model contendo os dados</param>
+	<remarks></remarks>
+</member><member name="T:Jack.Data.NHProvider`2">
+	<summary>
+ Classe Provider, de acesso a dados via NHibernate.
+ </summary>
+	<typeparam name="ClassName">Nome da Classe Base a ser usada</typeparam>
+	<typeparam name="ClassID">Tipo de ID da classe</typeparam>
+	<remarks></remarks>
+</member><member name="M:Jack.Data.TipoItem.Insert(Jack.Model.TipoItem)">
+	<summary>
  Método para inserir o registro
  </summary>
- <param name="oTipo">Entidade com os dados Preenchidos</param>
- <returns>Boolean. Se a operação foi um sucesso, true.</returns>
- <remarks></remarks>
-</member>
-<member name="M:Jack.Data.Reuniao.Update(Jack.Model.Reuniao)">
- <summary>
+	<param name="oTipo">Entidade com os dados Preenchidos</param>
+	<returns>Boolean. Se a operação foi um sucesso, true.</returns>
+	<remarks></remarks>
+</member><member name="M:Jack.Data.TipoItem.Update(Jack.Model.TipoItem)">
+	<summary>
  Método para atualizar o registro
  </summary>
- <param name="oTipo">Entidade com os dados Preenchidos</param>
- <returns>Boolean. Se a operação foi um sucesso, true.</returns>
- <remarks></remarks>
-</member>
-<member name="M:Jack.Data.Reuniao.Delete(Jack.Model.Reuniao)">
- <summary>
+	<param name="oTipo">Entidade com os dados Preenchidos</param>
+	<returns>Boolean. Se a operação foi um sucesso, true.</returns>
+	<remarks></remarks>
+</member><member name="M:Jack.Data.TipoItem.Delete(Jack.Model.TipoItem)">
+	<summary>
  Método para excluir o registro
  </summary>
- <param name="oTipo">Entidade com os dados Preenchidos</param>
- <returns>Boolean. Se a operação foi um sucesso, true.</returns>
- <remarks></remarks>
-</member>
-<member name="M:Jack.Data.Reuniao.Find(System.Int32)">
- <summary>
+	<param name="oTipo">Entidade com os dados Preenchidos</param>
+	<returns>Boolean. Se a operação foi um sucesso, true.</returns>
+	<remarks></remarks>
+</member><member name="M:Jack.Data.TipoItem.Find(System.Int32)">
+	<summary>
  Método para procurar um registro
  </summary>
- <param name="Identifier">Código para a Procura do Valor</param>
- <returns>Entidade. Se a operação foi um sucesso, A Entidade Virá preenchida.</returns>
- <remarks></remarks>
-</member>
-<member name="M:Jack.Data.Reuniao.LoadAll">
- <summary>
+	<param name="Identifier">Código para a Procura do Valor</param>
+	<returns>Entidade. Se a operação foi um sucesso, A Entidade Virá preenchida.</returns>
+	<remarks></remarks>
+</member><member name="M:Jack.Data.TipoItem.LoadAll">
+	<summary>
  Método para carregar a lista dos registros
  </summary>
- <returns>Lista. Se a operação foi um sucesso, a lista virá carregada.</returns>
- <remarks></remarks>
-</member>
-<member name="M:Jack.Data.Roupa.Insert(Jack.Model.Roupa)">
- <summary>
+	<returns>Lista. Se a operação foi um sucesso, a lista virá carregada.</returns>
+	<remarks></remarks>
+</member><member name="M:Jack.Data.BaseData`2.Insert(`0)">
+	<summary>
  Método para inserir o registro
  </summary>
- <param name="oTipo">Entidade com os dados Preenchidos</param>
- <returns>Boolean. Se a operação foi um sucesso, true.</returns>
- <remarks></remarks>
-</member>
-<member name="M:Jack.Data.Roupa.Update(Jack.Model.Roupa)">
- <summary>
+	<param name="oTipo">Entidade com os dados Preenchidos</param>
+	<returns>Boolean. Se a operação foi um sucesso, true.</returns>
+	<remarks></remarks>
+</member><member name="M:Jack.Data.BaseData`2.Update(`0)">
+	<summary>
  Método para atualizar o registro
  </summary>
- <param name="oTipo">Entidade com os dados Preenchidos</param>
- <returns>Boolean. Se a operação foi um sucesso, true.</returns>
- <remarks></remarks>
-</member>
-<member name="M:Jack.Data.Roupa.Delete(Jack.Model.Roupa)">
- <summary>
+	<param name="oTipo">Entidade com os dados Preenchidos</param>
+	<returns>Boolean. Se a operação foi um sucesso, true.</returns>
+	<remarks></remarks>
+</member><member name="M:Jack.Data.BaseData`2.Delete(`0)">
+	<summary>
  Método para excluir o registro
  </summary>
- <param name="oTipo">Entidade com os dados Preenchidos</param>
- <returns>Boolean. Se a operação foi um sucesso, true.</returns>
- <remarks></remarks>
-</member>
-<member name="M:Jack.Data.Roupa.Find(System.Int32)">
- <summary>
+	<param name="oTipo">Entidade com os dados Preenchidos</param>
+	<returns>Boolean. Se a operação foi um sucesso, true.</returns>
+	<remarks></remarks>
+</member><member name="M:Jack.Data.BaseData`2.Find(`1)">
+	<summary>
  Método para procurar um registro
  </summary>
- <param name="Identifier">Código para a Procura do Valor</param>
- <returns>Entidade. Se a operação foi um sucesso, A Entidade Virá preenchida.</returns>
- <remarks></remarks>
-</member>
-<member name="M:Jack.Data.Roupa.LoadAll">
- <summary>
+	<param name="Identifier">Código para a Procura do Valor</param>
+	<returns>Entidade. Se a operação foi um sucesso, A Entidade Virá preenchida.</returns>
+	<remarks></remarks>
+</member><member name="M:Jack.Data.BaseData`2.LoadAll">
+	<summary>
  Método para carregar a lista dos registros
  </summary>
- <returns>Lista. Se a operação foi um sucesso, a lista virá carregada.</returns>
- <remarks></remarks>
-</member>
-<member name="M:Jack.Data.Sacolas.ProcessaSacolas(System.Int32)">
- <summary>
+	<returns>Lista. Se a operação foi um sucesso, a lista virá carregada.</returns>
+	<remarks></remarks>
+</member><member name="M:Jack.Data.Colaborador.Insert(Jack.Model.Colaborador)">
+	<summary>
+ Método para inserir o registro
+ </summary>
+	<param name="oTipo">Entidade com os dados Preenchidos</param>
+	<returns>Boolean. Se a operação foi um sucesso, true.</returns>
+	<remarks></remarks>
+</member><member name="M:Jack.Data.Colaborador.Update(Jack.Model.Colaborador)">
+	<summary>
+ Método para atualizar o registro
+ </summary>
+	<param name="oTipo">Entidade com os dados Preenchidos</param>
+	<returns>Boolean. Se a operação foi um sucesso, true.</returns>
+	<remarks></remarks>
+</member><member name="M:Jack.Data.Colaborador.Delete(Jack.Model.Colaborador)">
+	<summary>
+ Método para excluir o registro
+ </summary>
+	<param name="oTipo">Entidade com os dados Preenchidos</param>
+	<returns>Boolean. Se a operação foi um sucesso, true.</returns>
+	<remarks></remarks>
+</member><member name="M:Jack.Data.Colaborador.Find(System.Int32)">
+	<summary>
+ Método para procurar um registro
+ </summary>
+	<param name="Identifier">Código para a Procura do Valor</param>
+	<returns>Entidade. Se a operação foi um sucesso, A Entidade Virá preenchida.</returns>
+	<remarks></remarks>
+</member><member name="M:Jack.Data.Colaborador.LoadAll">
+	<summary>
+ Método para carregar a lista dos registros
+ </summary>
+	<returns>Lista. Se a operação foi um sucesso, a lista virá carregada.</returns>
+	<remarks></remarks>
+</member><member name="P:Jack.Data.My.Resources.Resources.ResourceManager">
+	<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member><member name="P:Jack.Data.My.Resources.Resources.Culture">
+	<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member><member name="T:Jack.Data.My.Resources.Resources">
+	<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member><member name="M:Jack.Data.Status.Insert(Jack.Model.Status)">
+	<summary>
+ Método para inserir o registro
+ </summary>
+	<param name="oTipo">Entidade com os dados Preenchidos</param>
+	<returns>Boolean. Se a operação foi um sucesso, true.</returns>
+	<remarks></remarks>
+</member><member name="M:Jack.Data.Status.Update(Jack.Model.Status)">
+	<summary>
+ Método para atualizar o registro
+ </summary>
+	<param name="oTipo">Entidade com os dados Preenchidos</param>
+	<returns>Boolean. Se a operação foi um sucesso, true.</returns>
+	<remarks></remarks>
+</member><member name="M:Jack.Data.Status.Delete(Jack.Model.Status)">
+	<summary>
+ Método para excluir o registro
+ </summary>
+	<param name="oTipo">Entidade com os dados Preenchidos</param>
+	<returns>Boolean. Se a operação foi um sucesso, true.</returns>
+	<remarks></remarks>
+</member><member name="M:Jack.Data.Status.Find(System.Int32)">
+	<summary>
+ Método para procurar um registro
+ </summary>
+	<param name="Identifier">Código para a Procura do Valor</param>
+	<returns>Entidade. Se a operação foi um sucesso, A Entidade Virá preenchida.</returns>
+	<remarks></remarks>
+</member><member name="M:Jack.Data.Status.LoadAll">
+	<summary>
+ Método para carregar a lista dos registros
+ </summary>
+	<returns>Lista. Se a operação foi um sucesso, a lista virá carregada.</returns>
+	<remarks></remarks>
+</member><member name="M:Jack.Data.Calcado.Insert(Jack.Model.Calcado)">
+	<summary>
+ Método para inserir o registro
+ </summary>
+	<param name="oTipo">Entidade com os dados Preenchidos</param>
+	<returns>Boolean. Se a operação foi um sucesso, true.</returns>
+	<remarks></remarks>
+</member><member name="M:Jack.Data.Calcado.Update(Jack.Model.Calcado)">
+	<summary>
+ Método para atualizar o registro
+ </summary>
+	<param name="oTipo">Entidade com os dados Preenchidos</param>
+	<returns>Boolean. Se a operação foi um sucesso, true.</returns>
+	<remarks></remarks>
+</member><member name="M:Jack.Data.Calcado.Delete(Jack.Model.Calcado)">
+	<summary>
+ Método para excluir o registro
+ </summary>
+	<param name="oTipo">Entidade com os dados Preenchidos</param>
+	<returns>Boolean. Se a operação foi um sucesso, true.</returns>
+	<remarks></remarks>
+</member><member name="M:Jack.Data.Calcado.Find(System.Int32)">
+	<summary>
+ Método para procurar um registro
+ </summary>
+	<param name="Identifier">Código para a Procura do Valor</param>
+	<returns>Entidade. Se a operação foi um sucesso, A Entidade Virá preenchida.</returns>
+	<remarks></remarks>
+</member><member name="M:Jack.Data.Calcado.LoadAll">
+	<summary>
+ Método para carregar a lista dos registros
+ </summary>
+	<returns>Lista. Se a operação foi um sucesso, a lista virá carregada.</returns>
+	<remarks></remarks>
+</member><member name="M:Jack.Data.Kit.Insert(Jack.Model.Kit)">
+	<summary>
+ Método para inserir o registro
+ </summary>
+	<param name="oTipo">Entidade com os dados Preenchidos</param>
+	<returns>Boolean. Se a operação foi um sucesso, true.</returns>
+	<remarks></remarks>
+</member><member name="M:Jack.Data.Kit.Update(Jack.Model.Kit)">
+	<summary>
+ Método para atualizar o registro
+ </summary>
+	<param name="oTipo">Entidade com os dados Preenchidos</param>
+	<returns>Boolean. Se a operação foi um sucesso, true.</returns>
+	<remarks></remarks>
+</member><member name="M:Jack.Data.Kit.Delete(Jack.Model.Kit)">
+	<summary>
+ Método para excluir o registro
+ </summary>
+	<param name="oTipo">Entidade com os dados Preenchidos</param>
+	<returns>Boolean. Se a operação foi um sucesso, true.</returns>
+	<remarks></remarks>
+</member><member name="M:Jack.Data.Kit.Find(System.Int32)">
+	<summary>
+ Método para procurar um registro
+ </summary>
+	<param name="Identifier">Código para a Procura do Valor</param>
+	<returns>Entidade. Se a operação foi um sucesso, A Entidade Virá preenchida.</returns>
+	<remarks></remarks>
+</member><member name="M:Jack.Data.Kit.LoadAll">
+	<summary>
+ Método para carregar a lista dos registros
+ </summary>
+	<returns>Lista. Se a operação foi um sucesso, a lista virá carregada.</returns>
+	<remarks></remarks>
+</member><member name="M:Jack.Data.Familia.Insert(Jack.Model.Familia)">
+	<summary>
+ Método para inserir o registro
+ </summary>
+	<param name="oTipo">Entidade com os dados Preenchidos</param>
+	<returns>Boolean. Se a operação foi um sucesso, true.</returns>
+	<remarks></remarks>
+</member><member name="M:Jack.Data.Familia.Update(Jack.Model.Familia)">
+	<summary>
+ Método para atualizar o registro
+ </summary>
+	<param name="oTipo">Entidade com os dados Preenchidos</param>
+	<returns>Boolean. Se a operação foi um sucesso, true.</returns>
+	<remarks></remarks>
+</member><member name="M:Jack.Data.Familia.Delete(Jack.Model.Familia)">
+	<summary>
+ Método para excluir o registro
+ </summary>
+	<param name="oTipo">Entidade com os dados Preenchidos</param>
+	<returns>Boolean. Se a operação foi um sucesso, true.</returns>
+	<remarks></remarks>
+</member><member name="M:Jack.Data.Familia.Find(System.Int32)">
+	<summary>
+ Método para procurar um registro
+ </summary>
+	<param name="Identifier">Código para a Procura do Valor</param>
+	<returns>Entidade. Se a operação foi um sucesso, A Entidade Virá preenchida.</returns>
+	<remarks></remarks>
+</member><member name="M:Jack.Data.Familia.LoadAll">
+	<summary>
+ Método para carregar a lista dos registros
+ </summary>
+	<returns>Lista. Se a operação foi um sucesso, a lista virá carregada.</returns>
+	<remarks></remarks>
+</member><member name="M:Jack.Data.FamiliaCrianca.Insert(System.Int32,System.Int32)">
+	<summary>
+ Método para inserir o registro
+ </summary>
+	<param name="intCrianca">Criança</param>
+	<param name="intFamilia">Familia</param>
+	<returns>Boolean. Se a operação foi um sucesso, true.</returns>
+	<remarks></remarks>
+</member><member name="M:Jack.Data.FamiliaCrianca.DeleteFamilia(System.Int32)">
+	<summary>
+ Método para excluir o registro
+ </summary>
+	<param name="intFamilia">Familia</param>
+	<returns>Boolean. Se a operação foi um sucesso, true.</returns>
+	<remarks></remarks>
+</member><member name="M:Jack.Data.FamiliaCrianca.DeleteCrianca(System.Int32,System.Int32)">
+	<summary>
+ Método para excluir o registro
+ </summary>
+	<param name="intFamilia">Familia</param>
+	<param name="intCrianca">Criança</param>
+	<returns>Boolean. Se a operação foi um sucesso, true.</returns>
+	<remarks></remarks>
+</member><member name="M:Jack.Data.KitItem.Insert(Jack.Model.KitItem)">
+	<summary>
+ Método para inserir o registro
+ </summary>
+	<param name="oTipo">Entidade com os dados Preenchidos</param>
+	<returns>Boolean. Se a operação foi um sucesso, true.</returns>
+	<remarks></remarks>
+</member><member name="M:Jack.Data.KitItem.Update(Jack.Model.KitItem)">
+	<summary>
+ Método para atualizar o registro
+ </summary>
+	<param name="oTipo">Entidade com os dados Preenchidos</param>
+	<returns>Boolean. Se a operação foi um sucesso, true.</returns>
+	<remarks></remarks>
+</member><member name="M:Jack.Data.KitItem.Delete(Jack.Model.KitItem)">
+	<summary>
+ Método para excluir o registro
+ </summary>
+	<param name="oTipo">Entidade com os dados Preenchidos</param>
+	<returns>Boolean. Se a operação foi um sucesso, true.</returns>
+	<remarks></remarks>
+</member><member name="M:Jack.Data.KitItem.Find(System.Int32)">
+	<summary>
+ Método para procurar um registro
+ </summary>
+	<param name="Identifier">Código para a Procura do Valor</param>
+	<returns>Entidade. Se a operação foi um sucesso, A Entidade Virá preenchida.</returns>
+	<remarks></remarks>
+</member><member name="M:Jack.Data.KitItem.LoadAll">
+	<summary>
+ Método para carregar a lista dos registros
+ </summary>
+	<returns>Lista. Se a operação foi um sucesso, a lista virá carregada.</returns>
+	<remarks></remarks>
+</member><member name="M:Jack.Data.Sacolas.ProcessaSacolas(System.Int32)">
+	<summary>
  Processa as Sacolas
  </summary>
- <param name="intAno"></param>
- <returns>Lista de Pessoas</returns>
- <remarks>Este é um processo Simples e Poderá ser usado para consistir as presenças e Sacolas</remarks>
-</member>
-<member name="M:Jack.Data.Status.Insert(Jack.Model.Status)">
- <summary>
- Método para inserir o registro
- </summary>
- <param name="oTipo">Entidade com os dados Preenchidos</param>
- <returns>Boolean. Se a operação foi um sucesso, true.</returns>
- <remarks></remarks>
-</member>
-<member name="M:Jack.Data.Status.Update(Jack.Model.Status)">
- <summary>
- Método para atualizar o registro
- </summary>
- <param name="oTipo">Entidade com os dados Preenchidos</param>
- <returns>Boolean. Se a operação foi um sucesso, true.</returns>
- <remarks></remarks>
-</member>
-<member name="M:Jack.Data.Status.Delete(Jack.Model.Status)">
- <summary>
- Método para excluir o registro
- </summary>
- <param name="oTipo">Entidade com os dados Preenchidos</param>
- <returns>Boolean. Se a operação foi um sucesso, true.</returns>
- <remarks></remarks>
-</member>
-<member name="M:Jack.Data.Status.Find(System.Int32)">
- <summary>
- Método para procurar um registro
- </summary>
- <param name="Identifier">Código para a Procura do Valor</param>
- <returns>Entidade. Se a operação foi um sucesso, A Entidade Virá preenchida.</returns>
- <remarks></remarks>
-</member>
-<member name="M:Jack.Data.Status.LoadAll">
- <summary>
- Método para carregar a lista dos registros
- </summary>
- <returns>Lista. Se a operação foi um sucesso, a lista virá carregada.</returns>
- <remarks></remarks>
-</member>
-<member name="M:Jack.Data.TipoItem.Insert(Jack.Model.TipoItem)">
- <summary>
- Método para inserir o registro
- </summary>
- <param name="oTipo">Entidade com os dados Preenchidos</param>
- <returns>Boolean. Se a operação foi um sucesso, true.</returns>
- <remarks></remarks>
-</member>
-<member name="M:Jack.Data.TipoItem.Update(Jack.Model.TipoItem)">
- <summary>
- Método para atualizar o registro
- </summary>
- <param name="oTipo">Entidade com os dados Preenchidos</param>
- <returns>Boolean. Se a operação foi um sucesso, true.</returns>
- <remarks></remarks>
-</member>
-<member name="M:Jack.Data.TipoItem.Delete(Jack.Model.TipoItem)">
- <summary>
- Método para excluir o registro
- </summary>
- <param name="oTipo">Entidade com os dados Preenchidos</param>
- <returns>Boolean. Se a operação foi um sucesso, true.</returns>
- <remarks></remarks>
-</member>
-<member name="M:Jack.Data.TipoItem.Find(System.Int32)">
- <summary>
- Método para procurar um registro
- </summary>
- <param name="Identifier">Código para a Procura do Valor</param>
- <returns>Entidade. Se a operação foi um sucesso, A Entidade Virá preenchida.</returns>
- <remarks></remarks>
-</member>
-<member name="M:Jack.Data.TipoItem.LoadAll">
- <summary>
- Método para carregar a lista dos registros
- </summary>
- <returns>Lista. Se a operação foi um sucesso, a lista virá carregada.</returns>
- <remarks></remarks>
+	<param name="intAno"></param>
+	<returns>Lista de Pessoas</returns>
+	<remarks>Este é um processo Simples e Poderá ser usado para consistir as presenças e Sacolas</remarks>
 </member>
 </members>
 </doc>
