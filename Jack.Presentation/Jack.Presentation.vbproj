@@ -167,6 +167,7 @@
     <Content Include="Content\toastr.css" />
     <Content Include="Content\toastr.min.css" />
     <Content Include="engine\familia.js" />
+    <Content Include="engine\Status.js" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -212,6 +213,7 @@
     <Compile Include="App_Start\RouteConfig.vb" />
     <Compile Include="App_Start\WebApiConfig.vb" />
     <Compile Include="Controllers\API\FamiliaController.vb" />
+    <Compile Include="Controllers\API\StatusController.vb" />
     <Compile Include="Controllers\API\TesteController.vb" />
     <Compile Include="Controllers\MVC\FamiliaController.vb" />
     <Compile Include="Global.asax.vb">

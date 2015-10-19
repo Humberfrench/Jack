@@ -82,7 +82,7 @@ End Code
             <div class="col-form-left" style="text-align:right;"><label class="control-label" id="labelNivel" for="ddlNivel">Nível</label></div>
             <div style="width:10px;">&nbsp;</div>
             <div class="col-form-right" style="text-align:left;">
-                <select id="ddlNivel" class="form-control" style="width:400px;" ng-model="item._Nivel">
+                <select id="ddlNivel" class="form-control" style="width:320px;" ng-model="item._Nivel">
                     <option value="1">Nível 1</option>
                     <option value="2">Nível 2</option>
                     <option value="3">Nível 3</option>
@@ -91,7 +91,7 @@ End Code
                     <option value="6">Nível 6</option>
                     <option value="1">Nível 99</option>
                 </select>
-                <img style="display:none;" src="#" />
+                <img style="vertical-align:middle; display:none" width="24" height="24" alt="Nível" title="Nível {{item._Nivel}}" src="@Url.Content("~/Imagens/{{item._Nivel}}.png")" />
             </div>
             <div style="width:10px;">&nbsp;</div>
         </div>
@@ -100,7 +100,7 @@ End Code
             <div class="col-form-left" style="text-align:right;"><label class="control-label" id="labelIsSacolinha" for="chkIsSacolinha">Habilitado Sacolinha?</label></div>
             <div style="width:10px;">&nbsp;</div>
             <div class="col-form-right" style="text-align:left;">
-                <input type="checkbox" id="chkIsSacolinha" ng-if="" />
+                <input type="checkbox" id="chkIsSacolinha" ng-model="item._IsSacolinha"/>
             </div>
             <div style="width:10px;">&nbsp;</div>
         </div>
@@ -109,7 +109,7 @@ End Code
             <div class="col-form-left" style="text-align:right;"><label class="control-label" id="labelDadosOK" for="chkDadosOK">Dados Estão OK?</label></div>
             <div style="width:10px;">&nbsp;</div>
             <div class="col-form-right" style="text-align:left;">
-                <input type="checkbox" id="chkDadosOK" />
+                <input type="checkbox" id="chkDadosOK" ng-model="item._IsConsistente"/>
             </div>
             <div style="width:10px;">&nbsp;</div>
         </div>

@@ -22,7 +22,7 @@ Namespace Controllers.API
             temp = New Model.Familia()
             temp.Codigo = 1
             temp.IsConsistente = "S"
-            temp.Contato = ""
+            temp.Contato = "99934-4533"
             temp.DataAtualizacao = DateAndTime.Now
             temp.Familia = "Nome Qualquer1"
             temp.IsSacolinha = "N"
@@ -34,7 +34,7 @@ Namespace Controllers.API
             temp = New Model.Familia()
             temp.Codigo = 2
             temp.IsConsistente = "S"
-            temp.Contato = ""
+            temp.Contato = "2232-3432"
             temp.DataAtualizacao = DateAndTime.Now
             temp.Familia = "Nome Qualquer 2"
             temp.IsSacolinha = "N"
@@ -45,7 +45,7 @@ Namespace Controllers.API
             temp = New Model.Familia()
             temp.Codigo = 3
             temp.IsConsistente = "S"
-            temp.Contato = ""
+            temp.Contato = "93321-4367"
             temp.DataAtualizacao = DateAndTime.Now
             temp.Familia = "Nome Qualquer 3"
             temp.IsSacolinha = "S"

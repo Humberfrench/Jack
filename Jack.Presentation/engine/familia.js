@@ -1,13 +1,65 @@
 ﻿/// <reference path="/scripts/angular.js" />
+/// <reference path=/Scripts/jquery-2.1.4.js" />
+/// <reference path="/Scripts/bootstrap.js" />
+/// <reference path="/Scripts/toastr.js" />
 
 var familia = new Object;
 
 angular.module('CECAMApp', []).controller('ngFamiliaController', function ($scope)
 {
-    $scope.itens = familia.Get();
+    $scope.itens = familia.Load();
+
+    $scope.Edit = function (itemDados)
+    {
+        $("#txtCodigo").val(itemDados._Codigo);
+        $("#txtNome").val(itemDados._Familia);
+        $("#txtContato").val(itemDados._Contato);
+        $("#ddlStatus").val(itemDados._Status);
+        $("#ddlNivel").val(itemDados._Nivel);
+
+        if (itemDados._IsConsistente)
+        {
+            $("#chkIsSacolinha").prop('checked', true);
+        }
+        else
+        {
+            $("#chkIsSacolinha").prop('checked', false);
+        }
+
+        if (itemDados._IsSacolinha)
+        {
+            $("#chkDadosOK").prop('checked', true);
+        }
+        else
+        {
+            $("#chkDadosOK").prop('checked', false);
+        }
+
+        $("#txtData").val(itemDados._DataAtualizacao);
+
+        //chkIsSacolinha
+        //chkDadosOK
+    }
+
+    $scope.Delete = function (itemDados)
+    {
+        //deleting
+        familia.Delete(itemDados.Codigo);
+        //reload
+        $scope.itens = familia.Load();
+    }
+
+    $scope.Save = function (itemDados)
+    {
+        //deleting
+        familia.Save(itemDados);
+        //reload
+        $scope.itens = familia.Load();
+    }
+
 });
 
-familia.Get = function ()
+familia.Load = function ()
 {
     var objRet = null;
     $.ajax({
@@ -28,5 +80,15 @@ familia.Get = function ()
     });
 
     return objRet;
+
+};
+
+familia.Save = function (objFamilia)
+{
+
+};
+
+familia.Delete = function (intItem)
+{
 
 };
