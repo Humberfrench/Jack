@@ -11,3 +11,12 @@ Jack.Presentation/bin/*
 Jack.Presentation/obj/*
 Jack.Extensions/bin/*
 Jack.Extensions/obj/*
+Jack.Presentation/obj/Debug/Jack.Presentation.vbproj.FileListAbsolute.txt
+Jack.Presentation/bin/Jack.Model.xml
+Jack.Presentation/bin/Jack.Data.xml
+Jack.Model/obj/Debug/Jack.Model.vbproj.FileListAbsolute.txt
+Jack.Presentation/bin/Jack.Business.xml
+Jack.Model/bin/Debug/Jack.Model.xml
+Jack.Extensions/obj/Debug/Jack.Extensions.vbproj.FileListAbsolute.txt
+Jack.Data/bin/Debug/Jack.Data.xml
+Jack.Data/bin/Debug/Jack.Model.xml
