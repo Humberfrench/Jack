@@ -29,6 +29,7 @@ Namespace Controllers.API
 
         End Function
 
+        <HttpGet>
         Public Function LoadForChildrem() As IList(Of Model.Status)
 
             Dim lstRetorno2 As List(Of Model.Status) = Nothing
@@ -39,6 +40,7 @@ Namespace Controllers.API
 
         End Function
 
+        <HttpGet>
         Public Function LoadForFamily() As IList(Of Model.Status)
 
             Dim lstRetorno3 As List(Of Model.Status) = Nothing
