@@ -12,7 +12,7 @@ Status.LoadForChildrem = function ()
     var objRet = null;
     $.ajax({
         type: 'GET',
-        url: '/api/familia/',
+        url: '/api/status/Get/LoadForChildrem/',
         dataType: 'json',
         cache: 'false',
         contentType: 'application/json; charset=utf-8',
@@ -23,17 +23,32 @@ Status.LoadForChildrem = function ()
         },
         error: function (xhr, msg, e)
         {
-            alert(xhr.responseText);
+            Mensagem.Erro(xhr.responseText);
         }
     });
     
     return objRet;
-
-
 }
 
 Status.LoadForFamily = function ()
 {
+    var objRet = null;
+    $.ajax({
+        type: 'GET',
+        url: '/api/status/Get/LoadForFamily/',
+        dataType: 'json',
+        cache: 'false',
+        contentType: 'application/json; charset=utf-8',
+        async: false,
+        success: function (data, textStatus, xhr)
+        {
+            objRet = data;
+        },
+        error: function (xhr, msg, e)
+        {
+            Mensagem.Erro(xhr.responseText);
+        }
+    });
 
-
+    return objRet;
 }

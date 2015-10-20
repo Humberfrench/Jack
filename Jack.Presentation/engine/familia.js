@@ -6,9 +6,17 @@
 
 var Familia = new Object;
 
+$(function ()
+{
+    // Load Combo
+    Familia.LoadStatus(ddlStatus, Status.LoadForFamily());
+});
+
 angular.module('CECAMApp', []).controller('ngFamiliaController', function ($scope)
 {
-    $scope.itens = familia.Load();
+    $scope.itens = Familia.Load();
+
+    $scope.StatusItens = Status.LoadForFamily();
 
     $scope.Edit = function (itemDados)
     {
@@ -76,7 +84,7 @@ Familia.Load = function ()
         },
         error: function (xhr, msg, e)
         {
-            alert(xhr.responseText);
+            Mensagem.Erro(xhr.responseText);
         }
     });
 
@@ -93,3 +101,17 @@ Familia.Delete = function (intItem)
 {
 
 };
+
+Familia.LoadStatus = function (comboBox, listaDados)
+{
+    comboBox.innerHTML = '';
+    for (intCont = 0; intCont < listaDados.length; intCont++)
+    {
+        var opt = document.createElement("option");
+        opt.value = listaDados[intCont]._Codigo;
+        opt.innerHTML = listaDados[intCont]._Descricao; // whatever property it has
+
+        // then append it to the select element
+        comboBox.appendChild(opt);
+    }
+}

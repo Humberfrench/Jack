@@ -169,6 +169,7 @@
     <Content Include="engine\familia.js" />
     <Content Include="engine\mensagens.js" />
     <Content Include="engine\status.js" />
+    <Content Include="engine\Util.js" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

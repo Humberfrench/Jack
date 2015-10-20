@@ -2,7 +2,9 @@
     ViewData("Title") = "Família"
     Layout = "~/Views/SharedFolder/_JackLayoutPage.vbhtml"
 End Code
+@System.Web.Optimization.Scripts.Render("~/bundles/mensagens")
 @System.Web.Optimization.Scripts.Render("~/bundles/familia")
+@System.Web.Optimization.Scripts.Render("~/bundles/status")
 <div ng-controller="ngFamiliaController">
     <div class="Titulo">Família</div><br /><br />
     <div class="SubTitulo">Lista</div>
