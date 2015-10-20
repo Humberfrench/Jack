@@ -22,7 +22,7 @@ Namespace Controllers.API
             lstRetorno.Add(New Model.Status(5, "Problema", "N", "C"))
             lstRetorno.Add(New Model.Status(6, "Erro", "N", "T"))
 
-            Return lstRetorno.Where(Function(x) x.NivelStatus = "F" And x.NivelStatus = "T").ToList()
+            Return lstRetorno
 
         End Function
 
