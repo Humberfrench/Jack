@@ -1,6 +1,4 @@
-﻿/// <reference path="/Scripts/jquery-2.1.4.js" />
-/// <reference path="/Scripts/bootstrap.js" />
-@Code
+﻿@Code
     ViewData("Title") = "Família"
     Layout = "~/Views/SharedFolder/_JackLayoutPage.vbhtml"
 End Code
@@ -94,7 +92,7 @@ End Code
                     <option value="4">Nível 4</option>
                     <option value="5">Nível 5</option>
                     <option value="6">Nível 6</option>
-                    <option value="1">Nível 99</option>
+                    <option value="99">Nível 99</option>
                 </select>
                 <input type="hidden" id="txtNivel" ng-model="item._Nivel" value="{{item._Nivel}}" />
                 <div ng-if="item._Nivel > 0">
@@ -132,4 +130,3 @@ End Code
         <div style="display:table-row;">&nbsp;</div>
     </div>
 </div>
-
