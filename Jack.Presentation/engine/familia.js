@@ -1,5 +1,6 @@
 ﻿/// <reference path="/scripts/angular.js" />
-/// <reference path=/Scripts/jquery-2.1.4.js" />
+/// <reference path="
+/Scripts/jquery-2.1.4.js" />
 /// <reference path="/Scripts/bootstrap.js" />
 /// <reference path="/Scripts/toastr.js" />
 /// <reference path="status.js" />
@@ -10,6 +11,15 @@ $(function ()
 {
     // Load Combo
     Familia.LoadStatus(ddlStatus, Status.LoadForFamily());
+
+    //set status
+    $("ddlStatus").change( function (){
+        $("txtStatus").val($("ddlStatus").val());
+    });
+    //set nivel
+    $("ddlNivel").change( function (){
+        $("txtNivel").val($("ddlNivel").val());
+    });
 });
 
 angular.module('CECAMApp', []).controller('ngFamiliaController', function ($scope)
@@ -25,6 +35,8 @@ angular.module('CECAMApp', []).controller('ngFamiliaController', function ($scop
         $("#txtContato").val(itemDados._Contato);
         $("#ddlStatus").val(itemDados._Status);
         $("#ddlNivel").val(itemDados._Nivel);
+        $("#txtStatus").val(itemDados._Status);
+        $("#txtNivel").val(itemDados._Nivel);
 
         if (itemDados._IsConsistente)
         {
@@ -46,8 +58,6 @@ angular.module('CECAMApp', []).controller('ngFamiliaController', function ($scop
 
         $("#txtData").val(itemDados._DataAtualizacao);
 
-        //chkIsSacolinha
-        //chkDadosOK
     }
 
     $scope.Delete = function (itemDados)

@@ -1,4 +1,6 @@
-﻿@Code
+﻿/// <reference path="/Scripts/jquery-2.1.4.js" />
+/// <reference path="/Scripts/bootstrap.js" />
+@Code
     ViewData("Title") = "Família"
     Layout = "~/Views/SharedFolder/_JackLayoutPage.vbhtml"
 End Code
