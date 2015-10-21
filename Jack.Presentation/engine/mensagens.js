@@ -1,4 +1,6 @@
 ﻿/// <reference path="/Scripts/toastr.js" />
+/// <reference path="/Scripts/jquery-2.1.4.js" />
+/// <reference path="/Scripts/jquery-2.1.4.intellisense.js" />
 
 var Mensagem = new Object;
 
