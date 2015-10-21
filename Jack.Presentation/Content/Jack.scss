@@ -69,6 +69,7 @@ body
   @include center_text(50px,50px);  
   text-align: center;
 }
+
 .SubTitulo
 {
   font-family: $fonts;
@@ -83,7 +84,7 @@ body
 .col-form-left 
 {
   width: 300px;
-  display: table-cell; 
+  display: table-cell;  
   @include center_text(30px, 30px)
 }
 
@@ -92,5 +93,5 @@ body
   width: 600px;
   display: table-cell; 
   @include center_text(40px, 40px)
-
 }
+
