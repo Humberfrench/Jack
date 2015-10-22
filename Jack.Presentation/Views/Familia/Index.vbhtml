@@ -58,7 +58,7 @@ End Code
             <div class="col-form-left" style="text-align:right;"><label class="control-label" id="labelNome" for="txtNome">Nome</label></div>
             <div style="width:10px;">&nbsp;</div>
             <div class="col-form-right" style="text-align:left;">
-                <input type="hidden" ng-model="item._Codigo" />
+                <input type="hidden" ng-model="item._Codigo" value="0" />
                 <input type="text" value="" class="form-control" style="width:400px;" maxlength="100" id="txtNome" placeholder="Nome" ng-model="item._Familia" />
             </div>
             <div style="width:10px;">&nbsp;</div>

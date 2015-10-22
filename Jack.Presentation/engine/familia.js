@@ -86,7 +86,7 @@ angular.module('CECAMApp', []).controller('ngFamiliaController', function ($scop
 
     $scope.Salvar = function (itemDados)
     {
-        //deleting
+        //saving
         Familia.Salvar(itemDados);
         //reload
         $scope.itens = familia.Load();
@@ -120,6 +120,36 @@ Familia.Load = function ()
 
 Familia.Salvar = function (objFamilia)
 {
+    var intCodigo;
+    var strConsistente;
+    var strSacola;
+
+    if (objFamilia._Codigo == undefined)
+    {
+        intCodigo = 0;
+    }
+    else
+    {
+        intCodigo = parseInt(objFamilia._Codigo);
+    }
+
+    if (objFamilia._IsConsistente == undefined)
+    {
+        strConsistente = 'N';
+    }
+    else
+    {
+        strConsistente = 'S';
+    }
+
+    if (objFamilia._IsSacolinha == undefined)
+    {
+        strSacola = 'N';
+    }
+    else
+    {
+        strSacola = 'S';
+    }
 
     var sData = ''
     sData = sData + '?Codigo=' + objFamilia._Codigo;
