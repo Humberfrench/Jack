@@ -6,6 +6,7 @@ Namespace Controllers.API
         Inherits ApiController
         Dim lstRetorno As List(Of Model.Familia) = Nothing
 
+        <HttpGet>
         Public Function GetValues() As IList(Of Model.Familia)
 
             LoadData()

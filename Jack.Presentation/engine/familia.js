@@ -121,8 +121,8 @@ Familia.Load = function ()
 Familia.Salvar = function (objFamilia)
 {
     var intCodigo;
-    var strConsistente;
-    var strSacola;
+    var strConsistente = Familia.TratarCheck(objFamilia._IsConsistente);
+    var strSacola = Familia.TratarCheck(objFamilia._IsSacolinha);
 
     if (objFamilia._Codigo == undefined)
     {
@@ -131,24 +131,6 @@ Familia.Salvar = function (objFamilia)
     else
     {
         intCodigo = parseInt(objFamilia._Codigo);
-    }
-
-    if (objFamilia._IsConsistente == undefined)
-    {
-        strConsistente = 'N';
-    }
-    else
-    {
-        strConsistente = 'S';
-    }
-
-    if (objFamilia._IsSacolinha == undefined)
-    {
-        strSacola = 'N';
-    }
-    else
-    {
-        strSacola = 'S';
     }
 
     var sData = ''
@@ -161,7 +143,7 @@ Familia.Salvar = function (objFamilia)
     sData = sData + '&IsConsistente=' + strConsistente;
     $.ajax({
         type: 'POST',
-        url: '/api/familia/Save/' + sData,
+        url: '/api/familia/Salvar/' + sData,
         dataType: 'json',
         cache: 'false',
         contentType: 'application/json; charset=utf-8',
@@ -176,6 +158,27 @@ Familia.Salvar = function (objFamilia)
         }
     });
 
+};
+
+Familia.TratarCheck = function (oCampoCheck)
+{
+    var strValor = '';
+    if (oCampoCheck == undefined)
+    {
+        strValor = 'N';
+    }
+    else
+    {
+        if (oCampoCheck)
+        {
+            strValor = 'S';
+        }
+        else
+        {
+            strValor = 'N'
+        }
+    }
+    return strValor;
 };
 
 Familia.Delete = function (intItem)
