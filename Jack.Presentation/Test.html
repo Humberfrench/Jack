@@ -3,8 +3,55 @@
 <head>
     <title></title>
 	<meta charset="utf-8" />
+    <link href="/Content/Jack.css" rel="stylesheet" />
+    <link href="/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="/Content/bootstrap-theme.min.css" rel="stylesheet" />
+    <link href="/Content/toastr.min.css" rel="stylesheet" />
+    <link href="/Content/css/select2.css" rel="stylesheet" />
+
+    <script src="/Scripts/jquery-2.1.4.min.js"></script>
+    <script src="/Scripts/angular.min.js"></script>
+    <script src="/Scripts/toastr.min.js"></script>
+    <script src="/Scripts/bootstrap.min.js"></script>
+    <script src="/Scripts/select2.js"></script>
+    <script type="text/javascript">
+        $(function ()
+        {
+            $("#ddlNivel").select2();
+            $("#ddlNivel").on("select2:select", function (e) { DoSomething(e); });
+        });
+
+        function DoSomething(evt)
+        {
+            var args = JSON.stringify(evt.params, function (key, value)
+            {
+                if (value && value.nodeName) return "[DOM node]";
+                if (value instanceof $.Event) return "[$.Event]";
+                return value;
+            });
+            alert(args.id);
+            alert(args.text);
+        }
+
+    </script>
 </head>
 <body>
-
+    <select id="ddlNivel" style="width:320px;">
+        <optgroup label="Níveis Elegíveis">
+            <option value="1">Nível 1</option>
+            <option value="2">Nível 2</option>
+            <option value="3">Nível 3</option>
+        </optgroup>
+        <optgroup label="Níveis Complementares">
+            <option value="4">Nível 4</option>
+            <option value="5">Nível 5</option>
+        </optgroup>
+        <optgroup label="Nível Presença Ano Anterior">
+            <option value="6">Nível 6</option>
+        </optgroup>
+        <optgroup label="Nível Inelegível">
+            <option value="99">Nível 99</option>
+        </optgroup>
+    </select>
 </body>
 </html>

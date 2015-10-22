@@ -75,7 +75,7 @@ End Code
             <div class="col-form-left" style="text-align:right;"><label class="control-label" id="labelStatus" for="ddlStatus">Status</label></div>
             <div style="width:10px;">&nbsp;</div>
             <div class="col-form-right" style="text-align:left;">
-                <select id="ddlStatus" style="width:400px; "></select>
+                <select id="ddlStatus" style="width:400px;"></select>
                 <input type="hidden" id="txtStatus" ng-model="item._Status" value="{{item._Status}}" />
             </div>
             <div style="width:10px;">&nbsp;</div>

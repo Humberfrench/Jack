@@ -19,17 +19,24 @@ $(function ()
     $("#ddlStatus").select2();
     $("#ddlNivel").select2();
 
-    //set status
-    $("#ddlStatus").change(function ()
-    {
-        $("#txtStatus").val($("ddlStatus").val());
-    });
-    //set nivel
-    $("#ddlNivel").change(function ()
-    {
-        $("#txtNivel").val($("ddlNivel").val());
-    });
+    ////set status
+    //$("#ddlStatus").change(function ()
+    //{
+    //    $("#txtStatus").val($("ddlStatus").val());
+    //});
+    ////set nivel
+    //$("#ddlNivel").change(function ()
+    //{
+    //    $("#txtNivel").val($("ddlNivel").val());
+    //});
+    $("#ddlNivel").on("select2:select", function (e) { Select2OnChange(e, txtNivel); });
+    $("#ddlStatus").on("select2:select", function (e) { Select2OnChange(e, txtStatus); });
 });
+
+function Select2OnChange(evt, object)
+{
+    object.value = evt.params.data.id;
+}
 
 angular.module('CECAMApp', []).controller('ngFamiliaController', function ($scope)
 {
