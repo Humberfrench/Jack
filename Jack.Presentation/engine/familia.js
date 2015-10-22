@@ -152,13 +152,13 @@ Familia.Salvar = function (objFamilia)
     }
 
     var sData = ''
-    sData = sData + '?Codigo=' + objFamilia._Codigo;
+    sData = sData + '?Codigo=' + intCodigo;
     sData = sData + '&Familia=' + objFamilia._Familia;
     sData = sData + '&Contato=' + objFamilia._Contato;
     sData = sData + '&Status=' + objFamilia._Status;
     sData = sData + '&Nivel=' + objFamilia._Nivel;
-    sData = sData + '&IsSacolinha=' + objFamilia._IsSacolinha;
-    sData = sData + '&IsConsistente=' + objFamilia._IsConsistente;
+    sData = sData + '&IsSacolinha=' + strSacola;
+    sData = sData + '&IsConsistente=' + strConsistente;
     $.ajax({
         type: 'POST',
         url: '/api/familia/Save/' + sData,
