@@ -75,7 +75,7 @@ End Code
             <div class="col-form-left" style="text-align:right;"><label class="control-label" id="labelStatus" for="ddlStatus">Status</label></div>
             <div style="width:10px;">&nbsp;</div>
             <div class="col-form-right" style="text-align:left;">
-                <select id="ddlStatus" class="form-control" style="width:400px;"></select>
+                <select id="ddlStatus" style="width:400px; "></select>
                 <input type="hidden" id="txtStatus" ng-model="item._Status" value="{{item._Status}}" />
             </div>
             <div style="width:10px;">&nbsp;</div>
@@ -85,16 +85,24 @@ End Code
             <div class="col-form-left" style="text-align:right;"><label class="control-label" id="labelNivel" for="ddlNivel">Nível</label></div>
             <div style="width:10px;">&nbsp;</div>
             <div class="col-form-right" style="text-align:left;">
-                <select id="ddlNivel" class="form-control" style="width:320px;">
-                    <option value="1">Nível 1</option>
-                    <option value="2">Nível 2</option>
-                    <option value="3">Nível 3</option>
-                    <option value="4">Nível 4</option>
-                    <option value="5">Nível 5</option>
-                    <option value="6">Nível 6</option>
-                    <option value="99">Nível 99</option>
+                <select id="ddlNivel" style="width:320px;">
+                    <optgroup label="Níveis Elegíveis">
+                        <option value="1">Nível 1</option>
+                        <option value="2">Nível 2</option>
+                        <option value="3">Nível 3</option>
+                    </optgroup>
+                    <optgroup label="Níveis Complementares">
+                        <option value="4">Nível 4</option>
+                        <option value="5">Nível 5</option>
+                    </optgroup>
+                    <optgroup label="Nível Presença Ano Anterior">
+                        <option value="6">Nível 6</option>
+                    </optgroup>
+                    <optgroup label="Nível Inelegível">
+                        <option value="99">Nível 99</option>
+                    </optgroup>
                 </select>
-                <input type="hidden" id="txtNivel" ng-model="item._Nivel" value="{{item._Nivel}}" />
+                <input type="text" id="txtNivel" ng-model="item._Nivel" value="{{item._Nivel}}" />
                 <div ng-if="item._Nivel > 0">
                     <img style="vertical-align:middle; display:none" width="24" height="24" alt="Nível" title="Nível {{item._Nivel}}" src="@Url.Content("~/Imagens/{{item._Nivel}}.png")" />
                 </div>

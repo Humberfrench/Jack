@@ -3,7 +3,11 @@
 /// <reference path="/Scripts/jquery-2.1.4.intellisense.js" />
 /// <reference path="/Scripts/bootstrap.js" />
 /// <reference path="/Scripts/toastr.js" />
+/// <reference path="/Scripts/select2.js" />
 /// <reference path="status.js" />
+
+//TO SELECT 2 LOOK AT https://select2.github.io/examples.html
+
 
 var Familia = new Object;
 
@@ -11,6 +15,9 @@ $(function ()
 {
     // Load Combo
     Familia.LoadStatus(ddlStatus, Status.LoadForFamily());
+    
+    $("#ddlStatus").select2();
+    $("#ddlNivel").select2();
 
     //set status
     $("ddlStatus").change( function (){
