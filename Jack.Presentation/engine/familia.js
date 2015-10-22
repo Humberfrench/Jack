@@ -20,12 +20,14 @@ $(function ()
     $("#ddlNivel").select2();
 
     //set status
-    $("ddlStatus").change( function (){
-        $("txtStatus").val($("ddlStatus").val());
+    $("#ddlStatus").change(function ()
+    {
+        $("#txtStatus").val($("ddlStatus").val());
     });
     //set nivel
-    $("ddlNivel").change( function (){
-        $("txtNivel").val($("ddlNivel").val());
+    $("#ddlNivel").change(function ()
+    {
+        $("#txtNivel").val($("ddlNivel").val());
     });
 });
 
