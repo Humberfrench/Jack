@@ -18,19 +18,22 @@
         $(function ()
         {
             $("#ddlNivel").select2();
+            $("#ddlNivel1").select2();
             $("#ddlNivel").on("select2:select", function (e) { DoSomething(e); });
+            $("#btn").click(function ()
+            {
+                $("#ddlNivel").val(99).trigger("change");
+            });
+            $("#btn1").click(function ()
+            {
+                alert($("#ddlNivel1").val());
+            });
         });
 
         function DoSomething(evt)
         {
-            var args = JSON.stringify(evt.params, function (key, value)
-            {
-                if (value && value.nodeName) return "[DOM node]";
-                if (value instanceof $.Event) return "[$.Event]";
-                return value;
-            });
-            alert(args.id);
-            alert(args.text);
+            alert(evt.params.data.id);
+            alert(evt.params.data.text);
         }
 
     </script>
@@ -53,5 +56,26 @@
             <option value="99">Nível 99</option>
         </optgroup>
     </select>
+    <button type="button" id="btn" class="button">Do</button>
+    <br />
+    <select id="ddlNivel1" style="width:320px;" multiple="multiple">
+        <optgroup label="Níveis Elegíveis">
+            <option value="1">Nível 1</option>
+            <option value="2">Nível 2</option>
+            <option value="3">Nível 3</option>
+        </optgroup>
+        <optgroup label="Níveis Complementares">
+            <option value="4">Nível 4</option>
+            <option value="5">Nível 5</option>
+        </optgroup>
+        <optgroup label="Nível Presença Ano Anterior">
+            <option value="6">Nível 6</option>
+        </optgroup>
+        <optgroup label="Nível Inelegível">
+            <option value="99">Nível 99</option>
+        </optgroup>
+    </select>
+    <button type="button" id="btn1" class="button">Who</button>
+
 </body>
 </html>

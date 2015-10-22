@@ -49,8 +49,8 @@ angular.module('CECAMApp', []).controller('ngFamiliaController', function ($scop
         $("#txtCodigo").val(itemDados._Codigo);
         $("#txtNome").val(itemDados._Familia);
         $("#txtContato").val(itemDados._Contato);
-        $("#ddlStatus").val(itemDados._Status);
-        $("#ddlNivel").val(itemDados._Nivel);
+        $("#ddlStatus").val(itemDados._Status).trigger('change');
+        $("#ddlNivel").val(itemDados._Nivel).trigger('change');
         $("#txtStatus").val(itemDados._Status);
         $("#txtNivel").val(itemDados._Nivel);
 
