@@ -56,6 +56,13 @@ Namespace Controllers.API
 
         End Sub
 
+        <HttpPost>
+        Public Sub Salvar(<FromUri> oFamily As Model.Familia)
+
+            Dim oDados = oFamily
+
+        End Sub
+
     End Class
 
 

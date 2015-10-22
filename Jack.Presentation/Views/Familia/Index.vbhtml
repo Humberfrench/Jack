@@ -67,7 +67,7 @@ End Code
             <div style="width:10px;">&nbsp;</div>
             <div class="col-form-left" style="text-align:right;"><label class="control-label" id="labelContato" for="txtEmpresa">Contato</label></div>
             <div style="width:10px;">&nbsp;</div>
-            <div class="col-form-right" style="text-align:left;"><input type="text" value="" class="form-control" style="width:400px;" maxlength="100" id="txtContato" placeholder="Contato" ng-model=""/></div>
+            <div class="col-form-right" style="text-align:left;"><input type="text" value="" class="form-control" style="width:400px;" maxlength="100" id="txtContato" placeholder="Contato" ng-model="item._Contato"/></div>
             <div style="width:10px;">&nbsp;</div>
         </div>
         <div style="display:table-row;" class="form-group">
@@ -130,7 +130,7 @@ End Code
         </div>        <div style="display:table-row;">&nbsp;</div>
         <div style="display:table-row;" class="form-group">
             <div style="width:10px;">&nbsp;</div>
-            <div class="col-form-left" style="margin:0 auto; text-align:right;"><button id="btnGravar" type="button" class="btn btn-success btn-lg">Gravar</button></div>
+            <div class="col-form-left" style="margin:0 auto; text-align:right;"><button id="btnGravar" type="button" class="btn btn-success btn-lg" ng-click="Salvar(item)">Gravar</button></div>
             <div style="width:10px;">&nbsp;</div>
             <div class="col-form-right" style="margin:0 auto; text-align:center;"><button id="btnCancelar" type="button" class="btn btn-danger btn-lg">Cancelar</button></div>
             <div style="width:10px;">&nbsp;</div>

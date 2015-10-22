@@ -79,15 +79,15 @@ angular.module('CECAMApp', []).controller('ngFamiliaController', function ($scop
     $scope.Delete = function (itemDados)
     {
         //deleting
-        familia.Delete(itemDados.Codigo);
+        Familia.Delete(itemDados.Codigo);
         //reload
         $scope.itens = familia.Load();
     }
 
-    $scope.Save = function (itemDados)
+    $scope.Salvar = function (itemDados)
     {
         //deleting
-        familia.Save(itemDados);
+        Familia.Salvar(itemDados);
         //reload
         $scope.itens = familia.Load();
     }
@@ -118,8 +118,33 @@ Familia.Load = function ()
 
 };
 
-Familia.Save = function (objFamilia)
+Familia.Salvar = function (objFamilia)
 {
+
+    var sData = ''
+    sData = sData + '?Codigo=' + objFamilia._Codigo;
+    sData = sData + '&Familia=' + objFamilia._Familia;
+    sData = sData + '&Contato=' + objFamilia._Contato;
+    sData = sData + '&Status=' + objFamilia._Status;
+    sData = sData + '&Nivel=' + objFamilia._Nivel;
+    sData = sData + '&IsSacolinha=' + objFamilia._IsSacolinha;
+    sData = sData + '&IsConsistente=' + objFamilia._IsConsistente;
+    $.ajax({
+        type: 'POST',
+        url: '/api/familia/Save/' + sData,
+        dataType: 'json',
+        cache: 'false',
+        contentType: 'application/json; charset=utf-8',
+        async: false,
+        success: function (data, textStatus, xhr)
+        {
+            Mensagem.Sucesso("Dados Salvos comn Sucesso!");
+        },
+        error: function (xhr, msg, e)
+        {
+            Mensagem.Erro(xhr.responseText);
+        }
+    });
 
 };
 
