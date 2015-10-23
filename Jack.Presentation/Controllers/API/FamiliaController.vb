@@ -51,6 +51,14 @@ Namespace Controllers.API
             'atualizando datas
             oFamily.DataAtualizacao = DateTime.Now()
 
+            Dim oBusiness As Business.Familia
+            Try
+                oBusiness = New Business.Familia()
+                oBusiness.Update(oFamily)
+            Finally
+                oBusiness = Nothing
+            End Try
+
         End Sub
 
         <HttpDelete>

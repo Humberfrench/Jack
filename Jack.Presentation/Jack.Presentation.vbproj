@@ -272,11 +272,14 @@
     <Compile Include="App_Start\FilterConfig.vb" />
     <Compile Include="App_Start\RouteConfig.vb" />
     <Compile Include="App_Start\WebApiConfig.vb" />
+    <Compile Include="Controllers\API\CalcadoController.vb" />
     <Compile Include="Controllers\API\ChamadaController.vb" />
     <Compile Include="Controllers\API\FamiliaController.vb" />
     <Compile Include="Controllers\API\StatusController.vb" />
     <Compile Include="Controllers\API\TesteController.vb" />
+    <Compile Include="Controllers\API\TipoItemController.vb" />
     <Compile Include="Controllers\MVC\FamiliaController.vb" />
+    <Compile Include="Controllers\RoupaController.vb" />
     <Compile Include="Global.asax.vb">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
