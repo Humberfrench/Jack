@@ -261,6 +261,7 @@
     <Compile Include="App_Start\FilterConfig.vb" />
     <Compile Include="App_Start\RouteConfig.vb" />
     <Compile Include="App_Start\WebApiConfig.vb" />
+    <Compile Include="Controllers\API\ChamadaController.vb" />
     <Compile Include="Controllers\API\FamiliaController.vb" />
     <Compile Include="Controllers\API\StatusController.vb" />
     <Compile Include="Controllers\API\TesteController.vb" />

@@ -76,6 +76,7 @@
         Return lstRetorno
 
     End Function
+
     Public Function ObterChamada() As List(Of Model.Familia)
         Dim oDados As Data.Familia = Nothing
         Dim lstRetorno As IList(Of Model.Familia) = Nothing
@@ -93,6 +94,7 @@
         Return lstRetorno
 
     End Function
+
     Public Function Update(oTipo As Model.Familia) As Boolean Implements ICrud(Of Model.Familia, Integer).Update
         Dim oDados As Data.Familia = Nothing
         Dim blnRetorno As Boolean = False

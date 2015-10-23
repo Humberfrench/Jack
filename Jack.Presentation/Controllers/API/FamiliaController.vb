@@ -9,45 +9,39 @@ Namespace Controllers.API
         Public Function GetValues() As IList(Of Model.Familia)
 
             Dim lstRetorno As List(Of Model.Familia) = Nothing
+            Dim oBusiness As Business.Familia
 
+            Try
+                oBusiness = New Business.Familia()
+                lstRetorno = oBusiness.LoadAll()
 
-            Dim temp As Model.Familia = Nothing
-            lstRetorno = New List(Of Model.Familia)
+            Catch ex As Exception
+                lstRetorno = Nothing
+            Finally
+                oBusiness = Nothing
+            End Try
 
-            temp = New Model.Familia()
-            temp.Codigo = 1
-            temp.IsConsistente = "S"
-            temp.Contato = "99934-4533"
-            temp.DataAtualizacao = DateAndTime.Now
-            temp.Familia = "Nome Qualquer1"
-            temp.IsSacolinha = "N"
-            temp.Status = 1
-            temp.Nivel = 1
-
-            lstRetorno.Add(temp)
-
-            temp = New Model.Familia()
-            temp.Codigo = 2
-            temp.IsConsistente = "S"
-            temp.Contato = "2232-3432"
-            temp.DataAtualizacao = DateAndTime.Now
-            temp.Familia = "Nome Qualquer 2"
-            temp.IsSacolinha = "N"
-            temp.Status = 1
-            temp.Nivel = 99
-            lstRetorno.Add(temp)
-
-            temp = New Model.Familia()
-            temp.Codigo = 3
-            temp.IsConsistente = "S"
-            temp.Contato = "93321-4367"
-            temp.DataAtualizacao = DateAndTime.Now
-            temp.Familia = "Nome Qualquer 3"
-            temp.IsSacolinha = "S"
-            temp.Status = 2
-            temp.Nivel = 2
-            lstRetorno.Add(temp)
             Return lstRetorno
+
+        End Function
+
+        <HttpGet>
+        Public Function GetValue(<FromUri> ID As Integer) As Model.Familia
+
+            Dim oRetorno As Model.Familia
+            Dim oBusiness As Business.Familia
+
+            Try
+                oBusiness = New Business.Familia()
+                oRetorno = oBusiness.Find(ID)
+
+            Catch ex As Exception
+                oRetorno = Nothing
+            Finally
+                oBusiness = Nothing
+            End Try
+
+            Return oRetorno
 
         End Function
 
@@ -60,7 +54,18 @@ Namespace Controllers.API
         End Sub
 
         <HttpDelete>
-        Public Sub Delete(intFamilia As Integer)
+        Public Sub Delete(<FromUri> ID As Integer)
+            Dim oBusiness As Business.Familia
+            Dim oDelete As Model.Familia
+            Try
+                oBusiness = New Business.Familia()
+                oDelete = New Model.Familia()
+                oDelete.Codigo = ID
+                oBusiness.Delete(oDelete)
+
+            Finally
+                oBusiness = Nothing
+            End Try
 
         End Sub
 
