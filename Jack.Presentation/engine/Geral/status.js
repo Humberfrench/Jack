@@ -3,7 +3,8 @@
 /// <reference path="/Scripts/jquery-2.1.4.intellisense.js" />
 /// <reference path="/Scripts/bootstrap.js" />
 /// <reference path="/Scripts/toastr.js" />
-/// <reference path="status.js" />
+/// <reference path="/engine/geral/mensagem.js" />
+/// <reference path="/engine/geral/util.js" />
 
 var Status = new Object;
 

@@ -8,8 +8,10 @@ Namespace Controllers.API
         <HttpGet>
         Public Function GetValues() As IList(Of Model.Familia)
 
-            Dim temp As Model.Familia = Nothing
             Dim lstRetorno As List(Of Model.Familia) = Nothing
+
+
+            Dim temp As Model.Familia = Nothing
             lstRetorno = New List(Of Model.Familia)
 
             temp = New Model.Familia()

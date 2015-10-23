@@ -19,9 +19,9 @@ Public Module BundleConfig
                                                                 "~/Scripts/select2.js"))
 
         'pages
-        bundles.Add(New ScriptBundle("~/bundles/engine").Include("~/engine/mensagens.js", "~/engine/util.js"))
-        bundles.Add(New ScriptBundle("~/bundles/familia").Include("~/engine/familia.js", "~/engine/familia.controller.js", "~/engine/familia.presentation.js"))
-        bundles.Add(New ScriptBundle("~/bundles/status").Include("~/engine/status.js"))
+        bundles.Add(New ScriptBundle("~/bundles/engine").Include("~/engine/geral/mensagens.js", "~/engine/geral/util.js"))
+        bundles.Add(New ScriptBundle("~/bundles/familia").Include("~/engine/familia/familia.js", "~/engine/familia/familia.controller.js", "~/engine/familia/familia.presentation.js"))
+        bundles.Add(New ScriptBundle("~/bundles/status").Include("~/engine/geral/status.js"))
 
     End Sub
 

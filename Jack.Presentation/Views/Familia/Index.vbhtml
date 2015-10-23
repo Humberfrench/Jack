@@ -55,7 +55,7 @@ End Code
     </div>
     <br /><br />
     <div id="divForm" class="container-form">
-        <div class="SubTitulo">Edição de Dados</div> <!-- IsConsistente DataAtualizacao IsSacolinha -->
+        <div class="SubTitulo">Edição de Dados</div> 
         <div style="display:table-row;" class="form-group">
             <div style="width:10px;">&nbsp;</div>
             <div class="col-form-left" style="text-align:right;"><label class="control-label" id="labelNome" for="txtNome">Nome</label></div>
@@ -128,7 +128,7 @@ End Code
             <div style="width:10px;">&nbsp;</div>
             <div class="col-form-left" style="text-align:right;"><label class="control-label" id="labelData" for="txtData">Ultima Atualização</label></div>
             <div style="width:10px;">&nbsp;</div>
-            <div class="col-form-right" style="text-align:left;"><input type="text" readonly="readonly" class="form-control" style="width:400px;" id="txtData" placeholder="" ng-model="item._DataAtualizacao" /></div>
+            <div class="col-form-right" style="text-align:left;"><input type="text" readonly="readonly" class="form-control" style="width:400px;" id="txtData" placeholder="" ng-model="item._DataFormated" /></div>
             <div style="width:10px;">&nbsp;</div>
         </div>        <div style="display:table-row;">&nbsp;</div>
         <div style="display:table-row;" class="form-group">

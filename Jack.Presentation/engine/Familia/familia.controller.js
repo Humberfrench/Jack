@@ -5,7 +5,10 @@
 /// <reference path="/Scripts/toastr.js" />
 /// <reference path="/Scripts/select2.js" />
 /// <reference path="familia.js" />
-/// <reference path="status.js" />
+/// <reference path="familia.presentation.js" />
+/// <reference path="/engine/geral/status.js" />
+/// <reference path="/engine/geral/mensagem.js" />
+/// <reference path="/engine/geral/util.js" />
 
 angular.module('CECAMApp', []).controller('ngFamiliaController', function ($scope)
 {
