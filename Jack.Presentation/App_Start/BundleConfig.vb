@@ -20,7 +20,7 @@ Public Module BundleConfig
 
         'pages
         bundles.Add(New ScriptBundle("~/bundles/mensagens").Include("~/engine/mensagens.js"))
-        bundles.Add(New ScriptBundle("~/bundles/familia").Include("~/engine/familia.js"))
+        bundles.Add(New ScriptBundle("~/bundles/familia").Include("~/engine/familia.js", "~/engine/familia.controller.js", "~/engine/familia.presentation.js"))
         bundles.Add(New ScriptBundle("~/bundles/status").Include("~/engine/status.js"))
 
     End Sub

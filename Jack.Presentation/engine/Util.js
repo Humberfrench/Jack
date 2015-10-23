@@ -8,3 +8,7 @@
 var Util = new Object
 
 
+function Select2OnChange(evt, object)
+{
+    object.value = evt.params.data.id;
+}
