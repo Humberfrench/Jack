@@ -4,20 +4,12 @@ Imports System.Web.Http
 Namespace Controllers.API
     Public Class FamiliaController
         Inherits ApiController
-        Dim lstRetorno As List(Of Model.Familia) = Nothing
 
         <HttpGet>
         Public Function GetValues() As IList(Of Model.Familia)
 
-            LoadData()
-            Return lstRetorno
-
-        End Function
-
-        Sub LoadData()
-
-
             Dim temp As Model.Familia = Nothing
+            Dim lstRetorno As List(Of Model.Familia) = Nothing
             lstRetorno = New List(Of Model.Familia)
 
             temp = New Model.Familia()
@@ -53,9 +45,9 @@ Namespace Controllers.API
             temp.Status = 2
             temp.Nivel = 2
             lstRetorno.Add(temp)
+            Return lstRetorno
 
-
-        End Sub
+        End Function
 
         <HttpPost>
         Public Sub Salvar(<FromUri> oFamily As Model.Familia)
