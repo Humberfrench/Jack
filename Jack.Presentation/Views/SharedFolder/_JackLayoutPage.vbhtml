@@ -5,6 +5,7 @@
     <title>@ViewData("Title")</title>
     @System.Web.Optimization.Styles.Render("~/content/basic")
     @System.Web.Optimization.Scripts.Render("~/bundles/basic")
+    @System.Web.Optimization.Scripts.Render("~/bundles/engine")
     <script type="text/javascript">
         $(document).ready(function ()
         {

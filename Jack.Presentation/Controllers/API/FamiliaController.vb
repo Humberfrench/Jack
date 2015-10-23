@@ -52,12 +52,15 @@ Namespace Controllers.API
         <HttpPost>
         Public Sub Salvar(<FromUri> oFamily As Model.Familia)
 
-            Dim oDados = oFamily
+            'atualizando datas
+            oFamily.DataAtualizacao = DateTime.Now()
+
+        End Sub
+
+        <HttpDelete>
+        Public Sub Delete(intFamilia As Integer)
 
         End Sub
 
     End Class
-
-
-
 End Namespace

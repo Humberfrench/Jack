@@ -1,28 +1,29 @@
 ﻿@Code
-    ViewData("Title") = "Família"
+    ViewData("Title") = "Famílias"
     Layout = "~/Views/SharedFolder/_JackLayoutPage.vbhtml"
 End Code
-@System.Web.Optimization.Scripts.Render("~/bundles/mensagens")
 @System.Web.Optimization.Scripts.Render("~/bundles/familia")
 @System.Web.Optimization.Scripts.Render("~/bundles/status")
 <div ng-controller="ngFamiliaController">
-    <div class="Titulo">Família</div><br /><br />
+    <div class="Titulo">Famílias</div><br /><br />
     <div class="SubTitulo">Lista</div>
-    <table class="table table-striped" style="width:980px">
-        <thead>
-            <tr class="">
-                <td style="width:60px;">Cód.</td>
-                <td style="width:320px;">Nome da Mãe</td>
-                <td style="width:180px;">Contato</td>
-                <td style="width:40px;">Nivel</td>
-                <td style="width:40px;text-align:center;"><img style="vertical-align:middle;" alt="Sacolinha?" title="Sacolinha?" width="24" height="24" src="@Url.Content("~/Imagens/bag.png")" /></td>
-                <td style="width:40px;text-align:center;"><img style="vertical-align:middle;" alt="Dados OK?" title="Dados OK?" width="24" height="24" src="@Url.Content("~/Imagens/ok.png")" /></td>
-                <td style="width:220px;">Status</td>
-                <td style="width:40px;"><img style="vertical-align:middle;" alt="" title="" src="@Url.Content("~/Imagens/editar.png")" /></td>
-                <td style="width:40px;"><img style="vertical-align:middle;" alt="" title="" src="@Url.Content("~/Imagens/excluir.png")" /></td>
-            </tr>
-        </thead>
-    </table>
+    <div id="divDadosGrid" style="width:980px;">
+        <table class="table table-striped" style="width:980px">
+            <thead>
+                <tr class="">
+                    <td style="width:60px;">Cód.</td>
+                    <td style="width:320px;">Nome da Mãe</td>
+                    <td style="width:180px;">Contato</td>
+                    <td style="width:40px;">Nivel</td>
+                    <td style="width:40px;text-align:center;"><img style="vertical-align:middle;" alt="Sacolinha?" title="Sacolinha?" width="24" height="24" src="@Url.Content("~/Imagens/bag.png")" /></td>
+                    <td style="width:40px;text-align:center;"><img style="vertical-align:middle;" alt="Dados OK?" title="Dados OK?" width="24" height="24" src="@Url.Content("~/Imagens/ok.png")" /></td>
+                    <td style="width:220px;">Status</td>
+                    <td style="width:40px;">&nbsp;</td>
+                    <td style="width:40px;">&nbsp;</td>
+                </tr>
+            </thead>
+        </table>
+    </div>
     <div id="divDadosGrid" style="width:980px; height:418px;overflow-y:auto;">
         <table class="table table-striped" style="width:960px">
             <tbody id="tBodyDados" class="filterable">
@@ -30,7 +31,9 @@ End Code
                     <td style="width:60px;">{{item._Codigo}}</td>
                     <td style="width:300px;">{{item._Familia}}</td>
                     <td style="width:180px;">{{item._Contato}}</td>
-                    <td style="width:40px;"><img style="vertical-align:middle;" width="24" height="24"  alt="Nível" title="Nível {{item._Nivel}}" src="@Url.Content("~/Imagens/{{item._Nivel}}.png")" /></td>
+                    <td style="width:40px;">
+                        <img style="vertical-align:middle;" width="24" height="24" alt="Nível" title="Nível {{item._Nivel}}" src="@Url.Content("~/Imagens/{{item._Nivel}}.png")" />
+                    </td>
                     <td style="width:40px;text-align:center;">
                         <div ng-switch on="item._IsSacolinha">
                             <div ng-switch-when="S"><img style="vertical-align:middle;" alt="Sim Sacolinha" title="Sim Sacolinha" width="24" height="24" src="@Url.Content("~/Imagens/ok.png")" /></div>
@@ -102,7 +105,7 @@ End Code
                         <option value="99">Nível 99</option>
                     </optgroup>
                 </select>
-                <input type="text" id="txtNivel" ng-model="item._Nivel" value="{{item._Nivel}}" />
+                <input type="hidden" id="txtNivel" ng-model="item._Nivel" value="{{item._Nivel}}" />
                 <div ng-if="item._Nivel > 0">
                     <img style="vertical-align:middle; display:none" width="24" height="24" alt="Nível" title="Nível {{item._Nivel}}" src="@Url.Content("~/Imagens/{{item._Nivel}}.png")" />
                 </div>
