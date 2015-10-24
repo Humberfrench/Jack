@@ -8,5 +8,10 @@ Namespace Controllers.MVC
         Function Index() As ActionResult
             Return View()
         End Function
+
+        Function Criancas() As ActionResult
+            Return View()
+        End Function
+
     End Class
 End Namespace

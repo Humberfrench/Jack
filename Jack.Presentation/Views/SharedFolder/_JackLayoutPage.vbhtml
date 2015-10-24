@@ -16,7 +16,7 @@
 <body>
     <div id="divPrincipal" style="display:none;">
         <div id="header">
-            <img src=@Url.Content("~/imagens/topo.jpg") alt="header" width="1024"  height="150" />
+            <img src=@Url.Content("~/imagens/header.jpg") alt="header" width="1024"  height="150" />
         </div>
         <div id="divMenu" style="width:1024px;" class="menuContent dropdown theme-dropdown clearfix">
             <div role="navigation">

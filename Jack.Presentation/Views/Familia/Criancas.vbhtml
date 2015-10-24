@@ -1,15 +1,15 @@
 ﻿@Code
-    ViewData("Title") = "Famílias"
+    ViewData("Title") = "Criancas"
     Layout = "~/Views/SharedFolder/_JackLayoutPage.vbhtml"
 End Code
 @System.Web.Optimization.Scripts.Render("~/bundles/familia")
 @System.Web.Optimization.Scripts.Render("~/bundles/status")
 <div ng-controller="ngFamiliaController">
-    <div class="Titulo">Famílias</div><br /><br />
+    <div class="Titulo">Criancas por Famílias</div><br /><br />
     <div class="SubTitulo">Lista</div>
     <table class="" style="width:980px">
         <thead>
-            <tr class="label-primary table-row"style="">
+            <tr class="label-primary table-row" style="">
                 <td style="width:40px;">Cód.</td>
                 <td style="width:300px;">Nome da Mãe</td>
                 <td style="width:160px;">Contato</td>
@@ -53,7 +53,7 @@ End Code
     </div>
     <br /><br />
     <div id="divForm" class="container-form">
-        <div class="SubTitulo">Edição de Dados</div> 
+        <div class="SubTitulo">Edição de Dados</div>
         <div style="display:table-row;" class="form-group">
             <div style="width:10px;">&nbsp;</div>
             <div class="col-form-left" style="text-align:right;"><label class="control-label" id="labelNome" for="txtNome">Nome</label></div>
@@ -68,7 +68,7 @@ End Code
             <div style="width:10px;">&nbsp;</div>
             <div class="col-form-left" style="text-align:right;"><label class="control-label" id="labelContato" for="txtEmpresa">Contato</label></div>
             <div style="width:10px;">&nbsp;</div>
-            <div class="col-form-right" style="text-align:left;"><input type="text" value="" class="form-control" style="width:400px;" maxlength="100" id="txtContato" placeholder="Contato" ng-model="item._Contato"/></div>
+            <div class="col-form-right" style="text-align:left;"><input type="text" value="" class="form-control" style="width:400px;" maxlength="100" id="txtContato" placeholder="Contato" ng-model="item._Contato" /></div>
             <div style="width:10px;">&nbsp;</div>
         </div>
         <div style="display:table-row;" class="form-group">
@@ -139,4 +139,4 @@ End Code
         <div style="display:table-row;">&nbsp;</div>
     </div>
 </div>
->
+
