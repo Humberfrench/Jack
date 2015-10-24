@@ -7,7 +7,7 @@ End Code
 <div ng-controller="ngFamiliaController">
     <div class="Titulo">Famílias</div><br /><br />
     <div class="SubTitulo">Lista</div>
-    <table class="" style="width:980px">
+    <table class="" style="width:980px; margin: 0 auto;">
         <thead>
             <tr class="label-primary table-row"style="">
                 <td style="width:40px;">Cód.</td>
@@ -22,7 +22,7 @@ End Code
             </tr>
         </thead>
     </table>
-    <div id="divDadosGrid" style="width:980px; height:418px;overflow-y:auto;">
+    <div id="divDadosGrid" style="width:980px;  margin: 0 auto;height:418px;overflow-y:auto;">
         <table class="table table-striped" style="width: 960px;">
             <tbody id="tBodyDados" class="filterable">
                 <tr class="" ng-repeat="item in itens">
