@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" assembly="CECAMAdm.Struct" namespace="CECAMAdm.Struct">
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" assembly="Jack.Model" namespace="Jack.Model">
 	<class name="Calcado" table="tb_calcado">
 		<id name="Codigo" column="id_calcado">
 			<generator class="native"/>
