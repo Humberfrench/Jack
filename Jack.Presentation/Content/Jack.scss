@@ -98,6 +98,6 @@ body
 {
 	font-weight: bold; 
 	color: $second_color_white; 
-	@include center_text(40px, 40px)
+	@include center_text(40px, 40px) ;
 }
 
