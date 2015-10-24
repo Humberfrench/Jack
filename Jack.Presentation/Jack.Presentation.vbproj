@@ -167,6 +167,9 @@
     </Content>
     <Content Include="Content\toastr.css" />
     <Content Include="Content\toastr.min.css" />
+    <Content Include="engine\Familia\CriancasFamilia.controller.js" />
+    <Content Include="engine\Familia\CriancasFamilia.presentation.js" />
+    <Content Include="engine\Familia\CriancasFamilia.js" />
     <Content Include="engine\Familia\familia.js" />
     <Content Include="engine\Familia\familia.presentation.js" />
     <Content Include="engine\Geral\mensagens.js" />
