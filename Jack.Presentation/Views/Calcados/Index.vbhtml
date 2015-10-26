@@ -1,81 +1,56 @@
 ﻿@ModelType IEnumerable(Of Jack.Model.Calcado)
 @Code
-ViewData("Title") = "Index"
-Layout = "~/Views/SharedFolder/_JackLayoutPage.vbhtml"
+    ViewData("Title") = "Calçados"
+    Layout = "~/Views/SharedFolder/_JackLayoutPage.vbhtml"
 End Code
 
-<h2>Index</h2>
-
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(Function(model) model.Codigo)
-        </th>
-        <th>
-            @Html.DisplayNameFor(Function(model) model.Numero)
-        </th>
-        <th>
-            @Html.DisplayNameFor(Function(model) model.Sexo)
-        </th>
-        <th>
-            @Html.DisplayNameFor(Function(model) model.NumeroInicio)
-        </th>
-        <th>
-            @Html.DisplayNameFor(Function(model) model.NumeroFim)
-        </th>
-        <th>
-            @Html.DisplayNameFor(Function(model) model.MedidaIdade)
-        </th>
-        <th>
-            @Html.DisplayNameFor(Function(model) model.IdadeInicial)
-        </th>
-        <th>
-            @Html.DisplayNameFor(Function(model) model.IdadeFinal)
-        </th>
-        <th>
-            @Html.DisplayNameFor(Function(model) model.SexoDescricao)
-        </th>
-        <th></th>
+<h2>Calçados</h2>
+<table class="" style="width:980px; margin: 0 auto;">
+    <tr class="label table-row">
+        <td style="width:300px">Sexo</td>
+        <td style="width:100px">Idade Inicial</td>
+        <td style="width:100px">Idade Final</td>
+        <td style="width:100px">Medida</td>
+        <td style="width:100px">Numero</td>
+        <td style="width:100px">Numero Inicio</td>
+        <td style="width:100px">Numero Fim</td>
+        <td>&nbsp;</td>
     </tr>
-
-@For Each item In Model
-    @<tr>
-        <td>
-            @Html.DisplayFor(Function(modelItem) item.Codigo)
-        </td>
-        <td>
-            @Html.DisplayFor(Function(modelItem) item.Numero)
-        </td>
-        <td>
-            @Html.DisplayFor(Function(modelItem) item.Sexo)
-        </td>
-        <td>
-            @Html.DisplayFor(Function(modelItem) item.NumeroInicio)
-        </td>
-        <td>
-            @Html.DisplayFor(Function(modelItem) item.NumeroFim)
-        </td>
-        <td>
-            @Html.DisplayFor(Function(modelItem) item.MedidaIdade)
-        </td>
-        <td>
-            @Html.DisplayFor(Function(modelItem) item.IdadeInicial)
-        </td>
-        <td>
-            @Html.DisplayFor(Function(modelItem) item.IdadeFinal)
-        </td>
-        <td>
-            @Html.DisplayFor(Function(modelItem) item.SexoDescricao)
-        </td>
-        <td>
-            @*@Html.ActionLink("Edit", "Edit", New With {.id = item.PrimaryKey}) |
-            @Html.ActionLink("Details", "Details", New With {.id = item.PrimaryKey}) |
-            @Html.ActionLink("Delete", "Delete", New With {.id = item.PrimaryKey})*@
-        </td>
-    </tr>
-Next
-
 </table>
+<div id="divDadosGrid" style="width:980px;  margin: 0 auto;height:418px;overflow-y:auto;">
+    <table class="table table-striped" style="width: 960px;">
+        @For Each item In Model
+        @<tr>
+             <td style="width:300px">
+                 @code
+                     If item.Sexo = "M" Then
+                        @Html.Display("Masculino")
+                     Else
+                        @Html.Display("Feminino")
+                     End If
+                End code
+
+             </td>
+    <td style="width:100px">
+        @Html.DisplayFor(Function(modelItem) item.IdadeInicial)
+    </td>
+    <td style="width:100px">
+        @Html.DisplayFor(Function(modelItem) item.IdadeFinal)
+    </td>
+    <td style="width:100px">
+        @Html.DisplayFor(Function(modelItem) item.MedidaIdade)
+    </td>
+    <td style="width:100px">
+        @Html.DisplayFor(Function(modelItem) item.Numero)
+    </td>
+    <td style="width:100px">
+        @Html.DisplayFor(Function(modelItem) item.NumeroInicio)
+    </td>
+    <td style="width:100px">
+        @Html.DisplayFor(Function(modelItem) item.NumeroFim)
+    </td>
+    <td>&nbsp;</td>
+</tr>
+        Next
+    </table>
+</div>

@@ -12,12 +12,12 @@ Public Module BundleConfig
                                                                "~/Content/css/select2.css"))
         'all
         bundles.Add(New ScriptBundle("~/bundles/Basic").Include("~/Scripts/jquery-2.1.4.min.js",
-                                                                "~/Scripts/angular.min.js",
                                                                 "~/Scripts/toastr.min.js",
                                                                 "~/Scripts/bootstrap.min.js",
                                                                 "~/Scripts/awesomplete.js",
                                                                 "~/Scripts/select2.js"))
 
+        bundles.Add(New ScriptBundle("~/bundles/Angular").Include("~/Scripts/angular.min.js"))
         'pages
         bundles.Add(New ScriptBundle("~/bundles/engine").Include("~/engine/geral/mensagens.js", "~/engine/geral/util.js"))
         bundles.Add(New ScriptBundle("~/bundles/familia").Include("~/engine/familia/familia.js", "~/engine/familia/familia.controller.js", "~/engine/familia/familia.presentation.js"))

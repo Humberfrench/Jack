@@ -119,7 +119,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="engine\engine.js" />
     <EmbeddedResource Include="Mappings\Calcado.hbm.xml" />
     <EmbeddedResource Include="Mappings\Colaborador.hbm.xml" />
     <EmbeddedResource Include="Mappings\ColaboradorCrianca.hbm.xml" />
