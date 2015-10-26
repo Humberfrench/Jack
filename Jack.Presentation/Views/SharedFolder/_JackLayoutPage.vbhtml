@@ -24,7 +24,7 @@
                     <li id="lnkCadastros" style="width:150px;text-align:center;" role="presentation" class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Cadastros <span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li id="Item101"><a id="lnkCalcados" href="Calcados.aspx">Calçados</a></li>
+                            <li id="Item101">@Html.ActionLink("Calçados", "ActionName", "ControllerName")</li>
                             <li id="Item102"><a id="lnkRoupas" href="Roupas.aspx">Roupas</a></li>
                             <li id="Item103"><a id="lnkColaborador" href="#.aspx">Colaborador</a></li>
                             <li id="Item104"><a id="lnkKits" href="Kit.aspx">Kits</a></li>
@@ -36,7 +36,7 @@
                     <li id="lnkSacolas" style="width:150px;text-align:center;" role="presentation" class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Sacolas <span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li id="Item201"><a id="lnkFamilia" href="Familia.aspx">Familia</a></li>
+                            <li id="Item201">@Html.ActionLink("Familia", "Index", "Familia")</li>
                             <li id="Item202"><a id="lnkFamiliaLote" href="FamiliaLote.aspx">Familia - Lote</a></li>
                             <li id="Item203"><a id="lnkCriancas" href="Criancas.aspx">Crianças</a></li>
                             <li id="Item204"><a id="lnkCriancasUpdate" href="AlteraDadosCrianca.aspx">Alterar Dados Crianças</a></li>
@@ -51,7 +51,7 @@
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Consulta <span class="caret"></span></a>
                         <ul class="dropdown-menu">
                             <li id="Item211"><a id="lnkCriancasConsulta" href="CriancasConsulta.aspx">Consulta Crianças</a></li>
-                            <li id="Item212"><a id="lnkCriancasFamilia" href="CriancasFamilia.aspx">Crianças Por Familia</a></li>
+                            <li id="Item212">@Html.ActionLink("Crianças por Família", "Criancas", "Familia")</li>
                             <li id="Item213"><a id="lnkCriancasFamiliaRep" href="CriancasFamiliaRep.aspx">Crianças Por Familia/Representante</a></li>
                             <li id="Item214"><a id="lnkSacolasdoLivres" href="SacolasLivres.aspx">Sacolas Livres</a></li>
                             <li id="Item215"><a id="lnkSacolasdoColaborador" href="SacolaColaboradorView.aspx">Sacolas do Colaborador</a></li>

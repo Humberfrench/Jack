@@ -279,7 +279,7 @@
     <Compile Include="Controllers\API\TesteController.vb" />
     <Compile Include="Controllers\API\TipoItemController.vb" />
     <Compile Include="Controllers\MVC\FamiliaController.vb" />
-    <Compile Include="Controllers\RoupaController.vb" />
+    <Compile Include="Controllers\API\RoupaController.vb" />
     <Compile Include="Global.asax.vb">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
