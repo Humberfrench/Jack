@@ -24,7 +24,7 @@
                     <li id="lnkCadastros" style="width:150px;text-align:center;" role="presentation" class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Cadastros <span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li id="Item101">@Html.ActionLink("Calçados", "ActionName", "ControllerName")</li>
+                            <li id="Item101">@Html.ActionLink("Calçados", "Index", "Calcados")</li>
                             <li id="Item102"><a id="lnkRoupas" href="Roupas.aspx">Roupas</a></li>
                             <li id="Item103"><a id="lnkColaborador" href="#.aspx">Colaborador</a></li>
                             <li id="Item104"><a id="lnkKits" href="Kit.aspx">Kits</a></li>
@@ -51,9 +51,9 @@
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Consulta <span class="caret"></span></a>
                         <ul class="dropdown-menu">
                             <li id="Item211"><a id="lnkCriancasConsulta" href="CriancasConsulta.aspx">Consulta Crianças</a></li>
-                            <li id="Item212">@Html.ActionLink("Crianças por Família", "Criancas", "Familia")</li>
-                            <li id="Item213"><a id="lnkCriancasFamiliaRep" href="CriancasFamiliaRep.aspx">Crianças Por Familia/Representante</a></li>
-                            <li id="Item214"><a id="lnkSacolasdoLivres" href="SacolasLivres.aspx">Sacolas Livres</a></li>
+                            <li id="Item212">@Html.ActionLink("Crianças por Família", "Index", "FamiliaCrianca")</li>
+                            <li id="Item213">@Html.ActionLink("Crianças Por Familia/Representante", "Representante", "FamiliaCrianca")</li>
+                            <li id="Item214">@Html.ActionLink("Sacolas Livres", "Livres", "Sacolas")</li>
                             <li id="Item215"><a id="lnkSacolasdoColaborador" href="SacolaColaboradorView.aspx">Sacolas do Colaborador</a></li>
                             <li id="Item216"><a id="lnkQtdeSacolasdoColaborador" href="SacolaColaboradorQtdeView.aspx">Qtde. Sacolas do Colaborador</a></li>
                             <li id="Item217"><a id="lnkPresencaPorReuniao" href="PresencaPorReuniao.aspx">Presença Por Reunião</a></li>

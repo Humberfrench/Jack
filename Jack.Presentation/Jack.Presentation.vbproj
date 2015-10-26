@@ -278,9 +278,11 @@
     <Compile Include="Controllers\API\StatusController.vb" />
     <Compile Include="Controllers\API\TesteController.vb" />
     <Compile Include="Controllers\API\TipoItemController.vb" />
+    <Compile Include="Controllers\MVC\CalcadosController.vb" />
     <Compile Include="Controllers\MVC\FamiliaController.vb" />
     <Compile Include="Controllers\API\RoupaController.vb" />
     <Compile Include="Controllers\MVC\FamiliaCriancaController.vb" />
+    <Compile Include="Controllers\MVC\SacolasController.vb" />
     <Compile Include="Global.asax.vb">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -327,9 +329,9 @@
     <Content Include="Scripts\jquery-2.1.4.min.map" />
     <Content Include="Views\SharedFolder\_JackLayoutPage.vbhtml" />
     <Content Include="Views\Familia\Index.vbhtml" />
-    <Content Include="Views\Familia\Criancas.vbhtml" />
     <Content Include="Views\FamiliaCrianca\Index.vbhtml" />
     <Content Include="Views\FamiliaCrianca\Representante.vbhtml" />
+    <Content Include="Views\Calcados\Index.vbhtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -340,6 +342,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
+    <Folder Include="Views\Sacolas\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Jack.Business\Jack.Business.vbproj">
