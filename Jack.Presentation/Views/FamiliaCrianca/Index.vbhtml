@@ -1,5 +1,5 @@
 ﻿@Code
-    ViewData("Title") = "Criancas"
+    ViewData("Title") = "Criancas por Famílias"
     Layout = "~/Views/SharedFolder/_JackLayoutPage.vbhtml"
 End Code
 @System.Web.Optimization.Scripts.Render("~/bundles/familia")
@@ -14,8 +14,7 @@ End Code
             <div class="col-form-left" style="text-align:right;"><label class="control-label" id="labelNivel" for="ddlNivel">Nível</label></div>
             <div style="width:10px;">&nbsp;</div>
             <div class="col-form-right" style="text-align:left;">
-                <select id="ddlNivel" style="width:320px;">
-                </select>
+                <select id="ddlNivel" style="width:320px;"></select>
                 <input type="text" value="" class="form-control" style="width:60px;" maxlength="100" id="txtCodigo" readonly="readonly" />
             </div>
             <div style="width:10px;">&nbsp;</div>

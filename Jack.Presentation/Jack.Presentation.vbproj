@@ -167,9 +167,9 @@
     </Content>
     <Content Include="Content\toastr.css" />
     <Content Include="Content\toastr.min.css" />
-    <Content Include="engine\Familia\CriancasFamilia.controller.js" />
-    <Content Include="engine\Familia\CriancasFamilia.presentation.js" />
-    <Content Include="engine\Familia\CriancasFamilia.js" />
+    <Content Include="engine\FamiliaCrianca\FamiliaCrianca.controller.js" />
+    <Content Include="engine\FamiliaCrianca\FamiliaCrianca.presentation.js" />
+    <Content Include="engine\FamiliaCrianca\FamiliaCrianca.js" />
     <Content Include="engine\Familia\familia.js" />
     <Content Include="engine\Familia\familia.presentation.js" />
     <Content Include="engine\Geral\mensagens.js" />
@@ -280,6 +280,7 @@
     <Compile Include="Controllers\API\TipoItemController.vb" />
     <Compile Include="Controllers\MVC\FamiliaController.vb" />
     <Compile Include="Controllers\API\RoupaController.vb" />
+    <Compile Include="Controllers\MVC\FamiliaCriancaController.vb" />
     <Compile Include="Global.asax.vb">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -327,6 +328,8 @@
     <Content Include="Views\SharedFolder\_JackLayoutPage.vbhtml" />
     <Content Include="Views\Familia\Index.vbhtml" />
     <Content Include="Views\Familia\Criancas.vbhtml" />
+    <Content Include="Views\FamiliaCrianca\Index.vbhtml" />
+    <Content Include="Views\FamiliaCrianca\Representante.vbhtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
