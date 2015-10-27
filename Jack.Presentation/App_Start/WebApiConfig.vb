@@ -17,11 +17,10 @@ Public Module WebApiConfig
         )
 
         config.Routes.MapHttpRoute(
-            name:="Status1",
+            name:="ObtemVazios1",
             routeTemplate:="api/{controller}/Get/{action}/{id}",
             defaults:=New With {.id = RouteParameter.Optional}
         )
-
 
         'config.Routes.MapHttpRoute(
         '    name:="ActionApi2",
