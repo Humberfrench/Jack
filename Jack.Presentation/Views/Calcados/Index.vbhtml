@@ -4,9 +4,10 @@
     Layout = "~/Views/SharedFolder/_JackLayoutPage.vbhtml"
 End Code
 
-<h2>Calçados</h2>
-<table class="" style="width:980px; margin: 0 auto;">
-    <tr class="label table-row">
+<h2 class="Titulo">Calçados</h2>
+<br /><br />
+<table class="table" style="width:980px; margin: 0 auto;">
+    <tr class="label-primary table-row">
         <td style="width:300px">Sexo</td>
         <td style="width:100px">Idade Inicial</td>
         <td style="width:100px">Idade Final</td>
@@ -14,7 +15,7 @@ End Code
         <td style="width:100px">Numero</td>
         <td style="width:100px">Numero Inicio</td>
         <td style="width:100px">Numero Fim</td>
-        <td>&nbsp;</td>
+        <td style="width:80px">&nbsp;</td>
     </tr>
 </table>
 <div id="divDadosGrid" style="width:980px;  margin: 0 auto;height:418px;overflow-y:auto;">
