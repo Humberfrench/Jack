@@ -10,7 +10,7 @@ End Code
     <div class="SubTitulo">Lista</div>
     <table class="" style="width:980px; margin: 0 auto;">
         <thead>
-            <tr class="label table-row" style="">
+            <tr class="label-primary table-row">
                 <td style="width:40px;">Cód.</td>
                 <td style="width:300px;">Nome da Mãe</td>
                 <td style="width:160px;">Contato</td>
