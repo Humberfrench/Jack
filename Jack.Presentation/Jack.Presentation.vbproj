@@ -274,6 +274,7 @@
     <Compile Include="App_Start\WebApiConfig.vb" />
     <Compile Include="Controllers\API\ChamadaController.vb" />
     <Compile Include="Controllers\API\FamiliaController.vb" />
+    <Compile Include="Controllers\API\PresencaController.vb" />
     <Compile Include="Controllers\API\StatusController.vb" />
     <Compile Include="Controllers\API\TesteController.vb" />
     <Compile Include="Controllers\API\TipoItemController.vb" />
