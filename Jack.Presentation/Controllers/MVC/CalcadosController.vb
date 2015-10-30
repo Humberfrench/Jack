@@ -14,14 +14,14 @@ Namespace Controllers.MVC
 
                 CalcadoBusiness = New Business.Calcado()
                 'fake init
-                CalcadoRetorno = New List(Of Model.Calcado)
-                CalcadoRetorno.Add(New Model.Calcado)
-                CalcadoRetorno.Add(New Model.Calcado)
-                CalcadoRetorno.Add(New Model.Calcado)
-                CalcadoRetorno.Add(New Model.Calcado)
-                CalcadoRetorno.Add(New Model.Calcado)
+                'CalcadoRetorno = New List(Of Model.Calcado)
+                'CalcadoRetorno.Add(New Model.Calcado)
+                'CalcadoRetorno.Add(New Model.Calcado)
+                'CalcadoRetorno.Add(New Model.Calcado)
+                'CalcadoRetorno.Add(New Model.Calcado)
+                'CalcadoRetorno.Add(New Model.Calcado)
                 'fake end
-                'CalcadoRetorno = CalcadoBusiness.LoadAll()
+                CalcadoRetorno = CalcadoBusiness.LoadAll()
 
             Catch ex As Exception
                 CalcadoRetorno = New List(Of Model.Calcado)
