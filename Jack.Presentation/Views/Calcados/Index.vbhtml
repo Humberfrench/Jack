@@ -22,9 +22,9 @@ End Code
              <td style="width:350px">
                  @code
                      If item.Sexo = "M" Then
-                        @Html.DisplayText("<spam style='coplor:midnightblue;'> Masculino</span>")
+                        @Html.Raw("<spam style='color:midnightblue;'> Masculino</span>")
                      Else
-                        @Html.DisplayText("<spam style='coplor:red;'> Feminino</span>")
+                        @Html.Raw("<spam style='color:red;'> Feminino</span>")
                      End If
                 End code
 
