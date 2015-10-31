@@ -31,7 +31,7 @@ End Code
         @For Each item In Model
     @<tr>
         <td style="width:350px">
-            @Html.Raw("<spam style='color:red;'> Feminino</span>")
+            @Html.Raw(item.SexoDescricao)
         </td>
         <td style="width:150px">
             @Html.DisplayFor(Function(modelItem) item.Numero)
