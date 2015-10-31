@@ -7,8 +7,7 @@ Namespace Controllers.API
 
         <HttpGet>
         Public Function ObterChamada() As IList(Of Model.Familia)
-
-
+            Return New List(Of Model.Familia)
         End Function
 
     End Class

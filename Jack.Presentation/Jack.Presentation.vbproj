@@ -1110,6 +1110,8 @@
     <Content Include="Views\FamiliaCrianca\Representante.vbhtml" />
     <Content Include="Views\Calcados\Index.vbhtml" />
     <Content Include="Scripts\version.json" />
+    <Content Include="Views\Calcados\Meninas.vbhtml" />
+    <Content Include="Views\Calcados\Meninos.vbhtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
