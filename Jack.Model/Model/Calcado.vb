@@ -22,9 +22,9 @@ Public Class Calcado
     Public Overridable ReadOnly Property IdadeInicial As String
         Get
             If MedidaIdade = "M" Then
-                Return NumeroFim.ToString() + " meses"
+                Return NumeroInicio.ToString() + " meses"
             Else
-                Return NumeroFim.ToString() + " anos"
+                Return NumeroInicio.ToString() + " anos"
             End If
         End Get
     End Property
