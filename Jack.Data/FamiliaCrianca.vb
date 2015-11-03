@@ -4,7 +4,7 @@ Imports System.Data
 Public Class FamiliaCrianca
 
     Public Sub New()
-        MyBase.new()
+        MyBase.New()
     End Sub
 
     ''' <summary>
@@ -143,8 +143,9 @@ Public Class FamiliaCrianca
                 objDados.IsSacolinha = dr("is_sacolinha").ToString()
                 objDados.IsConsistente = dr("is_consistente").ToString()
                 objDados.IsMoralCrista = dr("is_moral_crista").ToString()
-                objDados.Status = Convert.ToInt32(dr("id_status"))
+                objDados.StatusCodigo = Convert.ToInt32(dr("id_status"))
                 objDados.StatusNome = dr("ds_status").ToString()
+                objDados.Status = New Model.Status(Convert.ToInt32(dr("id_status")), dr("ds_status").ToString())
                 lstDados.Add(objDados)
             Next
         Catch ex As Exception
@@ -197,8 +198,9 @@ Public Class FamiliaCrianca
                 objDados.IsSacolinha = dr("is_sacolinha").ToString()
                 objDados.IsConsistente = dr("is_consistente").ToString()
                 objDados.IsMoralCrista = dr("is_moral_crista").ToString()
-                objDados.Status = Convert.ToInt32(dr("id_status"))
+                objDados.StatusCodigo = Convert.ToInt32(dr("id_status"))
                 objDados.StatusNome = dr("ds_status").ToString()
+                objDados.Status = New Model.Status(Convert.ToInt32(dr("id_status")), dr("ds_status").ToString())
                 objDados.Familia = dr("nm_mae").ToString()
                 lstDados.Add(objDados)
             Next

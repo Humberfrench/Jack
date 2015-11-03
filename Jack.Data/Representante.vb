@@ -37,6 +37,7 @@ Public Class Representante
                 objDados.Nivel = Convert.ToInt32(dr("nr_nivel_espera"))
                 objDados.StatusCodigo = Convert.ToInt32(dr("id_status"))
                 objDados.StatusNome = dr("ds_status").ToString()
+                objDados.Status = New Model.Status(Convert.ToInt32(dr("id_status")), dr("ds_status").ToString())
                 lstDados.Add(objDados)
             Next
         Catch ex As Exception

@@ -8,7 +8,7 @@ Public Class Criancas
         DataNascimento = New DateTime()
         Sexo = String.Empty
         Kit = 0
-        Status = 0
+        StatusCodigo = 0
         MedidaIdade = String.Empty
         Calcado = 99
         Roupa = "99"
@@ -16,7 +16,7 @@ Public Class Criancas
         IsConsistente = String.Empty
         IsNecessidadeEspecial = String.Empty
         IsMoralCrista = String.Empty
-        Status = 0
+        Status = New Status
         StatusNome = String.Empty
         Familia = String.Empty
         FamiliaRepresentante = String.Empty
@@ -39,7 +39,8 @@ Public Class Criancas
     Public Overridable Property IsConsistente As String
     Public Overridable Property IsNecessidadeEspecial As String
     Public Overridable Property IsMoralCrista As String
-    Public Overridable Property Status As Integer
+    Public Overridable Property Status As Model.Status
+    Public Overridable Property StatusCodigo As Integer
     Public Overridable Property StatusNome As String
     Public Overridable Property Familia As String
     Public Overridable Property FamiliaRepresentante As String
