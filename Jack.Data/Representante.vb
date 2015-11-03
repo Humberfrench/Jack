@@ -1,11 +1,11 @@
 ﻿Imports System.Data
 Imports Consumer.Data.Basic.Data
 
-    Public Class Representante
+Public Class Representante
 
-        Public Sub New()
-            MyBase.New()
-        End Sub
+    Public Sub New()
+        MyBase.New()
+    End Sub
 
     Public Function ObterMaes(intFamilia As Integer) As List(Of Model.Familia)
 
@@ -35,7 +35,7 @@ Imports Consumer.Data.Basic.Data
                 objDados.IsConsistente = dr("is_consistente").ToString()
                 objDados.IsSacolinha = dr("is_sacolinha").ToString()
                 objDados.Nivel = Convert.ToInt32(dr("nr_nivel_espera"))
-                objDados.Status = Convert.ToInt32(dr("id_status"))
+                objDados.StatusCodigo = Convert.ToInt32(dr("id_status"))
                 objDados.StatusNome = dr("ds_status").ToString()
                 lstDados.Add(objDados)
             Next

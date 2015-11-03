@@ -92,7 +92,7 @@ Public Class Presenca
                 oRetorno.IsSacolinha = dr("is_sacolinha").ToString()
                 oRetorno.IsConsistente = dr("is_consistente").ToString()
                 oRetorno.StatusNome = dr("ds_status").ToString()
-                oRetorno.Status = Convert.ToInt32(dr("id_status").ToString())
+                oRetorno.StatusCodigo = Convert.ToInt32(dr("id_status").ToString())
                 lstRetorno.Add(oRetorno)
             Next
         Catch ex As Exception

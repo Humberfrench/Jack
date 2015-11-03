@@ -8,7 +8,7 @@
     <property column="nr_nivel_espera" name="Nivel" not-null="false" />
     <property column="is_sacolinha" name="IsSacolinha" not-null="false" />
     <property column="is_consistente" name="IsConsistente" not-null="false" />
-    <property column="id_status" name="Status" not-null="true"/>
+    <many-to-one name="Status" column="id_status" class="Status" not-null="true" />    
     <property column="ds_contato" name="Contato" not-null="false"/>
     <property column="dt_update" name="DataAtualizacao" not-null="false"/>
  </class>

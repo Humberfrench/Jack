@@ -16,7 +16,8 @@ Public Class Familia
     Public Overridable Property IsConsistente As String
     Public Overridable Property Contato As String
     Public Overridable Property Nivel As Integer
-    Public Overridable Property Status As Integer
+    Public Overridable Property Status As Model.Status
+    Public Overridable Property StatusCodigo As Integer
     Public Overridable Property StatusNome As String
     Public Overridable Property DataAtualizacao As DateTime
 
