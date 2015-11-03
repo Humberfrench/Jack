@@ -25,7 +25,7 @@ Imports System.Collections.Generic
 Public Class GenericDao(Of Tipo, ID)
     Implements IGenericDao(Of Tipo, ID), IDisposable
 
-    Private oSession As ISession
+    Public oSession As ISession
     Private oTransaction As ITransaction
     Private blnHasTransaction As Boolean
     'Private oNhTemplate As 

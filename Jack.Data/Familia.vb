@@ -66,6 +66,15 @@ Public Class Familia
 
     End Function
 
+    'Overrides Function LoadAll2() As IList(Of Model.Familia)
+
+    '    Dim oCriteria = oSession.CreateCriteria("Familia", "F").CreateAlias("F.Status", "S")
+
+
+
+
+    'End Function
+
     Public Function GravarLote(oFamilia As Model.Familia) As String
         Dim oCommand As Command = Nothing
         Dim strRetorno As String = String.Empty
