@@ -77,7 +77,7 @@ Public Class Presenca
         Dim oCommand As Command = Nothing
         Dim lstRetorno As IList(Of Model.Familia) = Nothing
         Dim dtDados As DataTable = Nothing
-        Dim oRetorno As Model.Familia = Nothing
+        Dim objDados As Model.Familia = Nothing
         Try
             lstRetorno = New List(Of Model.Familia)
             oCommand = New Command("CECAMKey")
@@ -86,22 +86,22 @@ Public Class Presenca
             oCommand.Parameters.Add(New Parameter("@id_reuniao", System.Data.DbType.Int32, 75, intReuniao))
             dtDados = oCommand.GetDataTable()
             For Each dr As DataRow In dtDados.Rows
-                oRetorno = New Model.Familia()
-                oRetorno.Codigo = Convert.ToInt32(dr("id_familia").ToString())
-                oRetorno.Familia = dr("nm_mae").ToString()
-                oRetorno.IsSacolinha = dr("is_sacolinha").ToString()
-                oRetorno.IsConsistente = dr("is_consistente").ToString()
-                oRetorno.StatusNome = dr("ds_status").ToString()
-                oRetorno.StatusCodigo = Convert.ToInt32(dr("id_status").ToString())
-                oRetorno.Status = New Model.Status(Convert.ToInt32(dr("id_status")), dr("ds_status").ToString())
-                lstRetorno.Add(oRetorno)
+                objDados = New Model.Familia()
+                objDados.Codigo = Convert.ToInt32(dr("id_familia").ToString())
+                objDados.Familia = dr("nm_mae").ToString()
+                objDados.IsSacolinha = dr("is_sacolinha").ToString()
+                objDados.IsConsistente = dr("is_consistente").ToString()
+                objDados.StatusNome = dr("ds_status").ToString()
+                objDados.StatusCodigo = Convert.ToInt32(dr("id_status").ToString())
+                objDados.Status = New Model.Status(Convert.ToInt32(dr("id_status")), dr("ds_status").ToString())
+                lstRetorno.Add(objDados)
             Next
         Catch ex As Exception
             lstRetorno = Nothing
             Throw ex
         Finally
             oCommand.Dispose()
-            oRetorno = Nothing
+            objDados = Nothing
             dtDados = Nothing
         End Try
         Return lstRetorno

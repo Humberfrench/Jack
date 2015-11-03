@@ -164,7 +164,7 @@ Public Class Criancas
     Public Function ObterSacolasMae(intMae As Integer) As List(Of Model.Criancas)
 
         Dim oDados As Command = Nothing
-        Dim oCrianca As Model.Criancas = Nothing
+        Dim objDados As Model.Criancas = Nothing
         Dim lCrianca As List(Of Model.Criancas) = Nothing
         Dim dtDados As DataTable = Nothing
 
@@ -178,25 +178,26 @@ Public Class Criancas
 
             dtDados = oDados.GetDataTable
 
-            oCrianca = New Model.Criancas()
+            objDados = New Model.Criancas()
             lCrianca = New List(Of Model.Criancas)
             If dtDados.Rows.Count >= 1 Then
                 For Each drDados As DataRow In dtDados.Rows
-                    oCrianca = New Model.Criancas()
-                    oCrianca.Codigo = Convert.ToInt16(drDados.Item("id_crianca").ToString())
-                    oCrianca.Nome = drDados.Item("nm_crianca").ToString()
-                    oCrianca.FamiliaCodigo = Convert.ToInt16(drDados.Item("id_familia").ToString())
-                    oCrianca.Familia = drDados.Item("nm_familia").ToString()
-                    oCrianca.FamiliaRepresentanteCodigo = Convert.ToInt16(drDados.Item("id_familia_rep").ToString())
-                    oCrianca.FamiliaRepresentante = drDados.Item("nm_familia_rep").ToString()
-                    oCrianca.Idade = Convert.ToInt16(drDados.Item("nr_idade").ToString())
-                    oCrianca.MedidaIdade = drDados.Item("ds_medida_idade").ToString()
-                    oCrianca.Roupa = drDados.Item("nr_roupa").ToString()
-                    oCrianca.Calcado = Convert.ToInt16(drDados.Item("nr_calcado").ToString())
-                    oCrianca.Status = Convert.ToInt16(drDados.Item("id_Status").ToString())
-                    oCrianca.StatusNome = drDados.Item("ds_Status").ToString()
-                    oCrianca.IsSacolinha = drDados.Item("is_sacolinha").ToString()
-                    lCrianca.Add(oCrianca)
+                    objDados = New Model.Criancas()
+                    objDados.Codigo = Convert.ToInt16(drDados.Item("id_crianca").ToString())
+                    objDados.Nome = drDados.Item("nm_crianca").ToString()
+                    objDados.FamiliaCodigo = Convert.ToInt16(drDados.Item("id_familia").ToString())
+                    objDados.Familia = drDados.Item("nm_familia").ToString()
+                    objDados.FamiliaRepresentanteCodigo = Convert.ToInt16(drDados.Item("id_familia_rep").ToString())
+                    objDados.FamiliaRepresentante = drDados.Item("nm_familia_rep").ToString()
+                    objDados.Idade = Convert.ToInt16(drDados.Item("nr_idade").ToString())
+                    objDados.MedidaIdade = drDados.Item("ds_medida_idade").ToString()
+                    objDados.Roupa = drDados.Item("nr_roupa").ToString()
+                    objDados.Calcado = Convert.ToInt16(drDados.Item("nr_calcado").ToString())
+                    objDados.StatusCodigo = Convert.ToInt16(drDados.Item("id_Status").ToString())
+                    objDados.Status = New Model.Status(Convert.ToInt32(drDados("id_status")), drDados("ds_status").ToString())
+                    objDados.StatusNome = drDados.Item("ds_Status").ToString()
+                    objDados.IsSacolinha = drDados.Item("is_sacolinha").ToString()
+                    lCrianca.Add(objDados)
                 Next
             End If
 
@@ -204,7 +205,7 @@ Public Class Criancas
             lCrianca = Nothing
             Throw ex
         Finally
-            oCrianca = Nothing
+            objDados = Nothing
             dtDados = Nothing
             oDados.Dispose()
             oDados = Nothing
