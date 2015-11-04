@@ -45,7 +45,7 @@ End Code
                             <div ng-switch-when="N"><img style="vertical-align:middle;" alt="Dados Não OK" title="Dados Não OK" width="24" height="24" src="@Url.Content("~/Imagens/no.png")" /></div>
                         </div>
                     </td>
-                    <td style="width:220px;">{{item._Status}}</td>
+                    <td style="width:220px;">{{item._Status._target._Descricao}}</td>
                     <td style="width:50px;text-align:center;"><button class="btn btn-default" ng-click="Edit(item)"><img style=" vertical-align:middle;" alt="" title="" src="@Url.Content("~/Imagens/editar.png")" /></button></</td>
                     <td style="width:50px;text-align:center;"><button class="btn btn-default" ng-click="Delete(item)"><img style="vertical-align:middle;" alt="" title="" src="@Url.Content("~/Imagens/excluir.png")" /></button></td>
                 </tr>
@@ -78,7 +78,7 @@ End Code
             <div style="width:10px;">&nbsp;</div>
             <div class="col-form-right" style="text-align:left;">
                 <select id="ddlStatus" style="width:400px;"></select>
-                <input type="hidden" id="txtStatus" ng-model="item._Status" value="{{item._Status}}" />
+                <input type="hidden" id="txtStatus" ng-model="item._Status" value="{{item._Status._target._Descricao}}" />
             </div>
             <div style="width:10px;">&nbsp;</div>
         </div>
