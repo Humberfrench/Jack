@@ -20,12 +20,12 @@ Public Class Familia
 
     Public Overridable Property DataAtualizacao As DateTime
 
-    Public ReadOnly Property StatusCodigo As Integer
+    Public Overridable ReadOnly Property StatusCodigo As Integer
         Get
             Return Status.Codigo
         End Get
     End Property
-    Public ReadOnly Property StatusNome As String
+    Public Overridable ReadOnly Property StatusNome As String
         Get
             Return Status.Descricao
         End Get
