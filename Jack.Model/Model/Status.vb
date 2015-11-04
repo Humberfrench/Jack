@@ -33,7 +33,7 @@ Public Class Status
     Public Overridable Property PermiteSacola As String
     Public Overridable Property NivelStatus As String
 
-    Public Overridable ReadOnly Property PermiteSacolaDesc As String
+    Public ReadOnly Property PermiteSacolaDesc As String
         Get
             If PermiteSacola = "S" Then
                 Return "Sim"
@@ -42,11 +42,11 @@ Public Class Status
             End If
         End Get
     End Property
-    Public Overridable ReadOnly Property NivelStatusDesc As String
+    Public ReadOnly Property NivelStatusDesc As String
         Get
             If NivelStatus = "F" Then
                 Return "Família"
-            ElseIf NivelStatus = "C"
+            ElseIf NivelStatus = "C" Then
                 Return "Criança"
             Else
                 Return "Todos"

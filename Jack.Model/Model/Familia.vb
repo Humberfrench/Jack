@@ -17,10 +17,19 @@ Public Class Familia
     Public Overridable Property Contato As String
     Public Overridable Property Nivel As Integer
     Public Overridable Property Status As Model.Status
-    Public Overridable Property StatusCodigo As Integer
-    Public Overridable Property StatusNome As String
+
     Public Overridable Property DataAtualizacao As DateTime
 
+    Public ReadOnly Property StatusCodigo As Integer
+        Get
+            Return Status.Codigo
+        End Get
+    End Property
+    Public ReadOnly Property StatusNome As String
+        Get
+            Return Status.Descricao
+        End Get
+    End Property
     Public Overridable ReadOnly Property DataAtualizacaoString As String
         Get
             Return DataAtualizacao.ToShortDateString()

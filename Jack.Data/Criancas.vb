@@ -193,9 +193,7 @@ Public Class Criancas
                     objDados.MedidaIdade = drDados.Item("ds_medida_idade").ToString()
                     objDados.Roupa = drDados.Item("nr_roupa").ToString()
                     objDados.Calcado = Convert.ToInt16(drDados.Item("nr_calcado").ToString())
-                    objDados.StatusCodigo = Convert.ToInt16(drDados.Item("id_Status").ToString())
                     objDados.Status = New Model.Status(Convert.ToInt32(drDados("id_status")), drDados("ds_status").ToString())
-                    objDados.StatusNome = drDados.Item("ds_Status").ToString()
                     objDados.IsSacolinha = drDados.Item("is_sacolinha").ToString()
                     lCrianca.Add(objDados)
                 Next

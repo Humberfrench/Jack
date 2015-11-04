@@ -8,7 +8,6 @@ Public Class Criancas
         DataNascimento = New DateTime()
         Sexo = String.Empty
         Kit = 0
-        StatusCodigo = 0
         MedidaIdade = String.Empty
         Calcado = 99
         Roupa = "99"
@@ -17,7 +16,6 @@ Public Class Criancas
         IsNecessidadeEspecial = String.Empty
         IsMoralCrista = String.Empty
         Status = New Status
-        StatusNome = String.Empty
         Familia = String.Empty
         FamiliaRepresentante = String.Empty
         DataAtualizacao = New DateTime()
@@ -40,13 +38,21 @@ Public Class Criancas
     Public Overridable Property IsNecessidadeEspecial As String
     Public Overridable Property IsMoralCrista As String
     Public Overridable Property Status As Model.Status
-    Public Overridable Property StatusCodigo As Integer
-    Public Overridable Property StatusNome As String
     Public Overridable Property Familia As String
     Public Overridable Property FamiliaRepresentante As String
     Public Overridable Property FamiliaCodigo As Integer
     Public Overridable Property FamiliaRepresentanteCodigo As Integer
     Public Overridable Property DataAtualizacao As DateTime
+    Public ReadOnly Property StatusCodigo As Integer
+        Get
+            Return Status.Codigo
+        End Get
+    End Property
+    Public ReadOnly Property StatusNome As String
+        Get
+            Return Status.Descricao
+        End Get
+    End Property
 
     Public Overridable ReadOnly Property DataAtualizacaoString As String
         Get

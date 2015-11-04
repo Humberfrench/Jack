@@ -91,8 +91,6 @@ Public Class Presenca
                 objDados.Familia = dr("nm_mae").ToString()
                 objDados.IsSacolinha = dr("is_sacolinha").ToString()
                 objDados.IsConsistente = dr("is_consistente").ToString()
-                objDados.StatusNome = dr("ds_status").ToString()
-                objDados.StatusCodigo = Convert.ToInt32(dr("id_status").ToString())
                 objDados.Status = New Model.Status(Convert.ToInt32(dr("id_status")), dr("ds_status").ToString())
                 lstRetorno.Add(objDados)
             Next
