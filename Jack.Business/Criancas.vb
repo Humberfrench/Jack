@@ -163,11 +163,16 @@ Public Class Criancas
 
         Try
             listCriancas = LoadAll()
-            Dim iPesq = From oDado As Model.Criancas In listCriancas Where oDado.Nome = strName
-                        Select oDado
 
-            intCrianca = iPesq.ToList(0).Codigo
-            iPesq = Nothing
+            'Dim iPesq = From oDado As Model.Criancas In listCriancas Where oDado.Nome = strName
+            '            Select oDado
+
+            'intCrianca = iPesq.ToList(0).Codigo
+            'iPesq = Nothing
+
+            intCrianca = listCriancas.Where(Function(x) x.Nome = strName).ToList()(0).Codigo
+
+
         Catch ex As Exception
             intCrianca = 0
             Throw ex
