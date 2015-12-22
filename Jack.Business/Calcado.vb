@@ -67,7 +67,12 @@ Public Class Calcado
 
         Try
             oDados = New Data.Calcado
-            lstRetorno = oDados.LoadAll().OrderByDescending(Function(x) x.MedidaIdade).OrderBy(Function(x) x.IdadeInicial And x.Sexo).ToList()
+            'lstRetorno = oDados.LoadAll().OrderByDescending(Function(x) x.MedidaIdade).OrderBy(Function(x) x.Sexo).OrderBy(Function(x) x.IdadeInicial).ToList()
+            lstRetorno = (From oDado In oDados.LoadAll()
+                          Order By oDado.MedidaIdade Descending,
+                              oDado.Sexo, oDado.IdadeInicial).ToList()
+
+
         Catch ex As Exception
             lstRetorno = Nothing
             Throw ex
