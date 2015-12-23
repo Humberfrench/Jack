@@ -1117,6 +1117,7 @@
     <Content Include="Views\Calcados\Meninas.vbhtml" />
     <Content Include="Views\Calcados\Meninos.vbhtml" />
     <Content Include="Scripts\version.json" />
+    <Content Include="Views\Chamada\Index.vbhtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -1127,7 +1128,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
-    <Folder Include="Views\Chamada\" />
     <Folder Include="Views\Roupas\" />
     <Folder Include="Views\Sacolas\" />
   </ItemGroup>
