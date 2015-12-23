@@ -167,6 +167,7 @@
     </Content>
     <Content Include="Content\toastr.css" />
     <Content Include="Content\toastr.min.css" />
+    <Content Include="engine\Chamada\chamada.js" />
     <Content Include="engine\FamiliaCrianca\FamiliaCrianca.controller.js" />
     <Content Include="engine\FamiliaCrianca\FamiliaCrianca.presentation.js" />
     <Content Include="engine\FamiliaCrianca\FamiliaCrianca.js" />
@@ -175,6 +176,7 @@
     <Content Include="engine\Geral\mensagens.js" />
     <Content Include="engine\Geral\status.js" />
     <Content Include="engine\Geral\util.js" />
+    <Content Include="engine\Reuniao\reuniao.js" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Imagens\1.png" />
@@ -249,6 +251,7 @@
     <Content Include="Scripts\angular-cookies.min.js.map" />
     <Content Include="Scripts\angular-aria.min.js.map" />
     <Content Include="Scripts\angular-animate.min.js.map" />
+    <Content Include="engine\Chamada\chamada.controller.js" />
     <None Include="Scripts\jquery-2.1.4.intellisense.js" />
     <Content Include="Scripts\i18n\angular-locale_aa-dj.js" />
     <Content Include="Scripts\i18n\angular-locale_aa-er.js" />
@@ -1056,6 +1059,7 @@
     <Compile Include="Controllers\API\FamiliaController.vb" />
     <Compile Include="Controllers\API\FamiliaCriancaController.vb" />
     <Compile Include="Controllers\API\PresencaController.vb" />
+    <Compile Include="Controllers\API\DataReuniaoController.vb" />
     <Compile Include="Controllers\API\StatusController.vb" />
     <Compile Include="Controllers\API\TesteController.vb" />
     <Compile Include="Controllers\API\TipoItemController.vb" />

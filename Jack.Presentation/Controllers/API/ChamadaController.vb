@@ -6,8 +6,14 @@ Namespace Controllers.API
         Inherits ApiController
 
         <HttpGet>
-        Public Function ObterChamada() As IList(Of Model.Familia)
-            Return New List(Of Model.Familia)
+        Public Function ObterChamada(intReuniao As Integer) As IList(Of Model.Familia)
+            Dim oChamada As Business.Familia = New Business.Familia()
+            Dim oReturn As List(Of Model.Familia)
+
+            oReturn = oChamada.ObterChamada(intReuniao)
+            oChamada = Nothing
+
+            Return oReturn
         End Function
 
     End Class

@@ -77,13 +77,13 @@
 
     End Function
 
-    Public Function ObterChamada() As List(Of Model.Familia)
+    Public Function ObterChamada(intReuniao As Integer) As List(Of Model.Familia)
         Dim oDados As Data.Familia = Nothing
         Dim lstRetorno As IList(Of Model.Familia) = Nothing
 
         Try
             oDados = New Data.Familia
-            lstRetorno = oDados.ObterChamada()
+            lstRetorno = oDados.ObterChamada(intReuniao)
         Catch ex As Exception
             lstRetorno = Nothing
             Throw ex
@@ -94,6 +94,8 @@
         Return lstRetorno
 
     End Function
+
+
 
     Public Function Update(oTipo As Model.Familia) As Boolean Implements ICrud(Of Model.Familia, Integer).Update
         Dim oDados As Data.Familia = Nothing

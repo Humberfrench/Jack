@@ -22,6 +22,12 @@ Public Module WebApiConfig
             defaults:=New With {.id = RouteParameter.Optional}
         )
 
+        config.Routes.MapHttpRoute(
+            name:="ObtemVazios2",
+            routeTemplate:="api/{controller}/{action}/{id}",
+            defaults:=New With {.id = RouteParameter.Optional}
+        )
+
         'config.Routes.MapHttpRoute(
         '    name:="ActionApi2",
         '    routeTemplate:="api/{controller}/{MasterID}/{DetailID}",

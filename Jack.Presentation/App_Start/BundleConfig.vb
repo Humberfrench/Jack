@@ -22,6 +22,7 @@ Public Module BundleConfig
         bundles.Add(New ScriptBundle("~/bundles/engine").Include("~/engine/geral/mensagens.js", "~/engine/geral/util.js"))
         bundles.Add(New ScriptBundle("~/bundles/familia").Include("~/engine/familia/familia.js", "~/engine/familia/familia.controller.js", "~/engine/familia/familia.presentation.js"))
         bundles.Add(New ScriptBundle("~/bundles/status").Include("~/engine/geral/status.js"))
+        bundles.Add(New ScriptBundle("~/bundles/chamada").Include("~/engine/geral/chamada.js", "~/engine/geral/chamada.controller.js"))
 
     End Sub
 

@@ -95,7 +95,7 @@ Public Class Familia
         Return strRetorno
     End Function
 
-    Public Function ObterChamada() As List(Of Model.Familia)
+    Public Function ObterChamada(intReuniao As Integer) As List(Of Model.Familia)
 
         Dim oCommand As Command = Nothing
         Dim lstDados As List(Of Model.Familia) = Nothing
@@ -104,12 +104,12 @@ Public Class Familia
 
         Try
             oCommand = New Command("CECAMKey")
-            oCommand.CommandText = "pr_lista_chamada"
+            oCommand.CommandText = "pr_chamada_nomes"
+            oCommand.Parameters.Add(New Parameter("@id_reuniao", DbType.Int16, intReuniao)
+                                     )
             oCommand.CommandType = System.Data.CommandType.StoredProcedure
 
             dtDados = oCommand.GetDataTable()
-
-
 
             lstDados = New List(Of Model.Familia)
 
@@ -117,7 +117,6 @@ Public Class Familia
                 objDados = New Model.Familia
                 objDados.Codigo = Convert.ToInt32(dr("id_familia"))
                 objDados.Familia = dr("nm_mae").ToString()
-                objDados.Contato = dr("ds_contato").ToString()
                 lstDados.Add(objDados)
             Next
 
