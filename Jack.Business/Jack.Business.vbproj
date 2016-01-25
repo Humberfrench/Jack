@@ -125,14 +125,6 @@
       <Project>{a42998a3-02d2-4769-b30f-051db6e2dcd1}</Project>
       <Name>Jack.Data</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Jack.Extensions\Jack.Extensions.vbproj">
-      <Project>{2a452197-c030-4da4-8ee1-eaa17cb9b5d3}</Project>
-      <Name>Jack.Extensions</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Jack.Model\Jack.Model.vbproj">
-      <Project>{ba095dc2-0e43-4875-8eca-6fd42ee9b21a}</Project>
-      <Name>Jack.Model</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
