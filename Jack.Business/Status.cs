@@ -86,7 +86,7 @@ namespace Jack.Business
             return blnRetorno;
         }
 
-        private IList<Model.Status> LoadAll()
+        public IList<Model.Status> LoadAll()
         {
             Data.Status oDados = null;
             IList<Model.Status> lstRetorno = null;
@@ -116,7 +116,7 @@ namespace Jack.Business
 
             try
             {
-                lstRetorno = (from oDado in LoadAll() where oDado.NivelStatus == "T" | oDado.NivelStatus == "C"oDado).ToList();
+                lstRetorno = lstRetorno.Where(x => x.NivelStatus == "T" || x.NivelStatus == "C").ToList();
             }
             catch (Exception ex)
             {
@@ -133,7 +133,7 @@ namespace Jack.Business
 
             try
             {
-                lstRetorno = (from oDado in LoadAll() where oDado.NivelStatus == "T" | oDado.NivelStatus == "F"oDado).ToList();
+                lstRetorno = lstRetorno.Where(x => x.NivelStatus == "T" || x.NivelStatus == "F").ToList();
             }
             catch (Exception ex)
             {

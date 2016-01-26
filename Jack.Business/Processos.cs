@@ -24,11 +24,11 @@ namespace Jack.Business
             try
             {
                 oDados = new Data.Processos();
-                for (int intCont = 0; intCont <= (aStrPresenca.Count - 1); intCont++)
+                for (int intCont = 0; intCont <= (aStrPresenca.Length - 1); intCont++)
                 {
-                    if (!string.IsNullOrEmpty(aStrPresenca(intCont).Trim))
+                    if (!string.IsNullOrEmpty(aStrPresenca[intCont].Trim()))
                     {
-                        intReuniao = aStrPresenca(intCont);
+                        intReuniao = Convert.ToInt32(aStrPresenca[intCont]);
                     }
                     blnRetorno = oDados.ProcessaPresencasRepresentantesReuniao(intReuniao);
                 }
@@ -224,7 +224,7 @@ namespace Jack.Business
         /// </summary>
         /// <returns>Objeto com a lista de Valores Tipo: List(Of Model.CriancasInconsistentes)</returns>
         /// <remarks></remarks>
-        public List<Model.CriancasInconsistentes> ObterCriancasInconsistentes()
+        public IList<Model.CriancasInconsistentes> ObterCriancasInconsistentes()
         {
 
             Data.Processos oDados = null;
@@ -254,7 +254,7 @@ namespace Jack.Business
         /// </summary>
         /// <returns>Objeto com a lista de Valores Tipo: List(Of Model.Familia)</returns>
         /// <remarks></remarks>
-        public List<Model.Familia> ObterFamiliasComZeroCriancas()
+        public IList<Model.Familia> ObterFamiliasComZeroCriancas()
         {
 
             Data.Processos oDados = null;
@@ -284,7 +284,7 @@ namespace Jack.Business
         /// </summary>
         /// <returns>Objeto com a lista de Valores Tipo: List(Of Model.Familia)</returns>
         /// <remarks></remarks>
-        public List<Model.Familia> ObterFamiliasInconsistentes()
+        public IList<Model.Familia> ObterFamiliasInconsistentes()
         {
 
             Data.Processos oDados = null;

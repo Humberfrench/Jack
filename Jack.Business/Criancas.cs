@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Jack.Business
 {
@@ -10,7 +8,7 @@ namespace Jack.Business
     public class Criancas : ICrud<Model.Criancas, int>
     {
 
-        private bool Delete(Model.Criancas oTipo)
+        public bool Delete(Model.Criancas oTipo)
         {
 
             Data.Criancas oDataCrianca = null;
@@ -87,7 +85,7 @@ namespace Jack.Business
 
         }
 
-        private bool Insert(Model.Criancas oTipo)
+        public bool Insert(Model.Criancas oTipo)
         {
 
             Data.Criancas oDataCrianca = null;
@@ -167,7 +165,8 @@ namespace Jack.Business
             return lstDados;
 
         }
-        public List<Model.Criancas> ObterSacolasMae(int intMae)
+
+        public IList<Model.Criancas> ObterSacolasMae(int intMae)
         {
 
             Data.Criancas oDataCrianca = null;
@@ -190,6 +189,7 @@ namespace Jack.Business
             return lstDados;
 
         }
+
         public bool Update(Model.Criancas oTipo)
         {
 
@@ -231,7 +231,7 @@ namespace Jack.Business
                 //intCrianca = iPesq.ToList(0).Codigo
                 //iPesq = Nothing
 
-                intCrianca = listCriancas.Where(x => x.Nome == strName).ToList()(0).Codigo;
+                intCrianca = listCriancas.Where(x => x.Nome == strName).ToList()[0].Codigo;
 
 
             }
@@ -248,3 +248,4 @@ namespace Jack.Business
 
         }
     }
+}

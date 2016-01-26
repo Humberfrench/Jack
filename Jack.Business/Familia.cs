@@ -42,16 +42,16 @@ namespace Jack.Business
         {
 
             Data.Familia oDados = null;
-            IList<Model.Familia> lstRetorno = null;
+            Model.Familia oRetorno = null;
 
             try
             {
                 oDados = new Data.Familia();
-                lstRetorno = oDados.LoadAll();
+                oRetorno = oDados.Find(Identifier);
             }
             catch (Exception ex)
             {
-                lstRetorno = null;
+                oRetorno = null;
                 throw ex;
             }
             finally
@@ -59,7 +59,7 @@ namespace Jack.Business
                 oDados = null;
             }
 
-            return lstRetorno;
+            return oRetorno;
 
         }
 
@@ -110,7 +110,7 @@ namespace Jack.Business
 
         }
 
-        public List<Model.Familia> ObterChamada(int intReuniao)
+        public IList<Model.Familia> ObterChamada(int intReuniao)
         {
             Data.Familia oDados = null;
             IList<Model.Familia> lstRetorno = null;
@@ -179,7 +179,7 @@ namespace Jack.Business
                     oFamiliaLote = new Model.FamiliaLote();
 
                     oFamilia.Codigo = 0;
-                    oFamilia.Familia = strMae;
+                    oFamilia.NomeFamilia = strMae;
                     oFamilia.IsConsistente = "N";
                     oFamilia.IsSacolinha = "N";
                     strRetorno = oDados.GravarLote(oFamilia);

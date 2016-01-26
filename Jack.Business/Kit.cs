@@ -38,16 +38,16 @@ namespace Jack.Business
         {
 
             Data.Kit oDados = null;
-            IList<Model.Kit> lstRetorno = null;
+            Model.Kit oRetorno = null;
 
             try
             {
                 oDados = new Data.Kit();
-                lstRetorno = oDados.LoadAll();
+                oRetorno = oDados.Find(Identifier);
             }
             catch (Exception ex)
             {
-                lstRetorno = null;
+                oRetorno = null;
                 throw ex;
             }
             finally
@@ -55,7 +55,7 @@ namespace Jack.Business
                 oDados = null;
             }
 
-            return lstRetorno;
+            return oRetorno;
 
         }
 

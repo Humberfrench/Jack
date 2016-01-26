@@ -41,16 +41,16 @@ namespace Jack.Business
         {
 
             Data.Calcado oDados = null;
-            IList<Model.Calcado> lstRetorno = null;
+            Model.Calcado oRetorno = null;
 
             try
             {
                 oDados = new Data.Calcado();
-                lstRetorno = oDados.LoadAll();
+                oRetorno = oDados.Find(Identifier);
             }
             catch (Exception ex)
             {
-                lstRetorno = null;
+                oRetorno = null;
                 throw ex;
             }
             finally
@@ -58,7 +58,7 @@ namespace Jack.Business
                 oDados = null;
             }
 
-            return lstRetorno;
+            return oRetorno;
 
         }
 
@@ -92,10 +92,9 @@ namespace Jack.Business
 
             try
             {
-                oDados = new Data.Calcado();
-                //lstRetorno = oDados.LoadAll().OrderByDescending(Function(x) x.MedidaIdade).OrderBy(Function(x) x.Sexo).OrderBy(Function(x) x.IdadeInicial).ToList()
-                lstRetorno = (from oDado in oDados.LoadAll() orderby oDado.MedidaIdade descending, oDado.Sexo, oDado.IdadeInicial).ToList();
 
+                oDados = new Data.Calcado();
+                lstRetorno = oDados.LoadAll().OrderByDescending(x => x.MedidaIdade).ToList().OrderBy(y => y.Sexo).ToList().OrderBy(z => z.IdadeInicial).ToList();
 
             }
             catch (Exception ex)

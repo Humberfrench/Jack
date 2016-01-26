@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Jack.Business
 {
@@ -11,7 +9,6 @@ namespace Jack.Business
 
         public List<Model.Sacolas> ProcessaSacolas(int intAno)
         {
-
             List<Model.Sacolas> lstSacolas = null;
             Data.Sacolas oDados = null;
 
@@ -30,15 +27,12 @@ namespace Jack.Business
             {
                 oDados = null;
             }
-
             return lstSacolas;
-
         }
 
 
         public void GravarLogSacolas(string strListSacolasIn)
         {
-            List<Model.Sacolas> lstSacolas = null;
             Data.Sacolas oDados = null;
             int intSacola = 0;
             string[] aStrSacolas = null;
@@ -56,7 +50,6 @@ namespace Jack.Business
             }
             catch (Exception ex)
             {
-                lstSacolas = null;
                 throw ex;
             }
             finally
@@ -198,8 +191,6 @@ namespace Jack.Business
         {
             List<Model.Sacolas> lstSacolas = null;
             Data.Sacolas oDados = null;
-            IOrderedEnumerable<Model.Sacolas> iPesq = default(IOrderedEnumerable<Model.Sacolas>);
-
 
             try
             {
@@ -208,21 +199,15 @@ namespace Jack.Business
 
                 if (intKit > 0 & intNivel > 0)
                 {
-                    iPesq = from oDado in lstSacolaswhere oDado.CodigoKit == intKit & oDado.NumeroNivel == intNivelorderby oDado.NumeroSacola;
-
-                    lstSacolas = iPesq.ToList();
+                    lstSacolas = lstSacolas.Where(x => x.CodigoKit == intKit && x.NumeroNivel == intNivel).ToList().OrderBy(y => y.NumeroSacola).ToList() ;
                 }
                 else if (intKit > 0 & intNivel == 0)
                 {
-                    iPesq = from oDado in lstSacolaswhere oDado.CodigoKit == intKitorderby oDado.NumeroSacola;
-
-                    lstSacolas = iPesq.ToList();
+                    lstSacolas = lstSacolas.Where(x => x.CodigoKit == intKit).ToList().OrderBy(y => y.NumeroSacola).ToList();
                 }
                 else if (intKit == 0 & intNivel > 0)
                 {
-                    iPesq = from oDado in lstSacolaswhere oDado.NumeroNivel == intNivelorderby oDado.NumeroSacola;
-
-                    lstSacolas = iPesq.ToList();
+                    lstSacolas = lstSacolas.Where(x => x.NumeroNivel == intNivel).ToList().OrderBy(y => y.NumeroSacola).ToList();
                 }
 
             }
@@ -244,18 +229,11 @@ namespace Jack.Business
         {
             List<Model.Sacolas> lstSacolas = null;
             Data.Sacolas oDados = null;
-            IOrderedEnumerable<Model.Sacolas> iPesq = default(IOrderedEnumerable<Model.Sacolas>);
-
 
             try
             {
                 oDados = new Data.Sacolas();
-                lstSacolas = oDados.ObterSacolas();
-
-                iPesq = from oDado in lstSacolaswhere oDado.NumeroSacolaFamilia == intSacolaFamiliaorderby oDado.NumeroSacola;
-
-                lstSacolas = iPesq.ToList();
-
+                lstSacolas = oDados.ObterSacolas().Where(x => x.NumeroSacolaFamilia == intSacolaFamilia).ToList().OrderBy(y => y.NumeroSacola).ToList();
             }
             catch (Exception ex)
             {

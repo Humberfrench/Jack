@@ -82,7 +82,7 @@ Public Class Familia
             oCommand = New Command("CECAMKey")
             oCommand.CommandText = "pr_add_familia_lote"
             oCommand.CommandType = System.Data.CommandType.StoredProcedure
-            oCommand.Parameters.Add(New Parameter("@nm_mae", System.Data.DbType.String, 75, oFamilia.Familia))
+            oCommand.Parameters.Add(New Parameter("@nm_mae", System.Data.DbType.String, 75, oFamilia.NomeFamilia))
             oCommand.Parameters.Add(New Parameter("@is_sacolinha", System.Data.DbType.String, 1, oFamilia.IsSacolinha))
             oCommand.Parameters.Add(New Parameter("@is_consistente", System.Data.DbType.String, 1, oFamilia.IsConsistente))
             strRetorno = oCommand.Execute().ToString()

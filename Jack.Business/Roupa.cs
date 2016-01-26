@@ -42,16 +42,16 @@ namespace Jack.Business
         {
 
             Data.Roupa oDados = null;
-            IList<Model.Roupa> lstRetorno = null;
+            Model.Roupa oRetorno = null;
 
             try
             {
                 oDados = new Data.Roupa();
-                lstRetorno = oDados.LoadAll();
+                oRetorno = oDados.Find(Identifier);
             }
             catch (Exception ex)
             {
-                lstRetorno = null;
+                oRetorno = null;
                 throw ex;
             }
             finally
@@ -59,7 +59,7 @@ namespace Jack.Business
                 oDados = null;
             }
 
-            return lstRetorno;
+            return oRetorno;
 
         }
 

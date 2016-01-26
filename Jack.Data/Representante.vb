@@ -30,7 +30,7 @@ Public Class Representante
             For Each dr As DataRow In dtDados.Rows
                 objDados = New Model.Familia
                 objDados.Codigo = Convert.ToInt32(dr("id_familia"))
-                objDados.Familia = dr("nm_mae").ToString()
+                objDados.NomeFamilia = dr("nm_mae").ToString()
                 objDados.Contato = dr("ds_contato").ToString()
                 objDados.IsConsistente = dr("is_consistente").ToString()
                 objDados.IsSacolinha = dr("is_sacolinha").ToString()

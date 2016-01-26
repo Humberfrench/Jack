@@ -44,16 +44,16 @@ namespace Jack.Business
         {
 
             Data.Presenca oDados = null;
-            IList<Model.Presenca> lstRetorno = null;
+            Model.Presenca oRetorno = null;
 
             try
             {
                 oDados = new Data.Presenca();
-                lstRetorno = oDados.LoadAll();
+                oRetorno = oDados.Find(Identifier);
             }
             catch (Exception ex)
             {
-                lstRetorno = null;
+                oRetorno = null;
                 throw ex;
             }
             finally
@@ -61,7 +61,7 @@ namespace Jack.Business
                 oDados = null;
             }
 
-            return lstRetorno;
+            return oRetorno;
 
         }
 
@@ -101,7 +101,7 @@ namespace Jack.Business
                     blnRetorno = Insert(oDado);
                     if (!blnRetorno)
                     {
-                        throw new Exception(string.Format("Tentativa de Gravar Presença falhou. Antes foram gravados {0} de {1}  registros.", intCont.ToString() , lstFamilia.Count );
+                        throw new Exception(string.Format("Tentativa de Gravar Presença falhou. Antes foram gravados {0} de {1}  registros.", intCont.ToString() , lstFamilia.Count ));
                     }
                     intCont = intCont + 1;
                 }

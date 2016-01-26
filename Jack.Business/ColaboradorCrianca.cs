@@ -13,7 +13,7 @@ namespace Jack.Business
 
         #region "Outros Métodos"
 
-        public List<Model.ColaboradorCrianca> ObterCriancasPorColaborador(int intColaborador, int intAno)
+        public IList<Model.ColaboradorCrianca> ObterCriancasPorColaborador(int intColaborador, int intAno)
         {
             Data.ColaboradorCrianca oDados = null;
             IList<Model.ColaboradorCrianca> lstRetorno = null;
@@ -68,16 +68,16 @@ namespace Jack.Business
         {
 
             Data.ColaboradorCrianca oDados = null;
-            IList<Model.ColaboradorCrianca> lstRetorno = null;
+            Model.ColaboradorCrianca oRetorno = null;
 
             try
             {
                 oDados = new Data.ColaboradorCrianca();
-                lstRetorno = oDados.LoadAll();
+                oRetorno = oDados.Find(Identifier);
             }
             catch (Exception ex)
             {
-                lstRetorno = null;
+                oRetorno = null;
                 throw ex;
             }
             finally
@@ -85,7 +85,7 @@ namespace Jack.Business
                 oDados = null;
             }
 
-            return lstRetorno;
+            return oRetorno;
 
         }
 

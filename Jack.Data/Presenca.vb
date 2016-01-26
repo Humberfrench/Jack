@@ -88,7 +88,7 @@ Public Class Presenca
             For Each dr As DataRow In dtDados.Rows
                 objDados = New Model.Familia()
                 objDados.Codigo = Convert.ToInt32(dr("id_familia").ToString())
-                objDados.Familia = dr("nm_mae").ToString()
+                objDados.NomeFamilia = dr("nm_mae").ToString()
                 objDados.IsSacolinha = dr("is_sacolinha").ToString()
                 objDados.IsConsistente = dr("is_consistente").ToString()
                 objDados.Status = New Model.Status(Convert.ToInt32(dr("id_status")), dr("ds_status").ToString())

@@ -16,7 +16,7 @@ namespace Jack.Business
 
         #region "Outros Métodos"
 
-        public List<Model.Colaborador> ListaQuantidadeSacolasPorColaborador(int intAno)
+        public IList<Model.Colaborador> ListaQuantidadeSacolasPorColaborador(int intAno)
         {
 
             Data.Colaborador oDados = null;
