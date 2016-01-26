@@ -1135,12 +1135,6 @@
     <Folder Include="Views\Roupas\" />
     <Folder Include="Views\Sacolas\" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Jack.Business\Jack.Business.vbproj">
-      <Project>{9e4c1da5-fbac-4ed8-b6fd-58df1c49aa97}</Project>
-      <Name>Jack.Business</Name>
-    </ProjectReference>
-  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

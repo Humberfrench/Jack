@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Jack.Business", "Jack.Business\Jack.Business.vbproj", "{9E4C1DA5-FBAC-4ED8-B6FD-58DF1C49AA97}"
-EndProject
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Jack.Data", "Jack.Data\Jack.Data.vbproj", "{A42998A3-02D2-4769-B30F-051DB6E2DCD1}"
 EndProject
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Jack.Presentation", "Jack.Presentation\Jack.Presentation.vbproj", "{5AED92B7-62BA-4EDD-8B07-4C6E0DF3F00F}"
@@ -13,7 +11,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jack.Model", "Jack.Model\Ja
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jack.Extensions", "Jack.Extensions\Jack.Extensions.csproj", "{9BAE2EEE-5392-4EA6-8EE9-B0E5521FF8FD}"
 EndProject
-Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Jack.Extensions2", "Jack.Extensions2\Jack.Extensions2.vbproj", "{2A452197-C030-4DA4-8EE1-EAA17CB9B5D3}"
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Jack.Business2", "Jack.Business2\Jack.Business2.vbproj", "{9E4C1DA5-FBAC-4ED8-B6FD-58DF1C49AA97}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jack.Business", "Jack.Business\Jack.Business.csproj", "{4D307578-5F8A-42B7-91BA-AA7C69800A08}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,10 +21,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{9E4C1DA5-FBAC-4ED8-B6FD-58DF1C49AA97}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9E4C1DA5-FBAC-4ED8-B6FD-58DF1C49AA97}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9E4C1DA5-FBAC-4ED8-B6FD-58DF1C49AA97}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9E4C1DA5-FBAC-4ED8-B6FD-58DF1C49AA97}.Release|Any CPU.Build.0 = Release|Any CPU
 		{A42998A3-02D2-4769-B30F-051DB6E2DCD1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{A42998A3-02D2-4769-B30F-051DB6E2DCD1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A42998A3-02D2-4769-B30F-051DB6E2DCD1}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -41,10 +37,14 @@ Global
 		{9BAE2EEE-5392-4EA6-8EE9-B0E5521FF8FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9BAE2EEE-5392-4EA6-8EE9-B0E5521FF8FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9BAE2EEE-5392-4EA6-8EE9-B0E5521FF8FD}.Release|Any CPU.Build.0 = Release|Any CPU
-		{2A452197-C030-4DA4-8EE1-EAA17CB9B5D3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2A452197-C030-4DA4-8EE1-EAA17CB9B5D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2A452197-C030-4DA4-8EE1-EAA17CB9B5D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2A452197-C030-4DA4-8EE1-EAA17CB9B5D3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9E4C1DA5-FBAC-4ED8-B6FD-58DF1C49AA97}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E4C1DA5-FBAC-4ED8-B6FD-58DF1C49AA97}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E4C1DA5-FBAC-4ED8-B6FD-58DF1C49AA97}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E4C1DA5-FBAC-4ED8-B6FD-58DF1C49AA97}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4D307578-5F8A-42B7-91BA-AA7C69800A08}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D307578-5F8A-42B7-91BA-AA7C69800A08}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D307578-5F8A-42B7-91BA-AA7C69800A08}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D307578-5F8A-42B7-91BA-AA7C69800A08}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

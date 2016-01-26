@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Jack.Model.DTOs
+namespace Jack.Model
 {
     [Serializable()]
     public class Sacolas

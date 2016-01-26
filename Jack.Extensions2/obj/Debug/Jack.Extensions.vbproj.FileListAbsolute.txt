@@ -1,9 +1,0 @@
-C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Extensions\bin\Debug\Jack.Extensions.dll
-C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Extensions\bin\Debug\Jack.Extensions.pdb
-C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Extensions\bin\Debug\Jack.Extensions.xml
-C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Extensions\obj\Debug\Jack.Extensions.vbprojResolveAssemblyReference.cache
-C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Extensions\obj\Debug\Jack.Extensions.Resources.resources
-C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Extensions\obj\Debug\Jack.Extensions.vbproj.GenerateResource.Cache
-C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Extensions\obj\Debug\Jack.Extensions.dll
-C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Extensions\obj\Debug\Jack.Extensions.xml
-C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Extensions\obj\Debug\Jack.Extensions.pdb

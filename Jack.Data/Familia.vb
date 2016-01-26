@@ -116,7 +116,7 @@ Public Class Familia
             For Each dr As DataRow In dtDados.Rows
                 objDados = New Model.Familia
                 objDados.Codigo = Convert.ToInt32(dr("id_familia"))
-                objDados.Familia = dr("nm_mae").ToString()
+                objDados.NomeFamilia = dr("nm_mae").ToString()
                 lstDados.Add(objDados)
             Next
 
