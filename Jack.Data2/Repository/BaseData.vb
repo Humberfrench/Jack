@@ -10,7 +10,7 @@ Public MustInherit Class BaseData(Of TypeClass, ID)
 #Region "Construtor"
 
     Public Sub New()
-        strClassName = MyClass.GetType().ToString()
+        strClassName = [GetType]().ToString()
     End Sub
 
 #End Region

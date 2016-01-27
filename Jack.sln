@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Jack.Data", "Jack.Data\Jack.Data.vbproj", "{A42998A3-02D2-4769-B30F-051DB6E2DCD1}"
-EndProject
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Jack.Presentation", "Jack.Presentation\Jack.Presentation.vbproj", "{5AED92B7-62BA-4EDD-8B07-4C6E0DF3F00F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jack.Model", "Jack.Model\Jack.Model.csproj", "{03BC258C-3DBA-4BDC-85E7-908B9D2F673B}"
@@ -13,16 +11,16 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jack.Extensions", "Jack.Ext
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jack.Business", "Jack.Business\Jack.Business.csproj", "{4D307578-5F8A-42B7-91BA-AA7C69800A08}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jack.Data", "Jack.Data\Jack.Data.csproj", "{BB9B067F-8B63-4F6D-824A-013DB7DF6339}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Jack.Data2", "Jack.Data2\Jack.Data2.vbproj", "{A42998A3-02D2-4769-B30F-051DB6E2DCD1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{A42998A3-02D2-4769-B30F-051DB6E2DCD1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A42998A3-02D2-4769-B30F-051DB6E2DCD1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A42998A3-02D2-4769-B30F-051DB6E2DCD1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A42998A3-02D2-4769-B30F-051DB6E2DCD1}.Release|Any CPU.Build.0 = Release|Any CPU
 		{5AED92B7-62BA-4EDD-8B07-4C6E0DF3F00F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{5AED92B7-62BA-4EDD-8B07-4C6E0DF3F00F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5AED92B7-62BA-4EDD-8B07-4C6E0DF3F00F}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -39,6 +37,14 @@ Global
 		{4D307578-5F8A-42B7-91BA-AA7C69800A08}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4D307578-5F8A-42B7-91BA-AA7C69800A08}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4D307578-5F8A-42B7-91BA-AA7C69800A08}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BB9B067F-8B63-4F6D-824A-013DB7DF6339}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BB9B067F-8B63-4F6D-824A-013DB7DF6339}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BB9B067F-8B63-4F6D-824A-013DB7DF6339}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BB9B067F-8B63-4F6D-824A-013DB7DF6339}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A42998A3-02D2-4769-B30F-051DB6E2DCD1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A42998A3-02D2-4769-B30F-051DB6E2DCD1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A42998A3-02D2-4769-B30F-051DB6E2DCD1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A42998A3-02D2-4769-B30F-051DB6E2DCD1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
