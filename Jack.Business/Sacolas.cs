@@ -7,9 +7,9 @@ namespace Jack.Business
     public class Sacolas
     {
 
-        public List<Model.Sacolas> ProcessaSacolas(int intAno)
+        public IList<Model.Sacolas> ProcessaSacolas(int intAno)
         {
-            List<Model.Sacolas> lstSacolas = null;
+            IList<Model.Sacolas> lstSacolas = null;
             Data.Sacolas oDados = null;
 
             try
@@ -59,9 +59,9 @@ namespace Jack.Business
 
         }
 
-        public List<Model.Sacolas> ObterSacolas(int intKit, int intNivel, string isPrinted)
+        public IList<Model.Sacolas> ObterSacolas(int intKit, int intNivel, string isPrinted)
         {
-            List<Model.Sacolas> lstSacolas = null;
+            IList<Model.Sacolas> lstSacolas = null;
             Data.Sacolas oDados = null;
 
             try
@@ -84,9 +84,9 @@ namespace Jack.Business
 
         }
 
-        public List<Model.Sacolas> ObterSacolasLivres(int intKit, int intNivel, string isPrinted)
+        public IList<Model.Sacolas> ObterSacolasLivres(int intKit, int intNivel, string isPrinted)
         {
-            List<Model.Sacolas> lstSacolas = null;
+            IList<Model.Sacolas> lstSacolas = null;
             Data.Sacolas oDados = null;
 
             try
@@ -109,9 +109,9 @@ namespace Jack.Business
 
         }
 
-        public List<Model.Sacolas> ObterSacolas()
+        public IList<Model.Sacolas> ObterSacolas()
         {
-            List<Model.Sacolas> lstSacolas = null;
+            IList<Model.Sacolas> lstSacolas = null;
             Data.Sacolas oDados = null;
 
             try
@@ -133,10 +133,10 @@ namespace Jack.Business
             return lstSacolas;
 
         }
-        public List<Model.Sacolas> ObterSacolas(string strListSacolasIn)
+        public IList<Model.Sacolas> ObterSacolas(string strListSacolasIn)
         {
 
-            List<Model.Sacolas> lstSacolasOut = null;
+            IList<Model.Sacolas> lstSacolasOut = null;
             Data.Sacolas oDados = null;
 
             try
@@ -160,10 +160,10 @@ namespace Jack.Business
 
         }
 
-        public List<Model.KitSacola> ObterKitSacolas(int intKit)
+        public IList<Model.KitSacola> ObterKitSacolas(int intKit)
         {
 
-            List<Model.KitSacola> lstSacolasOut = null;
+            IList<Model.KitSacola> lstSacolasOut = null;
             Data.Sacolas oDados = null;
 
             try
@@ -187,9 +187,9 @@ namespace Jack.Business
 
         }
 
-        public List<Model.Sacolas> ObterSacolas(int intKit, int intNivel)
+        public IList<Model.Sacolas> ObterSacolas(int intKit, int intNivel)
         {
-            List<Model.Sacolas> lstSacolas = null;
+            IList<Model.Sacolas> lstSacolas = null;
             Data.Sacolas oDados = null;
 
             try
@@ -225,9 +225,9 @@ namespace Jack.Business
 
         }
 
-        public List<Model.Sacolas> ObterSacolas(int intSacolaFamilia)
+        public IList<Model.Sacolas> ObterSacolas(int intSacolaFamilia)
         {
-            List<Model.Sacolas> lstSacolas = null;
+            IList<Model.Sacolas> lstSacolas = null;
             Data.Sacolas oDados = null;
 
             try
