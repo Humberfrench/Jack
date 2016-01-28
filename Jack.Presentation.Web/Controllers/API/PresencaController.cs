@@ -1,12 +1,9 @@
-
-using Microsoft.VisualBasic;
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Data;
-using System.Diagnostics;
-using System.Net;
 using System.Web.Http;
+using Business = Jack.Business;
+using Model = Jack.Model;
+
 
 namespace Controllers.API
 {
@@ -17,35 +14,45 @@ namespace Controllers.API
 		public IList<Model.Familia> GetValue(int ID)
 		{
 
-			List<Model.Familia> lstRetorno = null;
+			IList<Model.Familia> lstRetorno = null;
 			Business.Presenca oBusiness = default(Business.Presenca);
 
-			try {
-				oBusiness = new Business.Presenca();
-				lstRetorno = oBusiness.Load(ID);
+            try
+            {
+                oBusiness = new Business.Presenca();
+                lstRetorno = oBusiness.Load(ID);
 
-			} catch (Exception ex) {
-				lstRetorno = null;
-			} finally {
-				oBusiness = null;
-			}
+            }
+            catch (Exception ex)
+            {
+                lstRetorno = null;
+            }
+            finally
+            {
+                oBusiness = null;
+            }
 
 			return lstRetorno;
 		}
 
-		public List<Model.FamiliaPresenca> ObterPresencaPorMae(int Familia, int Ano)
+		public IList<Model.FamiliaPresenca> ObterPresencaPorMae(int Familia, int Ano)
 		{
 
-			List<Model.FamiliaPresenca> lstRetorno = null;
+			IList<Model.FamiliaPresenca> lstRetorno = null;
 			Business.Presenca oBusiness = default(Business.Presenca);
 
-			try {
+			try
+            {
 				oBusiness = new Business.Presenca();
 				lstRetorno = oBusiness.ObterPresencaPorMae(Familia, Ano);
 
-			} catch (Exception ex) {
+			}
+            catch (Exception ex)
+            {
 				lstRetorno = null;
-			} finally {
+			}
+            finally
+            {
 				oBusiness = null;
 			}
 
@@ -54,10 +61,3 @@ namespace Controllers.API
 
 	}
 }
-
-//=======================================================
-//Service provided by Telerik (www.telerik.com)
-//Conversion powered by NRefactory.
-//Twitter: @telerik
-//Facebook: facebook.com/telerik
-//=======================================================

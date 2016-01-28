@@ -1,16 +1,9 @@
-
-using Microsoft.VisualBasic;
-using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Data;
-using System.Diagnostics;
-using System.Net;
 using System.Web.Http;
 
 namespace Controllers.API
 {
-	public class TesteController : ApiController
+    public class TesteController : ApiController
 	{
 
 		// GET: api/Teste
@@ -29,16 +22,12 @@ namespace Controllers.API
 		}
 
 		// POST: api/Teste
-		public void PostValue(		[FromBody()]
-
-string value)
+		public void PostValue(	[FromBody()] string value)
 		{
 		}
 
 		// PUT: api/Teste/5
-		public void PutValue(int id, 		[FromBody()]
-
-string value)
+		public void PutValue(int id, [FromBody()] string value)
 		{
 		}
 
@@ -49,10 +38,3 @@ string value)
 		}
 	}
 }
-
-//=======================================================
-//Service provided by Telerik (www.telerik.com)
-//Conversion powered by NRefactory.
-//Twitter: @telerik
-//Facebook: facebook.com/telerik
-//=======================================================
