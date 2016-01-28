@@ -1,8 +1,10 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Web.Mvc;
 using Business = Jack.Business;
 using Model = Jack.Model;
+
 
 namespace Controllers.MVC
 {
@@ -16,23 +18,28 @@ namespace Controllers.MVC
 			List<Model.Roupa> RoupaRetorno = null;
 
 
-			try {
-				RoupaBusiness = new Business.Roupa();
-				//fake init
-				RoupaRetorno = new List<Model.Roupa>();
-				RoupaRetorno.Add(new Model.Roupa());
-				RoupaRetorno.Add(new Model.Roupa());
-				RoupaRetorno.Add(new Model.Roupa());
-				RoupaRetorno.Add(new Model.Roupa());
-				RoupaRetorno.Add(new Model.Roupa());
-				//fake end
-				//RoupaRetorno = RoupaBusiness.LoadAll()
+            try
+            {
+                RoupaBusiness = new Business.Roupa();
+                //fake init
+                RoupaRetorno = new List<Model.Roupa>();
+                RoupaRetorno.Add(new Model.Roupa());
+                RoupaRetorno.Add(new Model.Roupa());
+                RoupaRetorno.Add(new Model.Roupa());
+                RoupaRetorno.Add(new Model.Roupa());
+                RoupaRetorno.Add(new Model.Roupa());
+                //fake end
+                //RoupaRetorno = RoupaBusiness.LoadAll()
 
-			} catch (Exception ex) {
-				RoupaRetorno = new List<Model.Roupa>();
-			} finally {
-				RoupaBusiness = null;
-			}
+            }
+            catch (Exception ex)
+            {
+                RoupaRetorno = new List<Model.Roupa>();
+            }
+            finally
+            {
+                RoupaBusiness = null;
+            }
 
 			return View(RoupaRetorno);
 

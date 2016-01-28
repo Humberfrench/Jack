@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Web.Mvc;
 using Business = Jack.Business;
 using Model = Jack.Model;
@@ -15,18 +16,23 @@ namespace Controllers.MVC
 		{
 
 			Business.Calcado CalcadoBusiness = null;
-			List<Model.Calcado> CalcadoRetorno = null;
+			IList<Model.Calcado> CalcadoRetorno = null;
 
 
-			try {
-				CalcadoBusiness = new Business.Calcado();
-				CalcadoRetorno = CalcadoBusiness.LoadAll();
+            try
+            {
+                CalcadoBusiness = new Business.Calcado();
+                CalcadoRetorno = CalcadoBusiness.LoadAll();
 
-			} catch (Exception ex) {
-				CalcadoRetorno = new List<Model.Calcado>();
-			} finally {
-				CalcadoBusiness = null;
-			}
+            }
+            catch (Exception ex)
+            {
+                CalcadoRetorno = new List<Model.Calcado>();
+            }
+            finally
+            {
+                CalcadoBusiness = null;
+            }
 
 			return View(CalcadoRetorno);
 
@@ -36,18 +42,23 @@ namespace Controllers.MVC
 		{
 
 			Business.Calcado CalcadoBusiness = null;
-			List<Model.Calcado> CalcadoRetorno = null;
+			IList<Model.Calcado> CalcadoRetorno = null;
 
 
-			try {
-				CalcadoBusiness = new Business.Calcado();
-				CalcadoRetorno = CalcadoBusiness.LoadAll().Where(x => x.Sexo == "M").ToList();
+            try
+            {
+                CalcadoBusiness = new Business.Calcado();
+                CalcadoRetorno = CalcadoBusiness.LoadAll().Where(x => x.Sexo == "M").ToList();
 
-			} catch (Exception ex) {
-				CalcadoRetorno = new List<Model.Calcado>();
-			} finally {
-				CalcadoBusiness = null;
-			}
+            }
+            catch (Exception ex)
+            {
+                CalcadoRetorno = new List<Model.Calcado>();
+            }
+            finally
+            {
+                CalcadoBusiness = null;
+            }
 
 			return View(CalcadoRetorno);
 
@@ -57,18 +68,23 @@ namespace Controllers.MVC
 		{
 
 			Business.Calcado CalcadoBusiness = null;
-			List<Model.Calcado> CalcadoRetorno = null;
+			IList<Model.Calcado> CalcadoRetorno = null;
 
 
-			try {
-				CalcadoBusiness = new Business.Calcado();
-				CalcadoRetorno = CalcadoBusiness.LoadAll().Where(x => x.Sexo == "F").ToList();
+            try
+            {
+                CalcadoBusiness = new Business.Calcado();
+                CalcadoRetorno = CalcadoBusiness.LoadAll().Where(x => x.Sexo == "F").ToList();
 
-			} catch (Exception ex) {
-				CalcadoRetorno = new List<Model.Calcado>();
-			} finally {
-				CalcadoBusiness = null;
-			}
+            }
+            catch (Exception ex)
+            {
+                CalcadoRetorno = new List<Model.Calcado>();
+            }
+            finally
+            {
+                CalcadoBusiness = null;
+            }
 
 			return View(CalcadoRetorno);
 
@@ -76,10 +92,3 @@ namespace Controllers.MVC
 
 	}
 }
-
-//=======================================================
-//Service provided by Telerik (www.telerik.com)
-//Conversion powered by NRefactory.
-//Twitter: @telerik
-//Facebook: facebook.com/telerik
-//=======================================================
