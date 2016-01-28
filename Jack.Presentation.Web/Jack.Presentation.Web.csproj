@@ -121,8 +121,33 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\toastr.css" />
     <Content Include="Content\toastr.min.css" />
+    <Content Include="engine\Chamada\chamada.controller.js" />
+    <Content Include="engine\Chamada\chamada.js" />
+    <Content Include="engine\FamiliaCrianca\FamiliaCrianca.controller.js" />
+    <Content Include="engine\FamiliaCrianca\FamiliaCrianca.js" />
+    <Content Include="engine\FamiliaCrianca\FamiliaCrianca.presentation.js" />
+    <Content Include="engine\Familia\familia.controller.js" />
+    <Content Include="engine\Familia\familia.js" />
+    <Content Include="engine\Familia\familia.presentation.js" />
+    <Content Include="engine\Geral\mensagens.js" />
+    <Content Include="engine\Geral\status.js" />
+    <Content Include="engine\Geral\util.js" />
+    <Content Include="engine\Reuniao\reuniao.js" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="Imagens\1.png" />
+    <Content Include="Imagens\2.png" />
+    <Content Include="Imagens\3.png" />
+    <Content Include="Imagens\4.png" />
+    <Content Include="Imagens\5.png" />
+    <Content Include="Imagens\6.png" />
+    <Content Include="Imagens\99.png" />
+    <Content Include="Imagens\bag.png" />
+    <Content Include="Imagens\editar.png" />
+    <Content Include="Imagens\excluir.png" />
+    <Content Include="Imagens\header.jpg" />
+    <Content Include="Imagens\no.png" />
+    <Content Include="Imagens\ok.png" />
     <Content Include="Scripts\angular-mocks.js" />
     <Content Include="Scripts\angular.js" />
     <Content Include="Scripts\angular.min.js" />
@@ -147,6 +172,8 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Global.asax.cs">
@@ -169,7 +196,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Controllers\" />
+    <Folder Include="Controllers\API\" />
+    <Folder Include="Controllers\MVC\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <PropertyGroup>
