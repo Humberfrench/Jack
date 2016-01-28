@@ -185,6 +185,12 @@
     <Compile Include="Controllers\API\StatusController.cs" />
     <Compile Include="Controllers\API\TesteController.cs" />
     <Compile Include="Controllers\API\TipoItemController.cs" />
+    <Compile Include="Controllers\MVC\CalcadosController.cs" />
+    <Compile Include="Controllers\MVC\ChamadaController.cs" />
+    <Compile Include="Controllers\MVC\FamiliaController.cs" />
+    <Compile Include="Controllers\MVC\FamiliaCriancaController.cs" />
+    <Compile Include="Controllers\MVC\RoupasController.cs" />
+    <Compile Include="Controllers\MVC\SacolasController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -205,7 +211,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Controllers\MVC\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
