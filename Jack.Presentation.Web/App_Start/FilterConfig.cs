@@ -1,6 +1,6 @@
 ﻿using System.Web.Mvc;
 
-namespace Jack.Presentation.Web.App_Start
+namespace Jack.Presentation.Web
 {
     public static class FilterConfig
     {

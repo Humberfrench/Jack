@@ -115,7 +115,6 @@ namespace Jack.Business
 
             Data.FamiliaCrianca oDataFamiliaCrianca = null;
             bool blnDados = false;
-            int intCrianca = 0;
 
             try
             {

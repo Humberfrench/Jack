@@ -1,6 +1,6 @@
 ﻿using System.Web.Optimization;
 
-namespace Jack.Presentation.Web.App_Start
+namespace Jack.Presentation.Web
 {
     public static class BundleConfig
     {
