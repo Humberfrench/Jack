@@ -202,6 +202,7 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="Scripts\jquery-2.2.0.min.map" />
+    <None Include="Views\SharedFolder\_JackLayoutPage.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
