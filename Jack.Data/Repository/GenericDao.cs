@@ -47,7 +47,7 @@ namespace Jack.Data
             }
             catch (Exception ex)
             {
-                return false;
+                throw ex;
             }
             return true;
         }
@@ -66,7 +66,7 @@ namespace Jack.Data
             }
             catch (Exception ex)
             {
-                return false;
+                throw ex;
             }
             return true;
         }
@@ -85,7 +85,7 @@ namespace Jack.Data
             }
             catch (Exception ex)
             {
-                return false;
+                throw ex;
             }
             return true;
         }
