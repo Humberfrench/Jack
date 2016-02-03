@@ -19,7 +19,8 @@ namespace Jack.Data
         {
             try
             {
-                oSession = NHibernateHelper.GetCurrentSession(typeof(Tipo).Assembly);
+                Type tipoEntidade = typeof(Tipo);
+                oSession = NHibernateHelper.GetCurrentSession(tipoEntidade.Assembly);
                 blnHasTransaction = blnWithTransaction;
                 if (blnWithTransaction)
                 {
