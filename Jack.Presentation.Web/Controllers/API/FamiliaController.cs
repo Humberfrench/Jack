@@ -26,6 +26,7 @@ namespace Controllers.API
             catch (Exception ex)
             {
                 lstRetorno = null;
+                throw ex;
             }
             finally
             {

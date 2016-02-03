@@ -11,7 +11,22 @@ namespace Jack.Data
         private static readonly ISessionFactory sessionFactory;
         static NHibernateHelper()
         {
-            sessionFactory = new Configuration().Configure().BuildSessionFactory();
+            try
+            {
+                //sessionFactory = new Configuration().Configure().BuildSessionFactory();
+                // Initialize
+                Configuration cfg = new Configuration();
+                cfg.Configure();
+
+
+                // Create session factory from configuration object
+                sessionFactory = cfg.BuildSessionFactory();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
         }
 
         public static ISession GetCurrentSession(System.Reflection.Assembly assembly)

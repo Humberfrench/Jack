@@ -4,7 +4,7 @@
 		<id name="Codigo" column="id_familia">
 			<generator class="native"/>
 		</id>
-		<property column="nm_mae" name="Familia" not-null="false" />
+		<property column="nm_mae" name="Nome" not-null="false" />
         <property column="nr_nivel_espera" name="Nivel" not-null="false" />
         <property column="is_sacolinha" name="IsSacolinha" not-null="false" />
         <property column="is_consistente" name="IsConsistente" not-null="false" />

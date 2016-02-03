@@ -15,13 +15,13 @@ namespace Jack.Model
         public Familia()
         {
             Codigo = 0;
-            NomeFamilia = string.Empty;
+            Nome = string.Empty;
         }
 
         #endregion
 
         public virtual int Codigo { get; set; }
-        public virtual string NomeFamilia { get; set; }
+        public virtual string Nome { get; set; }
         public virtual string IsSacolinha { get; set; }
         public virtual string IsConsistente { get; set; }
         public virtual string Contato { get; set; }

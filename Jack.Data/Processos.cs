@@ -268,7 +268,7 @@ namespace Jack.Data
                 {
                     oRetorno = new Model.Familia();
                     oRetorno.Codigo = Convert.ToInt32(dr["id_familia"].ToString());
-                    oRetorno.NomeFamilia = dr["nm_mae"].ToString();
+                    oRetorno.Nome = dr["nm_mae"].ToString();
                     oRetorno.Nivel = Convert.ToInt32(dr["nr_nivel_espera"].ToString());
                     oRetorno.IsSacolinha = dr["is_sacolinha"].ToString();
                     oRetorno.IsConsistente = dr["is_consistente"].ToString();
@@ -311,7 +311,7 @@ namespace Jack.Data
                 {
                     oRetorno = new Model.Familia();
                     oRetorno.Codigo = Convert.ToInt32(dr["id_familia"].ToString());
-                    oRetorno.NomeFamilia = dr["nm_mae"].ToString();
+                    oRetorno.Nome = dr["nm_mae"].ToString();
                     oRetorno.Nivel = Convert.ToInt32(dr["nr_nivel_espera"].ToString());
                     oRetorno.IsSacolinha = dr["is_sacolinha"].ToString();
                     oRetorno.IsConsistente = dr["is_consistente"].ToString();

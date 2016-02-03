@@ -94,7 +94,7 @@ namespace Jack.Data
                 oCommand = new Command("CECAMKey");
                 oCommand.CommandText = "pr_add_familia_lote";
                 oCommand.CommandType = System.Data.CommandType.StoredProcedure;
-                oCommand.Parameters.Add(new Parameter("@nm_mae", System.Data.DbType.String, 75, oFamilia.NomeFamilia));
+                oCommand.Parameters.Add(new Parameter("@nm_mae", System.Data.DbType.String, 75, oFamilia.Nome));
                 oCommand.Parameters.Add(new Parameter("@is_sacolinha", System.Data.DbType.String, 1, oFamilia.IsSacolinha));
                 oCommand.Parameters.Add(new Parameter("@is_consistente", System.Data.DbType.String, 1, oFamilia.IsConsistente));
                 strRetorno = oCommand.Execute().ToString();
@@ -134,7 +134,7 @@ namespace Jack.Data
                 {
                     objDados = new Model.Familia();
                     objDados.Codigo = Convert.ToInt32(dr["id_familia"]);
-                    objDados.NomeFamilia = dr["nm_mae"].ToString();
+                    objDados.Nome = dr["nm_mae"].ToString();
                     lstDados.Add(objDados);
                 }
 

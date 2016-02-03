@@ -179,7 +179,7 @@ namespace Jack.Business
                     oFamiliaLote = new Model.FamiliaLote();
 
                     oFamilia.Codigo = 0;
-                    oFamilia.NomeFamilia = strMae;
+                    oFamilia.Nome = strMae;
                     oFamilia.IsConsistente = "N";
                     oFamilia.IsSacolinha = "N";
                     strRetorno = oDados.GravarLote(oFamilia);

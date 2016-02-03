@@ -100,7 +100,7 @@ namespace Jack.Data
                 {
                     objDados = new Model.Familia();
                     objDados.Codigo = Convert.ToInt32(dr["id_familia"].ToString());
-                    objDados.NomeFamilia = dr["nm_mae"].ToString();
+                    objDados.Nome = dr["nm_mae"].ToString();
                     objDados.IsSacolinha = dr["is_sacolinha"].ToString();
                     objDados.IsConsistente = dr["is_consistente"].ToString();
                     objDados.Status = new Model.Status(Convert.ToInt32(dr["id_status"]), dr["ds_status"].ToString());
