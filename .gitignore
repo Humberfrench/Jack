@@ -23,3 +23,10 @@ Jack.Data/bin/Debug/Jack.Model.xml
 sh.exe.stackdump
 .vs
 *.nupkg
+/Jack.Model/obj
+/Jack.Model/bin
+/Jack.Extensions/obj
+/Jack.Extensions/bin
+/Jack.Presentation.Web/obj
+/Jack.Presentation.Web/bin
+/packages
