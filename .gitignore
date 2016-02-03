@@ -22,3 +22,4 @@ Jack.Data/bin/Debug/Jack.Data.xml
 Jack.Data/bin/Debug/Jack.Model.xml
 sh.exe.stackdump
 .vs
+*.nupkg
