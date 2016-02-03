@@ -1,11 +1,17 @@
 ﻿using System;
-using System.Runtime.CompilerServices;
+using System.Collections.Generic;
 using System.Web.Script.Serialization;
 
 namespace Jack.Extensions
 {
     public static class Basic
     {
+
+        public static string ToJSON<T>(List<T> obj)
+        {
+            JavaScriptSerializer serializer = new JavaScriptSerializer();
+            return serializer.Serialize(obj);
+        }
 
         public static string ToJSON(object obj)
         {

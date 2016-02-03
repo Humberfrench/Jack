@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Web.Http;
 using Business = Jack.Business;
 using Model = Jack.Model;
+using Jack.Extensions;
 
 namespace Controllers.API
 {
@@ -11,7 +12,7 @@ namespace Controllers.API
 	{
 
 		[HttpGet()]
-		public IList<Model.Familia> GetValues()
+		public string GetValues()
 		{
 
 			IList<Model.Familia> lstRetorno = null;

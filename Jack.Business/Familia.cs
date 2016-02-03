@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Jack.Extensions;
 
 namespace Jack.Business
 {
@@ -86,6 +85,10 @@ namespace Jack.Business
             return blnRetorno;
         }
 
+        public string LoadJSON()
+        {
+            return this.LoadAll().ToList().;
+        }
         public IList<Model.Familia> LoadAll()
         {
             Data.Familia oDados = null;
