@@ -9,17 +9,16 @@ namespace Jack.Data.Map
         public MapColaboradorCrianca()
         {
             //Table
-            Table("tb_calcado");
+            Table("tb_colaborador_crianca");
 
             //Fields
             Id(x => x.Codigo);
-            Map(x => x.Numero).Column("nr_calcado").Not.Nullable();
-            Map(x => x.Sexo).Column("ds_sexo").Not.Nullable();
-            Map(x => x.NumeroInicio).Column("nr_inicio").Not.Nullable();
-            Map(x => x.NumeroFim).Column("nr_fim").Not.Nullable();
-            Map(x => x.MedidaIdade).Column("ds_medida_idade").Nullable();
+            Map(x => x.Ano).Column("nr_ano").Not.Nullable();
+            Map(x => x.IsDevolvida).Column("is_entregue").Not.Nullable();
 
-            //References
+            //HasManyToMany
+            HasManyToMany<Model.ColaboradorCrianca>(x => x.Colaborador).Cascade.All().Table("tb_colaborador");
+            HasManyToMany<Model.ColaboradorCrianca>(x => x.Crianca).Cascade.All().Table("tb_crianca");
 
         }
     }

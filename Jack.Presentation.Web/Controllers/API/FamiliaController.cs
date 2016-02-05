@@ -12,7 +12,7 @@ namespace Controllers.API
 	{
 
 		[HttpGet()]
-		public string GetValues()
+		public IList<Model.Familia> GetValues()
 		{
 
 			IList<Model.Familia> lstRetorno = null;

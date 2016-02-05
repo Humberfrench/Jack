@@ -87,7 +87,7 @@ namespace Jack.Business
 
         public string LoadJSON()
         {
-            return this.LoadAll().ToList().;
+            return this.LoadAll().ToList().ToString();
         }
         public IList<Model.Familia> LoadAll()
         {

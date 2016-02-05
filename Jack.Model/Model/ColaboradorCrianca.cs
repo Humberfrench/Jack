@@ -10,16 +10,16 @@ namespace Jack.Model
 
         public ColaboradorCrianca()
         {
-            Crianca = 0;
-            Colaborador = 0;
+            Crianca = new Criancas();
+            Colaborador = new Colaborador();
         }
 
 
         #endregion
 
         public virtual int Codigo { get; set; }
-        public virtual int Colaborador { get; set; }
-        public virtual int Crianca { get; set; }
+        public virtual Colaborador Colaborador { get; set; }
+        public virtual Criancas Crianca { get; set; }
         public virtual int Ano { get; set; }
         public virtual int NumeroSacola { get; set; }
         public virtual string IsDevolvida { get; set; }

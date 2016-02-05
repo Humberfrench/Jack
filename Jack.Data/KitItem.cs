@@ -96,7 +96,7 @@ namespace Jack.Data
                 {
                     oRetorno = new Model.KitItem();
                     oRetorno.Codigo = Convert.ToInt32(dr["id_kit_item"].ToString());
-                    oRetorno.Kit = Convert.ToInt32(dr["id_kit"].ToString());
+                    oRetorno.Kit.Codigo = Convert.ToInt32(dr["id_kit"].ToString());
                     oRetorno.KitDescricao = dr["ds_kit"].ToString();
                     oRetorno.TipoItem = Convert.ToInt32(dr["id_tipo_item"].ToString());
                     oRetorno.TipoItemDescricao = dr["ds_tipo_item"].ToString();

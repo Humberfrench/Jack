@@ -34,4 +34,3 @@ namespace Jack.Data.Map
         }
     }
 }
-  </class>
