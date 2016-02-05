@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Jack.Model
 {
@@ -10,21 +11,24 @@ namespace Jack.Model
 
         public FamiliaCrianca()
         {
-            Crianca = 0;
-            Familia = 0;
+            Criancas = new List<Criancas>();
+            Crianca = new Criancas();
+            Familia = new Familia();
         }
 
 
-        public FamiliaCrianca(int intCrianca, int intFamilia)
-        {
-            Crianca = intCrianca;
-            Familia = intFamilia;
-        }
+        //public FamiliaCrianca(int intCrianca, int intFamilia)
+        //{
+        //    Crianca = intCrianca;
+        //    Familia = intFamilia;
+        //}
 
         #endregion
 
-        public virtual int Crianca { get; set; }
-        public virtual int Familia { get; set; }
+        public virtual Criancas Crianca { get; set; }
+        public virtual Familia Familia { get; set; }
+
+        public virtual List<Criancas> Criancas { get; set; }
 
     }
 

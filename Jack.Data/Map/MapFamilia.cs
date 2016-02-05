@@ -25,7 +25,10 @@ namespace Jack.Data.Map
             //Hasmany
             HasMany(x => x.Reuniao).Cascade.AllDeleteOrphan()
                                    .Fetch.Join()
-                                   .Inverse().KeyColumn("id_reuniao"); 
+                                   .Inverse().KeyColumn("id_reuniao");
+            HasMany(x => x.Criancas).Cascade.AllDeleteOrphan()
+                                   .Fetch.Join()
+                                   .Inverse().KeyColumn("id_crianca");
         }
     }
 }

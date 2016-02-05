@@ -28,6 +28,7 @@ namespace Jack.Model
         public virtual int Nivel { get; set; }
         public virtual Status Status { get; set; }
         public virtual List<Reuniao> Reuniao { get; set; }
+        public virtual List<FamiliaCrianca> Criancas { get; set; }
 
         public virtual DateTime DataAtualizacao { get; set; }
 

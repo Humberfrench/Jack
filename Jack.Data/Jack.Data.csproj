@@ -71,6 +71,7 @@
     <Compile Include="Map\MapColaboradorCrianca.cs" />
     <Compile Include="Map\MapCriancas.cs" />
     <Compile Include="Map\MapFamilia.cs" />
+    <Compile Include="Map\MapFamiliaCrianca.cs" />
     <Compile Include="Map\MapKit.cs" />
     <Compile Include="Map\MapKitItem.cs" />
     <Compile Include="Map\MapPresenca.cs" />
