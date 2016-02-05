@@ -22,6 +22,10 @@ namespace Jack.Data.Map
             //References
             References(x => x.Status).Column("id_status");
 
+            //Hasmany
+            HasMany(x => x.Reuniao).Cascade.AllDeleteOrphan()
+                                   .Fetch.Join()
+                                   .Inverse().KeyColumn("id_reuniao"); 
         }
     }
 }

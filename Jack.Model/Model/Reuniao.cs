@@ -14,6 +14,7 @@ namespace Jack.Model
         public virtual int Ano { get; set; }
         public virtual int AnoCorrente { get; set; }
         public virtual System.DateTime Data { get; set; }
+        public virtual List<Familia> Familia { get; set; }
 
         public virtual string DataFormated
         {

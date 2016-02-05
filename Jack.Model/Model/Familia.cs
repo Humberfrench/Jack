@@ -27,6 +27,7 @@ namespace Jack.Model
         public virtual string Contato { get; set; }
         public virtual int Nivel { get; set; }
         public virtual Status Status { get; set; }
+        public virtual List<Reuniao> Reuniao { get; set; }
 
         public virtual DateTime DataAtualizacao { get; set; }
 
@@ -61,7 +62,7 @@ namespace Jack.Model
             }
         }
 
-
+ 
         public virtual string Consistente
         {
             get
