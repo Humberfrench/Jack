@@ -18,7 +18,7 @@ namespace Jack.Data.Map
             Map(x => x.IdadeMaxima).Column("vl_idade_max").Not.Nullable();
             Map(x => x.Sexo).Column("ds_sexo").Not.Nullable();
             Map(x => x.IsNecessidadeEspecial).Column("is_necessidade_especial").Nullable();
-
+            HasMany(x => x.Items).KeyColumn("id_kit");
             //References
 
         }

@@ -4,12 +4,12 @@ using System;
 
 namespace Jack.Data.Map
 {
-    class MapKitItem : ClassMap<Model.Calcado>
+    class MapKitItem : ClassMap<Model.KitItem>
     {
-        public MapCalcado()
+        public MapKitItem()
         {
             //Table
-            Table("tb_calcado");
+            Table("tb_kit_item");
 
             //Fields
             Id(x => x.Codigo);
@@ -24,3 +24,13 @@ namespace Jack.Data.Map
         }
     }
 }
+  //<class name="KitItem" table="tb_kit_item">
+  //  <id name = "Codigo" column="id_kit_item">
+  //    <generator class="native"/>
+  //  </id>
+  //  <property column = "id_kit" name="Kit" not-null="true"/>
+  //  <property column = "id_tipo_item" name="TipoItem" not-null="true"/>
+  //  <property column = "ds_observacao" name="Observacao" not-null="false"/>
+  //  <property column = "nr_ordem" name="Ordem" not-null="true"/>
+
+  //</class>
