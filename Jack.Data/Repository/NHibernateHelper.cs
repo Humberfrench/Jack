@@ -1,4 +1,7 @@
-﻿using NHibernate;
+﻿using FluentNHibernate.Cfg;
+using FluentNHibernate.Conventions.Helpers;
+using FluentNHibernate.Conventions.Inspections;
+using NHibernate;
 using NHibernate.Cfg;
 using System;
 
@@ -18,9 +21,18 @@ namespace Jack.Data
                 Configuration cfg = new Configuration();
                 cfg.Configure();
 
+                ISessionFactory newSessionFactory =
+                    Fluently.Configure(cfg)
+                        .Mappings(m =>
+                                  m.FluentMappings
+                                      .AddFromAssemblyOf<NHibernateHelper>()
+                                      .Conventions.AddFromAssemblyOf<NHibernateHelper>()
+                                      .Conventions.Add(DefaultAccess.CamelCaseField(CamelCasePrefix.Underscore)))
+                        .BuildSessionFactory();
+
 
                 // Create session factory from configuration object
-                sessionFactory = cfg.BuildSessionFactory();
+                //sessionFactory = cfg.BuildSessionFactory();
             }
             catch (Exception ex)
             {
