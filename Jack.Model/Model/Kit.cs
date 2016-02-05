@@ -20,6 +20,7 @@ namespace Jack.Model
             IdadeMaxima = 0;
             Sexo = string.Empty;
             IsNecessidadeEspecial = string.Empty;
+            Items = new List<KitItem>();
         }
 
 
@@ -31,6 +32,7 @@ namespace Jack.Model
         public virtual int IdadeMaxima { get; set; }
         public virtual string Sexo { get; set; }
         public virtual string IsNecessidadeEspecial { get; set; }
+        public virtual List<KitItem> Items { get; set; }
 
         public virtual string IdadeMinimaDesc
         {
