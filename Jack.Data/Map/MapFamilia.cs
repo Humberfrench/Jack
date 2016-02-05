@@ -16,11 +16,11 @@ namespace Jack.Data.Map
             Map(x => x.Nivel).Column("nr_nivel_espera").Not.Nullable();
             Map(x => x.IsSacolinha).Column("is_sacolinha").Not.Nullable();
             Map(x => x.IsConsistente).Column("is_consistente").Not.Nullable();
-            References(x => x.Status).Column("id_status");
             Map(x => x.Contato).Column("ds_contato").Nullable();
             Map(x => x.DataAtualizacao).Column("dt_update").Nullable().Default(DateTime.Now.ToString());
 
             //References
+            References(x => x.Status).Column("id_status");
 
         }
     }

@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Jack.Model
 {
@@ -15,7 +11,7 @@ namespace Jack.Model
         public KitItem()
         {
             Codigo = 0;
-            Kit = 0;
+            Kit = new Kit();
             TipoItem = 0;
             Observacao = string.Empty;
         }
@@ -23,7 +19,7 @@ namespace Jack.Model
         #endregion
 
         public virtual int Codigo { get; set; }
-        public virtual int Kit { get; set; }
+        public virtual Kit Kit { get; set; }
         public virtual string KitDescricao { get; set; }
         public virtual int TipoItem { get; set; }
         public virtual int Ordem { get; set; }
