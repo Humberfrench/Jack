@@ -9,17 +9,14 @@ namespace Jack.Data.Map
         public MapPresenca()
         {
             //Table
-            Table("tb_calcado");
-
+            Table("tb_familia_presenca");
+            
             //Fields
             Id(x => x.Codigo);
-            Map(x => x.Numero).Column("nr_calcado").Not.Nullable();
-            Map(x => x.Sexo).Column("ds_sexo").Not.Nullable();
-            Map(x => x.NumeroInicio).Column("nr_inicio").Not.Nullable();
-            Map(x => x.NumeroFim).Column("nr_fim").Not.Nullable();
-            Map(x => x.MedidaIdade).Column("ds_medida_idade").Nullable();
 
-            //References
+            //HasManyToMany
+            HasManyToMany<Model.Presenca>(x => x.Familia).Cascade.All().Table("tb_familia");
+            HasManyToMany<Model.Presenca>(x => x.Reuniao).Cascade.All().Table("tb_reuniao_agendada");
 
         }
     }
