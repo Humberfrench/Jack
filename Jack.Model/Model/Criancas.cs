@@ -36,6 +36,7 @@ namespace Jack.Model
         public virtual string Nome { get; set; }
         public virtual int Idade { get; set; }
         public virtual string MedidaIdade { get; set; }
+        public virtual string IdadeNominalResumido { get; set; }
         public virtual DateTime DataNascimento { get; set; }
         public virtual string Sexo { get; set; }
         public virtual int Calcado { get; set; }
@@ -47,12 +48,14 @@ namespace Jack.Model
         public virtual string IsConsistente { get; set; }
         public virtual string IsNecessidadeEspecial { get; set; }
         public virtual string IsMoralCrista { get; set; }
+        public virtual string IsCriancaMaior { get; set; }
         public virtual Model.Status Status { get; set; }
         public virtual string Familia { get; set; }
         public virtual string FamiliaRepresentante { get; set; }
         public virtual int FamiliaCodigo { get; set; }
         public virtual int FamiliaRepresentanteCodigo { get; set; }
         public virtual DateTime DataAtualizacao { get; set; }
+        public virtual DateTime DataCriacao { get; set; }
         public virtual int StatusCodigo
         {
             get { return Status.Codigo; }
@@ -62,6 +65,15 @@ namespace Jack.Model
             get { return Status.Descricao; }
         }
 
+        public virtual string DataCriacaoString
+        {
+            get { return DataCriacao.ToShortDateString(); }
+        }
+
+        public virtual string DataCriacaoFormated
+        {
+            get { return DataCriacao.Day.ToString("00") + "/" + DataCriacao.Month.ToString("00") + "/" + DataCriacao.Year.ToString("0000"); }
+        }
         public virtual string DataAtualizacaoString
         {
             get { return DataAtualizacao.ToShortDateString(); }
@@ -105,6 +117,19 @@ namespace Jack.Model
             get
             {
                 if (IsConsistente == "S")
+                {
+                    return "Sim";
+                }
+                else {
+                    return "Não";
+                }
+            }
+        }
+        public virtual string CriancaMaior
+        {
+            get
+            {
+                if (IsCriancaMaior == "S")
                 {
                     return "Sim";
                 }

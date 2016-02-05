@@ -21,7 +21,7 @@ namespace Jack.Data
                 Configuration cfg = new Configuration();
                 cfg.Configure();
 
-                ISessionFactory newSessionFactory =
+                ISessionFactory sessionFactory =
                     Fluently.Configure(cfg)
                         .Mappings(m =>
                                   m.FluentMappings

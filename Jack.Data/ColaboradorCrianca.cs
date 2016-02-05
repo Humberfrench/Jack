@@ -109,8 +109,8 @@ namespace Jack.Data
                 {
                     oRetorno = new Model.ColaboradorCrianca();
                     oRetorno.Codigo = Convert.ToInt16(dr["id_colaborador_crianca"].ToString());
-                    oRetorno.Colaborador = intColaborador;
-                    oRetorno.Crianca = Convert.ToInt32(dr["id_crianca"].ToString());
+                    oRetorno.Colaborador.Codigo = intColaborador;
+                    oRetorno.Crianca.Codigo = Convert.ToInt32(dr["id_crianca"].ToString());
                     oRetorno.NomeCrianca = dr["nm_crianca"].ToString();
                     oRetorno.NomeColaborador = dr["ds_nome"].ToString();
                     oRetorno.IsDevolvida = dr["is_devolvida"].ToString();
