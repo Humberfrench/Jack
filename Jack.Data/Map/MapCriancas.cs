@@ -26,7 +26,6 @@ namespace Jack.Data.Map
             Map(x => x.IsNecessidadeEspecial).Column("is_necessidade_especial").Nullable().Default("N");
             Map(x => x.IsMoralCrista).Column("is_moral_crista").Not.Nullable().Default("N");
             Map(x => x.IsCriancaMaior).Column("is_crianca_maior").Not.Nullable().Default("N");
-            Map(x => x.Sexo).Column("ds_sexo").Not.Nullable();
             Map(x => x.DataCriacao).Column("dt_create").Nullable().Default(DateTime.Now.ToString());
             Map(x => x.DataAtualizacao).Column("dt_update").Nullable().Default(DateTime.Now.ToString());
 
