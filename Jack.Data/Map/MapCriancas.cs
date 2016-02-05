@@ -4,9 +4,9 @@ using System;
 
 namespace Jack.Data.Map
 {
-    class MapCrianca : ClassMap<Model.Calcado>
+    class MapCriancas : ClassMap<Model.Criancas>
     {
-        public MapCalcado()
+        public MapCriancas()
         {
             //Table
             Table("tb_calcado");
