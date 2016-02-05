@@ -14,16 +14,16 @@ namespace Jack.Model
 
         public Presenca()
         {
-            Familia = 0;
-            Reuniao = 0;
+            Familia = new List<Familia>();
+            Reuniao = new List<Reuniao>();
             Codigo = 0;
         }
 
         #endregion
 
         public virtual int Codigo { get; set; }
-        public virtual int Familia { get; set; }
-        public virtual int Reuniao { get; set; }
+        public virtual List<Familia> Familia { get; set; }
+        public virtual List<Reuniao> Reuniao { get; set; }
 
     }
 }
