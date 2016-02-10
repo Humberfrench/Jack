@@ -1,9 +1,10 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Web;
-using System.Web.Mvc;
-using System.Web.Routing;
 using System.Web.Http;
+using System.Web.Mvc;
 using System.Web.Optimization;
+using System.Web.Routing;
 
 namespace Jack.Presentation.Web
 {
@@ -26,7 +27,15 @@ namespace Jack.Presentation.Web
 
             ValueProviderFactories.Factories.Add(new JsonValueProviderFactory());
 
-            config.Formatters.JsonFormatter.SerializerSettings.Formatting = Newtonsoft.Json.Formatting.Indented;
+            //JsonSerializerSettings jSettings = new Newtonsoft.Json.JsonSerializerSettings();
+            //jSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
+            //GlobalConfiguration.Configuration.Formatters.JsonFormatter.SerializerSettings = jSettings;
+
+            //config.Formatters.JsonFormatter.SerializerSettings.Formatting = Newtonsoft.Json.Formatting.Indented;
+
+            //var serializerSettings = GlobalConfiguration.Configuration.Formatters.JsonFormatter.SerializerSettings;
+            //var contractResolver = (DefaultContractResolver)serializerSettings.ContractResolver;
+            //contractResolver.IgnoreSerializableAttribute = true;
 
             GlobalConfiguration.Configuration.EnsureInitialized();
         }

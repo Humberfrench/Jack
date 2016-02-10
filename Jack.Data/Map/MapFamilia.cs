@@ -20,7 +20,7 @@ namespace Jack.Data.Map
             Map(x => x.DataAtualizacao).Column("dt_update").Nullable().Default(DateTime.Now.ToString());
 
             //References
-            References(x => x.Status).Column("id_status");
+            References(x => x.Status).Column("id_status").Not.Nullable();
 
             //Hasmany
             HasMany(x => x.Reunioes).Cascade.AllDeleteOrphan()

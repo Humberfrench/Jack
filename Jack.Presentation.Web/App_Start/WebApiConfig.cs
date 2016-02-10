@@ -1,4 +1,5 @@
-﻿using System.Web.Http;
+﻿using Newtonsoft.Json.Serialization;
+using System.Web.Http;
 
 namespace Jack.Presentation.Web
 {
@@ -31,6 +32,12 @@ namespace Jack.Presentation.Web
 
             config.Formatters.Remove(config.Formatters.XmlFormatter);
             config.Formatters.JsonFormatter.Indent = true;
+            config.Formatters.JsonFormatter.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
+            //tentativa aqui
+            //https://www.google.com.br/search?q=k__BackingField&oq=k__BackingField&aqs=chrome..69i57&sourceid=chrome&ie=UTF-8#q=k__backingfield+web+api
+            var oResolvercontract = (DefaultContractResolver) config.Formatters.JsonFormatter.SerializerSettings.ContractResolver ;
+            oResolvercontract.IgnoreSerializableAttribute = true;
+            //config.Formatters.JsonFormatter.
 
         }
     }
