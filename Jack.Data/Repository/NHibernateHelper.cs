@@ -21,14 +21,14 @@ namespace Jack.Data
                 Configuration cfg = new Configuration();
                 cfg.Configure();
 
-                ISessionFactory sessionFactory =
-                    Fluently.Configure(cfg)
-                        .Mappings(m =>
-                                  m.FluentMappings
-                                      .AddFromAssemblyOf<NHibernateHelper>()
-                                      .Conventions.AddFromAssemblyOf<NHibernateHelper>()
-                                      .Conventions.Add(DefaultAccess.CamelCaseField(CamelCasePrefix.Underscore)))
-                        .BuildSessionFactory();
+
+                sessionFactory = Fluently.Configure(cfg)
+                                .Mappings(m =>
+                                            m.FluentMappings
+                                                .AddFromAssemblyOf<NHibernateHelper>()
+                                                .Conventions.AddFromAssemblyOf<NHibernateHelper>()
+                                                .Conventions.Add(DefaultAccess.CamelCaseField(CamelCasePrefix.Underscore)))
+                                .BuildSessionFactory();
 
 
                 // Create session factory from configuration object

@@ -23,7 +23,7 @@ namespace Jack.Data.Map
             References(x => x.Status).Column("id_status");
 
             //Hasmany
-            HasMany(x => x.Reuniao).Cascade.AllDeleteOrphan()
+            HasMany(x => x.Reunioes).Cascade.AllDeleteOrphan()
                                    .Fetch.Join()
                                    .Inverse().KeyColumn("id_reuniao");
             HasMany(x => x.Criancas).Cascade.AllDeleteOrphan()

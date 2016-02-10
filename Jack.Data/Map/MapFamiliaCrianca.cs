@@ -10,10 +10,18 @@ namespace Jack.Data.Map
             Table("tb_familia_crianca");
 
             //CompositeId
-            CompositeId().KeyReference(x => x.Familia, "id_familia")
-                         .KeyReference(x => x.Crianca, "id_crianca");
+            CompositeId().KeyProperty(x => x.Familia, "id_familia")
+                         .KeyProperty(x => x.Crianca, "id_crianca");
+
+            //References
+            References(x => x.Crianca).Column("id_crianca");
+            References(x => x.Familia).Column("id_familia");
+
+            ////References
+            //References(x => x.Status).Column("id_status");
+
             //HasMany
-            HasMany<Model.Presenca>(x => x.Criancas).Cascade.All().Table("tb_crianca");
+            //HasMany(x => x.Criancas).Cascade.All().Table("tb_crianca");
 
         }
     }
