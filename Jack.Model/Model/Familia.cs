@@ -3,6 +3,7 @@ using System.Collections.Generic;
 
 namespace Jack.Model
 {
+    [Serializable()]
     public class Familia : BaseModel<Familia>
     {
 
@@ -196,5 +197,18 @@ namespace Jack.Model
 
         #endregion
 
+        #region Methods
+        public virtual void AddCriancas(FamiliaCrianca crianca)
+        {
+            crianca.Familia = this;
+            Criancas.Add(crianca);
+        }
+
+        public virtual void AddEmployee(Presenca reunioes)
+        {
+            reunioes.Familia = this;
+            Reunioes.Add(reunioes);
+        }
+        #endregion
     }
 }

@@ -11,16 +11,16 @@ namespace Jack.Model
 
         public Presenca() :base()
         {
-            familia = new List<Familia>();
-            reuniao = new List<Reuniao>();
+            familia = new Familia();
+            reuniao = new Reuniao();
         }
 
         #endregion
 
-        private List<Familia> familia;
-        private List<Reuniao> reuniao;
+        private Familia familia;
+        private Reuniao reuniao;
 
-        public virtual List<Familia> Familia
+        public virtual Familia Familia
         {
             get
             {
@@ -31,7 +31,7 @@ namespace Jack.Model
                 familia = value;
             }
         }
-        public virtual List<Reuniao> Reuniao
+        public virtual Reuniao Reuniao
         {
             get
             {

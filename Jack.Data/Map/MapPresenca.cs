@@ -14,9 +14,9 @@ namespace Jack.Data.Map
             //Fields
             Id(x => x.Codigo);
 
-            //HasManyToMany
-            HasMany(x => x.Familia).Cascade.All().Table("tb_familia");
-            HasMany(x => x.Reuniao).Cascade.All().Table("tb_reuniao_agendada");
+            //References
+            References(x => x.Familia).Column("id_familia").Not.Nullable();
+            References(x => x.Reuniao).Column("id_reuniao").Not.Nullable();
 
         }
     }
