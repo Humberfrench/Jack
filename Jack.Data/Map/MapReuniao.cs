@@ -17,13 +17,13 @@ namespace Jack.Data.Map
             Map(x => x.AnoCorrente).Column("nr_ano_efetivo").Not.Nullable();
             Map(x => x.Data).Column("dt_reuniao").Not.Nullable();
 
-            //References
-            References(x => x.Familia).Column("id_familia").Not.Nullable();
+            //References-
+            References(x => x.Familia).Column("id_reuniao").Not.Nullable();
 
             //Hasmany
             HasMany(x => x.Familia).Cascade.AllDeleteOrphan()
                                    .Fetch.Join()
-                                   .Inverse().KeyColumn("id_familia");
+                                   .Inverse().KeyColumn("id_reuniao");
 
         }
     }
