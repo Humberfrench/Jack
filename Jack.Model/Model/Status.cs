@@ -3,14 +3,13 @@
 namespace Jack.Model
 {
     [Serializable()]
-    public class Status
+    public class Status : BaseModel<Status>
     {
-
+ 
         #region "Construtor"
 
         public Status()
         {
-            codigo = 0;
             descricao = string.Empty;
         }
 
@@ -44,17 +43,6 @@ namespace Jack.Model
         private string nivelStatus;
         #endregion
 
-        public virtual int Codigo
-        {
-            get
-            {
-                return codigo;
-            }
-            set
-            {
-                codigo = value;
-            }
-        }
         public virtual string Descricao
         {
             get

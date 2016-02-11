@@ -15,8 +15,8 @@ namespace Jack.Data.Map
             Id(x => x.Codigo);
 
             //HasManyToMany
-            HasMany<Model.Presenca>(x => x.Familia).Cascade.All().Table("tb_familia");
-            HasMany<Model.Presenca>(x => x.Reuniao).Cascade.All().Table("tb_reuniao_agendada");
+            HasMany(x => x.Familia).Cascade.All().Table("tb_familia");
+            HasMany(x => x.Reuniao).Cascade.All().Table("tb_reuniao_agendada");
 
         }
     }

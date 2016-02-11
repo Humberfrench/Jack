@@ -21,6 +21,8 @@ namespace Jack.Data.Map
 
             //References
             References(x => x.Status).Column("id_status").Not.Nullable();
+            References(x => x.Reunioes).Column("id_reuniao").Not.Nullable();
+            References(x => x.Criancas).Column("id_crianca").Not.Nullable();
 
             //Hasmany
             HasMany(x => x.Reunioes).Cascade.AllDeleteOrphan()

@@ -32,7 +32,7 @@ namespace Jack.Presentation.Web
 
             config.Formatters.Remove(config.Formatters.XmlFormatter);
             config.Formatters.JsonFormatter.Indent = true;
-            //config.Formatters.JsonFormatter.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
+            config.Formatters.JsonFormatter.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
             ////config.Formatters.JsonFormatter.
             ////tentativa aqui
             ////https://www.google.com.br/search?q=k__BackingField&oq=k__BackingField&aqs=chrome..69i57&sourceid=chrome&ie=UTF-8#q=k__backingfield+web+api

@@ -40,6 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BaseModel.cs" />
     <Compile Include="DTOs\CriancasInconsistentes.cs" />
     <Compile Include="DTOs\FamiliaCrianca.cs" />
     <Compile Include="DTOs\FamiliaLote.cs" />
@@ -47,6 +48,7 @@
     <Compile Include="DTOs\KitSacola.cs" />
     <Compile Include="DTOs\ProcessaPresenca.cs" />
     <Compile Include="DTOs\Sacolas.cs" />
+    <Compile Include="IEntidade.cs" />
     <Compile Include="Model\Presenca.cs" />
     <Compile Include="Model\Reuniao.cs" />
     <Compile Include="Model\Roupa.cs" />
