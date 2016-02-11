@@ -102,7 +102,8 @@ namespace Jack.Data
 
             try
             {
-                oTipo = (Tipo)oSession.Load(typeof(Tipo), Identifier);
+                //oTipo = (Tipo)oSession.Load(typeof(Tipo), Identifier);
+                oTipo = oSession.Get<Tipo>(Identifier);
                 return oTipo;
             }
             catch (Exception ex)
