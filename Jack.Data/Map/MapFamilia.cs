@@ -11,7 +11,7 @@ namespace Jack.Data.Map
             Table("tb_familia");
 
             //Fields
-            Id(x => x.Codigo);
+            Id(x => x.Codigo).Column("id_familia");
             Map(x => x.Nome).Column("nm_mae").Not.Nullable();
             Map(x => x.Nivel).Column("nr_nivel_espera").Not.Nullable();
             Map(x => x.IsSacolinha).Column("is_sacolinha").Not.Nullable();
