@@ -22,7 +22,6 @@ namespace Jack.Model
         private Criancas _crianca;
         private Familia _familia;
 
-
         public virtual Criancas Crianca
         {
             get
@@ -47,7 +46,6 @@ namespace Jack.Model
             }
         }
 
-
         public virtual List<Criancas> Criancas
         {
             get
@@ -59,7 +57,6 @@ namespace Jack.Model
                 _criancas = value;
             }
         }
-
 
         public override bool Equals(object obj)
         {

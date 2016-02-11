@@ -18,6 +18,8 @@ namespace Jack.Data.Map
             Map(x => x.Data).Column("dt_reuniao").Not.Nullable();
 
             //References
+            References(x => x.Familia).Column("id_familia").Not.Nullable();
+
             //Hasmany
             HasMany(x => x.Familia).Cascade.AllDeleteOrphan()
                                    .Fetch.Join()

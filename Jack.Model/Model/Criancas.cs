@@ -7,12 +7,11 @@ using System.Threading.Tasks;
 namespace Jack.Model
 {
     [Serializable]
-    public class Criancas
+    public class Criancas:BaseModel<Criancas>
     {
 
         public Criancas()
         {
-            Codigo = 0;
             Nome = string.Empty;
             Idade = 0;
             DataNascimento = new DateTime();
@@ -32,7 +31,6 @@ namespace Jack.Model
 
         }
 
-        public virtual int Codigo { get; set; }
         public virtual string Nome { get; set; }
         public virtual int Idade { get; set; }
         public virtual string MedidaIdade { get; set; }

@@ -3,7 +3,6 @@ using System.Collections.Generic;
 
 namespace Jack.Model
 {
-    [Serializable()]
     public class Familia : BaseModel<Familia>
     {
 
