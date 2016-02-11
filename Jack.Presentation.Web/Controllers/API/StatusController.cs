@@ -25,6 +25,7 @@ namespace Controllers.API
             catch (Exception ex)
             {
                 lstRetorno = null;
+                throw ex;
             }
             finally
             {
@@ -32,7 +33,6 @@ namespace Controllers.API
             }
 
 			return lstRetorno;
-
 
 		}
 
@@ -42,13 +42,19 @@ namespace Controllers.API
 
 			IList<Model.Status> lstRetorno = null;
 			Business.Status oBusiness = null;
-			try {
+			try
+            {
 				oBusiness = new Business.Status();
 				lstRetorno = oBusiness.LoadForFamilia();
 
-			} catch (Exception ex) {
+			}
+            catch (Exception ex)
+            {
 				lstRetorno = null;
-			} finally {
+                throw ex;
+            }
+            finally
+            {
 				oBusiness = null;
 			}
 

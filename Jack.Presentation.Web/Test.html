@@ -36,6 +36,29 @@
             alert(evt.params.data.text);
         }
 
+        function Load()
+        {
+            var objRet = null;
+            $.ajax({
+                type: 'GET',
+                url: '/api/status/Get/LoadForChildrem/',
+                dataType: 'json',
+                cache: 'false',
+                contentType: 'application/json; charset=utf-8',
+                async: false,
+                success: function (data, textStatus, xhr)
+                {
+                    objRet = data;
+                },
+                error: function (xhr, msg, e)
+                {
+                    Mensagem.Erro(xhr.responseText);
+                }
+            });
+
+            return objRet;
+        }
+
     </script>
 </head>
 <body>

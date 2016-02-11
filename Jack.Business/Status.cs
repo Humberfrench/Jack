@@ -116,7 +116,7 @@ namespace Jack.Business
 
             try
             {
-                lstRetorno = lstRetorno.Where(x => x.NivelStatus == "T" || x.NivelStatus == "C").ToList();
+                lstRetorno = LoadAll().Where(x => x.NivelStatus == "T" || x.NivelStatus == "C").ToList();
             }
             catch (Exception ex)
             {
@@ -133,7 +133,7 @@ namespace Jack.Business
 
             try
             {
-                lstRetorno = lstRetorno.Where(x => x.NivelStatus == "T" || x.NivelStatus == "F").ToList();
+                lstRetorno = LoadAll().Where(x => x.NivelStatus == "T" || x.NivelStatus == "F").ToList();
             }
             catch (Exception ex)
             {

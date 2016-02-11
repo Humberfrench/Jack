@@ -54,6 +54,7 @@ namespace Controllers.API
             catch (Exception ex)
             {
                 oRetorno = null;
+                throw ex;
             }
             finally
             {

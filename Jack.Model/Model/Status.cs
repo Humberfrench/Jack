@@ -10,82 +10,82 @@ namespace Jack.Model
 
         public Status()
         {
-            _codigo = 0;
-            _descricao = string.Empty;
+            codigo = 0;
+            descricao = string.Empty;
         }
 
         public Status(string strDescricao)
         {
-            _codigo = 0;
-            _descricao = strDescricao;
+            codigo = 0;
+            descricao = strDescricao;
         }
 
         public Status(int intCodigo, string strDescricao)
         {
-            _codigo = intCodigo;
-            _descricao = strDescricao;
+            codigo = intCodigo;
+            descricao = strDescricao;
         }
 
 
         public Status(int intCodigo, string strDescricao, string strPermiteSacola, string strNivelStatus)
         {
-            _codigo = intCodigo;
-            _descricao = strDescricao;
-            _permiteSacola = strPermiteSacola;
-            _nivelStatus = strNivelStatus;
+            codigo = intCodigo;
+            descricao = strDescricao;
+            permiteSacola = strPermiteSacola;
+            nivelStatus = strNivelStatus;
         }
 
         #endregion
 
         #region "Fields"
-        private int _codigo;
-        private string _descricao;
-        private string _permiteSacola;
-        private string _nivelStatus;
+        private int codigo;
+        private string descricao;
+        private string permiteSacola;
+        private string nivelStatus;
         #endregion
 
         public virtual int Codigo
         {
             get
             {
-                return _codigo;
+                return codigo;
             }
             set
             {
-                _codigo = value;
+                codigo = value;
             }
         }
         public virtual string Descricao
         {
             get
             {
-                return _descricao;
+                return descricao;
             }
             set
             {
-                _descricao = value;
+                descricao = value;
             }
         }
         public virtual string PermiteSacola
         {
             get
             {
-                return _permiteSacola;
+                return permiteSacola;
             }
             set
             {
-                _permiteSacola = value;
+                permiteSacola = value;
             }
         }
         public virtual string NivelStatus
         {
             get
             {
-                return _nivelStatus;
+                return nivelStatus;
             }
             set
             {
-                _nivelStatus = value;
+                nivelStatus = value;
             }
         }
 
@@ -94,7 +94,7 @@ namespace Jack.Model
         {
             get
             {
-                if (_permiteSacola == "S")
+                if (permiteSacola == "S")
                 {
                     return "Sim";
                 }
@@ -107,11 +107,11 @@ namespace Jack.Model
         {
             get
             {
-                if (_nivelStatus == "F")
+                if (nivelStatus == "F")
                 {
                     return "Família";
                 }
-                else if (_nivelStatus == "C")
+                else if (nivelStatus == "C")
                 {
                     return "Criança";
                 }
