@@ -6,25 +6,156 @@ namespace Jack.Model
     public class Colaborador
     {
 
+        #region Constructor
         public Colaborador()
         {
-            Codigo = 0;
-            Nome = string.Empty;
-            Telefone = string.Empty;
-            Celular = string.Empty;
-            EMail = string.Empty;
+            codigo = 0;
+            nome = string.Empty;
+            telefone = string.Empty;
+            celular = string.Empty;
+            cpf = string.Empty;
+            email = string.Empty;
+            anoNotificacao = 0;
+            totalSacolas = 0;
+            quantidadeSacolas = 0;
+            percentualSacolas = 0;
+        }
+        #endregion
+
+        #region Fields
+        private int codigo;
+        private string nome;
+        private string telefone;
+        private string celular;
+        private string cpf;
+        private string email;
+        private int anoNotificacao;
+        private int totalSacolas;
+        private int quantidadeSacolas;
+        private double percentualSacolas;
+        #endregion
+
+        #region Properties
+        public virtual int Codigo
+        {
+            get
+            {
+                return codigo;
+            }
+            set
+            {
+                codigo = value;
+            }
         }
 
-        public virtual int Codigo { get; set; }
-        public virtual string Nome { get; set; }
-        public virtual string Telefone { get; set; }
-        public virtual string Celular { get; set; }
-        public virtual string CPF { get; set; }
-        public virtual string EMail { get; set; }
-        public virtual int AnoNotificacao { get; set; }
-        public virtual int TotalSacolas { get; set; }
-        public virtual int QuantidadeSacolas { get; set; }
-        public virtual double PercentualSacolas { get; set; }
+        public virtual string Nome
+        {
+            get
+            {
+                return nome;
+            }
+            set
+            {
+                nome = value;
+            }
+        }
+
+        public virtual string Telefone
+        {
+            get
+            {
+                return telefone;
+            }
+            set
+            {
+                telefone = value;
+            }
+        }
+
+        public virtual string Celular
+        {
+            get
+            {
+                return celular;
+            }
+            set
+            {
+                celular = value;
+            }
+        }
+
+        public virtual string CPF
+        {
+            get
+            {
+                return cpf;
+            }
+            set
+            {
+                cpf = value;
+            }
+        }
+
+        public virtual string EMail
+        {
+            get
+            {
+                return email;
+            }
+            set
+            {
+                email = value;
+            }
+        }
+
+        public virtual int AnoNotificacao
+        {
+            get
+            {
+                return anoNotificacao;
+            }
+            set
+            {
+                anoNotificacao = value;
+            }
+        }
+
+        public virtual int TotalSacolas
+        {
+            get
+            {
+                return totalSacolas;
+            }
+            set
+            {
+                totalSacolas = value;
+            }
+        }
+
+        public virtual int QuantidadeSacolas
+        {
+            get
+            {
+                return quantidadeSacolas;
+            }
+            set
+            {
+                quantidadeSacolas = value;
+            }
+        }
+
+        public virtual double PercentualSacolas
+        {
+            get
+            {
+                return percentualSacolas;
+            }
+            set
+            {
+                percentualSacolas = value;
+            }
+        }
+        #endregion
 
     }
 }

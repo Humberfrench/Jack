@@ -5,25 +5,95 @@ namespace Jack.Model
     [Serializable()]
     public class Calcado
     {
-
+        private int codigo;
+        private int numero;
+        private string sexo;
+        private int numeroInicio;
+        private int numeroFim; 
+        private string medidaIdade;
 
         public Calcado()
         {
-            Codigo = 0;
-            Numero = 0;
-            Sexo = string.Empty;
-            NumeroInicio = 0;
-            NumeroFim = 0;
-            MedidaIdade = string.Empty;
+            codigo = 0;
+            numero = 0;
+            sexo = string.Empty;
+            numeroFim = 0;
+            numeroInicio = 0;
+            medidaIdade = string.Empty;
 
         }
 
-        public virtual int Codigo { get; set; }
-        public virtual int Numero { get; set; }
-        public virtual string Sexo { get; set; }
-        public virtual int NumeroInicio { get; set; }
-        public virtual int NumeroFim { get; set; }
-        public virtual string MedidaIdade { get; set; }
+        public virtual int Codigo
+        {
+            get
+            {
+                return codigo;
+            }
+            set
+            {
+                codigo = value;
+            }
+        }
+
+        public virtual int Numero
+        {
+            get
+            {
+                return numero;
+            }
+            set
+            {
+                numero = value;
+            }
+        }
+
+        public virtual string Sexo
+        {
+            get
+            {
+                return sexo;
+            }
+            set
+            {
+                sexo = value;
+            }
+        }
+
+        public virtual int NumeroInicio
+        {
+            get
+            {
+                return numeroInicio;
+            }
+            set
+            {
+                numeroInicio = value;
+            }
+        }
+
+        public virtual int NumeroFim
+        {
+            get
+            {
+                return numeroFim;
+            }
+            set
+            {
+                numeroFim = value;
+            }
+        }
+
+        public virtual string MedidaIdade
+        {
+            get
+            {
+                return medidaIdade;
+            }
+            set
+            {
+                medidaIdade = value;
+            }
+        }
 
         public virtual string IdadeInicial
         {
