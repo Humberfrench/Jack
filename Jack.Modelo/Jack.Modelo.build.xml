@@ -1,4 +1,4 @@
-<build startDate="2016-02-16T12:38:47.2560-02:00" commandLine="&quot;C:\Program Files (x86)\SoftFluent\CodeFluent\Modeler\CodeFluent.Build4.exe&quot; &quot;C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Modelo\Jack.Modelo.cfp&quot; /Log:&quot;C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Modelo\Jack.Modelo.build.xml&quot; /hostpid:9544 /Results:&quot;C:\Users\humberto.almeida\AppData\Local\Temp\Jack.Modelo.cfp.oop&quot; /DoNotCreateReportsOnException /DoNotShowReportsOnException /NoFlashOnError " machineName="DEV-BRUNO-LOPES" osVersion="Microsoft Windows NT 6.2.9200.0" currentDirectory="C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Modelo" user="DEV-BRUNO-LOPES\humberto.almeida" clrVersion="4.0.30319.42000" licenseUsage="Build Expirable [Date:30/12/2099 00:00:00][Licensee:Almeida Humberto]" processorCount="8" workingSet="24408064 bytes" bitness="32bits" wow64="True" optionsFlags="None" parentProcess="C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\devenv.exe" endDate="2016-02-16T12:38:50.4147-02:00" totalElapsedTime="00:00:03.1597687" numberOfEntities="38" numberOfEnumerations="0" numberOfRelations="70">
+<build startDate="2016-02-16T18:05:20.0674-02:00" commandLine="&quot;C:\Program Files (x86)\SoftFluent\CodeFluent\Modeler\CodeFluent.Build4.exe&quot; &quot;C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Modelo\Jack.Modelo.cfp&quot; /Log:&quot;C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Modelo\Jack.Modelo.build.xml&quot; /hostpid:9544 /Results:&quot;C:\Users\humberto.almeida\AppData\Local\Temp\Jack.Modelo.cfp.oop&quot; /DoNotCreateReportsOnException /DoNotShowReportsOnException /NoFlashOnError " machineName="DEV-BRUNO-LOPES" osVersion="Microsoft Windows NT 6.2.9200.0" currentDirectory="C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Modelo" user="DEV-BRUNO-LOPES\humberto.almeida" clrVersion="4.0.30319.42000" licenseUsage="Build Expirable [Date:30/12/2099 00:00:00][Licensee:Almeida Humberto]" processorCount="8" workingSet="24358912 bytes" bitness="32bits" wow64="True" optionsFlags="None" parentProcess="C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\devenv.exe" endDate="2016-02-16T18:05:23.8138-02:00" totalElapsedTime="00:00:03.7466557" numberOfEntities="38" numberOfEnumerations="0" numberOfRelations="70">
   <assemblies>
     <assembly fullName="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" codeBase="file:///C:/Windows/Microsoft.NET/Framework/v4.0.30319/mscorlib.dll" location="C:\Windows\Microsoft.NET\Framework\v4.0.30319\mscorlib.dll" buildVersion="4.6.1063.1" fileVersion="4.6.1063.1 built by: NETFXREL3STAGE" productVersion="4.6.1063.1" />
     <assembly fullName="CodeFluent.Build4, Version=1.0.0.0, Culture=neutral, PublicKeyToken=1bb6d7cccf1045ec" codeBase="file:///C:/Program Files (x86)/SoftFluent/CodeFluent/Modeler/CodeFluent.Build4.exe" location="C:\Program Files (x86)\SoftFluent\CodeFluent\Modeler\CodeFluent.Build4.exe" buildVersion="1.0.61214.0840" fileVersion="1.0.61214.0840" productVersion="1.0.61214.0840" />
@@ -16,6 +16,9 @@
     <assembly fullName="System.Management, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" codeBase="file:///C:/WINDOWS/Microsoft.Net/assembly/GAC_MSIL/System.Management/v4.0_4.0.0.0__b03f5f7f11d50a3a/System.Management.dll" location="C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\System.Management\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.Management.dll" buildVersion="4.6.1038.0" fileVersion="4.6.1038.0 built by: NETFXREL2" productVersion="4.6.1038.0" />
     <assembly fullName="System.Web, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" codeBase="file:///C:/WINDOWS/Microsoft.Net/assembly/GAC_32/System.Web/v4.0_4.0.0.0__b03f5f7f11d50a3a/System.Web.dll" location="C:\WINDOWS\Microsoft.Net\assembly\GAC_32\System.Web\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.Web.dll" buildVersion="4.6.1038.0" fileVersion="4.6.1038.0 built by: NETFXREL2" productVersion="4.6.1038.0" />
     <assembly fullName="System.Configuration, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" codeBase="file:///C:/WINDOWS/Microsoft.Net/assembly/GAC_MSIL/System.Configuration/v4.0_4.0.0.0__b03f5f7f11d50a3a/System.Configuration.dll" location="C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\System.Configuration\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.Configuration.dll" buildVersion="4.6.1038.0" fileVersion="4.6.1038.0 built by: NETFXREL2" productVersion="4.6.1038.0" />
+    <assembly fullName="System.Transactions, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" codeBase="file:///C:/WINDOWS/Microsoft.Net/assembly/GAC_32/System.Transactions/v4.0_4.0.0.0__b77a5c561934e089/System.Transactions.dll" location="C:\WINDOWS\Microsoft.Net\assembly\GAC_32\System.Transactions\v4.0_4.0.0.0__b77a5c561934e089\System.Transactions.dll" buildVersion="4.6.1038.0" fileVersion="4.6.1038.0 built by: NETFXREL2" productVersion="4.6.1038.0" />
+    <assembly fullName="CodeFluent.Runtime.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=1bb6d7cccf1045ec" codeBase="file:///C:/Program Files (x86)/SoftFluent/CodeFluent/Modeler/CodeFluent.Runtime.Web.DLL" location="C:\Program Files (x86)\SoftFluent\CodeFluent\Modeler\CodeFluent.Runtime.Web.dll" buildVersion="1.0.61214.0840" fileVersion="1.0.61214.0840" productVersion="1.0.61214.0840" />
+    <assembly fullName="CF_25311015811463814236.tplcs, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null" codeBase="file:///C:/Users/humberto.almeida/AppData/Local/Temp/CFTemplating.Temp4.0.30319.42000/70840/CF_25311015811463814236.tplcs.dll" location="C:\Users\humberto.almeida\AppData\Local\Temp\CFTemplating.Temp4.0.30319.42000\70840\CF_25311015811463814236.tplcs.dll" fileVersion="0.0.0.0" productVersion="0.0.0.0" />
   </assemblies>
   <variables>
     <variable name="CF_TEMPLATES_PATH" value="C:\Program Files (x86)\SoftFluent\CodeFluent\Modeler\Templates" />
@@ -24,7 +27,9 @@
     <variable name="CF_CURRENT_PATH" value="C:\Program Files (x86)\SoftFluent\CodeFluent\Modeler" />
     <variable name="CF_BUILD_CONFIGURATION" value="RELEASE" />
   </variables>
-  <generatedFiles />
+  <generatedFiles>
+    <producer name="Business Object Model (BOM)" generatedFilesCount="80" />
+  </generatedFiles>
   <project>
     <imports>
       <cf:import path="Default.Surface.cfp" xmlns:cf="http://www.softfluent.com/codefluent/2005/1" />
@@ -34,4 +39,717 @@
       <part filePath="C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Modelo\Default.Surface.cfp" relativePath="Default.Surface.cfp" />
     </parts>
   </project>
+  <producer name="Business Object Model (BOM)">
+    <event type="ProducerStart" elapsedTime="00:00:00.0002792">
+      <name>Business Object Model (BOM)</name>
+      <instance>CodeFluent.Model.Producer</instance>
+    </event>
+    <event type="ParameterValue" name="AllowExternalCode" value="True" valueType="System.Boolean" />
+    <event type="ParameterValue" name="AllowSnippets" value="True" valueType="System.Boolean" />
+    <event type="ParameterValue" name="ApplicationName" value="default" />
+    <event type="ParameterValue" name="DumpPath" />
+    <event type="ParameterValue" name="FileCopyFilter" value="*.scc, _cf_md.config" />
+    <event type="ParameterValue" name="FullTargetDirectory" value="C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Model\Modelo" />
+    <event type="ParameterValue" name="IsTargetRelativeToModelDirectory" value="True" valueType="System.Boolean" />
+    <event type="ParameterValue" name="ModelProducerName" />
+    <event type="ParameterValue" name="MustCopyModelFiles" value="True" valueType="System.Boolean" />
+    <event type="ParameterValue" name="MustSkipFileCopyOnError" value="False" valueType="System.Boolean" />
+    <event type="ParameterValue" name="OutputEncoding" value="utf-8" />
+    <event type="ParameterValue" name="OutputEncodingEmitIdentifier" value="True" valueType="System.Boolean" />
+    <event type="ParameterValue" name="ProductionFlags" value="Default, Overwrite" valueType="CodeFluent.Model.ProductionFlags" />
+    <event type="ParameterValue" name="ProductionVerbosity" value="0" valueType="System.Int32" />
+    <event type="ParameterValue" name="SkipExtensions" value="[^\.]*.scc,_cf_md.config" valueType="System.Collections.ArrayList" />
+    <event type="ParameterValue" name="SkipDirectoryExtensions" valueType="System.Collections.ArrayList" />
+    <event type="ParameterValue" name="TargetFramework" value="4.6" />
+    <event type="ParameterValue" name="TargetBaseNamespace" value="Jack.Modelo" />
+    <event type="ParameterValue" name="TemplateOptions" value="Default" valueType="CodeFluent.Model.Common.Templating.TemplateOptions" />
+    <event type="ParameterValue" name="UseEmptyApplication" value="True" valueType="System.Boolean" />
+    <event type="ParameterValue" name="AssemblyCompileDefaultFileExcludeFilter" value="AssemblyInfo.cs, assemblyversion.cs" />
+    <event type="ParameterValue" name="CodeDomProviderOptions" />
+    <event type="ParameterValue" name="FileExtension" value=".cs" />
+    <event type="ParameterValue" name="LanguageCode" value="CSharp" valueType="CodeFluent.Model.Code.LanguageCode" />
+    <event type="ParameterValue" name="MustAddDebugInfo" value="False" valueType="System.Boolean" />
+    <event type="ParameterValue" name="MustCompile" value="False" valueType="System.Boolean" />
+    <event type="ParameterValue" name="MustDelaySign" value="False" valueType="System.Boolean" />
+    <event type="ParameterValue" name="MustIncludeDebugInformation" value="True" valueType="System.Boolean" />
+    <event type="ParameterValue" name="MustTreatWarningAsErrors" value="True" valueType="System.Boolean" />
+    <event type="ParameterValue" name="WarningLevel" value="-1" valueType="System.Int32" />
+    <event type="ParameterValue" name="TargetProductionOptions" value="Default" valueType="CodeFluent.Producers.CodeDom.TargetProductionOptions" />
+    <event type="ParameterValue" name="VisualStudioProjectPath" />
+    <event type="ParameterValue" name="IsAssemblyClsCompliant" value="False" valueType="System.Boolean" />
+    <event type="ParameterValue" name="MustAddDebuggerDisplayAttribute" value="True" valueType="System.Boolean" />
+    <event type="ParameterValue" name="MustAddDictionaryMethods" value="True" valueType="System.Boolean" />
+    <event type="ParameterValue" name="MustAddRuntimeDesignAttributes" value="True" valueType="System.Boolean" />
+    <event type="ParameterValue" name="MustAddRuntimeResourceCheck" value="True" valueType="System.Boolean" />
+    <event type="ParameterValue" name="MustAppendSchema" value="True" valueType="System.Boolean" />
+    <event type="ParameterValue" name="MustEmbedModelInRuntimeResource" value="False" valueType="System.Boolean" />
+    <event type="ParameterValue" name="MustProduceResourcesFiles" value="True" valueType="System.Boolean" />
+    <event type="ParameterValue" name="MustProduceWebBasicAuthenticationModule" value="True" valueType="System.Boolean" />
+    <event type="ParameterValue" name="MustProduceWebHandler" value="True" valueType="System.Boolean" />
+    <event type="ParameterValue" name="MustProduceWebMembershipProvider" value="True" valueType="System.Boolean" />
+    <event type="ParameterValue" name="MustProduceWebMembershipUser" value="False" valueType="System.Boolean" />
+    <event type="ParameterValue" name="MustProduceWebProfileProvider" value="True" valueType="System.Boolean" />
+    <event type="ParameterValue" name="MustProduceWebRoleProvider" value="True" valueType="System.Boolean" />
+    <event type="ParameterValue" name="MustProduceBitsServer" value="True" valueType="System.Boolean" />
+    <event type="ParameterValue" name="MustProduceWebTypes" value="True" valueType="System.Boolean" />
+    <event type="ParameterValue" name="MustUseLegacyStringArrayMode" value="True" valueType="System.Boolean" />
+    <event type="ParameterValue" name="ResourceFileFormat" value="ResX" valueType="CodeFluent.Producers.CodeDom.ResourceFileFormat" />
+    <event type="ParameterValue" name="RuntimePrefix" value="_cf_rt" />
+    <event type="ParameterValue" name="RuntimeResourceBaseName" value="Jack.Modelo.Jack.Modelo" />
+    <event type="ParameterValue" name="FullTargetDirectory" value="C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Model\Modelo" />
+    <event type="FileWrite" elapsedTime="00:00:01.6134782">
+      <path>C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Model\Modelo\_cf_rt.cs</path>
+      <fileType>RuntimeCode</fileType>
+      <size>-1</size>
+    </event>
+    <event type="FileWrite" elapsedTime="00:00:00.0011537">
+      <path>C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Model\Modelo\_cf_rt.cs</path>
+      <size>-1</size>
+    </event>
+    <event type="AddToGeneratedFiles" elapsedTime="00:00:00.0148343">
+      <path>C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Model\Modelo\_cf_rt.cs</path>
+    </event>
+    <event type="FileWrite" elapsedTime="00:00:00.0124737">
+      <path>C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Model\Modelo\Jack.Modelo.ResX</path>
+      <fileType>Embedded resource for Invariant Language (Invariant Country) culture</fileType>
+      <size>-1</size>
+    </event>
+    <event type="AddToGeneratedFiles" elapsedTime="00:00:00.0056435">
+      <path>C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Model\Modelo\Jack.Modelo.ResX</path>
+    </event>
+    <event type="FileWrite" elapsedTime="00:00:00.0060088">
+      <path>C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Model\Modelo\TbBanco.cs</path>
+      <fileType>BaseTypeFile for 'Jack.Modelo.TbBanco'</fileType>
+      <size>-1</size>
+    </event>
+    <event type="AddToGeneratedFiles" elapsedTime="00:00:00.0015760">
+      <path>C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Model\Modelo\TbBanco.cs</path>
+    </event>
+    <event type="FileWrite" elapsedTime="00:00:00.0025670">
+      <path>C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Model\Modelo\TbBancoCollection.cs</path>
+      <fileType>BaseTypeFile for 'Jack.Modelo.TbBancoCollection'</fileType>
+      <size>-1</size>
+    </event>
+    <event type="AddToGeneratedFiles" elapsedTime="00:00:00.0014296">
+      <path>C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Model\Modelo\TbBancoCollection.cs</path>
+    </event>
+    <event type="FileWrite" elapsedTime="00:00:00.0023348">
+      <path>C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Model\Modelo\TbBoleto.cs</path>
+      <fileType>BaseTypeFile for 'Jack.Modelo.TbBoleto'</fileType>
+      <size>-1</size>
+    </event>
+    <event type="AddToGeneratedFiles" elapsedTime="00:00:00.0013248">
+      <path>C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Model\Modelo\TbBoleto.cs</path>
+    </event>
+    <event type="FileWrite" elapsedTime="00:00:00.0025329">
+      <path>C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Model\Modelo\TbBoletoCollection.cs</path>
+      <fileType>BaseTypeFile for 'Jack.Modelo.TbBoletoCollection'</fileType>
+      <size>-1</size>
+    </event>
+    <event type="AddToGeneratedFiles" elapsedTime="00:00:00.0013589">
+      <path>C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Model\Modelo\TbBoletoCollection.cs</path>
+    </event>
+    <event type="FileWrite" elapsedTime="00:00:00.0022808">
+      <path>C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Model\Modelo\TbCalcado.cs</path>
+      <fileType>BaseTypeFile for 'Jack.Modelo.TbCalcado'</fileType>
+      <size>-1</size>
+    </event>
+    <event type="AddToGeneratedFiles" elapsedTime="00:00:00.0015618">
+      <path>C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Model\Modelo\TbCalcado.cs</path>
+    </event>
+    <event type="FileWrite" elapsedTime="00:00:00.0029857">
+      <path>C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Model\Modelo\TbCalcadoCollection.cs</path>
+      <fileType>BaseTypeFile for 'Jack.Modelo.TbCalcadoCollection'</fileType>
+      <size>-1</size>
+    </event>
+    <event type="AddToGeneratedFiles" elapsedTime="00:00:00.0014124">
+      <path>C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Model\Modelo\TbCalcadoCollection.cs</path>
+    </event>
+    <event type="FileWrite" elapsedTime="00:00:00.0021555">
+      <path>C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Model\Modelo\TbCidade.cs</path>
+      <fileType>BaseTypeFile for 'Jack.Modelo.TbCidade'</fileType>
+      <size>-1</size>
+    </event>
+    <event type="AddToGeneratedFiles" elapsedTime="00:00:00.0014604">
+      <path>C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Model\Modelo\TbCidade.cs</path>
+    </event>
+    <event type="FileWrite" elapsedTime="00:00:00.0025181">
+      <path>C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Model\Modelo\TbCidadeCollection.cs</path>
+      <fileType>BaseTypeFile for 'Jack.Modelo.TbCidadeCollection'</fileType>
+      <size>-1</size>
+    </event>
+    <event type="AddToGeneratedFiles" elapsedTime="00:00:00.0014948">
+      <path>C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Model\Modelo\TbCidadeCollection.cs</path>
+    </event>
+    <event type="FileWrite" elapsedTime="00:00:00.0022126">
+      <path>C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Model\Modelo\TbColaborador.cs</path>
+      <fileType>BaseTypeFile for 'Jack.Modelo.TbColaborador'</fileType>
+      <size>-1</size>
+    </event>
+    <event type="AddToGeneratedFiles" elapsedTime="00:00:00.0013191">
+      <path>C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Model\Modelo\TbColaborador.cs</path>
+    </event>
+    <event type="FileWrite" elapsedTime="00:00:00.0027170">
+      <path>C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Model\Modelo\TbColaboradorCollection.cs</path>
+      <fileType>BaseTypeFile for 'Jack.Modelo.TbColaboradorCollection'</fileType>
+      <size>-1</size>
+    </event>
+    <event type="AddToGeneratedFiles" elapsedTime="00:00:00.0016034">
+      <path>C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Model\Modelo\TbColaboradorCollection.cs</path>
+    </event>
+    <event type="FileWrite" elapsedTime="00:00:00.0025437">
+      <path>C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Model\Modelo\TbColaboradorCrianca.cs</path>
+      <fileType>BaseTypeFile for 'Jack.Modelo.TbColaboradorCrianca'</fileType>
+      <size>-1</size>
+    </event>
+    <event type="AddToGeneratedFiles" elapsedTime="00:00:00.0014899">
+      <path>C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Model\Modelo\TbColaboradorCrianca.cs</path>
+    </event>
+    <event type="FileWrite" elapsedTime="00:00:00.0036709">
+      <path>C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Model\Modelo\TbColaboradorCriancaCollection.cs</path>
+      <fileType>BaseTypeFile for 'Jack.Modelo.TbColaboradorCriancaCollection'</fileType>
+      <size>-1</size>
+    </event>
+    <event type="AddToGeneratedFiles" elapsedTime="00:00:00.0016101">
+      <path>C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Model\Modelo\TbColaboradorCriancaCollection.cs</path>
+    </event>
+    <event type="FileWrite" elapsedTime="00:00:00.0041007">
+      <path>C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Model\Modelo\TbCrianca.cs</path>
+      <fileType>BaseTypeFile for 'Jack.Modelo.TbCrianca'</fileType>
+      <size>-1</size>
+    </event>
+    <event type="AddToGeneratedFiles" elapsedTime="00:00:00.0018600">
+      <path>C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Model\Modelo\TbCrianca.cs</path>
+    </event>
+    <event type="FileWrite" elapsedTime="00:00:00.0041360">
+      <path>C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Model\Modelo\TbCriancaCollection.cs</path>
+      <fileType>BaseTypeFile for 'Jack.Modelo.TbCriancaCollection'</fileType>
+      <size>-1</size>
+    </event>
+    <event type="AddToGeneratedFiles" elapsedTime="00:00:00.0018491">
+      <path>C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Model\Modelo\TbCriancaCollection.cs</path>
+    </event>
+    <event type="FileWrite" elapsedTime="00:00:00.0046495">
+      <path>C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Model\Modelo\TbCriancaMoralCrista.cs</path>
+      <fileType>BaseTypeFile for 'Jack.Modelo.TbCriancaMoralCrista'</fileType>
+      <size>-1</size>
+    </event>
+    <event type="AddToGeneratedFiles" elapsedTime="00:00:00.0019038">
+      <path>C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Model\Modelo\TbCriancaMoralCrista.cs</path>
+    </event>
+    <event type="FileWrite" elapsedTime="00:00:00.0036926">
+      <path>C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Model\Modelo\TbCriancaMoralCristaCollection.cs</path>
+      <fileType>BaseTypeFile for 'Jack.Modelo.TbCriancaMoralCristaCollection'</fileType>
+      <size>-1</size>
+    </event>
+    <event type="AddToGeneratedFiles" elapsedTime="00:00:00.0018799">
+      <path>C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Model\Modelo\TbCriancaMoralCristaCollection.cs</path>
+    </event>
+    <event type="FileWrite" elapsedTime="00:00:00.0027834">
+      <path>C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Model\Modelo\TbEstado.cs</path>
+      <fileType>BaseTypeFile for 'Jack.Modelo.TbEstado'</fileType>
+      <size>-1</size>
+    </event>
+    <event type="AddToGeneratedFiles" elapsedTime="00:00:00.0016478">
+      <path>C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Model\Modelo\TbEstado.cs</path>
+    </event>
+    <event type="FileWrite" elapsedTime="00:00:00.0029959">
+      <path>C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Model\Modelo\TbEstadoCollection.cs</path>
+      <fileType>BaseTypeFile for 'Jack.Modelo.TbEstadoCollection'</fileType>
+      <size>-1</size>
+    </event>
+    <event type="AddToGeneratedFiles" elapsedTime="00:00:00.0019116">
+      <path>C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Model\Modelo\TbEstadoCollection.cs</path>
+    </event>
+    <event type="FileWrite" elapsedTime="00:00:00.0027680">
+      <path>C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Model\Modelo\TbEvangelizador.cs</path>
+      <fileType>BaseTypeFile for 'Jack.Modelo.TbEvangelizador'</fileType>
+      <size>-1</size>
+    </event>
+    <event type="AddToGeneratedFiles" elapsedTime="00:00:00.0015814">
+      <path>C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Model\Modelo\TbEvangelizador.cs</path>
+    </event>
+    <event type="FileWrite" elapsedTime="00:00:00.0036842">
+      <path>C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Model\Modelo\TbEvangelizadorCollection.cs</path>
+      <fileType>BaseTypeFile for 'Jack.Modelo.TbEvangelizadorCollection'</fileType>
+      <size>-1</size>
+    </event>
+    <event type="AddToGeneratedFiles" elapsedTime="00:00:00.0017088">
+      <path>C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Model\Modelo\TbEvangelizadorCollection.cs</path>
+    </event>
+    <event type="FileWrite" elapsedTime="00:00:00.0039178">
+      <path>C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Model\Modelo\TbFamilia.cs</path>
+      <fileType>BaseTypeFile for 'Jack.Modelo.TbFamilia'</fileType>
+      <size>-1</size>
+    </event>
+    <event type="AddToGeneratedFiles" elapsedTime="00:00:00.0017830">
+      <path>C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Model\Modelo\TbFamilia.cs</path>
+    </event>
+    <event type="FileWrite" elapsedTime="00:00:00.0031311">
+      <path>C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Model\Modelo\TbFamiliaBlackList.cs</path>
+      <fileType>BaseTypeFile for 'Jack.Modelo.TbFamiliaBlackList'</fileType>
+      <size>-1</size>
+    </event>
+    <event type="AddToGeneratedFiles" elapsedTime="00:00:00.0020432">
+      <path>C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Model\Modelo\TbFamiliaBlackList.cs</path>
+    </event>
+    <event type="FileWrite" elapsedTime="00:00:00.0038438">
+      <path>C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Model\Modelo\TbFamiliaBlackListCollection.cs</path>
+      <fileType>BaseTypeFile for 'Jack.Modelo.TbFamiliaBlackListCollection'</fileType>
+      <size>-1</size>
+    </event>
+    <event type="AddToGeneratedFiles" elapsedTime="00:00:00.0018498">
+      <path>C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Model\Modelo\TbFamiliaBlackListCollection.cs</path>
+    </event>
+    <event type="FileWrite" elapsedTime="00:00:00.0032839">
+      <path>C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Model\Modelo\TbFamiliaCollection.cs</path>
+      <fileType>BaseTypeFile for 'Jack.Modelo.TbFamiliaCollection'</fileType>
+      <size>-1</size>
+    </event>
+    <event type="AddToGeneratedFiles" elapsedTime="00:00:00.0018292">
+      <path>C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Model\Modelo\TbFamiliaCollection.cs</path>
+    </event>
+    <event type="FileWrite" elapsedTime="00:00:00.0282176">
+      <path>C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Model\Modelo\TbFamiliaCrianca.cs</path>
+      <fileType>BaseTypeFile for 'Jack.Modelo.TbFamiliaCrianca'</fileType>
+      <size>-1</size>
+    </event>
+    <event type="AddToGeneratedFiles" elapsedTime="00:00:00.0015198">
+      <path>C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Model\Modelo\TbFamiliaCrianca.cs</path>
+    </event>
+    <event type="FileWrite" elapsedTime="00:00:00.0029920">
+      <path>C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Model\Modelo\TbFamiliaCriancaCollection.cs</path>
+      <fileType>BaseTypeFile for 'Jack.Modelo.TbFamiliaCriancaCollection'</fileType>
+      <size>-1</size>
+    </event>
+    <event type="AddToGeneratedFiles" elapsedTime="00:00:00.0015850">
+      <path>C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Model\Modelo\TbFamiliaCriancaCollection.cs</path>
+    </event>
+    <event type="FileWrite" elapsedTime="00:00:00.0021881">
+      <path>C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Model\Modelo\TbFamiliaFake.cs</path>
+      <fileType>BaseTypeFile for 'Jack.Modelo.TbFamiliaFake'</fileType>
+      <size>-1</size>
+    </event>
+    <event type="AddToGeneratedFiles" elapsedTime="00:00:00.0014537">
+      <path>C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Model\Modelo\TbFamiliaFake.cs</path>
+    </event>
+    <event type="FileWrite" elapsedTime="00:00:00.0040355">
+      <path>C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Model\Modelo\TbFamiliaFakeCollection.cs</path>
+      <fileType>BaseTypeFile for 'Jack.Modelo.TbFamiliaFakeCollection'</fileType>
+      <size>-1</size>
+    </event>
+    <event type="AddToGeneratedFiles" elapsedTime="00:00:00.0017749">
+      <path>C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Model\Modelo\TbFamiliaFakeCollection.cs</path>
+    </event>
+    <event type="FileWrite" elapsedTime="00:00:00.0032661">
+      <path>C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Model\Modelo\TbFamiliaPresenca.cs</path>
+      <fileType>BaseTypeFile for 'Jack.Modelo.TbFamiliaPresenca'</fileType>
+      <size>-1</size>
+    </event>
+    <event type="AddToGeneratedFiles" elapsedTime="00:00:00.0019074">
+      <path>C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Model\Modelo\TbFamiliaPresenca.cs</path>
+    </event>
+    <event type="FileWrite" elapsedTime="00:00:00.0036576">
+      <path>C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Model\Modelo\TbFamiliaPresencaCollection.cs</path>
+      <fileType>BaseTypeFile for 'Jack.Modelo.TbFamiliaPresencaCollection'</fileType>
+      <size>-1</size>
+    </event>
+    <event type="AddToGeneratedFiles" elapsedTime="00:00:00.0016620">
+      <path>C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Model\Modelo\TbFamiliaPresencaCollection.cs</path>
+    </event>
+    <event type="FileWrite" elapsedTime="00:00:00.0024003">
+      <path>C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Model\Modelo\TbFamiliaPresencaJustificada.cs</path>
+      <fileType>BaseTypeFile for 'Jack.Modelo.TbFamiliaPresencaJustificada'</fileType>
+      <size>-1</size>
+    </event>
+    <event type="AddToGeneratedFiles" elapsedTime="00:00:00.0017595">
+      <path>C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Model\Modelo\TbFamiliaPresencaJustificada.cs</path>
+    </event>
+    <event type="FileWrite" elapsedTime="00:00:00.0033572">
+      <path>C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Model\Modelo\TbFamiliaPresencaJustificadaCollection.cs</path>
+      <fileType>BaseTypeFile for 'Jack.Modelo.TbFamiliaPresencaJustificadaCollection'</fileType>
+      <size>-1</size>
+    </event>
+    <event type="AddToGeneratedFiles" elapsedTime="00:00:00.0015835">
+      <path>C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Model\Modelo\TbFamiliaPresencaJustificadaCollection.cs</path>
+    </event>
+    <event type="FileWrite" elapsedTime="00:00:00.0025637">
+      <path>C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Model\Modelo\TbKit.cs</path>
+      <fileType>BaseTypeFile for 'Jack.Modelo.TbKit'</fileType>
+      <size>-1</size>
+    </event>
+    <event type="AddToGeneratedFiles" elapsedTime="00:00:00.0016834">
+      <path>C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Model\Modelo\TbKit.cs</path>
+    </event>
+    <event type="FileWrite" elapsedTime="00:00:00.0040935">
+      <path>C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Model\Modelo\TbKitCollection.cs</path>
+      <fileType>BaseTypeFile for 'Jack.Modelo.TbKitCollection'</fileType>
+      <size>-1</size>
+    </event>
+    <event type="AddToGeneratedFiles" elapsedTime="00:00:00.0023188">
+      <path>C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Model\Modelo\TbKitCollection.cs</path>
+    </event>
+    <event type="FileWrite" elapsedTime="00:00:00.0039764">
+      <path>C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Model\Modelo\TbKitItem.cs</path>
+      <fileType>BaseTypeFile for 'Jack.Modelo.TbKitItem'</fileType>
+      <size>-1</size>
+    </event>
+    <event type="AddToGeneratedFiles" elapsedTime="00:00:00.0019844">
+      <path>C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Model\Modelo\TbKitItem.cs</path>
+    </event>
+    <event type="FileWrite" elapsedTime="00:00:00.0048131">
+      <path>C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Model\Modelo\TbKitItemCollection.cs</path>
+      <fileType>BaseTypeFile for 'Jack.Modelo.TbKitItemCollection'</fileType>
+      <size>-1</size>
+    </event>
+    <event type="AddToGeneratedFiles" elapsedTime="00:00:00.0022784">
+      <path>C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Model\Modelo\TbKitItemCollection.cs</path>
+    </event>
+    <event type="FileWrite" elapsedTime="00:00:00.0056016">
+      <path>C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Model\Modelo\TbLogSacolinha.cs</path>
+      <fileType>BaseTypeFile for 'Jack.Modelo.TbLogSacolinha'</fileType>
+      <size>-1</size>
+    </event>
+    <event type="AddToGeneratedFiles" elapsedTime="00:00:00.0047693">
+      <path>C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Model\Modelo\TbLogSacolinha.cs</path>
+    </event>
+    <event type="FileWrite" elapsedTime="00:00:00.0058956">
+      <path>C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Model\Modelo\TbLogSacolinhaCollection.cs</path>
+      <fileType>BaseTypeFile for 'Jack.Modelo.TbLogSacolinhaCollection'</fileType>
+      <size>-1</size>
+    </event>
+    <event type="AddToGeneratedFiles" elapsedTime="00:00:00.0035945">
+      <path>C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Model\Modelo\TbLogSacolinhaCollection.cs</path>
+    </event>
+    <event type="FileWrite" elapsedTime="00:00:00.0064166">
+      <path>C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Model\Modelo\TbMe.cs</path>
+      <fileType>BaseTypeFile for 'Jack.Modelo.TbMe'</fileType>
+      <size>-1</size>
+    </event>
+    <event type="AddToGeneratedFiles" elapsedTime="00:00:00.0029153">
+      <path>C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Model\Modelo\TbMe.cs</path>
+    </event>
+    <event type="FileWrite" elapsedTime="00:00:00.0090301">
+      <path>C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Model\Modelo\TbMeCollection.cs</path>
+      <fileType>BaseTypeFile for 'Jack.Modelo.TbMeCollection'</fileType>
+      <size>-1</size>
+    </event>
+    <event type="AddToGeneratedFiles" elapsedTime="00:00:00.0025742">
+      <path>C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Model\Modelo\TbMeCollection.cs</path>
+    </event>
+    <event type="FileWrite" elapsedTime="00:00:00.0060867">
+      <path>C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Model\Modelo\TbParametro.cs</path>
+      <fileType>BaseTypeFile for 'Jack.Modelo.TbParametro'</fileType>
+      <size>-1</size>
+    </event>
+    <event type="AddToGeneratedFiles" elapsedTime="00:00:00.0025392">
+      <path>C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Model\Modelo\TbParametro.cs</path>
+    </event>
+    <event type="FileWrite" elapsedTime="00:00:00.0063152">
+      <path>C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Model\Modelo\TbParametroCollection.cs</path>
+      <fileType>BaseTypeFile for 'Jack.Modelo.TbParametroCollection'</fileType>
+      <size>-1</size>
+    </event>
+    <event type="AddToGeneratedFiles" elapsedTime="00:00:00.0023213">
+      <path>C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Model\Modelo\TbParametroCollection.cs</path>
+    </event>
+    <event type="FileWrite" elapsedTime="00:00:00.0050066">
+      <path>C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Model\Modelo\TbPessoaConta.cs</path>
+      <fileType>BaseTypeFile for 'Jack.Modelo.TbPessoaConta'</fileType>
+      <size>-1</size>
+    </event>
+    <event type="AddToGeneratedFiles" elapsedTime="00:00:00.0095279">
+      <path>C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Model\Modelo\TbPessoaConta.cs</path>
+    </event>
+    <event type="FileWrite" elapsedTime="00:00:00.0123095">
+      <path>C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Model\Modelo\TbPessoaContaCollection.cs</path>
+      <fileType>BaseTypeFile for 'Jack.Modelo.TbPessoaContaCollection'</fileType>
+      <size>-1</size>
+    </event>
+    <event type="AddToGeneratedFiles" elapsedTime="00:00:00.0021323">
+      <path>C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Model\Modelo\TbPessoaContaCollection.cs</path>
+    </event>
+    <event type="FileWrite" elapsedTime="00:00:00.0044862">
+      <path>C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Model\Modelo\TbRecibo.cs</path>
+      <fileType>BaseTypeFile for 'Jack.Modelo.TbRecibo'</fileType>
+      <size>-1</size>
+    </event>
+    <event type="AddToGeneratedFiles" elapsedTime="00:00:00.0038894">
+      <path>C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Model\Modelo\TbRecibo.cs</path>
+    </event>
+    <event type="FileWrite" elapsedTime="00:00:00.0063816">
+      <path>C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Model\Modelo\TbReciboCollection.cs</path>
+      <fileType>BaseTypeFile for 'Jack.Modelo.TbReciboCollection'</fileType>
+      <size>-1</size>
+    </event>
+    <event type="AddToGeneratedFiles" elapsedTime="00:00:00.0028444">
+      <path>C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Model\Modelo\TbReciboCollection.cs</path>
+    </event>
+    <event type="FileWrite" elapsedTime="00:00:00.0047210">
+      <path>C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Model\Modelo\TbRepresentanteFamilia.cs</path>
+      <fileType>BaseTypeFile for 'Jack.Modelo.TbRepresentanteFamilia'</fileType>
+      <size>-1</size>
+    </event>
+    <event type="AddToGeneratedFiles" elapsedTime="00:00:00.0020680">
+      <path>C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Model\Modelo\TbRepresentanteFamilia.cs</path>
+    </event>
+    <event type="FileWrite" elapsedTime="00:00:00.0032929">
+      <path>C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Model\Modelo\TbRepresentanteFamiliaCollection.cs</path>
+      <fileType>BaseTypeFile for 'Jack.Modelo.TbRepresentanteFamiliaCollection'</fileType>
+      <size>-1</size>
+    </event>
+    <event type="AddToGeneratedFiles" elapsedTime="00:00:00.0018087">
+      <path>C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Model\Modelo\TbRepresentanteFamiliaCollection.cs</path>
+    </event>
+    <event type="FileWrite" elapsedTime="00:00:00.0038016">
+      <path>C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Model\Modelo\TbResponsavel.cs</path>
+      <fileType>BaseTypeFile for 'Jack.Modelo.TbResponsavel'</fileType>
+      <size>-1</size>
+    </event>
+    <event type="AddToGeneratedFiles" elapsedTime="00:00:00.0018528">
+      <path>C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Model\Modelo\TbResponsavel.cs</path>
+    </event>
+    <event type="FileWrite" elapsedTime="00:00:00.0033455">
+      <path>C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Model\Modelo\TbResponsavelCollection.cs</path>
+      <fileType>BaseTypeFile for 'Jack.Modelo.TbResponsavelCollection'</fileType>
+      <size>-1</size>
+    </event>
+    <event type="AddToGeneratedFiles" elapsedTime="00:00:00.0029304">
+      <path>C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Model\Modelo\TbResponsavelCollection.cs</path>
+    </event>
+    <event type="FileWrite" elapsedTime="00:00:00.0499645">
+      <path>C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Model\Modelo\TbResponsavelCrianca.cs</path>
+      <fileType>BaseTypeFile for 'Jack.Modelo.TbResponsavelCrianca'</fileType>
+      <size>-1</size>
+    </event>
+    <event type="AddToGeneratedFiles" elapsedTime="00:00:00.0031233">
+      <path>C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Model\Modelo\TbResponsavelCrianca.cs</path>
+    </event>
+    <event type="FileWrite" elapsedTime="00:00:00.0083805">
+      <path>C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Model\Modelo\TbResponsavelCriancaCollection.cs</path>
+      <fileType>BaseTypeFile for 'Jack.Modelo.TbResponsavelCriancaCollection'</fileType>
+      <size>-1</size>
+    </event>
+    <event type="AddToGeneratedFiles" elapsedTime="00:00:00.0051841">
+      <path>C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Model\Modelo\TbResponsavelCriancaCollection.cs</path>
+    </event>
+    <event type="FileWrite" elapsedTime="00:00:00.0069578">
+      <path>C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Model\Modelo\TbReuniaoAgendada.cs</path>
+      <fileType>BaseTypeFile for 'Jack.Modelo.TbReuniaoAgendada'</fileType>
+      <size>-1</size>
+    </event>
+    <event type="AddToGeneratedFiles" elapsedTime="00:00:00.0049145">
+      <path>C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Model\Modelo\TbReuniaoAgendada.cs</path>
+    </event>
+    <event type="FileWrite" elapsedTime="00:00:00.0038598">
+      <path>C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Model\Modelo\TbReuniaoAgendadaCollection.cs</path>
+      <fileType>BaseTypeFile for 'Jack.Modelo.TbReuniaoAgendadaCollection'</fileType>
+      <size>-1</size>
+    </event>
+    <event type="AddToGeneratedFiles" elapsedTime="00:00:00.0029461">
+      <path>C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Model\Modelo\TbReuniaoAgendadaCollection.cs</path>
+    </event>
+    <event type="FileWrite" elapsedTime="00:00:00.0049432">
+      <path>C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Model\Modelo\TbRoupa.cs</path>
+      <fileType>BaseTypeFile for 'Jack.Modelo.TbRoupa'</fileType>
+      <size>-1</size>
+    </event>
+    <event type="AddToGeneratedFiles" elapsedTime="00:00:00.0025845">
+      <path>C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Model\Modelo\TbRoupa.cs</path>
+    </event>
+    <event type="FileWrite" elapsedTime="00:00:00.0173684">
+      <path>C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Model\Modelo\TbRoupaCollection.cs</path>
+      <fileType>BaseTypeFile for 'Jack.Modelo.TbRoupaCollection'</fileType>
+      <size>-1</size>
+    </event>
+    <event type="AddToGeneratedFiles" elapsedTime="00:00:00.0044895">
+      <path>C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Model\Modelo\TbRoupaCollection.cs</path>
+    </event>
+    <event type="FileWrite" elapsedTime="00:00:00.0113593">
+      <path>C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Model\Modelo\TbSacolaGerada.cs</path>
+      <fileType>BaseTypeFile for 'Jack.Modelo.TbSacolaGerada'</fileType>
+      <size>-1</size>
+    </event>
+    <event type="AddToGeneratedFiles" elapsedTime="00:00:00.0035861">
+      <path>C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Model\Modelo\TbSacolaGerada.cs</path>
+    </event>
+    <event type="FileWrite" elapsedTime="00:00:00.0122449">
+      <path>C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Model\Modelo\TbSacolaGeradaCollection.cs</path>
+      <fileType>BaseTypeFile for 'Jack.Modelo.TbSacolaGeradaCollection'</fileType>
+      <size>-1</size>
+    </event>
+    <event type="AddToGeneratedFiles" elapsedTime="00:00:00.0022890">
+      <path>C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Model\Modelo\TbSacolaGeradaCollection.cs</path>
+    </event>
+    <event type="FileWrite" elapsedTime="00:00:00.0136027">
+      <path>C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Model\Modelo\TbSacolaGeradaHistorico.cs</path>
+      <fileType>BaseTypeFile for 'Jack.Modelo.TbSacolaGeradaHistorico'</fileType>
+      <size>-1</size>
+    </event>
+    <event type="AddToGeneratedFiles" elapsedTime="00:00:00.0026687">
+      <path>C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Model\Modelo\TbSacolaGeradaHistorico.cs</path>
+    </event>
+    <event type="FileWrite" elapsedTime="00:00:00.0057905">
+      <path>C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Model\Modelo\TbSacolaGeradaHistoricoCollection.cs</path>
+      <fileType>BaseTypeFile for 'Jack.Modelo.TbSacolaGeradaHistoricoCollection'</fileType>
+      <size>-1</size>
+    </event>
+    <event type="AddToGeneratedFiles" elapsedTime="00:00:00.0020064">
+      <path>C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Model\Modelo\TbSacolaGeradaHistoricoCollection.cs</path>
+    </event>
+    <event type="FileWrite" elapsedTime="00:00:00.0040410">
+      <path>C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Model\Modelo\TbStatus.cs</path>
+      <fileType>BaseTypeFile for 'Jack.Modelo.TbStatus'</fileType>
+      <size>-1</size>
+    </event>
+    <event type="AddToGeneratedFiles" elapsedTime="00:00:00.0020529">
+      <path>C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Model\Modelo\TbStatus.cs</path>
+    </event>
+    <event type="FileWrite" elapsedTime="00:00:00.0035365">
+      <path>C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Model\Modelo\TbStatusCollection.cs</path>
+      <fileType>BaseTypeFile for 'Jack.Modelo.TbStatusCollection'</fileType>
+      <size>-1</size>
+    </event>
+    <event type="AddToGeneratedFiles" elapsedTime="00:00:00.0016741">
+      <path>C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Model\Modelo\TbStatusCollection.cs</path>
+    </event>
+    <event type="FileWrite" elapsedTime="00:00:00.0031106">
+      <path>C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Model\Modelo\TbTipoConta.cs</path>
+      <fileType>BaseTypeFile for 'Jack.Modelo.TbTipoConta'</fileType>
+      <size>-1</size>
+    </event>
+    <event type="AddToGeneratedFiles" elapsedTime="00:00:00.0014576">
+      <path>C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Model\Modelo\TbTipoConta.cs</path>
+    </event>
+    <event type="FileWrite" elapsedTime="00:00:00.0031188">
+      <path>C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Model\Modelo\TbTipoContaCollection.cs</path>
+      <fileType>BaseTypeFile for 'Jack.Modelo.TbTipoContaCollection'</fileType>
+      <size>-1</size>
+    </event>
+    <event type="AddToGeneratedFiles" elapsedTime="00:00:00.0016475">
+      <path>C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Model\Modelo\TbTipoContaCollection.cs</path>
+    </event>
+    <event type="FileWrite" elapsedTime="00:00:00.0033431">
+      <path>C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Model\Modelo\TbTipoItem.cs</path>
+      <fileType>BaseTypeFile for 'Jack.Modelo.TbTipoItem'</fileType>
+      <size>-1</size>
+    </event>
+    <event type="AddToGeneratedFiles" elapsedTime="00:00:00.0020481">
+      <path>C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Model\Modelo\TbTipoItem.cs</path>
+    </event>
+    <event type="FileWrite" elapsedTime="00:00:00.0039444">
+      <path>C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Model\Modelo\TbTipoItemCollection.cs</path>
+      <fileType>BaseTypeFile for 'Jack.Modelo.TbTipoItemCollection'</fileType>
+      <size>-1</size>
+    </event>
+    <event type="AddToGeneratedFiles" elapsedTime="00:00:00.0020680">
+      <path>C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Model\Modelo\TbTipoItemCollection.cs</path>
+    </event>
+    <event type="FileWrite" elapsedTime="00:00:00.0032673">
+      <path>C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Model\Modelo\TbTrabalhador.cs</path>
+      <fileType>BaseTypeFile for 'Jack.Modelo.TbTrabalhador'</fileType>
+      <size>-1</size>
+    </event>
+    <event type="AddToGeneratedFiles" elapsedTime="00:00:00.0020568">
+      <path>C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Model\Modelo\TbTrabalhador.cs</path>
+    </event>
+    <event type="FileWrite" elapsedTime="00:00:00.0042127">
+      <path>C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Model\Modelo\TbTrabalhadorCollection.cs</path>
+      <fileType>BaseTypeFile for 'Jack.Modelo.TbTrabalhadorCollection'</fileType>
+      <size>-1</size>
+    </event>
+    <event type="AddToGeneratedFiles" elapsedTime="00:00:00.0018422">
+      <path>C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Model\Modelo\TbTrabalhadorCollection.cs</path>
+    </event>
+    <event type="FileWrite" elapsedTime="00:00:00.0032280">
+      <path>C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Model\Modelo\TbTrabalho.cs</path>
+      <fileType>BaseTypeFile for 'Jack.Modelo.TbTrabalho'</fileType>
+      <size>-1</size>
+    </event>
+    <event type="AddToGeneratedFiles" elapsedTime="00:00:00.0018428">
+      <path>C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Model\Modelo\TbTrabalho.cs</path>
+    </event>
+    <event type="FileWrite" elapsedTime="00:00:00.0037964">
+      <path>C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Model\Modelo\TbTrabalhoCollection.cs</path>
+      <fileType>BaseTypeFile for 'Jack.Modelo.TbTrabalhoCollection'</fileType>
+      <size>-1</size>
+    </event>
+    <event type="AddToGeneratedFiles" elapsedTime="00:00:00.0022023">
+      <path>C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Model\Modelo\TbTrabalhoCollection.cs</path>
+    </event>
+    <event type="FileWrite" elapsedTime="00:00:00.0034505">
+      <path>C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Model\Modelo\TbTrabalhoTrabalhador.cs</path>
+      <fileType>BaseTypeFile for 'Jack.Modelo.TbTrabalhoTrabalhador'</fileType>
+      <size>-1</size>
+    </event>
+    <event type="AddToGeneratedFiles" elapsedTime="00:00:00.0016439">
+      <path>C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Model\Modelo\TbTrabalhoTrabalhador.cs</path>
+    </event>
+    <event type="FileWrite" elapsedTime="00:00:00.0038692">
+      <path>C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Model\Modelo\TbTrabalhoTrabalhadorCollection.cs</path>
+      <fileType>BaseTypeFile for 'Jack.Modelo.TbTrabalhoTrabalhadorCollection'</fileType>
+      <size>-1</size>
+    </event>
+    <event type="AddToGeneratedFiles" elapsedTime="00:00:00.0017716">
+      <path>C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Model\Modelo\TbTrabalhoTrabalhadorCollection.cs</path>
+    </event>
+    <event type="FileWrite" elapsedTime="00:00:00.0029066">
+      <path>C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Model\Modelo\TbTurma.cs</path>
+      <fileType>BaseTypeFile for 'Jack.Modelo.TbTurma'</fileType>
+      <size>-1</size>
+    </event>
+    <event type="AddToGeneratedFiles" elapsedTime="00:00:00.0018259">
+      <path>C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Model\Modelo\TbTurma.cs</path>
+    </event>
+    <event type="FileWrite" elapsedTime="00:00:00.0031954">
+      <path>C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Model\Modelo\TbTurmaCollection.cs</path>
+      <fileType>BaseTypeFile for 'Jack.Modelo.TbTurmaCollection'</fileType>
+      <size>-1</size>
+    </event>
+    <event type="AddToGeneratedFiles" elapsedTime="00:00:00.0016077">
+      <path>C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Model\Modelo\TbTurmaCollection.cs</path>
+    </event>
+    <event type="FileWrite" elapsedTime="00:00:00.0031499">
+      <path>C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Model\Modelo\TbTurmaLetiva.cs</path>
+      <fileType>BaseTypeFile for 'Jack.Modelo.TbTurmaLetiva'</fileType>
+      <size>-1</size>
+    </event>
+    <event type="AddToGeneratedFiles" elapsedTime="00:00:00.0019358">
+      <path>C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Model\Modelo\TbTurmaLetiva.cs</path>
+    </event>
+    <event type="FileWrite" elapsedTime="00:00:00.0042634">
+      <path>C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Model\Modelo\TbTurmaLetivaCollection.cs</path>
+      <fileType>BaseTypeFile for 'Jack.Modelo.TbTurmaLetivaCollection'</fileType>
+      <size>-1</size>
+    </event>
+    <event type="AddToGeneratedFiles" elapsedTime="00:00:00.0024728">
+      <path>C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Model\Modelo\TbTurmaLetivaCollection.cs</path>
+    </event>
+    <event type="DirectoryCreate" elapsedTime="00:00:00.0032419">
+      <path>C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Model\Modelo\Web</path>
+    </event>
+    <event type="FileWrite" elapsedTime="00:00:00.0786560">
+      <path>C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Model\Modelo\Web\HttpHandler.cs</path>
+      <size>-1</size>
+    </event>
+    <event type="AddToGeneratedFiles" elapsedTime="00:00:00.0019539">
+      <path>C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Model\Modelo\Web\HttpHandler.cs</path>
+    </event>
+    <event type="Information" message="CodeFluent.Producers.CodeDom.UI.Web.MembershipProviderProducer: No directoryUser entity. Skip production." />
+    <event type="Information" message="CodeFluent.Producers.CodeDom.UI.Web.RoleProviderProducer: No directoryRole entity. Skip production." />
+    <event type="Information" message="CodeFluent.Producers.CodeDom.UI.Web.ProfileProviderProducer: No directoryUser entity. Skip production." />
+    <event type="Information" message="CodeFluent.Producers.CodeDom.UI.Web.BasicAuthenticationModuleProducer: No directoryUser entity. Skip production." />
+    <event type="FileWrite" elapsedTime="00:00:00.0601737">
+      <path>C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Model\Modelo\Web\BitsServer.cs</path>
+      <fileType>CodeFluent.Producers.CodeDom.UI.Web.BitsServerProducer</fileType>
+      <size>-1</size>
+    </event>
+    <event type="AddToGeneratedFiles" elapsedTime="00:00:00.0015240">
+      <path>C:\Users\humberto.almeida\Documents\Visual Studio 2015\Projects\CapitainJack\Jack.Model\Modelo\Web\BitsServer.cs</path>
+    </event>
+    <event type="ProducerTerminate" elapsedTime="00:00:00.0086528">
+      <name>Business Object Model (BOM)</name>
+      <instance>CodeFluent.Model.Producer</instance>
+    </event>
+  </producer>
 </build>

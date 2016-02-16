@@ -21,17 +21,12 @@ namespace Jack.Data.Map
 
             //References
             References(x => x.Status).Column("id_status").Not.Nullable();
-            //References(x => x.Reunioes).Column("id_reuniao").Not.Nullable();
-            //References(x => x.Criancas).Column("id_crianca").Not.Nullable();
+            References(x => x.FamiliaFake).Column("id_familia").Not.Nullable();
+            References(x => x.FamiliaPresencaJustificada).Column("id_familia").Not.Nullable();
 
             //Hasmany
-            HasMany(x => x.Reunioes).Cascade.AllDeleteOrphan()
-                                   .Fetch.Join()
-                                   .Inverse().KeyColumn("id_reuniao");
-            HasMany(x => x.Criancas).Cascade.AllDeleteOrphan()
-                                   .Fetch.Join()
-                                   .Inverse().KeyColumn("id_crianca");
-
+            HasMany(x => x.Reunioes).KeyColumn("id_reuniao");
+            HasMany(x => x.Criancas).KeyColumn("id_crianca");
             HasMany(x => x.FamiliaBlackList).KeyColumn("id_familia");
         }
     }

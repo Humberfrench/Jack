@@ -72,6 +72,7 @@
     <Compile Include="DTOs\Sacolas.cs" />
     <Compile Include="IEntidade.cs" />
     <Compile Include="Model\FamiliaFake.cs" />
+    <Compile Include="Model\FamiliaPresencaJustificada.cs" />
     <Compile Include="Model\Presenca.cs" />
     <Compile Include="Model\Reuniao.cs" />
     <Compile Include="Model\Roupa.cs" />
@@ -122,7 +123,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Mappings\TipoItem.hbm.xml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Modelo\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

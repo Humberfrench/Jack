@@ -34,7 +34,8 @@ namespace Jack.Model
         private List<Presenca> reunioes ;
         private List<FamiliaCrianca> criancas ;
         private List<FamiliaBlackList> familiaBlackList;
-        private List<FamiliaFake> familiaFake;
+        private FamiliaFake familiaFake;
+        private FamiliaPresencaJustificada familiaPresencaJustificada;
         private DateTime dataAtualizacao;
 
         //collection familia_black_list - ok
@@ -158,7 +159,7 @@ namespace Jack.Model
             }
         }
 
-        public virtual List<FamiliaFake> FamiliaFake
+        public virtual FamiliaFake FamiliaFake
         {
             get
             {
@@ -167,6 +168,18 @@ namespace Jack.Model
             set
             {
                 familiaFake = value;
+            }
+        }
+
+        public virtual FamiliaPresencaJustificada FamiliaPresencaJustificada
+        {
+            get
+            {
+                return familiaPresencaJustificada;
+            }
+            set
+            {
+                familiaPresencaJustificada = value;
             }
         }
 
