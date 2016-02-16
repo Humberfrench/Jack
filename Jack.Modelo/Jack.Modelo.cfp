@@ -1,0 +1,337 @@
+﻿<cf:project defaultNamespace="Jack.Modelo" xmlns:cf="http://www.softfluent.com/codefluent/2005/1" xmlns:cfx="http://www.softfluent.com/codefluent/modeler/2008/1" defaultKeyPersistenceIdentity="false" persistenceShortNameLength="4" defaultConcurrencyMode="None" persistencePropertyNameFormat="{1}" createDefaultMethodForms="true" createDefaultApplication="false" createDefaultHints="false">
+  <cf:import path="Default.Surface.cfp" />
+  <cf:entity name="TbFamiliaCrianca" defaultUsePersistenceDefaultValue="false" setType="List" trackingModes="None" namespace="Jack.Modelo" persistenceName="tb_familia_crianca">
+    <cf:property name="TbCrianca" d3p1:relationKey="FK_tb_familia_crianca_tb_crianca" key="true" typeName="{0}.TbCrianca" relationPropertyName="TbFamiliaCriancas" persistenceName="id_crianca" xmlns:d3p1="http://www.softfluent.com/codefluent/importers.database/2008/1" />
+    <cf:property name="TbFamilia" d3p1:relationKey="FK_tb_familia_crianca_tb_familia" key="true" typeName="{0}.TbFamilia" relationPropertyName="TbFamiliaCriancas" persistenceName="id_familia" xmlns:d3p1="http://www.softfluent.com/codefluent/importers.database/2008/1" />
+  </cf:entity>
+  <cf:entity name="TbResponsavel" defaultUsePersistenceDefaultValue="false" setType="List" trackingModes="None" namespace="Jack.Modelo" persistenceName="tb_responsavel">
+    <cf:property name="IdResponsavel" persistenceIdentity="true" key="true" typeName="int" persistenceName="id_responsavel" />
+    <cf:property name="DsNomeResp1" nullable="false" persistenceUnicode="false" maxLength="50" persistenceName="ds_nome_resp1" />
+    <cf:property name="DsNomeResp2" persistenceUnicode="false" maxLength="50" persistenceName="ds_nome_resp2" />
+    <cf:property name="NrDocResp" persistenceUnicode="false" maxLength="50" persistenceName="nr_doc_resp" />
+    <cf:property name="DsEndereco" persistenceUnicode="false" maxLength="75" persistenceName="ds_endereco" />
+    <cf:property name="DsBairro" persistenceUnicode="false" maxLength="50" persistenceName="ds_bairro" />
+    <cf:property name="NrCep" persistenceUnicode="false" maxLength="10" persistenceName="nr_cep" />
+    <cf:property name="DsCidade" persistenceUnicode="false" maxLength="50" persistenceName="ds_cidade" />
+    <cf:property name="DsUf" persistenceUnicode="false" maxLength="2" persistenceName="ds_uf" />
+    <cf:property name="NrTelefone" persistenceUnicode="false" maxLength="15" persistenceName="nr_telefone" />
+    <cf:property name="NrCelular1" persistenceUnicode="false" maxLength="15" persistenceName="nr_celular1" />
+    <cf:property name="NrCelular2" persistenceUnicode="false" maxLength="15" persistenceName="nr_celular2" />
+    <cf:property name="TbResponsavelCriancas" typeName="{0}.TbResponsavelCriancaCollection" relationPropertyName="TbResponsavel" />
+  </cf:entity>
+  <cf:entity name="TbBoleto" defaultUsePersistenceDefaultValue="false" setType="List" trackingModes="None" namespace="Jack.Modelo" persistenceName="tb_boleto">
+    <cf:property name="TbBoletoId" d3p1:created="true" key="true" persistenceName="TbBoletoId" xmlns:d3p1="http://www.softfluent.com/codefluent/importers.database/2008/1" />
+    <cf:property name="IdBoleto" nullable="false" persistenceIdentity="true" typeName="int" persistenceName="id_boleto" />
+    <cf:property name="NrNossoNumero" nullable="false" persistenceUnicode="false" maxLength="11" persistenceName="nr_nosso_numero" />
+    <cf:property name="NrNossoNumeroBanco" nullable="false" persistenceUnicode="false" maxLength="11" persistenceName="nr_nosso_numero_banco" />
+    <cf:property name="DtBoleto" nullable="false" typeName="datetime" persistenceName="dt_boleto" />
+    <cf:property name="VlBoleto" nullable="false" typeName="float" persistenceName="vl_boleto" />
+    <cf:property name="IsPago" nullable="false" persistenceUnicode="false" maxLength="1" persistenceName="is_pago" />
+    <cf:property name="IsDda" nullable="false" persistenceUnicode="false" maxLength="1" persistenceName="is_dda" />
+    <cf:property name="TbColaborador" d3p1:guessed="true" nullable="false" typeName="{0}.TbColaborador" relationPropertyName="TbBoletoes" persistenceName="id_colaborador" xmlns:d3p1="http://www.softfluent.com/codefluent/importers.database/2008/1" />
+  </cf:entity>
+  <cf:entity name="TbFamiliaPresencaJustificada" defaultUsePersistenceDefaultValue="false" setType="List" trackingModes="None" namespace="Jack.Modelo" persistenceName="tb_familia_presenca_justificada">
+    <cf:property name="IdPresencaJustificada" persistenceIdentity="true" key="true" typeName="int" persistenceName="id_presenca_justificada" />
+    <cf:property name="IsAtivo" persistenceDefaultValue="('S')" nullable="false" persistenceUnicode="false" defaultValue="S" maxLength="1" persistenceName="is_ativo" />
+    <cf:property name="TbFamilia" d3p1:guessed="true" nullable="false" typeName="{0}.TbFamilia" relationPropertyName="TbFamiliaPresencaJustificadas" persistenceName="id_familia" xmlns:d3p1="http://www.softfluent.com/codefluent/importers.database/2008/1" />
+  </cf:entity>
+  <cf:entity name="TbBanco" defaultUsePersistenceDefaultValue="false" setType="List" trackingModes="None" namespace="Jack.Modelo" persistenceName="tb_bancos">
+    <cf:property name="IdBanco" persistenceUnicode="false" key="true" typeName="string" maxLength="6" persistenceName="id_banco" />
+    <cf:property name="DsNome" nullable="false" persistenceUnicode="false" maxLength="100" persistenceName="ds_nome" />
+    <cf:property name="DsNomeReduzido" nullable="false" persistenceUnicode="false" maxLength="50" persistenceName="ds_nome_reduzido" />
+    <cf:property name="TbPessoaContas" typeName="{0}.TbPessoaContaCollection" relationPropertyName="TbBanco" />
+  </cf:entity>
+  <cf:entity name="TbCidade" defaultUsePersistenceDefaultValue="false" setType="List" trackingModes="None" namespace="Jack.Modelo" persistenceName="tb_cidade">
+    <cf:property name="IdCidade" persistenceIdentity="true" key="true" typeName="int" persistenceName="id_cidade" />
+    <cf:property name="NmCidade" nullable="false" persistenceUnicode="false" maxLength="100" persistenceName="nm_cidade" />
+    <cf:property name="TbEstado" d3p1:relationKey="FK_tb_cidade_tb_estado" nullable="false" typeName="{0}.TbEstado" relationPropertyName="TbCidades" persistenceName="sg_uf" xmlns:d3p1="http://www.softfluent.com/codefluent/importers.database/2008/1" />
+  </cf:entity>
+  <cf:entity name="TbEstado" defaultUsePersistenceDefaultValue="false" setType="List" trackingModes="None" namespace="Jack.Modelo" persistenceName="tb_estado">
+    <cf:property name="SgUf" persistenceUnicode="false" key="true" typeName="string" maxLength="2" persistenceName="sg_uf" />
+    <cf:property name="DsUf" nullable="false" persistenceUnicode="false" maxLength="50" persistenceName="ds_uf" />
+    <cf:property name="TbCidades" typeName="{0}.TbCidadeCollection" relationPropertyName="TbEstado" />
+  </cf:entity>
+  <cf:entity name="TbMe" defaultUsePersistenceDefaultValue="false" setType="List" trackingModes="None" namespace="Jack.Modelo" persistenceName="tb_mes">
+    <cf:property name="TbMeId" d3p1:created="true" key="true" persistenceName="TbMeId" xmlns:d3p1="http://www.softfluent.com/codefluent/importers.database/2008/1" />
+    <cf:property name="NrMes" nullable="false" typeName="int" persistenceName="nr_mes" />
+    <cf:property name="DsMes" nullable="false" persistenceUnicode="false" maxLength="50" persistenceName="ds_mes" />
+  </cf:entity>
+  <cf:entity name="TbPessoaConta" defaultUsePersistenceDefaultValue="false" setType="List" trackingModes="None" namespace="Jack.Modelo" persistenceName="tb_pessoa_conta">
+    <cf:property name="IdPessoaConta" persistenceIdentity="false" key="true" typeName="int" persistenceName="id_pessoa_conta" />
+    <cf:property name="IdPessoa" nullable="false" typeName="int" persistenceName="id_pessoa" />
+    <cf:property name="NrAgencia" nullable="false" persistenceUnicode="false" maxLength="5" persistenceName="nr_agencia" />
+    <cf:property name="NrAgenciaDigito" persistenceUnicode="false" maxLength="1" persistenceName="nr_agencia_digito" />
+    <cf:property name="NrConta" nullable="false" persistenceUnicode="false" maxLength="10" persistenceName="nr_conta" />
+    <cf:property name="NrContaDigito" persistenceUnicode="false" maxLength="1" persistenceName="nr_conta_digito" />
+    <cf:property name="TbBanco" d3p1:relationKey="FK_tb_pessoa_conta_tb_bancos" nullable="false" typeName="{0}.TbBanco" relationPropertyName="TbPessoaContas" persistenceName="id_banco" xmlns:d3p1="http://www.softfluent.com/codefluent/importers.database/2008/1" />
+    <cf:property name="TpConta" d3p1:relationKey="FK_tb_pessoa_conta_tb_tipo_conta" nullable="false" typeName="{0}.TbTipoConta" relationPropertyName="TbPessoaContas" persistenceName="tp_conta" xmlns:d3p1="http://www.softfluent.com/codefluent/importers.database/2008/1" />
+  </cf:entity>
+  <cf:entity name="TbRepresentanteFamilia" defaultUsePersistenceDefaultValue="false" setType="List" trackingModes="None" namespace="Jack.Modelo" persistenceName="tb_representante_familia">
+    <cf:property name="IdFamiliaRepresentante" persistenceIdentity="false" key="true" typeName="int" persistenceName="id_familia_representante" />
+    <cf:property name="IdFamiliaRepresentada" persistenceIdentity="false" key="true" typeName="int" persistenceName="id_familia_representada" />
+  </cf:entity>
+  <cf:entity name="TbTipoConta" defaultUsePersistenceDefaultValue="false" setType="List" trackingModes="None" namespace="Jack.Modelo" persistenceName="tb_tipo_conta">
+    <cf:property name="IdTipoConta" persistenceIdentity="true" key="true" typeName="int" persistenceName="id_tipo_conta" />
+    <cf:property name="DsTipoConta" nullable="false" persistenceUnicode="false" maxLength="50" persistenceName="ds_tipo_conta" />
+    <cf:property name="TbPessoaContas" typeName="{0}.TbPessoaContaCollection" relationPropertyName="TpConta" />
+  </cf:entity>
+  <cf:entity name="TbResponsavelCrianca" defaultUsePersistenceDefaultValue="false" setType="List" trackingModes="None" namespace="Jack.Modelo" persistenceName="tb_responsavel_crianca">
+    <cf:property name="IdResponsavelCrianca" persistenceIdentity="true" key="true" typeName="int" persistenceName="id_responsavel_crianca" />
+    <cf:property name="TbCriancaMoralCrista" d3p1:relationKey="FK_tb_responsavel_crianca_tb_crianca_moral_crista" nullable="false" typeName="{0}.TbCriancaMoralCrista" relationPropertyName="TbResponsavelCriancas" persistenceName="id_crianca" xmlns:d3p1="http://www.softfluent.com/codefluent/importers.database/2008/1" />
+    <cf:property name="TbResponsavel" d3p1:relationKey="FK_tb_responsavel_crianca_tb_responsavel" nullable="false" typeName="{0}.TbResponsavel" relationPropertyName="TbResponsavelCriancas" persistenceName="id_responsavel" xmlns:d3p1="http://www.softfluent.com/codefluent/importers.database/2008/1" />
+  </cf:entity>
+  <cf:entity name="TbFamilia" defaultUsePersistenceDefaultValue="false" setType="List" trackingModes="None" namespace="Jack.Modelo" persistenceName="tb_familia">
+    <cf:property name="IdFamilia" persistenceIdentity="true" key="true" typeName="int" persistenceName="id_familia" />
+    <cf:property name="NmMae" nullable="false" persistenceUnicode="false" maxLength="75" persistenceName="nm_mae" />
+    <cf:property name="IsSacolinha" persistenceDefaultValue="('N')" nullable="false" persistenceUnicode="false" defaultValue="N" maxLength="1" persistenceName="is_sacolinha" />
+    <cf:property name="IsConsistente" persistenceDefaultValue="('N')" nullable="false" persistenceUnicode="false" defaultValue="N" maxLength="1" persistenceName="is_consistente" />
+    <cf:property name="NrNivelEspera" persistenceDefaultValue="99" nullable="false" defaultValue="99" typeName="byte" persistenceName="nr_nivel_espera" />
+    <cf:property name="DsContato" persistenceUnicode="false" maxLength="50" persistenceName="ds_contato" />
+    <cf:property name="DtUpdate" persistenceDefaultValue="(GETDATE())" serializationNullable="true" modelNullable="true" typeName="datetime" persistenceName="dt_update" />
+    <cf:property name="TbStatus" d3p1:relationKey="FK_tb_familia_tb_status" persistenceDefaultValue="9" nullable="false" typeName="{0}.TbStatus" relationPropertyName="TbFamilias" persistenceName="id_status" xmlns:d3p1="http://www.softfluent.com/codefluent/importers.database/2008/1" />
+    <cf:property name="TbFamiliaCriancas" typeName="{0}.TbFamiliaCriancaCollection" relationPropertyName="TbFamilia" />
+    <cf:property name="TbFamiliaPresencaJustificadas" typeName="{0}.TbFamiliaPresencaJustificadaCollection" relationPropertyName="TbFamilia" />
+    <cf:property name="TbLogSacolinhas" typeName="{0}.TbLogSacolinhaCollection" relationPropertyName="TbFamilia" />
+    <cf:property name="TbFamiliaPresencas" typeName="{0}.TbFamiliaPresencaCollection" relationPropertyName="TbFamilia" />
+    <cf:property name="TbFamiliaFakes" typeName="{0}.TbFamiliaFakeCollection" relationPropertyName="TbFamilia" />
+    <cf:property name="TbSacolaGeradaHistoricoes" typeName="{0}.TbSacolaGeradaHistoricoCollection" relationPropertyName="TbFamilia" />
+    <cf:property name="TbSacolaGeradas" typeName="{0}.TbSacolaGeradaCollection" relationPropertyName="TbFamilia" />
+    <cf:property name="TbFamiliaBlackLists" typeName="{0}.TbFamiliaBlackListCollection" relationPropertyName="TbFamilia" />
+  </cf:entity>
+  <cf:entity name="TbTurma" defaultUsePersistenceDefaultValue="false" setType="List" trackingModes="None" namespace="Jack.Modelo" persistenceName="tb_turma">
+    <cf:property name="IdTurma" persistenceIdentity="true" key="true" typeName="int" persistenceName="id_turma" />
+    <cf:property name="DsTurma" nullable="false" persistenceUnicode="false" maxLength="50" persistenceName="ds_turma" />
+    <cf:property name="TbTurmaLetivas" typeName="{0}.TbTurmaLetivaCollection" relationPropertyName="TbTurma" />
+  </cf:entity>
+  <cf:entity name="TbEvangelizador" defaultUsePersistenceDefaultValue="false" setType="List" trackingModes="None" namespace="Jack.Modelo" persistenceName="tb_evangelizador">
+    <cf:property name="IdEvangelizador" persistenceIdentity="true" key="true" typeName="int" persistenceName="id_evangelizador" />
+    <cf:property name="DsSala" persistenceUnicode="false" maxLength="50" persistenceName="ds_sala" />
+    <cf:property name="TbTrabalhador" d3p1:relationKey="FK_tb_evangelizador_tb_trabalhador" nullable="false" typeName="{0}.TbTrabalhador" relationPropertyName="TbEvangelizadors" persistenceName="id_trabalhador" xmlns:d3p1="http://www.softfluent.com/codefluent/importers.database/2008/1" />
+    <cf:property name="TbTurmaLetivas" typeName="{0}.TbTurmaLetivaCollection" relationPropertyName="TbEvangelizador" />
+  </cf:entity>
+  <cf:entity name="TbTipoItem" defaultUsePersistenceDefaultValue="false" setType="List" trackingModes="None" namespace="Jack.Modelo" persistenceName="tb_tipo_item">
+    <cf:property name="IdTipoItem" persistenceIdentity="true" key="true" typeName="int" persistenceName="id_tipo_item" />
+    <cf:property name="DsTipoItem" nullable="false" persistenceUnicode="false" maxLength="80" persistenceName="ds_tipo_item" />
+    <cf:property name="IsOpcional" persistenceDefaultValue="('N')" nullable="false" persistenceUnicode="false" defaultValue="N" maxLength="1" persistenceName="is_opcional" />
+    <cf:property name="TbKitItems" typeName="{0}.TbKitItemCollection" relationPropertyName="TbTipoItem" />
+  </cf:entity>
+  <cf:entity name="TbTurmaLetiva" defaultUsePersistenceDefaultValue="false" setType="List" trackingModes="None" namespace="Jack.Modelo" persistenceName="tb_turma_letiva">
+    <cf:property name="IdTurmaLetiva" persistenceIdentity="true" key="true" typeName="int" persistenceName="id_turma_letiva" />
+    <cf:property name="NrAno" nullable="false" typeName="int" persistenceName="nr_ano" />
+    <cf:property name="TbCriancaMoralCrista" d3p1:relationKey="FK_tb_turma_letiva_tb_crianca_moral_crista" nullable="false" typeName="{0}.TbCriancaMoralCrista" relationPropertyName="TbTurmaLetivas" persistenceName="id_crianca" xmlns:d3p1="http://www.softfluent.com/codefluent/importers.database/2008/1" />
+    <cf:property name="TbEvangelizador" d3p1:relationKey="FK_tb_turma_letiva_tb_evangelizador" nullable="false" typeName="{0}.TbEvangelizador" relationPropertyName="TbTurmaLetivas" persistenceName="id_evangelizador" xmlns:d3p1="http://www.softfluent.com/codefluent/importers.database/2008/1" />
+    <cf:property name="TbTurma" d3p1:relationKey="FK_tb_turma_letiva_tb_turma" nullable="false" typeName="{0}.TbTurma" relationPropertyName="TbTurmaLetivas" persistenceName="id_turma" xmlns:d3p1="http://www.softfluent.com/codefluent/importers.database/2008/1" />
+  </cf:entity>
+  <cf:entity name="TbCriancaMoralCrista" defaultUsePersistenceDefaultValue="false" setType="List" trackingModes="None" namespace="Jack.Modelo" persistenceName="tb_crianca_moral_crista">
+    <cf:property name="IdCrianca" persistenceIdentity="true" key="true" typeName="int" persistenceName="id_crianca" />
+    <cf:property name="IdCriancaSacola" persistenceDefaultValue="0" nullable="false" defaultValue="0" typeName="int" persistenceName="id_crianca_sacola" />
+    <cf:property name="DsNome" nullable="false" persistenceUnicode="false" maxLength="50" persistenceName="ds_nome" />
+    <cf:property name="DtNasc" serializationNullable="true" modelNullable="true" typeName="datetime" persistenceName="dt_nasc" />
+    <cf:property name="DsSexo" nullable="false" persistenceUnicode="false" maxLength="1" persistenceName="ds_sexo" />
+    <cf:property name="DsProbSaude" persistenceDefaultValue="('Não')" nullable="false" persistenceUnicode="false" defaultValue="Não" maxLength="50" persistenceName="ds_prob_saude" />
+    <cf:property name="DsAlergia" persistenceDefaultValue="('Não')" nullable="false" persistenceUnicode="false" defaultValue="Não" maxLength="50" persistenceName="ds_alergia" />
+    <cf:property name="DsTratamento" persistenceDefaultValue="('Não')" nullable="false" persistenceUnicode="false" defaultValue="Não" maxLength="50" persistenceName="ds_tratamento" />
+    <cf:property name="DsMedo" persistenceDefaultValue="('Não')" nullable="false" persistenceUnicode="false" defaultValue="Não" maxLength="50" persistenceName="ds_medo" />
+    <cf:property name="IsCalmo" persistenceDefaultValue="('N')" nullable="false" persistenceUnicode="false" defaultValue="N" maxLength="1" persistenceName="is_calmo" />
+    <cf:property name="IsAgitado" persistenceDefaultValue="('N')" nullable="false" persistenceUnicode="false" defaultValue="N" maxLength="1" persistenceName="is_agitado" />
+    <cf:property name="IsNervoso" persistenceDefaultValue="('N')" nullable="false" persistenceUnicode="false" defaultValue="N" maxLength="1" persistenceName="is_nervoso" />
+    <cf:property name="IsAnsioso" persistenceDefaultValue="('N')" nullable="false" persistenceUnicode="false" defaultValue="N" maxLength="1" persistenceName="is_ansioso" />
+    <cf:property name="IsTimido" persistenceDefaultValue="('N')" nullable="false" persistenceUnicode="false" defaultValue="N" maxLength="1" persistenceName="is_timido" />
+    <cf:property name="IsLeitura" persistenceDefaultValue="('N')" nullable="false" persistenceUnicode="false" defaultValue="N" maxLength="1" persistenceName="is_leitura" />
+    <cf:property name="IsMusica" persistenceDefaultValue="('N')" nullable="false" persistenceUnicode="false" defaultValue="N" maxLength="1" persistenceName="is_musica" />
+    <cf:property name="IsDesenho" persistenceDefaultValue="('N')" nullable="false" persistenceUnicode="false" defaultValue="N" maxLength="1" persistenceName="is_desenho" />
+    <cf:property name="IsDanca" persistenceDefaultValue="('N')" nullable="false" persistenceUnicode="false" defaultValue="N" maxLength="1" persistenceName="is_danca" />
+    <cf:property name="IsPintura" persistenceDefaultValue="('N')" nullable="false" persistenceUnicode="false" defaultValue="N" maxLength="1" persistenceName="is_pintura" />
+    <cf:property name="IsEscrever" persistenceDefaultValue="('N')" nullable="false" persistenceUnicode="false" defaultValue="N" maxLength="1" persistenceName="is_escrever" />
+    <cf:property name="IsVerTv" persistenceDefaultValue="('N')" nullable="false" persistenceUnicode="false" defaultValue="N" maxLength="1" persistenceName="is_ver_tv" />
+    <cf:property name="IsOutros" persistenceDefaultValue="('N')" nullable="false" persistenceUnicode="false" defaultValue="N" maxLength="1" persistenceName="is_outros" />
+    <cf:property name="DsOutros" persistenceDefaultValue="('N/A')" nullable="false" persistenceUnicode="false" defaultValue="N/A" maxLength="50" persistenceName="ds_outros" />
+    <cf:property name="DsObservacao" persistenceDefaultValue="('N/A')" nullable="false" persistenceUnicode="false" defaultValue="N/A" maxLength="50" persistenceName="ds_observacao" />
+    <cf:property name="IsAtivo" nullable="false" persistenceUnicode="false" maxLength="1" persistenceName="is_ativo" />
+    <cf:property name="TbResponsavelCriancas" typeName="{0}.TbResponsavelCriancaCollection" relationPropertyName="TbCriancaMoralCrista" />
+    <cf:property name="TbTurmaLetivas" typeName="{0}.TbTurmaLetivaCollection" relationPropertyName="TbCriancaMoralCrista" />
+  </cf:entity>
+  <cf:entity name="TbKitItem" defaultUsePersistenceDefaultValue="false" setType="List" trackingModes="None" namespace="Jack.Modelo" persistenceName="tb_kit_item">
+    <cf:property name="IdKitItem" persistenceIdentity="true" key="true" typeName="int" persistenceName="id_kit_item" />
+    <cf:property name="NrOrdem" serializationNullable="true" modelNullable="true" typeName="byte" persistenceName="nr_ordem" />
+    <cf:property name="DsObservacao" persistenceUnicode="false" maxLength="50" persistenceName="ds_observacao" />
+    <cf:property name="TbKit" d3p1:relationKey="FK_tb_kit_item_tb_kit" nullable="false" typeName="{0}.TbKit" relationPropertyName="TbKitItems" persistenceName="id_kit" xmlns:d3p1="http://www.softfluent.com/codefluent/importers.database/2008/1" />
+    <cf:property name="TbTipoItem" d3p1:relationKey="FK_tb_kit_item_tb_tipo_item" nullable="false" typeName="{0}.TbTipoItem" relationPropertyName="TbKitItems" persistenceName="id_tipo_item" xmlns:d3p1="http://www.softfluent.com/codefluent/importers.database/2008/1" />
+  </cf:entity>
+  <cf:entity name="TbTrabalhador" defaultUsePersistenceDefaultValue="false" setType="List" trackingModes="None" namespace="Jack.Modelo" persistenceName="tb_trabalhador">
+    <cf:property name="IdTrabalhador" persistenceIdentity="true" key="true" typeName="int" persistenceName="id_trabalhador" />
+    <cf:property name="DsNome" persistenceUnicode="false" maxLength="50" persistenceName="ds_nome" />
+    <cf:property name="DsFone" persistenceUnicode="false" maxLength="15" persistenceName="ds_fone" />
+    <cf:property name="DsCelular1" persistenceUnicode="false" maxLength="15" persistenceName="ds_celular1" />
+    <cf:property name="DsOperadora1" persistenceUnicode="false" maxLength="10" persistenceName="ds_operadora1" />
+    <cf:property name="DsCelular2" persistenceUnicode="false" maxLength="15" persistenceName="ds_celular2" />
+    <cf:property name="DsOperadora2" persistenceUnicode="false" maxLength="10" persistenceName="ds_operadora2" />
+    <cf:property name="DsEmail" persistenceUnicode="false" maxLength="100" persistenceName="ds_email" />
+    <cf:property name="DtAniver" persistenceUnicode="false" maxLength="5" persistenceName="dt_aniver" />
+    <cf:property name="TbEvangelizadors" typeName="{0}.TbEvangelizadorCollection" relationPropertyName="TbTrabalhador" />
+    <cf:property name="TbTrabalhoTrabalhadors" typeName="{0}.TbTrabalhoTrabalhadorCollection" relationPropertyName="TbTrabalhador" />
+  </cf:entity>
+  <cf:entity name="TbParametro" defaultUsePersistenceDefaultValue="false" setType="List" trackingModes="None" namespace="Jack.Modelo" persistenceName="tb_parametros">
+    <cf:property name="TbParametroId" d3p1:created="true" key="true" persistenceName="TbParametroId" xmlns:d3p1="http://www.softfluent.com/codefluent/importers.database/2008/1" />
+    <cf:property name="NrIdadeLimite" nullable="false" typeName="int" persistenceName="nr_idade_limite" />
+    <cf:property name="NrIdadeLimiteExcecao" nullable="false" typeName="int" persistenceName="nr_idade_limite_excecao" />
+    <cf:property name="IsIdadeLimiteExcecaoValida" nullable="false" persistenceUnicode="false" maxLength="1" persistenceName="is_idade_limite_excecao_valida" />
+    <cf:property name="NrCalcadoLimite" serializationNullable="true" modelNullable="true" typeName="int" persistenceName="nr_calcado_limite" />
+  </cf:entity>
+  <cf:entity name="TbCalcado" defaultUsePersistenceDefaultValue="false" setType="List" trackingModes="None" namespace="Jack.Modelo" persistenceName="tb_calcado">
+    <cf:property name="IdCalcado" persistenceIdentity="true" key="true" typeName="int" persistenceName="id_calcado" />
+    <cf:property name="NrCalcado" serializationNullable="true" modelNullable="true" typeName="int" persistenceName="nr_calcado" />
+    <cf:property name="DsSexo" persistenceUnicode="false" maxLength="1" persistenceName="ds_sexo" />
+    <cf:property name="NrInicio" serializationNullable="true" modelNullable="true" typeName="float" persistenceName="nr_inicio" />
+    <cf:property name="NrFim" serializationNullable="true" modelNullable="true" typeName="float" persistenceName="nr_fim" />
+    <cf:property name="DsMedidaIdade" persistenceUnicode="false" maxLength="1" persistenceName="ds_medida_idade" />
+  </cf:entity>
+  <cf:entity name="TbStatus" defaultUsePersistenceDefaultValue="false" setType="List" trackingModes="None" namespace="Jack.Modelo" persistenceName="tb_status">
+    <cf:property name="IdStatus" persistenceIdentity="true" key="true" typeName="int" persistenceName="id_status" />
+    <cf:property name="DsStatus" nullable="false" persistenceUnicode="false" maxLength="50" persistenceName="ds_status" />
+    <cf:property name="IsPermiteSacola" nullable="false" persistenceUnicode="false" maxLength="1" persistenceName="is_permite_sacola" />
+    <cf:property name="DsNivelStatus" nullable="false" persistenceUnicode="false" maxLength="1" persistenceName="ds_nivel_status" />
+    <cf:property name="TbFamilias" typeName="{0}.TbFamiliaCollection" relationPropertyName="TbStatus" />
+    <cf:property name="TbCriancas" typeName="{0}.TbCriancaCollection" relationPropertyName="TbStatus" />
+  </cf:entity>
+  <cf:entity name="TbReuniaoAgendada" defaultUsePersistenceDefaultValue="false" setType="List" trackingModes="None" namespace="Jack.Modelo" persistenceName="tb_reuniao_agendada">
+    <cf:property name="IdReuniao" persistenceIdentity="true" key="true" typeName="int" persistenceName="id_reuniao" />
+    <cf:property name="NrAno" nullable="false" typeName="short" persistenceName="nr_ano" />
+    <cf:property name="NrAnoEfetivo" nullable="false" typeName="short" persistenceName="nr_ano_efetivo" />
+    <cf:property name="DtReuniao" nullable="false" typeName="datetime" persistenceName="dt_reuniao" />
+    <cf:property name="TbFamiliaPresencas" typeName="{0}.TbFamiliaPresencaCollection" relationPropertyName="TbReuniaoAgendada" />
+  </cf:entity>
+  <cf:entity name="TbColaboradorCrianca" defaultUsePersistenceDefaultValue="false" setType="List" trackingModes="None" namespace="Jack.Modelo" persistenceName="tb_colaborador_crianca">
+    <cf:property name="IdColaboradorCrianca" persistenceIdentity="true" key="true" typeName="int" persistenceName="id_colaborador_crianca" />
+    <cf:property name="NrAno" nullable="false" typeName="short" persistenceName="nr_ano" />
+    <cf:property name="IsDevolvida" nullable="false" persistenceUnicode="false" maxLength="1" persistenceName="is_devolvida" />
+    <cf:property name="DtInsert" persistenceDefaultValue="(GETDATE())" serializationNullable="true" modelNullable="true" typeName="datetime" persistenceName="dt_insert" />
+    <cf:property name="TbColaborador" d3p1:relationKey="FK_tb_colaborador_crianca_tb_colaborador" nullable="false" typeName="{0}.TbColaborador" relationPropertyName="TbColaboradorCriancas" persistenceName="id_colaborador" xmlns:d3p1="http://www.softfluent.com/codefluent/importers.database/2008/1" />
+    <cf:property name="TbCrianca" d3p1:relationKey="FK_tb_colaborador_crianca_tb_crianca" nullable="false" typeName="{0}.TbCrianca" relationPropertyName="TbColaboradorCriancas" persistenceName="id_crianca" xmlns:d3p1="http://www.softfluent.com/codefluent/importers.database/2008/1" />
+  </cf:entity>
+  <cf:entity name="TbLogSacolinha" defaultUsePersistenceDefaultValue="false" setType="List" trackingModes="None" namespace="Jack.Modelo" persistenceName="tb_log_sacolinha">
+    <cf:property name="IdLogSacolinha" persistenceIdentity="true" key="true" typeName="int" persistenceName="id_log_sacolinha" />
+    <cf:property name="IdFamiliaRep" nullable="false" typeName="int" persistenceName="id_familia_rep" />
+    <cf:property name="NrAno" nullable="false" typeName="int" persistenceName="nr_ano" />
+    <cf:property name="TbCrianca" d3p1:relationKey="FK_tb_log_sacolinha_tb_crianca" nullable="false" typeName="{0}.TbCrianca" relationPropertyName="TbLogSacolinhas" persistenceName="id_crianca" xmlns:d3p1="http://www.softfluent.com/codefluent/importers.database/2008/1" />
+    <cf:property name="TbFamilia" d3p1:relationKey="FK_tb_log_sacolinha_tb_familia" nullable="false" typeName="{0}.TbFamilia" relationPropertyName="TbLogSacolinhas" persistenceName="id_familia" xmlns:d3p1="http://www.softfluent.com/codefluent/importers.database/2008/1" />
+    <cf:property name="TbKit" d3p1:guessed="true" nullable="false" typeName="{0}.TbKit" relationPropertyName="TbLogSacolinhas" persistenceName="id_kit" xmlns:d3p1="http://www.softfluent.com/codefluent/importers.database/2008/1" />
+  </cf:entity>
+  <cf:entity name="TbRoupa" defaultUsePersistenceDefaultValue="false" setType="List" trackingModes="None" namespace="Jack.Modelo" persistenceName="tb_roupa">
+    <cf:property name="IdTamanho" persistenceIdentity="true" key="true" typeName="int" persistenceName="id_tamanho" />
+    <cf:property name="DsTamanho" nullable="false" persistenceUnicode="false" maxLength="50" persistenceName="ds_tamanho" />
+    <cf:property name="DsTamanhoSugerido" nullable="false" persistenceUnicode="false" maxLength="50" persistenceName="ds_tamanho_sugerido" />
+    <cf:property name="DsTamanhoSugeridoMaior" persistenceUnicode="false" maxLength="50" persistenceName="ds_tamanho_sugerido_maior" />
+    <cf:property name="NrIdade" nullable="false" typeName="int" persistenceName="nr_idade" />
+    <cf:property name="DsMedidaIdade" nullable="false" persistenceUnicode="false" maxLength="1" persistenceName="ds_medida_idade" />
+  </cf:entity>
+  <cf:entity name="TbKit" defaultUsePersistenceDefaultValue="false" setType="List" trackingModes="None" namespace="Jack.Modelo" persistenceName="tb_kit">
+    <cf:property name="IdKit" persistenceIdentity="true" key="true" typeName="int" persistenceName="id_kit" />
+    <cf:property name="DsKit" nullable="false" persistenceUnicode="false" maxLength="50" persistenceName="ds_kit" />
+    <cf:property name="VlIdadeMin" nullable="false" typeName="float" persistenceName="vl_idade_min" />
+    <cf:property name="VlIdadeMax" nullable="false" typeName="float" persistenceName="vl_idade_max" />
+    <cf:property name="DsSexo" nullable="false" persistenceUnicode="false" maxLength="1" persistenceName="ds_sexo" />
+    <cf:property name="IsNecessidadeEspecial" persistenceUnicode="false" maxLength="1" persistenceName="is_necessidade_especial" />
+    <cf:property name="TbKitItems" typeName="{0}.TbKitItemCollection" relationPropertyName="TbKit" />
+    <cf:property name="TbLogSacolinhas" typeName="{0}.TbLogSacolinhaCollection" relationPropertyName="TbKit" />
+    <cf:property name="TbSacolaGeradaHistoricoes" typeName="{0}.TbSacolaGeradaHistoricoCollection" relationPropertyName="TbKit" />
+    <cf:property name="TbCriancas" typeName="{0}.TbCriancaCollection" relationPropertyName="TbKit" />
+    <cf:property name="TbSacolaGeradas" typeName="{0}.TbSacolaGeradaCollection" relationPropertyName="TbKit" />
+  </cf:entity>
+  <cf:entity name="TbFamiliaPresenca" defaultUsePersistenceDefaultValue="false" setType="List" trackingModes="None" namespace="Jack.Modelo" persistenceName="tb_familia_presenca">
+    <cf:property name="IdPresenca" persistenceIdentity="true" key="true" typeName="int" persistenceName="id_presenca" />
+    <cf:property name="TbFamilia" d3p1:relationKey="FK_tb_familia_presenca_tb_familia" nullable="false" typeName="{0}.TbFamilia" relationPropertyName="TbFamiliaPresencas" persistenceName="id_familia" xmlns:d3p1="http://www.softfluent.com/codefluent/importers.database/2008/1" />
+    <cf:property name="TbReuniaoAgendada" d3p1:relationKey="FK_tb_familia_presenca_tb_reuniao_agendada" nullable="false" typeName="{0}.TbReuniaoAgendada" relationPropertyName="TbFamiliaPresencas" persistenceName="id_reuniao" xmlns:d3p1="http://www.softfluent.com/codefluent/importers.database/2008/1" />
+  </cf:entity>
+  <cf:entity name="TbRecibo" defaultUsePersistenceDefaultValue="false" setType="List" trackingModes="None" namespace="Jack.Modelo" persistenceName="tb_recibo">
+    <cf:property name="IdRecibo" persistenceIdentity="true" key="true" typeName="int" persistenceName="id_recibo" />
+    <cf:property name="DtRecibo" nullable="false" typeName="datetime" persistenceName="dt_recibo" />
+    <cf:property name="VlRecibo" nullable="false" typeName="float" persistenceName="vl_recibo" />
+    <cf:property name="IdBoleto" serializationNullable="true" modelNullable="true" typeName="int" persistenceName="id_boleto" />
+    <cf:property name="IsLiberado" persistenceUnicode="false" maxLength="1" persistenceName="is_liberado" />
+    <cf:property name="TbColaborador" d3p1:guessed="true" nullable="false" typeName="{0}.TbColaborador" relationPropertyName="TbReciboes" persistenceName="id_colaborador" xmlns:d3p1="http://www.softfluent.com/codefluent/importers.database/2008/1" />
+  </cf:entity>
+  <cf:entity name="TbFamiliaFake" defaultUsePersistenceDefaultValue="false" setType="List" trackingModes="None" namespace="Jack.Modelo" persistenceName="tb_familia_fake">
+    <cf:property name="TbFamiliaFakeId" d3p1:created="true" key="true" persistenceName="TbFamiliaFakeId" xmlns:d3p1="http://www.softfluent.com/codefluent/importers.database/2008/1" />
+    <cf:property name="TbFamilia" d3p1:guessed="true" nullable="false" typeName="{0}.TbFamilia" relationPropertyName="TbFamiliaFakes" persistenceName="id_familia" xmlns:d3p1="http://www.softfluent.com/codefluent/importers.database/2008/1" />
+  </cf:entity>
+  <cf:entity name="TbSacolaGeradaHistorico" defaultUsePersistenceDefaultValue="false" setType="List" trackingModes="None" namespace="Jack.Modelo" persistenceName="tb_sacola_gerada_historico">
+    <cf:property name="TbSacolaGeradaHistoricoId" d3p1:created="true" key="true" persistenceName="TbSacolaGeradaHistoricoId" xmlns:d3p1="http://www.softfluent.com/codefluent/importers.database/2008/1" />
+    <cf:property name="IdSacolinhaHistorico" nullable="false" persistenceIdentity="true" typeName="int" persistenceName="id_sacolinha_historico" />
+    <cf:property name="NrAno" nullable="false" typeName="short" persistenceName="nr_ano" />
+    <cf:property name="NrSacolaFamilia" nullable="false" typeName="int" persistenceName="nr_sacola_familia" />
+    <cf:property name="IdFamiliaRep" nullable="false" typeName="int" persistenceName="id_familia_rep" />
+    <cf:property name="IdCrianca" nullable="false" typeName="int" persistenceName="id_crianca" />
+    <cf:property name="DsSexo" nullable="false" persistenceUnicode="false" maxLength="1" persistenceName="ds_sexo" />
+    <cf:property name="NrNivel" nullable="false" typeName="int" persistenceName="nr_nivel" />
+    <cf:property name="TbSacolaGerada" d3p1:guessed="true" nullable="false" typeName="{0}.TbSacolaGerada" relationPropertyName="TbSacolaGeradaHistoricoes" persistenceName="id_sacolinha" xmlns:d3p1="http://www.softfluent.com/codefluent/importers.database/2008/1" />
+    <cf:property name="TbFamilia" d3p1:guessed="true" nullable="false" typeName="{0}.TbFamilia" relationPropertyName="TbSacolaGeradaHistoricoes" persistenceName="id_familia" xmlns:d3p1="http://www.softfluent.com/codefluent/importers.database/2008/1" />
+    <cf:property name="TbKit" d3p1:guessed="true" nullable="false" typeName="{0}.TbKit" relationPropertyName="TbSacolaGeradaHistoricoes" persistenceName="id_kit" xmlns:d3p1="http://www.softfluent.com/codefluent/importers.database/2008/1" />
+  </cf:entity>
+  <cf:entity name="TbCrianca" defaultUsePersistenceDefaultValue="false" setType="List" trackingModes="None" namespace="Jack.Modelo" persistenceName="tb_crianca">
+    <cf:property name="IdCrianca" persistenceIdentity="true" key="true" typeName="int" persistenceName="id_crianca" />
+    <cf:property name="NmCrianca" nullable="false" persistenceUnicode="false" maxLength="75" persistenceName="nm_crianca" />
+    <cf:property name="NrIdade" serializationNullable="true" modelNullable="true" typeName="float" persistenceName="nr_idade" />
+    <cf:property name="DsMedidaIdade" persistenceUnicode="false" maxLength="1" persistenceName="ds_medida_idade" />
+    <cf:property name="DtNascimento" serializationNullable="true" modelNullable="true" typeName="datetime" persistenceName="dt_nascimento" />
+    <cf:property name="DsIdadeNominal" persistenceUnicode="false" maxLength="20" persistenceName="ds_idade_nominal" />
+    <cf:property name="DsIdadeNominalResumido" persistenceUnicode="false" maxLength="6" persistenceName="ds_idade_nominal_resumido" />
+    <cf:property name="DsSexo" nullable="false" persistenceUnicode="false" maxLength="1" persistenceName="ds_sexo" />
+    <cf:property name="NrCalcado" persistenceDefaultValue="99" defaultValue="99" serializationNullable="true" modelNullable="true" typeName="int" persistenceName="nr_calcado" />
+    <cf:property name="NrRoupa" persistenceDefaultValue="((99))" persistenceUnicode="false" maxLength="5" persistenceName="nr_roupa" />
+    <cf:property name="IsSacolinha" persistenceDefaultValue="('S')" nullable="false" persistenceUnicode="false" defaultValue="S" maxLength="1" persistenceName="is_sacolinha" />
+    <cf:property name="IsConsistente" persistenceDefaultValue="('N')" nullable="false" persistenceUnicode="false" defaultValue="N" maxLength="1" persistenceName="is_consistente" />
+    <cf:property name="IsNecessidadeEspecial" persistenceDefaultValue="('N')" nullable="false" persistenceUnicode="false" defaultValue="N" maxLength="1" persistenceName="is_necessidade_especial" />
+    <cf:property name="IsMoralCrista" persistenceDefaultValue="('N')" nullable="false" persistenceUnicode="false" defaultValue="N" maxLength="1" persistenceName="is_moral_crista" />
+    <cf:property name="IsCriancaMaior" persistenceDefaultValue="('N')" nullable="false" persistenceUnicode="false" defaultValue="N" maxLength="1" persistenceName="is_crianca_maior" />
+    <cf:property name="DtUpdate" persistenceDefaultValue="(GETDATE())" nullable="false" typeName="datetime" persistenceName="dt_update" />
+    <cf:property name="DtCreate" persistenceDefaultValue="(GETDATE())" nullable="false" typeName="datetime" persistenceName="dt_create" />
+    <cf:property name="TbKit" d3p1:relationKey="FK_tb_crianca_tb_kit" persistenceDefaultValue="1" nullable="false" typeName="{0}.TbKit" relationPropertyName="TbCriancas" persistenceName="id_kit" xmlns:d3p1="http://www.softfluent.com/codefluent/importers.database/2008/1" />
+    <cf:property name="TbStatus" d3p1:guessed="true" persistenceDefaultValue="5" nullable="false" typeName="{0}.TbStatus" relationPropertyName="TbCriancas" persistenceName="id_status" xmlns:d3p1="http://www.softfluent.com/codefluent/importers.database/2008/1" />
+    <cf:property name="TbFamiliaCriancas" typeName="{0}.TbFamiliaCriancaCollection" relationPropertyName="TbCrianca" />
+    <cf:property name="TbColaboradorCriancas" typeName="{0}.TbColaboradorCriancaCollection" relationPropertyName="TbCrianca" />
+    <cf:property name="TbLogSacolinhas" typeName="{0}.TbLogSacolinhaCollection" relationPropertyName="TbCrianca" />
+  </cf:entity>
+  <cf:entity name="TbTrabalho" defaultUsePersistenceDefaultValue="false" setType="List" trackingModes="None" namespace="Jack.Modelo" persistenceName="tb_trabalho">
+    <cf:property name="IdTrabalho" persistenceIdentity="true" key="true" typeName="int" persistenceName="id_trabalho" />
+    <cf:property name="DsNome" nullable="false" persistenceUnicode="false" maxLength="30" persistenceName="ds_nome" />
+    <cf:property name="DsDescricao" nullable="false" persistenceUnicode="false" maxLength="255" persistenceName="ds_descricao" />
+    <cf:property name="DsDia" nullable="false" typeName="byte" persistenceName="ds_dia" />
+    <cf:property name="DsHorario" nullable="false" persistenceUnicode="false" maxLength="5" persistenceName="ds_horario" />
+    <cf:property name="IdTrabalhadorCordenador" nullable="false" typeName="int" persistenceName="id_trabalhador_cordenador" />
+    <cf:property name="TbTrabalhoTrabalhadors" typeName="{0}.TbTrabalhoTrabalhadorCollection" relationPropertyName="TbTrabalho" />
+  </cf:entity>
+  <cf:entity name="TbTrabalhoTrabalhador" defaultUsePersistenceDefaultValue="false" setType="List" trackingModes="None" namespace="Jack.Modelo" persistenceName="tb_trabalho_trabalhador">
+    <cf:property name="TbTrabalhador" d3p1:relationKey="FK_tb_trabalho_trabalhador_tb_trabalhador" key="true" typeName="{0}.TbTrabalhador" relationPropertyName="TbTrabalhoTrabalhadors" persistenceName="id_trabalhador" xmlns:d3p1="http://www.softfluent.com/codefluent/importers.database/2008/1" />
+    <cf:property name="TbTrabalho" d3p1:relationKey="FK_tb_trabalho_trabalhador_tb_trabalho" key="true" typeName="{0}.TbTrabalho" relationPropertyName="TbTrabalhoTrabalhadors" persistenceName="id_trabalho" xmlns:d3p1="http://www.softfluent.com/codefluent/importers.database/2008/1" />
+  </cf:entity>
+  <cf:entity name="TbSacolaGerada" defaultUsePersistenceDefaultValue="false" setType="List" trackingModes="None" namespace="Jack.Modelo" persistenceName="tb_sacola_gerada">
+    <cf:property name="IdSacolinha" persistenceIdentity="true" key="true" typeName="int" persistenceName="id_sacolinha" />
+    <cf:property name="NrSacolaFamilia" nullable="false" typeName="int" persistenceName="nr_sacola_familia" />
+    <cf:property name="IdFamiliaRep" nullable="false" typeName="int" persistenceName="id_familia_rep" />
+    <cf:property name="IdCrianca" nullable="false" typeName="int" persistenceName="id_crianca" />
+    <cf:property name="DsSexo" nullable="false" persistenceUnicode="false" maxLength="1" persistenceName="ds_sexo" />
+    <cf:property name="NrNivel" nullable="false" typeName="int" persistenceName="nr_nivel" />
+    <cf:property name="IsPrinted" nullable="false" persistenceUnicode="false" maxLength="1" persistenceName="is_printed" />
+    <cf:property name="TbFamilia" d3p1:guessed="true" nullable="false" typeName="{0}.TbFamilia" relationPropertyName="TbSacolaGeradas" persistenceName="id_familia" xmlns:d3p1="http://www.softfluent.com/codefluent/importers.database/2008/1" />
+    <cf:property name="TbKit" d3p1:guessed="true" nullable="false" typeName="{0}.TbKit" relationPropertyName="TbSacolaGeradas" persistenceName="id_kit" xmlns:d3p1="http://www.softfluent.com/codefluent/importers.database/2008/1" />
+    <cf:property name="TbSacolaGeradaHistoricoes" typeName="{0}.TbSacolaGeradaHistoricoCollection" relationPropertyName="TbSacolaGerada" />
+  </cf:entity>
+  <cf:entity name="TbColaborador" defaultUsePersistenceDefaultValue="false" setType="List" trackingModes="None" namespace="Jack.Modelo" persistenceName="tb_colaborador">
+    <cf:property name="IdColaborador" persistenceIdentity="true" key="true" typeName="int" persistenceName="id_colaborador" />
+    <cf:property name="DsNome" nullable="false" persistenceUnicode="false" maxLength="75" persistenceName="ds_nome" />
+    <cf:property name="DsFone" persistenceUnicode="false" maxLength="15" persistenceName="ds_fone" />
+    <cf:property name="DsCelular" persistenceUnicode="false" maxLength="15" persistenceName="ds_celular" />
+    <cf:property name="DsEmail" persistenceUnicode="false" maxLength="100" persistenceName="ds_email" />
+    <cf:property name="NrAnoNotificacao" serializationNullable="true" modelNullable="true" typeName="int" persistenceName="nr_ano_notificacao" />
+    <cf:property name="NrCpf" persistenceUnicode="false" maxLength="15" persistenceName="nr_cpf" />
+    <cf:property name="TbBoletoes" typeName="{0}.TbBoletoCollection" relationPropertyName="TbColaborador" />
+    <cf:property name="TbColaboradorCriancas" typeName="{0}.TbColaboradorCriancaCollection" relationPropertyName="TbColaborador" />
+    <cf:property name="TbReciboes" typeName="{0}.TbReciboCollection" relationPropertyName="TbColaborador" />
+  </cf:entity>
+  <cf:entity name="TbFamiliaBlackList" defaultUsePersistenceDefaultValue="false" setType="List" trackingModes="None" namespace="Jack.Modelo" persistenceName="tb_familia_black_list">
+    <cf:property name="IdBlackList" persistenceIdentity="true" key="true" typeName="int" persistenceName="id_black_list" />
+    <cf:property name="NrAnoFalta" nullable="false" typeName="int" persistenceName="nr_ano_falta" />
+    <cf:property name="TbFamilia" d3p1:guessed="true" nullable="false" typeName="{0}.TbFamilia" relationPropertyName="TbFamiliaBlackLists" persistenceName="id_familia" xmlns:d3p1="http://www.softfluent.com/codefluent/importers.database/2008/1" />
+  </cf:entity>
+</cf:project>

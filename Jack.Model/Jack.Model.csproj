@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="BaseModel.cs" />
     <Compile Include="DTOs\CriancasInconsistentes.cs" />
+    <Compile Include="Model\FamiliaBlackList.cs" />
     <Compile Include="Model\FamiliaCrianca.cs" />
     <Compile Include="DTOs\FamiliaLote.cs" />
     <Compile Include="DTOs\FamiliaPresenca.cs" />

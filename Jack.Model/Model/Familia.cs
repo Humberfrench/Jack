@@ -32,8 +32,18 @@ namespace Jack.Model
         private int nivel ;
         private Status status ;
         private List<Presenca> reunioes ;
+        private List<FamiliaBlackList> familiaBlackList;
         private List<FamiliaCrianca> criancas ;
         private DateTime dataAtualizacao;
+
+        //collection familia_black_list - ok
+        //collection familia_fake
+        //collection familia presenca justificada
+        //collection familia presenca - ok
+        //collection log sacolinha
+        //collection sacolinha historico
+        //collection sacolinha gerada
+        //entity status  - ok
 
         #endregion
 
@@ -135,6 +145,18 @@ namespace Jack.Model
             }
         }
 
+        public virtual List<FamiliaBlackList> FamiliaBlackList
+        {
+            get
+            {
+                return familiaBlackList;
+            }
+            set
+            {
+                familiaBlackList = value;
+            }
+        }
+
         public virtual DateTime DataAtualizacao
         {
             get
@@ -198,17 +220,24 @@ namespace Jack.Model
         #endregion
 
         #region Methods
-        public virtual void AddCriancas(FamiliaCrianca crianca)
+        public virtual void AddCriancas(FamiliaCrianca pCrianca)
         {
-            crianca.Familia = this;
-            Criancas.Add(crianca);
+            pCrianca.Familia = this;
+            Criancas.Add(pCrianca);
         }
 
-        public virtual void AddEmployee(Presenca reunioes)
+        public virtual void AddReuniao(Presenca pReunioes)
+        {
+            pReunioes.Familia = this;
+            Reunioes.Add(pReunioes);
+        }
+
+        public virtual void AddFamiliaBlackList(FamiliaBlackList pFamiliaBlackList)
         {
             reunioes.Familia = this;
             Reunioes.Add(reunioes);
         }
+
         #endregion
     }
 }
