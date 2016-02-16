@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Jack.Model.Model
+namespace Jack.Model
 {
-    class FamiliaFake : BaseModel<FamiliaFake>
+    public class FamiliaFake : BaseModel<FamiliaFake>
     {
         public FamiliaFake()
         {

@@ -158,6 +158,18 @@ namespace Jack.Model
             }
         }
 
+        public virtual List<FamiliaFake> FamiliaFake
+        {
+            get
+            {
+                return familiaFake;
+            }
+            set
+            {
+                familiaFake = value;
+            }
+        }
+
         public virtual DateTime DataAtualizacao
         {
             get

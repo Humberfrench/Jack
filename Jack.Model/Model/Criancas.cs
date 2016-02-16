@@ -47,7 +47,7 @@ namespace Jack.Model
         public virtual string IsNecessidadeEspecial { get; set; }
         public virtual string IsMoralCrista { get; set; }
         public virtual string IsCriancaMaior { get; set; }
-        public virtual Model.Status Status { get; set; }
+        public virtual Status Status { get; set; }
         public virtual string Familia { get; set; }
         public virtual string FamiliaRepresentante { get; set; }
         public virtual int FamiliaCodigo { get; set; }
