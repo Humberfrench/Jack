@@ -4,19 +4,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Jack.Model
+namespace Jack.Model.Model
 {
-    public class FamiliaBlackList : BaseModel<FamiliaBlackList>
+    class FamiliaFake : BaseModel<FamiliaFake>
     {
-        public FamiliaBlackList()
+        public FamiliaFake()
         {
             familia = new Familia();
             base.Codigo = 0;
-            anoFalta = DateTime.Now.Year;
         }
 
         private Familia familia;
-        private int anoFalta;
 
         public Familia Familia
         {
@@ -29,17 +27,6 @@ namespace Jack.Model
                 familia = value;
             }
         }
-        public int AnoFalta
-        {
-            get
-            {
-                return anoFalta;
-            }
-            set
-            {
-                anoFalta = value;
-            }
-        }
-
+        
     }
 }

@@ -32,12 +32,13 @@ namespace Jack.Model
         private int nivel ;
         private Status status ;
         private List<Presenca> reunioes ;
-        private List<FamiliaBlackList> familiaBlackList;
         private List<FamiliaCrianca> criancas ;
+        private List<FamiliaBlackList> familiaBlackList;
+        private List<FamiliaFake> familiaFake;
         private DateTime dataAtualizacao;
 
         //collection familia_black_list - ok
-        //collection familia_fake
+        //collection familia_fake - ok
         //collection familia presenca justificada
         //collection familia presenca - ok
         //collection log sacolinha
@@ -234,8 +235,8 @@ namespace Jack.Model
 
         public virtual void AddFamiliaBlackList(FamiliaBlackList pFamiliaBlackList)
         {
-            reunioes.Familia = this;
-            Reunioes.Add(reunioes);
+            pFamiliaBlackList.Familia = this;
+            FamiliaBlackList.Add(pFamiliaBlackList);
         }
 
         #endregion

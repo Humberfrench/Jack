@@ -31,6 +31,8 @@ namespace Jack.Data.Map
             HasMany(x => x.Criancas).Cascade.AllDeleteOrphan()
                                    .Fetch.Join()
                                    .Inverse().KeyColumn("id_crianca");
+
+            HasMany(x => x.FamiliaBlackList).KeyColumn("id_familia");
         }
     }
 }
