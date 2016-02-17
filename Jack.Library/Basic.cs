@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Web.Script.Serialization;
 
-namespace Jack.Extensions
+namespace Jack.Library.Extensions
 {
     public static class Basic
     {

@@ -4,12 +4,12 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{4D307578-5F8A-42B7-91BA-AA7C69800A08}</ProjectGuid>
+    <ProjectGuid>{2D3879E8-83CC-428D-B8F9-CAF391A02FD0}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Jack.Business</RootNamespace>
-    <AssemblyName>Jack.Business</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <RootNamespace>Jack.Communication</RootNamespace>
+    <AssemblyName>Jack.Communication</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -30,9 +30,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Consumer.Tools">
-      <HintPath>..\Lib\Consumer.Tools.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -43,29 +40,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ColaboradorCrianca.cs" />
-    <Compile Include="Criancas.cs" />
     <Compile Include="Familia.cs" />
-    <Compile Include="FamiliaCrianca.cs" />
-    <Compile Include="ICrud.cs" />
-    <Compile Include="Kit.cs" />
-    <Compile Include="KitItem.cs" />
-    <Compile Include="Presenca.cs" />
-    <Compile Include="Processos.cs" />
-    <Compile Include="Representante.cs" />
-    <Compile Include="Reuniao.cs" />
-    <Compile Include="TipoItem.cs" />
-    <Compile Include="Status.cs" />
-    <Compile Include="Sacolas.cs" />
-    <Compile Include="Roupa.cs" />
-    <Compile Include="Colaborador.cs" />
-    <Compile Include="Calcado.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Jack.Data\Jack.Data.csproj">
-      <Project>{bb9b067f-8b63-4f6d-824a-013db7df6339}</Project>
-      <Name>Jack.Data</Name>
+    <ProjectReference Include="..\Jack.Business\Jack.Business.csproj">
+      <Project>{4d307578-5f8a-42b7-91ba-aa7c69800a08}</Project>
+      <Name>Jack.Business</Name>
     </ProjectReference>
     <ProjectReference Include="..\Jack.Library\Jack.Library.csproj">
       <Project>{9bae2eee-5392-4ea6-8ee9-b0e5521ff8fd}</Project>

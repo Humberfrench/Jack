@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Jack.Extensions;
+using Jack.Library;
 
 namespace Jack.Business
 {

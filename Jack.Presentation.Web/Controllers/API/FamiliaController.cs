@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Web.Http;
 using Business = Jack.Business;
 using Model = Jack.Model;
-using Jack.Extensions;
+using Jack.Library;
 
 namespace Controllers.API
 {
@@ -16,7 +16,7 @@ namespace Controllers.API
 		{
 
             IList<Model.Familia> lstRetorno = null;
-			Business.Familia oBusiness = default(Business.Familia);
+			Business.Familia oBusiness = null;
 
             try
             {
