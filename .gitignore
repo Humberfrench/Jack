@@ -30,3 +30,5 @@ sh.exe.stackdump
 /Jack.Presentation.Web/obj
 /Jack.Presentation.Web/bin
 /packages
+/Jack.Communication/bin
+/Jack.Communication/obj
