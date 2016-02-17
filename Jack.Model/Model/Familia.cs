@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Jack.Model
 {
-    [Serializable()]
+    [Serializable]
     public class Familia : BaseModel<Familia>
     {
 
@@ -40,7 +40,7 @@ namespace Jack.Model
 
         //collection familia_black_list - ok
         //collection familia_fake - ok
-        //collection familia presenca justificada
+        //collection familia presenca justificada - ok
         //collection familia presenca - ok
         //collection log sacolinha
         //collection sacolinha historico

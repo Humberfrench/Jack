@@ -334,7 +334,7 @@
     <NrAnoFalta nullable="false" typeName="int" persistenceName="nr_ano_falta" />
     <TbFamilia d3p1:guessed="true" nullable="false" typeName="{0}.TbFamilia" relationPropertyName="TbFamiliaBlackLists" persistenceName="id_familia" xmlns:d3p1="http://www.softfluent.com/codefluent/importers.database/2008/1" />
   </TbFamiliaBlackList>
-  <cf:producer name="Business Object Model (BOM)" typeName="CodeFluent.Producers.CodeDom.CodeDomProducer, CodeFluent.Producers.CodeDom">
+  <cf:producer enabled="false" name="Business Object Model (BOM)" typeName="CodeFluent.Producers.CodeDom.CodeDomProducer, CodeFluent.Producers.CodeDom">
     <cf:configuration compileWithVisualStudio="true" compile="false" generateDocumentation="true" codeDomProviderTypeName="CSharp" targetDirectory="..\Jack.Model\Modelo" cfx:targetProject="..\Jack.Model\Jack.Model.csproj" cfx:targetProjectLayout="Update" />
   </cf:producer>
 </cf:project>

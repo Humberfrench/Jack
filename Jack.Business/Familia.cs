@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Jack.Library;
 
 namespace Jack.Business
 {
@@ -11,6 +10,7 @@ namespace Jack.Business
 
         public Familia()
         {
+
         }
 
         public bool Delete(Model.Familia oTipo)

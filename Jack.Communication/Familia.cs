@@ -1,8 +1,8 @@
-﻿using System;
+﻿using Jack.Library.Extensions;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Jack.Library.Extensions;
 
 namespace Jack.Communication
 {
@@ -15,8 +15,10 @@ namespace Jack.Communication
 
             try
             {
+               
                 oFamilia = new Business.Familia();
                 strFamilias = oFamilia.LoadAll().ToList().ToJSON();
+                
             }
             catch  (Exception ex)
             {

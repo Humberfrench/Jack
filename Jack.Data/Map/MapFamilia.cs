@@ -1,6 +1,7 @@
 ﻿using FluentNHibernate.Mapping;
 using System;
 
+
 namespace Jack.Data.Map
 {
     class MapFamilia: ClassMap<Model.Familia>
@@ -25,8 +26,8 @@ namespace Jack.Data.Map
             References(x => x.FamiliaPresencaJustificada).Column("id_familia").Not.Nullable();
 
             //Hasmany
-            HasMany(x => x.Reunioes).KeyColumn("id_reuniao");
-            HasMany(x => x.Criancas).KeyColumn("id_crianca");
+            HasMany(x => x.Reunioes).KeyColumn("id_familia");
+            HasMany(x => x.Criancas).KeyColumn("id_familia");
             HasMany(x => x.FamiliaBlackList).KeyColumn("id_familia");
         }
     }

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Web.Http;
 using Business = Jack.Business;
 using Model = Jack.Model;
-using Jack.Library;
+using Jack.Library.Extensions;
 
 namespace Controllers.API
 {

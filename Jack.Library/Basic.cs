@@ -7,25 +7,25 @@ namespace Jack.Library.Extensions
     public static class Basic
     {
 
-        public static string ToJSON<T>(List<T> obj)
+        public static string ToJSON<T>(this List<T> obj)
         {
             JavaScriptSerializer serializer = new JavaScriptSerializer();
             return serializer.Serialize(obj);
         }
 
-        public static string ToJSON(object obj)
+        public static string ToJSON(this object obj)
         {
             JavaScriptSerializer serializer = new JavaScriptSerializer();
             return serializer.Serialize(obj);
         }
 
-        public static T JsonToObject<T>(string obj)
+        public static T JsonToObject<T>(this string obj)
         {
             JavaScriptSerializer serializer = new JavaScriptSerializer();
             return (T)serializer.Deserialize<T>(obj);
         }
 
-        public static string ExceptionTratada(Exception ex)
+        public static string ExceptionTratada(this Exception ex)
         {
             string mensagem = null;
             try
@@ -40,7 +40,7 @@ namespace Jack.Library.Extensions
 
         }
 
-        public static bool IsNumeric(string text)
+        public static bool IsNumeric(this string text)
         {
             try
             {
