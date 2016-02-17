@@ -38,6 +38,8 @@ namespace Jack.Presentation.Web
             //contractResolver.IgnoreSerializableAttribute = true;
 
             GlobalConfiguration.Configuration.EnsureInitialized();
+
+            HibernatingRhinos.Profiler.Appender.NHibernate.NHibernateProfiler.Initialize();
         }
     }
 }
