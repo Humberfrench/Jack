@@ -17,7 +17,6 @@ namespace Jack.Model
             contato = string.Empty;
             nivel = 99;
             status = new Status();
-            reunioes = new List<Presenca>();
             criancas = new List<FamiliaCrianca>();
         }
 
@@ -28,12 +27,9 @@ namespace Jack.Model
         private string nome ;
         private string isSacolinha ;
         private string isConsistente;
-        //private string statusNome;
-        //private int statusCodigo;
         private string contato ;
         private int nivel ;
         private Status status ;
-        private List<Presenca> reunioes ;
         private List<FamiliaCrianca> criancas ;
         private DateTime dataAtualizacao;
 
@@ -141,7 +137,6 @@ namespace Jack.Model
         {
             get
             {
-                //statusCodigo = Status.Codigo;
                 return Status.Codigo;
             }
         }
@@ -150,7 +145,6 @@ namespace Jack.Model
         {
             get
             {
-                //statusNome = Status.Descricao;
                 return Status.Descricao;
             }
         }
