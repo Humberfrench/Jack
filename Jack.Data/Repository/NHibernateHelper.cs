@@ -48,7 +48,7 @@ namespace Jack.Data
             {
                 if (currentSession == null)
                 {
-                    currentSession = sessionFactory.OpenSession();
+                    currentSession = sessionFactory.OpenSession();                    
                 }
             }
             catch (Exception ex)

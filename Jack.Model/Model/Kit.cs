@@ -21,6 +21,7 @@ namespace Jack.Model
             Sexo = string.Empty;
             IsNecessidadeEspecial = string.Empty;
             items = new List<KitItem>();
+            criancas = new List<Criancas>();
         }
 
         public Kit(int intCodigo)
@@ -32,6 +33,7 @@ namespace Jack.Model
             Sexo = string.Empty;
             IsNecessidadeEspecial = string.Empty;
             items = new List<KitItem>();
+            criancas = new List<Criancas>();
         }
 
 
@@ -109,7 +111,7 @@ namespace Jack.Model
             }
             set
             {
-                items = criancas;
+                criancas = value;
             }
         }
         public virtual List<KitItem> Items

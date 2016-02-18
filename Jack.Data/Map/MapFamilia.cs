@@ -24,7 +24,7 @@ namespace Jack.Data.Map
             References(x => x.Status).Column("id_status").Not.Nullable();
 
             //Hasmany
-            HasMany(x => x.Criancas).KeyColumn("id_familia").Cascade.AllDeleteOrphan().Inverse();
+            HasMany(x => x.Criancas).KeyColumn("id_familia").Cascade.AllDeleteOrphan().Inverse().Not.LazyLoad();
         }
     }
 }
