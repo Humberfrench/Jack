@@ -27,7 +27,7 @@ namespace Jack.Data
                                             m.FluentMappings
                                                 .AddFromAssemblyOf<NHibernateHelper>()
                                                 .Conventions.AddFromAssemblyOf<NHibernateHelper>()
-                                                .Conventions.Add(DefaultAccess.CamelCaseField(CamelCasePrefix.Underscore)))
+                                                .Conventions.Add(DefaultAccess.CamelCaseField(CamelCasePrefix.None)))
                                 .BuildSessionFactory();
 
 

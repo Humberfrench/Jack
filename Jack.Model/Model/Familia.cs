@@ -27,25 +27,15 @@ namespace Jack.Model
 
         private string nome ;
         private string isSacolinha ;
-        private string isConsistente ;
+        private string isConsistente;
+        //private string statusNome;
+        //private int statusCodigo;
         private string contato ;
         private int nivel ;
         private Status status ;
         private List<Presenca> reunioes ;
         private List<FamiliaCrianca> criancas ;
-        private List<FamiliaBlackList> familiaBlackList;
-        private FamiliaFake familiaFake;
-        private FamiliaPresencaJustificada familiaPresencaJustificada;
         private DateTime dataAtualizacao;
-
-        //collection familia_black_list - ok
-        //collection familia_fake - ok
-        //collection familia presenca justificada - ok
-        //collection familia presenca - ok
-        //collection log sacolinha
-        //collection sacolinha historico
-        //collection sacolinha gerada
-        //entity status  - ok
 
         #endregion
 
@@ -123,18 +113,6 @@ namespace Jack.Model
             }
         }
 
-        public virtual List<Presenca> Reunioes
-        {
-            get
-            {
-                return reunioes;
-            }
-            set
-            {
-                reunioes = value;
-            }
-        }
-
         public virtual List<FamiliaCrianca> Criancas
         {
             get
@@ -144,42 +122,6 @@ namespace Jack.Model
             set
             {
                 criancas = value;
-            }
-        }
-
-        public virtual List<FamiliaBlackList> FamiliaBlackList
-        {
-            get
-            {
-                return familiaBlackList;
-            }
-            set
-            {
-                familiaBlackList = value;
-            }
-        }
-
-        public virtual FamiliaFake FamiliaFake
-        {
-            get
-            {
-                return familiaFake;
-            }
-            set
-            {
-                familiaFake = value;
-            }
-        }
-
-        public virtual FamiliaPresencaJustificada FamiliaPresencaJustificada
-        {
-            get
-            {
-                return familiaPresencaJustificada;
-            }
-            set
-            {
-                familiaPresencaJustificada = value;
             }
         }
 
@@ -197,12 +139,20 @@ namespace Jack.Model
 
         public virtual int StatusCodigo
         {
-            get { return Status.Codigo; }
+            get
+            {
+                //statusCodigo = Status.Codigo;
+                return Status.Codigo;
+            }
         }
 
         public virtual string StatusNome
         {
-            get { return Status.Descricao; }
+            get
+            {
+                //statusNome = Status.Descricao;
+                return Status.Descricao;
+            }
         }
 
         public virtual string DataAtualizacaoString
@@ -246,22 +196,11 @@ namespace Jack.Model
         #endregion
 
         #region Methods
+
         public virtual void AddCriancas(FamiliaCrianca pCrianca)
         {
             pCrianca.Familia = this;
             Criancas.Add(pCrianca);
-        }
-
-        public virtual void AddReuniao(Presenca pReunioes)
-        {
-            pReunioes.Familia = this;
-            Reunioes.Add(pReunioes);
-        }
-
-        public virtual void AddFamiliaBlackList(FamiliaBlackList pFamiliaBlackList)
-        {
-            pFamiliaBlackList.Familia = this;
-            FamiliaBlackList.Add(pFamiliaBlackList);
         }
 
         #endregion

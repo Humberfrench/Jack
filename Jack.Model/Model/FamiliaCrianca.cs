@@ -11,26 +11,26 @@ namespace Jack.Model
 
         public FamiliaCrianca()
         {
-            _criancas = new List<Criancas>();
-            _crianca = new Criancas();
-            _familia = new Familia();
+            criancas = new List<Criancas>();
+            crianca = new Criancas();
+            familia = new Familia();
         }
 
         #endregion
 
-        private List<Criancas> _criancas;
-        private Criancas _crianca;
-        private Familia _familia;
+        private List<Criancas> criancas;
+        private Criancas crianca;
+        private Familia familia;
 
         public virtual Criancas Crianca
         {
             get
             {
-                return _crianca;
+                return crianca;
             }
             set
             {
-                _crianca = value;
+                crianca = value;
             }
         }
             
@@ -38,11 +38,11 @@ namespace Jack.Model
         {
             get
             {
-                return _familia;
+                return familia;
             }
             set
             {
-                _familia = value;
+                familia = value;
             }
         }
 
@@ -50,11 +50,11 @@ namespace Jack.Model
         {
             get
             {
-                return _criancas;
+                return criancas;
             }
             set
             {
-                _criancas = value;
+                criancas = value;
             }
         }
 

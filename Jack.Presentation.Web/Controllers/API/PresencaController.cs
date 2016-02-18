@@ -26,6 +26,7 @@ namespace Controllers.API
             catch (Exception ex)
             {
                 lstRetorno = null;
+                throw ex;
             }
             finally
             {
@@ -50,7 +51,8 @@ namespace Controllers.API
             catch (Exception ex)
             {
 				lstRetorno = null;
-			}
+                throw ex;
+            }
             finally
             {
 				oBusiness = null;

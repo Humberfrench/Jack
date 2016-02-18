@@ -22,13 +22,9 @@ namespace Jack.Data.Map
 
             //References
             References(x => x.Status).Column("id_status").Not.Nullable();
-            References(x => x.FamiliaFake).Column("id_familia").Not.Nullable();
-            References(x => x.FamiliaPresencaJustificada).Column("id_familia").Not.Nullable();
 
             //Hasmany
-            HasMany(x => x.Reunioes).KeyColumn("id_familia");
             HasMany(x => x.Criancas).KeyColumn("id_familia");
-            HasMany(x => x.FamiliaBlackList).KeyColumn("id_familia");
         }
     }
 }

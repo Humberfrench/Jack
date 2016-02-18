@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Jack.Model
 {
@@ -25,7 +26,6 @@ namespace Jack.Model
             descricao = strDescricao;
         }
 
-
         public Status(int intCodigo, string strDescricao, string strPermiteSacola, string strNivelStatus)
         {
             codigo = intCodigo;
@@ -41,6 +41,8 @@ namespace Jack.Model
         private string descricao;
         private string permiteSacola;
         private string nivelStatus;
+        private IList<Familia> familias;
+        private IList<Criancas> criancas;
         #endregion
 
         public virtual string Descricao
@@ -54,6 +56,7 @@ namespace Jack.Model
                 descricao = value;
             }
         }
+
         public virtual string PermiteSacola
         {
             get
@@ -65,6 +68,7 @@ namespace Jack.Model
                 permiteSacola = value;
             }
         }
+
         public virtual string NivelStatus
         {
             get
@@ -91,6 +95,7 @@ namespace Jack.Model
                 }
             }
         }
+
         public virtual string NivelStatusDesc
         {
             get
@@ -106,6 +111,30 @@ namespace Jack.Model
                 else {
                     return "Todos";
                 }
+            }
+        }
+
+        public virtual IList<Familia> Familias
+        {
+            get
+            {
+                return familias;
+            }
+            set
+            {
+                familias = value;
+            }
+        }
+
+        public virtual IList<Criancas> Criancas
+        {
+            get
+            {
+                return criancas;
+            }
+            set
+            {
+                criancas = value;
             }
         }
 

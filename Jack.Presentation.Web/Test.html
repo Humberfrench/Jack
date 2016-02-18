@@ -7,27 +7,30 @@
     <link href="/Content/bootstrap.min.css" rel="stylesheet" />
     <link href="/Content/bootstrap-theme.min.css" rel="stylesheet" />
     <link href="/Content/toastr.min.css" rel="stylesheet" />
-    <link href="/Content/css/select2.css" rel="stylesheet" />
+    <!--<link href="/Content/css/select2.css" rel="stylesheet" />-->
 
-    <script src="/Scripts/jquery-2.1.4.min.js"></script>
+    <script src="/Scripts/jquery-2.2.0.min.js"></script>
     <script src="/Scripts/angular.min.js"></script>
     <script src="/Scripts/toastr.min.js"></script>
     <script src="/Scripts/bootstrap.min.js"></script>
-    <script src="/Scripts/select2.js"></script>
+    <!--<script src="/Scripts/select2.js"></script>-->
     <script type="text/javascript">
         $(function ()
         {
-            $("#ddlNivel").select2();
-            $("#ddlNivel1").select2();
-            $("#ddlNivel").on("select2:select", function (e) { DoSomething(e); });
-            $("#btn").click(function ()
-            {
-                $("#ddlNivel").val(99).trigger("change");
-            });
-            $("#btn1").click(function ()
-            {
-                alert($("#ddlNivel1").val());
-            });
+            //$("#ddlNivel").select2();
+            //$("#ddlNivel1").select2();
+            //$("#ddlNivel").on("select2:select", function (e) { DoSomething(e); });
+            //$("#btn").click(function ()
+            //{
+            //    $("#ddlNivel").val(99).trigger("change");
+            //});
+            //$("#btn1").click(function ()
+            //{
+            //    alert($("#ddlNivel1").val());
+            //});
+
+            //var familias = Load();
+
         });
 
         function DoSomething(evt)
@@ -41,7 +44,7 @@
             var objRet = null;
             $.ajax({
                 type: 'GET',
-                url: '/api/status/Get/LoadForChildrem/',
+                url: '/api/Familia/',
                 dataType: 'json',
                 cache: 'false',
                 contentType: 'application/json; charset=utf-8',
@@ -52,7 +55,7 @@
                 },
                 error: function (xhr, msg, e)
                 {
-                    Mensagem.Erro(xhr.responseText);
+                    Alert(xhr.responseText);
                 }
             });
 

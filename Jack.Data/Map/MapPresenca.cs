@@ -1,6 +1,4 @@
 ﻿using FluentNHibernate.Mapping;
-using System;
-
 
 namespace Jack.Data.Map
 {

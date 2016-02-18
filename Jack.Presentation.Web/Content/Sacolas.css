@@ -1,0 +1,118 @@
+﻿body 
+{
+
+}
+.NumFamilia
+{
+font-family: Verdana, Tahona, Arial, Helvetica, sans-serif;
+font-size: 68px;
+font-weight:bold;
+text-shadow: rgba(0, 0, 0, 0.5) -1px 0, rgba(0, 0, 0, 0.3) 0 -1px, rgba(255, 255, 255, 0.5) 0 1px, rgba(0, 0, 0, 0.3) -1px -2px;
+width: 170px; 
+text-align: left;
+vertical-align: top;
+}
+.HeadCECAMBig
+{
+font-family: Verdana, Tahona, Arial, Helvetica, sans-serif;
+font-size: 30px;
+font-weight:bold;
+text-shadow: rgba(0, 0, 0, 0.5) -1px 0, rgba(0, 0, 0, 0.3) 0 -1px, rgba(255, 255, 255, 0.5) 0 1px, rgba(0, 0, 0, 0.3) -1px -2px;
+height: 40px;
+line-height: 80px;
+vertical-align: middle;
+text-align: center;
+}
+.HeadCECAMSoft
+{
+font-family: Verdana, Tahona, Arial, Helvetica, sans-serif;
+font-size: 24px;
+height: 30px;
+line-height: 30px;
+vertical-align: middle;
+text-align: center;
+}
+.HeadCECAMSmall
+{
+font-family: Verdana, Tahona, Arial, Helvetica, sans-serif;
+font-size: 16px;
+height: 20px;
+line-height: 20px;
+vertical-align: middle;
+text-align: center;
+}
+.LinhaHeadCECAMBig
+{
+height: 70px;
+}
+.LinhaHeadCECAMSoft
+{
+height: 30px;
+}
+.LinhaHeadCECAMSmall
+{
+height: 20px;
+}
+.text
+{
+font-family: Verdana, Tahona, Arial, Helvetica, sans-serif;
+font-size: 12px;
+line-height: 14px;
+vertical-align: middle;
+text-align:justify;
+}
+.textItem
+{
+font-family: Verdana, Tahona, Arial, Helvetica, sans-serif;
+font-size: 13px;
+line-height: 15px;
+vertical-align: middle;
+text-align:justify;
+}
+.textCrianca
+{
+font-family: Verdana, Tahona, Arial, Helvetica, sans-serif;
+font-size: 16px;
+height: 18px;
+line-height: 20px;
+vertical-align: middle;
+text-align:justify;
+}
+.textCriancaDetail
+{
+font-family: Verdana, Tahona, Arial, Helvetica, sans-serif;
+font-size: 15px;
+height: 16px;
+line-height: 20px;
+vertical-align: middle;
+text-align:justify;
+}
+.Box
+{
+text-align: justify;
+font-family: Verdana, Tahona, Arial, Helvetica, sans-serif;
+font-size: 12px;
+vertical-align: top;
+border: 1px solid #888;
+/*border radius*/
+border-top-left-radius: 10px;
+border-top-right-radius: 10px;
+border-bottom-left-radius: 10px;
+border-bottom-right-radius: 10px;
+}
+.tableSacola
+{
+width:1024px; 
+margin: 0 auto;
+vertical-align: top;
+border: 1px solid #888;
+/*border radius*/
+border-top-left-radius: 5px;
+border-top-right-radius: 5px;
+border-bottom-left-radius: 5px;
+border-bottom-right-radius: 5px;
+}
+b
+{
+font-weight:bold;
+}

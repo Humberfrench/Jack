@@ -123,6 +123,25 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Conrad.css">
+      <DependentUpon>Conrad.scss</DependentUpon>
+    </Content>
+    <Content Include="Content\Conrad.min.css">
+      <DependentUpon>Conrad.css</DependentUpon>
+    </Content>
+    <Content Include="Content\Jack.css">
+      <DependentUpon>Jack.scss</DependentUpon>
+    </Content>
+    <Content Include="Content\Jack.min.css">
+      <DependentUpon>Jack.css</DependentUpon>
+    </Content>
+    <Content Include="Content\Sacolas.css" />
+    <Content Include="Content\Site.css">
+      <DependentUpon>Site.scss</DependentUpon>
+    </Content>
+    <Content Include="Content\Site.min.css">
+      <DependentUpon>Site.css</DependentUpon>
+    </Content>
     <Content Include="Content\toastr.css" />
     <Content Include="Content\toastr.min.css" />
     <Content Include="engine\Chamada\chamada.controller.js" />
@@ -169,6 +188,14 @@
     <Content Include="Scripts\angular.min.js.map" />
     <Content Include="Content\toastr.scss" />
     <Content Include="Content\toastr.less" />
+    <Content Include="Content\_mixins.scss" />
+    <Content Include="Content\_reset.scss" />
+    <Content Include="Content\_var_defs_default.scss" />
+    <Content Include="Content\Conrad.scss" />
+    <Content Include="Content\Jack.css.map" />
+    <Content Include="Content\Jack.scss" />
+    <Content Include="Content\Site.css.map" />
+    <Content Include="Content\Site.scss" />
     <None Include="Scripts\jquery-2.2.0.intellisense.js" />
     <Content Include="Scripts\jquery-2.2.0.js" />
     <Content Include="Scripts\jquery-2.2.0.min.js" />
@@ -188,6 +215,8 @@
     <Compile Include="Controllers\API\FamiliaController.cs" />
     <Compile Include="Controllers\API\FamiliaCriancaController.cs" />
     <Compile Include="Controllers\API\PresencaController.cs" />
+    <Compile Include="Controllers\API\StatusCriancaController.cs" />
+    <Compile Include="Controllers\API\StatusFamiliaController.cs" />
     <Compile Include="Controllers\API\StatusController.cs" />
     <Compile Include="Controllers\API\TesteController.cs" />
     <Compile Include="Controllers\API\TipoItemController.cs" />
