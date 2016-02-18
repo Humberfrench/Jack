@@ -33,6 +33,9 @@ namespace Jack.Data.Map
             References(x => x.Status).Column("id_status").Not.Nullable(); ;
             References(x => x.Kit).Column("id_kit").Not.Nullable(); ;
 
+            //Hasmany
+            HasMany(x => x.Familias).KeyColumn("id_crianca").Cascade.AllDeleteOrphan().Inverse();
+
         }
     }
 }

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace Jack.Model
 {
     [Serializable()]
-    public class Kit
+    public class Kit : BaseModel<Kit>
     {
 
         #region "Construtor"
@@ -20,33 +20,112 @@ namespace Jack.Model
             IdadeMaxima = 0;
             Sexo = string.Empty;
             IsNecessidadeEspecial = string.Empty;
-            Items = new List<KitItem>();
+            items = new List<KitItem>();
+        }
+
+        public Kit(int intCodigo)
+        {
+            Codigo = intCodigo;
+            Descricao = string.Empty;
+            IdadeMinima = 0;
+            IdadeMaxima = 0;
+            Sexo = string.Empty;
+            IsNecessidadeEspecial = string.Empty;
+            items = new List<KitItem>();
         }
 
 
         #endregion
 
-        public virtual int Codigo { get; set; }
-        public virtual string Descricao { get; set; }
-        public virtual int IdadeMinima { get; set; }
-        public virtual int IdadeMaxima { get; set; }
-        public virtual string Sexo { get; set; }
-        public virtual string IsNecessidadeEspecial { get; set; }
-        public virtual List<KitItem> Items { get; set; }
+        private string descricao;
+        private int idadeMinima;
+        private int idadeMaxima;
+        private string sexo;
+        private string isNecessidadeEspecial;
+        private List<KitItem> items;
+
+
+        public virtual string Descricao
+        {
+            get
+            {
+                return descricao;
+            }
+            set
+            {
+                descricao = value;
+            }
+        }
+        public virtual int IdadeMinima
+        {
+            get
+            {
+                return idadeMinima;
+            }
+            set
+            {
+                idadeMinima = value;
+            }
+        }
+        public virtual int IdadeMaxima
+        {
+            get
+            {
+                return idadeMaxima;
+            }
+            set
+            {
+                idadeMaxima = value;
+            }
+        }
+        public virtual string Sexo
+        {
+            get
+            {
+                return sexo;
+            }
+            set
+            {
+                sexo = value;
+            }
+        }
+        public virtual string IsNecessidadeEspecial
+        {
+            get
+            {
+                return isNecessidadeEspecial;
+            }
+            set
+            {
+                isNecessidadeEspecial = value;
+            }
+        }
+        public virtual List<KitItem> Items
+        {
+            get
+            {
+                return items;
+            }
+            set
+            {
+                items = value;
+            }
+        }
 
         public virtual string IdadeMinimaDesc
         {
-            get { return IdadeMinima.ToString() + " Anos"; }
+            get { return idadeMinima.ToString() + " Anos"; }
         }
+
         public virtual string IdadeMaximaDesc
         {
-            get { return IdadeMaxima.ToString() + " Anos"; }
+            get { return idadeMaxima.ToString() + " Anos"; }
         }
         public virtual string SexoDesc
         {
             get
             {
-                if (Sexo == "F")
+                if (sexo == "F")
                 {
                     return "Feminino";
                 }

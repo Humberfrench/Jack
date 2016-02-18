@@ -165,7 +165,7 @@ namespace Jack.Data
                     objDados.Sexo = dr["ds_sexo"].ToString();
                     objDados.Calcado = Convert.ToInt32(dr["nr_calcado"]);
                     objDados.Roupa = dr["nr_roupa"].ToString();
-                    objDados.Kit = Convert.ToInt32(dr["id_kit"]);
+                    objDados.Kit = new Model.Kit(Convert.ToInt32(dr["id_kit"]));
                     objDados.IsSacolinha = dr["is_sacolinha"].ToString();
                     objDados.IsConsistente = dr["is_consistente"].ToString();
                     objDados.IsMoralCrista = dr["is_moral_crista"].ToString();
@@ -225,7 +225,7 @@ namespace Jack.Data
                     objDados.Roupa = dr["nr_roupa"].ToString();
                     objDados.CalcadoPadrao = Convert.ToInt32(dr["nr_calcado_padrao"]);
                     objDados.RoupaPadrao = dr["nr_roupa_padrao"].ToString();
-                    objDados.Kit = Convert.ToInt32(dr["id_kit"]);
+                    objDados.Kit = new Model.Kit(Convert.ToInt32(dr["id_kit"]));
                     objDados.IsSacolinha = dr["is_sacolinha"].ToString();
                     objDados.IsConsistente = dr["is_consistente"].ToString();
                     objDados.IsMoralCrista = dr["is_moral_crista"].ToString();

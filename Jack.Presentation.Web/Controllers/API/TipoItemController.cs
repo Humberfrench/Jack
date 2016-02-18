@@ -26,6 +26,7 @@ namespace Controllers.API
             catch (Exception ex)
             {
                 lstRetorno = null;
+                throw ex;
             }
             finally
             {
@@ -47,9 +48,14 @@ namespace Controllers.API
 				oBusiness = new Business.TipoItem();
 				oRetorno = oBusiness.Find(ID);
 
-			} catch (Exception ex) {
+			}
+            catch (Exception ex)
+            {
 				oRetorno = null;
-			} finally {
+                throw ex;
+            }
+            finally
+            {
 				oBusiness = null;
 			}
 
@@ -61,10 +67,13 @@ namespace Controllers.API
 		public void Salvar( [FromUri()] Model.TipoItem oFamily)
 		{
 			Business.TipoItem oBusiness = default(Business.TipoItem);
-			try {
+			try
+            {
 				oBusiness = new Business.TipoItem();
 				oBusiness.Update(oFamily);
-			} finally {
+			}
+            finally
+            {
 				oBusiness = null;
 			}
 
@@ -81,7 +90,9 @@ namespace Controllers.API
 				oDelete.Codigo = ID;
 				oBusiness.Delete(oDelete);
 
-			} finally {
+			}
+            finally
+            {
 				oBusiness = null;
 			}
 

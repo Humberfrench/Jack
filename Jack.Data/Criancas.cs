@@ -108,12 +108,12 @@ namespace Jack.Data
                 {
                     oCrianca.Roupa = dtDados.Rows[0]["nr_roupa"].ToString();
                     oCrianca.Calcado = Convert.ToInt16(dtDados.Rows[0]["nr_calcado"].ToString());
-                    oCrianca.Kit = Convert.ToInt16(dtDados.Rows[0]["id_kit"].ToString());
+                    oCrianca.Kit = new Model.Kit(Convert.ToInt16(dtDados.Rows[0]["id_kit"].ToString()));
                 }
                 else {
                     oCrianca.Roupa = "99";
                     oCrianca.Calcado = 99;
-                    oCrianca.Kit = 0;
+                    oCrianca.Kit = new Model.Kit(0);
                 }
 
             }

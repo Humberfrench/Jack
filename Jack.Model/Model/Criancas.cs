@@ -12,42 +12,262 @@ namespace Jack.Model
 
         public Criancas()
         {
-            Nome = string.Empty;
-            Idade = 0;
+            nome = string.Empty;
+            idade = 0;
             DataNascimento = new DateTime();
-            Sexo = string.Empty;
-            Kit = 0;
-            MedidaIdade = string.Empty;
-            Calcado = 99;
-            Roupa = "99";
-            IsSacolinha = string.Empty;
-            IsConsistente = string.Empty;
-            IsNecessidadeEspecial = string.Empty;
-            IsMoralCrista = string.Empty;
-            Status = new Status();
+            sexo = string.Empty;
+            kit = new Kit();
+            medidaIdade = string.Empty;
+            calcado = 99;
+            roupa = "99";
+            isSacolinha = string.Empty;
+            isConsistente = string.Empty;
+            isNecessidadeEspecial = string.Empty;
+            isMoralCrista = string.Empty;
+            status = new Status();
             Familia = string.Empty;
             FamiliaRepresentante = string.Empty;
             DataAtualizacao = new DateTime();
-
+            familias = new List<FamiliaCrianca>();
         }
 
-        public virtual string Nome { get; set; }
-        public virtual int Idade { get; set; }
-        public virtual string MedidaIdade { get; set; }
-        public virtual string IdadeNominalResumido { get; set; }
-        public virtual DateTime DataNascimento { get; set; }
-        public virtual string Sexo { get; set; }
-        public virtual int Calcado { get; set; }
-        public virtual string Roupa { get; set; }
-        public virtual int CalcadoPadrao { get; set; }
-        public virtual string RoupaPadrao { get; set; }
-        public virtual int Kit { get; set; }
-        public virtual string IsSacolinha { get; set; }
-        public virtual string IsConsistente { get; set; }
-        public virtual string IsNecessidadeEspecial { get; set; }
-        public virtual string IsMoralCrista { get; set; }
-        public virtual string IsCriancaMaior { get; set; }
-        public virtual Status Status { get; set; }
+        private string nome;
+        private int idade;
+        private string medidaIdade;
+        private string idadeNominalResumido;
+        private DateTime dataNascimento;
+        private string sexo;
+        private int calcado;
+        private string roupa;
+        private int calcadoPadrao;
+        private string roupaPadrao;
+        private Kit kit;
+        private string isSacolinha;
+        private string isConsistente;
+        private string isNecessidadeEspecial;
+        private string isMoralCrista;
+        private string isCriancaMaior;
+        private Status status;
+        private List<FamiliaCrianca> familias;
+
+
+        public virtual string Nome
+        {
+            get
+            {
+                return nome;
+            }
+            set
+            {
+                nome = value;
+            }
+        }
+
+        public virtual int Idade
+        {
+            get
+            {
+                return idade;
+            }
+            set
+            {
+                idade = value;
+            }
+        }
+
+        public virtual string MedidaIdade
+        {
+            get
+            {
+                return medidaIdade;
+            }
+            set
+            {
+                medidaIdade = value;
+            }
+        }
+
+        public virtual string IdadeNominalResumido
+        {
+            get
+            {
+                return idadeNominalResumido;
+            }
+            set
+            {
+                idadeNominalResumido = value;
+            }
+        }
+
+        public virtual DateTime DataNascimento
+        {
+            get
+            {
+                return dataNascimento;
+            }
+            set
+            {
+                dataNascimento = value;
+            }
+        }
+
+        public virtual string Sexo
+        {
+            get
+            {
+                return sexo;
+            }
+            set
+            {
+                sexo = value;
+            }
+        }
+
+        public virtual int Calcado
+        {
+            get
+            {
+                return calcado;
+            }
+            set
+            {
+                calcado = value;
+            }
+        }
+
+        public virtual string Roupa
+        {
+            get
+            {
+                return roupa;
+            }
+            set
+            {
+                roupa = value;
+            }
+        }
+
+        public virtual int CalcadoPadrao
+        {
+            get
+            {
+                return calcadoPadrao;
+            }
+            set
+            {
+                calcadoPadrao = value;
+            }
+        }
+
+        public virtual string RoupaPadrao
+        {
+            get
+            {
+                return roupaPadrao;
+            }
+            set
+            {
+                roupaPadrao = value;
+            }
+        }
+
+        public virtual Kit Kit
+        {
+            get
+            {
+                return kit;
+            }
+            set
+            {
+                kit = value;
+            }
+        }
+
+        public virtual string IsSacolinha
+        {
+            get
+            {
+                return isSacolinha;
+            }
+            set
+            {
+                isSacolinha = value;
+            }
+        }
+
+        public virtual string IsConsistente
+        {
+            get
+            {
+                return isConsistente;
+            }
+            set
+            {
+                isConsistente = value;
+            }
+        }
+
+        public virtual string IsNecessidadeEspecial
+        {
+            get
+            {
+                return isNecessidadeEspecial;
+            }
+            set
+            {
+                isNecessidadeEspecial = value;
+            }
+        }
+
+        public virtual string IsMoralCrista
+        {
+            get
+            {
+                return isMoralCrista;
+            }
+            set
+            {
+                isMoralCrista = value;
+            }
+        }
+
+        public virtual string IsCriancaMaior
+        {
+            get
+            {
+                return isCriancaMaior;
+            }
+            set
+            {
+                isCriancaMaior = value;
+            }
+        }
+
+        public virtual Status Status
+        {
+            get
+            {
+                return status;
+            }
+            set
+            {
+                status = value;
+            }
+        }
+
+        public virtual List<FamiliaCrianca> Familias
+        {
+            get
+            {
+                return familias;
+            }
+            set
+            {
+                familias = value;
+            }
+        }
+
+        // locais de uso local
         public virtual string Familia { get; set; }
         public virtual string FamiliaRepresentante { get; set; }
         public virtual int FamiliaCodigo { get; set; }
