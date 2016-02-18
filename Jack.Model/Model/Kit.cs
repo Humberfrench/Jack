@@ -43,6 +43,7 @@ namespace Jack.Model
         private string sexo;
         private string isNecessidadeEspecial;
         private List<KitItem> items;
+        private List<Criancas> criancas;
 
 
         public virtual string Descricao
@@ -98,6 +99,17 @@ namespace Jack.Model
             set
             {
                 isNecessidadeEspecial = value;
+            }
+        }
+        public virtual List<Criancas> Criancas
+        {
+            get
+            {
+                return criancas;
+            }
+            set
+            {
+                items = criancas;
             }
         }
         public virtual List<KitItem> Items

@@ -23,6 +23,8 @@ namespace Jack.Data.Map
 
             //HasMany
             HasMany(x => x.Items).KeyColumn("id_kit");
+            //HasMany
+            HasMany(x => x.Criancas).KeyColumn("id_crianca");
 
         }
     }
