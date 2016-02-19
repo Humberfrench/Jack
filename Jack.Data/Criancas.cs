@@ -211,7 +211,7 @@ namespace Jack.Data
                         objDados.Codigo = Convert.ToInt16(drDados["id_crianca"].ToString());
                         objDados.Nome = drDados["nm_crianca"].ToString();
                         objDados.FamiliaCodigo = Convert.ToInt16(drDados["id_familia"].ToString());
-                        objDados.Familia = drDados["nm_familia"].ToString();
+                        objDados.NomeFamilia = drDados["nm_familia"].ToString();
                         objDados.FamiliaRepresentanteCodigo = Convert.ToInt16(drDados["id_familia_rep"].ToString());
                         objDados.FamiliaRepresentante = drDados["nm_familia_rep"].ToString();
                         objDados.Idade = Convert.ToInt16(drDados["nr_idade"].ToString());

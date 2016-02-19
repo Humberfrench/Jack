@@ -48,7 +48,8 @@ namespace Jack.Data
             {
                 if (currentSession == null)
                 {
-                    currentSession = sessionFactory.OpenSession();                    
+                    currentSession = sessionFactory.OpenSession();
+                    currentSession = currentSession.GetSession(EntityMode.Poco);
                 }
             }
             catch (Exception ex)

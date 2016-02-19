@@ -230,7 +230,7 @@ namespace Jack.Data
                     objDados.IsConsistente = dr["is_consistente"].ToString();
                     objDados.IsMoralCrista = dr["is_moral_crista"].ToString();
                     objDados.Status = new Model.Status(Convert.ToInt32(dr["id_status"]), dr["ds_status"].ToString());
-                    objDados.Familia = dr["nm_mae"].ToString();
+                    objDados.NomeFamilia = dr["nm_mae"].ToString();
                     lstDados.Add(objDados);
                 }
             }

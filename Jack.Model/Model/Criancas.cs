@@ -25,10 +25,10 @@ namespace Jack.Model
             isNecessidadeEspecial = string.Empty;
             isMoralCrista = string.Empty;
             status = new Status();
-            Familia = string.Empty;
+            NomeFamilia = string.Empty;
             FamiliaRepresentante = string.Empty;
             DataAtualizacao = new DateTime();
-            familias = new List<FamiliaCrianca>();
+
         }
 
         private string nome;
@@ -48,8 +48,7 @@ namespace Jack.Model
         private string isMoralCrista;
         private string isCriancaMaior;
         private Status status;
-        private List<FamiliaCrianca> familias;
-
+        private FamiliaCrianca familia;
 
         public virtual string Nome
         {
@@ -255,20 +254,20 @@ namespace Jack.Model
             }
         }
 
-        public virtual List<FamiliaCrianca> Familias
+        public virtual FamiliaCrianca Familia
         {
             get
             {
-                return familias;
+                return familia;
             }
             set
             {
-                familias = value;
+                familia = value;
             }
         }
 
         // locais de uso local
-        public virtual string Familia { get; set; }
+        public virtual string NomeFamilia { get; set; }
         public virtual string FamiliaRepresentante { get; set; }
         public virtual int FamiliaCodigo { get; set; }
         public virtual int FamiliaRepresentanteCodigo { get; set; }

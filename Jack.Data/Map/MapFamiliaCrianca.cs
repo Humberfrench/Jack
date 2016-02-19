@@ -9,9 +9,8 @@ namespace Jack.Data.Map
             //Table
             Table("tb_familia_crianca");
 
-            //CompositeId
-            CompositeId().KeyProperty(x => x.Familia, "id_familia")
-                         .KeyProperty(x => x.Crianca, "id_crianca");
+            //ID
+            Id(x => x.Codigo).Column("id_familia_crianca");
 
             //References
             References(x => x.Crianca).Column("id_crianca");

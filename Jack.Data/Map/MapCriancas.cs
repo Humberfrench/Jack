@@ -30,11 +30,9 @@ namespace Jack.Data.Map
             Map(x => x.DataAtualizacao).Column("dt_update").Nullable().Default(DateTime.Now.ToString());
 
             //References
-            References(x => x.Status).Column("id_status").Not.Nullable(); ;
-            References(x => x.Kit).Column("id_kit").Not.Nullable(); ;
-
-            //Hasmany
-            HasMany(x => x.Familias).KeyColumn("id_crianca").Cascade.AllDeleteOrphan().Inverse();
+            References(x => x.Familia).Column("id_crianca").Not.Nullable().Cascade.All();
+            References(x => x.Status).Column("id_status").Not.Nullable();
+            References(x => x.Kit).Column("id_kit").Not.Nullable(); 
 
         }
     }

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 namespace Jack.Model
 {
     [Serializable()]
-    public class FamiliaCrianca
+    public class FamiliaCrianca : BaseModel<FamiliaCrianca>
     {
 
         #region "Construtor"
@@ -55,29 +55,6 @@ namespace Jack.Model
             set
             {
                 criancas = value;
-            }
-        }
-
-        public override bool Equals(object obj)
-        {
-            var other = obj as FamiliaCrianca;
-
-            if (ReferenceEquals(null, other)) return false;
-            if (ReferenceEquals(this, other)) return true;
-
-            return Familia == other.Familia &&
-                Crianca == other.Crianca;
-        }
-
-        public override int GetHashCode()
-        {
-            unchecked
-            {
-                int hash = GetType().GetHashCode();
-                hash = (hash * 31) ^ Familia.GetHashCode();
-                hash = (hash * 31) ^ Crianca.GetHashCode();
-
-                return hash;
             }
         }
 
