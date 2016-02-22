@@ -9,26 +9,25 @@ namespace Jack.Model
  
         #region "Construtor"
 
-        public Status()
+        public Status() :base()
         {
             descricao = string.Empty;
         }
 
-        public Status(string strDescricao)
+        public Status(string strDescricao) :this()
         {
-            codigo = 0;
             descricao = strDescricao;
         }
 
-        public Status(int intCodigo, string strDescricao)
+        public Status(int intCodigo, string strDescricao) : this()
         {
-            codigo = intCodigo;
+            Codigo = intCodigo;
             descricao = strDescricao;
         }
 
-        public Status(int intCodigo, string strDescricao, string strPermiteSacola, string strNivelStatus)
+        public Status(int intCodigo, string strDescricao, string strPermiteSacola, string strNivelStatus) : this()
         {
-            codigo = intCodigo;
+            Codigo = intCodigo;
             descricao = strDescricao;
             permiteSacola = strPermiteSacola;
             nivelStatus = strNivelStatus;
@@ -37,7 +36,6 @@ namespace Jack.Model
         #endregion
 
         #region "Fields"
-        private int codigo;
         private string descricao;
         private string permiteSacola;
         private string nivelStatus;

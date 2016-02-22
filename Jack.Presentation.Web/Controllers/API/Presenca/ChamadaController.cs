@@ -1,3 +1,4 @@
+using Jack.Model.DTOs;
 using System.Collections.Generic;
 using System.Web.Http;
 using Business = Jack.Business;
@@ -9,12 +10,12 @@ namespace Controllers.API
 	{
 
 		[HttpGet()]
-		public IList<Model.Familia> ObterChamada(int intReuniao)
-		{
+		public IList<DTOFamiliaChamada> GetValue([FromUri()] int ID)
+        {
             Business.Familia oChamada = new Business.Familia();
-			IList<Model.Familia> oReturn = default(List<Model.Familia>);
+			IList<DTOFamiliaChamada> oReturn = default(List<DTOFamiliaChamada>);
 
-			oReturn = oChamada.ObterChamada(intReuniao);
+			oReturn = oChamada.ObterChamada(ID);
 			oChamada = null;
 
 			return oReturn;

@@ -30,35 +30,65 @@ namespace Jack.Model
 
         public override bool Equals(object obj)
         {
-            if (obj != null)
+            return Equals(obj as BaseModel<T>);
+        }
+
+        private static bool IsTransient(BaseModel<T> obj)
+        {
+            return obj != null && Equals(obj.Codigo, default(T));
+        }
+
+        protected internal virtual Type GetUnproxiedType()
+        {
+            return GetType();
+        }
+
+        public virtual bool Equals(BaseModel<T> other)
+        {
+            if (other == null) return false;
+            if (ReferenceEquals(this, other)) return true;
+
+            if (!IsTransient(this) && !IsTransient(this) && Equals(Codigo, other.Codigo))
             {
-                string nomeParametro = obj.GetType().Name.Replace("Proxy", String.Empty);
-                string nomeAtual = typeof(T).Name.Replace("Proxy", String.Empty);
-
-                if (nomeParametro != null && nomeParametro.StartsWith(nomeAtual)) // Alteração para funcionar com mock de objetos
-                {
-                    if (hasSameIdentifierAs((T)obj))
-                    {
-                        // Both entities are persistent so we are able to
-                        // compare the identifiers.
-                        return true;
-                    }
-                    else if (hasDifferentPersistanceContextAs((T)obj))
-                    {
-                        // One entity is transient one is
-                        // persistence so that cannot be equal.
-                        return false;
-                    }
-                    else
-                    {
-                        // Neihter Entity has an Identity.
-                        return false;
-                    }
-                }
+                var otherType = other.GetUnproxiedType();
+                var thisType = GetUnproxiedType();
+                return thisType.IsAssignableFrom(otherType) ||
+                   otherType.IsAssignableFrom(thisType);
             }
-
             return false;
         }
+
+        //public override bool Equals(object obj)
+        //{
+        //    if (obj != null)
+        //    {
+        //        string nomeParametro = obj.GetType().Name.Replace("Proxy", String.Empty);
+        //        string nomeAtual = typeof(T).Name.Replace("Proxy", String.Empty);
+
+        //        if (nomeParametro != null && nomeParametro.StartsWith(nomeAtual)) // Alteração para funcionar com mock de objetos
+        //        {
+        //            if (hasSameIdentifierAs((T)obj))
+        //            {
+        //                // Both entities are persistent so we are able to
+        //                // compare the identifiers.
+        //                return true;
+        //            }
+        //            else if (hasDifferentPersistanceContextAs((T)obj))
+        //            {
+        //                // One entity is transient one is
+        //                // persistence so that cannot be equal.
+        //                return false;
+        //            }
+        //            else
+        //            {
+        //                // Neihter Entity has an Identity.
+        //                return false;
+        //            }
+        //        }
+        //    }
+
+        //    return false;
+        //}
 
         private bool hasSameIdentifierAs(T entityToCompare)
         {

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Jack.Model.DTOs;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -113,10 +114,10 @@ namespace Jack.Business
 
         }
 
-        public IList<Model.Familia> ObterChamada(int intReuniao)
+        public IList<DTOFamiliaChamada> ObterChamada(int intReuniao)
         {
             Data.Familia oDados = null;
-            IList<Model.Familia> lstRetorno = null;
+            IList<DTOFamiliaChamada> lstRetorno = null;
 
             try
             {

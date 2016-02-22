@@ -104,6 +104,9 @@ namespace Jack.Data
             try
             {
                 //oTipo = (Tipo)oSession.Load(typeof(Tipo), Identifier);
+                Type tipoEntidade = typeof(Tipo);
+                oSession = NHibernateHelper.GetCurrentSession(tipoEntidade.Assembly);
+                oSession.GetSessionImplementation().PersistenceContext.Unproxy(tipoEntidade.Assembly);
                 oTipo = oSession.Get<Tipo>(Identifier);
                 return oTipo;
             }
@@ -123,6 +126,9 @@ namespace Jack.Data
             try
             {
                 //Prepare()
+                Type tipoEntidade = typeof(Tipo);
+                oSession = NHibernateHelper.GetCurrentSession(tipoEntidade.Assembly);
+                oSession.GetSessionImplementation().PersistenceContext.Unproxy(tipoEntidade.Assembly);
                 lTipo = oSession.CreateCriteria(typeof(Tipo)).List<Tipo>();
                 return lTipo;
             }

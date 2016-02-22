@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using Jack.Model.DTOs;
 
 namespace Jack.Data
 {
@@ -59,8 +60,9 @@ namespace Jack.Data
         /// <remarks></remarks>
         public override Model.Familia Find(int Identifier)
         {
-
-            return base.Find(Identifier);
+            Model.Familia oReturn;
+            oReturn  = base.Find(Identifier);
+            return (Model.Familia) oSession.GetSessionImplementation().PersistenceContext.Unproxy(oReturn);
 
         }
 
@@ -111,12 +113,12 @@ namespace Jack.Data
             return strRetorno;
         }
 
-        public List<Model.Familia> ObterChamada(int intReuniao)
+        public List<DTOFamiliaChamada> ObterChamada(int intReuniao)
         {
 
             Command oCommand = null;
-            List<Model.Familia> lstDados = null;
-            Model.Familia objDados = null;
+            List<DTOFamiliaChamada> lstDados = null;
+            DTOFamiliaChamada objDados = null;
             DataTable dtDados = null;
 
             try
@@ -128,11 +130,11 @@ namespace Jack.Data
 
                 dtDados = oCommand.GetDataTable();
 
-                lstDados = new List<Model.Familia>();
+                lstDados = new List<DTOFamiliaChamada>();
 
                 foreach (DataRow dr in dtDados.Rows)
                 {
-                    objDados = new Model.Familia();
+                    objDados = new DTOFamiliaChamada();
                     objDados.Codigo = Convert.ToInt32(dr["id_familia"]);
                     objDados.Nome = dr["nm_mae"].ToString();
                     lstDados.Add(objDados);
