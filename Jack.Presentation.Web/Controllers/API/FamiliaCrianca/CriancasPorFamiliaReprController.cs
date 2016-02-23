@@ -1,23 +1,22 @@
-
 using System;
 using System.Collections.Generic;
 using System.Web.Http;
-using Business = Jack.Business;
-using Model = Jack.Model;
+using Jack.Model.DTOs;
+using Jack.Business;
 
 namespace Controllers.API
 {
 	public class CriancasPorFamiliaReprController : ApiController
 	{
-		public IList<Model.Criancas> ObterCriancasByRepresentante(int ID)
-		{
+		public IList<DTOCriancaRepresentante> GetValue(int ID)
+        {
 
-			IList<Model.Criancas> lstRetorno = null;
-			Business.FamiliaCrianca oBusiness = default(Business.FamiliaCrianca);
+			IList<DTOCriancaRepresentante> lstRetorno = null;
+			FamiliaCrianca oBusiness = default(FamiliaCrianca);
 
             try
             {
-                oBusiness = new Business.FamiliaCrianca();
+                oBusiness = new FamiliaCrianca();
                 lstRetorno = oBusiness.ObterCriancasByFamiliaWithRep(ID);
 
             }

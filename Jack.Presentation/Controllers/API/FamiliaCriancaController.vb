@@ -1,12 +1,12 @@
-﻿Imports System.Net
-Imports System.Web.Http
+﻿Imports System.Web.Http
+Imports Jack.Model.DTOs
 
 Namespace Controllers.API
     Public Class FamiliaCriancaController
         Inherits ApiController
-        Public Function ObterCriancas(ID As Integer) As IList(Of Model.DTOs.DTOCrianca)
+        Public Function ObterCriancas(ID As Integer) As IList(Of DTOCrianca)
 
-            Dim lstRetorno As List(Of Model.DTOs.DTOCrianca) = Nothing
+            Dim lstRetorno As List(Of DTOCrianca) = Nothing
             Dim oBusiness As Business.FamiliaCrianca
 
             Try
@@ -24,9 +24,9 @@ Namespace Controllers.API
         End Function
 
 
-        Public Function ObterCriancasByRepresentante(ID As Integer) As IList(Of Model.Criancas)
+        Public Function ObterCriancasByRepresentante(ID As Integer) As IList(Of DTOCriancaRepresentante)
 
-            Dim lstRetorno As List(Of Model.Criancas) = Nothing
+            Dim lstRetorno As List(Of DTOCriancaRepresentante) = Nothing
             Dim oBusiness As Business.FamiliaCrianca
 
             Try

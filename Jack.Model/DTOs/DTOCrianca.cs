@@ -26,7 +26,6 @@ namespace Jack.Model.DTOs
             isNecessidadeEspecial = string.Empty;
             isMoralCrista = string.Empty;
             isCriancaMaior = string.Empty;
-            familia = string.Empty;
             dataCriacao = new DateTime();
             dataAtualizacao = new DateTime();
           }
@@ -50,8 +49,6 @@ namespace Jack.Model.DTOs
         private string isNecessidadeEspecial;
         private string isMoralCrista;
         private string isCriancaMaior;
-        private string familia;
-        private int familiaCodigo;
         private DateTime dataAtualizacao;
         private DateTime dataCriacao;
         private string idadeNominal;
@@ -292,6 +289,7 @@ namespace Jack.Model.DTOs
                 idadeNominal = value;
             }
         }
+
         public virtual string IdadeNominalReduzida
         {
             get
@@ -329,30 +327,6 @@ namespace Jack.Model.DTOs
         }
 
         // locais de uso local
-        public virtual string Familia
-        {
-            get
-            {
-                return familia;
-            }
-            set
-            {
-                familia = value;
-            }
-        }
-
-        public virtual int FamiliaCodigo
-        {
-            get
-            {
-                return familiaCodigo;
-            }
-            set
-            {
-                familiaCodigo = value;
-            }
-        }
-
         public virtual DateTime DataAtualizacao
         {
             get

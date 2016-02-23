@@ -197,12 +197,12 @@ namespace Jack.Data
 
         }
 
-        public List<Model.Criancas> ObterCriancasByFamiliaWithRep(int intFamilia)
+        public List<Model.DTOs.DTOCriancaRepresentante> ObterCriancasByFamiliaWithRep(int intFamilia)
         {
 
             Command oDados = null;
-            List<Model.Criancas> lstDados = null;
-            Model.Criancas objDados = null;
+            List<Model.DTOs.DTOCriancaRepresentante> lstDados = null;
+            Model.DTOs.DTOCriancaRepresentante objDados = null;
             DataTable dtDados = null;
 
             try
@@ -217,11 +217,11 @@ namespace Jack.Data
                 dtDados = oDados.GetDataTable();
 
 
-                lstDados = new List<Model.Criancas>();
+                lstDados = new List<Model.DTOs.DTOCriancaRepresentante>();
 
                 foreach (DataRow dr in dtDados.Rows)
                 {
-                    objDados = new Model.Criancas();
+                    objDados = new Model.DTOs.DTOCriancaRepresentante();
                     objDados.Codigo = Convert.ToInt32(dr["id_crianca"]);
                     objDados.Nome = dr["nm_crianca"].ToString();
                     objDados.Idade = Convert.ToInt32(dr["nr_idade"]);
@@ -230,14 +230,21 @@ namespace Jack.Data
                     objDados.Sexo = dr["ds_sexo"].ToString();
                     objDados.Calcado = Convert.ToInt32(dr["nr_calcado"]);
                     objDados.Roupa = dr["nr_roupa"].ToString();
-                    objDados.CalcadoPadrao = Convert.ToInt32(dr["nr_calcado_padrao"]);
-                    objDados.RoupaPadrao = dr["nr_roupa_padrao"].ToString();
-                    objDados.Kit = new Model.Kit(Convert.ToInt32(dr["id_kit"]));
+                    objDados.CodigoKit = Convert.ToInt32(dr["id_kit"]);
+                    objDados.Kit = dr["ds_kit"].ToString();
+                    objDados.CodigoStatus = Convert.ToInt32(dr["id_status"]);
+                    objDados.Status = dr["ds_status"].ToString();
                     objDados.IsSacolinha = dr["is_sacolinha"].ToString();
                     objDados.IsConsistente = dr["is_consistente"].ToString();
                     objDados.IsMoralCrista = dr["is_moral_crista"].ToString();
-                    objDados.Status = new Model.Status(Convert.ToInt32(dr["id_status"]), dr["ds_status"].ToString());
-                    objDados.NomeFamilia = dr["nm_mae"].ToString();
+                    objDados.IsCriancaMaior = dr["is_crianca_maior"].ToString();
+                    objDados.IsNecessidadeEspecial = dr["is_necessidade_especial"].ToString();
+                    objDados.IdadeNominalReduzida = dr["ds_idade_nominal_resumido"].ToString();
+                    objDados.IdadeNominal = dr["ds_idade_nominal"].ToString();
+                    objDados.DataCriacao = Convert.ToDateTime(dr["dt_create"].ToString());
+                    objDados.DataAtualizacao = Convert.ToDateTime(dr["dt_update"].ToString());
+                    objDados.Familia = dr["nm_mae"].ToString();
+                    objDados.FamiliaCodigo = Convert.ToInt32(dr["id_familia"].ToString());
                     lstDados.Add(objDados);
                 }
             }

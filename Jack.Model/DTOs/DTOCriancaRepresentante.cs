@@ -28,8 +28,6 @@ namespace Jack.Model.DTOs
             isCriancaMaior = string.Empty;
             familiaCodigo = 0;
             familia = string.Empty;
-            familiaRepresentanteCodigo = 0;
-            familiaRepresentante = string.Empty;
             dataCriacao = new DateTime();
             dataAtualizacao = new DateTime();
 
@@ -55,9 +53,7 @@ namespace Jack.Model.DTOs
         private string isMoralCrista;
         private string isCriancaMaior;
         private string familia;
-        private string familiaRepresentante;
         private int familiaCodigo;
-        private int familiaRepresentanteCodigo;
         private DateTime dataAtualizacao;
         private DateTime dataCriacao;
         private string idadeNominal;
@@ -349,18 +345,6 @@ namespace Jack.Model.DTOs
             }
         }
 
-        public virtual string FamiliaRepresentante
-        {
-            get
-            {
-                return familiaRepresentante;
-            }
-            set
-            {
-                familiaRepresentante = value;
-            }
-        }
-
         public virtual int FamiliaCodigo
         {
             get
@@ -370,18 +354,6 @@ namespace Jack.Model.DTOs
             set
             {
                 familiaCodigo = value;
-            }
-        }
-
-        public virtual int FamiliaRepresentanteCodigo
-        {
-            get
-            {
-                return familiaRepresentanteCodigo;
-            }
-            set
-            {
-                familiaRepresentanteCodigo = value;
             }
         }
 

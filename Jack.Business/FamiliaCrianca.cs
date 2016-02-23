@@ -130,10 +130,10 @@ namespace Jack.Business
 
         }
 
-        public List<Model.Criancas> ObterCriancasByFamiliaWithRep(int intFamilia)
+        public List<Model.DTOs.DTOCriancaRepresentante> ObterCriancasByFamiliaWithRep(int intFamilia)
         {
 
-            List<Model.Criancas> lstDados = null;
+            List<Model.DTOs.DTOCriancaRepresentante> lstDados = null;
             Data.FamiliaCrianca oDados = null;
             try
             {
