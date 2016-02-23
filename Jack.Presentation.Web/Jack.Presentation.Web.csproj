@@ -209,6 +209,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\API\Familia\CriancasPorFamiliaController.cs" />
     <Compile Include="Controllers\API\Presenca\ChamadaController.cs" />
     <Compile Include="Controllers\API\Crianca\CriancaController.cs" />
     <Compile Include="Controllers\API\Reunião\DataReuniaoController.cs" />

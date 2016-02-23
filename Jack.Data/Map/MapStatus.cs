@@ -10,7 +10,7 @@ namespace Jack.Data.Map
             Table("tb_status");
 
             //Fields
-            Id(x => x.Codigo);
+            Id(x => x.Codigo) ;
             Map(x => x.Descricao).Column("ds_status").Not.Nullable();
             Map(x => x.PermiteSacola).Column("is_permite_sacola").Not.Nullable();
             Map(x => x.NivelStatus).Column("ds_nivel_status").Not.Nullable();

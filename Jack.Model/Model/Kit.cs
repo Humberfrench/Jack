@@ -15,11 +15,11 @@ namespace Jack.Model
         public Kit()
         {
             Codigo = 0;
-            Descricao = string.Empty;
-            IdadeMinima = 0;
-            IdadeMaxima = 0;
-            Sexo = string.Empty;
-            IsNecessidadeEspecial = string.Empty;
+            descricao = string.Empty;
+            idadeMinima = 0;
+            idadeMaxima = 0;
+            sexo = string.Empty;
+            isNecessidadeEspecial = string.Empty;
             items = new List<KitItem>();
             criancas = new List<Criancas>();
         }
@@ -27,15 +27,26 @@ namespace Jack.Model
         public Kit(int intCodigo)
         {
             Codigo = intCodigo;
-            Descricao = string.Empty;
-            IdadeMinima = 0;
-            IdadeMaxima = 0;
-            Sexo = string.Empty;
-            IsNecessidadeEspecial = string.Empty;
+            descricao = string.Empty;
+            idadeMinima = 0;
+            idadeMaxima = 0;
+            sexo = string.Empty;
+            isNecessidadeEspecial = string.Empty;
             items = new List<KitItem>();
             criancas = new List<Criancas>();
         }
 
+        public Kit(int pCodigo, string pDescricao, int pIdadeMinima, int pIdadeMaxima, string pSexo, string pIsNecessidadeEspecial)
+        {
+            Codigo = pCodigo;
+            descricao = pDescricao;
+            idadeMinima = pIdadeMinima;
+            idadeMaxima = pIdadeMaxima;
+            sexo = pSexo;
+            isNecessidadeEspecial = pIsNecessidadeEspecial;
+            items = new List<KitItem>();
+            criancas = new List<Criancas>();
+        }
 
         #endregion
 

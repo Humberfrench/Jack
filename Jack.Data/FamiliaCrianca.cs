@@ -139,7 +139,8 @@ namespace Jack.Data
             List<Model.Criancas> lstDados = null;
             Model.Criancas objDados = null;
             DataTable dtDados = null;
-
+            Model.Status oStatus = null;
+            Model.Kit oKit = null;
             try
             {
                 oDados = new Command("CECAMKey");
@@ -156,6 +157,16 @@ namespace Jack.Data
 
                 foreach (DataRow dr in dtDados.Rows)
                 {
+                    oStatus = new Model.Status(Convert.ToInt32(dr["id_status"]), 
+                                         dr["ds_status"].ToString(),
+                                         dr["is_permite_sacola"].ToString(),
+                                         dr["ds_nivel_status"].ToString());
+                    oKit = new Model.Kit(Convert.ToInt32(dr["id_kit"]), 
+                                               dr["ds_kit"].ToString(),
+                                               Convert.ToInt32(dr["vl_idade_min"]),
+                                               Convert.ToInt32(dr["vl_idade_max"]),
+                                               dr["ds_sexo"].ToString(),
+                                               dr["is_necessidade_especial"].ToString());
                     objDados = new Model.Criancas();
                     objDados.Codigo = Convert.ToInt32(dr["id_crianca"]);
                     objDados.Nome = dr["nm_crianca"].ToString();
@@ -165,11 +176,13 @@ namespace Jack.Data
                     objDados.Sexo = dr["ds_sexo"].ToString();
                     objDados.Calcado = Convert.ToInt32(dr["nr_calcado"]);
                     objDados.Roupa = dr["nr_roupa"].ToString();
-                    objDados.Kit = new Model.Kit(Convert.ToInt32(dr["id_kit"]));
+                    objDados.Kit = oKit;
                     objDados.IsSacolinha = dr["is_sacolinha"].ToString();
                     objDados.IsConsistente = dr["is_consistente"].ToString();
                     objDados.IsMoralCrista = dr["is_moral_crista"].ToString();
-                    objDados.Status = new Model.Status(Convert.ToInt32(dr["id_status"]), dr["ds_status"].ToString());
+                    objDados.Status = oStatus;
+                    objDados.DataCriacao = Convert.ToDateTime(dr["dt_create"].ToString());
+                    objDados.DataAtualizacao = Convert.ToDateTime(dr["dt_update"].ToString());
                     lstDados.Add(objDados);
                 }
             }
@@ -184,6 +197,7 @@ namespace Jack.Data
                 dtDados = null;
                 oDados.Dispose();
                 oDados = null;
+                oStatus = null;
             }
 
             return lstDados;

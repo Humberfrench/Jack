@@ -25,9 +25,10 @@ namespace Jack.Model
             isNecessidadeEspecial = string.Empty;
             isMoralCrista = string.Empty;
             status = new Status();
-            NomeFamilia = string.Empty;
-            FamiliaRepresentante = string.Empty;
-            DataAtualizacao = new DateTime();
+            nomeFamilia = string.Empty;
+            familiaRepresentante = string.Empty;
+            dataCriacao = new DateTime();
+            dataAtualizacao = new DateTime();
 
         }
 
@@ -49,6 +50,14 @@ namespace Jack.Model
         private string isCriancaMaior;
         private Status status;
         private FamiliaCrianca familia;
+
+        private string nomeFamilia;
+        private string familiaRepresentante;
+        private int familiaCodigo;
+        private int familiaRepresentanteCodigo;
+        private DateTime dataAtualizacao;
+        private DateTime dataCriacao;
+
 
         public virtual string Nome
         {
@@ -267,16 +276,83 @@ namespace Jack.Model
         }
 
         // locais de uso local
-        public virtual string NomeFamilia { get; set; }
-        public virtual string FamiliaRepresentante { get; set; }
-        public virtual int FamiliaCodigo { get; set; }
-        public virtual int FamiliaRepresentanteCodigo { get; set; }
-        public virtual DateTime DataAtualizacao { get; set; }
-        public virtual DateTime DataCriacao { get; set; }
+        public virtual string NomeFamilia
+        {
+            get
+            {
+                return nomeFamilia;
+            }
+            set
+            {
+                nomeFamilia = value;
+            }
+        }
+
+        public virtual string FamiliaRepresentante
+        {
+            get
+            {
+                return familiaRepresentante;
+            }
+            set
+            {
+                familiaRepresentante = value;
+            }
+        }
+
+        public virtual int FamiliaCodigo
+        {
+            get
+            {
+                return familiaCodigo;
+            }
+            set
+            {
+                familiaCodigo = value;
+            }
+        }
+
+        public virtual int FamiliaRepresentanteCodigo
+        {
+            get
+            {
+                return familiaRepresentanteCodigo;
+            }
+            set
+            {
+                familiaRepresentanteCodigo = value;
+            }
+        }
+
+        public virtual DateTime DataAtualizacao
+        {
+            get
+            {
+                return dataAtualizacao;
+            }
+            set
+            {
+                dataAtualizacao = value;
+            }
+        }
+
+        public virtual DateTime DataCriacao
+        {
+            get
+            {
+                return dataCriacao;
+            }
+            set
+            {
+                dataCriacao = value;
+            }
+        }
+
         public virtual int StatusCodigo
         {
             get { return Status.Codigo; }
         }
+
         public virtual string StatusNome
         {
             get { return Status.Descricao; }
@@ -291,6 +367,7 @@ namespace Jack.Model
         {
             get { return DataCriacao.Day.ToString("00") + "/" + DataCriacao.Month.ToString("00") + "/" + DataCriacao.Year.ToString("0000"); }
         }
+
         public virtual string DataAtualizacaoString
         {
             get { return DataAtualizacao.ToShortDateString(); }
@@ -342,6 +419,7 @@ namespace Jack.Model
                 }
             }
         }
+
         public virtual string CriancaMaior
         {
             get
@@ -355,6 +433,7 @@ namespace Jack.Model
                 }
             }
         }
+
         public virtual string DataNascimentoString
         {
             get { return DataNascimento.ToShortDateString(); }
