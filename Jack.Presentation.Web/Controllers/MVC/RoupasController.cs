@@ -35,6 +35,7 @@ namespace Controllers.MVC
             catch (Exception ex)
             {
                 RoupaRetorno = new List<Model.Roupa>();
+                throw ex;
             }
             finally
             {

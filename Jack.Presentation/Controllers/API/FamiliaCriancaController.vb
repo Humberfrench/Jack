@@ -4,9 +4,9 @@ Imports System.Web.Http
 Namespace Controllers.API
     Public Class FamiliaCriancaController
         Inherits ApiController
-        Public Function ObterCriancas(ID As Integer) As IList(Of Model.Criancas)
+        Public Function ObterCriancas(ID As Integer) As IList(Of Model.DTOs.DTOCrianca)
 
-            Dim lstRetorno As List(Of Model.Criancas) = Nothing
+            Dim lstRetorno As List(Of Model.DTOs.DTOCrianca) = Nothing
             Dim oBusiness As Business.FamiliaCrianca
 
             Try

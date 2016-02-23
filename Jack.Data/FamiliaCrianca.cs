@@ -132,15 +132,13 @@ namespace Jack.Data
 
         }
 
-        public List<Model.Criancas> ObterCriancasByFamilia(int intFamilia)
+        public List<Model.DTOs.DTOCrianca> ObterCriancasByFamilia(int intFamilia)
         {
 
             Command oDados = null;
-            List<Model.Criancas> lstDados = null;
-            Model.Criancas objDados = null;
+            List<Model.DTOs.DTOCrianca> lstDados = null;
+            Model.DTOs.DTOCrianca objDados = null;
             DataTable dtDados = null;
-            Model.Status oStatus = null;
-            Model.Kit oKit = null;
             try
             {
                 oDados = new Command("CECAMKey");
@@ -153,21 +151,11 @@ namespace Jack.Data
                 dtDados = oDados.GetDataTable();
 
 
-                lstDados = new List<Model.Criancas>();
+                lstDados = new List<Model.DTOs.DTOCrianca>();
 
                 foreach (DataRow dr in dtDados.Rows)
                 {
-                    oStatus = new Model.Status(Convert.ToInt32(dr["id_status"]), 
-                                         dr["ds_status"].ToString(),
-                                         dr["is_permite_sacola"].ToString(),
-                                         dr["ds_nivel_status"].ToString());
-                    oKit = new Model.Kit(Convert.ToInt32(dr["id_kit"]), 
-                                               dr["ds_kit"].ToString(),
-                                               Convert.ToInt32(dr["vl_idade_min"]),
-                                               Convert.ToInt32(dr["vl_idade_max"]),
-                                               dr["ds_sexo"].ToString(),
-                                               dr["is_necessidade_especial"].ToString());
-                    objDados = new Model.Criancas();
+                    objDados = new Model.DTOs.DTOCrianca();
                     objDados.Codigo = Convert.ToInt32(dr["id_crianca"]);
                     objDados.Nome = dr["nm_crianca"].ToString();
                     objDados.Idade = Convert.ToInt32(dr["nr_idade"]);
@@ -176,11 +164,17 @@ namespace Jack.Data
                     objDados.Sexo = dr["ds_sexo"].ToString();
                     objDados.Calcado = Convert.ToInt32(dr["nr_calcado"]);
                     objDados.Roupa = dr["nr_roupa"].ToString();
-                    objDados.Kit = oKit;
+                    objDados.CodigoKit = Convert.ToInt32(dr["id_kit"]);
+                    objDados.Kit = dr["ds_kit"].ToString();
+                    objDados.CodigoStatus = Convert.ToInt32(dr["id_status"]);
+                    objDados.Status = dr["ds_status"].ToString();
                     objDados.IsSacolinha = dr["is_sacolinha"].ToString();
                     objDados.IsConsistente = dr["is_consistente"].ToString();
                     objDados.IsMoralCrista = dr["is_moral_crista"].ToString();
-                    objDados.Status = oStatus;
+                    objDados.IsCriancaMaior = dr["is_crianca_maior"].ToString();
+                    objDados.IsNecessidadeEspecial = dr["is_necessidade_especial"].ToString();
+                    objDados.IdadeNominalReduzida = dr["ds_idade_nominal_resumido"].ToString();
+                    objDados.IdadeNominal = dr["ds_idade_nominal"].ToString();
                     objDados.DataCriacao = Convert.ToDateTime(dr["dt_create"].ToString());
                     objDados.DataAtualizacao = Convert.ToDateTime(dr["dt_update"].ToString());
                     lstDados.Add(objDados);
@@ -197,7 +191,6 @@ namespace Jack.Data
                 dtDados = null;
                 oDados.Dispose();
                 oDados = null;
-                oStatus = null;
             }
 
             return lstDados;

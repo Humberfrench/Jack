@@ -10,9 +10,9 @@ namespace Jack.Presentation.Web.Controllers.API.Familia
     public class CriancasPorFamiliaController : ApiController
     {
         [HttpGet()]
-        public IList<Model.Criancas> GetValue(int ID)
+        public IList<Model.DTOs.DTOCrianca> GetValue(int ID)
         {
-            IList<Model.Criancas> lstRetorno = null;
+            IList<Model.DTOs.DTOCrianca> lstRetorno = null;
             Business.FamiliaCrianca oBusiness = null;
 
             try

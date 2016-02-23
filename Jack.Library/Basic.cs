@@ -53,5 +53,22 @@ namespace Jack.Library.Extensions
             }
         }
 
+        public static string ToDateFormated(this DateTime dateValue)
+        {
+            return dateValue.Day.ToString("00") + "/" + dateValue.Month.ToString("00") + "/" + dateValue.Year.ToString("0000");
+        }
+
+        public static string ToSimNao(this string stringValue)
+        {
+            if (stringValue == "S")
+            {
+                return "Sim";
+            }
+            else
+            {
+                return "Não";
+            }
+        }
+
     }
 }

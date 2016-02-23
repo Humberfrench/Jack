@@ -209,12 +209,12 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="Controllers\API\Familia\CriancasPorFamiliaController.cs" />
+    <Compile Include="Controllers\API\FamiliaCrianca\CriancasPorFamiliaController.cs" />
     <Compile Include="Controllers\API\Presenca\ChamadaController.cs" />
     <Compile Include="Controllers\API\Crianca\CriancaController.cs" />
     <Compile Include="Controllers\API\Reunião\DataReuniaoController.cs" />
     <Compile Include="Controllers\API\Familia\FamiliaController.cs" />
-    <Compile Include="Controllers\API\FamiliaCrianca\FamiliaCriancaController.cs" />
+    <Compile Include="Controllers\API\FamiliaCrianca\CriancasPorFamiliaReprController.cs" />
     <Compile Include="Controllers\API\Presenca\PresencaController.cs" />
     <Compile Include="Controllers\API\Status\StatusCriancaController.cs" />
     <Compile Include="Controllers\API\Status\StatusFamiliaController.cs" />

@@ -105,10 +105,10 @@ namespace Jack.Business
             return blnRetorno;
         }
 
-        public List<Model.Criancas> ObterCriancasByFamilia(int intFamilia)
+        public List<Model.DTOs.DTOCrianca> ObterCriancasByFamilia(int intFamilia)
         {
 
-            List<Model.Criancas> lstDados = null;
+            List<Model.DTOs.DTOCrianca> lstDados = null;
             Data.FamiliaCrianca oDados = null;
             try
             {

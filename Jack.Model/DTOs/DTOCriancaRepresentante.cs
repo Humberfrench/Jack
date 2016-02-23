@@ -1,35 +1,41 @@
-﻿using System;
+﻿using Jack.Library.Extensions;
+using System;
 
-namespace Jack.Model
+namespace Jack.Model.DTOs
 {
-    [Serializable]
-    public class Criancas:BaseModel<Criancas>
+    public class DTOCriancaRepresentante
     {
-
-        public Criancas()
+        public DTOCriancaRepresentante()
         {
+            codigo = 0;
             nome = string.Empty;
             idade = 0;
             dataNascimento = new DateTime();
             sexo = string.Empty;
-            kit = new Kit();
+            codigoKit = 0;
+            kit = string.Empty;
+            codigoStatus = 0;
+            status = string.Empty;
             medidaIdade = string.Empty;
             calcado = 99;
-            roupa = "99";
             idadeNominal = string.Empty;
             idadeNominalReduzida = string.Empty;
+            roupa = "99";
             isSacolinha = string.Empty;
             isConsistente = string.Empty;
             isNecessidadeEspecial = string.Empty;
             isMoralCrista = string.Empty;
-            status = new Status();
-            nomeFamilia = string.Empty;
+            isCriancaMaior = string.Empty;
+            familiaCodigo = 0;
+            familia = string.Empty;
+            familiaRepresentanteCodigo = 0;
             familiaRepresentante = string.Empty;
             dataCriacao = new DateTime();
             dataAtualizacao = new DateTime();
 
         }
 
+        private int codigo;
         private string nome;
         private int idade;
         private string medidaIdade;
@@ -38,25 +44,49 @@ namespace Jack.Model
         private int calcado;
         private string roupa;
         private int calcadoPadrao;
+        private int codigoStatus;
+        private string status;
+        private int codigoKit;
+        private string kit;
         private string roupaPadrao;
-        private Kit kit;
         private string isSacolinha;
         private string isConsistente;
         private string isNecessidadeEspecial;
         private string isMoralCrista;
         private string isCriancaMaior;
-        private Status status;
-        private FamiliaCrianca familia;
-        private string idadeNominal;
-        private string idadeNominalReduzida;
-
-        private string nomeFamilia;
+        private string familia;
         private string familiaRepresentante;
         private int familiaCodigo;
         private int familiaRepresentanteCodigo;
         private DateTime dataAtualizacao;
         private DateTime dataCriacao;
+        private string idadeNominal;
+        private string idadeNominalReduzida;
+        //aux vars
+        private string dataCriacaoString;
+        private string dataCriacaoFormated;
+        private string dataAtualizacaoString;
+        private string dataAtualizacaoFormated;
+        private string dataNascimentoString;
+        private string dataNascimentoFormated;
+        private string vSacolinha;
+        private string vConsistente;
+        private string vNecessidadeEspecial;
+        private string vMoralCrista;
+        private string vCriancaMaior;
 
+
+        public virtual int Codigo
+        {
+            get
+            {
+                return codigo;
+            }
+            set
+            {
+                codigo = value;
+            }
+        }
 
         public virtual string Nome
         {
@@ -103,6 +133,8 @@ namespace Jack.Model
             set
             {
                 dataNascimento = value;
+                dataNascimentoString = dataNascimento.ToShortDateString();
+                dataNascimentoFormated = dataNascimento.ToDateFormated();
             }
         }
 
@@ -166,7 +198,19 @@ namespace Jack.Model
             }
         }
 
-        public virtual Kit Kit
+        public virtual int CodigoKit
+        {
+            get
+            {
+                return codigoKit;
+            }
+            set
+            {
+                codigoKit = value;
+            }
+        }
+
+        public virtual string Kit
         {
             get
             {
@@ -175,66 +219,6 @@ namespace Jack.Model
             set
             {
                 kit = value;
-            }
-        }
-
-        public virtual string IsSacolinha
-        {
-            get
-            {
-                return isSacolinha;
-            }
-            set
-            {
-                isSacolinha = value;
-            }
-        }
-
-        public virtual string IsConsistente
-        {
-            get
-            {
-                return isConsistente;
-            }
-            set
-            {
-                isConsistente = value;
-            }
-        }
-
-        public virtual string IsNecessidadeEspecial
-        {
-            get
-            {
-                return isNecessidadeEspecial;
-            }
-            set
-            {
-                isNecessidadeEspecial = value;
-            }
-        }
-
-        public virtual string IsMoralCrista
-        {
-            get
-            {
-                return isMoralCrista;
-            }
-            set
-            {
-                isMoralCrista = value;
-            }
-        }
-
-        public virtual string IsCriancaMaior
-        {
-            get
-            {
-                return isCriancaMaior;
-            }
-            set
-            {
-                isCriancaMaior = value;
             }
         }
 
@@ -249,7 +233,6 @@ namespace Jack.Model
                 idadeNominal = value;
             }
         }
-
         public virtual string IdadeNominalReduzida
         {
             get
@@ -262,7 +245,86 @@ namespace Jack.Model
             }
         }
 
-        public virtual Status Status
+
+
+        public virtual string IsSacolinha
+        {
+            get
+            {
+                return isSacolinha;
+            }
+            set
+            {
+                isSacolinha = value;
+                vSacolinha = IsSacolinha.ToSimNao();
+            }
+        }
+
+        public virtual string IsConsistente
+        {
+            get
+            {
+                return isConsistente;
+            }
+            set
+            {
+                isConsistente = value;
+                vConsistente = isConsistente.ToSimNao();
+            }
+        }
+
+        public virtual string IsNecessidadeEspecial
+        {
+            get
+            {
+                return isNecessidadeEspecial;
+            }
+            set
+            {
+                isNecessidadeEspecial = value;
+                vNecessidadeEspecial = isNecessidadeEspecial.ToSimNao();
+            }
+        }
+
+        public virtual string IsMoralCrista
+        {
+            get
+            {
+                return isMoralCrista;
+            }
+            set
+            {
+                isMoralCrista = value;
+                vMoralCrista = isMoralCrista.ToSimNao();
+            }
+        }
+
+        public virtual string IsCriancaMaior
+        {
+            get
+            {
+                return isCriancaMaior;
+            }
+            set
+            {
+                isCriancaMaior = value;
+                vCriancaMaior = IsCriancaMaior.ToSimNao();
+            }
+        }
+
+        public virtual int CodigoStatus
+        {
+            get
+            {
+                return codigoStatus;
+            }
+            set
+            {
+                codigoStatus = value;
+            }
+        }
+
+        public virtual string Status
         {
             get
             {
@@ -274,7 +336,8 @@ namespace Jack.Model
             }
         }
 
-        public virtual FamiliaCrianca Familia
+        // locais de uso local
+        public virtual string Familia
         {
             get
             {
@@ -283,19 +346,6 @@ namespace Jack.Model
             set
             {
                 familia = value;
-            }
-        }
-
-        // locais de uso local
-        public virtual string NomeFamilia
-        {
-            get
-            {
-                return nomeFamilia;
-            }
-            set
-            {
-                nomeFamilia = value;
             }
         }
 
@@ -344,6 +394,8 @@ namespace Jack.Model
             set
             {
                 dataAtualizacao = value;
+                dataAtualizacaoString = dataAtualizacao.ToShortDateString();
+                dataAtualizacaoFormated = dataAtualizacao.ToDateFormated();
             }
         }
 
@@ -356,37 +408,57 @@ namespace Jack.Model
             set
             {
                 dataCriacao = value;
+                dataCriacaoString = dataCriacao.ToShortDateString();
+                dataCriacaoFormated = dataCriacao.ToDateFormated();
             }
-        }
-
-        public virtual int StatusCodigo
-        {
-            get { return Status.Codigo; }
-        }
-
-        public virtual string StatusNome
-        {
-            get { return Status.Descricao; }
         }
 
         public virtual string DataCriacaoString
         {
-            get { return DataCriacao.ToShortDateString(); }
+            get
+            {
+                return dataCriacaoString;
+            }
         }
 
         public virtual string DataCriacaoFormated
         {
-            get { return DataCriacao.Day.ToString("00") + "/" + DataCriacao.Month.ToString("00") + "/" + DataCriacao.Year.ToString("0000"); }
+            get
+            {
+                return dataCriacaoFormated;
+            }
         }
 
         public virtual string DataAtualizacaoString
         {
-            get { return DataAtualizacao.ToShortDateString(); }
+            get
+            {
+                return dataAtualizacaoString;
+            }
         }
 
         public virtual string DataAtualizacaoFormated
         {
-            get { return DataAtualizacao.Day.ToString("00") + "/" + DataAtualizacao.Month.ToString("00") + "/" + DataAtualizacao.Year.ToString("0000"); }
+            get
+            {
+                return dataAtualizacaoFormated;
+            }
+        }
+
+        public virtual string DataNascimentoString
+        {
+            get
+            {
+                return dataNascimentoString;
+            }
+        }
+
+        public virtual string DataNascimentoFormated
+        {
+            get
+            {
+                return dataNascimentoFormated;
+            }
         }
 
         public virtual string IdadeCrianca
@@ -403,17 +475,27 @@ namespace Jack.Model
             }
         }
 
+        public virtual string NecessidadeEspecial
+        {
+            get
+            {
+                return vNecessidadeEspecial;
+            }
+        }
+
+        public virtual string MoralCrista
+        {
+            get
+            {
+                return vMoralCrista;
+            }
+        }
+
         public virtual string Sacolinha
         {
             get
             {
-                if (IsSacolinha == "S")
-                {
-                    return "Sim";
-                }
-                else {
-                    return "Não";
-                }
+                return vSacolinha;
             }
         }
 
@@ -421,13 +503,7 @@ namespace Jack.Model
         {
             get
             {
-                if (IsConsistente == "S")
-                {
-                    return "Sim";
-                }
-                else {
-                    return "Não";
-                }
+                return vConsistente;
             }
         }
 
@@ -435,26 +511,9 @@ namespace Jack.Model
         {
             get
             {
-                if (IsCriancaMaior == "S")
-                {
-                    return "Sim";
-                }
-                else {
-                    return "Não";
-                }
+                return vCriancaMaior;
             }
         }
 
-        public virtual string DataNascimentoString
-        {
-            get { return DataNascimento.ToShortDateString(); }
-        }
-
-        public virtual string DataFormated
-        {
-            get { return DataNascimento.Day.ToString("00") + "/" + DataNascimento.Month.ToString("00") + "/" + DataNascimento.Year.ToString("0000"); }
-        }
-
     }
-
 }

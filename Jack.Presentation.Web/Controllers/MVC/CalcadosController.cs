@@ -28,6 +28,7 @@ namespace Controllers.MVC
             catch (Exception ex)
             {
                 CalcadoRetorno = new List<Model.Calcado>();
+                throw ex;
             }
             finally
             {
@@ -54,6 +55,7 @@ namespace Controllers.MVC
             catch (Exception ex)
             {
                 CalcadoRetorno = new List<Model.Calcado>();
+                throw ex;
             }
             finally
             {
@@ -80,6 +82,7 @@ namespace Controllers.MVC
             catch (Exception ex)
             {
                 CalcadoRetorno = new List<Model.Calcado>();
+                throw ex;
             }
             finally
             {

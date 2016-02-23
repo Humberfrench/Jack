@@ -16,7 +16,6 @@ namespace Jack.Data.Map
             Map(x => x.Nome).Column("nm_crianca").Not.Nullable();
             Map(x => x.Idade).Column("nr_idade").Not.Nullable();
             Map(x => x.MedidaIdade).Column("ds_medida_idade").Not.Nullable();
-            Map(x => x.IdadeNominalResumido).Column("ds_idade_nominal_resumido").Nullable();
             Map(x => x.DataNascimento).Column("dt_nascimento").Not.Nullable();
             Map(x => x.Sexo).Column("ds_sexo").Not.Nullable();
             Map(x => x.Calcado).Column("nr_calcado").Not.Nullable();
@@ -28,6 +27,8 @@ namespace Jack.Data.Map
             Map(x => x.IsCriancaMaior).Column("is_crianca_maior").Not.Nullable().Default("N");
             Map(x => x.DataCriacao).Column("dt_create").Nullable().Default(DateTime.Now.ToString());
             Map(x => x.DataAtualizacao).Column("dt_update").Nullable().Default(DateTime.Now.ToString());
+            Map(x => x.IdadeNominal).Column("ds_idade_nominal").Nullable().Default(DateTime.Now.ToString());
+            Map(x => x.IdadeNominalReduzida).Column("ds_idade_nominal_resumido").Nullable().Default(DateTime.Now.ToString());
 
             //References
             References(x => x.Familia).Column("id_crianca").Not.Nullable().Cascade.All();

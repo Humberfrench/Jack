@@ -7,34 +7,8 @@ using Model = Jack.Model;
 
 namespace Controllers.API
 {
-	public class FamiliaCriancaController : ApiController
+	public class CriancasPorFamiliaReprController : ApiController
 	{
-		public IList<Model.Criancas> ObterCriancas(int ID)
-		{
-
-			IList<Model.Criancas> lstRetorno = null;
-			Business.FamiliaCrianca oBusiness = default(Business.FamiliaCrianca);
-
-            try
-            {
-                oBusiness = new Business.FamiliaCrianca();
-                lstRetorno = oBusiness.ObterCriancasByFamilia(ID);
-
-            }
-            catch (Exception ex)
-            {
-                lstRetorno = null;
-            }
-            finally
-            {
-                oBusiness = null;
-            }
-
-			return lstRetorno;
-
-		}
-
-
 		public IList<Model.Criancas> ObterCriancasByRepresentante(int ID)
 		{
 
@@ -50,6 +24,7 @@ namespace Controllers.API
             catch (Exception ex)
             {
                 lstRetorno = null;
+                throw ex;
             }
             finally
             {

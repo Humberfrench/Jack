@@ -63,6 +63,8 @@
   <ItemGroup>
     <Compile Include="BaseModel.cs" />
     <Compile Include="DTOs\CriancasInconsistentes.cs" />
+    <Compile Include="DTOs\DTOCriancaRepresentante.cs" />
+    <Compile Include="DTOs\DTOCrianca.cs" />
     <Compile Include="DTOs\DTOFamiliaChamada.cs" />
     <Compile Include="Model\FamiliaBlackList.cs" />
     <Compile Include="Model\FamiliaCrianca.cs" />
@@ -124,7 +126,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Mappings\TipoItem.hbm.xml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Jack.Library\Jack.Library.csproj">
+      <Project>{9bae2eee-5392-4ea6-8ee9-b0e5521ff8fd}</Project>
+      <Name>Jack.Library</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
