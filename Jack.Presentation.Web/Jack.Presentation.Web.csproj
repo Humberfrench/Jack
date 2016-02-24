@@ -240,6 +240,8 @@
     <Content Include="Scripts\jquery-2.2.0.min.map" />
     <Content Include="Views\Calcados\Index.cshtml" />
     <Content Include="Views\Calcados\ViewExeampe.cshtml" />
+    <Content Include="Views\Calcados\Meninos.cshtml" />
+    <Content Include="Views\Calcados\Meninas.cshtml" />
     <None Include="Views\SharedFolder\_JackLayoutPage.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

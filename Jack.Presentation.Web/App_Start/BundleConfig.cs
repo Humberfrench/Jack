@@ -6,11 +6,11 @@ namespace Jack.Presentation.Web
     {
         public static void RegisterBundles(BundleCollection bundles)
         {
-            bundles.Add(new StyleBundle("~/Content/Basic").Include("~/Content/Jack.css", "~/Content/bootstrap.min.css", "~/Content/bootstrap-theme.min.css", "~/Content/toastr.min.css", "~/Content/awesomplete.css", "~/Content/css/select2.css"));
+            bundles.Add(new StyleBundle("~/Content/basic").Include("~/Content/Jack.css", "~/Content/bootstrap.min.css", "~/Content/bootstrap-theme.min.css", "~/Content/toastr.min.css"));
             //all
-            bundles.Add(new ScriptBundle("~/bundles/Basic").Include("~/Scripts/jquery-2.1.4.min.js", "~/Scripts/toastr.min.js", "~/Scripts/bootstrap.min.js", "~/Scripts/awesomplete.js", "~/Scripts/select2.js"));
+            bundles.Add(new ScriptBundle("~/bundles/basic").Include("~/Scripts/jquery-2.2.0.min.js", "~/Scripts/toastr.min.js", "~/Scripts/bootstrap.min.js"));
 
-            bundles.Add(new ScriptBundle("~/bundles/Angular").Include("~/Scripts/angular.min.js"));
+            bundles.Add(new ScriptBundle("~/bundles/angular").Include("~/Scripts/angular.min.js"));
             //pages
             bundles.Add(new ScriptBundle("~/bundles/engine").Include("~/engine/geral/mensagens.js", "~/engine/geral/util.js"));
             bundles.Add(new ScriptBundle("~/bundles/familia").Include("~/engine/familia/familia.js", "~/engine/familia/familia.controller.js", "~/engine/familia/familia.presentation.js"));

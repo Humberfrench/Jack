@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<Jack.Model.Calcado>
 
 @{
-    ViewBag.Title = "Calçados";
+    ViewBag.Title = "Calçados - Meninas";
     Layout = "~/Views/SharedFolder/_JackLayoutPage.cshtml";
 }
 
@@ -14,8 +14,8 @@
             <span class="caret"></span>
         </button>
         <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+            <li>@Html.ActionLink("Todos", "Index", "Calcados")</li>
             <li>@Html.ActionLink("Meninos", "Meninos", "Calcados")</li>
-            <li>@Html.ActionLink("Meninas", "Meninas", "Calcados")</li>
         </ul>
     </div>
 </div>
