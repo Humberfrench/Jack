@@ -16,8 +16,8 @@ namespace Jack.Data.Map
             Map(x => x.NivelStatus).Column("ds_nivel_status").Not.Nullable();
 
             //References
-            HasMany(x => x.Familias).KeyColumn("id_status").Not.LazyLoad();
-            HasMany(x => x.Criancas).KeyColumn("id_status").Not.LazyLoad();
+            HasMany(x => x.Familias).KeyColumn("id_status");
+            HasMany(x => x.Criancas).KeyColumn("id_status");
         }
     }
 }

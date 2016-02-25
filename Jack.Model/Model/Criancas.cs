@@ -287,6 +287,36 @@ namespace Jack.Model
         }
 
         // locais de uso local
+        public virtual string DataCriacaoString
+        {
+            get { return DataCriacao.ToShortDateString(); }
+        }
+
+        public virtual string DataCriacaoFormated
+        {
+            get { return DataCriacao.Day.ToString("00") + "/" + DataCriacao.Month.ToString("00") + "/" + DataCriacao.Year.ToString("0000"); }
+        }
+
+        public virtual string DataAtualizacaoString
+        {
+            get { return DataAtualizacao.ToShortDateString(); }
+        }
+
+        public virtual string DataAtualizacaoFormated
+        {
+            get { return DataAtualizacao.Day.ToString("00") + "/" + DataAtualizacao.Month.ToString("00") + "/" + DataAtualizacao.Year.ToString("0000"); }
+        }
+
+        public virtual string DataNascimentoString
+        {
+            get { return DataNascimento.ToShortDateString(); }
+        }
+
+        public virtual string DataFormated
+        {
+            get { return DataNascimento.Day.ToString("00") + "/" + DataNascimento.Month.ToString("00") + "/" + DataNascimento.Year.ToString("0000"); }
+        }
+
         public virtual string NomeFamilia
         {
             get
@@ -335,6 +365,30 @@ namespace Jack.Model
             }
         }
 
+        public virtual int StatusCodigo
+        {
+            get { return Status.Codigo; }
+        }
+
+        public virtual string StatusNome
+        {
+            get { return Status.Descricao; }
+        }
+
+        public virtual string IdadeCrianca
+        {
+            get
+            {
+                if (MedidaIdade == "A")
+                {
+                    return Idade.ToString() + " Anos";
+                }
+                else {
+                    return Idade.ToString() + " Meses";
+                }
+            }
+        }
+
         public virtual DateTime DataAtualizacao
         {
             get
@@ -359,49 +413,8 @@ namespace Jack.Model
             }
         }
 
-        public virtual int StatusCodigo
-        {
-            get { return Status.Codigo; }
-        }
 
-        public virtual string StatusNome
-        {
-            get { return Status.Descricao; }
-        }
 
-        public virtual string DataCriacaoString
-        {
-            get { return DataCriacao.ToShortDateString(); }
-        }
-
-        public virtual string DataCriacaoFormated
-        {
-            get { return DataCriacao.Day.ToString("00") + "/" + DataCriacao.Month.ToString("00") + "/" + DataCriacao.Year.ToString("0000"); }
-        }
-
-        public virtual string DataAtualizacaoString
-        {
-            get { return DataAtualizacao.ToShortDateString(); }
-        }
-
-        public virtual string DataAtualizacaoFormated
-        {
-            get { return DataAtualizacao.Day.ToString("00") + "/" + DataAtualizacao.Month.ToString("00") + "/" + DataAtualizacao.Year.ToString("0000"); }
-        }
-
-        public virtual string IdadeCrianca
-        {
-            get
-            {
-                if (MedidaIdade == "A")
-                {
-                    return Idade.ToString() + " Anos";
-                }
-                else {
-                    return Idade.ToString() + " Meses";
-                }
-            }
-        }
 
         public virtual string Sacolinha
         {
@@ -443,16 +456,6 @@ namespace Jack.Model
                     return "Não";
                 }
             }
-        }
-
-        public virtual string DataNascimentoString
-        {
-            get { return DataNascimento.ToShortDateString(); }
-        }
-
-        public virtual string DataFormated
-        {
-            get { return DataNascimento.Day.ToString("00") + "/" + DataNascimento.Month.ToString("00") + "/" + DataNascimento.Year.ToString("0000"); }
         }
 
     }

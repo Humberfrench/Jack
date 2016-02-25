@@ -13,8 +13,8 @@ namespace Jack.Data.Map
             Id(x => x.Codigo).Column("id_familia_crianca");
 
             //References
-            References(x => x.Crianca).Column("id_crianca").Not.Nullable().Not.LazyLoad();
-            References(x => x.Familia).Column("id_familia").Not.Nullable().Not.LazyLoad();
+            References(x => x.Crianca).Column("id_crianca").Not.Nullable();
+            References(x => x.Familia).Column("id_familia").Not.Nullable();
 
         }
     }
