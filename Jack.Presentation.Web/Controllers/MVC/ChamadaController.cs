@@ -1,21 +1,17 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Web;
 using System.Web.Mvc;
-using Business = Jack.Business;
-using Model = Jack.Model;
 
-
-
-namespace Controllers.MVC
+namespace Jack.Presentation.Web.Controllers.MVC
 {
-	public class ChamadaController : Controller
-	{
-
-		// GET: Chamada
-		public ActionResult Index()
-		{
-			return View();
-		}
-	}
+    public class ChamadaController : Controller
+    {
+        // GET: Chamada
+        public ActionResult Index()
+        {
+            return View();
+        }
+    }
 }

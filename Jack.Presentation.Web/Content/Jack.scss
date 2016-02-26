@@ -92,12 +92,18 @@ body
 {
   width: 600px;
   display: table-cell; 
-  @include center_text(40px, 40px)
+  @include center_text(30px, 30px)
+}
+.col-form
+{
+  display: inline-block table-cell; 
+  @include center_text(30px, 30px)
 }
 .table-row
 {
 	font-weight: bold; 
 	color: $second_color_white; 
-	@include center_text(40px, 40px);
+    display: table-row;
+	@include center_text(30px, 30px);
 }
 
