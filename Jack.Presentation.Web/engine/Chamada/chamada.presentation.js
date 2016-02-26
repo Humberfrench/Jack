@@ -8,14 +8,13 @@
 /// <reference path="/engine/geral/mensagem.js" />
 /// <reference path="/engine/geral/util.js" />
 /// <reference path="chamada.controller.js" />
-/// <reference path="chamada.presentation.js" />
 
 //TO SELECT 2 LOOK AT https://select2.github.io/examples.html
 
 
 var Chamada = new Object;
 
-Chamada.Load = function ()
+Familia.Load = function ()
 {
     var objRet = null;
     $.ajax({
@@ -39,7 +38,7 @@ Chamada.Load = function ()
 
 };
 
-Chamada.Registrar = function ()
+Familia.Registrar = function ()
 {
     var objRet = null;
     $.ajax({

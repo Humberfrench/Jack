@@ -144,6 +144,7 @@
     </Content>
     <Content Include="Content\toastr.css" />
     <Content Include="Content\toastr.min.css" />
+    <Content Include="engine\Chamada\chamada.presentation.js" />
     <Content Include="engine\Chamada\chamada.controller.js" />
     <Content Include="engine\Chamada\chamada.js" />
     <Content Include="engine\FamiliaCrianca\FamiliaCrianca.controller.js" />
