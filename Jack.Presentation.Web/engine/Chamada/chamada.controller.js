@@ -13,8 +13,9 @@
 angular.module('CECAMApp', []).controller('ngChamadaController', function ($scope)
 {
     //campos
-    $scope.Ano = $("#ddlAno").val();
     $scope.Reuniao = 0;
+    $scope.Ano = 0 // $("#ddlAno").val();
+    $scope.Anos = Util.Anos;
 
     $scope.ReuniaoLista = Reuniao.LoadDatas($scope.Ano);
 
@@ -28,14 +29,24 @@ angular.module('CECAMApp', []).controller('ngChamadaController', function ($scop
 
 	$scope.LoadReuniao = function (ID)
 	{
+	    if (ID == 0)
+	    {
+	        return;
+	    }
+	        
 	    $scope.Reuniao = ID;
 	    $scope.itens = Chamada.Load($scope.Reuniao);
 	};
 
 	$scope.LoadDatas = function (ID)
 	{
+	    if (ID == 0)
+	    {
+	        return;
+	    }
+
 	    $scope.Ano = ID;
-	    $scope.itens = Reuniao.LoadDatas($scope.Ano);
+	    $scope.ReuniaoLista = Reuniao.LoadDatas($scope.Ano);
 	};
 
 });

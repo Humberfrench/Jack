@@ -18,11 +18,11 @@ var Reuniao = new Object;
 Reuniao.LoadDatas = function (intAno)
 {
     var objRet = null;
-
-    if (intAno == 0)
+    if ((intAno == 0) || (intAno == undefined))
     {
         return null;
     }
+     
     $.ajax({
         type: 'GET',
         url: '/api/DataReuniao/' + intAno,

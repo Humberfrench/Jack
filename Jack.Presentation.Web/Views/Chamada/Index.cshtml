@@ -5,6 +5,7 @@
 }
 @System.Web.Optimization.Scripts.Render("~/bundles/Angular")
 @System.Web.Optimization.Scripts.Render("~/bundles/reuniao")
+@System.Web.Optimization.Scripts.Render("~/bundles/util")
 @System.Web.Optimization.Scripts.Render("~/bundles/chamada")
 
 <div ng-controller="ngChamadaController">
@@ -19,13 +20,9 @@
                 <span class="col-form" style="width:10px;">&nbsp;</span>
                 <span class="col-form" style="text-align:left;">
                     <select id="ddlAno" style="width:200px;" ng-change="LoadDatas(item.Ano)" ng-model="item.Ano">
-                        <option value="2014">2014</option>
-                        <option value="2015">2015</option>
-                        <option value="2016">2016</option>
-                        <option value="2017">2017</option>
-                        <option value="2018">2018</option>
-                        <option value="2019">2019</option>
-                        <option value="2020">2020</option>
+                        <option ng-repeat="option in Anos" value="{{option.value}}">
+                            {{option.desc}}
+                        </option>
                     </select>
                 </span>
                 <span class="col-form" style="width:10px;">&nbsp;</span>
