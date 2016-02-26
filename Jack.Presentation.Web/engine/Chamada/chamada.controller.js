@@ -11,14 +11,12 @@
 
 angular.module('CECAMApp', []).controller('ngFamiliaController', function ($scope)
 {
-	$scope.itens = Familia.Load();
+	$scope.itens = Chamada.Load();
 
 	$scope.DatasReuniao = Reuniao.LoadDatas();
 
 	$scope.Presenca = function (itemDados)
 	{
-		//deleting
-		Familia.Delete(itemDados.Codigo);
 		//reload
 		$scope.itens = familia.Load();
 	}

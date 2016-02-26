@@ -3,7 +3,9 @@
     ViewBag.Title = "Chamada";
     Layout = "~/Views/SharedFolder/_JackLayoutPage.cshtml";
 }
-<div ng-controller="ngChamadaController"
+@System.Web.Optimization.Scripts.Render("~/bundles/Angular")
+@System.Web.Optimization.Scripts.Render("~/bundles/chamada")
+<div ng-controller="ngChamadaController">
     <div class="Titulo">Cadastro de Presença</div><br /><br />
     <br />
     <div style="width:980px; margin: 0 auto;">

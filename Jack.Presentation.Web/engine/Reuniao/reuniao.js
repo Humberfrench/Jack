@@ -20,7 +20,7 @@ Reuniao.LoadDatas = function (intAno)
     var objRet = null;
     $.ajax({
         type: 'GET',
-        url: '/api/Reuniao/Get/ObterDatasReuniao/' + intAno,
+        url: '/api/DataReuniao/' + intAno,
         dataType: 'json',
         cache: 'false',
         contentType: 'application/json; charset=utf-8',
