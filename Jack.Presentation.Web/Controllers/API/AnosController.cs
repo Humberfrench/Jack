@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Jack.Model.DTOs;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -9,12 +10,12 @@ namespace Jack.Presentation.Web.Controllers.API
 {
     public class AnosController : ApiController
     {
-        public List<string> GetValues()
+        public List<DTOAnos> GetValues()
         {
-            List<string> listaRetorno = new List<string>();
+            List<DTOAnos> listaRetorno = new List<DTOAnos>();
             for (int ano = 2014; ano <= 2020; ano++)
             {
-                listaRetorno.Add(ano.ToString());
+                listaRetorno.Add(new DTOAnos(ano.ToString(), ano.ToString()));
             }
             return listaRetorno;
         }

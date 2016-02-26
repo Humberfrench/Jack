@@ -15,7 +15,7 @@ angular.module('CECAMApp', []).controller('ngChamadaController', function ($scop
     //campos
     $scope.Reuniao = 0;
     $scope.Ano = 0 // $("#ddlAno").val();
-    $scope.Anos = Util.Anos;
+    $scope.Anos = Util.Anos();
 
     $scope.ReuniaoLista = Reuniao.LoadDatas($scope.Ano);
 

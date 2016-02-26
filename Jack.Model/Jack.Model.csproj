@@ -63,6 +63,7 @@
   <ItemGroup>
     <Compile Include="BaseModel.cs" />
     <Compile Include="DTOs\CriancasInconsistentes.cs" />
+    <Compile Include="DTOs\DTOAnos.cs" />
     <Compile Include="DTOs\DTOCriancaRepresentante.cs" />
     <Compile Include="DTOs\DTOCrianca.cs" />
     <Compile Include="DTOs\DTOFamiliaChamada.cs" />
