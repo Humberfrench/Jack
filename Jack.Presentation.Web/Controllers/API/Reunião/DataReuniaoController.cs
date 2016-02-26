@@ -11,12 +11,12 @@ namespace Controllers.API
 	{
 
 		[HttpGet()]
-		public IList<Model.Reuniao> GetValues(int intAno)
+		public IList<Model.Reuniao> GetValues([FromUri()] int ID)
 		{
 			Business.Reuniao oReuniao = new Business.Reuniao();
 			IList<Model.Reuniao> oReturn = default(List<Model.Reuniao>);
 
-			oReturn = oReuniao.LoadByAnoCorrente(intAno);
+			oReturn = oReuniao.LoadByAnoCorrente(ID);
 			oReuniao = null;
 
 			return oReturn;

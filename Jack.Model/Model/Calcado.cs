@@ -3,9 +3,8 @@
 namespace Jack.Model
 {
     [Serializable()]
-    public class Calcado
+    public class Calcado : BaseModel<Calcado>
     {
-        private int codigo;
         private int numero;
         private string sexo;
         private int numeroInicio;
@@ -14,7 +13,6 @@ namespace Jack.Model
 
         public Calcado()
         {
-            codigo = 0;
             numero = 0;
             sexo = string.Empty;
             numeroFim = 0;
@@ -23,17 +21,6 @@ namespace Jack.Model
 
         }
 
-        public virtual int Codigo
-        {
-            get
-            {
-                return codigo;
-            }
-            set
-            {
-                codigo = value;
-            }
-        }
 
         public virtual int Numero
         {

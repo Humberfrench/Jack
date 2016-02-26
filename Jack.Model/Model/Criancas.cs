@@ -1,4 +1,5 @@
 ﻿using System;
+using Jack.Library.Extensions;
 
 namespace Jack.Model
 {
@@ -289,12 +290,18 @@ namespace Jack.Model
         // locais de uso local
         public virtual string DataCriacaoString
         {
-            get { return DataCriacao.ToShortDateString(); }
+            get
+            {
+                return DataCriacao.ToShortDateString();
+            }
         }
 
         public virtual string DataCriacaoFormated
         {
-            get { return DataCriacao.Day.ToString("00") + "/" + DataCriacao.Month.ToString("00") + "/" + DataCriacao.Year.ToString("0000"); }
+            get
+            {
+                return DataCriacao.ToDateFormated();
+            }
         }
 
         public virtual string DataAtualizacaoString
@@ -304,7 +311,10 @@ namespace Jack.Model
 
         public virtual string DataAtualizacaoFormated
         {
-            get { return DataAtualizacao.Day.ToString("00") + "/" + DataAtualizacao.Month.ToString("00") + "/" + DataAtualizacao.Year.ToString("0000"); }
+            get
+            {
+                return DataAtualizacao.ToDateFormated();
+            }
         }
 
         public virtual string DataNascimentoString
@@ -313,8 +323,11 @@ namespace Jack.Model
         }
 
         public virtual string DataFormated
-        {
-            get { return DataNascimento.Day.ToString("00") + "/" + DataNascimento.Month.ToString("00") + "/" + DataNascimento.Year.ToString("0000"); }
+        { 
+            get
+            {
+                return DataNascimento.ToDateFormated();
+            }
         }
 
         public virtual string NomeFamilia
@@ -412,9 +425,6 @@ namespace Jack.Model
                 dataCriacao = value;
             }
         }
-
-
-
 
         public virtual string Sacolinha
         {
