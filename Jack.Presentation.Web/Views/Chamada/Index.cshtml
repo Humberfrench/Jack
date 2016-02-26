@@ -4,7 +4,9 @@
     Layout = "~/Views/SharedFolder/_JackLayoutPage.cshtml";
 }
 @System.Web.Optimization.Scripts.Render("~/bundles/Angular")
+@System.Web.Optimization.Scripts.Render("~/bundles/reuniao")
 @System.Web.Optimization.Scripts.Render("~/bundles/chamada")
+
 <div ng-controller="ngChamadaController">
     <div class="Titulo">Cadastro de Presença</div><br /><br />
     <br />
@@ -16,7 +18,7 @@
                 <span class="col-form" style="text-align:right;width:120px;"><label class="control-label" id="labelAno" for="ddlAno">Ano Corrente:</label></span>
                 <span class="col-form" style="width:10px;">&nbsp;</span>
                 <span class="col-form" style="text-align:left;">
-                    <select id="ddlReuniao" style="width:200px;">
+                    <select id="ddlAno" style="width:200px;" ng-change="LoadDatas(item.Ano)" ng-model="item.Ano">
                         <option value="2014">2014</option>
                         <option value="2015">2015</option>
                         <option value="2016">2016</option>
@@ -30,7 +32,11 @@
                 <span class="col-form" style="text-align:right;width:140px;"><label class="control-label" id="labelReuniao" for="ddlReuniao">Data da Reunião:</label></span>
                 <span class="col-form" style="width:10px;">&nbsp;</span>
                 <span class="col-form" style="text-align:left;">
-                    <select id="ddlReuniao" style="width:450px;"></select>
+                    <select id="ddlReuniao" style="width:450px;" ng-change="LoadReuniao(item.Reuniao)" ng-model="item.Reuniao">
+                        <option ng-repeat="option in ReuniaoLista" value="{{option.codigo}}">
+                            {{option.dataReuniao}}
+                        </option>
+                    </select>
                 </span>
                 <span class="col-form" style="width:10px;">&nbsp;</span>
             </div>

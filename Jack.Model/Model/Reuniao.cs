@@ -13,12 +13,14 @@ namespace Jack.Model
             anoCorrente = 0;
             familia = new List<Presenca>();
             data = DateTime.Now;
+            dataReuniao = data.ToDateFormated();
         }
 
-        private int ano { get; set; }
-        private int anoCorrente { get; set; }
-        private DateTime data { get; set; }
-        private List<Presenca> familia { get; set; }
+        private int ano;
+        private int anoCorrente;
+        string dataReuniao;
+        private DateTime data;
+        private List<Presenca> familia;
 
         public virtual int Ano
         {
@@ -53,6 +55,8 @@ namespace Jack.Model
             set
             {
                 data = value;
+                dataReuniao = data.ToDateFormated();
+
             }
         }
 
@@ -73,7 +77,7 @@ namespace Jack.Model
         {
             get
             {
-                return Data.ToDateFormated();
+                return dataReuniao;
             }
         }
 

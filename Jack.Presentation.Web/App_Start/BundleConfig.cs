@@ -15,7 +15,8 @@ namespace Jack.Presentation.Web
             bundles.Add(new ScriptBundle("~/bundles/engine").Include("~/engine/geral/mensagens.js", "~/engine/geral/util.js"));
             bundles.Add(new ScriptBundle("~/bundles/familia").Include("~/engine/familia/familia.js", "~/engine/familia/familia.controller.js", "~/engine/familia/familia.presentation.js"));
             bundles.Add(new ScriptBundle("~/bundles/status").Include("~/engine/geral/status.js"));
-            bundles.Add(new ScriptBundle("~/bundles/chamada").Include("~/engine/geral/chamada.js", "~/engine/geral/chamada.controller.js", "~/engine/geral/chamada.presentation.js"));
+            bundles.Add(new ScriptBundle("~/bundles/chamada").Include("~/engine/chamada/chamada.js", "~/engine/chamada/chamada.controller.js", "~/engine/chamada/chamada.presentation.js"));
+            bundles.Add(new ScriptBundle("~/bundles/reuniao").Include("~/engine/reuniao/reuniao.js"));
 
         }
 

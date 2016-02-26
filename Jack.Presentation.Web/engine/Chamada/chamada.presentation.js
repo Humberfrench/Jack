@@ -12,52 +12,19 @@
 //TO SELECT 2 LOOK AT https://select2.github.io/examples.html
 
 
-var Chamada = new Object;
 
-Familia.Load = function ()
+$(function ()
 {
-    var objRet = null;
-    $.ajax({
-        type: 'GET',
-        url: '/api/familia/',
-        dataType: 'json',
-        cache: 'false',
-        contentType: 'application/json; charset=utf-8',
-        async: false,
-        success: function (data, textStatus, xhr)
-        {
-            objRet = data;
-        },
-        error: function (xhr, msg, e)
-        {
-            Mensagem.Erro(xhr.responseText);
-        }
-    });
+    // Load Combo
+    //Familia.LoadStatus(ddlStatus, Status.LoadForFamily());
 
-    return objRet;
+    //$("#txtNivel").val($("#ddlNivel").val());
+    //$("#txtStatus").val($("#ddlStatus").val());
 
-};
+    //$("#ddlStatus").select2();
+    //$("#ddlNivel").select2();
 
-Familia.Registrar = function ()
-{
-    var objRet = null;
-    $.ajax({
-        type: 'GET',
-        url: '/api/familia/',
-        dataType: 'json',
-        cache: 'false',
-        contentType: 'application/json; charset=utf-8',
-        async: false,
-        success: function (data, textStatus, xhr)
-        {
-            objRet = data;
-        },
-        error: function (xhr, msg, e)
-        {
-            Mensagem.Erro(xhr.responseText);
-        }
-    });
+    //$("#ddlNivel").on("select2:select", function (e) { Select2OnChange(e, txtNivel); });
+    //$("#ddlStatus").on("select2:select", function (e) { Select2OnChange(e, txtStatus); });
 
-    return objRet;
-
-};
+});

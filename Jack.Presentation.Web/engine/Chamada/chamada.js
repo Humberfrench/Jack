@@ -15,12 +15,12 @@
 
 var Chamada = new Object;
 
-Chamada.Load = function ()
+Chamada.Load = function (ID)
 {
     var objRet = null;
     $.ajax({
         type: 'GET',
-        url: '/api/familia/',
+        url: '/api/chamada/' + ID,
         dataType: 'json',
         cache: 'false',
         contentType: 'application/json; charset=utf-8',

@@ -12,16 +12,30 @@
 
 angular.module('CECAMApp', []).controller('ngChamadaController', function ($scope)
 {
-    var intAno = $("#txtCodigo").val();
+    //campos
+    $scope.Ano = $("#ddlAno").val();
+    $scope.Reuniao = 0;
 
-	$scope.itens = Chamada.Load();
+    $scope.ReuniaoLista = Reuniao.LoadDatas($scope.Ano);
 
-	$scope.DatasReuniao = Reuniao.LoadDatas();
+    $scope.itens = Chamada.Load($scope.Reuniao);
 
-	$scope.Presenca = function (itemDados)
+	//$scope.Presenca = function (itemDados)
+	//{
+	//	//reload
+	//	$scope.itens = familia.Load();
+	//}
+
+	$scope.LoadReuniao = function (ID)
 	{
-		//reload
-		$scope.itens = familia.Load();
-	}
+	    $scope.Reuniao = ID;
+	    $scope.itens = Chamada.Load($scope.Reuniao);
+	};
+
+	$scope.LoadDatas = function (ID)
+	{
+	    $scope.Ano = ID;
+	    $scope.itens = Reuniao.LoadDatas($scope.Ano);
+	};
 
 });
