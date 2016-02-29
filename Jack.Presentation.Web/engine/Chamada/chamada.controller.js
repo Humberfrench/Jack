@@ -21,12 +21,6 @@ angular.module('CECAMApp', []).controller('ngChamadaController', function ($scop
 
     $scope.itens = Chamada.Load($scope.Reuniao);
 
-	//$scope.Presenca = function (itemDados)
-	//{
-	//	//reload
-	//	$scope.itens = familia.Load();
-	//}
-
 	$scope.LoadReuniao = function (ID)
 	{
 	    if (ID == 0)

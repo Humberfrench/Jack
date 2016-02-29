@@ -18,6 +18,10 @@ var Chamada = new Object;
 Chamada.Load = function (ID)
 {
     var objRet = null;
+    if (ID == 0)
+    {
+        return;
+    }
     $.ajax({
         type: 'GET',
         url: '/api/chamada/' + ID,

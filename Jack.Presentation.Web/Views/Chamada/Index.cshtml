@@ -48,13 +48,10 @@
     </table>
     <div id="divDadosGrid" style="width:980px;  margin: 0 auto;height:368px;overflow-y:auto;">
         <table class="table table-striped" style="width: 960px;">
-                <tr>
-                    <td style="width:100px">
-                    </td>
-                    <td style="width:600px">
-                    </td>
-                    <td style="width:100px">
-                    </td>
+                <tr ng-repeat="item in itens">
+                    <td style="width:100px">{{item.Codigo}}</td>
+                    <td style="width:600px">{{item.Nome}}</td>
+                    <td style="width:100px"><button class="btn btn-default" ng-click="GravarPresenca(item)">Registrar</button></td>
                     <td> &nbsp;</td>
                 </tr>
         </table>
