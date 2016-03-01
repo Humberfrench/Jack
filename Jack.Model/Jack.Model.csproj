@@ -67,6 +67,8 @@
     <Compile Include="DTOs\DTOCriancaRepresentante.cs" />
     <Compile Include="DTOs\DTOCrianca.cs" />
     <Compile Include="DTOs\DTOFamiliaChamada.cs" />
+    <Compile Include="DTOs\DTOMneumonicos.cs" />
+    <Compile Include="DTOs\DTOPresenca.cs" />
     <Compile Include="Model\FamiliaBlackList.cs" />
     <Compile Include="Model\FamiliaCrianca.cs" />
     <Compile Include="DTOs\FamiliaLote.cs" />

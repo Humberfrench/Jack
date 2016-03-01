@@ -2,7 +2,6 @@ using Jack.Model.DTOs;
 using System.Collections.Generic;
 using System.Web.Http;
 using Business = Jack.Business;
-using Model = Jack.Model;
 
 namespace Controllers.API
 {
@@ -21,6 +20,17 @@ namespace Controllers.API
 			return oReturn;
 		}
 
-	}
+
+        [HttpPost]
+        public void PostValue([FromUri()] int intFamilia, imt intReuniao)
+        {
+            DTOPresenca presencaMae;
+            presencaMae = new DTOPresenca();
+            Business.Presenca oChamada = new Business.Presenca();
+
+            //oChamada.
+        }
+
+    }
 }
 

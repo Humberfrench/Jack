@@ -43,6 +43,71 @@ Chamada.Load = function (ID)
 
 };
 
+Chamada.LoadMneumonicos = function (ID, Letter)
+{
+    var objRet = null;
+    if (ID == 0)
+    {
+        return;
+    }
+    if (Letter == '')
+    {
+        return;
+    }
+    else if (Letter == 'Todos')
+    {
+        return Chamada.Load(ID);
+    }
+
+    var stringChamada = '?ID=' + ID + '&letter=' + Letter
+    $.ajax({
+        type: 'GET',
+        url: '/api/ChamadaFiltro/' + stringChamada,
+        dataType: 'json',
+        cache: 'false',
+        contentType: 'application/json; charset=utf-8',
+        async: false,
+        success: function (data, textStatus, xhr)
+        {
+            objRet = data;
+        },
+        error: function (xhr, msg, e)
+        {
+            Mensagem.Erro(xhr.responseText);
+        }
+    });
+
+    return objRet;
+
+};
+Chamada.LoadFiltro = function (ID)
+{
+    var objRet = null;
+    if (ID == 0)
+    {
+        return;
+    }
+    $.ajax({
+        type: 'GET',
+        url: '/api/ChamadaFiltro/' + ID,
+        dataType: 'json',
+        cache: 'false',
+        contentType: 'application/json; charset=utf-8',
+        async: false,
+        success: function (data, textStatus, xhr)
+        {
+            objRet = data;
+        },
+        error: function (xhr, msg, e)
+        {
+            Mensagem.Erro(xhr.responseText);
+        }
+    });
+
+    return objRet;
+
+};
+
 Chamada.Registrar = function ()
 {
     var objRet = null;

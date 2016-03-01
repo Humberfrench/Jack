@@ -19,11 +19,7 @@ namespace Jack.Presentation.Web
 
             config.Routes.MapHttpRoute(name: "ObtemVazios2", routeTemplate: "api/{controller}/{action}/{id}", defaults: new { id = RouteParameter.Optional });
 
-            //config.Routes.MapHttpRoute(
-            //    name:="ActionApi2",
-            //    routeTemplate:="api/{controller}/{MasterID}/{DetailID}",
-            //    defaults:=New With {.MasterID = RouteParameter.Optional, .DetailID = RouteParameter.Optional}
-            //)
+            config.Routes.MapHttpRoute(name: "ActionApiGetFilter", routeTemplate: "api/{controller}/{ID}/{Letter}", defaults: new { ID = RouteParameter.Optional, Letter = RouteParameter.Optional } );
 
             //config.Routes.MapHttpRoute(
             //    name:="ActionApi2",

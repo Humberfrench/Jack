@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Jack.Model.DTOs;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -64,7 +65,41 @@ namespace Jack.Business
             return oRetorno;
 
         }
+        public bool Registrar(DTOPresenca presencaMae)
+        {
+            Data.Presenca oDados = null;
+            Data.Familia oFamilia = null;
+            Data.Reuniao oReuniao = null;
+            bool blnRetorno = false;
+            Model.Presenca modelPresenca = null;
 
+            try
+            {
+                oDados = new Data.Presenca();
+                oFamilia = new Data.Familia();
+                oReuniao = new Data.Reuniao();
+                modelPresenca = new Model.Presenca();
+
+                modelPresenca.Familia = oFamilia.Find(presencaMae.Familia);
+                modelPresenca.Reuniao = oReuniao.Find(presencaMae.Reuniao);
+                blnRetorno = oDados.Insert(modelPresenca);
+            }
+            catch (Exception ex)
+            {
+                blnRetorno = false;
+                throw ex;
+            }
+            finally
+            {
+                oDados = null;
+                oFamilia = null;
+                oReuniao = null;
+                modelPresenca = null;
+            }
+
+            return blnRetorno;
+
+        }
         public bool Insert(Model.Presenca oTipo)
         {
 

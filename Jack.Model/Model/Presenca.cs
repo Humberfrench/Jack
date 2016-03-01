@@ -15,6 +15,11 @@ namespace Jack.Model
             reuniao = new Reuniao();
         }
 
+        public Presenca(int intFamilia, int intReuniao) : this()
+        {
+            familia.Codigo = intFamilia;
+            reuniao.Codigo = intReuniao;
+        }
         #endregion
 
         private Familia familia;

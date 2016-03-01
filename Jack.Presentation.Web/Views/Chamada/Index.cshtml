@@ -9,8 +9,7 @@
 @System.Web.Optimization.Scripts.Render("~/bundles/chamada")
 
 <div ng-controller="ngChamadaController">
-    <div class="Titulo">Cadastro de Presença</div><br /><br />
-    <br />
+    <div class="Titulo">Cadastro de Presença</div>
     <div style="width:980px; margin: 0 auto;">
         <div id="divForm" class="container-form">
             <div class="SubTitulo">Pesquisa</div>
@@ -19,7 +18,7 @@
                 <span class="col-form" style="text-align:right;width:120px;"><label class="control-label" id="labelAno" for="ddlAno">Ano Corrente:</label></span>
                 <span class="col-form" style="width:10px;">&nbsp;</span>
                 <span class="col-form" style="text-align:left;">
-                    <select id="ddlAno" style="width:200px;" ng-change="LoadDatas(item.Ano)" ng-model="item.Ano">
+                    <select id="ddlAno" style="width:100px;" ng-change="LoadDatas(item.Ano)" ng-model="item.Ano">
                         <option ng-repeat="option in Anos" value="{{option.Value}}">
                             {{option.Descricao}}
                         </option>
@@ -29,32 +28,45 @@
                 <span class="col-form" style="text-align:right;width:140px;"><label class="control-label" id="labelReuniao" for="ddlReuniao">Data da Reunião:</label></span>
                 <span class="col-form" style="width:10px;">&nbsp;</span>
                 <span class="col-form" style="text-align:left;">
-                    <select id="ddlReuniao" style="width:450px;" ng-change="LoadReuniao(item.Reuniao)" ng-model="item.Reuniao">
+                    <select id="ddlReuniao" style="width:200px;" ng-change="LoadReuniao(item.Reuniao)" ng-model="item.Reuniao">
                         <option ng-repeat="option in ReuniaoLista" value="{{option.codigo}}">
                             {{option.dataReuniao}}
                         </option>
                     </select>
                 </span>
                 <span class="col-form" style="width:10px;">&nbsp;</span>
+                <span class="col-form" style="text-align:right;width:100px;"><label class="control-label" id="labelMneumonico" for="ddlMneumonico">Mneumonico:</label></span>
+                <span class="col-form" style="width:10px;">&nbsp;</span>
+                <span class="col-form" style="text-align:left;">
+                    <select id="ddlReuniao" style="width:100px;" ng-model="item.Mneumonico">
+                        <option ng-repeat="Mneumonico in Mneumonicos" value="{{Mneumonico.Valor}}">
+                            {{Mneumonico.Valor}}
+                        </option>
+                    </select>
+                </span>
+                <span class="col-form" style="width:150px;">
+                        <button class="btn btn-danger" ng-click="FiltroChamadas(item)">Filtro Letras</button>
+                </span>
+                <span class="col-form" style="width:10px;">&nbsp;</span>
             </div>
         </div>
-    <table class="table" style="width:980px; margin: 0 auto;">
-        <tr class="label-primary table-row">
-            <td style="width:100px">ID</td>
-            <td style="width:600px">Nome da Mãe</td>
-            <td style="width:100px">&nbsp;</td>
-            <td style="width:180px">&nbsp;</td>
-        </tr>
-    </table>
-    <div id="divDadosGrid" style="width:980px;  margin: 0 auto;height:368px;overflow-y:auto;">
-        <table class="table table-striped" style="width: 960px;">
+        <table class="table" style="width:980px; margin: 0 auto;">
+            <tr class="label-primary table-row">
+                <td style="width:100px">ID</td>
+                <td style="width:600px">Nome da Mãe</td>
+                <td style="width:100px">&nbsp;</td>
+                <td style="width:180px">&nbsp;</td>
+            </tr>
+        </table>
+        <div id="divDadosGrid" style="width:980px;  margin: 0 auto;height:368px;overflow-y:auto;">
+            <table class="table table-striped" style="width: 960px;">
                 <tr ng-repeat="item in itens">
                     <td style="width:100px">{{item.Codigo}}</td>
                     <td style="width:600px">{{item.Nome}}</td>
-                    <td style="width:100px"><button class="btn btn-default" ng-click="GravarPresenca(item)">Registrar</button></td>
+                    <td style="width:100px"><button class="btn btn-info" ng-click="GravarPresenca(item)">Registrar</button></td>
                     <td> &nbsp;</td>
                 </tr>
-        </table>
-    </div>
+            </table>
+        </div>
     </div>
 </div>

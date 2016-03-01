@@ -21,6 +21,9 @@ angular.module('CECAMApp', []).controller('ngChamadaController', function ($scop
 
     $scope.itens = Chamada.Load($scope.Reuniao);
 
+    $scope.Mneumonicos = Chamada.LoadMneumonicos($scope.Reuniao);
+	    $scope.Mneumonico = '';
+
 	$scope.LoadReuniao = function (ID)
 	{
 	    if (ID == 0)
@@ -30,6 +33,9 @@ angular.module('CECAMApp', []).controller('ngChamadaController', function ($scop
 	        
 	    $scope.Reuniao = ID;
 	    $scope.itens = Chamada.Load($scope.Reuniao);
+	    $scope.Mneumonicos = Chamada.LoadFiltro($scope.Reuniao);
+	    $scope.Mneumonico = '';
+
 	};
 
 	$scope.LoadDatas = function (ID)
@@ -41,6 +47,15 @@ angular.module('CECAMApp', []).controller('ngChamadaController', function ($scop
 
 	    $scope.Ano = ID;
 	    $scope.ReuniaoLista = Reuniao.LoadDatas($scope.Ano);
+	};
+
+	$scope.FiltroChamadas = function (item)
+	{
+	    if (item.Mneumonico == '')
+	    {
+	        return;
+	    }
+	    $scope.itens = Chamada.LoadMneumonicos(item.Reuniao, item.Mneumonico);
 	};
 
 });
