@@ -1,52 +1,82 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Jack.Library.Extensions;
+using System;
 
 namespace Jack.Model
 {
     [Serializable()]
-    public class TipoItem
+    public class TipoItem:BaseModel<TipoItem>
     {
 
         #region "Construtor"
 
-        public TipoItem()
+        public TipoItem() : base()
         {
             Codigo = 0;
-            Descricao = string.Empty;
+            descricao = string.Empty;
+            isOpcional= string.Empty;
+            opcional = string.Empty;
         }
 
         public TipoItem(string strDescricao)
         {
             Codigo = 0;
             Descricao = strDescricao;
+            isOpcional = string.Empty;
+            opcional = string.Empty;
         }
 
         public TipoItem(int intCodigo, string strDescricao)
         {
             Codigo = intCodigo;
             Descricao = strDescricao;
+            isOpcional = string.Empty;
+            opcional = string.Empty;
+        }
+
+        public TipoItem(int intCodigo, string strDescricao, string strIsOpcional)
+        {
+            Codigo = intCodigo;
+            Descricao = strDescricao;
+            isOpcional = strIsOpcional;
+            opcional = strIsOpcional.ToSimNao();
         }
 
         #endregion
 
-        public virtual int Codigo { get; set; }
-        public virtual string Descricao { get; set; }
-        public virtual string IsOpcional { get; set; }
+        private string isOpcional;
+        private string opcional;
+        private string descricao;
+
+        public virtual string Descricao
+        {
+            get
+            {
+                return descricao;
+            }
+            set
+            {
+                descricao = value;
+            }
+        }
+
+        public virtual string IsOpcional
+        {
+            get
+            {
+                return isOpcional;
+            }
+            set
+            {
+                opcional = IsOpcional.ToSimNao();
+                isOpcional = value;
+            }
+        }
 
         public virtual string Opcional
         {
             get
             {
-                if (IsOpcional == "S")
-                {
-                    return "Opcional";
-                }
-                else {
-                    return "Não";
-                }
+                return opcional;
             }
         }
 

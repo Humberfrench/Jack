@@ -97,12 +97,12 @@ namespace Jack.Data
                     oRetorno = new Model.KitItem();
                     oRetorno.Codigo = Convert.ToInt32(dr["id_kit_item"].ToString());
                     oRetorno.Kit.Codigo = Convert.ToInt32(dr["id_kit"].ToString());
-                    oRetorno.KitDescricao = dr["ds_kit"].ToString();
-                    oRetorno.TipoItem = Convert.ToInt32(dr["id_tipo_item"].ToString());
-                    oRetorno.TipoItemDescricao = dr["ds_tipo_item"].ToString();
+                    oRetorno.Kit.Descricao = dr["ds_kit"].ToString();
+                    oRetorno.TipoItem = new Model.TipoItem(Convert.ToInt32(dr["id_tipo_item"].ToString()), 
+                                                           dr["ds_tipo_item"].ToString(),
+                                                           dr["is_opcional"].ToString());
                     oRetorno.Observacao = dr["ds_observacao"].ToString();
                     oRetorno.Ordem = Convert.ToInt32(dr["nr_ordem"].ToString());
-                    oRetorno.IsOpcional = dr["is_opcional"].ToString();
                     lstRetorno.Add(oRetorno);
                 }
 

@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Jack.Library.Extensions;
 
 namespace Jack.Model
 {
@@ -12,7 +10,7 @@ namespace Jack.Model
 
         #region "Construtor"
 
-        public Kit()
+        public Kit() : base()
         {
             Codigo = 0;
             descricao = string.Empty;
@@ -24,7 +22,7 @@ namespace Jack.Model
             criancas = new List<Criancas>();
         }
 
-        public Kit(int intCodigo)
+        public Kit(int intCodigo) : this()
         {
             Codigo = intCodigo;
             descricao = string.Empty;
@@ -36,7 +34,9 @@ namespace Jack.Model
             criancas = new List<Criancas>();
         }
 
-        public Kit(int pCodigo, string pDescricao, int pIdadeMinima, int pIdadeMaxima, string pSexo, string pIsNecessidadeEspecial)
+        public Kit(int pCodigo, string pDescricao, 
+                   float pIdadeMinima, float pIdadeMaxima, 
+                   string pSexo, string pIsNecessidadeEspecial) : this()
         {
             Codigo = pCodigo;
             descricao = pDescricao;
@@ -51,10 +51,12 @@ namespace Jack.Model
         #endregion
 
         private string descricao;
-        private int idadeMinima;
-        private int idadeMaxima;
+        private float idadeMinima;
+        private float idadeMaxima;
         private string sexo;
+        private string sexoDesc;
         private string isNecessidadeEspecial;
+        private string necessidadeEspecial;
         private List<KitItem> items;
         private List<Criancas> criancas;
 
@@ -70,7 +72,7 @@ namespace Jack.Model
                 descricao = value;
             }
         }
-        public virtual int IdadeMinima
+        public virtual float IdadeMinima
         {
             get
             {
@@ -81,7 +83,7 @@ namespace Jack.Model
                 idadeMinima = value;
             }
         }
-        public virtual int IdadeMaxima
+        public virtual float IdadeMaxima
         {
             get
             {
@@ -101,6 +103,7 @@ namespace Jack.Model
             set
             {
                 sexo = value;
+                sexoDesc = sexo.ToSexoDescricao();
             }
         }
         public virtual string IsNecessidadeEspecial
@@ -111,6 +114,7 @@ namespace Jack.Model
             }
             set
             {
+                necessidadeEspecial = isNecessidadeEspecial.ToSimNao();
                 isNecessidadeEspecial = value;
             }
         }
@@ -136,6 +140,13 @@ namespace Jack.Model
                 items = value;
             }
         }
+        public virtual string NecessidadeEspecial
+        {
+            get
+            {
+                return necessidadeEspecial;
+            }
+        }
 
         public virtual string IdadeMinimaDesc
         {
@@ -150,13 +161,7 @@ namespace Jack.Model
         {
             get
             {
-                if (sexo == "F")
-                {
-                    return "Feminino";
-                }
-                else {
-                    return "Masculino";
-                }
+                return sexoDesc;
             }
         }
 

@@ -7,7 +7,7 @@ namespace Jack.Model
     public class Criancas:BaseModel<Criancas>
     {
 
-        public Criancas()
+        public Criancas():base()
         {
             nome = string.Empty;
             idade = 0;

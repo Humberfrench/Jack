@@ -69,6 +69,21 @@ namespace Jack.Library.Extensions
                 return "Não";
             }
         }
+        public static string ToSexoDescricao(this string stringValue)
+        {
+            if (stringValue == "F")
+            {
+                return "Menina";
+            }
+            else if (stringValue == "M")
+            {
+                return "Menino";
+            }
+            else
+            {
+                return "Indefinido";
+            }
+        }
 
     }
 }

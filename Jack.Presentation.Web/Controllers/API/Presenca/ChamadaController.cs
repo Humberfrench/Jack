@@ -22,13 +22,13 @@ namespace Controllers.API
 
 
         [HttpPost]
-        public void PostValue([FromUri()] int intFamilia, imt intReuniao)
+        public void PostValue([FromUri()] int intFamilia, int intReuniao)
         {
             DTOPresenca presencaMae;
-            presencaMae = new DTOPresenca();
+            presencaMae = new DTOPresenca(intFamilia, intReuniao);
             Business.Presenca oChamada = new Business.Presenca();
 
-            //oChamada.
+            oChamada.Registrar(presencaMae);
         }
 
     }

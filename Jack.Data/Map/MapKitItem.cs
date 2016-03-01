@@ -12,7 +12,6 @@ namespace Jack.Data.Map
 
             //Fields
             Id(x => x.Codigo);
-            Map(x => x.TipoItem).Column("id_tipo_item").Not.Nullable();
             Map(x => x.Observacao).Column("ds_observacao").Nullable();
             Map(x => x.Ordem).Column("nr_ordem").Not.Nullable();
 
