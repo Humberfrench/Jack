@@ -9,7 +9,7 @@ namespace Jack.Model
     public abstract class BaseModel<T> : IEntidade where T : IEntidade
     {
 
-        private int codigo;
+        protected int codigo;
 
         public BaseModel()
         {

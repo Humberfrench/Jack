@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Jack.Library.Extensions;
+using System;
 using System.Collections.Generic;
 
 namespace Jack.Model
@@ -39,6 +40,8 @@ namespace Jack.Model
         private string descricao;
         private string permiteSacola;
         private string nivelStatus;
+        private string permiteSacolaDesc;
+        private string nivelStatusDesc;
         private IList<Familia> familias;
         private IList<Criancas> criancas;
         #endregion
@@ -64,6 +67,7 @@ namespace Jack.Model
             set
             {
                 permiteSacola = value;
+                permiteSacolaDesc = permiteSacola.ToSimNao();
             }
         }
 
@@ -76,6 +80,7 @@ namespace Jack.Model
             set
             {
                 nivelStatus = value;
+                nivelStatusDesc.ToNivel();
             }
         }
 
@@ -84,13 +89,7 @@ namespace Jack.Model
         {
             get
             {
-                if (permiteSacola == "S")
-                {
-                    return "Sim";
-                }
-                else {
-                    return "Não";
-                }
+                return permiteSacolaDesc;
             }
         }
 
@@ -98,17 +97,7 @@ namespace Jack.Model
         {
             get
             {
-                if (nivelStatus == "F")
-                {
-                    return "Família";
-                }
-                else if (nivelStatus == "C")
-                {
-                    return "Criança";
-                }
-                else {
-                    return "Todos";
-                }
+                return nivelStatusDesc;
             }
         }
 

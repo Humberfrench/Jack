@@ -8,17 +8,24 @@ namespace Jack.Data.Map
     {
         public MapColaboradorCrianca()
         {
-            //Table
-            Table("tb_colaborador_crianca");
+            try
+            {
+                //Table
+                Table("tb_colaborador_crianca");
 
-            //Fields
-            Id(x => x.Codigo);
-            Map(x => x.Ano).Column("nr_ano").Not.Nullable();
-            Map(x => x.IsDevolvida).Column("is_entregue").Not.Nullable();
+                //Fields
+                Id(x => x.Codigo).Column("id_colaborador_crianca");
+                Map(x => x.Ano).Column("nr_ano").Not.Nullable();
+                Map(x => x.IsDevolvida).Column("is_entregue").Not.Nullable();
 
-            //HasManyToMany
-            HasManyToMany<Model.ColaboradorCrianca>(x => x.Colaborador).Cascade.All().Table("tb_colaborador");
-            HasManyToMany<Model.ColaboradorCrianca>(x => x.Crianca).Cascade.All().Table("tb_crianca");
+                //HasManyToMany
+                References(x => x.Crianca).Column("id_crianca").Not.Nullable().Not.LazyLoad();
+                References(x => x.Colaborador).Column("id_colaborador").Not.Nullable().Not.LazyLoad();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
 
         }
     }

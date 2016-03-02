@@ -3,6 +3,9 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using Jack.Model.DTOs;
+using NHibernate;
+using NHibernate.Transform;
+using NHibernate.Criterion;
 
 namespace Jack.Data
 {
@@ -156,6 +159,27 @@ namespace Jack.Data
 
             return lstDados;
 
+        }
+
+        public IList<DTOFamilia> Load()
+        {
+            IList<DTOFamilia> listaStatus;
+            ICriteria criteria = oSession.CreateCriteria(typeof(Model.Familia), "F")
+                                         .CreateAlias("Status", "S", NHibernate.SqlCommand.JoinType.InnerJoin)
+                                         .SetProjection(Projections.ProjectionList()
+                                         .Add(Projections.Property("F.Codigo"), "Codigo")
+                                         .Add(Projections.Property("F.Nome"), "Nome")
+                                         .Add(Projections.Property("F.IsConsistente"), "IsConsistente")
+                                         .Add(Projections.Property("F.IsSacolinha"), "IsSacolinha")
+                                         .Add(Projections.Property("F.DataAtualizacao"), "DataAtualizacao")
+                                         .Add(Projections.Property("F.Contato"), "Contato")
+                                         .Add(Projections.Property("S.Codigo"), "statusCodigo")
+                                         .Add(Projections.Property("S.Descricao"), "Status"));
+
+            listaStatus = criteria.SetResultTransformer(Transformers.AliasToBean<DTOFamilia>()).List<DTOFamilia>();
+
+            criteria = null;
+            return listaStatus;
         }
 
     }

@@ -1,15 +1,16 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Jack.Model
 {
     [Serializable()]
-    public class Colaborador
+    public class Colaborador: BaseModel<Colaborador>
     {
 
         #region Constructor
         public Colaborador()
         {
-            codigo = 0;
+            Codigo = 0;
             nome = string.Empty;
             telefone = string.Empty;
             celular = string.Empty;
@@ -23,7 +24,6 @@ namespace Jack.Model
         #endregion
 
         #region Fields
-        private int codigo;
         private string nome;
         private string telefone;
         private string celular;
@@ -33,18 +33,21 @@ namespace Jack.Model
         private int totalSacolas;
         private int quantidadeSacolas;
         private double percentualSacolas;
+
+        private IList<ColaboradorCrianca> criancas;
+
         #endregion
 
         #region Properties
-        public virtual int Codigo
+        public virtual IList<ColaboradorCrianca> Criancas
         {
             get
             {
-                return codigo;
+                return criancas;
             }
             set
             {
-                codigo = value;
+                criancas = value;
             }
         }
 
@@ -84,7 +87,7 @@ namespace Jack.Model
             }
         }
 
-        public virtual string CPF
+        public virtual string Cpf
         {
             get
             {
@@ -96,7 +99,7 @@ namespace Jack.Model
             }
         }
 
-        public virtual string EMail
+        public virtual string Email
         {
             get
             {

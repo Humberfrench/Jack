@@ -2,9 +2,8 @@
 using System;
 using System.Collections.Generic;
 using System.Web.Http;
-using Business = Jack.Business;
-using Model = Jack.Model;
-using Jack.Library.Extensions;
+using Jack.Business;
+using Jack.Model.DTOs;
 
 namespace Controllers.API
 {
@@ -12,16 +11,16 @@ namespace Controllers.API
 	{
 
 		[HttpGet()]
-		public IList<Model.Familia> GetValues()
+		public IList<DTOFamilia> GetValues()
 		{
 
-            IList<Model.Familia> lstRetorno = null;
-			Business.Familia oBusiness = null;
+            IList<DTOFamilia> lstRetorno = null;
+			Familia oBusiness = null;
 
             try
             {
-                oBusiness = new Business.Familia();
-                lstRetorno = oBusiness.LoadAll();
+                oBusiness = new Familia();
+                lstRetorno = oBusiness.Load();
 
             }
             catch (Exception ex)
@@ -39,16 +38,16 @@ namespace Controllers.API
 		}
 
 		[HttpGet()]
-		public Model.Familia GetValue([FromUri()] int ID)
+		public DTOFamilia GetValue([FromUri()] int ID)
 		{
 
-			Model.Familia oRetorno = default(Model.Familia);
-			Business.Familia oBusiness = default(Business.Familia);
+            DTOFamilia oRetorno = null;
+			Familia oBusiness = default(Familia);
 
             try
             {
-                oBusiness = new Business.Familia();
-                oRetorno = oBusiness.Find(ID);
+                oBusiness = new Familia();
+                oRetorno = oBusiness.Obter(ID);
 
             }
             catch (Exception ex)
@@ -65,36 +64,33 @@ namespace Controllers.API
 
 		}
 
-		[HttpPost()]
-		public void Salvar([FromUri()] Model.Familia oFamily)
-		{
-			//atualizando datas
-			oFamily.DataAtualizacao = DateTime.Now;
+		//[HttpPost()]
+		//public void Salvar([FromUri()] Familia oFamily)
+		//{
+		//	//atualizando datas
+		//	oFamily.DataAtualizacao = DateTime.Now;
 
-			Business.Familia oBusiness = default(Business.Familia);
-            try
-            {
-                oBusiness = new Business.Familia();
-                oBusiness.Update(oFamily);
-            }
-            finally
-            {
-                oBusiness = null;
-            }
+		//	Familia oBusiness = null;
+  //          try
+  //          {
+  //              oBusiness = new Familia();
+  //              oBusiness.Update(oFamily);
+  //          }
+  //          finally
+  //          {
+  //              oBusiness = null;
+  //          }
 
-		}
+		//}
 
         [HttpDelete()]
         public void Delete([FromUri()] int ID)
         {
-            Business.Familia oBusiness = default(Business.Familia);
-            Model.Familia oDelete = default(Model.Familia);
+            Familia oBusiness = null;
             try
             {
-                oBusiness = new Business.Familia();
-                oDelete = new Model.Familia();
-                oDelete.Codigo = ID;
-                oBusiness.Delete(oDelete);
+                oBusiness = new Familia();
+                oBusiness.Delete(ID);
 
             }
             finally

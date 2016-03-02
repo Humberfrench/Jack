@@ -1,4 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using Jack.Model.DTOs;
+using NHibernate;
+using NHibernate.Criterion;
+using NHibernate.Transform;
+using System.Collections.Generic;
 
 namespace Jack.Data
 {
@@ -9,6 +13,7 @@ namespace Jack.Data
         {
         }
 
+        #region Nhibernate
         /// <summary>
         /// Método para inserir o registro
         /// </summary>
@@ -72,5 +77,26 @@ namespace Jack.Data
             return base.LoadAll();
 
         }
+
+        #endregion
+
+        #region Other
+
+        public IList<DTOStatus> Load()
+        {
+            IList<DTOStatus> listaStatus;
+            ICriteria criteria = oSession.CreateCriteria(typeof(Model.Status), "S")
+                                         .SetProjection(Projections.ProjectionList()
+                                         .Add(Projections.Property("S.Codigo"), "codigo")
+                                         .Add(Projections.Property("S.Descricao"), "descricao")
+                                         .Add(Projections.Property("S.NivelStatus"), "nivelStatus")
+                                         .Add(Projections.Property("S.PermiteSacola"), "permiteSacola"));
+
+            listaStatus = criteria.SetResultTransformer(Transformers.AliasToBean<DTOStatus>()).List<DTOStatus>();
+
+            criteria = null;
+            return listaStatus;
+        }
+        #endregion
     }
 }

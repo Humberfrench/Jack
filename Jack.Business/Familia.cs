@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace Jack.Business
 {
-    public class Familia : ICrud<Model.Familia, int>
+    public class Familia 
     {
 
 
@@ -14,14 +14,16 @@ namespace Jack.Business
 
         }
 
-        public bool Delete(Model.Familia oTipo)
+        public bool Delete(int ID)
         {
             Data.Familia oDados = null;
             bool blnRetorno = false;
+            Model.Familia oTipo = null;
 
             try
             {
                 oDados = new Data.Familia();
+                oTipo = oDados.Find(ID);
                 blnRetorno = oDados.Delete(oTipo);
             }
             catch (Exception ex)
@@ -32,6 +34,7 @@ namespace Jack.Business
             finally
             {
                 oDados = null;
+                oTipo = null;
             }
 
             return blnRetorno;
@@ -113,7 +116,29 @@ namespace Jack.Business
             return lstRetorno;
 
         }
+        public IList<DTOFamilia> Load()
+        {
+            Data.Familia oDados = null;
+            IList<DTOFamilia> lstRetorno = null;
 
+            try
+            {
+                oDados = new Data.Familia();
+                lstRetorno = oDados.Load();
+            }
+            catch (Exception ex)
+            {
+                lstRetorno = null;
+                throw ex;
+            }
+            finally
+            {
+                oDados = null;
+            }
+
+            return lstRetorno;
+
+        }
         public IList<DTOFamiliaChamada> ObterChamada(int intReuniao)
         {
             Data.Familia oDados = null;
@@ -138,6 +163,30 @@ namespace Jack.Business
 
         }
 
+        public DTOFamilia Obter(int ID)
+        {
+            Model.Familia familia = null;
+            DTOFamilia dtoFamilia = null;
+            try
+            {
+                familia = Find(ID);
+                dtoFamilia = new DTOFamilia(familia.Codigo, familia.Nome, familia.IsSacolinha,
+                                            familia.IsConsistente, familia.Contato, familia.Nivel,
+                                            familia.Status.Codigo, familia.Status.Descricao,
+                                            familia.DataAtualizacao);
+            }
+            catch (Exception ex)
+            {
+                dtoFamilia = null;
+                throw ex;
+            }
+            finally
+            {
+                familia = null;
+            }
+
+            return dtoFamilia; 
+        }
 
 
         public bool Update(Model.Familia oTipo)

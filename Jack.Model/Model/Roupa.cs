@@ -7,23 +7,58 @@ using System.Threading.Tasks;
 namespace Jack.Model
 {
     [Serializable()]
-    public class Roupa
+    public class Roupa: BaseModel<Roupa>
     {
 
 
         public Roupa()
         {
             Codigo = 0;
-            Tamanho = string.Empty;
-            Idade = 0;
-            MedidaIdade = string.Empty;
+            tamanho = string.Empty;
+            idade = 0;
+            medidaIdade = string.Empty;
 
         }
 
-        public virtual int Codigo { get; set; }
-        public virtual string Tamanho { get; set; }
-        public virtual int Idade { get; set; }
-        public virtual string MedidaIdade { get; set; }
+        private string tamanho;
+        private int idade;
+        private string medidaIdade;
+
+        public virtual string Tamanho
+        {
+            get
+            {
+                return tamanho;
+            }
+            set
+            {
+                tamanho = value;
+            }
+        }
+
+        public virtual int Idade
+        {
+            get
+            {
+                return idade;
+            }
+            set
+            {
+                idade = value;
+            }
+        }
+
+        public virtual string MedidaIdade
+        {
+            get
+            {
+                return medidaIdade;
+            }
+            set
+            {
+                medidaIdade = value;
+            }
+        }
 
         public virtual string IdadeString
         {

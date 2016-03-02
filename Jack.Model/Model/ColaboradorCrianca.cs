@@ -3,7 +3,7 @@
 namespace Jack.Model
 {
     [Serializable()]
-    public class ColaboradorCrianca
+    public class ColaboradorCrianca : BaseModel<ColaboradorCrianca>
     {
 
         #region "Construtor"
@@ -17,33 +17,21 @@ namespace Jack.Model
         #endregion
 
         #region "Fields"
-        private int codigo { get; set; }
-        private Colaborador colaborador { get; set; }
-        private Criancas crianca { get; set; }
-        private int ano { get; set; }
-        private int numeroSacola { get; set; }
-        private string isDevolvida { get; set; }
-        private string nomeCrianca { get; set; }
-        private string nomeColaborador { get; set; }
-        private int numeroIdade { get; set; }
-        private string medidaIdade { get; set; }
-        private int calcado { get; set; }
-        private string roupa { get; set; }
+        private Colaborador colaborador;
+        private Criancas crianca;
+        private int ano;
+        private int numeroSacola;
+        private string isDevolvida;
+        private string nomeCrianca;
+        private string nomeColaborador;
+        private int numeroIdade;
+        private string medidaIdade;
+        private int calcado;
+        private string roupa;
 
         #endregion
 
         #region "Properties"
-        public virtual int Codigo
-        {
-            get
-            {
-                return codigo;
-            }
-            set
-            {
-                codigo = value;
-            }
-        }
 
         public virtual Colaborador Colaborador
         {

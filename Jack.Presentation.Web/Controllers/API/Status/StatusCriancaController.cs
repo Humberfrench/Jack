@@ -2,22 +2,22 @@
 using System;
 using System.Collections.Generic;
 using System.Web.Http;
-using Business = Jack.Business;
-using Model = Jack.Model;
+using Jack.Business;
+using Jack.Model.DTOs;
 
 namespace Controllers.API
 {
 	public class StatusCriancaController : ApiController
 	{
         [HttpGet()]
-        public IList<Model.Status> GetValues()
+        public IList<DTOStatus> GetValues()
         {
 
-            IList<Model.Status> lstRetorno = null;
-            Business.Status oBusiness = null;
+            IList<DTOStatus> lstRetorno = null;
+            Status oBusiness = null;
             try
             {
-                oBusiness = new Business.Status();
+                oBusiness = new Status();
                 lstRetorno = oBusiness.LoadForCriancas();
 
             }

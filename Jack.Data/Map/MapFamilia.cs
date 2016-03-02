@@ -8,23 +8,33 @@ namespace Jack.Data.Map
     {
         public MapFamilia()
         {
-            //Table
-            Table("tb_familia");
+            try
+            {
+                //Table
+                Table("tb_familia");
 
-            //Fields
-            Id(x => x.Codigo).Column("id_familia");
-            Map(x => x.Nome).Column("nm_mae").Not.Nullable();
-            Map(x => x.Nivel).Column("nr_nivel_espera").Not.Nullable();
-            Map(x => x.IsSacolinha).Column("is_sacolinha").Not.Nullable();
-            Map(x => x.IsConsistente).Column("is_consistente").Not.Nullable();
-            Map(x => x.Contato).Column("ds_contato").Nullable();
-            Map(x => x.DataAtualizacao).Column("dt_update").Nullable().Default(DateTime.Now.ToString());
+                //Fields
+                Id(x => x.Codigo).Column("id_familia");
+                Map(x => x.Nome).Column("nm_mae").Not.Nullable();
+                Map(x => x.Nivel).Column("nr_nivel_espera").Not.Nullable();
+                Map(x => x.IsSacolinha).Column("is_sacolinha").Not.Nullable();
+                Map(x => x.IsConsistente).Column("is_consistente").Not.Nullable();
+                Map(x => x.Contato).Column("ds_contato").Nullable();
+                Map(x => x.DataAtualizacao).Column("dt_update").Nullable(); //.Default(DateTime.Now.ToString());
 
-            //References
-            References(x => x.Status).Column("id_status").Not.Nullable().Not.LazyLoad();
+                //References
+                References(x => x.Status).Column("id_status").Not.Nullable().Not.LazyLoad();
 
-            //Hasmany
-            HasMany(x => x.Criancas).KeyColumn("id_familia").Cascade.AllDeleteOrphan().Inverse().Not.LazyLoad();
+                //Hasmany
+                HasManyToMany<Model.Criancas>(x => x.Criancas).Table("tb_familia_crianca")
+                                             .ParentKeyColumn("id_familia")
+                                             .ChildKeyColumn("id_crianca");
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
         }
     }
 }

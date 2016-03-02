@@ -69,7 +69,7 @@ namespace Jack.Library.Extensions
                 return "Não";
             }
         }
-        public static string ToSexoDescricao(this string stringValue)
+        public static string ToSexo(this string stringValue)
         {
             if (stringValue == "F")
             {
@@ -82,6 +82,20 @@ namespace Jack.Library.Extensions
             else
             {
                 return "Indefinido";
+            }
+        }
+        public static string ToNivel(this string stringValue)
+        {
+            if (stringValue == "F")
+            {
+                return "Família";
+            }
+            else if (stringValue == "C")
+            {
+                return "Criança";
+            }
+            else {
+                return "Todos";
             }
         }
 

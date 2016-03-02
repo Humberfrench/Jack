@@ -8,16 +8,24 @@ namespace Jack.Data.Map
     {
         public MapTipoItem()
         {
-            //Table
-            Table("tb_tipo_item");
+            try
+            {
+                //Table
+                Table("tb_tipo_item");
 
-            //Fields
-            Id(x => x.Codigo);
-            Map(x => x.Descricao).Column("ds_tipo_item").Not.Nullable();
-            Map(x => x.IsOpcional).Column("is_opcional").Not.Nullable();
+                //Fields
+                Id(x => x.Codigo).Column("id_tipo_item");
+                Map(x => x.Descricao).Column("ds_tipo_item").Not.Nullable();
+                Map(x => x.IsOpcional).Column("is_opcional").Not.Nullable();
 
-            //References
+                //References
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
 
-        }
+
+}
     }
 }

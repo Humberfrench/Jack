@@ -18,7 +18,7 @@ namespace Jack.Model
 
         #endregion
 
-        private List<Criancas> criancas;
+        private IList<Criancas> criancas;
         private Criancas crianca;
         private Familia familia;
 
@@ -46,7 +46,7 @@ namespace Jack.Model
             }
         }
 
-        public virtual List<Criancas> Criancas
+        public virtual IList<Criancas> Criancas
         {
             get
             {

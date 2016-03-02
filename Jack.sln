@@ -19,6 +19,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jack.Communication", "Jack.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jack.Library", "Jack.Library\Jack.Library.csproj", "{9BAE2EEE-5392-4EA6-8EE9-B0E5521FF8FD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jack.DB.Schema", "Jack.DB.Schema\Jack.DB.Schema.csproj", "{57224F78-0986-4936-9FE3-76F610B97ED8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|.NET = Debug|.NET
@@ -90,6 +92,14 @@ Global
 		{9BAE2EEE-5392-4EA6-8EE9-B0E5521FF8FD}.Release|.NET.Build.0 = Release|Any CPU
 		{9BAE2EEE-5392-4EA6-8EE9-B0E5521FF8FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9BAE2EEE-5392-4EA6-8EE9-B0E5521FF8FD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{57224F78-0986-4936-9FE3-76F610B97ED8}.Debug|.NET.ActiveCfg = Debug|Any CPU
+		{57224F78-0986-4936-9FE3-76F610B97ED8}.Debug|.NET.Build.0 = Debug|Any CPU
+		{57224F78-0986-4936-9FE3-76F610B97ED8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{57224F78-0986-4936-9FE3-76F610B97ED8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{57224F78-0986-4936-9FE3-76F610B97ED8}.Release|.NET.ActiveCfg = Release|Any CPU
+		{57224F78-0986-4936-9FE3-76F610B97ED8}.Release|.NET.Build.0 = Release|Any CPU
+		{57224F78-0986-4936-9FE3-76F610B97ED8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{57224F78-0986-4936-9FE3-76F610B97ED8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

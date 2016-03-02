@@ -17,7 +17,7 @@ namespace Jack.Model
             contato = string.Empty;
             nivel = 99;
             status = new Status();
-            criancas = new List<FamiliaCrianca>();
+            criancas = new List<Criancas>();
         }
 
         #endregion
@@ -30,7 +30,7 @@ namespace Jack.Model
         private string contato ;
         private int nivel ;
         private Status status ;
-        private List<FamiliaCrianca> criancas ;
+        private IList<Criancas> criancas ;
         private DateTime dataAtualizacao;
 
         #endregion
@@ -109,7 +109,7 @@ namespace Jack.Model
             }
         }
 
-        public virtual List<FamiliaCrianca> Criancas
+        public virtual IList<Criancas> Criancas
         {
             get
             {
@@ -191,9 +191,9 @@ namespace Jack.Model
 
         #region Methods
 
-        public virtual void AddCriancas(FamiliaCrianca pCrianca)
+        public virtual void AddCriancas(Criancas pCrianca)
         {
-            pCrianca.Familia = this;
+            pCrianca.Familia.Add(this);
             Criancas.Add(pCrianca);
         }
 

@@ -57,8 +57,8 @@ namespace Jack.Model
         private string sexoDesc;
         private string isNecessidadeEspecial;
         private string necessidadeEspecial;
-        private List<KitItem> items;
-        private List<Criancas> criancas;
+        private IList<KitItem> items;
+        private IList<Criancas> criancas;
 
 
         public virtual string Descricao
@@ -103,7 +103,7 @@ namespace Jack.Model
             set
             {
                 sexo = value;
-                sexoDesc = sexo.ToSexoDescricao();
+                sexoDesc = sexo.ToSexo();
             }
         }
         public virtual string IsNecessidadeEspecial
@@ -118,7 +118,7 @@ namespace Jack.Model
                 isNecessidadeEspecial = value;
             }
         }
-        public virtual List<Criancas> Criancas
+        public virtual IList<Criancas> Criancas
         {
             get
             {
@@ -129,7 +129,7 @@ namespace Jack.Model
                 criancas = value;
             }
         }
-        public virtual List<KitItem> Items
+        public virtual IList<KitItem> Items
         {
             get
             {

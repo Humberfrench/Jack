@@ -1,25 +1,24 @@
 
+using Jack.Model.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Web.Http;
-using Business = Jack.Business;
-using Model = Jack.Model;
+using Jack.Business;
 
 namespace Controllers.API
 {
-	public class StatusController : ApiController
+    public class StatusController : ApiController
 	{
         [HttpGet()]
-        public IList<Model.Status> GetValues()
+        public IList<DTOStatus> GetValues()
         {
 
-            IList<Model.Status> lstRetorno = null;
-            Business.Status oBusiness = null;
+            IList<DTOStatus> lstRetorno = null;
+            Status oBusiness = null;
             try
             {
-                oBusiness = new Business.Status();
-                lstRetorno = oBusiness.LoadAll();
-
+                oBusiness = new Status();
+                lstRetorno = oBusiness.Load();
             }
             catch (Exception ex)
             {

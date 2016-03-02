@@ -61,14 +61,18 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BaseDTO2.cs" />
+    <Compile Include="BaseDTO.cs" />
     <Compile Include="BaseModel.cs" />
     <Compile Include="DTOs\CriancasInconsistentes.cs" />
     <Compile Include="DTOs\DTOAnos.cs" />
     <Compile Include="DTOs\DTOCriancaRepresentante.cs" />
     <Compile Include="DTOs\DTOCrianca.cs" />
+    <Compile Include="DTOs\DTOFamilia.cs" />
     <Compile Include="DTOs\DTOFamiliaChamada.cs" />
     <Compile Include="DTOs\DTOMneumonicos.cs" />
     <Compile Include="DTOs\DTOPresenca.cs" />
+    <Compile Include="DTOs\DTOStatus.cs" />
     <Compile Include="Model\FamiliaBlackList.cs" />
     <Compile Include="Model\FamiliaCrianca.cs" />
     <Compile Include="DTOs\FamiliaLote.cs" />
@@ -92,42 +96,6 @@
     <Compile Include="Model\Criancas.cs" />
     <Compile Include="Model\Status.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Mappings\Calcado.hbm.xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Mappings\Colaborador.hbm.xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Mappings\ColaboradorCrianca.hbm.xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Mappings\Crianca.hbm.xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Mappings\Familia.hbm.xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Mappings\Kit.hbm.xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Mappings\KitItem.hbm.xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Mappings\Presenca.hbm.xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Mappings\Reuniao.hbm.xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Mappings\Roupa.hbm.xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Mappings\Status.hbm.xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Mappings\TipoItem.hbm.xml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Jack.Library\Jack.Library.csproj">

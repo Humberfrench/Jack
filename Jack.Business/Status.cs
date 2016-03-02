@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Jack.Model.DTOs;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,6 +13,7 @@ namespace Jack.Business
 
         public Status()
         {
+
         }
 
         public bool Delete(Model.Status oTipo)
@@ -110,13 +112,13 @@ namespace Jack.Business
 
         }
 
-        public IList<Model.Status> LoadForCriancas()
+        public IList<DTOStatus> LoadForCriancas()
         {
-            IList<Model.Status> lstRetorno = null;
+            IList<DTOStatus> lstRetorno = null;
 
             try
             {
-                lstRetorno = LoadAll().Where(x => x.NivelStatus == "T" || x.NivelStatus == "C").ToList();
+                lstRetorno = Load().Where(x => x.NivelStatus == "T" || x.NivelStatus == "C").ToList();
             }
             catch (Exception ex)
             {
@@ -127,18 +129,41 @@ namespace Jack.Business
             return lstRetorno;
         }
 
-        public IList<Model.Status> LoadForFamilia()
+        public IList<DTOStatus> LoadForFamilia()
         {
-            IList<Model.Status> lstRetorno = null;
+            IList<DTOStatus> lstRetorno = null;
 
             try
             {
-                lstRetorno = LoadAll().Where(x => x.NivelStatus == "T" || x.NivelStatus == "F").ToList();
+                lstRetorno = Load().Where(x => x.NivelStatus == "T" || x.NivelStatus == "F").ToList();
             }
             catch (Exception ex)
             {
                 lstRetorno = null;
                 throw ex;
+            }
+
+            return lstRetorno;
+        }
+
+        public IList<DTOStatus> Load()
+        {
+            Data.Status oDados = null;
+            IList<DTOStatus> lstRetorno = null;
+
+            try
+            {
+                oDados = new Data.Status();
+                lstRetorno = oDados.Load();
+            }
+            catch (Exception ex)
+            {
+                lstRetorno = null;
+                throw ex;
+            }
+            finally
+            {
+                oDados = null;
             }
 
             return lstRetorno;

@@ -87,6 +87,7 @@
     <Compile Include="Repository\IGenericDao.cs" />
     <Compile Include="Repository\NHibernateHelper.cs" />
     <Compile Include="Repository\NHProvider.cs" />
+    <Compile Include="Repository\Schema.cs" />
     <Compile Include="Representante.cs" />
     <Compile Include="Reuniao.cs" />
     <Compile Include="Roupa.cs" />

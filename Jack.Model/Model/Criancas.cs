@@ -1,5 +1,6 @@
 ﻿using System;
 using Jack.Library.Extensions;
+using System.Collections.Generic;
 
 namespace Jack.Model
 {
@@ -47,7 +48,7 @@ namespace Jack.Model
         private string isMoralCrista;
         private string isCriancaMaior;
         private Status status;
-        private FamiliaCrianca familia;
+        private IList<Familia> familia;
         private string idadeNominal;
         private string idadeNominalReduzida;
 
@@ -275,7 +276,7 @@ namespace Jack.Model
             }
         }
 
-        public virtual FamiliaCrianca Familia
+        public virtual IList<Familia> Familia
         {
             get
             {
