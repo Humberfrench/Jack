@@ -64,12 +64,9 @@ Namespace Controllers.API
         <HttpDelete>
         Public Sub Delete(<FromUri> ID As Integer)
             Dim oBusiness As Business.Familia
-            Dim oDelete As Model.Familia
             Try
                 oBusiness = New Business.Familia()
-                oDelete = New Model.Familia()
-                oDelete.Codigo = ID
-                oBusiness.Delete(oDelete)
+                oBusiness.Delete(ID)
 
             Finally
                 oBusiness = Nothing

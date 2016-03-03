@@ -1,4 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using Jack.Model.DTOs;
+using NHibernate;
+using NHibernate.Criterion;
+using NHibernate.Transform;
+using System.Collections.Generic;
 
 namespace Jack.Data
 {
@@ -71,6 +75,24 @@ namespace Jack.Data
         {
 
             return base.LoadAll();
+
+        }
+
+        public IList<DTOReuniao> LoadByAnoCorrente(int intAno)
+        {
+            IList<DTOReuniao> listaReuniao = null;
+            ICriteria criteria = oSession.CreateCriteria(typeof(Model.Reuniao), "R")
+                             .SetProjection(Projections.ProjectionList()
+                             .Add(Projections.Property("R.Codigo"), "Codigo")
+                             .Add(Projections.Property("R.Ano"), "Ano")
+                             .Add(Projections.Property("R.AnoCorrente"), "AnoCorrente")
+                             .Add(Projections.Property("R.Data"), "Data"))
+                             .Add(Restrictions.Eq("R.Ano", intAno));
+
+            listaReuniao = criteria.SetResultTransformer(Transformers.AliasToBean<DTOReuniao>()).List<DTOReuniao>();
+
+            criteria = null;
+            return listaReuniao;
 
         }
 

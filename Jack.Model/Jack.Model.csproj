@@ -30,12 +30,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="CodeFluent.Runtime">
-      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\SoftFluent\CodeFluent\Modeler\CodeFluent.Runtime.dll</HintPath>
-    </Reference>
-    <Reference Include="CodeFluent.Runtime.Web">
-      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\SoftFluent\CodeFluent\Modeler\CodeFluent.Runtime.Web.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations">
       <HintPath>..\..\..\..\..\..\..\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\System.ComponentModel.DataAnnotations\v4.0_4.0.0.0__31bf3856ad364e35\System.ComponentModel.DataAnnotations.dll</HintPath>
@@ -72,6 +66,7 @@
     <Compile Include="DTOs\DTOFamiliaChamada.cs" />
     <Compile Include="DTOs\DTOMneumonicos.cs" />
     <Compile Include="DTOs\DTOPresenca.cs" />
+    <Compile Include="DTOs\DTOReuniao.cs" />
     <Compile Include="DTOs\DTOStatus.cs" />
     <Compile Include="Model\FamiliaBlackList.cs" />
     <Compile Include="Model\FamiliaCrianca.cs" />

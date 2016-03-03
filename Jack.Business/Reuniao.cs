@@ -1,4 +1,5 @@
 ﻿using Consumer.Tools;
+using Jack.Model.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -75,10 +76,24 @@ namespace Jack.Business
             return iListDatas;
 
         }
-        public IList<Model.Reuniao> LoadByAnoCorrente(int intAno)
+        public IList<DTOReuniao> LoadByAnoCorrente(int intAno)
         {
-
-            IList<Model.Reuniao> iListDatas = LoadAll().Where(x => x.AnoCorrente == intAno).ToList();
+            Data.Reuniao oDados = null;
+            IList<DTOReuniao> iListDatas = null;
+            try
+            {
+                oDados = new Data.Reuniao();
+                iListDatas = oDados.LoadByAnoCorrente(intAno);
+            }
+            catch (Exception ex)
+            {
+                iListDatas = null;
+                throw ex;
+            }
+            finally
+            {
+                oDados = null;
+            }
             return iListDatas;
 
         }

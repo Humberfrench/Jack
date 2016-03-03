@@ -218,7 +218,7 @@
     <Compile Include="Controllers\API\Familia\FamiliaController.cs" />
     <Compile Include="Controllers\API\FamiliaCrianca\CriancasPorFamiliaReprController.cs" />
     <Compile Include="Controllers\API\Presenca\PresencaController.cs" />
-    <Compile Include="Controllers\API\Reuniao\ReuniaoController.cs" />
+    <Compile Include="Controllers\API\Reuniao\DataReuniaoController.cs" />
     <Compile Include="Controllers\API\Status\StatusCriancaController.cs" />
     <Compile Include="Controllers\API\Status\StatusFamiliaController.cs" />
     <Compile Include="Controllers\API\Status\StatusController.cs" />

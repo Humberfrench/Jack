@@ -1,26 +1,39 @@
-﻿using System;
+﻿using Jack.Library.Extensions;
+using System;
 using System.Collections.Generic;
-using Jack.Library.Extensions;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace Jack.Model
+namespace Jack.Model.DTOs
 {
-    [Serializable()]
-    public class Reuniao: BaseModel<Reuniao>
+    public class DTOReuniao
     {
-        public Reuniao()
+        public DTOReuniao()
         {
             ano = 0;
             anoCorrente = 0;
-            familia = new List<Presenca>();
             data = DateTime.Now;
             dataReuniao = data.ToDateFormated();
         }
 
+        private int codigo;
         private int ano;
         private int anoCorrente;
         string dataReuniao;
         private DateTime data;
-        private List<Presenca> familia;
+
+        public virtual int Codigo
+        {
+            get
+            {
+                return codigo;
+            }
+            set
+            {
+                codigo = value;
+            }
+        }
 
         public virtual int Ano
         {
@@ -46,7 +59,7 @@ namespace Jack.Model
             }
         }
 
-        public virtual System.DateTime Data
+        public virtual DateTime Data
         {
             get
             {
@@ -60,19 +73,7 @@ namespace Jack.Model
             }
         }
 
-        public virtual List<Presenca> Familia
-        {
-            get
-            {
-                return familia;
-            }
-            set
-            {
-                familia = value;
-            }
-        }
-
-        public virtual string DataFormated
+        public virtual string DataReuniao
         {
             get
             {
@@ -81,4 +82,5 @@ namespace Jack.Model
         }
 
     }
+
 }

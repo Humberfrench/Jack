@@ -13,8 +13,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jack.Presentation.Web", "Ja
 EndProject
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Jack.Presentation", "Jack.Presentation\Jack.Presentation.vbproj", "{5AED92B7-62BA-4EDD-8B07-4C6E0DF3F00F}"
 EndProject
-Project("{00000005-0004-0000-0000-000000C0DEF1}") = "Jack.Modelo", "Jack.Modelo\Jack.Modelo.cfxproj", "{6F391A76-90AC-42D9-9C38-36CE71B65838}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jack.Communication", "Jack.Communication\Jack.Communication.csproj", "{2D3879E8-83CC-428D-B8F9-CAF391A02FD0}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jack.Library", "Jack.Library\Jack.Library.csproj", "{9BAE2EEE-5392-4EA6-8EE9-B0E5521FF8FD}"
@@ -67,13 +65,6 @@ Global
 		{5AED92B7-62BA-4EDD-8B07-4C6E0DF3F00F}.Release|.NET.Build.0 = Release|Any CPU
 		{5AED92B7-62BA-4EDD-8B07-4C6E0DF3F00F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5AED92B7-62BA-4EDD-8B07-4C6E0DF3F00F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6F391A76-90AC-42D9-9C38-36CE71B65838}.Debug|.NET.ActiveCfg = Release|.NET
-		{6F391A76-90AC-42D9-9C38-36CE71B65838}.Debug|.NET.Build.0 = Release|.NET
-		{6F391A76-90AC-42D9-9C38-36CE71B65838}.Debug|Any CPU.ActiveCfg = Release|.NET
-		{6F391A76-90AC-42D9-9C38-36CE71B65838}.Debug|Any CPU.Build.0 = Release|.NET
-		{6F391A76-90AC-42D9-9C38-36CE71B65838}.Release|.NET.ActiveCfg = Release|.NET
-		{6F391A76-90AC-42D9-9C38-36CE71B65838}.Release|.NET.Build.0 = Release|.NET
-		{6F391A76-90AC-42D9-9C38-36CE71B65838}.Release|Any CPU.ActiveCfg = Release|.NET
 		{2D3879E8-83CC-428D-B8F9-CAF391A02FD0}.Debug|.NET.ActiveCfg = Debug|Any CPU
 		{2D3879E8-83CC-428D-B8F9-CAF391A02FD0}.Debug|.NET.Build.0 = Debug|Any CPU
 		{2D3879E8-83CC-428D-B8F9-CAF391A02FD0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
