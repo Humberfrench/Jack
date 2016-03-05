@@ -14,7 +14,7 @@ Status.LoadForChildrem = function ()
     var objRet = null;
     $.ajax({
         type: 'GET',
-        url: '/api/status/Get/LoadForChildrem/',
+        url: '/api/status/StatusCrianca/',
         dataType: 'json',
         cache: 'false',
         contentType: 'application/json; charset=utf-8',
@@ -37,7 +37,7 @@ Status.LoadForFamily = function ()
     var objRet = null;
     $.ajax({
         type: 'GET',
-        url: '/api/status/Get/LoadForFamily/',
+        url: '/api/status/StatusFamilia/',
         dataType: 'json',
         cache: 'false',
         contentType: 'application/json; charset=utf-8',

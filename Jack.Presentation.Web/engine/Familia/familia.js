@@ -113,8 +113,8 @@ Familia.LoadStatus = function (comboBox, listaDados)
     for (intCont = 0; intCont < listaDados.length; intCont++)
     {
         var opt = document.createElement("option");
-        opt.value = listaDados[intCont]._Codigo;
-        opt.innerHTML = listaDados[intCont]._Descricao; // whatever property it has
+        opt.value = listaDados[intCont].Codigo;
+        opt.innerHTML = listaDados[intCont].Descricao; // whatever property it has
 
         // then append it to the select element
         comboBox.appendChild(opt);

@@ -29,25 +29,25 @@
         <table class="table table-striped" style="width: 960px;">
             <tbody id="tBodyDados" class="filterable">
                 <tr class="" ng-repeat="item in itens">
-                    <td style="width: 50px;">{{item._Codigo}}</td>
-                    <td style="width:300px;">{{item._Familia}}</td>
-                    <td style="width:170px;">{{item._Contato}}</td>
+                    <td style="width: 50px;">{{item.Codigo}}</td>
+                    <td style="width:300px;">{{item.Nome}}</td>
+                    <td style="width:170px;">{{item.Contato}}</td>
                     <td style="width:40px;">
-                        <img style="vertical-align:middle;" width="24" height="24" alt="Nível" title="Nível {{item._Nivel}}" src="@Url.Content("~/Imagens/{{item._Nivel}}.png")" />
+                        <img style="vertical-align:middle;" width="24" height="24" alt="Nível" title="Nível {{item.Nivel}}" src="@Url.Content("~/Imagens/{{item.Nivel}}.png")" />
                     </td>
                     <td style="width:40px;text-align:center;">
-                        <div ng-switch on="item._IsSacolinha">
+                        <div ng-switch on="item.IsSacolinha">
                             <div ng-switch-when="S"><img style="vertical-align:middle;" alt="Sim Sacolinha" title="Sim Sacolinha" width="24" height="24" src="@Url.Content("~/Imagens/ok.png")" /></div>
                             <div ng-switch-when="N"><img style="vertical-align:middle;" alt="Não Sacolinha" title="Não Sacolinha" width="24" height="24" src="@Url.Content("~/Imagens/no.png")" /></div>
                         </div>
                     </td>
                     <td style="width:40px;text-align:center;">
-                        <div ng-switch on="item._IsConsistente">
+                        <div ng-switch on="item.IsConsistente">
                             <div ng-switch-when="S"><img style="vertical-align:middle;" alt="Dados OK" title="Dados OK" width="24" height="24" src="@Url.Content("~/Imagens/ok.png")" /></div>
                             <div ng-switch-when="N"><img style="vertical-align:middle;" alt="Dados Não OK" title="Dados Não OK" width="24" height="24" src="@Url.Content("~/Imagens/no.png")" /></div>
                         </div>
                     </td>
-                    <td style="width:220px;">{{item._Status._target._Descricao}}</td>
+                    <td style="width:220px;">{{item.Status}}</td>
                     <td style="width:50px;text-align:center;"><button class="btn btn-default" ng-click="Edit(item)"><img style=" vertical-align:middle;" alt="" title="" src="@Url.Content("~/Imagens/editar.png")" /></button></</td>
                     <td style="width:50px;text-align:center;"><button class="btn btn-default" ng-click="Delete(item)"><img style="vertical-align:middle;" alt="" title="" src="@Url.Content("~/Imagens/excluir.png")" /></button></td>
                 </tr>
@@ -79,8 +79,7 @@
             <div class="col-form-left" style="text-align:right;"><label class="control-label" id="labelStatus" for="ddlStatus">Status</label></div>
             <div style="width:10px;">&nbsp;</div>
             <div class="col-form-right" style="text-align:left;">
-                <select id="ddlStatus" style="width:400px;"></select>
-                <input type="hidden" id="txtStatus" ng-model="item._Status" value="{{item._Status._target._Descricao}}" />
+                <select id="ddlStatus" style="width:400px;" ng-model="item._Status"></select>
             </div>
             <div style="width:10px;">&nbsp;</div>
         </div>
@@ -89,7 +88,7 @@
             <div class="col-form-left" style="text-align:right;"><label class="control-label" id="labelNivel" for="ddlNivel">Nível</label></div>
             <div style="width:10px;">&nbsp;</div>
             <div class="col-form-right" style="text-align:left;">
-                <select id="ddlNivel" style="width:320px;">
+                <select id="ddlNivel" style="width:320px;" ng-model="item._Nivel">
                     <optgroup label="Níveis Elegíveis">
                         <option value="1">Nível 1</option>
                         <option value="2">Nível 2</option>
@@ -106,7 +105,6 @@
                         <option value="99">Nível 99</option>
                     </optgroup>
                 </select>
-                <input type="hidden" id="txtNivel" ng-model="item._Nivel" value="{{item._Nivel}}" />
                 <div ng-if="item._Nivel > 0">
                     <img style="vertical-align:middle; display:none" width="24" height="24" alt="Nível" title="Nível {{item._Nivel}}" src="@Url.Content("~/Imagens/{{item._Nivel}}.png")" />
                 </div>

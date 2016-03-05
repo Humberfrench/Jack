@@ -20,7 +20,7 @@ namespace Jack.Model
         private int anoCorrente;
         string dataReuniao;
         private DateTime data;
-        private List<Presenca> familia;
+        private IList<Presenca> familia;
 
         public virtual int Ano
         {
@@ -60,7 +60,7 @@ namespace Jack.Model
             }
         }
 
-        public virtual List<Presenca> Familia
+        public virtual IList<Presenca> Familia
         {
             get
             {

@@ -57,5 +57,16 @@ angular.module('CECAMApp', []).controller('ngChamadaController', function ($scop
 	    }
 	    $scope.itens = Chamada.LoadMneumonicos(item.Reuniao, item.Mneumonico);
 	};
+	$scope.GravarPresenca = function (item)
+	{
+	    //alert($scope.Reuniao);
+	    //alert(item.Codigo);
+	    Chamada.Registrar($scope.Reuniao, item.Codigo)
+
+	    $scope.itens = Chamada.Load($scope.Reuniao);
+	    $scope.Mneumonicos = Chamada.LoadFiltro($scope.Reuniao);
+	    $scope.Mneumonico = '';
+
+	};
 
 });

@@ -9,43 +9,17 @@ namespace Controllers.API
 {
 	public class PresencaController : ApiController
 	{
-
-		[HttpGet()]
-		public IList<Model.Familia> GetValue(int ID)
+        [HttpGet()]
+        public Model.Reuniao GetValues(int ID)
 		{
 
-			IList<Model.Familia> lstRetorno = null;
-			Business.Presenca oBusiness = default(Business.Presenca);
-
-            try
-            {
-                oBusiness = new Business.Presenca();
-                lstRetorno = oBusiness.Load(ID);
-
-            }
-            catch (Exception ex)
-            {
-                lstRetorno = null;
-                throw ex;
-            }
-            finally
-            {
-                oBusiness = null;
-            }
-
-			return lstRetorno;
-		}
-
-		public IList<Model.FamiliaPresenca> ObterPresencaPorMae(int Familia, int Ano)
-		{
-
-			IList<Model.FamiliaPresenca> lstRetorno = null;
-			Business.Presenca oBusiness = default(Business.Presenca);
+			Model.Reuniao lstRetorno = null;
+			Business.Reuniao oBusiness = null;
 
 			try
             {
-				oBusiness = new Business.Presenca();
-				lstRetorno = oBusiness.ObterPresencaPorMae(Familia, Ano);
+				oBusiness = new Business.Reuniao();
+				lstRetorno = oBusiness.Find(ID);
 
 			}
             catch (Exception ex)

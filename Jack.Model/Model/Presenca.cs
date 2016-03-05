@@ -25,9 +25,6 @@ namespace Jack.Model
         private Familia familia;
         private Reuniao reuniao;
 
-        private List<Familia> familias;
-        private List<Reuniao> reunioes;
-
         public virtual Familia Familia
         {
             get
@@ -51,31 +48,6 @@ namespace Jack.Model
                 reuniao = value;
             }
         }
-
-        public virtual List<Familia> Familias
-        {
-            get
-            {
-                return familias;
-            }
-            set
-            {
-                familias = value;
-            }
-        }
-
-        public virtual List<Reuniao> Reunioes
-        {
-            get
-            {
-                return reunioes;
-            }
-            set
-            {
-                reunioes = value;
-            }
-        }
-
 
     }
 }

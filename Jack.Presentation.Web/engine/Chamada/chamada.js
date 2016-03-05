@@ -108,12 +108,13 @@ Chamada.LoadFiltro = function (ID)
 
 };
 
-Chamada.Registrar = function ()
+Chamada.Registrar = function (reuniao, familia)
 {
     var objRet = null;
+    var objParam = '?intFamilia=' + familia + '&intReuniao=' + reuniao;
     $.ajax({
-        type: 'GET',
-        url: '/api/familia/',
+        type: 'POST',
+        url: '/api/chamada/' + objParam,
         dataType: 'json',
         cache: 'false',
         contentType: 'application/json; charset=utf-8',
