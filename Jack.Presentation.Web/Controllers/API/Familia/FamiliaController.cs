@@ -64,24 +64,25 @@ namespace Controllers.API
 
 		}
 
-		//[HttpPost()]
-		//public void Salvar([FromUri()] Familia oFamily)
-		//{
-		//	//atualizando datas
-		//	oFamily.DataAtualizacao = DateTime.Now;
+        [HttpPost()]
+        public void Salvar([FromUri()] DTOFamilia family)
+        {
+            Jack.Model.Familia oFamily = new Jack.Model.Familia();
+            //atualizando datas
+            oFamily.DataAtualizacao = DateTime.Now;
 
-		//	Familia oBusiness = null;
-  //          try
-  //          {
-  //              oBusiness = new Familia();
-  //              oBusiness.Update(oFamily);
-  //          }
-  //          finally
-  //          {
-  //              oBusiness = null;
-  //          }
+            Familia oBusiness = null;
+            try
+            {
+                oBusiness = new Familia();
+                oBusiness.Update(oFamily);
+            }
+            finally
+            {
+                oBusiness = null;
+            }
 
-		//}
+        }
 
         [HttpDelete()]
         public void Delete([FromUri()] int ID)

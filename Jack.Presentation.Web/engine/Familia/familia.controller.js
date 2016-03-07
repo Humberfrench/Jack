@@ -59,8 +59,8 @@ angular.module('CECAMApp', []).controller('ngFamiliaController', function ($scop
     $scope.Salvar = function (itemDados)
     {
     	//saving
-    	itemDados.Nivel = $("#txtNivel").val();
-    	itemDados.Status = $("#txtStatus").val();
+    	//itemDados.Nivel = $("#txtNivel").val();
+    	//itemDados.Status = $("#txtStatus").val();
         Familia.Salvar(itemDados);
         //reload
         $scope.itens = familia.Load();
