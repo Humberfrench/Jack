@@ -18,7 +18,7 @@
                 <span class="col-form" style="text-align:right;width:120px;"><label class="control-label" id="labelAno" for="ddlAno">Ano Corrente:</label></span>
                 <span class="col-form" style="width:10px;">&nbsp;</span>
                 <span class="col-form" style="text-align:left;">
-                    <select id="ddlAno" style="width:100px;" ng-change="LoadDatas(item.Ano)" ng-model="item.Ano">
+                    <select id="ddlAno" style="width:100px;height:30px; border-radius: 5px;" ng-change="LoadDatas(item.Ano)" ng-model="item.Ano">
                         <option ng-repeat="option in Anos" value="{{option.Value}}">
                             {{option.Descricao}}
                         </option>
@@ -28,7 +28,7 @@
                 <span class="col-form" style="text-align:right;width:140px;"><label class="control-label" id="labelReuniao" for="ddlReuniao">Data da Reunião:</label></span>
                 <span class="col-form" style="width:10px;">&nbsp;</span>
                 <span class="col-form" style="text-align:left;">
-                    <select id="ddlReuniao" style="width:200px;" ng-change="LoadReuniao(item.Reuniao)" ng-model="item.Reuniao">
+                    <select id="ddlReuniao" style="width:200px;height:30px; border-radius: 5px;" ng-change="LoadReuniao(item.Reuniao)" ng-model="item.Reuniao">
                         <option ng-repeat="option in ReuniaoLista" value="{{option.Codigo}}">
                             {{option.DataReuniao}}
                         </option>
@@ -38,7 +38,7 @@
                 <span class="col-form" style="text-align:right;width:100px;"><label class="control-label" id="labelMneumonico" for="ddlMneumonico">Mneumonico:</label></span>
                 <span class="col-form" style="width:10px;">&nbsp;</span>
                 <span class="col-form" style="text-align:left;">
-                    <select id="ddlReuniao" style="width:100px;" ng-model="item.Mneumonico">
+                    <select id="ddlMneumonico" style="width:100px;height:30px; border-radius: 5px;" ng-model="item.Mneumonico">
                         <option ng-repeat="Mneumonico in Mneumonicos" value="{{Mneumonico.Valor}}">
                             {{Mneumonico.Valor}}
                         </option>

@@ -18,15 +18,15 @@ angular.module('CECAMApp', []).controller('ngFamiliaController', function ($scop
 
     $scope.Edit = function (itemDados)
     {
-        $("#txtCodigo").val(itemDados._Codigo);
-        $("#txtNome").val(itemDados._Familia);
-        $("#txtContato").val(itemDados._Contato);
-        $("#ddlStatus").val(itemDados._Status).trigger('change');
-        $("#ddlNivel").val(itemDados._Nivel).trigger('change');
-        $("#txtStatus").val(itemDados._Status);
-        $("#txtNivel").val(itemDados._Nivel);
+        $("#txtCodigo").val(itemDados.Codigo);
+        $("#txtNome").val(itemDados.Nome);
+        $("#txtContato").val(itemDados.Contato);
+        $("#ddlStatus").val(itemDados.StatusCodigo);
+        $("#ddlNivel").val(itemDados.Nivel);
+        //$("#txtStatus").val(itemDados.Status);
+        //$("#txtNivel").val(itemDados.Nivel);
 
-        if (itemDados._IsConsistente)
+        if (itemDados.IsConsistente)
         {
             $("#chkIsSacolinha").prop('checked', true);
         }
@@ -35,7 +35,7 @@ angular.module('CECAMApp', []).controller('ngFamiliaController', function ($scop
             $("#chkIsSacolinha").prop('checked', false);
         }
 
-        if (itemDados._IsSacolinha)
+        if (itemDados.IsSacolinha)
         {
             $("#chkDadosOK").prop('checked', true);
         }
@@ -44,7 +44,7 @@ angular.module('CECAMApp', []).controller('ngFamiliaController', function ($scop
             $("#chkDadosOK").prop('checked', false);
         }
 
-        $("#txtData").val(itemDados._DataAtualizacao);
+        $("#txtData").val(itemDados.DataAtualizacao);
 
     }
 
@@ -59,8 +59,8 @@ angular.module('CECAMApp', []).controller('ngFamiliaController', function ($scop
     $scope.Salvar = function (itemDados)
     {
     	//saving
-    	itemDados._Nivel = $("#txtNivel").val();
-    	itemDados._Status = $("#txtStatus").val();
+    	itemDados.Nivel = $("#txtNivel").val();
+    	itemDados.Status = $("#txtStatus").val();
         Familia.Salvar(itemDados);
         //reload
         $scope.itens = familia.Load();

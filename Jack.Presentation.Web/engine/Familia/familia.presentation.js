@@ -12,11 +12,11 @@
 
 $(function ()
 {
-    // Load Combo
+    // Load Combo3
     Familia.LoadStatus(ddlStatus, Status.LoadForFamily());
 
-    $("#txtNivel").val($("#ddlNivel").val());
-    $("#txtStatus").val($("#ddlStatus").val());
+    //$("#txtNivel").val($("#ddlNivel").val());
+    //$("#txtStatus").val($("#ddlStatus").val());
 
     //$("#ddlStatus").select2();
     //$("#ddlNivel").select2();

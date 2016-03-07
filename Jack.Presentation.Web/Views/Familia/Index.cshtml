@@ -8,8 +8,7 @@
 @System.Web.Optimization.Scripts.Render("~/bundles/familia")
 @System.Web.Optimization.Scripts.Render("~/bundles/status")
 <div ng-controller="ngFamiliaController">
-    <div class="Titulo">Famílias</div><br /><br />
-    <div class="SubTitulo">Lista</div>
+    <div class="Titulo">Famílias</div>
     <table class="" style="width:980px; margin: 0 auto;">
         <thead>
             <tr class="label-primary table-row">
@@ -25,7 +24,7 @@
             </tr>
         </thead>
     </table>
-    <div id="divDadosGrid" style="width:980px;  margin: 0 auto;height:418px;overflow-y:auto;">
+    <div id="divDadosGrid" style="width:980px;  margin: 0 auto;height:410px;overflow-y:auto;">
         <table class="table table-striped" style="width: 960px;">
             <tbody id="tBodyDados" class="filterable">
                 <tr class="" ng-repeat="item in itens">
@@ -62,7 +61,7 @@
             <div class="col-form-left" style="text-align:right;"><label class="control-label" id="labelNome" for="txtNome">Nome</label></div>
             <div style="width:10px;">&nbsp;</div>
             <div class="col-form-right" style="text-align:left;">
-                <input type="hidden" ng-model="item._Codigo" value="0" />
+                <input type="hidden" ng-model="item.Codigo" value="0" />
                 <input type="text" value="" class="form-control" style="width:400px;" maxlength="100" id="txtNome" placeholder="Nome" ng-model="item._Familia" />
             </div>
             <div style="width:10px;">&nbsp;</div>
@@ -79,7 +78,7 @@
             <div class="col-form-left" style="text-align:right;"><label class="control-label" id="labelStatus" for="ddlStatus">Status</label></div>
             <div style="width:10px;">&nbsp;</div>
             <div class="col-form-right" style="text-align:left;">
-                <select id="ddlStatus" style="width:400px;" ng-model="item._Status"></select>
+                <select id="ddlStatus" style="width:400px;" ng-model="item.StatusCodigo" class="form-control"></select>
             </div>
             <div style="width:10px;">&nbsp;</div>
         </div>
@@ -88,7 +87,7 @@
             <div class="col-form-left" style="text-align:right;"><label class="control-label" id="labelNivel" for="ddlNivel">Nível</label></div>
             <div style="width:10px;">&nbsp;</div>
             <div class="col-form-right" style="text-align:left;">
-                <select id="ddlNivel" style="width:320px;" ng-model="item._Nivel">
+                <select id="ddlNivel" style="width:320px;" ng-model="item.Nivel" class="form-control">
                     <optgroup label="Níveis Elegíveis">
                         <option value="1">Nível 1</option>
                         <option value="2">Nível 2</option>
@@ -106,7 +105,7 @@
                     </optgroup>
                 </select>
                 <div ng-if="item._Nivel > 0">
-                    <img style="vertical-align:middle; display:none" width="24" height="24" alt="Nível" title="Nível {{item._Nivel}}" src="@Url.Content("~/Imagens/{{item._Nivel}}.png")" />
+                    <img style="vertical-align:middle; display:none" width="24" height="24" alt="Nível" title="Nível {{item.Nivel}}" src="@Url.Content("~/Imagens/{{item._Nivel}}.png")" />
                 </div>
             </div>
             <div style="width:10px;">&nbsp;</div>
@@ -117,9 +116,9 @@
             <div style="width:10px;">&nbsp;</div>
             <div class="col-form-right" style="text-align:left;">
                 <label class="control-label" id="labelIsSacolinha" for="chkIsSacolinha">Habilitado Sacolinha?</label>
-                <input type="checkbox" id="chkIsSacolinha" ng-model="item._IsSacolinha" />
+                <input type="checkbox" id="chkIsSacolinha" ng-model="item.IsSacolinha" />
                 <label class="control-label" id="labelDadosOK" for="chkDadosOK">Dados Estão OK?</label>
-                <input type="checkbox" id="chkDadosOK" ng-model="item._IsConsistente" />
+                <input type="checkbox" id="chkDadosOK" ng-model="item.IsConsistente" />
             </div>
             <div style="width:10px;">&nbsp;</div>
         </div>
