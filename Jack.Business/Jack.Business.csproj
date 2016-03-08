@@ -53,7 +53,9 @@
     <Compile Include="Presenca.cs" />
     <Compile Include="Processos.cs" />
     <Compile Include="Representante.cs" />
+    <Compile Include="CriancaMoralCrista.cs" />
     <Compile Include="Reuniao.cs" />
+    <Compile Include="Responsavel.cs" />
     <Compile Include="TipoItem.cs" />
     <Compile Include="Status.cs" />
     <Compile Include="Sacolas.cs" />

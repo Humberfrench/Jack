@@ -1,3 +1,4 @@
+using Jack.Model;
 using System.Collections.Generic;
 using System.Web.Http;
 
@@ -7,13 +8,15 @@ namespace Controllers.API
 	{
 
 		// GET: api/Teste
-		public IEnumerable<string> GetValues()
+		public IList<CriancaMoralCrista> GetValues()
 		{
-			return new string[] {
-				"value1",
-				"value2"
-			};
-		}
+            IList<CriancaMoralCrista> criancas;
+            Jack.Business.CriancaMoralCrista oCrianca = new Jack.Business.CriancaMoralCrista();
+
+            criancas = oCrianca.LoadAll();
+
+            return criancas;
+        }
 
 		// GET: api/Teste/5
 		public string GetValue(int id)

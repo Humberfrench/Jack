@@ -68,6 +68,7 @@
     <Compile Include="DTOs\DTOPresenca.cs" />
     <Compile Include="DTOs\DTOReuniao.cs" />
     <Compile Include="DTOs\DTOStatus.cs" />
+    <Compile Include="Model\CriancaMoralCrista.cs" />
     <Compile Include="Model\FamiliaBlackList.cs" />
     <Compile Include="Model\FamiliaCrianca.cs" />
     <Compile Include="DTOs\FamiliaLote.cs" />
@@ -79,6 +80,8 @@
     <Compile Include="Model\FamiliaFake.cs" />
     <Compile Include="Model\FamiliaPresencaJustificada.cs" />
     <Compile Include="Model\Presenca.cs" />
+    <Compile Include="Model\Responsavel.cs" />
+    <Compile Include="Model\ResponsavelCrianca.cs" />
     <Compile Include="Model\Reuniao.cs" />
     <Compile Include="Model\Roupa.cs" />
     <Compile Include="Model\TipoItem.cs" />

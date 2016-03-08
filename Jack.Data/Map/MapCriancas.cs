@@ -1,7 +1,6 @@
 ﻿using FluentNHibernate.Mapping;
 using System;
 
-
 namespace Jack.Data.Map
 {
     class MapCriancas : ClassMap<Model.Criancas>

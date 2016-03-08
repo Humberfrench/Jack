@@ -61,6 +61,8 @@
     <Compile Include="Calcado.cs" />
     <Compile Include="Colaborador.cs" />
     <Compile Include="ColaboradorCrianca.cs" />
+    <Compile Include="Responsavel.cs" />
+    <Compile Include="CriancaMoralCrista.cs" />
     <Compile Include="Criancas.cs" />
     <Compile Include="Familia.cs" />
     <Compile Include="FamiliaCrianca.cs" />
@@ -69,12 +71,13 @@
     <Compile Include="Map\MapCalcado.cs" />
     <Compile Include="Map\MapColaborador.cs" />
     <Compile Include="Map\MapColaboradorCrianca.cs" />
+    <Compile Include="Map\MapCriancaMoralCrista.cs" />
     <Compile Include="Map\MapCriancas.cs" />
     <Compile Include="Map\MapFamilia.cs" />
-    <Compile Include="Map\MapFamiliaCrianca.cs" />
     <Compile Include="Map\MapKit.cs" />
     <Compile Include="Map\MapKitItem.cs" />
     <Compile Include="Map\MapPresenca.cs" />
+    <Compile Include="Map\MapResponsavel.cs" />
     <Compile Include="Map\MapReuniao.cs" />
     <Compile Include="Map\MapRoupa.cs" />
     <Compile Include="Map\MapStatus.cs" />

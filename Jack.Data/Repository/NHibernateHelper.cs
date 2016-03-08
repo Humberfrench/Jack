@@ -108,13 +108,14 @@ namespace Jack.Data
                 .Mappings(m => m.FluentMappings.Add<Map.MapColaboradorCrianca>())
                 .Mappings(m => m.FluentMappings.Add<Map.MapCriancas>())
                 .Mappings(m => m.FluentMappings.Add<Map.MapFamilia>())
-                .Mappings(m => m.FluentMappings.Add<Map.MapFamiliaCrianca>())
                 .Mappings(m => m.FluentMappings.Add<Map.MapKit>())
                 .Mappings(m => m.FluentMappings.Add<Map.MapKitItem>())
                 .Mappings(m => m.FluentMappings.Add<Map.MapPresenca>())
                 .Mappings(m => m.FluentMappings.Add<Map.MapReuniao>())
                 .Mappings(m => m.FluentMappings.Add<Map.MapRoupa>())
                 .Mappings(m => m.FluentMappings.Add<Map.MapStatus>())
+                .Mappings(m => m.FluentMappings.Add<Map.MapCriancaMoralCrista>())
+                .Mappings(m => m.FluentMappings.Add<Map.MapResponsavel>())
                 .Mappings(m => m.FluentMappings.Add<Map.MapTipoItem>());
 
             config.ExposeConfiguration(

@@ -26,7 +26,7 @@ namespace Jack.Data.Map
                 References(x => x.Status).Column("id_status").Not.Nullable().Not.LazyLoad();
 
                 //Hasmany
-                HasManyToMany<Model.Criancas>(x => x.Criancas).Table("tb_familia_crianca")
+                HasManyToMany(x => x.Criancas).Table("tb_familia_crianca")
                                              .ParentKeyColumn("id_familia")
                                              .ChildKeyColumn("id_crianca");
             }
