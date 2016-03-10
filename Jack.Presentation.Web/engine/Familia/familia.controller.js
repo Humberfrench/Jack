@@ -23,8 +23,6 @@ angular.module('CECAMApp', []).controller('ngFamiliaController', function ($scop
         $("#txtContato").val(itemDados.Contato);
         $("#ddlStatus").val(itemDados.StatusCodigo);
         $("#ddlNivel").val(itemDados.Nivel);
-        //$("#txtStatus").val(itemDados.Status);
-        //$("#txtNivel").val(itemDados.Nivel);
 
         if (itemDados.IsConsistente)
         {
@@ -59,8 +57,6 @@ angular.module('CECAMApp', []).controller('ngFamiliaController', function ($scop
     $scope.Salvar = function (itemDados)
     {
     	//saving
-    	//itemDados.Nivel = $("#txtNivel").val();
-    	//itemDados.Status = $("#txtStatus").val();
         Familia.Salvar(itemDados);
         //reload
         $scope.itens = familia.Load();

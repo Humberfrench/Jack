@@ -42,30 +42,31 @@ Familia.Load = function ()
 Familia.Salvar = function (objFamilia)
 {
     var intCodigo;
-    var strConsistente = Familia.TratarCheck(objFamilia._IsConsistente);
-    var strSacola = Familia.TratarCheck(objFamilia._IsSacolinha);
+    var strConsistente = Familia.TratarCheck(objFamilia.IsConsistente);
+    var strSacola = Familia.TratarCheck(objFamilia.IsSacolinha);
 
-    if (objFamilia._Codigo == undefined)
+    if (objFamilia.Codigo == undefined)
     {
         intCodigo = 0;
     }
     else 
     {
-        intCodigo = parseInt(objFamilia._Codigo);
+        intCodigo = parseInt(objFamilia.Codigo);
     }
 
-    var sData = ''
-    sData = sData + '?Codigo=' + intCodigo;
-    sData = sData + '&Familia=' + objFamilia._Familia;
-    sData = sData + '&Contato=' + objFamilia._Contato;
-    sData = sData + '&Status=' + objFamilia._Status;
-    sData = sData + '&Nivel=' + objFamilia._Nivel;
-    sData = sData + '&IsSacolinha=' + strSacola;
-    sData = sData + '&IsConsistente=' + strConsistente;
+    //var sData = ''
+    //sData = sData + '?Codigo=' + intCodigo;
+    //sData = sData + '&Familia=' + objFamilia._Familia;
+    //sData = sData + '&Contato=' + objFamilia._Contato;
+    //sData = sData + '&Status=' + objFamilia._Status;
+    //sData = sData + '&Nivel=' + objFamilia._Nivel;
+    //sData = sData + '&IsSacolinha=' + strSacola;
+    //sData = sData + '&IsConsistente=' + strConsistente;
     $.ajax({
         type: 'POST',
-        url: '/api/familia/Salvar/' + sData,
+        url: '/api/familia/Salvar/',
         dataType: 'json',
+        data: JSON.stringify(objFamilia),
         cache: 'false',
         contentType: 'application/json; charset=utf-8',
         async: false,

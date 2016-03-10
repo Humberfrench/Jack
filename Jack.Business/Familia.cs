@@ -93,6 +93,7 @@ namespace Jack.Business
         {
             return this.LoadAll().ToList().ToString();
         }
+
         public IList<Model.Familia> LoadAll()
         {
             Data.Familia oDados = null;
@@ -116,6 +117,7 @@ namespace Jack.Business
             return lstRetorno;
 
         }
+
         public IList<DTOFamilia> Load()
         {
             Data.Familia oDados = null;
@@ -139,6 +141,7 @@ namespace Jack.Business
             return lstRetorno;
 
         }
+
         public IList<DTOFamiliaChamada> ObterChamada(int intReuniao)
         {
             Data.Familia oDados = null;
@@ -188,6 +191,50 @@ namespace Jack.Business
             return dtoFamilia; 
         }
 
+        public bool Gravar(DTOFamilia family)
+        {
+            Model.Familia modelFamilia = null;
+            bool blnRetorno = false;
+            Model.Status modelStatus = null;
+            Status oStatus = null;
+
+            try
+            {
+                oStatus = new Status();
+                modelStatus = oStatus.Find(family.StatusCodigo);
+                modelFamilia = Find(family.Codigo);
+                modelFamilia.Status = modelStatus;
+                modelFamilia.Contato = family.Contato;
+                modelFamilia.Nome = family.Nome;
+                modelFamilia.IsConsistente = family.IsConsistente;
+                modelFamilia.IsSacolinha = family.IsSacolinha;
+                modelFamilia.Nivel = family.Nivel;
+                if (family.Codigo == 0)
+                {
+                    Insert(modelFamilia);
+                }
+                else
+                {
+                    Update(modelFamilia);
+                }
+                blnRetorno = true;
+
+            }
+            catch (Exception ex)
+            {
+                blnRetorno = false;
+                throw ex;
+            }
+            finally
+            {
+                modelFamilia = null;
+                modelStatus = null;
+                oStatus = null;
+            }
+
+            return blnRetorno;
+
+        }
 
         public bool Update(Model.Familia oTipo)
         {

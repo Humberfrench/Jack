@@ -65,17 +65,13 @@ namespace Controllers.API
 		}
 
         [HttpPost()]
-        public void Salvar([FromUri()] DTOFamilia family)
+        public void Salvar([FromBody()] DTOFamilia family)
         {
-            Jack.Model.Familia oFamily = new Jack.Model.Familia();
-            //atualizando datas
-            oFamily.DataAtualizacao = DateTime.Now;
-
             Familia oBusiness = null;
             try
             {
                 oBusiness = new Familia();
-                oBusiness.Update(oFamily);
+                oBusiness.Gravar(family);
             }
             finally
             {
