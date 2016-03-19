@@ -39,6 +39,30 @@ Familia.Load = function ()
 
 };
 
+Familia.Consistir = function()
+{
+    var blnRetorno = true;
+    var strMensagem = '';
+
+    if ($("#txtCodigo").val() == '')
+    {
+        $("#txtCodigo").val() = 0;
+    }
+
+    if ($("#txtNome").val() == '')
+    {
+        strMensagem = strMensagem + 'Preencher campo Nome';
+        blnRetorno = false;
+    }
+
+    if (strMensagem != '')
+    {
+        Mensagem.Erro(strMensagem);
+    }
+
+    return blnRetorno;
+}
+
 Familia.Salvar = function (objFamilia)
 {
     var intCodigo;
@@ -62,6 +86,7 @@ Familia.Salvar = function (objFamilia)
     //sData = sData + '&Nivel=' + objFamilia._Nivel;
     //sData = sData + '&IsSacolinha=' + strSacola;
     //sData = sData + '&IsConsistente=' + strConsistente;
+
     $.ajax({
         type: 'POST',
         url: '/api/familia/Salvar/',

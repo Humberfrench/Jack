@@ -13,15 +13,18 @@
 angular.module('CECAMApp', []).controller('ngFamiliaController', function ($scope)
 {
     $scope.itens = Familia.Load();
+    $scope.item = '';
 
     $scope.StatusItens = Status.LoadForFamily();
 
     $scope.Edit = function (itemDados)
     {
-        $("#txtCodigo").val(itemDados.Codigo);
-        $("#txtNome").val(itemDados.Nome);
+        $("#txtCodigo").val(itemDados.Codigo); 
+        $("#txtNome").val(itemDados.Nome); 
         $("#txtContato").val(itemDados.Contato);
+
         $("#ddlStatus").val(itemDados.StatusCodigo);
+
         $("#ddlNivel").val(itemDados.Nivel);
 
         if (itemDados.IsConsistente)
@@ -43,7 +46,7 @@ angular.module('CECAMApp', []).controller('ngFamiliaController', function ($scop
         }
 
         $("#txtData").val(itemDados.DataAtualizacao);
-
+        
     }
 
     $scope.Delete = function (itemDados)
@@ -54,12 +57,27 @@ angular.module('CECAMApp', []).controller('ngFamiliaController', function ($scop
         $scope.itens = familia.Load();
     }
 
-    $scope.Salvar = function (itemDados)
+    $scope.Salvar = function ()
     {
-    	//saving
-        Familia.Salvar(itemDados);
-        //reload
-        $scope.itens = familia.Load();
+        var itemDados = new Object();;
+
+        itemDados.Codigo = $("#txtCodigo").val();
+        itemDados.Nome = $("#txtNome").val();
+        itemDados.Contato = $("#txtContato").val();
+        itemDados.StatusCodigo = $("#ddlStatus").val();
+        itemDados.Nivel = $("#ddlNivel").val();
+        itemDados.IsConsistente = $("#chkSacola").is(':checked') ? 'S' : 'N';;
+        itemDados.IsSacolinha = $("#chkDadosOK").is(':checked') ? 'S' : 'N';;
+        itemDados.DataAtualizacao = $("#txtData").val();
+        itemDados.Status = $("#ddlStatus").val();
+
+        //saving
+        if (Familia.Consistir())
+        {
+            Familia.Salvar(itemDados);
+            //reload
+            $scope.itens = familia.Load();
+        }
     }
 
 });
