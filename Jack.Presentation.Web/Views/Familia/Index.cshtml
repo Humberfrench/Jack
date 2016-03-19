@@ -48,7 +48,7 @@
                     </td>
                     <td style="width:220px;">{{item.Status}}</td>
                     <td style="width:50px;text-align:center;"><button class="btn btn-default" ng-click="Edit(item)"><img style=" vertical-align:middle;" alt="" title="" src="@Url.Content("~/Imagens/editar.png")" /></button></</td>
-                    <td style="width:50px;text-align:center;"><button class="btn btn-default" ng-click="Delete(item)"><img style="vertical-align:middle;" alt="" title="" src="@Url.Content("~/Imagens/excluir.png")" /></button></td>
+                    <td style="width:50px;text-align:center;"><button class="btn btn-default" ng-click="Delete(item.Codigo)"><img style="vertical-align:middle;" alt="" title="" src="@Url.Content("~/Imagens/excluir.png")" /></button></td>
                 </tr>
             </tbody>
         </table>
@@ -60,9 +60,9 @@
             <div style="width:10px;">&nbsp;</div>
             <div class="col-form-left" style="text-align:right;"><label class="control-label" id="labelNome" for="txtNome">Nome</label></div>
             <div style="width:10px;">&nbsp;</div>
-            <div class="col-form-right" style="text-align:left;">
-                <input type="hidden" ng-model="item.Codigo" value="0" ng-model-options="{ updateOn: 'change' }" />
-                <input type="text" value="" class="form-control" style="width:400px;" maxlength="100" id="txtNome" placeholder="Nome" ng-model="item.Familia" ng-model-options="{ updateOn: 'change' }"/>
+            <div class="col-form-right" style="text-align:left;" id="txtCodigo">
+                <input type="hidden" ng-model="item.Codigo" value="0" />
+                <input type="text" value="" class="form-control" style="width:400px;" maxlength="100" id="txtNome" placeholder="Nome" ng-model="item.Familia"/>
             </div>
             <div style="width:10px;">&nbsp;</div>
         </div>
@@ -70,7 +70,7 @@
             <div style="width:10px;">&nbsp;</div>
             <div class="col-form-left" style="text-align:right;"><label class="control-label" id="labelContato" for="txtEmpresa">Contato</label></div>
             <div style="width:10px;">&nbsp;</div>
-            <div class="col-form-right" style="text-align:left;"><input type="text" value="" class="form-control" style="width:400px;" maxlength="100" id="txtContato" placeholder="Contato" ng-model="item.Contato" ng-model-options="{ updateOn: 'change' }" /></div>
+            <div class="col-form-right" style="text-align:left;"><input type="text" value="" class="form-control" style="width:400px;" maxlength="100" id="txtContato" placeholder="Contato" ng-model="item.Contato" /></div>
             <div style="width:10px;">&nbsp;</div>
         </div>
         <div style="display:table-row;" class="form-group">
@@ -78,7 +78,7 @@
             <div class="col-form-left" style="text-align:right;"><label class="control-label" id="labelStatus" for="ddlStatus">Status</label></div>
             <div style="width:10px;">&nbsp;</div>
             <div class="col-form-right" style="text-align:left;">
-                <select id="ddlStatus" style="width:400px;" ng-model="item.StatusCodigo" ng-model-options="{ updateOn: 'change' }" class="form-control"></select>
+                <select id="ddlStatus" style="width:400px;" ng-model="item.StatusCodigo" class="form-control"></select>
             </div>
             <div style="width:10px;">&nbsp;</div>
         </div>
@@ -87,7 +87,7 @@
             <div class="col-form-left" style="text-align:right;"><label class="control-label" id="labelNivel" for="ddlNivel">Nível</label></div>
             <div style="width:10px;">&nbsp;</div>
             <div class="col-form-right" style="text-align:left;">
-                <select id="ddlNivel" style="width:320px;" ng-model="item.Nivel" ng-model-options="{ updateOn: 'change' }" class="form-control">
+                <select id="ddlNivel" style="width:320px;" ng-model="item.Nivel" class="form-control">
                     <optgroup label="Níveis Elegíveis">
                         <option value="1">Nível 1</option>
                         <option value="2">Nível 2</option>
@@ -105,7 +105,7 @@
                     </optgroup>
                 </select>
                 <div ng-if="item.Nivel > 0">
-                    <img style="vertical-align:middle; display:none" width="24" height="24" alt="Nível" title="Nível {{item.Nivel}}" ng-model-options="{ updateOn: 'change' }" src="@Url.Content("~/Imagens/{{item.Nivel}}.png")" />
+                    <img style="vertical-align:middle; display:none" width="24" height="24" alt="Nível" title="Nível {{item.Nivel}}" src="@Url.Content("~/Imagens/{{item.Nivel}}.png")" />
                 </div>
             </div>
             <div style="width:10px;">&nbsp;</div>
@@ -116,9 +116,9 @@
             <div style="width:10px;">&nbsp;</div>
             <div class="col-form-right" style="text-align:left;">
                 <label class="control-label" id="labelIsSacolinha" for="chkIsSacolinha">Habilitado Sacolinha?</label>
-                <input type="checkbox" id="chkIsSacolinha" ng-model="item.IsSacolinha" ng-model-options="{ updateOn: 'change' }" />
+                <input type="checkbox" id="chkIsSacolinha" ng-model="item.IsSacolinha" />
                 <label class="control-label" id="labelDadosOK" for="chkDadosOK">Dados Estão OK?</label>
-                <input type="checkbox" id="chkDadosOK" ng-model="item.IsConsistente" ng-model-options="{ updateOn: 'change' }" />
+                <input type="checkbox" id="chkDadosOK" ng-model="item.IsConsistente" />
             </div>
             <div style="width:10px;">&nbsp;</div>
         </div>
@@ -126,12 +126,12 @@
             <div style="width:10px;">&nbsp;</div>
             <div class="col-form-left" style="text-align:right;"><label class="control-label" id="labelData" for="txtData">Ultima Atualização</label></div>
             <div style="width:10px;">&nbsp;</div>
-            <div class="col-form-right" style="text-align:left;"><input type="text" readonly="readonly" class="form-control" style="width:400px;" id="txtData" placeholder="" ng-model="item.DataFormated" ng-model-options="{ updateOn: 'change' }" /></div>
+            <div class="col-form-right" style="text-align:left;"><input type="text" readonly="readonly" class="form-control" style="width:400px;" id="txtData" placeholder="" ng-model="item.DataFormated" /></div>
             <div style="width:10px;">&nbsp;</div>
         </div>        <div style="display:table-row;">&nbsp;</div>
         <div style="display:table-row;" class="form-group">
             <div style="width:10px;">&nbsp;</div>
-            <div class="col-form-left" style="margin:0 auto; text-align:right;"><button id="btnGravar" type="button" class="btn btn-success btn-lg" ng-click="Salvar(item)">Gravar</button></div>
+            <div class="col-form-left" style="margin:0 auto; text-align:right;"><button id="btnGravar" type="button" class="btn btn-success btn-lg" ng-click="Salvar()">Gravar</button></div>
             <div style="width:10px;">&nbsp;</div>
             <div class="col-form-right" style="margin:0 auto; text-align:center;"><button id="btnCancelar" type="button" class="btn btn-danger btn-lg">Cancelar</button></div>
             <div style="width:10px;">&nbsp;</div>

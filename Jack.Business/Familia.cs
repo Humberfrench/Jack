@@ -201,9 +201,8 @@ namespace Jack.Business
             try
             {
                 oStatus = new Status();
-                modelStatus = oStatus.Find(family.StatusCodigo);
                 modelFamilia = Find(family.Codigo);
-                modelFamilia.Status = modelStatus;
+                modelFamilia.Status = oStatus.Find(family.StatusCodigo);
                 modelFamilia.Contato = family.Contato;
                 modelFamilia.Nome = family.Nome;
                 modelFamilia.IsConsistente = family.IsConsistente;
