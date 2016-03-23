@@ -11,8 +11,5 @@ namespace Jack.Data
     {
         IQueryable<T> GetAll();
         T GetById(int id);
-        void Save(T entity);
-        void Update(T entity);
-        void Delete(int id);
     }
 }

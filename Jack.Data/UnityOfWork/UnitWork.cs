@@ -2,6 +2,7 @@
 using FluentNHibernate.Cfg.Db;
 using FluentNHibernate.Conventions.Helpers;
 using FluentNHibernate.Conventions.Inspections;
+using Jack.Model;
 using NHibernate;
 using NHibernate.Cfg;
 using NHibernate.Context;
@@ -10,7 +11,7 @@ using System;
 
 namespace Jack.Data
 {
-    class UnitOfWork : IUnitOfWork
+    public class UnitWork : IUnitWork
     {
         private static readonly ISessionFactory _sessionFactory;
         private ITransaction _transaction;
@@ -19,7 +20,7 @@ namespace Jack.Data
 
         public ISession Session { get; private set; }
 
-        static UnitOfWork()
+        static UnitWork()
         {
             // Initialise singleton instance of ISessionFactory, static constructors are only executed once during the
             // application lifetime - the first time the UnitOfWork class is used
@@ -53,8 +54,17 @@ namespace Jack.Data
                 throw ex;
             }
         }
+        public void Salvar(IEntidade entidade)
+        {
+            Session.SaveOrUpdate(entidade);
+        }
 
-        public UnitOfWork()
+        public void Excluir(IEntidade entidade)
+        {
+            Session.Delete(entidade);
+        }
+
+        public UnitWork()
         {
             Session = _sessionFactory.OpenSession();
         }

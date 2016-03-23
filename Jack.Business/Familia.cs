@@ -8,23 +8,27 @@ namespace Jack.Business
     public class Familia 
     {
 
+        private readonly Data.Status repStatus;
+        private readonly Data.Familia repFamilia;
+        private readonly Data.IUnitWork unidadeTrabalho;
 
         public Familia()
         {
+            unidadeTrabalho = new Data.UnitWork();
+            repStatus = new Data.Status(unidadeTrabalho); 
+            repFamilia = new Data.Familia(unidadeTrabalho);
 
         }
 
-        public bool Delete(int ID)
+    public bool Delete(int ID)
         {
-            Data.Familia oDados = null;
             bool blnRetorno = false;
             Model.Familia oTipo = null;
 
             try
             {
-                oDados = new Data.Familia();
-                oTipo = oDados.Find(ID);
-                blnRetorno = oDados.Delete(oTipo);
+                oTipo = repFamilia.Find(ID);
+                blnRetorno = repFamilia.Delete(oTipo);
             }
             catch (Exception ex)
             {
@@ -33,7 +37,6 @@ namespace Jack.Business
             }
             finally
             {
-                oDados = null;
                 oTipo = null;
             }
 
@@ -44,13 +47,11 @@ namespace Jack.Business
         public Model.Familia Find(int Identifier)
         {
 
-            Data.Familia oDados = null;
             Model.Familia oRetorno = null;
 
             try
             {
-                oDados = new Data.Familia();
-                oRetorno = oDados.Find(Identifier);
+                oRetorno = repFamilia.Find(Identifier);
             }
             catch (Exception ex)
             {
@@ -59,7 +60,6 @@ namespace Jack.Business
             }
             finally
             {
-                oDados = null;
             }
 
             return oRetorno;
@@ -68,22 +68,16 @@ namespace Jack.Business
 
         public bool Insert(Model.Familia oTipo)
         {
-            Data.Familia oDados = null;
             bool blnRetorno = false;
 
             try
             {
-                oDados = new Data.Familia();
-                blnRetorno = oDados.Insert(oTipo);
+                blnRetorno = repFamilia.Insert(oTipo);
             }
             catch (Exception ex)
             {
                 blnRetorno = false;
                 throw ex;
-            }
-            finally
-            {
-                oDados = null;
             }
 
             return blnRetorno;
@@ -96,22 +90,16 @@ namespace Jack.Business
 
         public IList<Model.Familia> LoadAll()
         {
-            Data.Familia oDados = null;
             IList<Model.Familia> lstRetorno = null;
 
             try
             {
-                oDados = new Data.Familia();
-                lstRetorno = oDados.LoadAll();
+                lstRetorno = repFamilia.LoadAll();
             }
             catch (Exception ex)
             {
                 lstRetorno = null;
                 throw ex;
-            }
-            finally
-            {
-                oDados = null;
             }
 
             return lstRetorno;
@@ -120,22 +108,16 @@ namespace Jack.Business
 
         public IList<DTOFamilia> Load()
         {
-            Data.Familia oDados = null;
             IList<DTOFamilia> lstRetorno = null;
 
             try
             {
-                oDados = new Data.Familia();
-                lstRetorno = oDados.Load();
+                lstRetorno = repFamilia.Load();
             }
             catch (Exception ex)
             {
                 lstRetorno = null;
                 throw ex;
-            }
-            finally
-            {
-                oDados = null;
             }
 
             return lstRetorno;
@@ -144,22 +126,16 @@ namespace Jack.Business
 
         public IList<DTOFamiliaChamada> ObterChamada(int intReuniao)
         {
-            Data.Familia oDados = null;
             IList<DTOFamiliaChamada> lstRetorno = null;
 
             try
             {
-                oDados = new Data.Familia();
-                lstRetorno = oDados.ObterChamada(intReuniao);
+                lstRetorno = repFamilia.ObterChamada(intReuniao);
             }
             catch (Exception ex)
             {
                 lstRetorno = null;
                 throw ex;
-            }
-            finally
-            {
-                oDados = null;
             }
 
             return lstRetorno;
@@ -195,20 +171,17 @@ namespace Jack.Business
         {
             Model.Familia modelFamilia = null;
             bool blnRetorno = false;
-            Status oStatus = null;
 
             try
             {
-                oStatus = new Status();
                 modelFamilia = Find(family.Codigo);
-                //modelFamilia.Status = oStatus.Find(family.StatusCodigo);
+                modelFamilia.Status = repStatus.Find(family.StatusCodigo);
                 modelFamilia.Contato = family.Contato;
                 modelFamilia.Nome = family.Nome;
                 modelFamilia.IsConsistente = family.IsConsistente;
                 modelFamilia.IsSacolinha = family.IsSacolinha;
                 modelFamilia.Nivel = family.Nivel;
 
-                oStatus = null;
                 if (family.Codigo == 0)
                 {
                     Insert(modelFamilia);
@@ -228,7 +201,6 @@ namespace Jack.Business
             finally
             {
                 modelFamilia = null;
-                oStatus = null;
             }
 
             return blnRetorno;
@@ -237,22 +209,16 @@ namespace Jack.Business
 
         public bool Update(Model.Familia oTipo)
         {
-            Data.Familia oDados = null;
             bool blnRetorno = false;
 
             try
             {
-                oDados = new Data.Familia();
-                blnRetorno = oDados.Update(oTipo);
+                blnRetorno = repFamilia.Update(oTipo);
             }
             catch (Exception ex)
             {
                 blnRetorno = false;
                 throw ex;
-            }
-            finally
-            {
-                oDados = null;
             }
 
             return blnRetorno;
@@ -262,14 +228,12 @@ namespace Jack.Business
         {
 
             List<Model.FamiliaLote> lstLote = null;
-            Data.Familia oDados = null;
             string strRetorno = string.Empty;
             Model.Familia oFamilia = null;
             Model.FamiliaLote oFamiliaLote = null;
 
             try
             {
-                oDados = new Data.Familia();
                 lstLote = new List<Model.FamiliaLote>();
 
                 foreach (string strMae in lstNomeMaes)
@@ -281,7 +245,7 @@ namespace Jack.Business
                     oFamilia.Nome = strMae;
                     oFamilia.IsConsistente = "N";
                     oFamilia.IsSacolinha = "N";
-                    strRetorno = oDados.GravarLote(oFamilia);
+                    strRetorno = repFamilia.GravarLote(oFamilia);
 
                     oFamiliaLote.Nome = strMae;
                     oFamiliaLote.Status = strRetorno;
@@ -295,7 +259,6 @@ namespace Jack.Business
             }
             finally
             {
-                oDados = null;
                 strRetorno = string.Empty;
                 oFamilia = null;
                 oFamiliaLote = null;

@@ -12,8 +12,16 @@ namespace Jack.Business
     {
 
 
+        private readonly Data.Status repStatus;
+        private readonly Data.Familia repFamilia;
+        private readonly Data.IUnitWork unidadeTrabalho;
+
         public Presenca()
         {
+            unidadeTrabalho = new Data.UnitWork();
+            repStatus = new Data.Status(unidadeTrabalho);
+            repFamilia = new Data.Familia(unidadeTrabalho);
+
         }
 
         public bool Delete(Model.Presenca oTipo)

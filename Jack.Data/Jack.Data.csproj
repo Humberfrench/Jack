@@ -98,9 +98,9 @@
     <Compile Include="Status.cs" />
     <Compile Include="TipoItem.cs" />
     <Compile Include="UnityOfWork\IRepository.cs" />
-    <Compile Include="UnityOfWork\IUnitOfWork.cs" />
+    <Compile Include="UnityOfWork\IUnitWork.cs" />
     <Compile Include="UnityOfWork\Repository.cs" />
-    <Compile Include="UnityOfWork\UnitOfWork.cs" />
+    <Compile Include="UnityOfWork\UnitWork.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Jack.Model\Jack.Model.csproj">

@@ -11,10 +11,10 @@ namespace Jack.Data
 {
     public class Repository<T> : IRepository<T> where T : IEntidade
     {
-        private UnitOfWork _unitOfWork;
-        public Repository(IUnitOfWork unitOfWork)
+        private UnitWork _unitOfWork;
+        public Repository(IUnitWork unitOfWork)
         {
-            _unitOfWork = (UnitOfWork)unitOfWork;
+            _unitOfWork = (UnitWork)unitOfWork;
         }
 
         protected ISession Session { get { return _unitOfWork.Session; } }
@@ -29,19 +29,5 @@ namespace Jack.Data
             return Session.Get<T>(id);
         }
 
-        public void Save(T entity)
-        {
-            Session.Save(entity);
-        }
-
-        public void Update(T entity)
-        {
-            Session.Update(entity);
-        }
-
-        public void Delete(int id)
-        {
-            Session.Delete(Session.Load<T>(id));
-        }
     }
 }

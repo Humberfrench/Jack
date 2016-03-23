@@ -6,14 +6,16 @@ using Jack.Model.DTOs;
 using NHibernate;
 using NHibernate.Transform;
 using NHibernate.Criterion;
+using System.Linq;
 
 namespace Jack.Data
 {
-    public class Familia : BaseData<Model.Familia, int>
+    public class Familia : Repository<Model.Familia>
     {
-
-        public Familia() : base()
+        private IUnitWork UnitWork;
+        public Familia(IUnitWork unitWork) : base(unitWork)
         {
+            UnitWork = unitWork;
         }
 
         /// <summary>
@@ -22,10 +24,11 @@ namespace Jack.Data
         /// <param name="oTipo">Entidade com os dados Preenchidos</param>
         /// <returns>Boolean. Se a operação foi um sucesso, true.</returns>
         /// <remarks></remarks>
-        public override bool Insert(Model.Familia oTipo)
+        public bool Insert(Model.Familia oTipo)
         {
 
-            return base.Insert(oTipo);
+            UnitWork.Salvar(oTipo);
+            return true;
 
         }
 
@@ -35,10 +38,11 @@ namespace Jack.Data
         /// <param name="oTipo">Entidade com os dados Preenchidos</param>
         /// <returns>Boolean. Se a operação foi um sucesso, true.</returns>
         /// <remarks></remarks>
-        public override bool Update(Model.Familia oTipo)
+        public bool Update(Model.Familia oTipo)
         {
 
-            return base.Update(oTipo);
+            UnitWork.Salvar(oTipo);
+            return true;
 
         }
 
@@ -48,10 +52,11 @@ namespace Jack.Data
         /// <param name="oTipo">Entidade com os dados Preenchidos</param>
         /// <returns>Boolean. Se a operação foi um sucesso, true.</returns>
         /// <remarks></remarks>
-        public override bool Delete(Model.Familia oTipo)
+        public bool Delete(Model.Familia oTipo)
         {
 
-            return base.Delete(oTipo);
+            UnitWork.Excluir(oTipo);
+            return true;
 
         }
 
@@ -61,11 +66,12 @@ namespace Jack.Data
         /// <param name="Identifier">Código para a Procura do Valor</param>
         /// <returns>Entidade. Se a operação foi um sucesso, A Entidade Virá preenchida.</returns>
         /// <remarks></remarks>
-        public override Model.Familia Find(int Identifier)
+        public Model.Familia Find(int Identifier)
         {
             Model.Familia oReturn;
-            oReturn  = base.Find(Identifier);
-            return (Model.Familia) oSession.GetSessionImplementation().PersistenceContext.Unproxy(oReturn);
+            oReturn  = base.GetById(Identifier);
+            //return (Model.Familia)oSession.GetSessionImplementation().PersistenceContext.Unproxy(oReturn);
+            return (Model.Familia) oReturn;
 
         }
 
@@ -74,21 +80,13 @@ namespace Jack.Data
         /// </summary>
         /// <returns>Lista. Se a operação foi um sucesso, a lista virá carregada.</returns>
         /// <remarks></remarks>
-        public override IList<Model.Familia> LoadAll()
+        public IList<Model.Familia> LoadAll()
         {
 
-            return base.LoadAll();
+            return GetAll().ToList();
 
         }
 
-        //Overrides Function LoadAll2() As IList(Of Model.Familia)
-
-        //    Dim oCriteria = oSession.CreateCriteria("Familia", "F").CreateAlias("F.Status", "S")
-
-
-
-
-        //End Function
 
         public string GravarLote(Model.Familia oFamilia)
         {
@@ -164,7 +162,7 @@ namespace Jack.Data
         public IList<DTOFamilia> Load()
         {
             IList<DTOFamilia> listaStatus;
-            ICriteria criteria = oSession.CreateCriteria(typeof(Model.Familia), "F")
+            ICriteria criteria = Session.CreateCriteria(typeof(Model.Familia), "F")
                                          .CreateAlias("Status", "S", NHibernate.SqlCommand.JoinType.InnerJoin)
                                          .SetProjection(Projections.ProjectionList()
                                          .Add(Projections.Property("F.Codigo"), "Codigo")

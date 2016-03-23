@@ -3,27 +3,30 @@ using NHibernate;
 using NHibernate.Criterion;
 using NHibernate.Transform;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Jack.Data
 {
-    public class Status : BaseData<Model.Status, int>
-    {
-
-        public Status() : base()
+    public class Status : Repository<Model.Status>
+    { 
+        private IUnitWork UnitWork;
+        public Status(IUnitWork unitWork) : base(unitWork)
         {
+            UnitWork = unitWork;
         }
 
-        #region Nhibernate
+    #region Nhibernate
         /// <summary>
-        /// Método para inserir o registro
-        /// </summary>
-        /// <param name="oTipo">Entidade com os dados Preenchidos</param>
-        /// <returns>Boolean. Se a operação foi um sucesso, true.</returns>
-        /// <remarks></remarks>
-        public override bool Insert(Model.Status oTipo)
+    /// Método para inserir o registro
+    /// </summary>
+    /// <param name="oTipo">Entidade com os dados Preenchidos</param>
+    /// <returns>Boolean. Se a operação foi um sucesso, true.</returns>
+    /// <remarks></remarks>
+        public bool Insert(Model.Status oTipo)
         {
 
-            return base.Insert(oTipo);
+            UnitWork.Salvar(oTipo);
+            return true;
 
         }
 
@@ -33,10 +36,11 @@ namespace Jack.Data
         /// <param name="oTipo">Entidade com os dados Preenchidos</param>
         /// <returns>Boolean. Se a operação foi um sucesso, true.</returns>
         /// <remarks></remarks>
-        public override bool Update(Model.Status oTipo)
+        public bool Update(Model.Status oTipo)
         {
 
-            return base.Update(oTipo);
+            UnitWork.Salvar(oTipo);
+            return true;
 
         }
 
@@ -46,10 +50,11 @@ namespace Jack.Data
         /// <param name="oTipo">Entidade com os dados Preenchidos</param>
         /// <returns>Boolean. Se a operação foi um sucesso, true.</returns>
         /// <remarks></remarks>
-        public override bool Delete(Model.Status oTipo)
+        public bool Delete(Model.Status oTipo)
         {
 
-            return base.Delete(oTipo);
+            UnitWork.Excluir(oTipo);
+            return true;
 
         }
 
@@ -59,10 +64,10 @@ namespace Jack.Data
         /// <param name="Identifier">Código para a Procura do Valor</param>
         /// <returns>Entidade. Se a operação foi um sucesso, A Entidade Virá preenchida.</returns>
         /// <remarks></remarks>
-        public override Model.Status Find(int Identifier)
+        public Model.Status Find(int Identifier)
         {
 
-            return base.Find(Identifier);
+            return GetById(Identifier);
 
         }
 
@@ -71,10 +76,10 @@ namespace Jack.Data
         /// </summary>
         /// <returns>Lista. Se a operação foi um sucesso, a lista virá carregada.</returns>
         /// <remarks></remarks>
-        public override IList<Model.Status> LoadAll()
+        public IList<Model.Status> LoadAll()
         {
 
-            return base.LoadAll();
+            return GetAll().ToList();
 
         }
 
@@ -85,7 +90,7 @@ namespace Jack.Data
         public IList<DTOStatus> Load()
         {
             IList<DTOStatus> listaStatus;
-            ICriteria criteria = oSession.CreateCriteria(typeof(Model.Status), "S")
+            ICriteria criteria = Session.CreateCriteria(typeof(Model.Status), "S")
                                          .SetProjection(Projections.ProjectionList()
                                          .Add(Projections.Property("S.Codigo"), "codigo")
                                          .Add(Projections.Property("S.Descricao"), "descricao")
