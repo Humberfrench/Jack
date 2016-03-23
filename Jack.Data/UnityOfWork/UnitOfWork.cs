@@ -10,14 +10,25 @@ using System;
 
 namespace Jack.Data
 {
-    public sealed class NHibernateHelper
+    class UnitOfWork : IUnitOfWork
     {
+        private static readonly ISessionFactory _sessionFactory;
+        private ITransaction _transaction;
         private const string CurrentSessionKey = "nhibernate.current_session";
         private static object factorylock = new object();
 
-        private static readonly ISessionFactory sessionFactory;
-        static NHibernateHelper()
+        public ISession Session { get; private set; }
+
+        static UnitOfWork()
         {
+            // Initialise singleton instance of ISessionFactory, static constructors are only executed once during the
+            // application lifetime - the first time the UnitOfWork class is used
+            //_sessionFactory = Fluently.Configure()
+            //    .Database(MsSqlConfiguration.MsSql2008.ConnectionString(x => x.FromConnectionStringWithKey("UnitOfWorkExample")))
+            //    .Mappings(x => x.AutoMappings.Add(
+            //        AutoMap.AssemblyOf<Product>(new AutomappingConfiguration()).UseOverridesFromAssemblyOf<ProductOverrides>()))
+            //    .ExposeConfiguration(config => new SchemaUpdate(config).Execute(false, true))
+            //    .BuildSessionFactory();
             try
             {
                 lock (factorylock)
@@ -25,7 +36,7 @@ namespace Jack.Data
                     Configuration cfg = new Configuration();
                     cfg.Configure();
 
-                    sessionFactory = Fluently.Configure(cfg)
+                    _sessionFactory = Fluently.Configure(cfg)
                                     .CurrentSessionContext("web")
                                     .Mappings(m =>
                                                 m.FluentMappings
@@ -41,64 +52,35 @@ namespace Jack.Data
             {
                 throw ex;
             }
-
         }
 
-        public static ISession GetCurrentSession(System.Reflection.Assembly assembly)
+        public UnitOfWork()
         {
-            ISession currentSession = assembly as ISession;
+            Session = _sessionFactory.OpenSession();
+        }
+
+        public void BeginTransaction()
+        {
+            _transaction = Session.BeginTransaction();
+        }
+
+        public void Commit()
+        {
             try
             {
-                if (currentSession == null)
-                {
-                    currentSession = sessionFactory.OpenSession();
-                    currentSession = currentSession.GetSession(EntityMode.Poco);
-                }
-                else
-                {
-                    if (!currentSession.IsConnected)
-                    {
-                        currentSession = sessionFactory.GetCurrentSession();
-                    }
-                }
-                if (!CurrentSessionContext.HasBind(sessionFactory))
-                        CurrentSessionContext.Bind(sessionFactory.OpenSession());
+                _transaction.Commit();
             }
-            catch (Exception ex)
+            catch
             {
-                throw ex;
+                _transaction.Rollback();
+                throw;
             }
-
-            return currentSession;
+            finally
+            {
+                Session.Close();
+            }
         }
 
-        public static void CloseSession(System.Reflection.Assembly assembly)
-        {
-            ISession currentSession = assembly as ISession;
-            try
-            {
-                if (currentSession == null)
-                {
-                    // No current session
-                    return;
-                }
-
-                currentSession.Close();
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-
-        }
-
-        public static void CloseSessionFactory()
-        {
-            if (sessionFactory != null)
-            {
-                sessionFactory.Close();
-            }
-        }
         public static void CreationDB()
         {
             FluentConfiguration config = Fluently.Configure()
@@ -124,6 +106,4 @@ namespace Jack.Data
         }
     }
 }
-//An association from the table tb_reuniao_agendada refers to an unmapped 
-//    class: System.Collections.Generic.List`1[[Jack.Model.Presenca, 
-//    Jack.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]
+}

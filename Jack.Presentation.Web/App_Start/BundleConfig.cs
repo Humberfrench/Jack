@@ -8,7 +8,7 @@ namespace Jack.Presentation.Web
         {
             bundles.Add(new StyleBundle("~/Content/basic").Include("~/Content/Jack.css", "~/Content/bootstrap.min.css", "~/Content/bootstrap-theme.min.css", "~/Content/toastr.min.css"));
             //all
-            bundles.Add(new ScriptBundle("~/bundles/basic").Include("~/Scripts/jquery-2.2.0.min.js", "~/Scripts/toastr.min.js", "~/Scripts/bootstrap.min.js"));
+            bundles.Add(new ScriptBundle("~/bundles/basic").Include("~/Scripts/jquery-2.2.1.min.js", "~/Scripts/toastr.min.js", "~/Scripts/bootstrap.min.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/angular").Include("~/Scripts/angular.min.js"));
             //pages

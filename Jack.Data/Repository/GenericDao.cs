@@ -15,18 +15,19 @@ namespace Jack.Data
         /// <summary>
         /// Construtor, obtém a sessão do NHibernateHelper e inicia a transação.
         /// </summary>
-        public GenericDao(bool blnWithTransaction = false)
+        //public GenericDao(bool blnWithTransaction = false)
+        public GenericDao()
         {
             try
             {
                 Type tipoEntidade = typeof(Tipo);
                 oSession = NHibernateHelper.GetCurrentSession(tipoEntidade.Assembly);
                 oSession.GetSessionImplementation().PersistenceContext.Unproxy(tipoEntidade.Assembly);
-                blnHasTransaction = blnWithTransaction;
-                if (blnWithTransaction)
-                {
-                    oTransaction = oSession.BeginTransaction();
-                }
+                blnHasTransaction = true;//blnWithTransaction;
+                //if (blnWithTransaction)
+                //{
+                oTransaction = oSession.BeginTransaction();
+                //}
             }
             catch (Exception ex)
             {
@@ -45,6 +46,7 @@ namespace Jack.Data
             try
             {
                 oRetorno = oSession.Save(Obj);
+                Commit();
                 Finish();
             }
             catch (Exception ex)
@@ -64,6 +66,7 @@ namespace Jack.Data
             try
             {
                 oSession.Update(Obj);
+                Commit();
                 Finish();
             }
             catch (Exception ex)
@@ -83,6 +86,7 @@ namespace Jack.Data
             try
             {
                 oSession.Delete(Obj);
+                Commit();
                 Finish();
             }
             catch (Exception ex)

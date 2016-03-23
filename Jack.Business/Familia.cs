@@ -195,19 +195,20 @@ namespace Jack.Business
         {
             Model.Familia modelFamilia = null;
             bool blnRetorno = false;
-            Model.Status modelStatus = null;
             Status oStatus = null;
 
             try
             {
                 oStatus = new Status();
                 modelFamilia = Find(family.Codigo);
-                modelFamilia.Status = oStatus.Find(family.StatusCodigo);
+                //modelFamilia.Status = oStatus.Find(family.StatusCodigo);
                 modelFamilia.Contato = family.Contato;
                 modelFamilia.Nome = family.Nome;
                 modelFamilia.IsConsistente = family.IsConsistente;
                 modelFamilia.IsSacolinha = family.IsSacolinha;
                 modelFamilia.Nivel = family.Nivel;
+
+                oStatus = null;
                 if (family.Codigo == 0)
                 {
                     Insert(modelFamilia);
@@ -227,7 +228,6 @@ namespace Jack.Business
             finally
             {
                 modelFamilia = null;
-                modelStatus = null;
                 oStatus = null;
             }
 
