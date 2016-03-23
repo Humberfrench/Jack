@@ -1,4 +1,5 @@
 ﻿using Consumer.Tools;
+using Jack.Data;
 using Jack.Model.DTOs;
 using System;
 using System.Collections.Generic;
@@ -10,6 +11,20 @@ namespace Jack.Business
 {
     public class Reuniao : ICrud<Model.Reuniao, int>
     {
+
+        private readonly Data.Familia repFamilia;
+        private readonly Data.Reuniao repReuniao;
+        private readonly Data.Presenca repPresenca;
+        private readonly Data.IUnitWork unidadeTrabalho;
+
+        public Reuniao()
+        {
+            unidadeTrabalho = new Data.UnitWork();
+            repReuniao = new Data.Reuniao(unidadeTrabalho);
+            repFamilia = new Data.Familia(unidadeTrabalho);
+            repPresenca = new Data.Presenca(unidadeTrabalho);
+
+        }
 
         public List<Model.Reuniao> GerarDatas(int intAno)
         {
@@ -78,21 +93,15 @@ namespace Jack.Business
         }
         public IList<DTOReuniao> LoadByAnoCorrente(int intAno)
         {
-            Data.Reuniao oDados = null;
             IList<DTOReuniao> iListDatas = null;
             try
             {
-                oDados = new Data.Reuniao();
-                iListDatas = oDados.LoadByAnoCorrente(intAno);
+                iListDatas = repReuniao.LoadByAnoCorrente(intAno);
             }
             catch (Exception ex)
             {
                 iListDatas = null;
                 throw ex;
-            }
-            finally
-            {
-                oDados = null;
             }
             return iListDatas;
 
@@ -102,16 +111,14 @@ namespace Jack.Business
 
             List<Model.Reuniao> lstDatas = null;
             bool blnretorno = false;
-            Data.Reuniao oDados = null;
             DateTime dateDado = DateTime.Now;
             try
             {
                 lstDatas = GerarDatas(intAno);
-                oDados = new Data.Reuniao();
                 foreach (Model.Reuniao oDado in lstDatas)
                 {
                     dateDado = oDado.Data;
-                    oDados.Insert(oDado);
+                    repReuniao.Insert(oDado);
                 }
                 blnretorno = true;
             }
@@ -126,24 +133,17 @@ namespace Jack.Business
 
         public bool Delete(Model.Reuniao oTipo)
         {
-            Data.Reuniao oDados = null;
             bool blnRetorno = false;
 
             try
             {
-                oDados = new Data.Reuniao();
-                blnRetorno = oDados.Delete(oTipo);
+                blnRetorno = repReuniao.Delete(oTipo);
             }
             catch (Exception ex)
             {
                 blnRetorno = false;
                 throw ex;
             }
-            finally
-            {
-                oDados = null;
-            }
-
             return blnRetorno;
 
         }
@@ -151,22 +151,16 @@ namespace Jack.Business
         public Model.Reuniao Find(int Identifier)
         {
 
-            Data.Reuniao oDados = null;
             Model.Reuniao oRetorno = null;
 
             try
             {
-                oDados = new Data.Reuniao();
-                oRetorno = oDados.Find(Identifier);
+                oRetorno = repReuniao.Find(Identifier);
             }
             catch (Exception ex)
             {
                 oRetorno = null;
                 throw ex;
-            }
-            finally
-            {
-                oDados = null;
             }
 
             return oRetorno;
@@ -175,22 +169,16 @@ namespace Jack.Business
 
         public bool Insert(Model.Reuniao oTipo)
         {
-            Data.Reuniao oDados = null;
             bool blnRetorno = false;
 
             try
             {
-                oDados = new Data.Reuniao();
-                blnRetorno = oDados.Insert(oTipo);
+                blnRetorno = repReuniao.Insert(oTipo);
             }
             catch (Exception ex)
             {
                 blnRetorno = false;
                 throw ex;
-            }
-            finally
-            {
-                oDados = null;
             }
 
             return blnRetorno;
@@ -198,22 +186,16 @@ namespace Jack.Business
 
         public IList<Model.Reuniao> LoadAll()
         {
-            Data.Reuniao oDados = null;
             IList<Model.Reuniao> lstRetorno = null;
 
             try
             {
-                oDados = new Data.Reuniao();
-                lstRetorno = oDados.LoadAll();
+                lstRetorno = repReuniao.LoadAll();
             }
             catch (Exception ex)
             {
                 lstRetorno = null;
                 throw ex;
-            }
-            finally
-            {
-                oDados = null;
             }
 
             return lstRetorno;
@@ -222,22 +204,16 @@ namespace Jack.Business
 
         public bool Update(Model.Reuniao oTipo)
         {
-            Data.Reuniao oDados = null;
             bool blnRetorno = false;
 
             try
             {
-                oDados = new Data.Reuniao();
-                blnRetorno = oDados.Update(oTipo);
+                blnRetorno = repReuniao.Update(oTipo);
             }
             catch (Exception ex)
             {
                 blnRetorno = false;
                 throw ex;
-            }
-            finally
-            {
-                oDados = null;
             }
 
             return blnRetorno;
@@ -253,7 +229,7 @@ namespace Jack.Business
             {
                 lstDados = Load(intAno).Where(x => x.Data == strData).ToList();
 
-                if (iPesq.ToList().Count > 0)
+                if (lstDados.Count > 0)
                 {
                     intRetorno = lstDados[0].Codigo;
                 }

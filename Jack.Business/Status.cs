@@ -10,30 +10,27 @@ namespace Jack.Business
     public class Status : ICrud<Model.Status, int>
     {
 
+        private readonly Data.Status repStatus;
+        private readonly Data.IUnitWork unidadeTrabalho;
 
         public Status()
         {
-
+            unidadeTrabalho = new Data.UnitWork();
+            repStatus = new Data.Status(unidadeTrabalho);
         }
 
         public bool Delete(Model.Status oTipo)
         {
-            Data.Status oDados = null;
             bool blnRetorno = false;
 
             try
             {
-                oDados = new Data.Status();
-                blnRetorno = oDados.Delete(oTipo);
+                blnRetorno = repStatus.Delete(oTipo);
             }
             catch (Exception ex)
             {
                 blnRetorno = false;
                 throw ex;
-            }
-            finally
-            {
-                oDados = null;
             }
 
             return blnRetorno;
@@ -43,22 +40,16 @@ namespace Jack.Business
         public Model.Status Find(int Identifier)
         {
 
-            Data.Status oDados = null;
             Model.Status oRetorno = null;
 
             try
             {
-                oDados = new Data.Status();
-                oRetorno = oDados.Find(Identifier);
+                oRetorno = repStatus.Find(Identifier);
             }
             catch (Exception ex)
             {
                 oRetorno = null;
                 throw ex;
-            }
-            finally
-            {
-                oDados = null;
             }
 
             return oRetorno;
@@ -67,22 +58,16 @@ namespace Jack.Business
 
         public bool Insert(Model.Status oTipo)
         {
-            Data.Status oDados = null;
             bool blnRetorno = false;
 
             try
             {
-                oDados = new Data.Status();
-                blnRetorno = oDados.Insert(oTipo);
+                blnRetorno = repStatus.Insert(oTipo);
             }
             catch (Exception ex)
             {
                 blnRetorno = false;
                 throw ex;
-            }
-            finally
-            {
-                oDados = null;
             }
 
             return blnRetorno;
@@ -90,22 +75,16 @@ namespace Jack.Business
 
         public IList<Model.Status> LoadAll()
         {
-            Data.Status oDados = null;
             IList<Model.Status> lstRetorno = null;
 
             try
             {
-                oDados = new Data.Status();
-                lstRetorno = oDados.LoadAll();
+                lstRetorno = repStatus.LoadAll();
             }
             catch (Exception ex)
             {
                 lstRetorno = null;
                 throw ex;
-            }
-            finally
-            {
-                oDados = null;
             }
 
             return lstRetorno;
@@ -148,22 +127,16 @@ namespace Jack.Business
 
         public IList<DTOStatus> Load()
         {
-            Data.Status oDados = null;
             IList<DTOStatus> lstRetorno = null;
 
             try
             {
-                oDados = new Data.Status();
-                lstRetorno = oDados.Load();
+                lstRetorno = repStatus.Load();
             }
             catch (Exception ex)
             {
                 lstRetorno = null;
                 throw ex;
-            }
-            finally
-            {
-                oDados = null;
             }
 
             return lstRetorno;
@@ -171,22 +144,16 @@ namespace Jack.Business
 
         public bool Update(Model.Status oTipo)
         {
-            Data.Status oDados = null;
             bool blnRetorno = false;
 
             try
             {
-                oDados = new Data.Status();
-                blnRetorno = oDados.Update(oTipo);
+                blnRetorno = repStatus.Update(oTipo);
             }
             catch (Exception ex)
             {
                 blnRetorno = false;
                 throw ex;
-            }
-            finally
-            {
-                oDados = null;
             }
 
             return blnRetorno;

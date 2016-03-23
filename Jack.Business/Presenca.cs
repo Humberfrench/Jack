@@ -12,37 +12,33 @@ namespace Jack.Business
     {
 
 
-        private readonly Data.Status repStatus;
         private readonly Data.Familia repFamilia;
+        private readonly Data.Reuniao repReuniao;
+        private readonly Data.Presenca repPresenca;
         private readonly Data.IUnitWork unidadeTrabalho;
 
         public Presenca()
         {
             unidadeTrabalho = new Data.UnitWork();
-            repStatus = new Data.Status(unidadeTrabalho);
+            repReuniao = new Data.Reuniao(unidadeTrabalho);
             repFamilia = new Data.Familia(unidadeTrabalho);
+            repPresenca = new Data.Presenca(unidadeTrabalho);
 
         }
 
         public bool Delete(Model.Presenca oTipo)
         {
 
-            Data.Presenca oDados = null;
             bool blnRetorno = false;
 
             try
             {
-                oDados = new Data.Presenca();
-                blnRetorno = oDados.Delete(oTipo);
+                blnRetorno = repPresenca.Delete(oTipo);
             }
             catch (Exception ex)
             {
                 blnRetorno = false;
                 throw ex;
-            }
-            finally
-            {
-                oDados = null;
             }
 
             return blnRetorno;
@@ -52,22 +48,16 @@ namespace Jack.Business
         public Model.Presenca Find(int Identifier)
         {
 
-            Data.Presenca oDados = null;
             Model.Presenca oRetorno = null;
 
             try
             {
-                oDados = new Data.Presenca();
-                oRetorno = oDados.Find(Identifier);
+                oRetorno = repPresenca.Find(Identifier);
             }
             catch (Exception ex)
             {
                 oRetorno = null;
                 throw ex;
-            }
-            finally
-            {
-                oDados = null;
             }
 
             return oRetorno;
@@ -75,22 +65,16 @@ namespace Jack.Business
         }
         public bool Registrar(DTOPresenca presencaMae)
         {
-            Data.Presenca oDados = null;
-            Data.Familia oFamilia = null;
-            Data.Reuniao oReuniao = null;
             bool blnRetorno = false;
             Model.Presenca modelPresenca = null;
 
             try
             {
-                oDados = new Data.Presenca();
-                oFamilia = new Data.Familia();
-                oReuniao = new Data.Reuniao();
                 modelPresenca = new Model.Presenca();
 
-                modelPresenca.Familia = oFamilia.Find(presencaMae.Familia);
-                modelPresenca.Reuniao = oReuniao.Find(presencaMae.Reuniao);
-                blnRetorno = oDados.Insert(modelPresenca);
+                modelPresenca.Familia = repFamilia.Find(presencaMae.Familia);
+                modelPresenca.Reuniao = repReuniao.Find(presencaMae.Reuniao);
+                blnRetorno = repPresenca.Insert(modelPresenca);
             }
             catch (Exception ex)
             {
@@ -99,9 +83,6 @@ namespace Jack.Business
             }
             finally
             {
-                oDados = null;
-                oFamilia = null;
-                oReuniao = null;
                 modelPresenca = null;
             }
 
@@ -111,22 +92,16 @@ namespace Jack.Business
         public bool Insert(Model.Presenca oTipo)
         {
 
-            Data.Presenca oDados = null;
             bool blnRetorno = false;
 
             try
             {
-                oDados = new Data.Presenca();
-                blnRetorno = oDados.Insert(oTipo);
+                blnRetorno = repPresenca.Insert(oTipo);
             }
             catch (Exception ex)
             {
                 blnRetorno = false;
                 throw ex;
-            }
-            finally
-            {
-                oDados = null;
             }
 
             return blnRetorno;
@@ -161,22 +136,16 @@ namespace Jack.Business
         public IList<Model.Presenca> LoadAll()
         {
 
-            Data.Presenca oDados = null;
             IList<Model.Presenca> lstRetorno = null;
 
             try
             {
-                oDados = new Data.Presenca();
-                lstRetorno = oDados.LoadAll();
+                lstRetorno = repPresenca.LoadAll();
             }
             catch (Exception ex)
             {
                 lstRetorno = null;
                 throw ex;
-            }
-            finally
-            {
-                oDados = null;
             }
 
             return lstRetorno;
@@ -186,22 +155,16 @@ namespace Jack.Business
         public IList<Model.Familia> Load(int intReuniao)
         {
 
-            Data.Presenca oDados = null;
             IList<Model.Familia> lstRetorno = null;
 
             try
             {
-                oDados = new Data.Presenca();
-                lstRetorno = oDados.Load(intReuniao);
+                lstRetorno = repPresenca.Load(intReuniao);
             }
             catch (Exception ex)
             {
                 lstRetorno = null;
                 throw ex;
-            }
-            finally
-            {
-                oDados = null;
             }
 
             return lstRetorno;
@@ -211,46 +174,34 @@ namespace Jack.Business
         public bool Update(Model.Presenca oTipo)
         {
 
-            Data.Presenca oDados = null;
             bool blnRetorno = false;
 
             try
             {
-                oDados = new Data.Presenca();
-                blnRetorno = oDados.Update(oTipo);
+                blnRetorno = repPresenca.Update(oTipo);
             }
             catch (Exception ex)
             {
                 blnRetorno = false;
                 throw ex;
             }
-            finally
-            {
-                oDados = null;
-            }
 
             return blnRetorno;
         }
 
-        public List<Model.FamiliaPresenca> ObterPresencaPorMae(int intFamilia, int intAno)
+        public IList<Model.FamiliaPresenca> ObterPresencaPorMae(int intFamilia, int intAno)
         {
 
-            Data.Presenca oDados = null;
-            List<Model.FamiliaPresenca> lstRetorno = null;
+            IList<Model.FamiliaPresenca> lstRetorno = null;
 
             try
             {
-                oDados = new Data.Presenca();
-                lstRetorno = oDados.ObterPresencaPorMae(intFamilia, intAno);
+                lstRetorno = repPresenca.ObterPresencaPorMae(intFamilia, intAno);
             }
             catch (Exception ex)
             {
                 lstRetorno = null;
                 throw ex;
-            }
-            finally
-            {
-                oDados = null;
             }
 
             return lstRetorno;

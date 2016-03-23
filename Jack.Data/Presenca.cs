@@ -2,15 +2,19 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Linq;
 
 namespace Jack.Data
 {
-    public class Presenca : BaseData<Model.Presenca, int>
+    public class Presenca : Repository<Model.Presenca>
     {
 
-        public Presenca() : base()
+        private IUnitWork UnitWork;
+        public Presenca(IUnitWork unitWork) : base(unitWork)
         {
+            UnitWork = unitWork;
         }
+
 
         /// <summary>
         /// Método para inserir o registro
@@ -18,10 +22,11 @@ namespace Jack.Data
         /// <param name="oTipo">Entidade com os dados Preenchidos</param>
         /// <returns>Boolean. Se a operação foi um sucesso, true.</returns>
         /// <remarks></remarks>
-        public override bool Insert(Model.Presenca oTipo)
+        public bool Insert(Model.Presenca oTipo)
         {
 
-            return base.Insert(oTipo);
+            UnitWork.Salvar(oTipo);
+            return true;
 
         }
 
@@ -31,10 +36,11 @@ namespace Jack.Data
         /// <param name="oTipo">Entidade com os dados Preenchidos</param>
         /// <returns>Boolean. Se a operação foi um sucesso, true.</returns>
         /// <remarks></remarks>
-        public override bool Update(Model.Presenca oTipo)
+        public bool Update(Model.Presenca oTipo)
         {
 
-            return base.Update(oTipo);
+            UnitWork.Salvar(oTipo);
+            return true;
 
         }
 
@@ -44,10 +50,11 @@ namespace Jack.Data
         /// <param name="oTipo">Entidade com os dados Preenchidos</param>
         /// <returns>Boolean. Se a operação foi um sucesso, true.</returns>
         /// <remarks></remarks>
-        public override bool Delete(Model.Presenca oTipo)
+        public bool Delete(Model.Presenca oTipo)
         {
 
-            return base.Delete(oTipo);
+            UnitWork.Excluir(oTipo);
+            return true;
 
         }
 
@@ -57,10 +64,10 @@ namespace Jack.Data
         /// <param name="Identifier">Código para a Procura do Valor</param>
         /// <returns>Entidade. Se a operação foi um sucesso, A Entidade Virá preenchida.</returns>
         /// <remarks></remarks>
-        public override Model.Presenca Find(int Identifier)
+        public Model.Presenca Find(int Identifier)
         {
 
-            return base.Find(Identifier);
+            return GetById(Identifier);
 
         }
 
@@ -69,10 +76,10 @@ namespace Jack.Data
         /// </summary>
         /// <returns>Lista. Se a operação foi um sucesso, a lista virá carregada.</returns>
         /// <remarks></remarks>
-        public override IList<Model.Presenca> LoadAll()
+        public IList<Model.Presenca> LoadAll()
         {
 
-            return base.LoadAll();
+            return GetAll().ToList();
 
         }
 
@@ -122,7 +129,7 @@ namespace Jack.Data
 
         }
 
-        public List<Model.FamiliaPresenca> ObterPresencaPorMae(int intFamilia, int intAno)
+        public IList<Model.FamiliaPresenca> ObterPresencaPorMae(int intFamilia, int intAno)
         {
             Command oDados = null;
             List<Model.FamiliaPresenca> lstDados = null;

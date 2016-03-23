@@ -3,16 +3,18 @@ using NHibernate;
 using NHibernate.Criterion;
 using NHibernate.Transform;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Jack.Data
 {
-    public class Reuniao : BaseData<Model.Reuniao, int>
+    public class Reuniao : Repository<Model.Reuniao>
     {
 
-        public Reuniao() : base()
+        private IUnitWork UnitWork;
+        public Reuniao(IUnitWork unitWork) : base(unitWork)
         {
+            UnitWork = unitWork;
         }
-
 
         /// <summary>
         /// Método para inserir o registro
@@ -20,10 +22,11 @@ namespace Jack.Data
         /// <param name="oTipo">Entidade com os dados Preenchidos</param>
         /// <returns>Boolean. Se a operação foi um sucesso, true.</returns>
         /// <remarks></remarks>
-        public override bool Insert(Model.Reuniao oTipo)
+        public bool Insert(Model.Reuniao oTipo)
         {
 
-            return base.Insert(oTipo);
+            UnitWork.Salvar(oTipo);
+            return true;
 
         }
 
@@ -33,10 +36,11 @@ namespace Jack.Data
         /// <param name="oTipo">Entidade com os dados Preenchidos</param>
         /// <returns>Boolean. Se a operação foi um sucesso, true.</returns>
         /// <remarks></remarks>
-        public override bool Update(Model.Reuniao oTipo)
+        public bool Update(Model.Reuniao oTipo)
         {
 
-            return base.Update(oTipo);
+            UnitWork.Salvar(oTipo);
+            return true;
 
         }
 
@@ -46,11 +50,11 @@ namespace Jack.Data
         /// <param name="oTipo">Entidade com os dados Preenchidos</param>
         /// <returns>Boolean. Se a operação foi um sucesso, true.</returns>
         /// <remarks></remarks>
-        public override bool Delete(Model.Reuniao oTipo)
+        public bool Delete(Model.Reuniao oTipo)
         {
 
-            return base.Delete(oTipo);
-
+            UnitWork.Excluir(oTipo);
+            return true;
         }
 
         /// <summary>
@@ -59,10 +63,10 @@ namespace Jack.Data
         /// <param name="Identifier">Código para a Procura do Valor</param>
         /// <returns>Entidade. Se a operação foi um sucesso, A Entidade Virá preenchida.</returns>
         /// <remarks></remarks>
-        public override Model.Reuniao Find(int Identifier)
+        public Model.Reuniao Find(int Identifier)
         {
 
-            return base.Find(Identifier);
+            return GetById(Identifier);
 
         }
 
@@ -71,17 +75,17 @@ namespace Jack.Data
         /// </summary>
         /// <returns>Lista. Se a operação foi um sucesso, a lista virá carregada.</returns>
         /// <remarks></remarks>
-        public override IList<Model.Reuniao> LoadAll()
+        public IList<Model.Reuniao> LoadAll()
         {
 
-            return base.LoadAll();
+            return GetAll().ToList();
 
         }
 
         public IList<DTOReuniao> LoadByAnoCorrente(int intAno)
         {
             IList<DTOReuniao> listaReuniao = null;
-            ICriteria criteria = oSession.CreateCriteria(typeof(Model.Reuniao), "R")
+            ICriteria criteria = Session.CreateCriteria(typeof(Model.Reuniao), "R")
                              .SetProjection(Projections.ProjectionList()
                              .Add(Projections.Property("R.Codigo"), "Codigo")
                              .Add(Projections.Property("R.Ano"), "Ano")
