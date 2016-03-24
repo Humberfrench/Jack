@@ -14,6 +14,7 @@ namespace Jack.Presentation.Web
             //pages
             bundles.Add(new ScriptBundle("~/bundles/engine").Include("~/engine/geral/mensagens.js", "~/engine/geral/util.js"));
             bundles.Add(new ScriptBundle("~/bundles/familia").Include("~/engine/familia/familia.js", "~/engine/familia/familia.controller.js", "~/engine/familia/familia.presentation.js"));
+            bundles.Add(new ScriptBundle("~/bundles/familiacrianca").Include("~/engine/familia/familia.js", "~/engine/familiacrianca/familiacrianca.js", "~/engine/familiacrianca/familiacrianca.controller.js", "~/engine/familiacrianca/familiafamiliacrianca.presentation.js"));
             bundles.Add(new ScriptBundle("~/bundles/status").Include("~/engine/geral/status.js"));
             bundles.Add(new ScriptBundle("~/bundles/util").Include("~/engine/geral/util.js"));
             bundles.Add(new ScriptBundle("~/bundles/chamada").Include("~/engine/chamada/chamada.js", "~/engine/chamada/chamada.controller.js", "~/engine/chamada/chamada.presentation.js"));

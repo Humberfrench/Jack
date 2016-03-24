@@ -56,12 +56,16 @@ namespace Jack.Data
         }
         public void Salvar(IEntidade entidade)
         {
+            BeginTransaction();
             Session.SaveOrUpdate(entidade);
+            Commit();
         }
 
         public void Excluir(IEntidade entidade)
         {
+            BeginTransaction();
             Session.Delete(entidade);
+            Commit();
         }
 
         public UnitWork()

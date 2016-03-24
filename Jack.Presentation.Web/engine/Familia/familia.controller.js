@@ -76,7 +76,7 @@ angular.module('CECAMApp', []).controller('ngFamiliaController', function ($scop
         {
             Familia.Salvar(itemDados);
             //reload
-            $scope.itens = familia.Load();
+            $scope.itens = Familia.Load();
         }
     }
 
