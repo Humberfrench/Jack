@@ -2,8 +2,8 @@
 using System;
 using System.Collections.Generic;
 using System.Web.Http;
-using Jack.Business;
 using Jack.Model.DTOs;
+using Jack.Application;
 
 namespace Controllers.API
 {
@@ -14,11 +14,11 @@ namespace Controllers.API
         {
 
             IList<DTOStatus> lstRetorno = null;
-            Status oBusiness = null;
+            Status oApplication = null;
             try
             {
-                oBusiness = new Status();
-                lstRetorno = oBusiness.LoadForCriancas();
+                oApplication = new Status();
+                lstRetorno = oApplication.LoadForCriancas();
 
             }
             catch (Exception ex)
@@ -28,7 +28,7 @@ namespace Controllers.API
             }
             finally
             {
-                oBusiness = null;
+                oApplication = null;
             }
 
             return lstRetorno;

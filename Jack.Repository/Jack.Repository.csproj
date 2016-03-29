@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{BB9B067F-8B63-4F6D-824A-013DB7DF6339}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Jack.Repository</RootNamespace>
+    <AssemblyName>Jack.Repository</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Consumer.Data.Basic">
+      <HintPath>..\Lib\Consumer.Data.Basic.dll</HintPath>
+    </Reference>
+    <Reference Include="Consumer.Tools">
+      <HintPath>..\Lib\Consumer.Tools.dll</HintPath>
+    </Reference>
+    <Reference Include="FluentNHibernate, Version=2.0.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\FluentNHibernate.2.0.3.0\lib\net40\FluentNHibernate.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Iesi.Collections, Version=4.0.0.0, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Iesi.Collections.4.0.1.4000\lib\net40\Iesi.Collections.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NHibernate, Version=4.0.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <HintPath>..\packages\NHibernate.4.0.4.4000\lib\net40\NHibernate.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Calcado.cs" />
+    <Compile Include="Colaborador.cs" />
+    <Compile Include="ColaboradorCrianca.cs" />
+    <Compile Include="Responsavel.cs" />
+    <Compile Include="CriancaMoralCrista.cs" />
+    <Compile Include="Criancas.cs" />
+    <Compile Include="Familia.cs" />
+    <Compile Include="FamiliaCrianca.cs" />
+    <Compile Include="Kit.cs" />
+    <Compile Include="KitItem.cs" />
+    <Compile Include="Map\MapCalcado.cs" />
+    <Compile Include="Map\MapColaborador.cs" />
+    <Compile Include="Map\MapColaboradorCrianca.cs" />
+    <Compile Include="Map\MapCriancaMoralCrista.cs" />
+    <Compile Include="Map\MapCriancas.cs" />
+    <Compile Include="Map\MapFamilia.cs" />
+    <Compile Include="Map\MapKit.cs" />
+    <Compile Include="Map\MapKitItem.cs" />
+    <Compile Include="Map\MapPresenca.cs" />
+    <Compile Include="Map\MapResponsavel.cs" />
+    <Compile Include="Map\MapReuniao.cs" />
+    <Compile Include="Map\MapRoupa.cs" />
+    <Compile Include="Map\MapStatus.cs" />
+    <Compile Include="Map\MapTipoItem.cs" />
+    <Compile Include="Presenca.cs" />
+    <Compile Include="Processos.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\BaseData.cs" />
+    <Compile Include="Repository\GenericDao.cs" />
+    <Compile Include="Repository\IGenericDao.cs" />
+    <Compile Include="Repository\NHibernateHelper.cs" />
+    <Compile Include="Repository\NHProvider.cs" />
+    <Compile Include="Representante.cs" />
+    <Compile Include="Reuniao.cs" />
+    <Compile Include="Roupa.cs" />
+    <Compile Include="Sacolas.cs" />
+    <Compile Include="Status.cs" />
+    <Compile Include="TipoItem.cs" />
+    <Compile Include="UnityOfWork\IRepository.cs" />
+    <Compile Include="UnityOfWork\IUnitWork.cs" />
+    <Compile Include="UnityOfWork\Repository.cs" />
+    <Compile Include="UnityOfWork\UnitWork.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Jack.Model\Jack.Model.csproj">
+      <Project>{03bc258c-3dba-4bdc-85e7-908b9d2f673b}</Project>
+      <Name>Jack.Model</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="SQL\pr_chamada_nomes.sql" />
+    <Content Include="SQL\pr_ObterCriancasFamilia.sql" />
+    <Content Include="SQL\pr_ObterCriancasFamiliaRep.sql" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

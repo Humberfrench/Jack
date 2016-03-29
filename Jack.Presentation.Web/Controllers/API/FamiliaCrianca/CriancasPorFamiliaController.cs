@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Web.Http;
 using Jack.Model.DTOs;
-using Jack.Business;
+using Jack.Application;
 
 namespace Controllers.API
 { 
@@ -13,12 +13,12 @@ namespace Controllers.API
         public IList<DTOCrianca> GetValue(int ID)
         {
             IList<DTOCrianca> lstRetorno = null;
-            FamiliaCrianca oBusiness = null;
+            FamiliaCrianca oApplication = null;
 
             try
             {
-                oBusiness = new FamiliaCrianca();
-                lstRetorno = oBusiness.ObterCriancasByFamilia(ID);
+                oApplication = new FamiliaCrianca();
+                lstRetorno = oApplication.ObterCriancasByFamilia(ID);
 
             }
             catch (Exception ex)
@@ -28,7 +28,7 @@ namespace Controllers.API
             }
             finally
             {
-                oBusiness = null;
+                oApplication = null;
             }
 
             return lstRetorno;

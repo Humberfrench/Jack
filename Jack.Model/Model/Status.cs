@@ -80,7 +80,7 @@ namespace Jack.Model
             set
             {
                 nivelStatus = value;
-                nivelStatusDesc.ToNivel();
+                nivelStatusDesc = nivelStatus.ToNivel();
             }
         }
 

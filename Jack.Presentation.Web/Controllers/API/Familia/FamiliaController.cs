@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Web.Http;
-using Jack.Business;
+using Jack.Application;
 using Jack.Model.DTOs;
 
 namespace Controllers.API
@@ -15,12 +15,12 @@ namespace Controllers.API
 		{
 
             IList<DTOFamilia> lstRetorno = null;
-			Familia oBusiness = null;
+			Familia oApplication = null;
 
             try
             {
-                oBusiness = new Familia();
-                lstRetorno = oBusiness.Load();
+                oApplication = new Familia();
+                lstRetorno = oApplication.Load();
 
             }
             catch (Exception ex)
@@ -30,7 +30,7 @@ namespace Controllers.API
             }
             finally
             {
-                oBusiness = null;
+                oApplication = null;
             }
 
 			return lstRetorno;
@@ -42,12 +42,12 @@ namespace Controllers.API
 		{
 
             DTOFamilia oRetorno = null;
-			Familia oBusiness = default(Familia);
+			Familia oApplication = default(Familia);
 
             try
             {
-                oBusiness = new Familia();
-                oRetorno = oBusiness.Obter(ID);
+                oApplication = new Familia();
+                oRetorno = oApplication.Obter(ID);
 
             }
             catch (Exception ex)
@@ -57,7 +57,7 @@ namespace Controllers.API
             }
             finally
             {
-                oBusiness = null;
+                oApplication = null;
             }
 
 			return oRetorno;
@@ -67,15 +67,15 @@ namespace Controllers.API
         [HttpPost()]
         public void Salvar([FromBody()] DTOFamilia family)
         {
-            Familia oBusiness = null;
+            Familia oApplication = null;
             try
             {
-                oBusiness = new Familia();
-                oBusiness.Gravar(family);
+                oApplication = new Familia();
+                oApplication.Gravar(family);
             }
             finally
             {
-                oBusiness = null;
+                oApplication = null;
             }
 
         }
@@ -83,16 +83,16 @@ namespace Controllers.API
         [HttpDelete()]
         public void Delete([FromUri()] int ID)
         {
-            Familia oBusiness = null;
+            Familia oApplication = null;
             try
             {
-                oBusiness = new Familia();
-                oBusiness.Delete(ID);
+                oApplication = new Familia();
+                oApplication.Delete(ID);
 
             }
             finally
             {
-                oBusiness = null;
+                oApplication = null;
             }
 
         }

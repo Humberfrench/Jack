@@ -1,7 +1,7 @@
 using Jack.Model.DTOs;
 using System.Collections.Generic;
 using System.Web.Http;
-using Business = Jack.Business;
+using Application = Jack.Application;
 
 namespace Controllers.API
 {
@@ -11,7 +11,7 @@ namespace Controllers.API
 		[HttpGet()]
 		public IList<DTOFamiliaChamada> GetValue([FromUri()] int ID)
         {
-            Business.Familia oChamada = new Business.Familia();
+            Application.Familia oChamada = new Application.Familia();
 			IList<DTOFamiliaChamada> oReturn = default(List<DTOFamiliaChamada>);
 
 			oReturn = oChamada.ObterChamada(ID);
@@ -26,7 +26,7 @@ namespace Controllers.API
         {
             DTOPresenca presencaMae;
             presencaMae = new DTOPresenca(intFamilia, intReuniao);
-            Business.Presenca oChamada = new Business.Presenca();
+            Application.Presenca oChamada = new Application.Presenca();
 
             oChamada.Registrar(presencaMae);
         }

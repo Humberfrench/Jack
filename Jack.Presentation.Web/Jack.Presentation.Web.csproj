@@ -268,9 +268,9 @@
     <Folder Include="Views\Roupa\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Jack.Business\Jack.Business.csproj">
+    <ProjectReference Include="..\Jack.Application\Jack.Application.csproj">
       <Project>{4d307578-5f8a-42b7-91ba-aa7c69800a08}</Project>
-      <Name>Jack.Business</Name>
+      <Name>Jack.Application</Name>
     </ProjectReference>
     <ProjectReference Include="..\Jack.Library\Jack.Library.csproj">
       <Project>{9bae2eee-5392-4ea6-8ee9-b0e5521ff8fd}</Project>

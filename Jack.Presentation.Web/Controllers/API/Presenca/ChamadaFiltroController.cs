@@ -1,7 +1,7 @@
 using Jack.Model.DTOs;
 using System.Collections.Generic;
 using System.Web.Http;
-using Business = Jack.Business;
+using Application = Jack.Application;
 using Model = Jack.Model;
 using System.Linq;
 
@@ -13,7 +13,7 @@ namespace Controllers.API
 		[HttpGet()]
 		public IList<DTOFamiliaChamada> GetValue([FromUri()] int ID, [FromUri()] string Letter)
         {
-            Business.Familia oChamada = new Business.Familia();
+            Application.Familia oChamada = new Application.Familia();
 			IList<DTOFamiliaChamada> oReturn = new List<DTOFamiliaChamada>();
 
 			oReturn = oChamada.ObterChamada(ID).Where( x => x.Nome.Substring(0,1) == Letter).ToList();
@@ -24,7 +24,7 @@ namespace Controllers.API
 		}
         public IList<DTOMneumonicos> GetValues([FromUri()] int ID)
         {
-            Business.Familia oChamada = new Business.Familia();
+            Application.Familia oChamada = new Application.Familia();
             IList<DTOMneumonicos> oReturn = new List<DTOMneumonicos>();
 
             oReturn = oChamada.ObterChamada(ID).OrderBy(x => x.Nome)

@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
-using Business = Jack.Business;
+using Application = Jack.Application;
 using Model = Jack.Model;
 
 
@@ -14,13 +14,13 @@ namespace Controllers.MVC
 		// GET: Roupas
 		public ActionResult Index()
 		{
-			Business.Roupa RoupaBusiness = null;
+			Application.Roupa RoupaBusiness = null;
 			List<Model.Roupa> RoupaRetorno = null;
 
 
             try
             {
-                RoupaBusiness = new Business.Roupa();
+                RoupaBusiness = new Application.Roupa();
                 //fake init
                 RoupaRetorno = new List<Model.Roupa>();
                 RoupaRetorno.Add(new Model.Roupa());
@@ -29,7 +29,7 @@ namespace Controllers.MVC
                 RoupaRetorno.Add(new Model.Roupa());
                 RoupaRetorno.Add(new Model.Roupa());
                 //fake end
-                //RoupaRetorno = RoupaBusiness.LoadAll()
+                //RoupaRetorno = RoupaApplication.LoadAll()
 
             }
             catch (Exception ex)

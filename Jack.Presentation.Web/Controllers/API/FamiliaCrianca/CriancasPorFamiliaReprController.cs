@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Web.Http;
 using Jack.Model.DTOs;
-using Jack.Business;
+using Jack.Application;
 
 namespace Controllers.API
 {
@@ -12,12 +12,12 @@ namespace Controllers.API
         {
 
 			IList<DTOCriancaRepresentante> lstRetorno = null;
-			FamiliaCrianca oBusiness = default(FamiliaCrianca);
+			FamiliaCrianca oApplication = default(FamiliaCrianca);
 
             try
             {
-                oBusiness = new FamiliaCrianca();
-                lstRetorno = oBusiness.ObterCriancasByFamiliaWithRep(ID);
+                oApplication = new FamiliaCrianca();
+                lstRetorno = oApplication.ObterCriancasByFamiliaWithRep(ID);
 
             }
             catch (Exception ex)
@@ -27,7 +27,7 @@ namespace Controllers.API
             }
             finally
             {
-                oBusiness = null;
+                oApplication = null;
             }
 
 			return lstRetorno;

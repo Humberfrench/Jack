@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Web.Http;
-using Jack.Business;
+using Jack.Application;
 using Jack.Model.DTOs;
 
 namespace Controllers.API
@@ -14,11 +14,11 @@ namespace Controllers.API
         {
 
             IList<DTOStatus> lstRetorno = null;
-            Status oBusiness = null;
+            Status oApplication = null;
             try
             {
-                oBusiness = new Status();
-                lstRetorno = oBusiness.LoadForFamilia();
+                oApplication = new Status();
+                lstRetorno = oApplication.LoadForFamilia();
 
             }
             catch (Exception ex)
@@ -28,7 +28,7 @@ namespace Controllers.API
             }
             finally
             {
-                oBusiness = null;
+                oApplication = null;
             }
 
             return lstRetorno;

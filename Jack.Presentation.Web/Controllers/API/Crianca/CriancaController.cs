@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Web.Http;
-using Business = Jack.Business;
+using Application = Jack.Application;
 using Model = Jack.Model;
 
 
@@ -14,12 +14,12 @@ namespace Controllers.API
         {
 
             IList<Model.Criancas> lstRetorno = null;
-            Business.Criancas oBusiness = null;
+            Application.Criancas oApplication = null;
 
             try
             {
-                oBusiness = new Business.Criancas();
-                lstRetorno = oBusiness.LoadAll();
+                oApplication = new Application.Criancas();
+                lstRetorno = oApplication.LoadAll();
 
             }
             catch (Exception ex)
@@ -29,7 +29,7 @@ namespace Controllers.API
             }
             finally
             {
-                oBusiness = null;
+                oApplication = null;
             }
 
             return lstRetorno;
@@ -41,12 +41,12 @@ namespace Controllers.API
         {
 
             Model.Criancas oRetorno = null;
-            Business.Criancas oBusiness = null;
+            Application.Criancas oApplication = null;
 
             try
             {
-                oBusiness = new Business.Criancas();
-                oRetorno = oBusiness.Find(ID);
+                oApplication = new Application.Criancas();
+                oRetorno = oApplication.Find(ID);
 
             }
             catch (Exception ex)
@@ -56,7 +56,7 @@ namespace Controllers.API
             }
             finally
             {
-                oBusiness = null;
+                oApplication = null;
             }
 
             return oRetorno;

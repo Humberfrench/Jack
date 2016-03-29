@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Web.Http;
-using Business = Jack.Business;
+using Application = Jack.Application;
 using Model = Jack.Model;
 
 
@@ -14,12 +14,12 @@ namespace Controllers.API
 		{
 
 			Model.Reuniao lstRetorno = null;
-			Business.Reuniao oBusiness = null;
+			Application.Reuniao oApplication = null;
 
 			try
             {
-				oBusiness = new Business.Reuniao();
-				lstRetorno = oBusiness.Find(ID);
+				oApplication = new Application.Reuniao();
+				lstRetorno = oApplication.Find(ID);
 
 			}
             catch (Exception ex)
@@ -29,7 +29,7 @@ namespace Controllers.API
             }
             finally
             {
-				oBusiness = null;
+				oApplication = null;
 			}
 
 			return lstRetorno;

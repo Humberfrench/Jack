@@ -1136,10 +1136,6 @@
     <Folder Include="Views\Sacolas\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Jack.Business\Jack.Business.csproj">
-      <Project>{4d307578-5f8a-42b7-91ba-aa7c69800a08}</Project>
-      <Name>Jack.Business</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Jack.Model\Jack.Model.csproj">
       <Project>{03bc258c-3dba-4bdc-85e7-908b9d2f673b}</Project>
       <Name>Jack.Model</Name>

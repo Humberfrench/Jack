@@ -11,7 +11,7 @@ namespace Controllers.API
 		public IList<CriancaMoralCrista> GetValues()
 		{
             IList<CriancaMoralCrista> criancas;
-            Jack.Business.CriancaMoralCrista oCrianca = new Jack.Business.CriancaMoralCrista();
+            Jack.Application.CriancaMoralCrista oCrianca = new Jack.Application.CriancaMoralCrista();
 
             criancas = oCrianca.LoadAll();
 

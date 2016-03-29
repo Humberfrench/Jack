@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Web.Http;
-using Business = Jack.Business;
+using Application = Jack.Application;
 using Model = Jack.Model;
 
 
@@ -15,12 +15,12 @@ namespace Controllers.API
 		{
 
 			IList<Model.TipoItem> lstRetorno = null;
-			Business.TipoItem oBusiness = default(Business.TipoItem);
+			Application.TipoItem oApplication = default(Application.TipoItem);
 
             try
             {
-                oBusiness = new Business.TipoItem();
-                lstRetorno = oBusiness.LoadAll();
+                oApplication = new Application.TipoItem();
+                lstRetorno = oApplication.LoadAll();
 
             }
             catch (Exception ex)
@@ -30,7 +30,7 @@ namespace Controllers.API
             }
             finally
             {
-                oBusiness = null;
+                oApplication = null;
             }
 
 			return lstRetorno;
@@ -42,11 +42,11 @@ namespace Controllers.API
 		{
 
 			Model.TipoItem oRetorno = default(Model.TipoItem);
-			Business.TipoItem oBusiness = default(Business.TipoItem);
+			Application.TipoItem oApplication = default(Application.TipoItem);
 
 			try {
-				oBusiness = new Business.TipoItem();
-				oRetorno = oBusiness.Find(ID);
+				oApplication = new Application.TipoItem();
+				oRetorno = oApplication.Find(ID);
 
 			}
             catch (Exception ex)
@@ -56,7 +56,7 @@ namespace Controllers.API
             }
             finally
             {
-				oBusiness = null;
+				oApplication = null;
 			}
 
 			return oRetorno;
@@ -66,15 +66,15 @@ namespace Controllers.API
 		[HttpPost()]
 		public void Salvar( [FromUri()] Model.TipoItem oFamily)
 		{
-			Business.TipoItem oBusiness = default(Business.TipoItem);
+			Application.TipoItem oApplication = default(Application.TipoItem);
 			try
             {
-				oBusiness = new Business.TipoItem();
-				oBusiness.Update(oFamily);
+				oApplication = new Application.TipoItem();
+				oApplication.Update(oFamily);
 			}
             finally
             {
-				oBusiness = null;
+				oApplication = null;
 			}
 
 		}
@@ -82,18 +82,18 @@ namespace Controllers.API
 		[HttpDelete()]
 		public void Delete(	[FromUri()] int ID)
 		{
-			Business.TipoItem oBusiness = default(Business.TipoItem);
+			Application.TipoItem oApplication = default(Application.TipoItem);
 			Model.TipoItem oDelete = default(Model.TipoItem);
 			try {
-				oBusiness = new Business.TipoItem();
+				oApplication = new Application.TipoItem();
 				oDelete = new Model.TipoItem();
 				oDelete.Codigo = ID;
-				oBusiness.Delete(oDelete);
+				oApplication.Delete(oDelete);
 
 			}
             finally
             {
-				oBusiness = null;
+				oApplication = null;
 			}
 
 		}
