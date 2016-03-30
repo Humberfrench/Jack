@@ -1,9 +1,9 @@
 ﻿using System;
 
-namespace Jack.Model
+namespace Jack.DTO
 {
     [Serializable()]
-    public class CriancasInconsistentes : Criancas
+    public class CriancasInconsistentes 
     {
 
         public virtual string NomeMae { get; set; }

@@ -1,9 +1,5 @@
-﻿using Jack.Model.DTOs;
-using System;
+﻿using Jack.DTO.DTOs;
 using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
 using System.Web.Http;
 
 namespace Jack.Presentation.Web.Controllers.API

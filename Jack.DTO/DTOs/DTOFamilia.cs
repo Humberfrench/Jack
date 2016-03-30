@@ -1,7 +1,7 @@
 ﻿using System;
 using Jack.Library.Extensions;
 
-namespace Jack.Model.DTOs
+namespace Jack.DTO
 {
     public class DTOFamilia : BaseDTO2
     {

@@ -4,24 +4,23 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Jack.Model.DTOs
+namespace Jack.DTO
 {
-    public class DTOFamiliaChamada
+    public abstract class BaseDTO
     {
-        public DTOFamiliaChamada()
+        public BaseDTO()
         {
             codigo = 0;
-            nome = string.Empty;
+            descricao = string.Empty;
         }
-
-        public DTOFamiliaChamada(int pCodigo, string pNome) :this()
+        public BaseDTO(int pCodigo, string pDescricao)
         {
             codigo = pCodigo;
-            nome = pNome;
+            descricao = pDescricao;
         }
 
-        private string nome;
-        private int codigo;
+        protected int codigo;
+        protected string descricao;
 
         public int Codigo
         {
@@ -34,20 +33,17 @@ namespace Jack.Model.DTOs
                 codigo = value;
             }
         }
-
-        public string Nome
+        public string Descricao
         {
             get
             {
-                return nome;
+                return descricao;
             }
             set
             {
-                nome = value;
+                descricao = value;
             }
+
         }
-
-
-
     }
 }

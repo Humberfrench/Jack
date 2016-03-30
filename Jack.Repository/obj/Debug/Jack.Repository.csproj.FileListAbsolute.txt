@@ -20,3 +20,5 @@ D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Repository\bin\Debug\Jack.Exte
 D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Repository\obj\Debug\Jack.Repository.csprojResolveAssemblyReference.cache
 D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Repository\obj\Debug\Jack.Repository.dll
 D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Repository\obj\Debug\Jack.Repository.pdb
+D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Repository\bin\Debug\Jack.DTO.dll
+D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Repository\bin\Debug\Jack.DTO.pdb

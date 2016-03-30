@@ -1,4 +1,5 @@
-﻿using Jack.Model.DTOs;
+﻿using Jack.DTO;
+using Jack.Model.DTOs;
 using NHibernate;
 using NHibernate.Criterion;
 using NHibernate.Transform;

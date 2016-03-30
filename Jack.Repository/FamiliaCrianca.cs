@@ -1,4 +1,5 @@
 ﻿using Consumer.Data.Basic.Data;
+using Jack.DTO;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -132,12 +133,12 @@ namespace Jack.Repository
 
         }
 
-        public List<Model.DTOs.DTOCrianca> ObterCriancasByFamilia(int intFamilia)
+        public List<DTOCrianca> ObterCriancasByFamilia(int intFamilia)
         {
 
             Command oDados = null;
-            List<Model.DTOs.DTOCrianca> lstDados = null;
-            Model.DTOs.DTOCrianca objDados = null;
+            List<DTOCrianca> lstDados = null;
+            DTOCrianca objDados = null;
             DataTable dtDados = null;
             try
             {
@@ -151,11 +152,11 @@ namespace Jack.Repository
                 dtDados = oDados.GetDataTable();
 
 
-                lstDados = new List<Model.DTOs.DTOCrianca>();
+                lstDados = new List<DTOCrianca>();
 
                 foreach (DataRow dr in dtDados.Rows)
                 {
-                    objDados = new Model.DTOs.DTOCrianca();
+                    objDados = new DTOCrianca();
                     objDados.Codigo = Convert.ToInt32(dr["id_crianca"]);
                     objDados.Nome = dr["nm_crianca"].ToString();
                     objDados.Idade = Convert.ToInt32(dr["nr_idade"]);
@@ -197,12 +198,12 @@ namespace Jack.Repository
 
         }
 
-        public List<Model.DTOs.DTOCriancaRepresentante> ObterCriancasByFamiliaWithRep(int intFamilia)
+        public List<DTOCriancaRepresentante> ObterCriancasByFamiliaWithRep(int intFamilia)
         {
 
             Command oDados = null;
-            List<Model.DTOs.DTOCriancaRepresentante> lstDados = null;
-            Model.DTOs.DTOCriancaRepresentante objDados = null;
+            List<DTOCriancaRepresentante> lstDados = null;
+            DTOCriancaRepresentante objDados = null;
             DataTable dtDados = null;
 
             try
@@ -217,11 +218,11 @@ namespace Jack.Repository
                 dtDados = oDados.GetDataTable();
 
 
-                lstDados = new List<Model.DTOs.DTOCriancaRepresentante>();
+                lstDados = new List<DTOCriancaRepresentante>();
 
                 foreach (DataRow dr in dtDados.Rows)
                 {
-                    objDados = new Model.DTOs.DTOCriancaRepresentante();
+                    objDados = new DTOCriancaRepresentante();
                     objDados.Codigo = Convert.ToInt32(dr["id_crianca"]);
                     objDados.Nome = dr["nm_crianca"].ToString();
                     objDados.Idade = Convert.ToInt32(dr["nr_idade"]);

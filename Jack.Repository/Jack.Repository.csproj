@@ -103,6 +103,10 @@
     <Compile Include="UnityOfWork\UnitWork.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Jack.DTO\Jack.DTO.csproj">
+      <Project>{23265646-9a5f-4ffa-8609-a6762a8cb01b}</Project>
+      <Name>Jack.DTO</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Jack.Model\Jack.Model.csproj">
       <Project>{03bc258c-3dba-4bdc-85e7-908b9d2f673b}</Project>
       <Name>Jack.Model</Name>

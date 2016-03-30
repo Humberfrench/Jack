@@ -1,4 +1,4 @@
-﻿namespace Jack.Model
+﻿namespace Jack.DTO
 {
     public class KitSacola
     {

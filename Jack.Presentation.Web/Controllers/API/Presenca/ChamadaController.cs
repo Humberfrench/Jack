@@ -1,4 +1,4 @@
-using Jack.Model.DTOs;
+using Jack.DTO;
 using System.Collections.Generic;
 using System.Web.Http;
 using Application = Jack.Application;

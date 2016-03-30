@@ -1,7 +1,7 @@
 ﻿using Jack.Library.Extensions;
 using System;
 
-namespace Jack.Model.DTOs
+namespace Jack.DTO
 {
     public class DTOCriancaRepresentante
     {

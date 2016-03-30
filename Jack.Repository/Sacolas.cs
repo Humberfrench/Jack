@@ -14,16 +14,16 @@ namespace Jack.Repository
         /// <param name="intAno"></param>
         /// <returns>Lista de Pessoas</returns>
         /// <remarks>Este é um processo Simples e Poderá ser usado para consistir as presenças e Sacolas</remarks>
-        public IList<Model.Sacolas> ProcessaSacolas(int intAno)
+        public IList<DTO.Sacolas> ProcessaSacolas(int intAno)
         {
 
             Command oCommand = null;
-            IList<Model.Sacolas> lstRetorno = null;
+            IList<DTO.Sacolas> lstRetorno = null;
             DataTable dtDados = null;
-            Model.Sacolas oRetorno = null;
+            DTO.Sacolas oRetorno = null;
             try
             {
-                lstRetorno = new List<Model.Sacolas>();
+                lstRetorno = new List<DTO.Sacolas>();
 
                 oCommand = new Command("CECAMKey");
                 oCommand.CommandText = "pr_gerar_sacolinhas";
@@ -33,7 +33,7 @@ namespace Jack.Repository
 
                 foreach (DataRow dr in dtDados.Rows)
                 {
-                    oRetorno = new Model.Sacolas();
+                    oRetorno = new DTO.Sacolas();
                     oRetorno.NumeroSacola = Convert.ToInt32(dr["id_sacolinha"].ToString());
                     oRetorno.NumeroSacolaFamilia = Convert.ToInt32(dr["nr_sacola_familia"].ToString());
                     oRetorno.CodigoFamilia = Convert.ToInt32(dr["id_familia"].ToString());
@@ -70,17 +70,17 @@ namespace Jack.Repository
 
         }
 
-        public IList<Model.Sacolas> ObterSacolas(int intKit, int intNivel, string isPrinted)
+        public IList<DTO.Sacolas> ObterSacolas(int intKit, int intNivel, string isPrinted)
         {
 
 
             Command oCommand = null;
-            IList<Model.Sacolas> lstRetorno = null;
+            IList<DTO.Sacolas> lstRetorno = null;
             DataTable dtDados = null;
-            Model.Sacolas oRetorno = null;
+            DTO.Sacolas oRetorno = null;
             try
             {
-                lstRetorno = new List<Model.Sacolas>();
+                lstRetorno = new List<DTO.Sacolas>();
 
                 oCommand = new Command("CECAMKey");
                 oCommand.CommandText = "pr_print_sacolas";
@@ -94,7 +94,7 @@ namespace Jack.Repository
 
                 foreach (DataRow dr in dtDados.Rows)
                 {
-                    oRetorno = new Model.Sacolas();
+                    oRetorno = new DTO.Sacolas();
                     oRetorno.NumeroSacola = Convert.ToInt32(dr["id_sacolinha"].ToString());
                     oRetorno.NumeroSacolaFamilia = Convert.ToInt32(dr["nr_sacola_familia"].ToString());
                     oRetorno.CodigoFamilia = Convert.ToInt32(dr["id_familia"].ToString());
@@ -131,17 +131,17 @@ namespace Jack.Repository
 
         }
 
-        public IList<Model.Sacolas> ObterSacolasLivres(int intKit, int intNivel, string isPrinted)
+        public IList<DTO.Sacolas> ObterSacolasLivres(int intKit, int intNivel, string isPrinted)
         {
 
 
             Command oCommand = null;
-            IList<Model.Sacolas> lstRetorno = null;
+            IList<DTO.Sacolas> lstRetorno = null;
             DataTable dtDados = null;
-            Model.Sacolas oRetorno = null;
+            DTO.Sacolas oRetorno = null;
             try
             {
-                lstRetorno = new List<Model.Sacolas>();
+                lstRetorno = new List<DTO.Sacolas>();
 
                 oCommand = new Command("CECAMKey");
                 oCommand.CommandText = "pr_print_sacolas_livres";
@@ -155,7 +155,7 @@ namespace Jack.Repository
 
                 foreach (DataRow dr in dtDados.Rows)
                 {
-                    oRetorno = new Model.Sacolas();
+                    oRetorno = new DTO.Sacolas();
                     oRetorno.NumeroSacola = Convert.ToInt32(dr["id_sacolinha"].ToString());
                     oRetorno.NumeroSacolaFamilia = Convert.ToInt32(dr["nr_sacola_familia"].ToString());
                     oRetorno.CodigoFamilia = Convert.ToInt32(dr["id_familia"].ToString());
@@ -192,17 +192,17 @@ namespace Jack.Repository
 
         }
 
-        public IList<Model.Sacolas> ObterSacolas()
+        public IList<DTO.Sacolas> ObterSacolas()
         {
 
 
             Command oCommand = null;
-            IList<Model.Sacolas> lstRetorno = null;
+            IList<DTO.Sacolas> lstRetorno = null;
             DataTable dtDados = null;
-            Model.Sacolas oRetorno = null;
+            DTO.Sacolas oRetorno = null;
             try
             {
-                lstRetorno = new List<Model.Sacolas>();
+                lstRetorno = new List<DTO.Sacolas>();
 
                 oCommand = new Command("CECAMKey");
                 oCommand.CommandText = "pr_print_sacolas_todas";
@@ -211,7 +211,7 @@ namespace Jack.Repository
 
                 foreach (DataRow dr in dtDados.Rows)
                 {
-                    oRetorno = new Model.Sacolas();
+                    oRetorno = new DTO.Sacolas();
                     oRetorno.NumeroSacola = Convert.ToInt32(dr["id_sacolinha"].ToString());
                     oRetorno.NumeroSacolaFamilia = Convert.ToInt32(dr["nr_sacola_familia"].ToString());
                     oRetorno.CodigoFamilia = Convert.ToInt32(dr["id_familia"].ToString());
@@ -248,17 +248,17 @@ namespace Jack.Repository
 
         }
 
-        public IList<Model.Sacolas> ObterSacolas(string strListSacolasIn)
+        public IList<DTO.Sacolas> ObterSacolas(string strListSacolasIn)
         {
 
 
             Command oCommand = null;
-            IList<Model.Sacolas> lstRetorno = null;
+            IList<DTO.Sacolas> lstRetorno = null;
             DataTable dtDados = null;
-            Model.Sacolas oRetorno = null;
+            DTO.Sacolas oRetorno = null;
             try
             {
-                lstRetorno = new List<Model.Sacolas>();
+                lstRetorno = new List<DTO.Sacolas>();
 
                 oCommand = new Command("CECAMKey");
                 oCommand.CommandText = "pr_print_sacolas_execute";
@@ -268,7 +268,7 @@ namespace Jack.Repository
 
                 foreach (DataRow dr in dtDados.Rows)
                 {
-                    oRetorno = new Model.Sacolas();
+                    oRetorno = new DTO.Sacolas();
                     oRetorno.NumeroSacola = Convert.ToInt32(dr["id_sacolinha"].ToString());
                     oRetorno.NumeroSacolaFamilia = Convert.ToInt32(dr["nr_sacola_familia"].ToString());
                     oRetorno.CodigoFamilia = Convert.ToInt32(dr["id_familia"].ToString());
@@ -307,16 +307,16 @@ namespace Jack.Repository
 
         }
 
-        public IList<Model.KitSacola> ObterKitSacolas(int intKit)
+        public IList<DTO.KitSacola> ObterKitSacolas(int intKit)
         {
 
             Command oCommand = null;
-            IList<Model.KitSacola> lstRetorno = null;
+            IList<DTO.KitSacola> lstRetorno = null;
             DataTable dtDados = null;
-            Model.KitSacola oRetorno = null;
+            DTO.KitSacola oRetorno = null;
             try
             {
-                lstRetorno = new List<Model.KitSacola>();
+                lstRetorno = new List<DTO.KitSacola>();
 
                 oCommand = new Command("CECAMKey");
                 oCommand.CommandText = "pr_mostrar_itens_kit";
@@ -326,7 +326,7 @@ namespace Jack.Repository
 
                 foreach (DataRow dr in dtDados.Rows)
                 {
-                    oRetorno = new Model.KitSacola();
+                    oRetorno = new DTO.KitSacola();
                     oRetorno.Ordem = dr["nr_ordem"].ToString();
                     oRetorno.MsgOpcional = dr["msg_opcional"].ToString();
                     oRetorno.KitItem = dr["ds_tipo_item"].ToString();

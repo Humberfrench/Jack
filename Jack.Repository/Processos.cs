@@ -1,4 +1,5 @@
 ﻿using Consumer.Data.Basic.Data;
+using Jack.DTO;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -202,33 +203,33 @@ namespace Jack.Repository
         /// </summary>
         /// <returns>List(Of Model.CriancasInconsistentes) - Lista de Crianças Inconsistentes</returns>
         /// <remarks></remarks>
-        public IList<Model.CriancasInconsistentes> ObterCriancasInconsistentes()
+        public IList<CriancasInconsistentes> ObterCriancasInconsistentes()
         {
 
             Command oCommand = null;
-            IList<Model.CriancasInconsistentes> lstRetorno = null;
+            IList<CriancasInconsistentes> lstRetorno = null;
             DataTable dtDados = null;
-            Model.CriancasInconsistentes oRetorno = null;
+            CriancasInconsistentes oRetorno = null;
 
             try
             {
-                lstRetorno = new List<Model.CriancasInconsistentes>();
+                lstRetorno = new List<CriancasInconsistentes>();
                 oCommand = new Command("CECAMKey");
                 oCommand.CommandText = "pr_rel_inconsist_criancas";
                 oCommand.CommandType = System.Data.CommandType.StoredProcedure;
                 dtDados = oCommand.GetDataTable();
                 foreach (DataRow dr in dtDados.Rows)
                 {
-                    oRetorno = new Model.CriancasInconsistentes();
-                    oRetorno.Codigo = Convert.ToInt32(dr["id_crianca"].ToString());
-                    oRetorno.NomeMae = dr["nm_mae"].ToString();
-                    oRetorno.Nome = dr["nm_crianca"].ToString();
-                    oRetorno.DescricaoIdade = dr["Idade"].ToString();
-                    oRetorno.DescricaoStatus = dr["ds_status"].ToString();
-                    oRetorno.DataNascimento = Convert.ToDateTime(dr["dt_nascimento"].ToString());
-                    oRetorno.Sexo = dr["ds_sexo"].ToString();
-                    oRetorno.Calcado = Convert.ToInt32(dr["nr_calcado"].ToString());
-                    oRetorno.Roupa = dr["nr_roupa"].ToString();
+                    oRetorno = new CriancasInconsistentes();
+                    //oRetorno.Codigo = Convert.ToInt32(dr["id_crianca"].ToString());
+                    //oRetorno.NomeMae = dr["nm_mae"].ToString();
+                    //oRetorno.Nome = dr["nm_crianca"].ToString();
+                    //oRetorno.DescricaoIdade = dr["Idade"].ToString();
+                    //oRetorno.DescricaoStatus = dr["ds_status"].ToString();
+                    //oRetorno.DataNascimento = Convert.ToDateTime(dr["dt_nascimento"].ToString());
+                    //oRetorno.Sexo = dr["ds_sexo"].ToString();
+                    //oRetorno.Calcado = Convert.ToInt32(dr["nr_calcado"].ToString());
+                    //oRetorno.Roupa = dr["nr_roupa"].ToString();
                     lstRetorno.Add(oRetorno);
                 }
 

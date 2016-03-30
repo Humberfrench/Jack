@@ -7,6 +7,7 @@ using NHibernate;
 using NHibernate.Transform;
 using NHibernate.Criterion;
 using System.Linq;
+using Jack.DTO;
 
 namespace Jack.Repository
 {

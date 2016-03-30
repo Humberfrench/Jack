@@ -1,4 +1,4 @@
-﻿namespace Jack.Model.DTOs
+﻿namespace Jack.DTO
 {
     public class DTOMneumonicos
     {

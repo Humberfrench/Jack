@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Jack.Model.DTOs
+namespace Jack.DTO
 {
     public class DTOReuniao
     {

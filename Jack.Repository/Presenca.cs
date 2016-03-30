@@ -1,4 +1,5 @@
 ﻿using Consumer.Data.Basic.Data;
+using Jack.DTO;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -129,11 +130,11 @@ namespace Jack.Repository
 
         }
 
-        public IList<Model.FamiliaPresenca> ObterPresencaPorMae(int intFamilia, int intAno)
+        public IList<FamiliaPresenca> ObterPresencaPorMae(int intFamilia, int intAno)
         {
             Command oDados = null;
-            List<Model.FamiliaPresenca> lstDados = null;
-            Model.FamiliaPresenca objDados = null;
+            List<FamiliaPresenca> lstDados = null;
+            FamiliaPresenca objDados = null;
             DataTable dtDados = null;
 
             try
@@ -150,11 +151,11 @@ namespace Jack.Repository
 
                 //fa.nm_mae, fa.nr_nivel_espera, ra.dt_reuniao
 
-                lstDados = new List<Model.FamiliaPresenca>();
+                lstDados = new List<FamiliaPresenca>();
 
                 foreach (DataRow dr in dtDados.Rows)
                 {
-                    objDados = new Model.FamiliaPresenca();
+                    objDados = new FamiliaPresenca();
                     objDados.Familia = dr["nm_mae"].ToString();
                     objDados.Nivel = Convert.ToInt32(dr["nr_nivel_espera"]);
                     objDados.Data = Convert.ToDateTime(dr["dt_reuniao"]);

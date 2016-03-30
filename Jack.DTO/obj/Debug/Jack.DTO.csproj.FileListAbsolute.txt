@@ -1,0 +1,7 @@
+D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.DTO\obj\Debug\Jack.DTO.csprojResolveAssemblyReference.cache
+D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.DTO\bin\Debug\Jack.DTO.dll
+D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.DTO\bin\Debug\Jack.DTO.pdb
+D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.DTO\bin\Debug\Jack.Extensions.dll
+D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.DTO\bin\Debug\Jack.Extensions.pdb
+D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.DTO\obj\Debug\Jack.DTO.dll
+D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.DTO\obj\Debug\Jack.DTO.pdb
