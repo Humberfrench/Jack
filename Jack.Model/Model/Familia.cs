@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using DomainValidation.Interfaces.Validation;
 using DomainValidation.Validation;
+using Jack.Model.Validations;
 
 namespace Jack.Model
 {
@@ -34,7 +35,7 @@ namespace Jack.Model
         private Status status ;
         private IList<Criancas> criancas ;
         private DateTime dataAtualizacao;
-
+        private ValidationResult validationResult;
         #endregion
 
         #region Properties
@@ -209,7 +210,9 @@ namespace Jack.Model
 
         public bool IsValid()
         {
-            throw new NotImplementedException();
+            var familiaValidation = new FamiliaValidValidation();
+            validationResult = familiaValidation.Valid(this);
+            return validationResult.IsValid;
         }
 
         #endregion
