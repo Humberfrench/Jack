@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using DomainValidation.Interfaces.Validation;
+using DomainValidation.Validation;
 
 namespace Jack.Model
 {
     [Serializable]
-    public class Familia : BaseModel<Familia>
+    public class Familia : BaseModel<Familia>, ISelfValidator
     {
 
         #region "Construtor"
@@ -187,6 +189,14 @@ namespace Jack.Model
             }
         }
 
+        public ValidationResult ValidationResult
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
+        }
+
         #endregion
 
         #region Methods
@@ -195,6 +205,11 @@ namespace Jack.Model
         {
             pCrianca.Familia.Add(this);
             Criancas.Add(pCrianca);
+        }
+
+        public bool IsValid()
+        {
+            throw new NotImplementedException();
         }
 
         #endregion

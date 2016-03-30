@@ -2,6 +2,8 @@ D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Application\obj\Debug\Jack.App
 D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Application\bin\Debug\Jack.Application.dll
 D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Application\bin\Debug\Jack.Application.pdb
 D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Application\bin\Debug\Consumer.Tools.dll
+D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Application\bin\Debug\DomainValidation.dll
+D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Application\bin\Debug\Jack.DTO.dll
 D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Application\bin\Debug\Jack.Extensions.dll
 D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Application\bin\Debug\Jack.Model.dll
 D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Application\bin\Debug\Jack.Repository.dll
@@ -9,6 +11,7 @@ D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Application\bin\Debug\Consumer
 D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Application\bin\Debug\NHibernate.dll
 D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Application\bin\Debug\FluentNHibernate.dll
 D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Application\bin\Debug\Iesi.Collections.dll
+D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Application\bin\Debug\Jack.DTO.pdb
 D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Application\bin\Debug\Jack.Extensions.pdb
 D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Application\bin\Debug\Jack.Model.pdb
 D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Application\bin\Debug\Jack.Repository.pdb
@@ -22,5 +25,3 @@ D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Application\bin\Debug\FluentNH
 D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Application\bin\Debug\Iesi.Collections.xml
 D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Application\obj\Debug\Jack.Application.dll
 D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Application\obj\Debug\Jack.Application.pdb
-D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Application\bin\Debug\Jack.DTO.dll
-D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Application\bin\Debug\Jack.DTO.pdb
