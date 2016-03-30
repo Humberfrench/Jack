@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Jack.DTO;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -7,9 +8,9 @@ namespace Jack.Application
     public class Sacolas
     {
 
-        public IList<Model.Sacolas> ProcessaSacolas(int intAno)
+        public IList<DTO.Sacolas> ProcessaSacolas(int intAno)
         {
-            IList<Model.Sacolas> lstSacolas = null;
+            IList<DTO.Sacolas> lstSacolas = null;
             Repository.Sacolas oDados = null;
 
             try
@@ -59,9 +60,9 @@ namespace Jack.Application
 
         }
 
-        public IList<Model.Sacolas> ObterSacolas(int intKit, int intNivel, string isPrinted)
+        public IList<DTO.Sacolas> ObterSacolas(int intKit, int intNivel, string isPrinted)
         {
-            IList<Model.Sacolas> lstSacolas = null;
+            IList<DTO.Sacolas> lstSacolas = null;
             Repository.Sacolas oDados = null;
 
             try
@@ -84,9 +85,9 @@ namespace Jack.Application
 
         }
 
-        public IList<Model.Sacolas> ObterSacolasLivres(int intKit, int intNivel, string isPrinted)
+        public IList<DTO.Sacolas> ObterSacolasLivres(int intKit, int intNivel, string isPrinted)
         {
-            IList<Model.Sacolas> lstSacolas = null;
+            IList<DTO.Sacolas> lstSacolas = null;
             Repository.Sacolas oDados = null;
 
             try
@@ -109,9 +110,9 @@ namespace Jack.Application
 
         }
 
-        public IList<Model.Sacolas> ObterSacolas()
+        public IList<DTO.Sacolas> ObterSacolas()
         {
-            IList<Model.Sacolas> lstSacolas = null;
+            IList<DTO.Sacolas> lstSacolas = null;
             Repository.Sacolas oDados = null;
 
             try
@@ -133,10 +134,10 @@ namespace Jack.Application
             return lstSacolas;
 
         }
-        public IList<Model.Sacolas> ObterSacolas(string strListSacolasIn)
+        public IList<DTO.Sacolas> ObterSacolas(string strListSacolasIn)
         {
 
-            IList<Model.Sacolas> lstSacolasOut = null;
+            IList<DTO.Sacolas> lstSacolasOut = null;
             Repository.Sacolas oDados = null;
 
             try
@@ -160,10 +161,10 @@ namespace Jack.Application
 
         }
 
-        public IList<Model.KitSacola> ObterKitSacolas(int intKit)
+        public IList<KitSacola> ObterKitSacolas(int intKit)
         {
 
-            IList<Model.KitSacola> lstSacolasOut = null;
+            IList<KitSacola> lstSacolasOut = null;
             Repository.Sacolas oDados = null;
 
             try
@@ -187,9 +188,9 @@ namespace Jack.Application
 
         }
 
-        public IList<Model.Sacolas> ObterSacolas(int intKit, int intNivel)
+        public IList<DTO.Sacolas> ObterSacolas(int intKit, int intNivel)
         {
-            IList<Model.Sacolas> lstSacolas = null;
+            IList<DTO.Sacolas> lstSacolas = null;
             Repository.Sacolas oDados = null;
 
             try
@@ -225,9 +226,9 @@ namespace Jack.Application
 
         }
 
-        public IList<Model.Sacolas> ObterSacolas(int intSacolaFamilia)
+        public IList<DTO.Sacolas> ObterSacolas(int intSacolaFamilia)
         {
-            IList<Model.Sacolas> lstSacolas = null;
+            IList<DTO.Sacolas> lstSacolas = null;
             Repository.Sacolas oDados = null;
 
             try

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Web.Http;
-using Jack.Model.DTOs;
+using Jack.DTO;
 using Jack.Application;
 
 namespace Controllers.API

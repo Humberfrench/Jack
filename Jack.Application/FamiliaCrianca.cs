@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Jack.DTO;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -105,10 +106,10 @@ namespace Jack.Application
             return blnRetorno;
         }
 
-        public List<Model.DTOs.DTOCrianca> ObterCriancasByFamilia(int intFamilia)
+        public List<DTOCrianca> ObterCriancasByFamilia(int intFamilia)
         {
 
-            List<Model.DTOs.DTOCrianca> lstDados = null;
+            List<DTOCrianca> lstDados = null;
             Repository.FamiliaCrianca oDados = null;
             try
             {
@@ -130,10 +131,10 @@ namespace Jack.Application
 
         }
 
-        public List<Model.DTOs.DTOCriancaRepresentante> ObterCriancasByFamiliaWithRep(int intFamilia)
+        public List<DTOCriancaRepresentante> ObterCriancasByFamiliaWithRep(int intFamilia)
         {
 
-            List<Model.DTOs.DTOCriancaRepresentante> lstDados = null;
+            List<DTOCriancaRepresentante> lstDados = null;
             Repository.FamiliaCrianca oDados = null;
             try
             {

@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Web.Http;
 using Jack.Application;
-using Jack.Model.DTOs;
+using Jack.DTO;
 
 namespace Controllers.API
 {

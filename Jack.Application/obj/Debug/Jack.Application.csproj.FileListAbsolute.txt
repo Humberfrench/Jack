@@ -22,3 +22,5 @@ D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Application\bin\Debug\FluentNH
 D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Application\bin\Debug\Iesi.Collections.xml
 D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Application\obj\Debug\Jack.Application.dll
 D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Application\obj\Debug\Jack.Application.pdb
+D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Application\bin\Debug\Jack.DTO.dll
+D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Application\bin\Debug\Jack.DTO.pdb

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Jack.DTO;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -224,11 +225,11 @@ namespace Jack.Application
         /// </summary>
         /// <returns>Objeto com a lista de Valores Tipo: List(Of Model.CriancasInconsistentes)</returns>
         /// <remarks></remarks>
-        public IList<Model.CriancasInconsistentes> ObterCriancasInconsistentes()
+        public IList<CriancasInconsistentes> ObterCriancasInconsistentes()
         {
 
             Repository.Processos oDados = null;
-            IList<Model.CriancasInconsistentes> lstRetorno = null;
+            IList<CriancasInconsistentes> lstRetorno = null;
 
             try
             {

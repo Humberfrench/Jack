@@ -1,4 +1,5 @@
-﻿using Jack.Model.DTOs;
+﻿using Jack.DTO;
+using Jack.Model.DTOs;
 using System;
 using System.Collections.Generic;
 
@@ -186,10 +187,10 @@ namespace Jack.Application
             return blnRetorno;
         }
 
-        public IList<Model.FamiliaPresenca> ObterPresencaPorMae(int intFamilia, int intAno)
+        public IList<FamiliaPresenca> ObterPresencaPorMae(int intFamilia, int intAno)
         {
 
-            IList<Model.FamiliaPresenca> lstRetorno = null;
+            IList<FamiliaPresenca> lstRetorno = null;
 
             try
             {

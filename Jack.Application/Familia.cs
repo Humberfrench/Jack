@@ -1,4 +1,5 @@
-﻿using Jack.Model.DTOs;
+﻿using Jack.DTO;
+using Jack.Model.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -224,22 +225,22 @@ namespace Jack.Application
             return blnRetorno;
         }
 
-        public List<Model.FamiliaLote> GravarLote(List<string> lstNomeMaes)
+        public List<FamiliaLote> GravarLote(List<string> lstNomeMaes)
         {
 
-            List<Model.FamiliaLote> lstLote = null;
+            List<FamiliaLote> lstLote = null;
             string strRetorno = string.Empty;
             Model.Familia oFamilia = null;
-            Model.FamiliaLote oFamiliaLote = null;
+            FamiliaLote oFamiliaLote = null;
 
             try
             {
-                lstLote = new List<Model.FamiliaLote>();
+                lstLote = new List<FamiliaLote>();
 
                 foreach (string strMae in lstNomeMaes)
                 {
                     oFamilia = new Model.Familia();
-                    oFamiliaLote = new Model.FamiliaLote();
+                    oFamiliaLote = new FamiliaLote();
 
                     oFamilia.Codigo = 0;
                     oFamilia.Nome = strMae;

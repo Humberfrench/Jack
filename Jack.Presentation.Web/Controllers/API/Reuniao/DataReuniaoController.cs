@@ -1,5 +1,5 @@
 ﻿using Jack.Application;
-using Jack.Model.DTOs;
+using Jack.DTO;
 using System.Collections.Generic;
 using System.Web.Http;
 

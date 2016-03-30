@@ -1,4 +1,4 @@
-﻿using Jack.DTO.DTOs;
+﻿using Jack.DTO;
 using System.Collections.Generic;
 using System.Web.Http;
 
