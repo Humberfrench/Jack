@@ -6,10 +6,10 @@ using System.Data;
 
 namespace Jack.Repository
 {
-    public class FamiliaCrianca
+    public class RepFamiliaCrianca
     {
 
-        public FamiliaCrianca() : base()
+        public RepFamiliaCrianca() : base()
         {
         }
 

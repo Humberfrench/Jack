@@ -1,28 +1,24 @@
-﻿using System;
+﻿using Consumer.Data.Basic.Data;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Consumer.Data.Basic.Data;
 using System.Data;
 
 namespace Jack.Repository
 {
-    public class Colaborador : BaseData<Model.Colaborador, int>
+    public class RepKitItem : BaseData<Model.KitItem, int>
     {
 
-        public Colaborador() : base()
+        public RepKitItem() : base()
         {
         }
 
-        #region "Crud"
         /// <summary>
         /// Método para inserir o registro
         /// </summary>
         /// <param name="oTipo">Entidade com os dados Preenchidos</param>
         /// <returns>Boolean. Se a operação foi um sucesso, true.</returns>
         /// <remarks></remarks>
-        public override bool Insert(Model.Colaborador oTipo)
+        public override bool Insert(Model.KitItem oTipo)
         {
 
             return base.Insert(oTipo);
@@ -35,7 +31,7 @@ namespace Jack.Repository
         /// <param name="oTipo">Entidade com os dados Preenchidos</param>
         /// <returns>Boolean. Se a operação foi um sucesso, true.</returns>
         /// <remarks></remarks>
-        public override bool Update(Model.Colaborador oTipo)
+        public override bool Update(Model.KitItem oTipo)
         {
 
             return base.Update(oTipo);
@@ -48,7 +44,7 @@ namespace Jack.Repository
         /// <param name="oTipo">Entidade com os dados Preenchidos</param>
         /// <returns>Boolean. Se a operação foi um sucesso, true.</returns>
         /// <remarks></remarks>
-        public override bool Delete(Model.Colaborador oTipo)
+        public override bool Delete(Model.KitItem oTipo)
         {
 
             return base.Delete(oTipo);
@@ -61,7 +57,7 @@ namespace Jack.Repository
         /// <param name="Identifier">Código para a Procura do Valor</param>
         /// <returns>Entidade. Se a operação foi um sucesso, A Entidade Virá preenchida.</returns>
         /// <remarks></remarks>
-        public override Model.Colaborador Find(int Identifier)
+        public override Model.KitItem Find(int Identifier)
         {
 
             return base.Find(Identifier);
@@ -73,41 +69,40 @@ namespace Jack.Repository
         /// </summary>
         /// <returns>Lista. Se a operação foi um sucesso, a lista virá carregada.</returns>
         /// <remarks></remarks>
-        public override IList<Model.Colaborador> LoadAll()
+        public override IList<Model.KitItem> LoadAll()
         {
 
             return base.LoadAll();
 
         }
 
-        #endregion
-
-        #region "Outros Métodos"
-
-        public IList<Model.Colaborador> ListaQuantidadeSacolasPorColaborador(int intAno)
+        public IList<Model.KitItem> LoadKitItemByKit(int intKit)
         {
 
             Command oCommand = null;
-            IList<Model.Colaborador> lstRetorno = null;
+            IList<Model.KitItem> lstRetorno = null;
             DataTable dtDados = null;
-            Model.Colaborador oRetorno = null;
-
+            Model.KitItem oRetorno = null;
             try
             {
-                lstRetorno = new List<Model.Colaborador>();
+                lstRetorno = new List<Model.KitItem>();
                 oCommand = new Command("CECAMKey");
-                oCommand.CommandText = "pr_list_qtde_sacola_colaborador";
+                oCommand.CommandText = "pr_get_kit_item";
                 oCommand.CommandType = System.Data.CommandType.StoredProcedure;
-                oCommand.Parameters.Add(new Parameter("@nr_ano", DbType.Int32, intAno));
+                oCommand.Parameters.Add(new Parameter("@id_kit", System.Data.DbType.Int32, 75, intKit));
                 dtDados = oCommand.GetDataTable();
+
                 foreach (DataRow dr in dtDados.Rows)
                 {
-                    oRetorno = new Model.Colaborador();
-                    oRetorno.Codigo = Convert.ToInt32(dr["id_colaborador"].ToString());
-                    oRetorno.Nome = dr["ds_nome"].ToString();
-                    oRetorno.TotalSacolas = Convert.ToInt32(dr["tt_sacolas"].ToString());
-                    oRetorno.QuantidadeSacolas = Convert.ToInt32(dr["qt_sacolas"].ToString());
-                    oRetorno.PercentualSacolas = Convert.ToDouble(dr["pc_sacola"].ToString());
+                    oRetorno = new Model.KitItem();
+                    oRetorno.Codigo = Convert.ToInt32(dr["id_kit_item"].ToString());
+                    oRetorno.Kit.Codigo = Convert.ToInt32(dr["id_kit"].ToString());
+                    oRetorno.Kit.Descricao = dr["ds_kit"].ToString();
+                    oRetorno.TipoItem = new Model.TipoItem(Convert.ToInt32(dr["id_tipo_item"].ToString()), 
+                                                           dr["ds_tipo_item"].ToString(),
+                                                           dr["is_opcional"].ToString());
+                    oRetorno.Observacao = dr["ds_observacao"].ToString();
+                    oRetorno.Ordem = Convert.ToInt32(dr["nr_ordem"].ToString());
                     lstRetorno.Add(oRetorno);
                 }
 
@@ -123,11 +118,8 @@ namespace Jack.Repository
                 oRetorno = null;
                 dtDados = null;
             }
-
             return lstRetorno;
 
         }
-
-        #endregion
     }
 }

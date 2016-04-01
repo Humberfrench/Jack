@@ -15,12 +15,12 @@ namespace Jack.Application
 
         public bool Delete(Model.Calcado oTipo)
         {
-            Repository.Calcado oDados = null;
+            Repository.RepCalcado oDados = null;
             bool blnRetorno = false;
 
             try
             {
-                oDados = new Repository.Calcado();
+                oDados = new Repository.RepCalcado();
                 blnRetorno = oDados.Delete(oTipo);
             }
             catch (Exception ex)
@@ -40,12 +40,12 @@ namespace Jack.Application
         public Model.Calcado Find(int Identifier)
         {
 
-            Repository.Calcado oDados = null;
+            Repository.RepCalcado oDados = null;
             Model.Calcado oRetorno = null;
 
             try
             {
-                oDados = new Repository.Calcado();
+                oDados = new Repository.RepCalcado();
                 oRetorno = oDados.Find(Identifier);
             }
             catch (Exception ex)
@@ -64,12 +64,12 @@ namespace Jack.Application
 
         public bool Insert(Model.Calcado oTipo)
         {
-            Repository.Calcado oDados = null;
+            Repository.RepCalcado oDados = null;
             bool blnRetorno = false;
 
             try
             {
-                oDados = new Repository.Calcado();
+                oDados = new Repository.RepCalcado();
                 blnRetorno = oDados.Insert(oTipo);
             }
             catch (Exception ex)
@@ -87,13 +87,13 @@ namespace Jack.Application
 
         public IList<Model.Calcado> LoadAll()
         {
-            Repository.Calcado oDados = null;
+            Repository.RepCalcado oDados = null;
             IList<Model.Calcado> lstRetorno = null;
 
             try
             {
 
-                oDados = new Repository.Calcado();
+                oDados = new Repository.RepCalcado();
                 lstRetorno = oDados.LoadAll().OrderByDescending(x => x.MedidaIdade).ToList().OrderBy(y => y.Sexo).ToList().OrderBy(z => z.IdadeInicial).ToList();
 
             }
@@ -113,12 +113,12 @@ namespace Jack.Application
 
         public bool Update(Model.Calcado oTipo)
         {
-            Repository.Calcado oDados = null;
+            Repository.RepCalcado oDados = null;
             bool blnRetorno = false;
 
             try
             {
-                oDados = new Repository.Calcado();
+                oDados = new Repository.RepCalcado();
                 blnRetorno = oDados.Update(oTipo);
             }
             catch (Exception ex)

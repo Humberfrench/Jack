@@ -5,10 +5,10 @@ using System.Data;
 
 namespace Jack.Repository
 {
-    public class Criancas : BaseData<Model.Criancas, int>
+    public class RepCriancas : BaseData<Model.Criancas, int>
     {
 
-        public Criancas() : base()
+        public RepCriancas() : base()
         {
         }
 

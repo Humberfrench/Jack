@@ -9,15 +9,15 @@ namespace Jack.Application
     public class Familia 
     {
 
-        private readonly Repository.Status repStatus;
-        private readonly Repository.Familia repFamilia;
+        private readonly Repository.RepStatus repStatus;
+        private readonly Repository.RepFamilia repFamilia;
         private readonly Repository.IUnitWork unidadeTrabalho;
 
         public Familia()
         {
             unidadeTrabalho = new Repository.UnitWork();
-            repStatus = new Repository.Status(unidadeTrabalho); 
-            repFamilia = new Repository.Familia(unidadeTrabalho);
+            repStatus = new Repository.RepStatus(unidadeTrabalho); 
+            repFamilia = new Repository.RepFamilia(unidadeTrabalho);
 
         }
 

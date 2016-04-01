@@ -63,16 +63,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Calcado.cs" />
-    <Compile Include="Colaborador.cs" />
-    <Compile Include="ColaboradorCrianca.cs" />
-    <Compile Include="Responsavel.cs" />
-    <Compile Include="CriancaMoralCrista.cs" />
-    <Compile Include="Criancas.cs" />
-    <Compile Include="Familia.cs" />
-    <Compile Include="FamiliaCrianca.cs" />
-    <Compile Include="Kit.cs" />
-    <Compile Include="KitItem.cs" />
+    <Compile Include="RepCalcado.cs" />
+    <Compile Include="RepColaborador.cs" />
+    <Compile Include="RepColaboradorCrianca.cs" />
+    <Compile Include="RepResponsavel.cs" />
+    <Compile Include="RepCriancaMoralCrista.cs" />
+    <Compile Include="RepCriancas.cs" />
+    <Compile Include="RepFamilia.cs" />
+    <Compile Include="RepFamiliaCrianca.cs" />
+    <Compile Include="RepKit.cs" />
+    <Compile Include="RepKitItem.cs" />
     <Compile Include="Map\MapCalcado.cs" />
     <Compile Include="Map\MapColaborador.cs" />
     <Compile Include="Map\MapColaboradorCrianca.cs" />
@@ -87,8 +87,8 @@
     <Compile Include="Map\MapRoupa.cs" />
     <Compile Include="Map\MapStatus.cs" />
     <Compile Include="Map\MapTipoItem.cs" />
-    <Compile Include="Presenca.cs" />
-    <Compile Include="Processos.cs" />
+    <Compile Include="RepPresenca.cs" />
+    <Compile Include="RepProcessos.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\BaseData.cs" />
     <Compile Include="Repository\GenericDao.cs" />
@@ -96,11 +96,11 @@
     <Compile Include="Repository\NHibernateHelper.cs" />
     <Compile Include="Repository\NHProvider.cs" />
     <Compile Include="Representante.cs" />
-    <Compile Include="Reuniao.cs" />
-    <Compile Include="Roupa.cs" />
-    <Compile Include="Sacolas.cs" />
-    <Compile Include="Status.cs" />
-    <Compile Include="TipoItem.cs" />
+    <Compile Include="RepReuniao.cs" />
+    <Compile Include="RepRoupa.cs" />
+    <Compile Include="RepSacolas.cs" />
+    <Compile Include="RepStatus.cs" />
+    <Compile Include="RepTipoItem.cs" />
     <Compile Include="UnityOfWork\IRepository.cs" />
     <Compile Include="UnityOfWork\IUnitWork.cs" />
     <Compile Include="UnityOfWork\Repository.cs" />

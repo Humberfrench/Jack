@@ -194,7 +194,7 @@ namespace Jack.Model
         {
             get
             {
-                throw new NotImplementedException();
+                return validationResult;
             }
         }
 
@@ -211,7 +211,7 @@ namespace Jack.Model
         public bool IsValid()
         {
             var familiaValidation = new FamiliaValidValidation();
-            validationResult = familiaValidation.Valid(this);
+            validationResult = familiaValidation.Validate(this);
             return validationResult.IsValid;
         }
 

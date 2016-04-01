@@ -5,10 +5,10 @@ using System.Data;
 
 namespace Jack.Repository
 {
-    public class ColaboradorCrianca : BaseData<Model.ColaboradorCrianca, int>
+    public class RepColaboradorCrianca : BaseData<Model.ColaboradorCrianca, int>
     {
 
-        public ColaboradorCrianca() : base()
+        public RepColaboradorCrianca() : base()
         {
         }
 

@@ -7,7 +7,7 @@ using System.Data;
 
 namespace Jack.Repository
 {
-    public class Processos
+    public class RepProcessos
     {
 
         #region "Batch - Processos"

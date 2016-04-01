@@ -2,20 +2,21 @@
 
 namespace Jack.Repository
 {
-    public class Kit : BaseData<Model.Kit, int>
+    public class RepCriancaMoralCrista : BaseData<Model.CriancaMoralCrista, int>
     {
-
-        public Kit() : base()
+        public RepCriancaMoralCrista() : base()
         {
+
         }
 
+        #region Nhibernate
         /// <summary>
         /// Método para inserir o registro
         /// </summary>
         /// <param name="oTipo">Entidade com os dados Preenchidos</param>
         /// <returns>Boolean. Se a operação foi um sucesso, true.</returns>
         /// <remarks></remarks>
-        public override bool Insert(Model.Kit oTipo)
+        public override bool Insert(Model.CriancaMoralCrista oTipo)
         {
 
             return base.Insert(oTipo);
@@ -28,7 +29,7 @@ namespace Jack.Repository
         /// <param name="oTipo">Entidade com os dados Preenchidos</param>
         /// <returns>Boolean. Se a operação foi um sucesso, true.</returns>
         /// <remarks></remarks>
-        public override bool Update(Model.Kit oTipo)
+        public override bool Update(Model.CriancaMoralCrista oTipo)
         {
 
             return base.Update(oTipo);
@@ -41,7 +42,7 @@ namespace Jack.Repository
         /// <param name="oTipo">Entidade com os dados Preenchidos</param>
         /// <returns>Boolean. Se a operação foi um sucesso, true.</returns>
         /// <remarks></remarks>
-        public override bool Delete(Model.Kit oTipo)
+        public override bool Delete(Model.CriancaMoralCrista oTipo)
         {
 
             return base.Delete(oTipo);
@@ -54,7 +55,7 @@ namespace Jack.Repository
         /// <param name="Identifier">Código para a Procura do Valor</param>
         /// <returns>Entidade. Se a operação foi um sucesso, A Entidade Virá preenchida.</returns>
         /// <remarks></remarks>
-        public override Model.Kit Find(int Identifier)
+        public override Model.CriancaMoralCrista Find(int Identifier)
         {
 
             return base.Find(Identifier);
@@ -66,11 +67,13 @@ namespace Jack.Repository
         /// </summary>
         /// <returns>Lista. Se a operação foi um sucesso, a lista virá carregada.</returns>
         /// <remarks></remarks>
-        public override IList<Model.Kit> LoadAll()
+        public override IList<Model.CriancaMoralCrista> LoadAll()
         {
 
             return base.LoadAll();
 
         }
+
+        #endregion
     }
 }

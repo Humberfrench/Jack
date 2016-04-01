@@ -11,13 +11,13 @@ namespace Jack.Application
     public class Status : ICrud<Model.Status, int>
     {
 
-        private readonly Repository.Status repStatus;
+        private readonly Repository.RepStatus repStatus;
         private readonly Repository.IUnitWork unidadeTrabalho;
 
         public Status()
         {
             unidadeTrabalho = new Repository.UnitWork();
-            repStatus = new Repository.Status(unidadeTrabalho);
+            repStatus = new Repository.RepStatus(unidadeTrabalho);
         }
 
         public bool Delete(Model.Status oTipo)

@@ -12,12 +12,12 @@ namespace Jack.Application
 
         public bool Delete(Model.CriancaMoralCrista oTipo)
         {
-            Repository.CriancaMoralCrista oDados = null;
+            Repository.RepCriancaMoralCrista oDados = null;
             bool blnRetorno = false;
 
             try
             {
-                oDados = new Repository.CriancaMoralCrista();
+                oDados = new Repository.RepCriancaMoralCrista();
                 blnRetorno = oDados.Delete(oTipo);
             }
             catch (Exception ex)
@@ -37,12 +37,12 @@ namespace Jack.Application
         public Model.CriancaMoralCrista Find(int Identifier)
         {
 
-            Repository.CriancaMoralCrista oDados = null;
+            Repository.RepCriancaMoralCrista oDados = null;
             Model.CriancaMoralCrista oRetorno = null;
 
             try
             {
-                oDados = new Repository.CriancaMoralCrista();
+                oDados = new Repository.RepCriancaMoralCrista();
                 oRetorno = oDados.Find(Identifier);
             }
             catch (Exception ex)
@@ -61,12 +61,12 @@ namespace Jack.Application
 
         public bool Insert(Model.CriancaMoralCrista oTipo)
         {
-            Repository.CriancaMoralCrista oDados = null;
+            Repository.RepCriancaMoralCrista oDados = null;
             bool blnRetorno = false;
 
             try
             {
-                oDados = new Repository.CriancaMoralCrista();
+                oDados = new Repository.RepCriancaMoralCrista();
                 blnRetorno = oDados.Insert(oTipo);
             }
             catch (Exception ex)
@@ -84,12 +84,12 @@ namespace Jack.Application
 
         public IList<Model.CriancaMoralCrista> LoadAll()
         {
-            Repository.CriancaMoralCrista oDados = null;
+            Repository.RepCriancaMoralCrista oDados = null;
             IList<Model.CriancaMoralCrista> lstRetorno = null;
 
             try
             {
-                oDados = new Repository.CriancaMoralCrista();
+                oDados = new Repository.RepCriancaMoralCrista();
                 lstRetorno = oDados.LoadAll();
             }
             catch (Exception ex)
@@ -108,12 +108,12 @@ namespace Jack.Application
 
         public bool Update(Model.CriancaMoralCrista oTipo)
         {
-            Repository.CriancaMoralCrista oDados = null;
+            Repository.RepCriancaMoralCrista oDados = null;
             bool blnRetorno = false;
 
             try
             {
-                oDados = new Repository.CriancaMoralCrista();
+                oDados = new Repository.RepCriancaMoralCrista();
                 blnRetorno = oDados.Update(oTipo);
             }
             catch (Exception ex)

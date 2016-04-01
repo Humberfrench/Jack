@@ -19,12 +19,12 @@ namespace Jack.Application
         public IList<Model.Colaborador> ListaQuantidadeSacolasPorColaborador(int intAno)
         {
 
-            Repository.Colaborador oDados = null;
+            Repository.RepColaborador oDados = null;
             IList<Model.Colaborador> lstRetorno = null;
 
             try
             {
-                oDados = new Repository.Colaborador();
+                oDados = new Repository.RepColaborador();
                 lstRetorno = oDados.ListaQuantidadeSacolasPorColaborador(intAno);
             }
             catch (Exception ex)
@@ -46,12 +46,12 @@ namespace Jack.Application
         #region "Crud"
         public bool Delete(Model.Colaborador oTipo)
         {
-            Repository.Colaborador oDados = null;
+            Repository.RepColaborador oDados = null;
             bool blnRetorno = false;
 
             try
             {
-                oDados = new Repository.Colaborador();
+                oDados = new Repository.RepColaborador();
                 blnRetorno = oDados.Delete(oTipo);
             }
             catch (Exception ex)
@@ -71,12 +71,12 @@ namespace Jack.Application
         public Model.Colaborador Find(int Identifier)
         {
 
-            Repository.Colaborador oDados = null;
+            Repository.RepColaborador oDados = null;
             Model.Colaborador oRetorno = null;
 
             try
             {
-                oDados = new Repository.Colaborador();
+                oDados = new Repository.RepColaborador();
                 oRetorno = oDados.Find(Identifier);
             }
             catch (Exception ex)
@@ -95,12 +95,12 @@ namespace Jack.Application
 
         public bool Insert(Model.Colaborador oTipo)
         {
-            Repository.Colaborador oDados = null;
+            Repository.RepColaborador oDados = null;
             bool blnRetorno = false;
 
             try
             {
-                oDados = new Repository.Colaborador();
+                oDados = new Repository.RepColaborador();
                 blnRetorno = oDados.Insert(oTipo);
             }
             catch (Exception ex)
@@ -118,12 +118,12 @@ namespace Jack.Application
 
         public IList<Model.Colaborador> LoadAll()
         {
-            Repository.Colaborador oDados = null;
+            Repository.RepColaborador oDados = null;
             IList<Model.Colaborador> lstRetorno = null;
 
             try
             {
-                oDados = new Repository.Colaborador();
+                oDados = new Repository.RepColaborador();
                 lstRetorno = oDados.LoadAll();
             }
             catch (Exception ex)
@@ -142,12 +142,12 @@ namespace Jack.Application
 
         public bool Update(Model.Colaborador oTipo)
         {
-            Repository.Colaborador oDados = null;
+            Repository.RepColaborador oDados = null;
             bool blnRetorno = false;
 
             try
             {
-                oDados = new Repository.Colaborador();
+                oDados = new Repository.RepColaborador();
                 blnRetorno = oDados.Update(oTipo);
             }
             catch (Exception ex)

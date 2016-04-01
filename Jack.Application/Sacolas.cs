@@ -11,11 +11,11 @@ namespace Jack.Application
         public IList<DTO.Sacolas> ProcessaSacolas(int intAno)
         {
             IList<DTO.Sacolas> lstSacolas = null;
-            Repository.Sacolas oDados = null;
+            Repository.RepSacolas oDados = null;
 
             try
             {
-                oDados = new Repository.Sacolas();
+                oDados = new Repository.RepSacolas();
                 lstSacolas = oDados.ProcessaSacolas(intAno);
 
             }
@@ -34,13 +34,13 @@ namespace Jack.Application
 
         public void GravarLogSacolas(string strListSacolasIn)
         {
-            Repository.Sacolas oDados = null;
+            Repository.RepSacolas oDados = null;
             int intSacola = 0;
             string[] aStrSacolas = null;
 
             try
             {
-                oDados = new Repository.Sacolas();
+                oDados = new Repository.RepSacolas();
                 aStrSacolas = strListSacolasIn.Split(',');
                 foreach (string strSacola in aStrSacolas)
                 {
@@ -63,11 +63,11 @@ namespace Jack.Application
         public IList<DTO.Sacolas> ObterSacolas(int intKit, int intNivel, string isPrinted)
         {
             IList<DTO.Sacolas> lstSacolas = null;
-            Repository.Sacolas oDados = null;
+            Repository.RepSacolas oDados = null;
 
             try
             {
-                oDados = new Repository.Sacolas();
+                oDados = new Repository.RepSacolas();
                 lstSacolas = oDados.ObterSacolas(intKit, intNivel, isPrinted);
 
             }
@@ -88,11 +88,11 @@ namespace Jack.Application
         public IList<DTO.Sacolas> ObterSacolasLivres(int intKit, int intNivel, string isPrinted)
         {
             IList<DTO.Sacolas> lstSacolas = null;
-            Repository.Sacolas oDados = null;
+            Repository.RepSacolas oDados = null;
 
             try
             {
-                oDados = new Repository.Sacolas();
+                oDados = new Repository.RepSacolas();
                 lstSacolas = oDados.ObterSacolasLivres(intKit, intNivel, isPrinted);
 
             }
@@ -113,11 +113,11 @@ namespace Jack.Application
         public IList<DTO.Sacolas> ObterSacolas()
         {
             IList<DTO.Sacolas> lstSacolas = null;
-            Repository.Sacolas oDados = null;
+            Repository.RepSacolas oDados = null;
 
             try
             {
-                oDados = new Repository.Sacolas();
+                oDados = new Repository.RepSacolas();
                 lstSacolas = oDados.ObterSacolas();
 
             }
@@ -138,11 +138,11 @@ namespace Jack.Application
         {
 
             IList<DTO.Sacolas> lstSacolasOut = null;
-            Repository.Sacolas oDados = null;
+            Repository.RepSacolas oDados = null;
 
             try
             {
-                oDados = new Repository.Sacolas();
+                oDados = new Repository.RepSacolas();
 
                 lstSacolasOut = oDados.ObterSacolas(strListSacolasIn);
 
@@ -165,11 +165,11 @@ namespace Jack.Application
         {
 
             IList<KitSacola> lstSacolasOut = null;
-            Repository.Sacolas oDados = null;
+            Repository.RepSacolas oDados = null;
 
             try
             {
-                oDados = new Repository.Sacolas();
+                oDados = new Repository.RepSacolas();
 
                 lstSacolasOut = oDados.ObterKitSacolas(intKit);
 
@@ -191,11 +191,11 @@ namespace Jack.Application
         public IList<DTO.Sacolas> ObterSacolas(int intKit, int intNivel)
         {
             IList<DTO.Sacolas> lstSacolas = null;
-            Repository.Sacolas oDados = null;
+            Repository.RepSacolas oDados = null;
 
             try
             {
-                oDados = new Repository.Sacolas();
+                oDados = new Repository.RepSacolas();
                 lstSacolas = oDados.ObterSacolas();
 
                 if (intKit > 0 & intNivel > 0)
@@ -229,11 +229,11 @@ namespace Jack.Application
         public IList<DTO.Sacolas> ObterSacolas(int intSacolaFamilia)
         {
             IList<DTO.Sacolas> lstSacolas = null;
-            Repository.Sacolas oDados = null;
+            Repository.RepSacolas oDados = null;
 
             try
             {
-                oDados = new Repository.Sacolas();
+                oDados = new Repository.RepSacolas();
                 lstSacolas = oDados.ObterSacolas().Where(x => x.NumeroSacolaFamilia == intSacolaFamilia).ToList().OrderBy(y => y.NumeroSacola).ToList();
             }
             catch (Exception ex)
@@ -254,13 +254,13 @@ namespace Jack.Application
         public bool AddSacolaCrianca(int intCrianca)
         {
 
-            Repository.Sacolas oDados = null;
+            Repository.RepSacolas oDados = null;
             bool blnRetorno = false;
 
 
             try
             {
-                oDados = new Repository.Sacolas();
+                oDados = new Repository.RepSacolas();
                 blnRetorno = oDados.AddSacolaCrianca(intCrianca);
 
             }
@@ -281,13 +281,13 @@ namespace Jack.Application
         public bool AddSacolaColaboradorCrianca(int intCrianca, int intColaborador, int intAno, bool isDevolvida)
         {
 
-            Repository.Sacolas oDados = null;
+            Repository.RepSacolas oDados = null;
             bool blnRetorno = false;
 
 
             try
             {
-                oDados = new Repository.Sacolas();
+                oDados = new Repository.RepSacolas();
                 blnRetorno = oDados.AddSacolaColaboradorCrianca(intCrianca, intColaborador, intAno, isDevolvida);
 
             }
@@ -309,13 +309,13 @@ namespace Jack.Application
         public bool AddSacolaColaboradorSacola(int intSacola, int intColaborador, int intAno, bool isDevolvida)
         {
 
-            Repository.Sacolas oDados = null;
+            Repository.RepSacolas oDados = null;
             bool blnRetorno = false;
 
 
             try
             {
-                oDados = new Repository.Sacolas();
+                oDados = new Repository.RepSacolas();
                 blnRetorno = oDados.AddSacolaColaboradorSacola(intSacola, intColaborador, intAno, isDevolvida);
 
             }

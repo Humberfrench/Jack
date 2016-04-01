@@ -12,17 +12,17 @@ namespace Jack.Application
     public class Reuniao : ICrud<Model.Reuniao, int>
     {
 
-        private readonly Repository.Familia repFamilia;
-        private readonly Repository.Reuniao repReuniao;
-        private readonly Repository.Presenca repPresenca;
+        private readonly Repository.RepFamilia repFamilia;
+        private readonly Repository.RepReuniao repReuniao;
+        private readonly Repository.RepPresenca repPresenca;
         private readonly Repository.IUnitWork unidadeTrabalho;
 
         public Reuniao()
         {
             unidadeTrabalho = new Repository.UnitWork();
-            repReuniao = new Repository.Reuniao(unidadeTrabalho);
-            repFamilia = new Repository.Familia(unidadeTrabalho);
-            repPresenca = new Repository.Presenca(unidadeTrabalho);
+            repReuniao = new Repository.RepReuniao(unidadeTrabalho);
+            repFamilia = new Repository.RepFamilia(unidadeTrabalho);
+            repPresenca = new Repository.RepPresenca(unidadeTrabalho);
 
         }
 

@@ -2,10 +2,10 @@
 
 namespace Jack.Repository
 {
-    public class TipoItem : BaseData<Model.TipoItem, int>
+    public class RepTipoItem : BaseData<Model.TipoItem, int>
     {
 
-        public TipoItem() : base()
+        public RepTipoItem() : base()
         {
         }
 

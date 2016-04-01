@@ -24,10 +24,10 @@ namespace Jack.Application
         public bool Insert(int intFamilia, int intCrianca)
         {
             bool blnRetorno = false;
-            Repository.FamiliaCrianca oDados = null;
+            Repository.RepFamiliaCrianca oDados = null;
             try
             {
-                oDados = new Repository.FamiliaCrianca();
+                oDados = new Repository.RepFamiliaCrianca();
                 blnRetorno = oDados.Insert(intFamilia, intCrianca);
 
             }
@@ -55,10 +55,10 @@ namespace Jack.Application
         public bool DeleteFamilia(int intFamilia)
         {
             bool blnRetorno = false;
-            Repository.FamiliaCrianca oDados = null;
+            Repository.RepFamiliaCrianca oDados = null;
             try
             {
-                oDados = new Repository.FamiliaCrianca();
+                oDados = new Repository.RepFamiliaCrianca();
                 blnRetorno = oDados.DeleteFamilia(intFamilia);
 
             }
@@ -86,10 +86,10 @@ namespace Jack.Application
         public bool DeleteCrianca(int intFamilia, int intCrianca)
         {
             bool blnRetorno = false;
-            Repository.FamiliaCrianca oDados = null;
+            Repository.RepFamiliaCrianca oDados = null;
             try
             {
-                oDados = new Repository.FamiliaCrianca();
+                oDados = new Repository.RepFamiliaCrianca();
                 blnRetorno = oDados.DeleteCrianca(intFamilia, intCrianca);
 
             }
@@ -110,10 +110,10 @@ namespace Jack.Application
         {
 
             List<DTOCrianca> lstDados = null;
-            Repository.FamiliaCrianca oDados = null;
+            Repository.RepFamiliaCrianca oDados = null;
             try
             {
-                oDados = new Repository.FamiliaCrianca();
+                oDados = new Repository.RepFamiliaCrianca();
                 lstDados = oDados.ObterCriancasByFamilia(intFamilia);
 
             }
@@ -135,10 +135,10 @@ namespace Jack.Application
         {
 
             List<DTOCriancaRepresentante> lstDados = null;
-            Repository.FamiliaCrianca oDados = null;
+            Repository.RepFamiliaCrianca oDados = null;
             try
             {
-                oDados = new Repository.FamiliaCrianca();
+                oDados = new Repository.RepFamiliaCrianca();
                 lstDados = oDados.ObterCriancasByFamiliaWithRep(intFamilia);
 
             }

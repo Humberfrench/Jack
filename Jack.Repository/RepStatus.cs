@@ -8,10 +8,10 @@ using System.Linq;
 
 namespace Jack.Repository
 {
-    public class Status : Repository<Model.Status>
+    public class RepStatus : Repository<Model.Status>
     { 
         private IUnitWork UnitWork;
-        public Status(IUnitWork unitWork) : base(unitWork)
+        public RepStatus(IUnitWork unitWork) : base(unitWork)
         {
             UnitWork = unitWork;
         }

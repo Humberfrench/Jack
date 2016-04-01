@@ -16,12 +16,12 @@ namespace Jack.Application
 
         public bool Delete(Model.Roupa oTipo)
         {
-            Repository.Roupa oDados = null;
+            Repository.RepRoupa oDados = null;
             bool blnRetorno = false;
 
             try
             {
-                oDados = new Repository.Roupa();
+                oDados = new Repository.RepRoupa();
                 blnRetorno = oDados.Delete(oTipo);
             }
             catch (Exception ex)
@@ -41,12 +41,12 @@ namespace Jack.Application
         public Model.Roupa Find(int Identifier)
         {
 
-            Repository.Roupa oDados = null;
+            Repository.RepRoupa oDados = null;
             Model.Roupa oRetorno = null;
 
             try
             {
-                oDados = new Repository.Roupa();
+                oDados = new Repository.RepRoupa();
                 oRetorno = oDados.Find(Identifier);
             }
             catch (Exception ex)
@@ -65,13 +65,13 @@ namespace Jack.Application
 
         public bool Insert(Model.Roupa oTipo)
         {
-            Repository.Roupa oDados = null;
+            Repository.RepRoupa oDados = null;
             bool blnRetorno = false;
 
 
             try
             {
-                oDados = new Repository.Roupa();
+                oDados = new Repository.RepRoupa();
                 blnRetorno = oDados.Insert(oTipo);
             }
             catch (Exception ex)
@@ -89,12 +89,12 @@ namespace Jack.Application
 
         public IList<Model.Roupa> LoadAll()
         {
-            Repository.Roupa oDados = null;
+            Repository.RepRoupa oDados = null;
             IList<Model.Roupa> lstRetorno = null;
 
             try
             {
-                oDados = new Repository.Roupa();
+                oDados = new Repository.RepRoupa();
                 lstRetorno = oDados.LoadAll();
             }
             catch (Exception ex)
@@ -113,12 +113,12 @@ namespace Jack.Application
 
         public bool Update(Model.Roupa oTipo)
         {
-            Repository.Roupa oDados = null;
+            Repository.RepRoupa oDados = null;
             bool blnRetorno = false;
 
             try
             {
-                oDados = new Repository.Roupa();
+                oDados = new Repository.RepRoupa();
                 blnRetorno = oDados.Update(oTipo);
             }
             catch (Exception ex)

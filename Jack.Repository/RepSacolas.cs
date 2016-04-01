@@ -5,7 +5,7 @@ using System.Data;
 
 namespace Jack.Repository
 {
-    public class Sacolas
+    public class RepSacolas
     {
 
         /// <summary>

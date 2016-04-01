@@ -2,9 +2,9 @@
 
 namespace Jack.Repository
 {
-    public class Responsavel : BaseData<Model.Responsavel, int>
+    public class RepResponsavel : BaseData<Model.Responsavel, int>
     {
-        public Responsavel() : base()
+        public RepResponsavel() : base()
         {
 
         }
