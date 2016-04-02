@@ -487,6 +487,23 @@ namespace Jack.Model
             validationResult = criancaValidation.Validate(this);
             return validationResult.IsValid;
         }
+
+        public void AcertaCrianca()
+        {
+
+        }
+        public bool IdadePermitida()
+        {
+            DateTime dataBase = new DateTime(DateTime.Now.Year, 12, 31);
+            int anos = dataBase.Year - dataNascimento.Year;
+
+            if (dataBase.Month < dataNascimento.Month || 
+                (dataBase.Month == dataNascimento.Month && dataBase.Day < dataNascimento.Day))
+                anos--;
+
+            return (anos < 11);
+        }
+
     }
 
 }

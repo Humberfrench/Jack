@@ -7,12 +7,13 @@ using System.Threading.Tasks;
 
 namespace Jack.Model.Specs
 {
-    public class CriancaPermitidaSpecs : ISpecification<Criancas>
+    class CriancaDataNascimentoValida : ISpecification<Criancas>
     {
         public bool IsSatisfiedBy(Criancas crianca)
         {
-            return !crianca.IdadePermitida() && (crianca.IsMoralCrista == "N");
-        }
+            DateTime dateToCompare = new DateTime();
 
+            return crianca.DataNascimento.Date != dateToCompare;
+        }
     }
 }
