@@ -1,11 +1,14 @@
 ﻿using System;
 using Jack.Library.Extensions;
 using System.Collections.Generic;
+using DomainValidation.Interfaces.Validation;
+using DomainValidation.Validation;
+using Jack.Model.Validations;
 
 namespace Jack.Model
 {
     [Serializable]
-    public class Criancas:BaseModel<Criancas>
+    public class Criancas:BaseModel<Criancas>, ISelfValidator
     {
 
         public Criancas():base()
@@ -51,6 +54,7 @@ namespace Jack.Model
         private IList<Familia> familia;
         private string idadeNominal;
         private string idadeNominalReduzida;
+        private ValidationResult validationResult;
 
         private string nomeFamilia;
         private string familiaRepresentante;
@@ -469,6 +473,20 @@ namespace Jack.Model
             }
         }
 
+        public ValidationResult ValidationResult
+        {
+            get
+            {
+                return validationResult;
+            }
+        }
+
+        public bool IsValid()
+        {
+            var criancaValidation = new CriancaValidValidation();
+            validationResult = criancaValidation.Validate(this);
+            return validationResult.IsValid;
+        }
     }
 
 }

@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using DomainValidation;
 using DomainValidation.Validation;
-using Jack.Model.Validations.Specs;
+using Jack.Model.Specs;
 
 namespace Jack.Model.Validations
 {

@@ -1,7 +1,7 @@
 ﻿using DomainValidation.Interfaces.Specification;
 using System;
 
-namespace Jack.Model.Validations.Specs
+namespace Jack.Model.Specs
 {
     public class FamiliaMaePreenchidaSpecs : ISpecification<Familia>
     {
