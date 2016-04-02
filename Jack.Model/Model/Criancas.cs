@@ -490,14 +490,44 @@ namespace Jack.Model
 
         public void AcertaCrianca()
         {
-
+            CalculaIdade();
+            if (IdadePermitida() && VerifyRoupa() && VerifyCalcado())
+            {
+                //OK
+            }
+            else
+            {
+                //não OK
+            }
         }
+        public bool VerifyRoupa()
+        {
+            return Calcado != 99;
+        }
+        public bool VerifyCalcado()
+        {
+
+            return Roupa != "99";
+        }
+
         public bool IdadePermitida()
         {
             DateTime dataBase = new DateTime(DateTime.Now.Year, 12, 31);
             int anos = dataBase.Year - dataNascimento.Year;
 
             if (dataBase.Month < dataNascimento.Month || 
+                (dataBase.Month == dataNascimento.Month && dataBase.Day < dataNascimento.Day))
+                anos--;
+
+            return (anos < 11);
+        }
+
+        public void CalculaIdade()
+        {
+            DateTime dataBase = new DateTime(DateTime.Now.Year, 12, 31);
+            int anos = dataBase.Year - dataNascimento.Year;
+
+            if (dataBase.Month < dataNascimento.Month ||
                 (dataBase.Month == dataNascimento.Month && dataBase.Day < dataNascimento.Day))
                 anos--;
 
