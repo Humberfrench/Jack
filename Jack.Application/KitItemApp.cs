@@ -16,12 +16,12 @@ namespace Jack.Application
 
         public bool Delete(Model.KitItem oTipo)
         {
-            Repository.RepKitItem oDados = null;
+            Repository.KitItemRep oDados = null;
             bool blnRetorno = false;
 
             try
             {
-                oDados = new Repository.RepKitItem();
+                oDados = new Repository.KitItemRep();
                 blnRetorno = oDados.Delete(oTipo);
             }
             catch (Exception ex)
@@ -41,12 +41,12 @@ namespace Jack.Application
         public Model.KitItem Find(int Identifier)
         {
 
-            Repository.RepKitItem oDados = null;
+            Repository.KitItemRep oDados = null;
             Model.KitItem oRetorno = null;
 
             try
             {
-                oDados = new Repository.RepKitItem();
+                oDados = new Repository.KitItemRep();
                 oRetorno = oDados.Find(Identifier);
             }
             catch (Exception ex)
@@ -65,12 +65,12 @@ namespace Jack.Application
 
         public bool Insert(Model.KitItem oTipo)
         {
-            Repository.RepKitItem oDados = null;
+            Repository.KitItemRep oDados = null;
             bool blnRetorno = false;
 
             try
             {
-                oDados = new Repository.RepKitItem();
+                oDados = new Repository.KitItemRep();
                 blnRetorno = oDados.Insert(oTipo);
             }
             catch (Exception ex)
@@ -88,12 +88,12 @@ namespace Jack.Application
 
         public IList<Model.KitItem> LoadAll()
         {
-            Repository.RepKitItem oDados = null;
+            Repository.KitItemRep oDados = null;
             IList<Model.KitItem> lstRetorno = null;
 
             try
             {
-                oDados = new Repository.RepKitItem();
+                oDados = new Repository.KitItemRep();
                 lstRetorno = oDados.LoadAll();
             }
             catch (Exception ex)
@@ -112,12 +112,12 @@ namespace Jack.Application
 
         public bool Update(Model.KitItem oTipo)
         {
-            Repository.RepKitItem oDados = null;
+            Repository.KitItemRep oDados = null;
             bool blnRetorno = false;
 
             try
             {
-                oDados = new Repository.RepKitItem();
+                oDados = new Repository.KitItemRep();
                 blnRetorno = oDados.Update(oTipo);
             }
             catch (Exception ex)
@@ -135,12 +135,12 @@ namespace Jack.Application
 
         public IList<Model.KitItem> LoadKitItemByKit(int intKit)
         {
-            Repository.RepKitItem oDados = null;
+            Repository.KitItemRep oDados = null;
             IList<Model.KitItem> lstRetorno = null;
 
             try
             {
-                oDados = new Repository.RepKitItem();
+                oDados = new Repository.KitItemRep();
                 lstRetorno = oDados.LoadKitItemByKit(intKit);
             }
             catch (Exception ex)

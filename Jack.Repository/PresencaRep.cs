@@ -7,11 +7,11 @@ using System.Linq;
 
 namespace Jack.Repository
 {
-    public class RepPresenca : Repository<Model.Presenca>
+    public class PresencaRep : Repository<Model.Presenca>
     {
 
         private IUnitWork UnitWork;
-        public RepPresenca(IUnitWork unitWork) : base(unitWork)
+        public PresencaRep(IUnitWork unitWork) : base(unitWork)
         {
             UnitWork = unitWork;
         }

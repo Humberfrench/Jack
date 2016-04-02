@@ -2,10 +2,10 @@
 
 namespace Jack.Repository
 {
-    public class RepKit : BaseData<Model.Kit, int>
+    public class KitRep : BaseData<Model.Kit, int>
     {
 
-        public RepKit() : base()
+        public KitRep() : base()
         {
         }
 

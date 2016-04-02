@@ -16,12 +16,12 @@ namespace Jack.Application
 
         public bool Delete(Model.Responsavel oTipo)
         {
-            Repository.RepResponsavel oDados = null;
+            Repository.ResponsavelRep oDados = null;
             bool blnRetorno = false;
 
             try
             {
-                oDados = new Repository.RepResponsavel();
+                oDados = new Repository.ResponsavelRep();
                 blnRetorno = oDados.Delete(oTipo);
             }
             catch (Exception ex)
@@ -41,12 +41,12 @@ namespace Jack.Application
         public Model.Responsavel Find(int Identifier)
         {
 
-            Repository.RepResponsavel oDados = null;
+            Repository.ResponsavelRep oDados = null;
             Model.Responsavel oRetorno = null;
 
             try
             {
-                oDados = new Repository.RepResponsavel();
+                oDados = new Repository.ResponsavelRep();
                 oRetorno = oDados.Find(Identifier);
             }
             catch (Exception ex)
@@ -65,12 +65,12 @@ namespace Jack.Application
 
         public bool Insert(Model.Responsavel oTipo)
         {
-            Repository.RepResponsavel oDados = null;
+            Repository.ResponsavelRep oDados = null;
             bool blnRetorno = false;
 
             try
             {
-                oDados = new Repository.RepResponsavel();
+                oDados = new Repository.ResponsavelRep();
                 blnRetorno = oDados.Insert(oTipo);
             }
             catch (Exception ex)
@@ -88,12 +88,12 @@ namespace Jack.Application
 
         public IList<Model.Responsavel> LoadAll()
         {
-            Repository.RepResponsavel oDados = null;
+            Repository.ResponsavelRep oDados = null;
             IList<Model.Responsavel> lstRetorno = null;
 
             try
             {
-                oDados = new Repository.RepResponsavel();
+                oDados = new Repository.ResponsavelRep();
                 lstRetorno = oDados.LoadAll();
             }
             catch (Exception ex)
@@ -112,12 +112,12 @@ namespace Jack.Application
 
         public bool Update(Model.Responsavel oTipo)
         {
-            Repository.RepResponsavel oDados = null;
+            Repository.ResponsavelRep oDados = null;
             bool blnRetorno = false;
 
             try
             {
-                oDados = new Repository.RepResponsavel();
+                oDados = new Repository.ResponsavelRep();
                 blnRetorno = oDados.Update(oTipo);
             }
             catch (Exception ex)

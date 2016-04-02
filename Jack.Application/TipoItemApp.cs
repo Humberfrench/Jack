@@ -16,12 +16,12 @@ namespace Jack.Application
 
         public bool Delete(Model.TipoItem oTipo)
         {
-            Repository.RepTipoItem oDados = null;
+            Repository.TipoItemRep oDados = null;
             bool blnRetorno = false;
 
             try
             {
-                oDados = new Repository.RepTipoItem();
+                oDados = new Repository.TipoItemRep();
                 blnRetorno = oDados.Delete(oTipo);
             }
             catch (Exception ex)
@@ -41,12 +41,12 @@ namespace Jack.Application
         public Model.TipoItem Find(int Identifier)
         {
 
-            Repository.RepTipoItem oDados = null;
+            Repository.TipoItemRep oDados = null;
             Model.TipoItem oRetorno = null;
 
             try
             {
-                oDados = new Repository.RepTipoItem();
+                oDados = new Repository.TipoItemRep();
                 oRetorno = oDados.Find(Identifier);
             }
             catch (Exception ex)
@@ -65,12 +65,12 @@ namespace Jack.Application
 
         public bool Insert(Model.TipoItem oTipo)
         {
-            Repository.RepTipoItem oDados = null;
+            Repository.TipoItemRep oDados = null;
             bool blnRetorno = false;
 
             try
             {
-                oDados = new Repository.RepTipoItem();
+                oDados = new Repository.TipoItemRep();
                 blnRetorno = oDados.Insert(oTipo);
             }
             catch (Exception ex)
@@ -88,12 +88,12 @@ namespace Jack.Application
 
         public IList<Model.TipoItem> LoadAll()
         {
-            Repository.RepTipoItem oDados = null;
+            Repository.TipoItemRep oDados = null;
             IList<Model.TipoItem> lstRetorno = null;
 
             try
             {
-                oDados = new Repository.RepTipoItem();
+                oDados = new Repository.TipoItemRep();
                 lstRetorno = oDados.LoadAll();
             }
             catch (Exception ex)
@@ -112,12 +112,12 @@ namespace Jack.Application
 
         public bool Update(Model.TipoItem oTipo)
         {
-            Repository.RepTipoItem oDados = null;
+            Repository.TipoItemRep oDados = null;
             bool blnRetorno = false;
 
             try
             {
-                oDados = new Repository.RepTipoItem();
+                oDados = new Repository.TipoItemRep();
                 blnRetorno = oDados.Update(oTipo);
             }
             catch (Exception ex)

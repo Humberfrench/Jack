@@ -15,12 +15,12 @@ namespace Jack.Application
 
         public IList<Model.ColaboradorCrianca> ObterCriancasPorColaborador(int intColaborador, int intAno)
         {
-            Repository.RepColaboradorCrianca oDados = null;
+            Repository.ColaboradorCriancaRep oDados = null;
             IList<Model.ColaboradorCrianca> lstRetorno = null;
 
             try
             {
-                oDados = new Repository.RepColaboradorCrianca();
+                oDados = new Repository.ColaboradorCriancaRep();
                 lstRetorno = oDados.ObterCriancasPorColaborador(intColaborador, intAno);
             }
             catch (Exception ex)
@@ -42,12 +42,12 @@ namespace Jack.Application
         #region "Crud"
         public bool Delete(Model.ColaboradorCrianca oTipo)
         {
-            Repository.RepColaboradorCrianca oDados = null;
+            Repository.ColaboradorCriancaRep oDados = null;
             bool blnRetorno = false;
 
             try
             {
-                oDados = new Repository.RepColaboradorCrianca();
+                oDados = new Repository.ColaboradorCriancaRep();
                 blnRetorno = oDados.Delete(oTipo);
             }
             catch (Exception ex)
@@ -67,12 +67,12 @@ namespace Jack.Application
         public Model.ColaboradorCrianca Find(int Identifier)
         {
 
-            Repository.RepColaboradorCrianca oDados = null;
+            Repository.ColaboradorCriancaRep oDados = null;
             Model.ColaboradorCrianca oRetorno = null;
 
             try
             {
-                oDados = new Repository.RepColaboradorCrianca();
+                oDados = new Repository.ColaboradorCriancaRep();
                 oRetorno = oDados.Find(Identifier);
             }
             catch (Exception ex)
@@ -91,12 +91,12 @@ namespace Jack.Application
 
         public bool Insert(Model.ColaboradorCrianca oTipo)
         {
-            Repository.RepColaboradorCrianca oDados = null;
+            Repository.ColaboradorCriancaRep oDados = null;
             bool blnRetorno = false;
 
             try
             {
-                oDados = new Repository.RepColaboradorCrianca();
+                oDados = new Repository.ColaboradorCriancaRep();
                 blnRetorno = oDados.Insert(oTipo);
             }
             catch (Exception ex)
@@ -114,12 +114,12 @@ namespace Jack.Application
 
         public IList<Model.ColaboradorCrianca> LoadAll()
         {
-            Repository.RepColaboradorCrianca oDados = null;
+            Repository.ColaboradorCriancaRep oDados = null;
             IList<Model.ColaboradorCrianca> lstRetorno = null;
 
             try
             {
-                oDados = new Repository.RepColaboradorCrianca();
+                oDados = new Repository.ColaboradorCriancaRep();
                 lstRetorno = oDados.LoadAll();
             }
             catch (Exception ex)
@@ -138,12 +138,12 @@ namespace Jack.Application
 
         public bool Update(Model.ColaboradorCrianca oTipo)
         {
-            Repository.RepColaboradorCrianca oDados = null;
+            Repository.ColaboradorCriancaRep oDados = null;
             bool blnRetorno = false;
 
             try
             {
-                oDados = new Repository.RepColaboradorCrianca();
+                oDados = new Repository.ColaboradorCriancaRep();
                 blnRetorno = oDados.Update(oTipo);
             }
             catch (Exception ex)

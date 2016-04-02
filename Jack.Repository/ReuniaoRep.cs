@@ -8,22 +8,22 @@ using System.Linq;
 
 namespace Jack.Repository
 {
-    public class RepStatus : Repository<Model.Status>
-    { 
+    public class ReuniaoRep : Repository<Model.Reuniao>
+    {
+
         private IUnitWork UnitWork;
-        public RepStatus(IUnitWork unitWork) : base(unitWork)
+        public ReuniaoRep(IUnitWork unitWork) : base(unitWork)
         {
             UnitWork = unitWork;
         }
 
-    #region Nhibernate
         /// <summary>
-    /// Método para inserir o registro
-    /// </summary>
-    /// <param name="oTipo">Entidade com os dados Preenchidos</param>
-    /// <returns>Boolean. Se a operação foi um sucesso, true.</returns>
-    /// <remarks></remarks>
-        public bool Insert(Model.Status oTipo)
+        /// Método para inserir o registro
+        /// </summary>
+        /// <param name="oTipo">Entidade com os dados Preenchidos</param>
+        /// <returns>Boolean. Se a operação foi um sucesso, true.</returns>
+        /// <remarks></remarks>
+        public bool Insert(Model.Reuniao oTipo)
         {
 
             UnitWork.Salvar(oTipo);
@@ -37,7 +37,7 @@ namespace Jack.Repository
         /// <param name="oTipo">Entidade com os dados Preenchidos</param>
         /// <returns>Boolean. Se a operação foi um sucesso, true.</returns>
         /// <remarks></remarks>
-        public bool Update(Model.Status oTipo)
+        public bool Update(Model.Reuniao oTipo)
         {
 
             UnitWork.Salvar(oTipo);
@@ -51,12 +51,11 @@ namespace Jack.Repository
         /// <param name="oTipo">Entidade com os dados Preenchidos</param>
         /// <returns>Boolean. Se a operação foi um sucesso, true.</returns>
         /// <remarks></remarks>
-        public bool Delete(Model.Status oTipo)
+        public bool Delete(Model.Reuniao oTipo)
         {
 
             UnitWork.Excluir(oTipo);
             return true;
-
         }
 
         /// <summary>
@@ -65,7 +64,7 @@ namespace Jack.Repository
         /// <param name="Identifier">Código para a Procura do Valor</param>
         /// <returns>Entidade. Se a operação foi um sucesso, A Entidade Virá preenchida.</returns>
         /// <remarks></remarks>
-        public Model.Status Find(int Identifier)
+        public Model.Reuniao Find(int Identifier)
         {
 
             return GetById(Identifier);
@@ -77,32 +76,30 @@ namespace Jack.Repository
         /// </summary>
         /// <returns>Lista. Se a operação foi um sucesso, a lista virá carregada.</returns>
         /// <remarks></remarks>
-        public IList<Model.Status> LoadAll()
+        public IList<Model.Reuniao> LoadAll()
         {
 
             return GetAll().ToList();
 
         }
 
-        #endregion
-
-        #region Other
-
-        public IList<DTOStatus> Load()
+        public IList<DTOReuniao> LoadByAnoCorrente(int intAno)
         {
-            IList<DTOStatus> listaStatus;
-            ICriteria criteria = Session.CreateCriteria(typeof(Model.Status), "S")
-                                         .SetProjection(Projections.ProjectionList()
-                                         .Add(Projections.Property("S.Codigo"), "codigo")
-                                         .Add(Projections.Property("S.Descricao"), "descricao")
-                                         .Add(Projections.Property("S.NivelStatus"), "nivelStatus")
-                                         .Add(Projections.Property("S.PermiteSacola"), "permiteSacola"));
+            IList<DTOReuniao> listaReuniao = null;
+            ICriteria criteria = Session.CreateCriteria(typeof(Model.Reuniao), "R")
+                             .SetProjection(Projections.ProjectionList()
+                             .Add(Projections.Property("R.Codigo"), "Codigo")
+                             .Add(Projections.Property("R.Ano"), "Ano")
+                             .Add(Projections.Property("R.AnoCorrente"), "AnoCorrente")
+                             .Add(Projections.Property("R.Data"), "Data"))
+                             .Add(Restrictions.Eq("R.Ano", intAno));
 
-            listaStatus = criteria.SetResultTransformer(Transformers.AliasToBean<DTOStatus>()).List<DTOStatus>();
+            listaReuniao = criteria.SetResultTransformer(Transformers.AliasToBean<DTOReuniao>()).List<DTOReuniao>();
 
             criteria = null;
-            return listaStatus;
+            return listaReuniao;
+
         }
-        #endregion
+
     }
 }

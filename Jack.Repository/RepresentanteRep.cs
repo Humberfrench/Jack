@@ -5,10 +5,10 @@ using System.Data;
 
 namespace Jack.Repository
 {
-    public class Representante
+    public class RepresentanteRep
     {
 
-        public Representante() : base()
+        public RepresentanteRep() : base()
         {
         }
 

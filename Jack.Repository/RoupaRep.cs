@@ -2,10 +2,10 @@
 
 namespace Jack.Repository
 {
-    public class RepCalcado : BaseData<Model.Calcado, int>
+    public class RoupaRep : BaseData<Model.Roupa, int>
     {
 
-        public RepCalcado() : base()
+        public RoupaRep() : base()
         {
         }
 
@@ -15,7 +15,7 @@ namespace Jack.Repository
         /// <param name="oTipo">Entidade com os dados Preenchidos</param>
         /// <returns>Boolean. Se a operação foi um sucesso, true.</returns>
         /// <remarks></remarks>
-        public override bool Insert(Model.Calcado oTipo)
+        public override bool Insert(Model.Roupa oTipo)
         {
 
             return base.Insert(oTipo);
@@ -28,7 +28,7 @@ namespace Jack.Repository
         /// <param name="oTipo">Entidade com os dados Preenchidos</param>
         /// <returns>Boolean. Se a operação foi um sucesso, true.</returns>
         /// <remarks></remarks>
-        public override bool Update(Model.Calcado oTipo)
+        public override bool Update(Model.Roupa oTipo)
         {
 
             return base.Update(oTipo);
@@ -41,7 +41,7 @@ namespace Jack.Repository
         /// <param name="oTipo">Entidade com os dados Preenchidos</param>
         /// <returns>Boolean. Se a operação foi um sucesso, true.</returns>
         /// <remarks></remarks>
-        public override bool Delete(Model.Calcado oTipo)
+        public override bool Delete(Model.Roupa oTipo)
         {
 
             return base.Delete(oTipo);
@@ -54,7 +54,7 @@ namespace Jack.Repository
         /// <param name="Identifier">Código para a Procura do Valor</param>
         /// <returns>Entidade. Se a operação foi um sucesso, A Entidade Virá preenchida.</returns>
         /// <remarks></remarks>
-        public override Model.Calcado Find(int Identifier)
+        public override Model.Roupa Find(int Identifier)
         {
 
             return base.Find(Identifier);
@@ -66,7 +66,7 @@ namespace Jack.Repository
         /// </summary>
         /// <returns>Lista. Se a operação foi um sucesso, a lista virá carregada.</returns>
         /// <remarks></remarks>
-        public override IList<Model.Calcado> LoadAll()
+        public override IList<Model.Roupa> LoadAll()
         {
 
             return base.LoadAll();

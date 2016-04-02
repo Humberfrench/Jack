@@ -12,12 +12,12 @@ namespace Jack.Application
 
         public bool Delete(Model.Kit oTipo)
         {
-            Repository.RepKit oDados = null;
+            Repository.KitRep oDados = null;
             bool blnRetorno = false;
 
             try
             {
-                oDados = new Repository.RepKit();
+                oDados = new Repository.KitRep();
                 blnRetorno = oDados.Delete(oTipo);
             }
             catch (Exception ex)
@@ -37,12 +37,12 @@ namespace Jack.Application
         public Model.Kit Find(int Identifier)
         {
 
-            Repository.RepKit oDados = null;
+            Repository.KitRep oDados = null;
             Model.Kit oRetorno = null;
 
             try
             {
-                oDados = new Repository.RepKit();
+                oDados = new Repository.KitRep();
                 oRetorno = oDados.Find(Identifier);
             }
             catch (Exception ex)
@@ -61,12 +61,12 @@ namespace Jack.Application
 
         public bool Insert(Model.Kit oTipo)
         {
-            Repository.RepKit oDados = null;
+            Repository.KitRep oDados = null;
             bool blnRetorno = false;
 
             try
             {
-                oDados = new Repository.RepKit();
+                oDados = new Repository.KitRep();
                 blnRetorno = oDados.Insert(oTipo);
             }
             catch (Exception ex)
@@ -84,12 +84,12 @@ namespace Jack.Application
 
         public IList<Model.Kit> LoadAll()
         {
-            Repository.RepKit oDados = null;
+            Repository.KitRep oDados = null;
             IList<Model.Kit> lstRetorno = null;
 
             try
             {
-                oDados = new Repository.RepKit();
+                oDados = new Repository.KitRep();
                 lstRetorno = oDados.LoadAll();
             }
             catch (Exception ex)
@@ -108,12 +108,12 @@ namespace Jack.Application
 
         public bool Update(Model.Kit oTipo)
         {
-            Repository.RepKit oDados = null;
+            Repository.KitRep oDados = null;
             bool blnRetorno = false;
 
             try
             {
-                oDados = new Repository.RepKit();
+                oDados = new Repository.KitRep();
                 blnRetorno = oDados.Update(oTipo);
             }
             catch (Exception ex)

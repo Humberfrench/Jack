@@ -14,12 +14,12 @@ namespace Jack.Application
         {
 
             List<Model.Familia> lstDados = null;
-            Repository.Representante objDados = null;
+            Repository.RepresentanteRep objDados = null;
 
 
             try
             {
-                objDados = new Repository.Representante();
+                objDados = new Repository.RepresentanteRep();
                 lstDados = new List<Model.Familia>();
                 lstDados = objDados.ObterMaes(intFamilia);
 
@@ -42,12 +42,12 @@ namespace Jack.Application
         {
 
             bool blnReturn = false;
-            Repository.Representante objDados = null;
+            Repository.RepresentanteRep objDados = null;
 
 
             try
             {
-                objDados = new Repository.Representante();
+                objDados = new Repository.RepresentanteRep();
                 blnReturn = objDados.Add(intFamilaRepresentante, intFamilaRepresentada);
 
             }
@@ -67,12 +67,12 @@ namespace Jack.Application
         {
 
             bool blnReturn = false;
-            Repository.Representante objDados = null;
+            Repository.RepresentanteRep objDados = null;
 
 
             try
             {
-                objDados = new Repository.Representante();
+                objDados = new Repository.RepresentanteRep();
                 blnReturn = objDados.Del(intFamilaRepresentante, intFamilaRepresentada);
 
             }

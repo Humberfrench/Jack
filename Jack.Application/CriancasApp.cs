@@ -11,12 +11,12 @@ namespace Jack.Application
         public bool Delete(Model.Criancas oTipo)
         {
 
-            Repository.RepCriancas oDataCrianca = null;
+            Repository.CriancasRep oDataCrianca = null;
             bool blnDados = false;
 
             try
             {
-                oDataCrianca = new Repository.RepCriancas();
+                oDataCrianca = new Repository.CriancasRep();
                 oDataCrianca.Delete(oTipo);
                 blnDados = true;
             }
@@ -36,11 +36,11 @@ namespace Jack.Application
         public bool Delete(Model.Criancas oTipo, int intFamilia)
         {
 
-            Repository.RepFamiliaCrianca oDataFamiliaCrianca = null;
+            Repository.FamiliaCriancaRep oDataFamiliaCrianca = null;
             bool blnDados = false;
             try
             {
-                oDataFamiliaCrianca = new Repository.RepFamiliaCrianca();
+                oDataFamiliaCrianca = new Repository.FamiliaCriancaRep();
                 if (oDataFamiliaCrianca.DeleteCrianca(intFamilia, oTipo.Codigo))
                 {
                     blnDados = Delete(oTipo);
@@ -64,12 +64,12 @@ namespace Jack.Application
         public Model.Criancas Find(int Identifier)
         {
 
-            Repository.RepCriancas oDataCrianca = null;
+            Repository.CriancasRep oDataCrianca = null;
             Model.Criancas objRetorno = null;
 
             try
             {
-                oDataCrianca = new Repository.RepCriancas();
+                oDataCrianca = new Repository.CriancasRep();
                 objRetorno = oDataCrianca.Find(Identifier);
             }
             catch (Exception ex)
@@ -88,12 +88,12 @@ namespace Jack.Application
         public bool Insert(Model.Criancas oTipo)
         {
 
-            Repository.RepCriancas oDataCrianca = null;
+            Repository.CriancasRep oDataCrianca = null;
             bool blnDados = false;
 
             try
             {
-                oDataCrianca = new Repository.RepCriancas();
+                oDataCrianca = new Repository.CriancasRep();
                 oDataCrianca.Insert(oTipo);
                 blnDados = true;
             }
@@ -113,12 +113,12 @@ namespace Jack.Application
         public bool Insert(Model.Criancas oTipo, int intFamilia)
         {
 
-            Repository.RepFamiliaCrianca oDataFamiliaCrianca = null;
+            Repository.FamiliaCriancaRep oDataFamiliaCrianca = null;
             bool blnDados = false;
 
             try
             {
-                oDataFamiliaCrianca = new Repository.RepFamiliaCrianca();
+                oDataFamiliaCrianca = new Repository.FamiliaCriancaRep();
                 if (Insert(oTipo))
                 {
                     //intCrianca = ObterCriancaPorNome(oTipo.Nome)
@@ -144,12 +144,12 @@ namespace Jack.Application
         public IList<Model.Criancas> LoadAll()
         {
 
-            Repository.RepCriancas oDataCrianca = null;
+            Repository.CriancasRep oDataCrianca = null;
             IList<Model.Criancas> lstDados = null;
 
             try
             {
-                oDataCrianca = new Repository.RepCriancas();
+                oDataCrianca = new Repository.CriancasRep();
                 lstDados = oDataCrianca.LoadAll();
             }
             catch (Exception ex)
@@ -168,12 +168,12 @@ namespace Jack.Application
         public IList<Model.Criancas> ObterSacolasMae(int intMae)
         {
 
-            Repository.RepCriancas oDataCrianca = null;
+            Repository.CriancasRep oDataCrianca = null;
             IList<Model.Criancas> lstDados = null;
 
             try
             {
-                oDataCrianca = new Repository.RepCriancas();
+                oDataCrianca = new Repository.CriancasRep();
                 lstDados = oDataCrianca.ObterSacolasMae(intMae);
             }
             catch (Exception ex)
@@ -192,12 +192,12 @@ namespace Jack.Application
         public bool Update(Model.Criancas oTipo)
         {
 
-            Repository.RepCriancas oDataCrianca = null;
+            Repository.CriancasRep oDataCrianca = null;
             bool blnDados = false;
 
             try
             {
-                oDataCrianca = new Repository.RepCriancas();
+                oDataCrianca = new Repository.CriancasRep();
                 oDataCrianca.Update(oTipo);
                 blnDados = true;
             }

@@ -11,10 +11,10 @@ using Jack.DTO;
 
 namespace Jack.Repository
 {
-    public class RepFamilia : Repository<Model.Familia>
+    public class FamiliaRep : Repository<Model.Familia>
     {
         private IUnitWork UnitWork;
-        public RepFamilia(IUnitWork unitWork) : base(unitWork)
+        public FamiliaRep(IUnitWork unitWork) : base(unitWork)
         {
             UnitWork = unitWork;
         }

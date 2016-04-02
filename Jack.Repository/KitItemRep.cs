@@ -5,14 +5,12 @@ using System.Data;
 
 namespace Jack.Repository
 {
-    public class RepColaboradorCrianca : BaseData<Model.ColaboradorCrianca, int>
+    public class KitItemRep : BaseData<Model.KitItem, int>
     {
 
-        public RepColaboradorCrianca() : base()
+        public KitItemRep() : base()
         {
         }
-
-        #region "Crud"
 
         /// <summary>
         /// Método para inserir o registro
@@ -20,7 +18,7 @@ namespace Jack.Repository
         /// <param name="oTipo">Entidade com os dados Preenchidos</param>
         /// <returns>Boolean. Se a operação foi um sucesso, true.</returns>
         /// <remarks></remarks>
-        public override bool Insert(Model.ColaboradorCrianca oTipo)
+        public override bool Insert(Model.KitItem oTipo)
         {
 
             return base.Insert(oTipo);
@@ -33,7 +31,7 @@ namespace Jack.Repository
         /// <param name="oTipo">Entidade com os dados Preenchidos</param>
         /// <returns>Boolean. Se a operação foi um sucesso, true.</returns>
         /// <remarks></remarks>
-        public override bool Update(Model.ColaboradorCrianca oTipo)
+        public override bool Update(Model.KitItem oTipo)
         {
 
             return base.Update(oTipo);
@@ -46,7 +44,7 @@ namespace Jack.Repository
         /// <param name="oTipo">Entidade com os dados Preenchidos</param>
         /// <returns>Boolean. Se a operação foi um sucesso, true.</returns>
         /// <remarks></remarks>
-        public override bool Delete(Model.ColaboradorCrianca oTipo)
+        public override bool Delete(Model.KitItem oTipo)
         {
 
             return base.Delete(oTipo);
@@ -59,7 +57,7 @@ namespace Jack.Repository
         /// <param name="Identifier">Código para a Procura do Valor</param>
         /// <returns>Entidade. Se a operação foi um sucesso, A Entidade Virá preenchida.</returns>
         /// <remarks></remarks>
-        public override Model.ColaboradorCrianca Find(int Identifier)
+        public override Model.KitItem Find(int Identifier)
         {
 
             return base.Find(Identifier);
@@ -71,55 +69,40 @@ namespace Jack.Repository
         /// </summary>
         /// <returns>Lista. Se a operação foi um sucesso, a lista virá carregada.</returns>
         /// <remarks></remarks>
-        public override IList<Model.ColaboradorCrianca> LoadAll()
+        public override IList<Model.KitItem> LoadAll()
         {
 
             return base.LoadAll();
 
         }
 
-        #endregion
-
-        #region "Outros"
-
-        /// <summary>
-        /// Lista Todas as Crianças que tem sacolinhas na mão de um colaborador
-        /// </summary>
-        /// <param name="intColaborador">Código do Colaborador</param>
-        /// <returns>List(Of Model.ColaboradorCrianca) - Lista de Criancas por Colaborador </returns>
-        /// <remarks></remarks>
-        public IList<Model.ColaboradorCrianca> ObterCriancasPorColaborador(int intColaborador, int intAno)
+        public IList<Model.KitItem> LoadKitItemByKit(int intKit)
         {
 
             Command oCommand = null;
-            IList<Model.ColaboradorCrianca> lstRetorno = null;
+            IList<Model.KitItem> lstRetorno = null;
             DataTable dtDados = null;
-            Model.ColaboradorCrianca oRetorno = null;
-
+            Model.KitItem oRetorno = null;
             try
             {
-                lstRetorno = new List<Model.ColaboradorCrianca>();
+                lstRetorno = new List<Model.KitItem>();
                 oCommand = new Command("CECAMKey");
-                oCommand.CommandText = "pr_list_sacola_colaborador";
+                oCommand.CommandText = "pr_get_kit_item";
                 oCommand.CommandType = System.Data.CommandType.StoredProcedure;
-                oCommand.Parameters.Add(new Parameter("@id_colaborador", DbType.Int32, intColaborador));
-                oCommand.Parameters.Add(new Parameter("@nr_ano", DbType.Int32, intAno));
+                oCommand.Parameters.Add(new Parameter("@id_kit", System.Data.DbType.Int32, 75, intKit));
                 dtDados = oCommand.GetDataTable();
+
                 foreach (DataRow dr in dtDados.Rows)
                 {
-                    oRetorno = new Model.ColaboradorCrianca();
-                    oRetorno.Codigo = Convert.ToInt16(dr["id_colaborador_crianca"].ToString());
-                    oRetorno.Colaborador.Codigo = intColaborador;
-                    oRetorno.Crianca.Codigo = Convert.ToInt32(dr["id_crianca"].ToString());
-                    oRetorno.NomeCrianca = dr["nm_crianca"].ToString();
-                    oRetorno.NomeColaborador = dr["ds_nome"].ToString();
-                    oRetorno.IsDevolvida = dr["is_devolvida"].ToString();
-                    oRetorno.NumeroSacola =Convert.ToInt16(dr["id_sacolinha"].ToString());
-                    oRetorno.NumeroIdade = Convert.ToInt16(dr["nr_idade"].ToString());
-                    oRetorno.MedidaIdade = dr["ds_medida_idade"].ToString();
-                    oRetorno.Roupa = dr["nr_roupa"].ToString();
-                    oRetorno.Calcado = Convert.ToInt16(dr["nr_calcado"].ToString());
-                    oRetorno.Ano = Convert.ToInt16(dr["nr_ano"].ToString());
+                    oRetorno = new Model.KitItem();
+                    oRetorno.Codigo = Convert.ToInt32(dr["id_kit_item"].ToString());
+                    oRetorno.Kit.Codigo = Convert.ToInt32(dr["id_kit"].ToString());
+                    oRetorno.Kit.Descricao = dr["ds_kit"].ToString();
+                    oRetorno.TipoItem = new Model.TipoItem(Convert.ToInt32(dr["id_tipo_item"].ToString()), 
+                                                           dr["ds_tipo_item"].ToString(),
+                                                           dr["is_opcional"].ToString());
+                    oRetorno.Observacao = dr["ds_observacao"].ToString();
+                    oRetorno.Ordem = Convert.ToInt32(dr["nr_ordem"].ToString());
                     lstRetorno.Add(oRetorno);
                 }
 
@@ -135,13 +118,8 @@ namespace Jack.Repository
                 oRetorno = null;
                 dtDados = null;
             }
-
             return lstRetorno;
 
         }
-
-
-        #endregion
-
     }
 }

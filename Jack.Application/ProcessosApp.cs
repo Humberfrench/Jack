@@ -17,14 +17,14 @@ namespace Jack.Application
         public bool ProcessaPresencasRepresentantesReuniao(string strPresenca)
         {
 
-            Repository.RepProcessos oDados = null;
+            Repository.ProcessosRep oDados = null;
             bool blnRetorno = false;
             int intReuniao = 0;
             string[] aStrPresenca = strPresenca.Split(',');
 
             try
             {
-                oDados = new Repository.RepProcessos();
+                oDados = new Repository.ProcessosRep();
                 for (int intCont = 0; intCont <= (aStrPresenca.Length - 1); intCont++)
                 {
                     if (!string.IsNullOrEmpty(aStrPresenca[intCont].Trim()))
@@ -58,12 +58,12 @@ namespace Jack.Application
         public bool ProcessaPresencasRepresentantesReuniao(int intReuniao)
         {
 
-            Repository.RepProcessos oDados = null;
+            Repository.ProcessosRep oDados = null;
             bool blnRetorno = false;
 
             try
             {
-                oDados = new Repository.RepProcessos();
+                oDados = new Repository.ProcessosRep();
                 blnRetorno = oDados.ProcessaPresencasRepresentantesReuniao(intReuniao);
             }
             catch (Exception ex)
@@ -82,12 +82,12 @@ namespace Jack.Application
 
         public bool ProcesaPresenca(int intAno)
         {
-            Repository.RepProcessos oDados = null;
+            Repository.ProcessosRep oDados = null;
             bool blnRetorno = false;
 
             try
             {
-                oDados = new Repository.RepProcessos();
+                oDados = new Repository.ProcessosRep();
                 blnRetorno = oDados.ProcesaPresenca(intAno);
             }
             catch (Exception ex)
@@ -106,12 +106,12 @@ namespace Jack.Application
 
         public bool ProcesaGeral(int intAno)
         {
-            Repository.RepProcessos oDados = null;
+            Repository.ProcessosRep oDados = null;
             bool blnRetorno = false;
 
             try
             {
-                oDados = new Repository.RepProcessos();
+                oDados = new Repository.ProcessosRep();
                 blnRetorno = oDados.ProcesaGeral(intAno);
             }
             catch (Exception ex)
@@ -138,12 +138,12 @@ namespace Jack.Application
         public bool AtualizaDadosCrianca(int intCrianca)
         {
 
-            Repository.RepProcessos oDados = null;
+            Repository.ProcessosRep oDados = null;
             bool blnRetorno = false;
 
             try
             {
-                oDados = new Repository.RepProcessos();
+                oDados = new Repository.ProcessosRep();
                 blnRetorno = oDados.AtualizaDadosCrianca(intCrianca);
             }
             catch (Exception ex)
@@ -169,12 +169,12 @@ namespace Jack.Application
         public bool AtualizaDadosCrianca()
         {
 
-            Repository.RepProcessos oDados = null;
+            Repository.ProcessosRep oDados = null;
             bool blnRetorno = false;
 
             try
             {
-                oDados = new Repository.RepProcessos();
+                oDados = new Repository.ProcessosRep();
                 blnRetorno = oDados.AtualizaDadosCrianca();
             }
             catch (Exception ex)
@@ -199,12 +199,12 @@ namespace Jack.Application
         public bool AtualizaDadosMae()
         {
 
-            Repository.RepProcessos oDados = null;
+            Repository.ProcessosRep oDados = null;
             bool blnRetorno = false;
 
             try
             {
-                oDados = new Repository.RepProcessos();
+                oDados = new Repository.ProcessosRep();
                 blnRetorno = oDados.AtualizaDadosMae();
             }
             catch (Exception ex)
@@ -228,12 +228,12 @@ namespace Jack.Application
         public IList<CriancasInconsistentes> ObterCriancasInconsistentes()
         {
 
-            Repository.RepProcessos oDados = null;
+            Repository.ProcessosRep oDados = null;
             IList<CriancasInconsistentes> lstRetorno = null;
 
             try
             {
-                oDados = new Repository.RepProcessos();
+                oDados = new Repository.ProcessosRep();
                 lstRetorno = oDados.ObterCriancasInconsistentes();
             }
             catch (Exception ex)
@@ -258,12 +258,12 @@ namespace Jack.Application
         public IList<Model.Familia> ObterFamiliasComZeroCriancas()
         {
 
-            Repository.RepProcessos oDados = null;
+            Repository.ProcessosRep oDados = null;
             IList<Model.Familia> lstRetorno = null;
 
             try
             {
-                oDados = new Repository.RepProcessos();
+                oDados = new Repository.ProcessosRep();
                 lstRetorno = oDados.ObterFamiliasComZeroCriancas();
             }
             catch (Exception ex)
@@ -288,12 +288,12 @@ namespace Jack.Application
         public IList<Model.Familia> ObterFamiliasInconsistentes()
         {
 
-            Repository.RepProcessos oDados = null;
+            Repository.ProcessosRep oDados = null;
             IList<Model.Familia> lstRetorno = null;
 
             try
             {
-                oDados = new Repository.RepProcessos();
+                oDados = new Repository.ProcessosRep();
                 lstRetorno = oDados.ObterFamiliasInconsistentes();
             }
             catch (Exception ex)

@@ -1,28 +1,26 @@
-﻿using System;
+﻿using Consumer.Data.Basic.Data;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Consumer.Data.Basic.Data;
 using System.Data;
 
 namespace Jack.Repository
 {
-    public class RepColaborador : BaseData<Model.Colaborador, int>
+    public class ColaboradorCriancaRep : BaseData<Model.ColaboradorCrianca, int>
     {
 
-        public RepColaborador() : base()
+        public ColaboradorCriancaRep() : base()
         {
         }
 
         #region "Crud"
+
         /// <summary>
         /// Método para inserir o registro
         /// </summary>
         /// <param name="oTipo">Entidade com os dados Preenchidos</param>
         /// <returns>Boolean. Se a operação foi um sucesso, true.</returns>
         /// <remarks></remarks>
-        public override bool Insert(Model.Colaborador oTipo)
+        public override bool Insert(Model.ColaboradorCrianca oTipo)
         {
 
             return base.Insert(oTipo);
@@ -35,7 +33,7 @@ namespace Jack.Repository
         /// <param name="oTipo">Entidade com os dados Preenchidos</param>
         /// <returns>Boolean. Se a operação foi um sucesso, true.</returns>
         /// <remarks></remarks>
-        public override bool Update(Model.Colaborador oTipo)
+        public override bool Update(Model.ColaboradorCrianca oTipo)
         {
 
             return base.Update(oTipo);
@@ -48,7 +46,7 @@ namespace Jack.Repository
         /// <param name="oTipo">Entidade com os dados Preenchidos</param>
         /// <returns>Boolean. Se a operação foi um sucesso, true.</returns>
         /// <remarks></remarks>
-        public override bool Delete(Model.Colaborador oTipo)
+        public override bool Delete(Model.ColaboradorCrianca oTipo)
         {
 
             return base.Delete(oTipo);
@@ -61,7 +59,7 @@ namespace Jack.Repository
         /// <param name="Identifier">Código para a Procura do Valor</param>
         /// <returns>Entidade. Se a operação foi um sucesso, A Entidade Virá preenchida.</returns>
         /// <remarks></remarks>
-        public override Model.Colaborador Find(int Identifier)
+        public override Model.ColaboradorCrianca Find(int Identifier)
         {
 
             return base.Find(Identifier);
@@ -73,7 +71,7 @@ namespace Jack.Repository
         /// </summary>
         /// <returns>Lista. Se a operação foi um sucesso, a lista virá carregada.</returns>
         /// <remarks></remarks>
-        public override IList<Model.Colaborador> LoadAll()
+        public override IList<Model.ColaboradorCrianca> LoadAll()
         {
 
             return base.LoadAll();
@@ -82,32 +80,46 @@ namespace Jack.Repository
 
         #endregion
 
-        #region "Outros Métodos"
+        #region "Outros"
 
-        public IList<Model.Colaborador> ListaQuantidadeSacolasPorColaborador(int intAno)
+        /// <summary>
+        /// Lista Todas as Crianças que tem sacolinhas na mão de um colaborador
+        /// </summary>
+        /// <param name="intColaborador">Código do Colaborador</param>
+        /// <returns>List(Of Model.ColaboradorCrianca) - Lista de Criancas por Colaborador </returns>
+        /// <remarks></remarks>
+        public IList<Model.ColaboradorCrianca> ObterCriancasPorColaborador(int intColaborador, int intAno)
         {
 
             Command oCommand = null;
-            IList<Model.Colaborador> lstRetorno = null;
+            IList<Model.ColaboradorCrianca> lstRetorno = null;
             DataTable dtDados = null;
-            Model.Colaborador oRetorno = null;
+            Model.ColaboradorCrianca oRetorno = null;
 
             try
             {
-                lstRetorno = new List<Model.Colaborador>();
+                lstRetorno = new List<Model.ColaboradorCrianca>();
                 oCommand = new Command("CECAMKey");
-                oCommand.CommandText = "pr_list_qtde_sacola_colaborador";
+                oCommand.CommandText = "pr_list_sacola_colaborador";
                 oCommand.CommandType = System.Data.CommandType.StoredProcedure;
+                oCommand.Parameters.Add(new Parameter("@id_colaborador", DbType.Int32, intColaborador));
                 oCommand.Parameters.Add(new Parameter("@nr_ano", DbType.Int32, intAno));
                 dtDados = oCommand.GetDataTable();
                 foreach (DataRow dr in dtDados.Rows)
                 {
-                    oRetorno = new Model.Colaborador();
-                    oRetorno.Codigo = Convert.ToInt32(dr["id_colaborador"].ToString());
-                    oRetorno.Nome = dr["ds_nome"].ToString();
-                    oRetorno.TotalSacolas = Convert.ToInt32(dr["tt_sacolas"].ToString());
-                    oRetorno.QuantidadeSacolas = Convert.ToInt32(dr["qt_sacolas"].ToString());
-                    oRetorno.PercentualSacolas = Convert.ToDouble(dr["pc_sacola"].ToString());
+                    oRetorno = new Model.ColaboradorCrianca();
+                    oRetorno.Codigo = Convert.ToInt16(dr["id_colaborador_crianca"].ToString());
+                    oRetorno.Colaborador.Codigo = intColaborador;
+                    oRetorno.Crianca.Codigo = Convert.ToInt32(dr["id_crianca"].ToString());
+                    oRetorno.NomeCrianca = dr["nm_crianca"].ToString();
+                    oRetorno.NomeColaborador = dr["ds_nome"].ToString();
+                    oRetorno.IsDevolvida = dr["is_devolvida"].ToString();
+                    oRetorno.NumeroSacola =Convert.ToInt16(dr["id_sacolinha"].ToString());
+                    oRetorno.NumeroIdade = Convert.ToInt16(dr["nr_idade"].ToString());
+                    oRetorno.MedidaIdade = dr["ds_medida_idade"].ToString();
+                    oRetorno.Roupa = dr["nr_roupa"].ToString();
+                    oRetorno.Calcado = Convert.ToInt16(dr["nr_calcado"].ToString());
+                    oRetorno.Ano = Convert.ToInt16(dr["nr_ano"].ToString());
                     lstRetorno.Add(oRetorno);
                 }
 
@@ -128,6 +140,8 @@ namespace Jack.Repository
 
         }
 
+
         #endregion
+
     }
 }
