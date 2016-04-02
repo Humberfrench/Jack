@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Jack.Application
 {
-    public class Reuniao : ICrud<Model.Reuniao, int>
+    public class ReuniaoApp : ICrud<Model.Reuniao, int>
     {
 
         private readonly Repository.RepFamilia repFamilia;
@@ -17,7 +17,7 @@ namespace Jack.Application
         private readonly Repository.RepPresenca repPresenca;
         private readonly Repository.IUnitWork unidadeTrabalho;
 
-        public Reuniao()
+        public ReuniaoApp()
         {
             unidadeTrabalho = new Repository.UnitWork();
             repReuniao = new Repository.RepReuniao(unidadeTrabalho);

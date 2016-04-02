@@ -14,11 +14,11 @@ namespace Controllers.API
         {
 
             IList<Model.Criancas> lstRetorno = null;
-            Application.Criancas oApplication = null;
+            Application.CriancasApp oApplication = null;
 
             try
             {
-                oApplication = new Application.Criancas();
+                oApplication = new Application.CriancasApp();
                 lstRetorno = oApplication.LoadAll();
 
             }
@@ -41,11 +41,11 @@ namespace Controllers.API
         {
 
             Model.Criancas oRetorno = null;
-            Application.Criancas oApplication = null;
+            Application.CriancasApp oApplication = null;
 
             try
             {
-                oApplication = new Application.Criancas();
+                oApplication = new Application.CriancasApp();
                 oRetorno = oApplication.Find(ID);
 
             }

@@ -3,21 +3,51 @@ using System.Collections.Generic;
 
 namespace Jack.Application
 {
-    public class CriancaMoralCrista : ICrud<Model.CriancaMoralCrista, int>
+    public class ColaboradorCriancaApp : ICrud<Model.ColaboradorCrianca, int>
     {
-        public CriancaMoralCrista()
+
+
+        public ColaboradorCriancaApp()
         {
+        }
+
+        #region "Outros Métodos"
+
+        public IList<Model.ColaboradorCrianca> ObterCriancasPorColaborador(int intColaborador, int intAno)
+        {
+            Repository.RepColaboradorCrianca oDados = null;
+            IList<Model.ColaboradorCrianca> lstRetorno = null;
+
+            try
+            {
+                oDados = new Repository.RepColaboradorCrianca();
+                lstRetorno = oDados.ObterCriancasPorColaborador(intColaborador, intAno);
+            }
+            catch (Exception ex)
+            {
+                lstRetorno = null;
+                throw ex;
+            }
+            finally
+            {
+                oDados = null;
+            }
+
+            return lstRetorno;
 
         }
 
-        public bool Delete(Model.CriancaMoralCrista oTipo)
+        #endregion
+
+        #region "Crud"
+        public bool Delete(Model.ColaboradorCrianca oTipo)
         {
-            Repository.RepCriancaMoralCrista oDados = null;
+            Repository.RepColaboradorCrianca oDados = null;
             bool blnRetorno = false;
 
             try
             {
-                oDados = new Repository.RepCriancaMoralCrista();
+                oDados = new Repository.RepColaboradorCrianca();
                 blnRetorno = oDados.Delete(oTipo);
             }
             catch (Exception ex)
@@ -34,15 +64,15 @@ namespace Jack.Application
 
         }
 
-        public Model.CriancaMoralCrista Find(int Identifier)
+        public Model.ColaboradorCrianca Find(int Identifier)
         {
 
-            Repository.RepCriancaMoralCrista oDados = null;
-            Model.CriancaMoralCrista oRetorno = null;
+            Repository.RepColaboradorCrianca oDados = null;
+            Model.ColaboradorCrianca oRetorno = null;
 
             try
             {
-                oDados = new Repository.RepCriancaMoralCrista();
+                oDados = new Repository.RepColaboradorCrianca();
                 oRetorno = oDados.Find(Identifier);
             }
             catch (Exception ex)
@@ -59,14 +89,14 @@ namespace Jack.Application
 
         }
 
-        public bool Insert(Model.CriancaMoralCrista oTipo)
+        public bool Insert(Model.ColaboradorCrianca oTipo)
         {
-            Repository.RepCriancaMoralCrista oDados = null;
+            Repository.RepColaboradorCrianca oDados = null;
             bool blnRetorno = false;
 
             try
             {
-                oDados = new Repository.RepCriancaMoralCrista();
+                oDados = new Repository.RepColaboradorCrianca();
                 blnRetorno = oDados.Insert(oTipo);
             }
             catch (Exception ex)
@@ -82,14 +112,14 @@ namespace Jack.Application
             return blnRetorno;
         }
 
-        public IList<Model.CriancaMoralCrista> LoadAll()
+        public IList<Model.ColaboradorCrianca> LoadAll()
         {
-            Repository.RepCriancaMoralCrista oDados = null;
-            IList<Model.CriancaMoralCrista> lstRetorno = null;
+            Repository.RepColaboradorCrianca oDados = null;
+            IList<Model.ColaboradorCrianca> lstRetorno = null;
 
             try
             {
-                oDados = new Repository.RepCriancaMoralCrista();
+                oDados = new Repository.RepColaboradorCrianca();
                 lstRetorno = oDados.LoadAll();
             }
             catch (Exception ex)
@@ -106,14 +136,14 @@ namespace Jack.Application
 
         }
 
-        public bool Update(Model.CriancaMoralCrista oTipo)
+        public bool Update(Model.ColaboradorCrianca oTipo)
         {
-            Repository.RepCriancaMoralCrista oDados = null;
+            Repository.RepColaboradorCrianca oDados = null;
             bool blnRetorno = false;
 
             try
             {
-                oDados = new Repository.RepCriancaMoralCrista();
+                oDados = new Repository.RepColaboradorCrianca();
                 blnRetorno = oDados.Update(oTipo);
             }
             catch (Exception ex)
@@ -128,5 +158,7 @@ namespace Jack.Application
 
             return blnRetorno;
         }
+        #endregion
+
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Jack.Model.DTOs;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,22 +7,21 @@ using System.Threading.Tasks;
 
 namespace Jack.Application
 {
-    public class Roupa : ICrud<Model.Roupa, int>
+    public class ResponsavelApp : ICrud<Model.Responsavel, int>
     {
-
-        public Roupa()
+        public ResponsavelApp()
         {
 
         }
 
-        public bool Delete(Model.Roupa oTipo)
+        public bool Delete(Model.Responsavel oTipo)
         {
-            Repository.RepRoupa oDados = null;
+            Repository.RepResponsavel oDados = null;
             bool blnRetorno = false;
 
             try
             {
-                oDados = new Repository.RepRoupa();
+                oDados = new Repository.RepResponsavel();
                 blnRetorno = oDados.Delete(oTipo);
             }
             catch (Exception ex)
@@ -38,15 +38,15 @@ namespace Jack.Application
 
         }
 
-        public Model.Roupa Find(int Identifier)
+        public Model.Responsavel Find(int Identifier)
         {
 
-            Repository.RepRoupa oDados = null;
-            Model.Roupa oRetorno = null;
+            Repository.RepResponsavel oDados = null;
+            Model.Responsavel oRetorno = null;
 
             try
             {
-                oDados = new Repository.RepRoupa();
+                oDados = new Repository.RepResponsavel();
                 oRetorno = oDados.Find(Identifier);
             }
             catch (Exception ex)
@@ -63,15 +63,14 @@ namespace Jack.Application
 
         }
 
-        public bool Insert(Model.Roupa oTipo)
+        public bool Insert(Model.Responsavel oTipo)
         {
-            Repository.RepRoupa oDados = null;
+            Repository.RepResponsavel oDados = null;
             bool blnRetorno = false;
-
 
             try
             {
-                oDados = new Repository.RepRoupa();
+                oDados = new Repository.RepResponsavel();
                 blnRetorno = oDados.Insert(oTipo);
             }
             catch (Exception ex)
@@ -87,14 +86,14 @@ namespace Jack.Application
             return blnRetorno;
         }
 
-        public IList<Model.Roupa> LoadAll()
+        public IList<Model.Responsavel> LoadAll()
         {
-            Repository.RepRoupa oDados = null;
-            IList<Model.Roupa> lstRetorno = null;
+            Repository.RepResponsavel oDados = null;
+            IList<Model.Responsavel> lstRetorno = null;
 
             try
             {
-                oDados = new Repository.RepRoupa();
+                oDados = new Repository.RepResponsavel();
                 lstRetorno = oDados.LoadAll();
             }
             catch (Exception ex)
@@ -111,14 +110,14 @@ namespace Jack.Application
 
         }
 
-        public bool Update(Model.Roupa oTipo)
+        public bool Update(Model.Responsavel oTipo)
         {
-            Repository.RepRoupa oDados = null;
+            Repository.RepResponsavel oDados = null;
             bool blnRetorno = false;
 
             try
             {
-                oDados = new Repository.RepRoupa();
+                oDados = new Repository.RepResponsavel();
                 blnRetorno = oDados.Update(oTipo);
             }
             catch (Exception ex)

@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace Jack.Application
 {
-    public class FamiliaCrianca
+    public class FamiliaCriancaApp
     {
 
-        public FamiliaCrianca() : base()
+        public FamiliaCriancaApp() : base()
         {
         }
 

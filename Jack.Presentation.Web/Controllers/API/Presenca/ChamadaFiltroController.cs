@@ -13,7 +13,7 @@ namespace Controllers.API
 		[HttpGet()]
 		public IList<DTOFamiliaChamada> GetValue([FromUri()] int ID, [FromUri()] string Letter)
         {
-            Application.Familia oChamada = new Application.Familia();
+            Application.FamiliaApp oChamada = new Application.FamiliaApp();
 			IList<DTOFamiliaChamada> oReturn = new List<DTOFamiliaChamada>();
 
 			oReturn = oChamada.ObterChamada(ID).Where( x => x.Nome.Substring(0,1) == Letter).ToList();
@@ -24,7 +24,7 @@ namespace Controllers.API
 		}
         public IList<DTOMneumonicos> GetValues([FromUri()] int ID)
         {
-            Application.Familia oChamada = new Application.Familia();
+            Application.FamiliaApp oChamada = new Application.FamiliaApp();
             IList<DTOMneumonicos> oReturn = new List<DTOMneumonicos>();
 
             oReturn = oChamada.ObterChamada(ID).OrderBy(x => x.Nome)

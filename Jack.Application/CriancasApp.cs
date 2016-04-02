@@ -5,7 +5,7 @@ using System.Linq;
 namespace Jack.Application
 {
 
-    public class Criancas : ICrud<Model.Criancas, int>
+    public class CriancasApp : ICrud<Model.Criancas, int>
     {
 
         public bool Delete(Model.Criancas oTipo)

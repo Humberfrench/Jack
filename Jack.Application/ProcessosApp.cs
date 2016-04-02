@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace Jack.Application
 {
-    public class Processos
+    public class ProcessosApp
     {
 
         /// <summary>

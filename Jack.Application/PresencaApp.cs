@@ -6,7 +6,7 @@ using System.Collections.Generic;
 namespace Jack.Application
 {
 
-    public class Presenca : ICrud<Model.Presenca, int>
+    public class PresencaApp : ICrud<Model.Presenca, int>
     {
 
 
@@ -15,7 +15,7 @@ namespace Jack.Application
         private readonly Repository.RepPresenca repPresenca;
         private readonly Repository.IUnitWork unidadeTrabalho;
 
-        public Presenca()
+        public PresencaApp()
         {
             unidadeTrabalho = new Repository.UnitWork();
             repReuniao = new Repository.RepReuniao(unidadeTrabalho);

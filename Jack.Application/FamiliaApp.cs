@@ -6,14 +6,14 @@ using System.Linq;
 
 namespace Jack.Application
 {
-    public class Familia 
+    public class FamiliaApp 
     {
 
         private readonly Repository.RepStatus repStatus;
         private readonly Repository.RepFamilia repFamilia;
         private readonly Repository.IUnitWork unidadeTrabalho;
 
-        public Familia()
+        public FamiliaApp()
         {
             unidadeTrabalho = new Repository.UnitWork();
             repStatus = new Repository.RepStatus(unidadeTrabalho); 

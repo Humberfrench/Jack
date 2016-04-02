@@ -15,13 +15,13 @@ namespace Controllers.MVC
 		public ActionResult Index()
 		{
 
-			Application.Calcado CalcadoApplication = null;
+			Application.CalcadoApp CalcadoApplication = null;
 			IList<Model.Calcado> CalcadoRetorno = null;
 
 
             try
             {
-                CalcadoApplication = new Application.Calcado();
+                CalcadoApplication = new Application.CalcadoApp();
                 CalcadoRetorno = CalcadoApplication.LoadAll();
 
             }
@@ -42,13 +42,13 @@ namespace Controllers.MVC
 		public ActionResult Meninos()
 		{
 
-			Application.Calcado CalcadoApplication = null;
+			Application.CalcadoApp CalcadoApplication = null;
 			IList<Model.Calcado> CalcadoRetorno = null;
 
 
             try
             {
-                CalcadoApplication = new Application.Calcado();
+                CalcadoApplication = new Application.CalcadoApp();
                 CalcadoRetorno = CalcadoApplication.LoadAll().Where(x => x.Sexo == "M").ToList();
 
             }
@@ -69,13 +69,13 @@ namespace Controllers.MVC
 		public ActionResult Meninas()
 		{
 
-			Application.Calcado CalcadoApplication = null;
+			Application.CalcadoApp CalcadoApplication = null;
 			IList<Model.Calcado> CalcadoRetorno = null;
 
 
             try
             {
-                CalcadoApplication = new Application.Calcado();
+                CalcadoApplication = new Application.CalcadoApp();
                 CalcadoRetorno = CalcadoApplication.LoadAll().Where(x => x.Sexo == "F").ToList();
 
             }

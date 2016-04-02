@@ -1,27 +1,26 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Jack;
 
 namespace Jack.Application
 {
-    public class KitItem : ICrud<Model.KitItem, int>
+    public class CalcadoApp : ICrud<Model.Calcado, int>
     {
 
 
-        public KitItem()
+        public CalcadoApp()
         {
         }
 
-        public bool Delete(Model.KitItem oTipo)
+        public bool Delete(Model.Calcado oTipo)
         {
-            Repository.RepKitItem oDados = null;
+            Repository.RepCalcado oDados = null;
             bool blnRetorno = false;
 
             try
             {
-                oDados = new Repository.RepKitItem();
+                oDados = new Repository.RepCalcado();
                 blnRetorno = oDados.Delete(oTipo);
             }
             catch (Exception ex)
@@ -38,15 +37,15 @@ namespace Jack.Application
 
         }
 
-        public Model.KitItem Find(int Identifier)
+        public Model.Calcado Find(int Identifier)
         {
 
-            Repository.RepKitItem oDados = null;
-            Model.KitItem oRetorno = null;
+            Repository.RepCalcado oDados = null;
+            Model.Calcado oRetorno = null;
 
             try
             {
-                oDados = new Repository.RepKitItem();
+                oDados = new Repository.RepCalcado();
                 oRetorno = oDados.Find(Identifier);
             }
             catch (Exception ex)
@@ -63,14 +62,14 @@ namespace Jack.Application
 
         }
 
-        public bool Insert(Model.KitItem oTipo)
+        public bool Insert(Model.Calcado oTipo)
         {
-            Repository.RepKitItem oDados = null;
+            Repository.RepCalcado oDados = null;
             bool blnRetorno = false;
 
             try
             {
-                oDados = new Repository.RepKitItem();
+                oDados = new Repository.RepCalcado();
                 blnRetorno = oDados.Insert(oTipo);
             }
             catch (Exception ex)
@@ -86,15 +85,17 @@ namespace Jack.Application
             return blnRetorno;
         }
 
-        public IList<Model.KitItem> LoadAll()
+        public IList<Model.Calcado> LoadAll()
         {
-            Repository.RepKitItem oDados = null;
-            IList<Model.KitItem> lstRetorno = null;
+            Repository.RepCalcado oDados = null;
+            IList<Model.Calcado> lstRetorno = null;
 
             try
             {
-                oDados = new Repository.RepKitItem();
-                lstRetorno = oDados.LoadAll();
+
+                oDados = new Repository.RepCalcado();
+                lstRetorno = oDados.LoadAll().OrderByDescending(x => x.MedidaIdade).ToList().OrderBy(y => y.Sexo).ToList().OrderBy(z => z.IdadeInicial).ToList();
+
             }
             catch (Exception ex)
             {
@@ -110,14 +111,14 @@ namespace Jack.Application
 
         }
 
-        public bool Update(Model.KitItem oTipo)
+        public bool Update(Model.Calcado oTipo)
         {
-            Repository.RepKitItem oDados = null;
+            Repository.RepCalcado oDados = null;
             bool blnRetorno = false;
 
             try
             {
-                oDados = new Repository.RepKitItem();
+                oDados = new Repository.RepCalcado();
                 blnRetorno = oDados.Update(oTipo);
             }
             catch (Exception ex)
@@ -132,30 +133,5 @@ namespace Jack.Application
 
             return blnRetorno;
         }
-
-        public IList<Model.KitItem> LoadKitItemByKit(int intKit)
-        {
-            Repository.RepKitItem oDados = null;
-            IList<Model.KitItem> lstRetorno = null;
-
-            try
-            {
-                oDados = new Repository.RepKitItem();
-                lstRetorno = oDados.LoadKitItemByKit(intKit);
-            }
-            catch (Exception ex)
-            {
-                lstRetorno = null;
-                throw ex;
-            }
-            finally
-            {
-                oDados = null;
-            }
-
-            return lstRetorno;
-
-        }
-
     }
 }

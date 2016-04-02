@@ -8,13 +8,13 @@ using System.Threading.Tasks;
 
 namespace Jack.Application
 {
-    public class Status : ICrud<Model.Status, int>
+    public class StatusApp : ICrud<Model.Status, int>
     {
 
         private readonly Repository.RepStatus repStatus;
         private readonly Repository.IUnitWork unidadeTrabalho;
 
-        public Status()
+        public StatusApp()
         {
             unidadeTrabalho = new Repository.UnitWork();
             repStatus = new Repository.RepStatus(unidadeTrabalho);

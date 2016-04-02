@@ -14,10 +14,10 @@ namespace Controllers.API
         {
 
             IList<DTOStatus> lstRetorno = null;
-            Status oApplication = null;
+            StatusApp oApplication = null;
             try
             {
-                oApplication = new Status();
+                oApplication = new StatusApp();
                 lstRetorno = oApplication.Load();
             }
             catch (Exception ex)

@@ -1,57 +1,23 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Jack.Application
 {
-    public class Colaborador : ICrud<Model.Colaborador, int>
+    public class KitApp : ICrud<Model.Kit, int>
     {
 
-
-        public Colaborador()
+        public KitApp()
         {
         }
 
-        #region "Outros Métodos"
-
-        public IList<Model.Colaborador> ListaQuantidadeSacolasPorColaborador(int intAno)
+        public bool Delete(Model.Kit oTipo)
         {
-
-            Repository.RepColaborador oDados = null;
-            IList<Model.Colaborador> lstRetorno = null;
-
-            try
-            {
-                oDados = new Repository.RepColaborador();
-                lstRetorno = oDados.ListaQuantidadeSacolasPorColaborador(intAno);
-            }
-            catch (Exception ex)
-            {
-                lstRetorno = null;
-                throw ex;
-            }
-            finally
-            {
-                oDados = null;
-            }
-
-            return lstRetorno;
-
-        }
-
-        #endregion
-
-        #region "Crud"
-        public bool Delete(Model.Colaborador oTipo)
-        {
-            Repository.RepColaborador oDados = null;
+            Repository.RepKit oDados = null;
             bool blnRetorno = false;
 
             try
             {
-                oDados = new Repository.RepColaborador();
+                oDados = new Repository.RepKit();
                 blnRetorno = oDados.Delete(oTipo);
             }
             catch (Exception ex)
@@ -68,15 +34,15 @@ namespace Jack.Application
 
         }
 
-        public Model.Colaborador Find(int Identifier)
+        public Model.Kit Find(int Identifier)
         {
 
-            Repository.RepColaborador oDados = null;
-            Model.Colaborador oRetorno = null;
+            Repository.RepKit oDados = null;
+            Model.Kit oRetorno = null;
 
             try
             {
-                oDados = new Repository.RepColaborador();
+                oDados = new Repository.RepKit();
                 oRetorno = oDados.Find(Identifier);
             }
             catch (Exception ex)
@@ -93,14 +59,14 @@ namespace Jack.Application
 
         }
 
-        public bool Insert(Model.Colaborador oTipo)
+        public bool Insert(Model.Kit oTipo)
         {
-            Repository.RepColaborador oDados = null;
+            Repository.RepKit oDados = null;
             bool blnRetorno = false;
 
             try
             {
-                oDados = new Repository.RepColaborador();
+                oDados = new Repository.RepKit();
                 blnRetorno = oDados.Insert(oTipo);
             }
             catch (Exception ex)
@@ -116,14 +82,14 @@ namespace Jack.Application
             return blnRetorno;
         }
 
-        public IList<Model.Colaborador> LoadAll()
+        public IList<Model.Kit> LoadAll()
         {
-            Repository.RepColaborador oDados = null;
-            IList<Model.Colaborador> lstRetorno = null;
+            Repository.RepKit oDados = null;
+            IList<Model.Kit> lstRetorno = null;
 
             try
             {
-                oDados = new Repository.RepColaborador();
+                oDados = new Repository.RepKit();
                 lstRetorno = oDados.LoadAll();
             }
             catch (Exception ex)
@@ -140,14 +106,14 @@ namespace Jack.Application
 
         }
 
-        public bool Update(Model.Colaborador oTipo)
+        public bool Update(Model.Kit oTipo)
         {
-            Repository.RepColaborador oDados = null;
+            Repository.RepKit oDados = null;
             bool blnRetorno = false;
 
             try
             {
-                oDados = new Repository.RepColaborador();
+                oDados = new Repository.RepKit();
                 blnRetorno = oDados.Update(oTipo);
             }
             catch (Exception ex)
@@ -162,7 +128,5 @@ namespace Jack.Application
 
             return blnRetorno;
         }
-        #endregion
-
     }
 }

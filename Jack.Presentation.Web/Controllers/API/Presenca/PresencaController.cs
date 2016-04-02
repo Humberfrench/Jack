@@ -14,11 +14,11 @@ namespace Controllers.API
 		{
 
 			Model.Reuniao lstRetorno = null;
-			Application.Reuniao oApplication = null;
+			Application.ReuniaoApp oApplication = null;
 
 			try
             {
-				oApplication = new Application.Reuniao();
+				oApplication = new Application.ReuniaoApp();
 				lstRetorno = oApplication.Find(ID);
 
 			}

@@ -14,13 +14,13 @@ namespace Controllers.MVC
 		// GET: Roupas
 		public ActionResult Index()
 		{
-			Application.Roupa RoupaBusiness = null;
+			Application.RoupaApp RoupaBusiness = null;
 			List<Model.Roupa> RoupaRetorno = null;
 
 
             try
             {
-                RoupaBusiness = new Application.Roupa();
+                RoupaBusiness = new Application.RoupaApp();
                 //fake init
                 RoupaRetorno = new List<Model.Roupa>();
                 RoupaRetorno.Add(new Model.Roupa());

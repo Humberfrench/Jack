@@ -13,11 +13,11 @@ namespace Controllers.API
         public IList<DTOCrianca> GetValue(int ID)
         {
             IList<DTOCrianca> lstRetorno = null;
-            FamiliaCrianca oApplication = null;
+            FamiliaCriancaApp oApplication = null;
 
             try
             {
-                oApplication = new FamiliaCrianca();
+                oApplication = new FamiliaCriancaApp();
                 lstRetorno = oApplication.ObterCriancasByFamilia(ID);
 
             }

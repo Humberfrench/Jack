@@ -11,7 +11,7 @@ namespace Controllers.API
         [HttpGet()]
         public IList<DTOReuniao> GetValues([FromUri()] int ID)
         {
-            Reuniao oReuniao = new Reuniao();
+            ReuniaoApp oReuniao = new ReuniaoApp();
             IList<DTOReuniao> oReturn = null;
 
             oReturn = oReuniao.LoadByAnoCorrente(ID);

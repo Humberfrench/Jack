@@ -3,11 +3,11 @@ using System.Collections.Generic;
 
 namespace Jack.Application
 {
-    public class Representante
+    public class RepresentanteApp
     {
 
 
-        public Representante()
+        public RepresentanteApp()
         {
         }
         public List<Model.Familia> ObterMaes(int intFamilia)

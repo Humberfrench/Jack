@@ -11,7 +11,7 @@ namespace Controllers.API
 		[HttpGet()]
 		public IList<DTOFamiliaChamada> GetValue([FromUri()] int ID)
         {
-            Application.Familia oChamada = new Application.Familia();
+            Application.FamiliaApp oChamada = new Application.FamiliaApp();
 			IList<DTOFamiliaChamada> oReturn = default(List<DTOFamiliaChamada>);
 
 			oReturn = oChamada.ObterChamada(ID);
@@ -26,7 +26,7 @@ namespace Controllers.API
         {
             DTOPresenca presencaMae;
             presencaMae = new DTOPresenca(intFamilia, intReuniao);
-            Application.Presenca oChamada = new Application.Presenca();
+            Application.PresencaApp oChamada = new Application.PresencaApp();
 
             oChamada.Registrar(presencaMae);
         }

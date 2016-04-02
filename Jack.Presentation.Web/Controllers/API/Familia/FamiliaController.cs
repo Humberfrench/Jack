@@ -15,11 +15,11 @@ namespace Controllers.API
 		{
 
             IList<DTOFamilia> lstRetorno = null;
-			Familia oApplication = null;
+			FamiliaApp oApplication = null;
 
             try
             {
-                oApplication = new Familia();
+                oApplication = new FamiliaApp();
                 lstRetorno = oApplication.Load();
 
             }
@@ -42,11 +42,11 @@ namespace Controllers.API
 		{
 
             DTOFamilia oRetorno = null;
-			Familia oApplication = default(Familia);
+			FamiliaApp oApplication = default(FamiliaApp);
 
             try
             {
-                oApplication = new Familia();
+                oApplication = new FamiliaApp();
                 oRetorno = oApplication.Obter(ID);
 
             }
@@ -67,10 +67,10 @@ namespace Controllers.API
         [HttpPost()]
         public void Salvar([FromBody()] DTOFamilia family)
         {
-            Familia oApplication = null;
+            FamiliaApp oApplication = null;
             try
             {
-                oApplication = new Familia();
+                oApplication = new FamiliaApp();
                 oApplication.Gravar(family);
             }
             finally
@@ -83,10 +83,10 @@ namespace Controllers.API
         [HttpDelete()]
         public void Delete([FromUri()] int ID)
         {
-            Familia oApplication = null;
+            FamiliaApp oApplication = null;
             try
             {
-                oApplication = new Familia();
+                oApplication = new FamiliaApp();
                 oApplication.Delete(ID);
 
             }

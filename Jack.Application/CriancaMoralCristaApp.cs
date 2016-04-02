@@ -3,21 +3,21 @@ using System.Collections.Generic;
 
 namespace Jack.Application
 {
-    public class Kit : ICrud<Model.Kit, int>
+    public class CriancaMoralCristaApp : ICrud<Model.CriancaMoralCrista, int>
     {
-
-        public Kit()
+        public CriancaMoralCristaApp()
         {
+
         }
 
-        public bool Delete(Model.Kit oTipo)
+        public bool Delete(Model.CriancaMoralCrista oTipo)
         {
-            Repository.RepKit oDados = null;
+            Repository.RepCriancaMoralCrista oDados = null;
             bool blnRetorno = false;
 
             try
             {
-                oDados = new Repository.RepKit();
+                oDados = new Repository.RepCriancaMoralCrista();
                 blnRetorno = oDados.Delete(oTipo);
             }
             catch (Exception ex)
@@ -34,15 +34,15 @@ namespace Jack.Application
 
         }
 
-        public Model.Kit Find(int Identifier)
+        public Model.CriancaMoralCrista Find(int Identifier)
         {
 
-            Repository.RepKit oDados = null;
-            Model.Kit oRetorno = null;
+            Repository.RepCriancaMoralCrista oDados = null;
+            Model.CriancaMoralCrista oRetorno = null;
 
             try
             {
-                oDados = new Repository.RepKit();
+                oDados = new Repository.RepCriancaMoralCrista();
                 oRetorno = oDados.Find(Identifier);
             }
             catch (Exception ex)
@@ -59,14 +59,14 @@ namespace Jack.Application
 
         }
 
-        public bool Insert(Model.Kit oTipo)
+        public bool Insert(Model.CriancaMoralCrista oTipo)
         {
-            Repository.RepKit oDados = null;
+            Repository.RepCriancaMoralCrista oDados = null;
             bool blnRetorno = false;
 
             try
             {
-                oDados = new Repository.RepKit();
+                oDados = new Repository.RepCriancaMoralCrista();
                 blnRetorno = oDados.Insert(oTipo);
             }
             catch (Exception ex)
@@ -82,14 +82,14 @@ namespace Jack.Application
             return blnRetorno;
         }
 
-        public IList<Model.Kit> LoadAll()
+        public IList<Model.CriancaMoralCrista> LoadAll()
         {
-            Repository.RepKit oDados = null;
-            IList<Model.Kit> lstRetorno = null;
+            Repository.RepCriancaMoralCrista oDados = null;
+            IList<Model.CriancaMoralCrista> lstRetorno = null;
 
             try
             {
-                oDados = new Repository.RepKit();
+                oDados = new Repository.RepCriancaMoralCrista();
                 lstRetorno = oDados.LoadAll();
             }
             catch (Exception ex)
@@ -106,14 +106,14 @@ namespace Jack.Application
 
         }
 
-        public bool Update(Model.Kit oTipo)
+        public bool Update(Model.CriancaMoralCrista oTipo)
         {
-            Repository.RepKit oDados = null;
+            Repository.RepCriancaMoralCrista oDados = null;
             bool blnRetorno = false;
 
             try
             {
-                oDados = new Repository.RepKit();
+                oDados = new Repository.RepCriancaMoralCrista();
                 blnRetorno = oDados.Update(oTipo);
             }
             catch (Exception ex)

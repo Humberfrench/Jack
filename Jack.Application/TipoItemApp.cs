@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace Jack.Application
 {
-    public class TipoItem : ICrud<Model.TipoItem, int>
+    public class TipoItemApp : ICrud<Model.TipoItem, int>
     {
 
 
-        public TipoItem()
+        public TipoItemApp()
         {
         }
 

@@ -15,11 +15,11 @@ namespace Controllers.API
 		{
 
 			IList<Model.TipoItem> lstRetorno = null;
-			Application.TipoItem oApplication = default(Application.TipoItem);
+			Application.TipoItemApp oApplication = default(Application.TipoItemApp);
 
             try
             {
-                oApplication = new Application.TipoItem();
+                oApplication = new Application.TipoItemApp();
                 lstRetorno = oApplication.LoadAll();
 
             }
@@ -42,10 +42,10 @@ namespace Controllers.API
 		{
 
 			Model.TipoItem oRetorno = default(Model.TipoItem);
-			Application.TipoItem oApplication = default(Application.TipoItem);
+			Application.TipoItemApp oApplication = default(Application.TipoItemApp);
 
 			try {
-				oApplication = new Application.TipoItem();
+				oApplication = new Application.TipoItemApp();
 				oRetorno = oApplication.Find(ID);
 
 			}
@@ -66,10 +66,10 @@ namespace Controllers.API
 		[HttpPost()]
 		public void Salvar( [FromUri()] Model.TipoItem oFamily)
 		{
-			Application.TipoItem oApplication = default(Application.TipoItem);
+			Application.TipoItemApp oApplication = default(Application.TipoItemApp);
 			try
             {
-				oApplication = new Application.TipoItem();
+				oApplication = new Application.TipoItemApp();
 				oApplication.Update(oFamily);
 			}
             finally
@@ -82,10 +82,10 @@ namespace Controllers.API
 		[HttpDelete()]
 		public void Delete(	[FromUri()] int ID)
 		{
-			Application.TipoItem oApplication = default(Application.TipoItem);
+			Application.TipoItemApp oApplication = default(Application.TipoItemApp);
 			Model.TipoItem oDelete = default(Model.TipoItem);
 			try {
-				oApplication = new Application.TipoItem();
+				oApplication = new Application.TipoItemApp();
 				oDelete = new Model.TipoItem();
 				oDelete.Codigo = ID;
 				oApplication.Delete(oDelete);

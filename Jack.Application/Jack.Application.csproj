@@ -48,25 +48,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ColaboradorCrianca.cs" />
-    <Compile Include="Criancas.cs" />
-    <Compile Include="Familia.cs" />
-    <Compile Include="FamiliaCrianca.cs" />
+    <Compile Include="ColaboradorCriancaApp.cs" />
+    <Compile Include="CriancasApp.cs" />
+    <Compile Include="FamiliaApp.cs" />
+    <Compile Include="FamiliaCriancaApp.cs" />
     <Compile Include="ICrud.cs" />
-    <Compile Include="Kit.cs" />
-    <Compile Include="KitItem.cs" />
-    <Compile Include="Presenca.cs" />
-    <Compile Include="Processos.cs" />
-    <Compile Include="Representante.cs" />
-    <Compile Include="CriancaMoralCrista.cs" />
-    <Compile Include="Reuniao.cs" />
-    <Compile Include="Responsavel.cs" />
-    <Compile Include="TipoItem.cs" />
-    <Compile Include="Status.cs" />
-    <Compile Include="Sacolas.cs" />
-    <Compile Include="Roupa.cs" />
-    <Compile Include="Colaborador.cs" />
-    <Compile Include="Calcado.cs" />
+    <Compile Include="KitApp.cs" />
+    <Compile Include="KitItemApp.cs" />
+    <Compile Include="PresencaApp.cs" />
+    <Compile Include="ProcessosApp.cs" />
+    <Compile Include="RepresentanteApp.cs" />
+    <Compile Include="CriancaMoralCristaApp.cs" />
+    <Compile Include="ReuniaoApp.cs" />
+    <Compile Include="ResponsavelApp.cs" />
+    <Compile Include="TipoItemApp.cs" />
+    <Compile Include="StatusApp.cs" />
+    <Compile Include="SacolasApp.cs" />
+    <Compile Include="RoupaApp.cs" />
+    <Compile Include="ColaboradorApp.cs" />
+    <Compile Include="CalcadoApp.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

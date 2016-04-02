@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace Jack.Application
 {
-    public class Sacolas
+    public class SacolasApp
     {
 
         public IList<DTO.Sacolas> ProcessaSacolas(int intAno)

@@ -12,11 +12,11 @@ namespace Controllers.API
         {
 
 			IList<DTOCriancaRepresentante> lstRetorno = null;
-			FamiliaCrianca oApplication = default(FamiliaCrianca);
+			FamiliaCriancaApp oApplication = default(FamiliaCriancaApp);
 
             try
             {
-                oApplication = new FamiliaCrianca();
+                oApplication = new FamiliaCriancaApp();
                 lstRetorno = oApplication.ObterCriancasByFamiliaWithRep(ID);
 
             }
