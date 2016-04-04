@@ -25,3 +25,30 @@ D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Application\bin\Debug\FluentNH
 D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Application\bin\Debug\Iesi.Collections.xml
 D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Application\obj\Debug\Jack.Application.dll
 D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Application\obj\Debug\Jack.Application.pdb
+C:\Desenvolvimento\Sistemas\jack\Jack.Application\bin\Debug\Jack.Application.dll
+C:\Desenvolvimento\Sistemas\jack\Jack.Application\bin\Debug\Jack.Application.pdb
+C:\Desenvolvimento\Sistemas\jack\Jack.Application\bin\Debug\Consumer.Tools.dll
+C:\Desenvolvimento\Sistemas\jack\Jack.Application\bin\Debug\DomainValidation.dll
+C:\Desenvolvimento\Sistemas\jack\Jack.Application\bin\Debug\Jack.DTO.dll
+C:\Desenvolvimento\Sistemas\jack\Jack.Application\bin\Debug\Jack.Extensions.dll
+C:\Desenvolvimento\Sistemas\jack\Jack.Application\bin\Debug\Jack.Model.dll
+C:\Desenvolvimento\Sistemas\jack\Jack.Application\bin\Debug\Jack.Repository.dll
+C:\Desenvolvimento\Sistemas\jack\Jack.Application\bin\Debug\Consumer.Data.Basic.dll
+C:\Desenvolvimento\Sistemas\jack\Jack.Application\bin\Debug\NHibernate.dll
+C:\Desenvolvimento\Sistemas\jack\Jack.Application\bin\Debug\FluentNHibernate.dll
+C:\Desenvolvimento\Sistemas\jack\Jack.Application\bin\Debug\Iesi.Collections.dll
+C:\Desenvolvimento\Sistemas\jack\Jack.Application\bin\Debug\Jack.DTO.pdb
+C:\Desenvolvimento\Sistemas\jack\Jack.Application\bin\Debug\Jack.Extensions.pdb
+C:\Desenvolvimento\Sistemas\jack\Jack.Application\bin\Debug\Jack.Model.pdb
+C:\Desenvolvimento\Sistemas\jack\Jack.Application\bin\Debug\Jack.Repository.pdb
+C:\Desenvolvimento\Sistemas\jack\Jack.Application\bin\Debug\Consumer.Tools.pdb
+C:\Desenvolvimento\Sistemas\jack\Jack.Application\bin\Debug\Consumer.Tools.xml
+C:\Desenvolvimento\Sistemas\jack\Jack.Application\bin\Debug\Consumer.Data.Basic.pdb
+C:\Desenvolvimento\Sistemas\jack\Jack.Application\bin\Debug\Consumer.Data.Basic.xml
+C:\Desenvolvimento\Sistemas\jack\Jack.Application\bin\Debug\NHibernate.xml
+C:\Desenvolvimento\Sistemas\jack\Jack.Application\bin\Debug\FluentNHibernate.pdb
+C:\Desenvolvimento\Sistemas\jack\Jack.Application\bin\Debug\FluentNHibernate.xml
+C:\Desenvolvimento\Sistemas\jack\Jack.Application\bin\Debug\Iesi.Collections.xml
+C:\Desenvolvimento\Sistemas\jack\Jack.Application\obj\Debug\Jack.Application.csprojResolveAssemblyReference.cache
+C:\Desenvolvimento\Sistemas\jack\Jack.Application\obj\Debug\Jack.Application.dll
+C:\Desenvolvimento\Sistemas\jack\Jack.Application\obj\Debug\Jack.Application.pdb

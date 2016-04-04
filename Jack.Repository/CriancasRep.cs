@@ -1,11 +1,12 @@
 ﻿using Consumer.Data.Basic.Data;
+using Jack.Model;
 using System;
 using System.Collections.Generic;
 using System.Data;
 
 namespace Jack.Repository
 {
-    public class CriancasRep : BaseData<Model.Criancas, int>
+    public class CriancasRep : BaseData<Criancas, int>, ICriancasRep
     {
 
         public CriancasRep() : base()
@@ -18,7 +19,7 @@ namespace Jack.Repository
         /// <param name="oTipo">Entidade com os dados Preenchidos</param>
         /// <returns>Boolean. Se a operação foi um sucesso, true.</returns>
         /// <remarks></remarks>
-        public override bool Insert(Model.Criancas oTipo)
+        public override bool Insert(Criancas oTipo)
         {
 
             return base.Insert(oTipo);
@@ -31,7 +32,7 @@ namespace Jack.Repository
         /// <param name="oTipo">Entidade com os dados Preenchidos</param>
         /// <returns>Boolean. Se a operação foi um sucesso, true.</returns>
         /// <remarks></remarks>
-        public override bool Update(Model.Criancas oTipo)
+        public override bool Update(Criancas oTipo)
         {
 
             return base.Update(oTipo);
@@ -44,7 +45,7 @@ namespace Jack.Repository
         /// <param name="oTipo">Entidade com os dados Preenchidos</param>
         /// <returns>Boolean. Se a operação foi um sucesso, true.</returns>
         /// <remarks></remarks>
-        public override bool Delete(Model.Criancas oTipo)
+        public override bool Delete(Criancas oTipo)
         {
 
             return base.Delete(oTipo);
@@ -57,7 +58,7 @@ namespace Jack.Repository
         /// <param name="Identifier">Código para a Procura do Valor</param>
         /// <returns>Entidade. Se a operação foi um sucesso, A Entidade Virá preenchida.</returns>
         /// <remarks></remarks>
-        public override Model.Criancas Find(int Identifier)
+        public override Criancas Find(int Identifier)
         {
 
             return base.Find(Identifier);
@@ -69,17 +70,17 @@ namespace Jack.Repository
         /// </summary>
         /// <returns>Lista. Se a operação foi um sucesso, a lista virá carregada.</returns>
         /// <remarks></remarks>
-        public override IList<Model.Criancas> LoadAll()
+        public override IList<Criancas> LoadAll()
         {
 
             return base.LoadAll();
 
         }
-        public Model.Criancas ObterDados(int intIdade, string strMedidaIdade, string strSexo, bool blnIsNecessidadeEspecial)
+        public Criancas ObterDados(int intIdade, string strMedidaIdade, string strSexo, bool blnIsNecessidadeEspecial)
         {
 
             Command oDados = null;
-            Model.Criancas oCrianca = default(Model.Criancas);
+            Criancas oCrianca = default(Criancas);
             DataTable dtDados = null;
 
             try
@@ -99,7 +100,7 @@ namespace Jack.Repository
 
                 dtDados = oDados.GetDataTable();
 
-                oCrianca = new Model.Criancas();
+                oCrianca = new Criancas();
                 oCrianca.Idade = intIdade;
                 oCrianca.MedidaIdade = strMedidaIdade;
                 oCrianca.Sexo = strSexo;
@@ -108,12 +109,12 @@ namespace Jack.Repository
                 {
                     oCrianca.Roupa = dtDados.Rows[0]["nr_roupa"].ToString();
                     oCrianca.Calcado = Convert.ToInt16(dtDados.Rows[0]["nr_calcado"].ToString());
-                    oCrianca.Kit = new Model.Kit(Convert.ToInt16(dtDados.Rows[0]["id_kit"].ToString()));
+                    oCrianca.Kit = new Kit(Convert.ToInt16(dtDados.Rows[0]["id_kit"].ToString()));
                 }
                 else {
                     oCrianca.Roupa = "99";
                     oCrianca.Calcado = 99;
-                    oCrianca.Kit = new Model.Kit(0);
+                    oCrianca.Kit = new Kit(0);
                 }
 
             }
@@ -132,11 +133,11 @@ namespace Jack.Repository
             return oCrianca;
 
         }
-        public Model.Criancas ObterDadosVestuario(int intIdade, string strMedidaIdade, string strSexo)
+        public Criancas ObterDadosVestuario(int intIdade, string strMedidaIdade, string strSexo)
         {
 
             Command oDados = null;
-            Model.Criancas oCrianca = default(Model.Criancas);
+            Criancas oCrianca = default(Criancas);
             DataTable dtDados = null;
 
             try
@@ -152,7 +153,7 @@ namespace Jack.Repository
 
                 dtDados = oDados.GetDataTable();
 
-                oCrianca = new Model.Criancas();
+                oCrianca = new Criancas();
                 oCrianca.Idade = intIdade;
                 oCrianca.Sexo = strSexo;
                 if (dtDados.Rows.Count >= 1)
@@ -182,12 +183,12 @@ namespace Jack.Repository
 
         }
 
-        public IList<Model.Criancas> ObterSacolasMae(int intMae)
+        public IList<Criancas> ObterSacolasMae(int intMae)
         {
 
             Command oDados = null;
-            Model.Criancas objDados = null;
-            List<Model.Criancas> lCrianca = null;
+            Criancas objDados = null;
+            List<Criancas> lCrianca = null;
             DataTable dtDados = null;
 
             try
@@ -201,13 +202,13 @@ namespace Jack.Repository
 
                 dtDados = oDados.GetDataTable();
 
-                objDados = new Model.Criancas();
-                lCrianca = new List<Model.Criancas>();
+                objDados = new Criancas();
+                lCrianca = new List<Criancas>();
                 if (dtDados.Rows.Count >= 1)
                 {
                     foreach (DataRow drDados in dtDados.Rows)
                     {
-                        objDados = new Model.Criancas();
+                        objDados = new Criancas();
                         objDados.Codigo = Convert.ToInt16(drDados["id_crianca"].ToString());
                         objDados.Nome = drDados["nm_crianca"].ToString();
                         objDados.FamiliaCodigo = Convert.ToInt16(drDados["id_familia"].ToString());
@@ -218,7 +219,7 @@ namespace Jack.Repository
                         objDados.MedidaIdade = drDados["ds_medida_idade"].ToString();
                         objDados.Roupa = drDados["nr_roupa"].ToString();
                         objDados.Calcado = Convert.ToInt16(drDados["nr_calcado"].ToString());
-                        objDados.Status = new Model.Status(Convert.ToInt32(drDados["id_status"]), drDados["ds_status"].ToString());
+                        objDados.Status = new Status(Convert.ToInt32(drDados["id_status"]), drDados["ds_status"].ToString());
                         objDados.IsSacolinha = drDados["is_sacolinha"].ToString();
                         lCrianca.Add(objDados);
                     }
@@ -241,7 +242,6 @@ namespace Jack.Repository
             return lCrianca;
 
         }
-
 
         /// <summary>
         /// Atualiza os Dados das Crianças

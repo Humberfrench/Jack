@@ -23,3 +23,28 @@ D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Repository\bin\Debug\NHibernat
 D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Repository\bin\Debug\Jack.Extensions.pdb
 D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Repository\obj\Debug\Jack.Repository.dll
 D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Repository\obj\Debug\Jack.Repository.pdb
+C:\Desenvolvimento\Sistemas\jack\Jack.Repository\obj\Debug\Jack.Repository.csprojResolveAssemblyReference.cache
+C:\Desenvolvimento\Sistemas\jack\Jack.Repository\bin\Debug\Jack.Repository.dll
+C:\Desenvolvimento\Sistemas\jack\Jack.Repository\bin\Debug\Jack.Repository.pdb
+C:\Desenvolvimento\Sistemas\jack\Jack.Repository\bin\Debug\Consumer.Data.Basic.dll
+C:\Desenvolvimento\Sistemas\jack\Jack.Repository\bin\Debug\Consumer.Tools.dll
+C:\Desenvolvimento\Sistemas\jack\Jack.Repository\bin\Debug\DomainValidation.dll
+C:\Desenvolvimento\Sistemas\jack\Jack.Repository\bin\Debug\FluentNHibernate.dll
+C:\Desenvolvimento\Sistemas\jack\Jack.Repository\bin\Debug\Iesi.Collections.dll
+C:\Desenvolvimento\Sistemas\jack\Jack.Repository\bin\Debug\Jack.DTO.dll
+C:\Desenvolvimento\Sistemas\jack\Jack.Repository\bin\Debug\Jack.Model.dll
+C:\Desenvolvimento\Sistemas\jack\Jack.Repository\bin\Debug\NHibernate.dll
+C:\Desenvolvimento\Sistemas\jack\Jack.Repository\bin\Debug\Jack.Extensions.dll
+C:\Desenvolvimento\Sistemas\jack\Jack.Repository\bin\Debug\Jack.DTO.pdb
+C:\Desenvolvimento\Sistemas\jack\Jack.Repository\bin\Debug\Jack.Model.pdb
+C:\Desenvolvimento\Sistemas\jack\Jack.Repository\bin\Debug\Consumer.Data.Basic.pdb
+C:\Desenvolvimento\Sistemas\jack\Jack.Repository\bin\Debug\Consumer.Data.Basic.xml
+C:\Desenvolvimento\Sistemas\jack\Jack.Repository\bin\Debug\Consumer.Tools.pdb
+C:\Desenvolvimento\Sistemas\jack\Jack.Repository\bin\Debug\Consumer.Tools.xml
+C:\Desenvolvimento\Sistemas\jack\Jack.Repository\bin\Debug\FluentNHibernate.pdb
+C:\Desenvolvimento\Sistemas\jack\Jack.Repository\bin\Debug\FluentNHibernate.xml
+C:\Desenvolvimento\Sistemas\jack\Jack.Repository\bin\Debug\Iesi.Collections.xml
+C:\Desenvolvimento\Sistemas\jack\Jack.Repository\bin\Debug\NHibernate.xml
+C:\Desenvolvimento\Sistemas\jack\Jack.Repository\bin\Debug\Jack.Extensions.pdb
+C:\Desenvolvimento\Sistemas\jack\Jack.Repository\obj\Debug\Jack.Repository.dll
+C:\Desenvolvimento\Sistemas\jack\Jack.Repository\obj\Debug\Jack.Repository.pdb

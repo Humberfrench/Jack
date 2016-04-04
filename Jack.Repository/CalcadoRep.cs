@@ -1,12 +1,13 @@
-﻿using System.Collections.Generic;
+﻿using Jack.Model;
+using System.Collections.Generic;
 
 namespace Jack.Repository
 {
-    public class CalcadoRep : BaseData<Model.Calcado, int>
+    public class CalcadoRep : BaseData<Calcado, int>, ICalcadoRep
     {
-
         public CalcadoRep() : base()
         {
+
         }
 
         /// <summary>

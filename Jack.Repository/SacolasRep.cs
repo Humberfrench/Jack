@@ -351,7 +351,6 @@ namespace Jack.Repository
 
         }
 
-
         public void GravarLogSacolas(int intSacola)
         {
             Command oCommand = null;
@@ -441,7 +440,6 @@ namespace Jack.Repository
             return blnRetorno;
 
         }
-
 
         public bool AddSacolaColaboradorSacola(int intSacola, int intColaborador, int intAno, bool isDevolvida)
         {

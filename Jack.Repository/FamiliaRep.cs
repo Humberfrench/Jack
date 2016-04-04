@@ -2,16 +2,16 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
-using Jack.Model.DTOs;
 using NHibernate;
 using NHibernate.Transform;
 using NHibernate.Criterion;
 using System.Linq;
 using Jack.DTO;
+using Jack.Model;
 
 namespace Jack.Repository
 {
-    public class FamiliaRep : Repository<Model.Familia>
+    public class FamiliaRep : Repository<Familia>, IFamiliaRep
     {
         private IUnitWork UnitWork;
         public FamiliaRep(IUnitWork unitWork) : base(unitWork)
@@ -25,7 +25,7 @@ namespace Jack.Repository
         /// <param name="oTipo">Entidade com os dados Preenchidos</param>
         /// <returns>Boolean. Se a operação foi um sucesso, true.</returns>
         /// <remarks></remarks>
-        public bool Insert(Model.Familia oTipo)
+        public bool Insert(Familia oTipo)
         {
 
             UnitWork.Salvar(oTipo);
@@ -39,7 +39,7 @@ namespace Jack.Repository
         /// <param name="oTipo">Entidade com os dados Preenchidos</param>
         /// <returns>Boolean. Se a operação foi um sucesso, true.</returns>
         /// <remarks></remarks>
-        public bool Update(Model.Familia oTipo)
+        public bool Update(Familia oTipo)
         {
 
             UnitWork.Salvar(oTipo);
@@ -53,7 +53,7 @@ namespace Jack.Repository
         /// <param name="oTipo">Entidade com os dados Preenchidos</param>
         /// <returns>Boolean. Se a operação foi um sucesso, true.</returns>
         /// <remarks></remarks>
-        public bool Delete(Model.Familia oTipo)
+        public bool Delete(Familia oTipo)
         {
 
             UnitWork.Excluir(oTipo);
@@ -67,12 +67,12 @@ namespace Jack.Repository
         /// <param name="Identifier">Código para a Procura do Valor</param>
         /// <returns>Entidade. Se a operação foi um sucesso, A Entidade Virá preenchida.</returns>
         /// <remarks></remarks>
-        public Model.Familia Find(int Identifier)
+        public Familia Find(int Identifier)
         {
-            Model.Familia oReturn;
+            Familia oReturn;
             oReturn  = base.GetById(Identifier);
-            //return (Model.Familia)oSession.GetSessionImplementation().PersistenceContext.Unproxy(oReturn);
-            return (Model.Familia) oReturn;
+            //return (Familia)oSession.GetSessionImplementation().PersistenceContext.Unproxy(oReturn);
+            return (Familia) oReturn;
 
         }
 
@@ -81,7 +81,7 @@ namespace Jack.Repository
         /// </summary>
         /// <returns>Lista. Se a operação foi um sucesso, a lista virá carregada.</returns>
         /// <remarks></remarks>
-        public IList<Model.Familia> LoadAll()
+        public IList<Familia> LoadAll()
         {
 
             return GetAll().ToList();
@@ -89,7 +89,7 @@ namespace Jack.Repository
         }
 
 
-        public string GravarLote(Model.Familia oFamilia)
+        public string GravarLote(Familia oFamilia)
         {
             Command oCommand = null;
             string strRetorno = string.Empty;
@@ -115,7 +115,7 @@ namespace Jack.Repository
             return strRetorno;
         }
 
-        public List<DTOFamiliaChamada> ObterChamada(int intReuniao)
+        public IList<DTOFamiliaChamada> ObterChamada(int intReuniao)
         {
 
             Command oCommand = null;
@@ -163,7 +163,7 @@ namespace Jack.Repository
         public IList<DTOFamilia> Load()
         {
             IList<DTOFamilia> listaStatus;
-            ICriteria criteria = Session.CreateCriteria(typeof(Model.Familia), "F")
+            ICriteria criteria = Session.CreateCriteria(typeof(Familia), "F")
                                          .CreateAlias("Status", "S", NHibernate.SqlCommand.JoinType.InnerJoin)
                                          .SetProjection(Projections.ProjectionList()
                                          .Add(Projections.Property("F.Codigo"), "Codigo")
