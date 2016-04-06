@@ -524,14 +524,12 @@ namespace Jack.Model
 
         public void CalculaIdade()
         {
-            DateTime dataBase = new DateTime(DateTime.Now.Year, 12, 31);
-            int anos = dataBase.Year - dataNascimento.Year;
+            Helpers.Idade oIdade = new Helpers.Idade(DataNascimento,
+                                                     new DateTime(DateTime.Now.Year, 12, 31));
 
-            if (dataBase.Month < dataNascimento.Month ||
-                (dataBase.Month == dataNascimento.Month && dataBase.Day < dataNascimento.Day))
-                anos--;
-
-            //return (anos < 11);
+            idade = oIdade.Anos;
+            idadeNominal = string.Format("{0} anos e {1} Meses", oIdade.Anos, oIdade.Meses);
+            idadeNominalReduzida = string.Format("{0}A{1}M", oIdade.Anos, oIdade.Meses);
         }
 
     }

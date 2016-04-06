@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Jack.Library
+namespace Jack.Model.Helpers
 {
     public class Idade
     {

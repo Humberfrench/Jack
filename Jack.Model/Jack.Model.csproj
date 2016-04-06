@@ -67,6 +67,7 @@
     <Compile Include="Interfaces\Repository\IFamiliaRep.cs" />
     <Compile Include="Interfaces\Repository\ICriancasRep.cs" />
     <Compile Include="Interfaces\Repository\ICalcadoRep.cs" />
+    <Compile Include="Helpers\Idade.cs" />
     <Compile Include="Model\CriancaMoralCrista.cs" />
     <Compile Include="Model\FamiliaBlackList.cs" />
     <Compile Include="Model\FamiliaCrianca.cs" />
