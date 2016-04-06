@@ -61,17 +61,25 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseModel.cs" />
+    <Compile Include="Enums\StatusCrianca.cs" />
     <Compile Include="Interfaces\Repository\IColaboradorCriancaRep.cs" />
     <Compile Include="Interfaces\Repository\IColaboradorRep.cs" />
     <Compile Include="Interfaces\Repository\ICriancaMoralCristaRep.cs" />
     <Compile Include="Interfaces\Repository\IFamiliaCriancaRep.cs" />
     <Compile Include="Interfaces\Repository\IKitItemRep.cs" />
     <Compile Include="Interfaces\Repository\IKitRep.cs" />
+    <Compile Include="Interfaces\Repository\IPresencaRep.cs" />
+    <Compile Include="Interfaces\Repository\IProcessosRep.cs" />
+    <Compile Include="Interfaces\Repository\IRepresentanteRep.cs" />
+    <Compile Include="Interfaces\Repository\IResponsavelRep.cs" />
+    <Compile Include="Interfaces\Repository\IReuniaoRep.cs" />
+    <Compile Include="Interfaces\Repository\IRoupaRep.cs" />
     <Compile Include="Interfaces\Repository\ISacolasRep.cs" />
     <Compile Include="Interfaces\Repository\IFamiliaRep.cs" />
     <Compile Include="Interfaces\Repository\ICriancasRep.cs" />
     <Compile Include="Interfaces\Repository\ICalcadoRep.cs" />
     <Compile Include="Helpers\Idade.cs" />
+    <Compile Include="Interfaces\Repository\IStatusRep.cs" />
     <Compile Include="Model\CriancaMoralCrista.cs" />
     <Compile Include="Model\FamiliaBlackList.cs" />
     <Compile Include="Model\FamiliaCrianca.cs" />
@@ -83,6 +91,7 @@
     <Compile Include="Model\ResponsavelCrianca.cs" />
     <Compile Include="Model\Reuniao.cs" />
     <Compile Include="Model\Roupa.cs" />
+    <Compile Include="Model\StatusCrianca.cs" />
     <Compile Include="Model\TipoItem.cs" />
     <Compile Include="Model\KitItem.cs" />
     <Compile Include="Model\Kit.cs" />
