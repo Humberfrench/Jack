@@ -7,54 +7,70 @@ namespace Jack.Presentation.Web
     {
         public static void RegisterBundles(BundleCollection bundles)
         {
-            bundles.Add(new StyleBundle("~/Content/basic").Include("~/Content/Jack.css", 
-                                                                   "~/Content/bootstrap.min.css", 
-                                                                   "~/Content/bootstrap-theme.min.css",
-                                                                   "~/Content/toastr.min.css"));
-            //all
-            bundles.Add(new ScriptBundle("~/bundles/basic").Include("~/Scripts/jquery-{version}.js", 
-                                                                    "~/Scripts/toastr.min.js", 
-                                                                    "~/Scripts/bootstrap.min.js"));
+            var basicBundle = new StyleBundle("~/Content/basic");
+            basicBundle.Include("~/Content/Jack.css");
+            basicBundle.Include("~/Content/bootstrap.min.css");
+            basicBundle.Include("~/Content/bootstrap.min.css");
+            basicBundle.Include("~/Content/bootstrap-theme.min.css");
+            basicBundle.Include("~/Content/toastr.min.css");
+            basicBundle.Orderer = new AsIsBundleOrderer();
+            bundles.Add(basicBundle);
 
-            bundles.Add(new ScriptBundle("~/bundles/angular").Include("~/Scripts/angular.min.js"));
+            var basicStyleBundle = new ScriptBundle("~/bundles/basic");
+            basicStyleBundle.Include("~/Scripts/jquery-{version}.js");
+            basicStyleBundle.Include("~/Scripts/toastr.min.js");
+            basicStyleBundle.Include("~/Scripts/bootstrap.min.js");
+            basicStyleBundle.Orderer = new AsIsBundleOrderer();
+            bundles.Add(basicStyleBundle);
 
-            //pages
-            bundles.Add(new ScriptBundle("~/bundles/engine").Include("~/engine/geral/mensagens.js", 
-                                                                     "~/engine/geral/util.js"));
+            var angularStyleBundle = new ScriptBundle("~/bundles/angular");
+            angularStyleBundle.Include("~/Scripts/angular.min.js");
+            angularStyleBundle.Orderer = new AsIsBundleOrderer();
+            bundles.Add(angularStyleBundle);
 
-            bundles.Add(new ScriptBundle("~/bundles/familia").Include("~/engine/familia/familia.js", 
-                                                                      "~/engine/familia/familia.controller.js", 
-                                                                      "~/engine/familia/familia.presentation.js"));
+            var engineStyleBundle = new ScriptBundle("~/bundles/engine");
+            engineStyleBundle.Include("~/engine/geral/mensagens.js");
+            engineStyleBundle.Include("~/engine/geral/util.js");
+            basicBundle.Orderer = new AsIsBundleOrderer();
+            bundles.Add(engineStyleBundle);
 
-            bundles.Add(new ScriptBundle("~/bundles/familiacrianca").Include("~/engine/familia/familia.js", 
-                                                                             "~/engine/familiacrianca/familiacrianca.js", 
-                                                                             "~/engine/familiacrianca/familiacrianca.controller.js", 
-                                                                             "~/engine/familiacrianca/familiafamiliacrianca.presentation.js"));
-            bundles.Add(new ScriptBundle("~/bundles/status").Include("~/engine/geral/status.js"));
+            var familiaStyleBundle = new ScriptBundle("~/bundles/familia");
+            familiaStyleBundle.Include("~/engine/familia/familia.js");
+            familiaStyleBundle.Include("~/engine/familia/familia.controller.js");
+            familiaStyleBundle.Include("~/engine/familia/familia.presentation.js");
+            familiaStyleBundle.Orderer = new AsIsBundleOrderer();
+            bundles.Add(familiaStyleBundle);
 
-            bundles.Add(new ScriptBundle("~/bundles/util").Include("~/engine/geral/util.js"));
+            var familiacriancaBundle = new ScriptBundle("~/bundles/familiacrianca");
+            familiacriancaBundle.Include("~/engine/familia/familia.js");
+            familiacriancaBundle.Include("~/engine/familiacrianca/familiacrianca.js");
+            familiacriancaBundle.Include("~/engine/familiacrianca/familiacrianca.controller.js");
+            familiacriancaBundle.Include("~/engine/familiacrianca/familiafamiliacrianca.presentation.js");
+            familiacriancaBundle.Orderer = new AsIsBundleOrderer();
+            bundles.Add(familiacriancaBundle);
 
-            bundles.Add(new ScriptBundle("~/bundles/chamada").Include("~/engine/chamada/chamada.js",
-                                                                      "~/engine/chamada/chamada.controller.js", 
-                                                                      "~/engine/chamada/chamada.presentation.js"));
+            var statusStyleBundle = new ScriptBundle("~/bundles/status");
+            statusStyleBundle.Include("~/engine/geral/status.js");
+            statusStyleBundle.Orderer = new AsIsBundleOrderer();
+            bundles.Add(statusStyleBundle);
 
-            bundles.Add(new ScriptBundle("~/bundles/reuniao").Include("~/engine/reuniao/reuniao.js"));
+            var utilStyleBundle = new ScriptBundle("~/bundles/util");
+            utilStyleBundle.Include("~/engine/geral/util.js");
+            utilStyleBundle.Orderer = new AsIsBundleOrderer();
+            bundles.Add(utilStyleBundle);
 
+            var chamadaStyleBundle = new ScriptBundle("~/bundles/chamada");
+            chamadaStyleBundle.Include("~/engine/chamada/chamada.js");
+            chamadaStyleBundle.Include("~/engine/chamada/chamada.controller.js");
+            chamadaStyleBundle.Include("~/engine/chamada/chamada.presentation.js");
+            chamadaStyleBundle.Orderer = new AsIsBundleOrderer();
+            bundles.Add(chamadaStyleBundle);
 
-            //// Adicionando jQuery
-            //bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
-            //            "~/Scripts/jquery-{version}.js"));
+            var reuniaoStyleBundle = new ScriptBundle("~/bundles/reuniao");
+            reuniaoStyleBundle.Include("~/engine/chamada/reuniao.js");
+            reuniaoStyleBundle.Orderer = new AsIsBundleOrderer();
+            bundles.Add(reuniaoStyleBundle);
 
-            //// Adicionando Validação, e Globalização
-            //// Utilizando ordenação manual
-            //var valBundle = new ScriptBundle("~/bundles/jqueryval").Include(
-            //    "~/Scripts/jquery.validate.js",
-            //    "~/Scripts/globalize.js",
-            //    "~/Scripts/jquery.validate.globalize.js");
-
-            //valBundle.Orderer = new AsIsBundleOrderer();
-
-            //bundles.Add(valBundle);
         }
 
     }
