@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Jack.Library;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,27 +9,35 @@ namespace Jack.Model.Enum
 {
     public enum StatusCrianca
     {
-
+        [Descricao(Descricao = "Dados OK")]
         DadosOK = 1,
+
+        [Descricao(Descricao = "Criança Sem Documentação")]
         SemDoc = 4,
+
+        [Descricao(Descricao = "Criança Sem No. Roupa/Calçado")]
         SemRoupa = 5,
+
+        [Descricao(Descricao = "Diferença Grande de Calçado")]
         DifGrandeCalcado = 6,
+
+        [Descricao(Descricao = "Data Nascimento desatualizada")]
         DataNascimentoDesatualizada = 7,
+
+        [Descricao(Descricao = "Criança Maior Não Permitido")]
         CriancaMaior = 8,
+
+        [Descricao(Descricao = "Criança Maior Liberado Moral Cristã")]
         CriancaMaiorMoralCrista = 11,
+
+        [Descricao(Descricao = "Inativo")]
         Inativo = 12,
+
+        [Descricao(Descricao = "Diferença Grande de Roupas")]
         DifGrandeRoupas = 13,
+
+        [Descricao(Descricao = "Cadastro Novo")]
         CadastroNovo = 14
 
-//        1	Dados OK
-//4	Criança Sem Documentação
-//5	Criança Sem No. Roupa/Calçado
-//6	Diferença Grande de Calçado
-//7	Dt. Nascim. desatualizada
-//8	Criança Maior Não Permitido
-//11	Criança Maior Liberado MCristã
-//12	Inativo
-//13	Diferença Grande de Roupas
-//14	Cadastro Novo
     }
 }
