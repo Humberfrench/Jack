@@ -1,8 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using Jack.Model;
+using System.Collections.Generic;
 
 namespace Jack.Repository
 {
-    public class KitRep : BaseData<Model.Kit, int>
+    public class KitRep : BaseData<Model.Kit, int>, IKitRep
     {
 
         public KitRep() : base()

@@ -1,8 +1,9 @@
 ﻿using System.Collections.Generic;
+using Jack.Model;
 
 namespace Jack.Repository
 {
-    public class CriancaMoralCristaRep : BaseData<Model.CriancaMoralCrista, int>
+    public class CriancaMoralCristaRep : BaseData<Model.CriancaMoralCrista, int> , ICriancaMoralCristaRep
     {
         public CriancaMoralCristaRep() : base()
         {

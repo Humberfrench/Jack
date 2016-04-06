@@ -60,9 +60,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BaseDTO2.cs" />
-    <Compile Include="BaseDTO.cs" />
     <Compile Include="BaseModel.cs" />
+    <Compile Include="Interfaces\Repository\IColaboradorCriancaRep.cs" />
+    <Compile Include="Interfaces\Repository\IColaboradorRep.cs" />
+    <Compile Include="Interfaces\Repository\ICriancaMoralCristaRep.cs" />
+    <Compile Include="Interfaces\Repository\IFamiliaCriancaRep.cs" />
+    <Compile Include="Interfaces\Repository\IKitItemRep.cs" />
+    <Compile Include="Interfaces\Repository\IKitRep.cs" />
     <Compile Include="Interfaces\Repository\ISacolasRep.cs" />
     <Compile Include="Interfaces\Repository\IFamiliaRep.cs" />
     <Compile Include="Interfaces\Repository\ICriancasRep.cs" />

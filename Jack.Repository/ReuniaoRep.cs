@@ -1,5 +1,5 @@
 ﻿using Jack.DTO;
-using Jack.Model.DTOs;
+using Jack.Model;
 using NHibernate;
 using NHibernate.Criterion;
 using NHibernate.Transform;
@@ -8,7 +8,7 @@ using System.Linq;
 
 namespace Jack.Repository
 {
-    public class ReuniaoRep : Repository<Model.Reuniao>
+    public class ReuniaoRep : Repository<Model.Reuniao>, IReuniaoRep
     {
 
         private IUnitWork UnitWork;

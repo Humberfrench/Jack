@@ -1,14 +1,12 @@
-﻿using System;
+﻿using Consumer.Data.Basic.Data;
+using Jack.Model;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Consumer.Data.Basic.Data;
 using System.Data;
 
 namespace Jack.Repository
 {
-    public class ColaboradorRep : BaseData<Model.Colaborador, int>
+    public class ColaboradorRep : BaseData<Model.Colaborador, int>, IColaboradorRep
     {
 
         public ColaboradorRep() : base()

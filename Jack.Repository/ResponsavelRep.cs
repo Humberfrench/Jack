@@ -1,8 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using Jack.Model;
+using System.Collections.Generic;
 
 namespace Jack.Repository
 {
-    public class ResponsavelRep : BaseData<Model.Responsavel, int>
+    public class ResponsavelRep : BaseData<Model.Responsavel, int>, IResponsavelRep
     {
         public ResponsavelRep() : base()
         {

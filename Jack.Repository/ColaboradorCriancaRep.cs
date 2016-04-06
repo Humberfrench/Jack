@@ -1,11 +1,12 @@
 ﻿using Consumer.Data.Basic.Data;
+using Jack.Model;
 using System;
 using System.Collections.Generic;
 using System.Data;
 
 namespace Jack.Repository
 {
-    public class ColaboradorCriancaRep : BaseData<Model.ColaboradorCrianca, int>
+    public class ColaboradorCriancaRep : BaseData<Model.ColaboradorCrianca, int>, IColaboradorCriancaRep
     {
 
         public ColaboradorCriancaRep() : base()

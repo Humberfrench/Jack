@@ -1,11 +1,12 @@
 ﻿using Consumer.Data.Basic.Data;
+using Jack.Model;
 using System;
 using System.Collections.Generic;
 using System.Data;
 
 namespace Jack.Repository
 {
-    public class RepresentanteRep
+    public class RepresentanteRep : IRepresentanteRep
     {
 
         public RepresentanteRep() : base()

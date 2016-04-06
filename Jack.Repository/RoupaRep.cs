@@ -1,8 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using Jack.Model;
+using System.Collections.Generic;
 
 namespace Jack.Repository
 {
-    public class RoupaRep : BaseData<Model.Roupa, int>
+    public class RoupaRep : BaseData<Model.Roupa, int>, IRoupaRep
     {
 
         public RoupaRep() : base()

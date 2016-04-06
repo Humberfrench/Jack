@@ -1,5 +1,4 @@
 ﻿using Jack.DTO;
-using Jack.Model.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Linq;

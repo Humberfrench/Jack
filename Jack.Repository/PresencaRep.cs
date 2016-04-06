@@ -1,5 +1,6 @@
 ﻿using Consumer.Data.Basic.Data;
 using Jack.DTO;
+using Jack.Model;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -7,7 +8,7 @@ using System.Linq;
 
 namespace Jack.Repository
 {
-    public class PresencaRep : Repository<Model.Presenca>
+    public class PresencaRep : Repository<Model.Presenca>, IPresencaRep
     {
 
         private IUnitWork UnitWork;

@@ -66,6 +66,14 @@
     <Compile Include="CalcadoRep.cs" />
     <Compile Include="ColaboradorRep.cs" />
     <Compile Include="ColaboradorCriancaRep.cs" />
+    <Compile Include="IPresencaRep.cs" />
+    <Compile Include="IProcessosRep.cs" />
+    <Compile Include="IRepresentanteRep.cs" />
+    <Compile Include="IResponsavelRep.cs" />
+    <Compile Include="IReuniaoRep.cs" />
+    <Compile Include="IRoupaRep.cs" />
+    <Compile Include="IStatusRep.cs" />
+    <Compile Include="ITipoItemRep.cs" />
     <Compile Include="ResponsavelRep.cs" />
     <Compile Include="CriancaMoralCristaRep.cs" />
     <Compile Include="CriancasRep.cs" />

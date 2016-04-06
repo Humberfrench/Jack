@@ -1,5 +1,5 @@
 ﻿using Jack.DTO;
-using Jack.Model.DTOs;
+using Jack.Model;
 using NHibernate;
 using NHibernate.Criterion;
 using NHibernate.Transform;
@@ -8,7 +8,7 @@ using System.Linq;
 
 namespace Jack.Repository
 {
-    public class StatusRep : Repository<Model.Status>
+    public class StatusRep : Repository<Model.Status>, IStatusRep
     { 
         private IUnitWork UnitWork;
         public StatusRep(IUnitWork unitWork) : base(unitWork)

@@ -1,5 +1,6 @@
 ﻿using Consumer.Data.Basic.Data;
 using Jack.DTO;
+using Jack.Model;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -7,7 +8,7 @@ using System.Data;
 
 namespace Jack.Repository
 {
-    public class ProcessosRep
+    public class ProcessosRep : IProcessosRep
     {
 
         #region "Batch - Processos"
