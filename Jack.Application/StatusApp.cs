@@ -1,4 +1,5 @@
 ﻿using Jack.DTO;
+using Jack.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Jack.Application
 {
-    public class StatusApp : ICrud<Model.Status, int>
+    public class StatusApp : ICrud<Model.Status, int>, IStatusApp
     {
 
         private readonly Repository.StatusRep repStatus;

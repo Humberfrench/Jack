@@ -57,6 +57,8 @@
     <Compile Include="DTOs\KitSacola.cs" />
     <Compile Include="DTOs\ProcessaPresenca.cs" />
     <Compile Include="DTOs\Sacolas.cs" />
+    <Compile Include="Enums\StatusCrianca.cs" />
+    <Compile Include="Enums\StatusFamilia.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -1,5 +1,6 @@
 ﻿using Consumer.Data.Basic.Data;
 using Jack.Model;
+using Jack.Model.Enum;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -219,7 +220,7 @@ namespace Jack.Repository
                         objDados.MedidaIdade = drDados["ds_medida_idade"].ToString();
                         objDados.Roupa = drDados["nr_roupa"].ToString();
                         objDados.Calcado = Convert.ToInt16(drDados["nr_calcado"].ToString());
-                        objDados.Status = new Status(Convert.ToInt32(drDados["id_status"]), drDados["ds_status"].ToString());
+                        objDados.Status = (StatusCrianca)(Convert.ToInt32(drDados["id_status"]));
                         objDados.IsSacolinha = drDados["is_sacolinha"].ToString();
                         lCrianca.Add(objDados);
                     }

@@ -1,9 +1,10 @@
-﻿using System;
+﻿using Jack.Model;
+using System;
 using System.Collections.Generic;
 
 namespace Jack.Application
 {
-    public class ColaboradorCriancaApp : ICrud<Model.ColaboradorCrianca, int>
+    public class ColaboradorCriancaApp : ICrud<Model.ColaboradorCrianca, int>, IColaboradorCriancaApp
     {
 
 

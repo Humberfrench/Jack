@@ -1,5 +1,6 @@
 ﻿using Consumer.Tools;
 using Jack.DTO;
+using Jack.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Jack.Application
 {
-    public class ReuniaoApp : ICrud<Model.Reuniao, int>
+    public class ReuniaoApp : ICrud<Model.Reuniao, int>, IReuniaoApp
     {
 
         private readonly Repository.FamiliaRep repFamilia;

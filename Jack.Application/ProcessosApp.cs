@@ -1,11 +1,12 @@
 ﻿using Jack.DTO;
+using Jack.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace Jack.Application
 {
-    public class ProcessosApp
+    public class ProcessosApp : IProcessosApp
     {
 
         /// <summary>

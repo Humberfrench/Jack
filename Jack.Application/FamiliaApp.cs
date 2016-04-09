@@ -1,11 +1,12 @@
 ﻿using Jack.DTO;
+using Jack.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace Jack.Application
 {
-    public class FamiliaApp 
+    public class FamiliaApp : IFamiliaApp
     {
 
         private readonly Repository.StatusRep repStatus;
@@ -151,7 +152,7 @@ namespace Jack.Application
                 familia = Find(ID);
                 dtoFamilia = new DTOFamilia(familia.Codigo, familia.Nome, familia.IsSacolinha,
                                             familia.IsConsistente, familia.Contato, familia.Nivel,
-                                            familia.Status.Codigo, familia.Status.Descricao,
+                                            familia.Status, familia.Status.ToString(),
                                             familia.DataAtualizacao);
             }
             catch (Exception ex)
@@ -175,7 +176,7 @@ namespace Jack.Application
             try
             {
                 modelFamilia = Find(family.Codigo);
-                modelFamilia.Status = repStatus.Find(family.StatusCodigo);
+                modelFamilia.Status = family.StatusCodigo;
                 modelFamilia.Contato = family.Contato;
                 modelFamilia.Nome = family.Nome;
                 modelFamilia.IsConsistente = family.IsConsistente;

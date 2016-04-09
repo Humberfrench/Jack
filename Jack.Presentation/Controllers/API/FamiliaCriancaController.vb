@@ -1,5 +1,5 @@
 ﻿Imports System.Web.Http
-Imports Jack.Model.DTOs
+Imports Jack.
 
 Namespace Controllers.API
     Public Class FamiliaCriancaController
@@ -7,10 +7,10 @@ Namespace Controllers.API
         Public Function ObterCriancas(ID As Integer) As IList(Of DTOCrianca)
 
             Dim lstRetorno As List(Of DTOCrianca) = Nothing
-            Dim oBusiness As Business.FamiliaCrianca
+            Dim oBusiness As FamiliaCriancaApp
 
             Try
-                oBusiness = New Business.FamiliaCrianca()
+                oBusiness = New FamiliaCriancaAppa()
                 lstRetorno = oBusiness.ObterCriancasByFamilia(ID)
 
             Catch ex As Exception

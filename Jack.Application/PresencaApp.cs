@@ -1,11 +1,12 @@
 ﻿using Jack.DTO;
+using Jack.Model;
 using System;
 using System.Collections.Generic;
 
 namespace Jack.Application
 {
 
-    public class PresencaApp : ICrud<Model.Presenca, int>
+    public class PresencaApp : ICrud<Model.Presenca, int>, IPresencaApp
     {
 
 

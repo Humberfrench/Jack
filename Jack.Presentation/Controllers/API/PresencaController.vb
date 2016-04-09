@@ -24,13 +24,13 @@ Namespace Controllers.API
             Return lstRetorno
         End Function
 
-        Public Function ObterPresencaPorMae(Familia As Integer, Ano As Integer) As List(Of Model.FamiliaPresenca)
+        Public Function ObterPresencaPorMae(Familia As Integer, Ano As Integer) As List(Of FamiliaPresenca)
 
-            Dim lstRetorno As List(Of Model.FamiliaPresenca) = Nothing
-            Dim oBusiness As Business.Presenca
+            Dim lstRetorno As List(Of FamiliaPresenca) = Nothing
+            Dim oBusiness As IPresencaApp
 
             Try
-                oBusiness = New Business.Presenca()
+                oBusiness = New PresencaApp()
                 lstRetorno = oBusiness.ObterPresencaPorMae(Familia, Ano)
 
             Catch ex As Exception

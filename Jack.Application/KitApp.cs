@@ -1,9 +1,10 @@
-﻿using System;
+﻿using Jack.Model;
+using System;
 using System.Collections.Generic;
 
 namespace Jack.Application
 {
-    public class KitApp : ICrud<Model.Kit, int>
+    public class KitApp : ICrud<Model.Kit, int>, IKitApp
     {
 
         public KitApp()

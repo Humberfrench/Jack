@@ -1,5 +1,6 @@
 ﻿using System;
 using Jack.Library.Extensions;
+using Jack.Model.Enum;
 
 namespace Jack.DTO
 {
@@ -19,7 +20,7 @@ namespace Jack.DTO
         }
 
         public DTOFamilia(int pCodigo, string pNome, string pIsSacolinha, string pIsConsistente, 
-                          string pContato, int pNivel, int pStatusCodigo, string pStatus, 
+                          string pContato, int pNivel, StatusFamilia pStatusCodigo, string pStatus, 
                           DateTime pDataAtualizacao) : this()
         {
             codigo = pCodigo;
@@ -41,7 +42,7 @@ namespace Jack.DTO
         private string isConsistente;
         private string contato;
         private int nivel;
-        private int statusCodigo;
+        private StatusFamilia statusCodigo;
         private string status;
         private DateTime dataAtualizacao;
         string dataAtualizacaoString;
@@ -125,7 +126,7 @@ namespace Jack.DTO
             }
         }
 
-        public virtual int StatusCodigo
+        public virtual StatusFamilia StatusCodigo
         {
             get
             {

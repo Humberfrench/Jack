@@ -1,5 +1,6 @@
 ﻿using Consumer.Data.Basic.Data;
 using Jack.Model;
+using Jack.Model.Enum;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -44,7 +45,7 @@ namespace Jack.Repository
                     objDados.IsConsistente = dr["is_consistente"].ToString();
                     objDados.IsSacolinha = dr["is_sacolinha"].ToString();
                     objDados.Nivel = Convert.ToInt32(dr["nr_nivel_espera"]);
-                    objDados.Status = new Model.Status(Convert.ToInt32(dr["id_status"]),dr["ds_status"].ToString());
+                    objDados.Status = (StatusFamilia)(Convert.ToInt32(dr["id_status"]));
                     lstDados.Add(objDados);
                 }
             }

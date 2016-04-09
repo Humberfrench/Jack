@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Jack;
+using Jack.Model;
 
 namespace Jack.Application
 {
-    public class CalcadoApp : ICrud<Model.Calcado, int>
+    public class CalcadoApp : ICrud<Model.Calcado, int>, ICalcadoApp
     {
 
 

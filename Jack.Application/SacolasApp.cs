@@ -1,11 +1,12 @@
 ﻿using Jack.DTO;
+using Jack.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace Jack.Application
 {
-    public class SacolasApp
+    public class SacolasApp : ISacolasApp
     {
 
         public IList<DTO.Sacolas> ProcessaSacolas(int intAno)

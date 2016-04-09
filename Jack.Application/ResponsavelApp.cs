@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Jack.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Jack.Application
 {
-    public class ResponsavelApp : ICrud<Model.Responsavel, int>
+    public class ResponsavelApp : ICrud<Model.Responsavel, int>, IResponsavelApp
     {
         public ResponsavelApp()
         {

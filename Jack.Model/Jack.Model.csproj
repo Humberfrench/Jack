@@ -61,8 +61,24 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseModel.cs" />
-    <Compile Include="Enums\StatusFamilia.cs" />
-    <Compile Include="Enums\StatusCrianca.cs" />
+    <Compile Include="Interfaces\Application\ICalcadoApp.cs" />
+    <Compile Include="Interfaces\Application\IColaboradorApp.cs" />
+    <Compile Include="Interfaces\Application\IColaboradorCriancaApp.cs" />
+    <Compile Include="Interfaces\Application\ICriancaMoralCristaApp.cs" />
+    <Compile Include="Interfaces\Application\ICriancasApp.cs" />
+    <Compile Include="Interfaces\Application\IFamiliaApp.cs" />
+    <Compile Include="Interfaces\Application\IFamiliaCriancaApp.cs" />
+    <Compile Include="Interfaces\Application\IKitApp.cs" />
+    <Compile Include="Interfaces\Application\IKitItemApp.cs" />
+    <Compile Include="Interfaces\Application\IPresencaApp.cs" />
+    <Compile Include="Interfaces\Application\IProcessosApp.cs" />
+    <Compile Include="Interfaces\Application\IRepresentanteApp.cs" />
+    <Compile Include="Interfaces\Application\IResponsavelApp.cs" />
+    <Compile Include="Interfaces\Application\IReuniaoApp.cs" />
+    <Compile Include="Interfaces\Application\IRoupaApp.cs" />
+    <Compile Include="Interfaces\Application\ISacolasApp.cs" />
+    <Compile Include="Interfaces\Application\IStatusApp.cs" />
+    <Compile Include="Interfaces\Application\ITipoItemApp.cs" />
     <Compile Include="Interfaces\Repository\IColaboradorCriancaRep.cs" />
     <Compile Include="Interfaces\Repository\IColaboradorRep.cs" />
     <Compile Include="Interfaces\Repository\ICriancaMoralCristaRep.cs" />
@@ -123,9 +139,7 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Interfaces\Application\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

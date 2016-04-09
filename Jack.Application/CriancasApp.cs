@@ -1,11 +1,12 @@
-﻿using System;
+﻿using Jack.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace Jack.Application
 {
 
-    public class CriancasApp : ICrud<Model.Criancas, int>
+    public class CriancasApp : ICrud<Model.Criancas, int>, ICriancasApp
     {
 
         public bool Delete(Model.Criancas oTipo)
