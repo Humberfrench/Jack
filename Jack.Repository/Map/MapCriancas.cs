@@ -30,9 +30,9 @@ namespace Jack.Repository.Map
                 Map(x => x.IsCriancaMaior).Column("is_crianca_maior").Not.Nullable(); //.Default("N");
                 Map(x => x.DataCriacao).Column("dt_create").Not.Nullable(); //.Default(DateTime.Now.ToString());
                 Map(x => x.DataAtualizacao).Column("dt_update").Not.Nullable(); //.Default(DateTime.Now.ToString());
+                Map(x => x.Status).Column("id_status").Not.Nullable();
 
                 //References
-                References(x => x.Status).Column("id_status").Not.Nullable();
                 References(x => x.Kit).Column("id_kit").Not.Nullable();
 
                 HasManyToMany<Model.Familia>(x => x.Familia).Table("tb_familia_crianca")

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using DomainValidation.Interfaces.Validation;
 using DomainValidation.Validation;
 using Jack.Model.Validations;
+using Jack.Model.Enum;
 
 namespace Jack.Model
 {
@@ -27,7 +28,7 @@ namespace Jack.Model
             isConsistente = string.Empty;
             isNecessidadeEspecial = string.Empty;
             isMoralCrista = string.Empty;
-            status = new Status();
+            status = StatusCrianca.CadastroNovo;
             nomeFamilia = string.Empty;
             familiaRepresentante = string.Empty;
             dataCriacao = new DateTime();
@@ -50,7 +51,7 @@ namespace Jack.Model
         private string isNecessidadeEspecial;
         private string isMoralCrista;
         private string isCriancaMaior;
-        private Status status;
+        private StatusCrianca status;
         private IList<Familia> familia;
         private string idadeNominal;
         private string idadeNominalReduzida;
@@ -268,7 +269,7 @@ namespace Jack.Model
             }
         }
 
-        public virtual Status Status
+        public virtual StatusCrianca Status
         {
             get
             {

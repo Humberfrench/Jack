@@ -61,6 +61,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseModel.cs" />
+    <Compile Include="Enums\StatusFamilia.cs" />
     <Compile Include="Enums\StatusCrianca.cs" />
     <Compile Include="Interfaces\Repository\IColaboradorCriancaRep.cs" />
     <Compile Include="Interfaces\Repository\IColaboradorRep.cs" />
@@ -91,7 +92,6 @@
     <Compile Include="Model\ResponsavelCrianca.cs" />
     <Compile Include="Model\Reuniao.cs" />
     <Compile Include="Model\Roupa.cs" />
-    <Compile Include="Model\StatusCrianca.cs" />
     <Compile Include="Model\TipoItem.cs" />
     <Compile Include="Model\KitItem.cs" />
     <Compile Include="Model\Kit.cs" />

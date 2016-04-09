@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using DomainValidation.Interfaces.Validation;
 using DomainValidation.Validation;
 using Jack.Model.Validations;
+using Jack.Model.Enum;
 
 namespace Jack.Model
 {
@@ -19,7 +20,7 @@ namespace Jack.Model
             isConsistente = string.Empty;
             contato = string.Empty;
             nivel = 99;
-            status = new Status();
+            status = StatusFamilia.CadastroNovo;
             criancas = new List<Criancas>();
         }
 
@@ -32,7 +33,7 @@ namespace Jack.Model
         private string isConsistente;
         private string contato ;
         private int nivel ;
-        private Status status ;
+        private StatusFamilia status ;
         private IList<Criancas> criancas ;
         private DateTime dataAtualizacao;
         private ValidationResult validationResult;
@@ -100,7 +101,7 @@ namespace Jack.Model
             }
         }
 
-        public virtual Status Status
+        public virtual StatusFamilia Status
         {
             get
             {
