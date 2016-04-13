@@ -152,8 +152,7 @@ namespace Jack.Application
                 familia = Find(ID);
                 dtoFamilia = new DTOFamilia(familia.Codigo, familia.Nome, familia.IsSacolinha,
                                             familia.IsConsistente, familia.Contato, familia.Nivel,
-                                            familia.Status, familia.Status.ToString(),
-                                            familia.DataAtualizacao);
+                                            familia.Status, familia.DataAtualizacao);
             }
             catch (Exception ex)
             {
@@ -176,7 +175,6 @@ namespace Jack.Application
             try
             {
                 modelFamilia = Find(family.Codigo);
-                modelFamilia.Status = family.StatusCodigo;
                 modelFamilia.Contato = family.Contato;
                 modelFamilia.Nome = family.Nome;
                 modelFamilia.IsConsistente = family.IsConsistente;

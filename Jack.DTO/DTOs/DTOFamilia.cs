@@ -1,7 +1,7 @@
 ﻿using System;
 using Jack.Library.Extensions;
 using Jack.Model.Enum;
-
+using System.ComponentModel.DataAnnotations;
 namespace Jack.DTO
 {
     public class DTOFamilia : BaseDTO2
@@ -15,12 +15,11 @@ namespace Jack.DTO
             contato = string.Empty;
             nivel = 99;
             statusCodigo = 0;
-            status = string.Empty;
             dataAtualizacao = DateTime.Now;
         }
 
         public DTOFamilia(int pCodigo, string pNome, string pIsSacolinha, string pIsConsistente, 
-                          string pContato, int pNivel, StatusFamilia pStatusCodigo, string pStatus, 
+                          string pContato, int pNivel, StatusFamilia pStatusCodigo, 
                           DateTime pDataAtualizacao) : this()
         {
             codigo = pCodigo;
@@ -30,7 +29,6 @@ namespace Jack.DTO
             contato = pContato;
             nivel = pNivel;
             statusCodigo = pStatusCodigo;
-            status = pStatus;
             dataAtualizacao = pDataAtualizacao;
         }
 
@@ -43,7 +41,6 @@ namespace Jack.DTO
         private string contato;
         private int nivel;
         private StatusFamilia statusCodigo;
-        private string status;
         private DateTime dataAtualizacao;
         string dataAtualizacaoString;
         string dataFormated;
@@ -51,7 +48,8 @@ namespace Jack.DTO
         #endregion
 
         #region Properties
-
+        [Display(Name = "Sacolionha?")]
+        [MaxLength(1)]
         public virtual string IsSacolinha
         {
             get
@@ -64,6 +62,8 @@ namespace Jack.DTO
             }
         }
 
+        [Display(Name = "Consistente?")]
+        [MaxLength(1)]
         public virtual string IsConsistente
         {
             get
@@ -76,6 +76,8 @@ namespace Jack.DTO
             }
         }
 
+        [Display(Name = "Contato:")]
+        [MaxLength(50)]
         public virtual string Contato
         {
             get
@@ -88,6 +90,7 @@ namespace Jack.DTO
             }
         }
 
+        [Display(Name = "Nível:")]
         public virtual int Nivel
         {
             get
@@ -100,18 +103,7 @@ namespace Jack.DTO
             }
         }
 
-        public virtual string Status
-        {
-            get
-            {
-                return status;
-            }
-            set
-            {
-                status = value;
-            }
-        }
-
+        [DataType( DataType.DateTime)]
         public virtual DateTime DataAtualizacao
         {
             get
@@ -126,7 +118,10 @@ namespace Jack.DTO
             }
         }
 
-        public virtual StatusFamilia StatusCodigo
+        [Range(1, 15)]
+        [Display(Name = "Status:")]
+        [Required(ErrorMessage = "Preencher o Campo Status.")]
+        public virtual StatusFamilia Status
         {
             get
             {

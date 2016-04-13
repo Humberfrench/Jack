@@ -11,3 +11,4 @@ C:\Desenvolvimento\Sistemas\jack\Jack.Library\bin\Debug\Jack.Extensions.dll
 C:\Desenvolvimento\Sistemas\jack\Jack.Library\bin\Debug\Jack.Extensions.pdb
 C:\Desenvolvimento\Sistemas\jack\Jack.Library\obj\Debug\Jack.Extensions.dll
 C:\Desenvolvimento\Sistemas\jack\Jack.Library\obj\Debug\Jack.Extensions.pdb
+D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Library\obj\Debug\Jack.Library.csprojResolveAssemblyReference.cache
