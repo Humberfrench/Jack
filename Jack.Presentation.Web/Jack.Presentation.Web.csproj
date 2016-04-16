@@ -255,8 +255,8 @@
     <Content Include="Views\Calcados\Meninas.cshtml" />
     <Content Include="Views\Familia\Index.cshtml" />
     <Content Include="Views\Chamada\Index.cshtml" />
-    <Content Include="Views\FamiliaCrianca\Index.cshtml" />
     <Content Include="Scripts\angular.min.js.map" />
+    <Content Include="Views\FamiliaCrianca\Index.cshtml" />
     <Content Include="Scripts\jquery-2.2.2.min.map" />
     <None Include="Views\SharedFolder\_JackLayoutPage.cshtml" />
     <None Include="Web.Debug.config">

@@ -384,16 +384,6 @@ namespace Jack.Model
             }
         }
 
-        ////public virtual int StatusCodigo
-        ////{
-        ////    get { return Status.Codigo; }
-        ////}
-
-        ////public virtual string StatusNome
-        ////{
-        ////    get { return Status.Descricao; }
-        ////}
-
         public virtual string IdadeCrianca
         {
             get
@@ -531,6 +521,8 @@ namespace Jack.Model
             idade = oIdade.Anos;
             idadeNominal = string.Format("{0} anos e {1} Meses", oIdade.Anos, oIdade.Meses);
             idadeNominalReduzida = string.Format("{0}A{1}M", oIdade.Anos, oIdade.Meses);
+
+            //acertar status
         }
 
     }

@@ -25,7 +25,6 @@ D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Application\bin\Debug\FluentNH
 D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Application\bin\Debug\Iesi.Collections.xml
 D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Application\obj\Debug\Jack.Application.dll
 D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Application\obj\Debug\Jack.Application.pdb
-C:\Desenvolvimento\Sistemas\jack\Jack.Application\obj\Debug\Jack.Application.csprojResolveAssemblyReference.cache
 C:\Desenvolvimento\Sistemas\jack\Jack.Application\bin\Debug\Jack.Application.dll
 C:\Desenvolvimento\Sistemas\jack\Jack.Application\bin\Debug\Jack.Application.pdb
 C:\Desenvolvimento\Sistemas\jack\Jack.Application\bin\Debug\Consumer.Tools.dll
@@ -50,5 +49,6 @@ C:\Desenvolvimento\Sistemas\jack\Jack.Application\bin\Debug\NHibernate.xml
 C:\Desenvolvimento\Sistemas\jack\Jack.Application\bin\Debug\FluentNHibernate.pdb
 C:\Desenvolvimento\Sistemas\jack\Jack.Application\bin\Debug\FluentNHibernate.xml
 C:\Desenvolvimento\Sistemas\jack\Jack.Application\bin\Debug\Iesi.Collections.xml
+C:\Desenvolvimento\Sistemas\jack\Jack.Application\obj\Debug\Jack.Application.csprojResolveAssemblyReference.cache
 C:\Desenvolvimento\Sistemas\jack\Jack.Application\obj\Debug\Jack.Application.dll
 C:\Desenvolvimento\Sistemas\jack\Jack.Application\obj\Debug\Jack.Application.pdb
