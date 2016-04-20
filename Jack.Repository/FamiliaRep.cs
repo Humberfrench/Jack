@@ -162,9 +162,8 @@ namespace Jack.Repository
 
         public IList<DTOFamilia> Load()
         {
-            IList<DTOFamilia> listaStatus;
+            IList<DTOFamilia> listaFamilia;
             ICriteria criteria = Session.CreateCriteria(typeof(Familia), "F")
-                                         .CreateAlias("Status", "S", NHibernate.SqlCommand.JoinType.InnerJoin)
                                          .SetProjection(Projections.ProjectionList()
                                          .Add(Projections.Property("F.Codigo"), "Codigo")
                                          .Add(Projections.Property("F.Nome"), "Nome")
@@ -172,13 +171,12 @@ namespace Jack.Repository
                                          .Add(Projections.Property("F.IsSacolinha"), "IsSacolinha")
                                          .Add(Projections.Property("F.DataAtualizacao"), "DataAtualizacao")
                                          .Add(Projections.Property("F.Contato"), "Contato")
-                                         .Add(Projections.Property("S.Codigo"), "statusCodigo")
-                                         .Add(Projections.Property("S.Descricao"), "Status"));
+                                         .Add(Projections.Property("F.Status"), "Status"));
 
-            listaStatus = criteria.SetResultTransformer(Transformers.AliasToBean<DTOFamilia>()).List<DTOFamilia>();
+            listaFamilia = criteria.SetResultTransformer(Transformers.AliasToBean<DTOFamilia>()).List<DTOFamilia>();
 
             criteria = null;
-            return listaStatus;
+            return listaFamilia;
         }
 
     }

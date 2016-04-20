@@ -86,7 +86,6 @@
     <Compile Include="Map\MapResponsavel.cs" />
     <Compile Include="Map\MapReuniao.cs" />
     <Compile Include="Map\MapRoupa.cs" />
-    <Compile Include="Map\MapStatus.cs" />
     <Compile Include="Map\MapTipoItem.cs" />
     <Compile Include="PresencaRep.cs" />
     <Compile Include="ProcessosRep.cs" />

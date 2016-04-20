@@ -113,7 +113,6 @@ namespace Jack.Repository
                 .Mappings(m => m.FluentMappings.Add<Map.MapPresenca>())
                 .Mappings(m => m.FluentMappings.Add<Map.MapReuniao>())
                 .Mappings(m => m.FluentMappings.Add<Map.MapRoupa>())
-                .Mappings(m => m.FluentMappings.Add<Map.MapStatus>())
                 .Mappings(m => m.FluentMappings.Add<Map.MapCriancaMoralCrista>())
                 .Mappings(m => m.FluentMappings.Add<Map.MapResponsavel>())
                 .Mappings(m => m.FluentMappings.Add<Map.MapTipoItem>());

@@ -464,7 +464,7 @@ namespace Jack.Model
             }
         }
 
-        public ValidationResult ValidationResult
+        public virtual ValidationResult ValidationResult
         {
             get
             {
@@ -472,14 +472,14 @@ namespace Jack.Model
             }
         }
 
-        public bool IsValid()
+        public virtual bool IsValid()
         {
             var criancaValidation = new CriancaValidValidation();
             validationResult = criancaValidation.Validate(this);
             return validationResult.IsValid;
         }
 
-        public void AcertaCrianca()
+        public virtual void AcertaCrianca()
         {
             CalculaIdade();
             if (IdadePermitida() && VerifyRoupa() && VerifyCalcado())
@@ -491,17 +491,17 @@ namespace Jack.Model
                 //não OK
             }
         }
-        public bool VerifyRoupa()
+        public virtual bool VerifyRoupa()
         {
             return Calcado != 99;
         }
-        public bool VerifyCalcado()
+        public virtual bool VerifyCalcado()
         {
 
             return Roupa != "99";
         }
 
-        public bool IdadePermitida()
+        public virtual bool IdadePermitida()
         {
             DateTime dataBase = new DateTime(DateTime.Now.Year, 12, 31);
             int anos = dataBase.Year - dataNascimento.Year;
@@ -513,7 +513,7 @@ namespace Jack.Model
             return (anos < 11);
         }
 
-        public void CalculaIdade()
+        public virtual void CalculaIdade()
         {
             Helpers.Idade oIdade = new Helpers.Idade(DataNascimento,
                                                      new DateTime(DateTime.Now.Year, 12, 31));

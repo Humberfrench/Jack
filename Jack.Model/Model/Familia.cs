@@ -137,7 +137,7 @@ namespace Jack.Model
             }
         }
 
-        public ValidationResult ValidationResult
+        public virtual ValidationResult ValidationResult
         {
             get
             {
@@ -155,7 +155,7 @@ namespace Jack.Model
             Criancas.Add(pCrianca);
         }
 
-        public bool IsValid()
+        public virtual bool IsValid()
         {
             var familiaValidation = new FamiliaValidValidation();
             validationResult = familiaValidation.Validate(this);

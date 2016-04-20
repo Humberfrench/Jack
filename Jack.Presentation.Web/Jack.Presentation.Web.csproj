@@ -61,6 +61,10 @@
       <HintPath>..\packages\Newtonsoft.Json.8.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="RestSharp, Version=105.2.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\RestSharp.105.2.3\lib\net45\RestSharp.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Data.Entity" />
     <Reference Include="System.Net.Http" />
@@ -203,9 +207,10 @@
     <Content Include="Content\Jack.scss" />
     <Content Include="Content\Site.css.map" />
     <Content Include="Content\Site.scss" />
-    <None Include="Scripts\jquery-2.2.2.intellisense.js" />
-    <Content Include="Scripts\jquery-2.2.2.js" />
-    <Content Include="Scripts\jquery-2.2.2.min.js" />
+    <Content Include="Scripts\angular.min.js.map" />
+    <None Include="Scripts\jquery-2.2.3.intellisense.js" />
+    <Content Include="Scripts\jquery-2.2.3.js" />
+    <Content Include="Scripts\jquery-2.2.3.min.js" />
     <Content Include="Scripts\toastr.js" />
     <Content Include="Scripts\toastr.min.js" />
     <Content Include="Test.html" />
@@ -230,6 +235,7 @@
     <Compile Include="Controllers\API\Status\StatusController.cs" />
     <Compile Include="Controllers\API\TesteController.cs" />
     <Compile Include="Controllers\API\TipoItemController.cs" />
+    <Compile Include="Controllers\MVC\BaseController.cs" />
     <Compile Include="Controllers\MVC\CalcadosController.cs" />
     <Compile Include="Controllers\MVC\ChamadaController.cs" />
     <Compile Include="Controllers\MVC\FamiliaController.cs" />
@@ -250,11 +256,11 @@
     <Content Include="Views\Calcados\ViewExeampe.cshtml" />
     <Content Include="Views\Calcados\Meninos.cshtml" />
     <Content Include="Views\Calcados\Meninas.cshtml" />
-    <Content Include="Views\Familia\Index.cshtml" />
+    <Content Include="Views\Familia\Index2.cshtml" />
     <Content Include="Views\Chamada\Index.cshtml" />
-    <Content Include="Scripts\angular.min.js.map" />
     <Content Include="Views\FamiliaCrianca\Index.cshtml" />
-    <Content Include="Scripts\jquery-2.2.2.min.map" />
+    <Content Include="Scripts\jquery-2.2.3.min.map" />
+    <Content Include="Views\Familia\Index.cshtml" />
     <None Include="Views\SharedFolder\_JackLayoutPage.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -266,6 +272,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
+    <Folder Include="Views\Base\" />
     <Folder Include="Views\Reuniao\" />
     <Folder Include="Views\Roupa\" />
   </ItemGroup>

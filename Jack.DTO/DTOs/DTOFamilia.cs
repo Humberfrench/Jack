@@ -19,7 +19,7 @@ namespace Jack.DTO
         }
 
         public DTOFamilia(int pCodigo, string pNome, string pIsSacolinha, string pIsConsistente, 
-                          string pContato, int pNivel, StatusFamilia pStatusCodigo, 
+                          string pContato, int pNivel, int pStatusCodigo, 
                           DateTime pDataAtualizacao) : this()
         {
             codigo = pCodigo;
@@ -40,7 +40,7 @@ namespace Jack.DTO
         private string isConsistente;
         private string contato;
         private int nivel;
-        private StatusFamilia statusCodigo;
+        private int statusCodigo;
         private DateTime dataAtualizacao;
         string dataAtualizacaoString;
         string dataFormated;
@@ -121,7 +121,7 @@ namespace Jack.DTO
         [Range(1, 15)]
         [Display(Name = "Status:")]
         [Required(ErrorMessage = "Preencher o Campo Status.")]
-        public virtual StatusFamilia Status
+        public virtual int Status
         {
             get
             {
@@ -133,6 +133,7 @@ namespace Jack.DTO
             }
         }
 
+        [ScaffoldColumn(false)]
         public virtual string DataAtualizacaoString
         {
             get
@@ -141,6 +142,7 @@ namespace Jack.DTO
             }
         }
 
+        [ScaffoldColumn(false)]
         public virtual string DataFormated
         {
             get
