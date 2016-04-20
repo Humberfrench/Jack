@@ -39,7 +39,7 @@ namespace Jack.Presentation.Web
 
             GlobalConfiguration.Configuration.EnsureInitialized();
 
-            HibernatingRhinos.Profiler.Appender.NHibernate.NHibernateProfiler.Initialize();
+            //HibernatingRhinos.Profiler.Appender.NHibernate.NHibernateProfiler.Initialize();
         }
     }
 }
