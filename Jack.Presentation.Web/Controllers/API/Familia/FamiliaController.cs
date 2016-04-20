@@ -17,21 +17,10 @@ namespace Controllers.API
             IList<DTOFamilia> lstRetorno = null;
 			FamiliaApp oApplication = null;
 
-            try
-            {
-                oApplication = new FamiliaApp();
-                lstRetorno = oApplication.Load();
+            oApplication = new FamiliaApp();
+            lstRetorno = oApplication.Load();
 
-            }
-            catch (Exception ex)
-            {
-                lstRetorno = null;
-                throw ex;
-            }
-            finally
-            {
-                oApplication = null;
-            }
+            oApplication = null;
 
 			return lstRetorno;
 

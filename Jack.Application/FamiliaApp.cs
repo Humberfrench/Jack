@@ -110,16 +110,7 @@ namespace Jack.Application
         public IList<DTOFamilia> Load()
         {
             IList<DTOFamilia> lstRetorno = null;
-
-            try
-            {
-                lstRetorno = repFamilia.Load();
-            }
-            catch (Exception ex)
-            {
-                lstRetorno = null;
-                throw ex;
-            }
+            lstRetorno = repFamilia.Load();
 
             return lstRetorno;
 
