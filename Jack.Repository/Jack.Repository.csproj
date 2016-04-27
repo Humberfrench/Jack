@@ -67,6 +67,7 @@
     <Compile Include="ColaboradorRep.cs" />
     <Compile Include="ColaboradorCriancaRep.cs" />
     <Compile Include="ITipoItemRep.cs" />
+    <Compile Include="Map\MapStatus.cs" />
     <Compile Include="ResponsavelRep.cs" />
     <Compile Include="CriancaMoralCristaRep.cs" />
     <Compile Include="CriancasRep.cs" />

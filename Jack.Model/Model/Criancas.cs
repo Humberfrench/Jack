@@ -28,7 +28,7 @@ namespace Jack.Model
             isConsistente = string.Empty;
             isNecessidadeEspecial = string.Empty;
             isMoralCrista = string.Empty;
-            status = StatusCrianca.CadastroNovo;
+            status = new Status();
             nomeFamilia = string.Empty;
             familiaRepresentante = string.Empty;
             dataCriacao = new DateTime();
@@ -51,7 +51,7 @@ namespace Jack.Model
         private string isNecessidadeEspecial;
         private string isMoralCrista;
         private string isCriancaMaior;
-        private StatusCrianca status;
+        private Status status;
         private IList<Familia> familia;
         private string idadeNominal;
         private string idadeNominalReduzida;
@@ -269,7 +269,7 @@ namespace Jack.Model
             }
         }
 
-        public virtual StatusCrianca Status
+        public virtual Status Status
         {
             get
             {

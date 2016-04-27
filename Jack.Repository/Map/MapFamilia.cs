@@ -21,7 +21,8 @@ namespace Jack.Repository.Map
                 Map(x => x.IsConsistente).Column("is_consistente").Not.Nullable();
                 Map(x => x.Contato).Column("ds_contato").Nullable();
                 Map(x => x.DataAtualizacao).Column("dt_update").Nullable(); //.Default(DateTime.Now.ToString());
-                Map(x => x.Status).Column("id_status").Not.Nullable();
+                //References
+                References(x => x.Status).Column("id_status").Not.Nullable().Not.LazyLoad();
 
 
                 //Hasmany
