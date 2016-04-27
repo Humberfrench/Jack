@@ -37,6 +37,7 @@ namespace Jack.DTO
             dataAtualizacao = pDataAtualizacao;
         }
         #endregion
+
         #region Fields
         private string isSacolinha;
         private string isConsistente;
