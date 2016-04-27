@@ -143,7 +143,8 @@ namespace Jack.Application
                 familia = Find(ID);
                 dtoFamilia = new DTOFamilia(familia.Codigo, familia.Nome, familia.IsSacolinha,
                                             familia.IsConsistente, familia.Contato, familia.Nivel,
-                                            (int)familia.Status, familia.DataAtualizacao);
+                                            familia.Status.Codigo, familia.Status.Descricao,
+                                            familia.DataAtualizacao);
             }
             catch (Exception ex)
             {

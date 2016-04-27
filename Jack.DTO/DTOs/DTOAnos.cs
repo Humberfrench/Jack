@@ -1,4 +1,10 @@
-﻿namespace Jack.DTO
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using Jack.Library.Extensions;
+
+namespace Jack.DTO
 {
     public class DTOAnos
     {
@@ -7,14 +13,15 @@
             valor = string.Empty;
             descricao = string.Empty;
         }
-        public DTOAnos(string pValue, string pDescricao) :this()
+        public DTOAnos(string pValue, string pDescricao)
+            : this()
         {
             valor = pValue;
             descricao = pDescricao;
         }
-
         private string valor;
         private string descricao;
+
 
         public virtual string Value
         {
@@ -27,6 +34,8 @@
                 value = valor;
             }
         }
+
+
         public virtual string Descricao
         {
             get
@@ -38,6 +47,5 @@
                 descricao = value;
             }
         }
-
     }
 }

@@ -1,9 +1,11 @@
-﻿using Jack.Library.Extensions;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Security.Policy;
+using System.Web;
+using Jack.Library.Extensions;
 
 namespace Jack.DTO
 {
@@ -16,13 +18,13 @@ namespace Jack.DTO
             data = DateTime.Now;
             dataReuniao = data.ToDateFormated();
         }
-
         private int codigo;
         private int ano;
         private int anoCorrente;
         string dataReuniao;
         private DateTime data;
 
+        [Description("Código")]
         public virtual int Codigo
         {
             get
@@ -35,6 +37,8 @@ namespace Jack.DTO
             }
         }
 
+        [Required(ErrorMessage = "Preencher o Ano")]
+        [Description("Ano")]
         public virtual int Ano
         {
             get
@@ -47,6 +51,8 @@ namespace Jack.DTO
             }
         }
 
+        [Description("Ano Corrente")]
+        [Required( ErrorMessage = "Preencher o Ano Corrente")]
         public virtual int AnoCorrente
         {
             get
@@ -59,6 +65,8 @@ namespace Jack.DTO
             }
         }
 
+        [Description("Data da Reunião")]
+        [Required(ErrorMessage = "Preencher a Data da Reuniao")]
         public virtual DateTime Data
         {
             get
@@ -69,10 +77,11 @@ namespace Jack.DTO
             {
                 data = value;
                 dataReuniao = data.ToDateFormated();
-
             }
         }
 
+        [Description("Data da Reunião")]
+        [ScaffoldColumn(false)]
         public virtual string DataReuniao
         {
             get
@@ -80,7 +89,5 @@ namespace Jack.DTO
                 return dataReuniao;
             }
         }
-
     }
-
 }

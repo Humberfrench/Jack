@@ -113,7 +113,7 @@ namespace Jack.Repository
                     objDados.Nome = dr["nm_mae"].ToString();
                     objDados.IsSacolinha = dr["is_sacolinha"].ToString();
                     objDados.IsConsistente = dr["is_consistente"].ToString();
-                    objDados.Status = (StatusFamilia) (Convert.ToInt32(dr["id_status"]));
+                    objDados.Status = new Status(Convert.ToInt32(dr["id_status"]), dr["ds_status"].ToString());
                     lstRetorno.Add(objDados);
                 }
             }

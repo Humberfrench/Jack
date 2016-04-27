@@ -245,7 +245,7 @@ namespace Jack.Repository
                     objDados.IdadeNominal = dr["ds_idade_nominal"].ToString();
                     objDados.DataCriacao = Convert.ToDateTime(dr["dt_create"].ToString());
                     objDados.DataAtualizacao = Convert.ToDateTime(dr["dt_update"].ToString());
-                    objDados.Familia = dr["nm_mae"].ToString();
+                    objDados.FamiliaNome = dr["nm_mae"].ToString();
                     objDados.FamiliaCodigo = Convert.ToInt32(dr["id_familia"].ToString());
                     lstDados.Add(objDados);
                 }

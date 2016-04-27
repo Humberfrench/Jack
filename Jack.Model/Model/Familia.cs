@@ -20,7 +20,7 @@ namespace Jack.Model
             isConsistente = string.Empty;
             contato = string.Empty;
             nivel = 99;
-            status = StatusFamilia.CadastroNovo;
+            status = new Status();
             criancas = new List<Criancas>();
         }
 
@@ -33,7 +33,7 @@ namespace Jack.Model
         private string isConsistente;
         private string contato ;
         private int nivel ;
-        private StatusFamilia status ;
+        private Status status ;
         private IList<Criancas> criancas ;
         private DateTime dataAtualizacao;
         private ValidationResult validationResult;
@@ -101,7 +101,7 @@ namespace Jack.Model
             }
         }
 
-        public virtual StatusFamilia Status
+        public virtual Status Status
         {
             get
             {

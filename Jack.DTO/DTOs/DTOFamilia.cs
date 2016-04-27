@@ -1,26 +1,30 @@
 ﻿using System;
-using Jack.Library.Extensions;
-using Jack.Model.Enum;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using System.Web;
+using Jack.Library.Extensions;
+
 namespace Jack.DTO
 {
     public class DTOFamilia : BaseDTO2
     {
         #region "Construtor"
-
-        public DTOFamilia() :base()
+        public DTOFamilia()
+            : base()
         {
             isSacolinha = string.Empty;
             isConsistente = string.Empty;
             contato = string.Empty;
             nivel = 99;
             statusCodigo = 0;
+            statusDescricao = string.Empty;
             dataAtualizacao = DateTime.Now;
         }
-
-        public DTOFamilia(int pCodigo, string pNome, string pIsSacolinha, string pIsConsistente, 
-                          string pContato, int pNivel, int pStatusCodigo, 
-                          DateTime pDataAtualizacao) : this()
+        public DTOFamilia(int pCodigo, string pNome, string pIsSacolinha, string pIsConsistente,
+        string pContato, int pNivel, int pStatusCodigo, string pstatusDescricao,
+        DateTime pDataAtualizacao)
+            : this()
         {
             codigo = pCodigo;
             nome = pNome;
@@ -29,26 +33,25 @@ namespace Jack.DTO
             contato = pContato;
             nivel = pNivel;
             statusCodigo = pStatusCodigo;
+            statusDescricao = pstatusDescricao;
             dataAtualizacao = pDataAtualizacao;
         }
-
         #endregion
-
         #region Fields
-
         private string isSacolinha;
         private string isConsistente;
         private string contato;
         private int nivel;
         private int statusCodigo;
+        private string statusDescricao;
         private DateTime dataAtualizacao;
         string dataAtualizacaoString;
         string dataFormated;
-
         #endregion
 
         #region Properties
-        [Display(Name = "Sacolionha?")]
+
+        [Display(Name = "Sacolinha?")]
         [MaxLength(1)]
         public virtual string IsSacolinha
         {
@@ -103,7 +106,7 @@ namespace Jack.DTO
             }
         }
 
-        [DataType( DataType.DateTime)]
+        [DataType(DataType.DateTime)]
         public virtual DateTime DataAtualizacao
         {
             get
@@ -134,6 +137,19 @@ namespace Jack.DTO
         }
 
         [ScaffoldColumn(false)]
+        public virtual string StatusDescricao
+        {
+            get
+            {
+                return statusDescricao;
+            }
+            set
+            {
+                statusDescricao = value;
+            }
+        }
+
+        [ScaffoldColumn(false)]
         public virtual string DataAtualizacaoString
         {
             get
@@ -150,7 +166,6 @@ namespace Jack.DTO
                 return dataFormated;
             }
         }
-
         #endregion
     }
 }

@@ -45,7 +45,7 @@ namespace Jack.Repository
                     objDados.IsConsistente = dr["is_consistente"].ToString();
                     objDados.IsSacolinha = dr["is_sacolinha"].ToString();
                     objDados.Nivel = Convert.ToInt32(dr["nr_nivel_espera"]);
-                    objDados.Status = (StatusFamilia)(Convert.ToInt32(dr["id_status"]));
+                    objDados.Status = new Status(Convert.ToInt32(dr["id_status"]), dr["ds_status"].ToString());
                     lstDados.Add(objDados);
                 }
             }

@@ -1,24 +1,24 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Web;
+using Jack.Library.Extensions;
 
 namespace Jack.DTO
 {
     public class DTOPresenca
     {
-        public DTOPresenca( )
+        public DTOPresenca()
         {
             familia = 0;
             reuniao = 0;
         }
-        public DTOPresenca(int intFamilia, int intReuniao) : this()
+        public DTOPresenca(int intFamilia, int intReuniao)
+            : this()
         {
             familia = intFamilia;
             reuniao = intReuniao;
         }
-
         private int familia;
         private int reuniao;
 
@@ -33,7 +33,6 @@ namespace Jack.DTO
                 familia = value;
             }
         }
-
         public virtual int Reuniao
         {
             get
@@ -45,6 +44,5 @@ namespace Jack.DTO
                 reuniao = value;
             }
         }
-
     }
 }

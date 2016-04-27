@@ -1,45 +1,43 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 using Jack.Library.Extensions;
 
 namespace Jack.DTO
 {
-    public class DTOCriancaRepresentante 
+    public class DTOCrianca :BaseDTO2
     {
-        public DTOCriancaRepresentante()
+        public DTOCrianca()
+            :base()
         {
-            familiaCodigo = 0;
-            familiaCodigoRep = 0;
-            familiaNome = string.Empty;
-            familiaNomeRep = string.Empty;
+            codigoFamilia = 0;
+            nomeFamilia = string.Empty;
             idade = 0;
             dataNascimento = new DateTime();
             sexo = string.Empty;
             codigoKit = 0;
             kit = string.Empty;
-            codigoStatus = 0;
-            status = string.Empty;
+            statusCodigo = 0;
+            statusDescricao = string.Empty;
             medidaIdade = string.Empty;
             calcado = 99;
+            roupa = "99";
             idadeNominal = string.Empty;
             idadeNominalReduzida = string.Empty;
-            roupa = "99";
             isSacolinha = string.Empty;
             isConsistente = string.Empty;
             isNecessidadeEspecial = string.Empty;
             isMoralCrista = string.Empty;
             isCriancaMaior = string.Empty;
-            familiaCodigoRep = 0;
-            familiaNome = string.Empty;
             dataCriacao = new DateTime();
             dataAtualizacao = new DateTime();
         }
-        private int codigo;
-        private string nome;
-        private int familiaCodigoRep;
-        private string familiaNomeRep;
+
+        private int codigoFamilia;
+        private string nomeFamilia;
         private int idade;
         private string medidaIdade;
         private DateTime dataNascimento;
@@ -47,8 +45,8 @@ namespace Jack.DTO
         private int calcado;
         private string roupa;
         private int calcadoPadrao;
-        private int codigoStatus;
-        private string status;
+        private int statusCodigo;
+        private string statusDescricao;
         private int codigoKit;
         private string kit;
         private string roupaPadrao;
@@ -57,8 +55,6 @@ namespace Jack.DTO
         private string isNecessidadeEspecial;
         private string isMoralCrista;
         private string isCriancaMaior;
-        private string familiaNome;
-        private int familiaCodigo;
         private DateTime dataAtualizacao;
         private DateTime dataCriacao;
         private string idadeNominal;
@@ -76,73 +72,32 @@ namespace Jack.DTO
         private string vMoralCrista;
         private string vCriancaMaior;
 
-        public int Codigo
+        [Display(Name = "Codigo da Familia:")]
+        [ReadOnly(true)]
+        public virtual int CodigoFamilia
         {
             get
             {
-                return codigo;
+                return codigoFamilia;
             }
             set
             {
-                codigo = value;
-            }
-        }
-        public string Nome
-        {
-            get
-            {
-                return nome;
-            }
-            set
-            {
-                nome = value;
-            }
-        }
-        public virtual int FamiliaCodigo
-        {
-            get
-            {
-                return familiaCodigo;
-            }
-            set
-            {
-                familiaCodigo = value;
+                codigoFamilia = value;
             }
         }
 
-        public virtual string FamiliaNome
+        [Display(Name = "Nome da Mãe:")]
+        [MaxLength(100)]
+        [ReadOnly(true)]
+        public virtual string NomeFamilia
         {
             get
             {
-                return familiaNome;
+                return nomeFamilia;
             }
             set
             {
-                familiaNome = value;
-            }
-        }
-
-        public virtual string FamiliaNomeRep
-        {
-            get
-            {
-                return familiaNomeRep;
-            }
-            set
-            {
-                familiaNomeRep = value;
-            }
-        }
-
-        public virtual int FamiliaCodigoRep
-        {
-            get
-            {
-                return familiaCodigoRep;
-            }
-            set
-            {
-                familiaCodigoRep = value;
+                nomeFamilia = value;
             }
         }
 
@@ -158,6 +113,8 @@ namespace Jack.DTO
             }
         }
 
+        [Display(Name = "Medida da Idade:")]
+        [MaxLength(1)]
         public virtual string MedidaIdade
         {
             get
@@ -170,6 +127,7 @@ namespace Jack.DTO
             }
         }
 
+        [Display(Name = "Data de Nascimento:")]
         public virtual DateTime DataNascimento
         {
             get
@@ -184,6 +142,8 @@ namespace Jack.DTO
             }
         }
 
+        [Display(Name = "Sexo:")]
+        [MaxLength(1)]
         public virtual string Sexo
         {
             get
@@ -196,6 +156,7 @@ namespace Jack.DTO
             }
         }
 
+        [Display(Name = "Calçado:")]
         public virtual int Calcado
         {
             get
@@ -208,6 +169,7 @@ namespace Jack.DTO
             }
         }
 
+        [Display(Name = "Roupa:")]
         public virtual string Roupa
         {
             get
@@ -220,6 +182,7 @@ namespace Jack.DTO
             }
         }
 
+        [Display(Name = "Calçado Padrao:")]
         public virtual int CalcadoPadrao
         {
             get
@@ -232,6 +195,7 @@ namespace Jack.DTO
             }
         }
 
+        [Display(Name = "Roupa Padrão:")]
         public virtual string RoupaPadrao
         {
             get
@@ -244,6 +208,7 @@ namespace Jack.DTO
             }
         }
 
+        [Display(Name = "Código do Kit:")]
         public virtual int CodigoKit
         {
             get
@@ -256,6 +221,7 @@ namespace Jack.DTO
             }
         }
 
+        [Display(Name = "Kit:")]
         public virtual string Kit
         {
             get
@@ -268,30 +234,7 @@ namespace Jack.DTO
             }
         }
 
-        public virtual string IdadeNominal
-        {
-            get
-            {
-                return idadeNominal;
-            }
-            set
-            {
-                idadeNominal = value;
-            }
-        }
-
-        public virtual string IdadeNominalReduzida
-        {
-            get
-            {
-                return idadeNominalReduzida;
-            }
-            set
-            {
-                idadeNominalReduzida = value;
-            }
-        }
-
+        [Display(Name = "Sacolinha?")]
         public virtual string IsSacolinha
         {
             get
@@ -305,6 +248,7 @@ namespace Jack.DTO
             }
         }
 
+        [Display(Name = "Consistente?")]
         public virtual string IsConsistente
         {
             get
@@ -318,6 +262,7 @@ namespace Jack.DTO
             }
         }
 
+        [Display(Name = "Necessidade Especial?")]
         public virtual string IsNecessidadeEspecial
         {
             get
@@ -331,6 +276,7 @@ namespace Jack.DTO
             }
         }
 
+        [Display(Name = "Escolinha Moral Cristã?")]
         public virtual string IsMoralCrista
         {
             get
@@ -344,6 +290,7 @@ namespace Jack.DTO
             }
         }
 
+        [Display(Name = "Criança Maior?")]
         public virtual string IsCriancaMaior
         {
             get
@@ -357,31 +304,62 @@ namespace Jack.DTO
             }
         }
 
-        public virtual int CodigoStatus
+        [Display(Name = "Idade Nominal:")]
+        [ReadOnly(true)]
+        public virtual string IdadeNominal
         {
             get
             {
-                return codigoStatus;
+                return idadeNominal;
             }
             set
             {
-                codigoStatus = value;
+                idadeNominal = value;
             }
         }
 
-        public virtual string Status
+        [Display(Name = "Idade Nominal Reduzida:")]
+        [ReadOnly(true)]
+        public virtual string IdadeNominalReduzida
         {
             get
             {
-                return status;
+                return idadeNominalReduzida;
             }
             set
             {
-                status = value;
+                idadeNominalReduzida = value;
+            }
+        }
+
+        [Display(Name = "Status:")]
+        public virtual int Status
+        {
+            get
+            {
+                return statusCodigo;
+            }
+            set
+            {
+                statusCodigo = value;
+            }
+        }
+
+        [ScaffoldColumn(false)]
+        public virtual string StatusDescricao
+        {
+            get
+            {
+                return statusDescricao;
+            }
+            set
+            {
+                statusDescricao = value;
             }
         }
 
         // locais de uso local
+        [ScaffoldColumn(false)]
         public virtual DateTime DataAtualizacao
         {
             get
@@ -396,6 +374,7 @@ namespace Jack.DTO
             }
         }
 
+        [ScaffoldColumn(false)]
         public virtual DateTime DataCriacao
         {
             get
@@ -410,6 +389,7 @@ namespace Jack.DTO
             }
         }
 
+        [ScaffoldColumn(false)]
         public virtual string DataCriacaoString
         {
             get
@@ -418,6 +398,7 @@ namespace Jack.DTO
             }
         }
 
+        [ScaffoldColumn(false)]
         public virtual string DataCriacaoFormated
         {
             get
@@ -426,6 +407,7 @@ namespace Jack.DTO
             }
         }
 
+        [ScaffoldColumn(false)]
         public virtual string DataAtualizacaoString
         {
             get
@@ -434,6 +416,7 @@ namespace Jack.DTO
             }
         }
 
+        [ScaffoldColumn(false)]
         public virtual string DataAtualizacaoFormated
         {
             get
@@ -442,6 +425,7 @@ namespace Jack.DTO
             }
         }
 
+        [ScaffoldColumn(false)]
         public virtual string DataNascimentoString
         {
             get
@@ -450,6 +434,7 @@ namespace Jack.DTO
             }
         }
 
+        [ScaffoldColumn(false)]
         public virtual string DataNascimentoFormated
         {
             get
@@ -458,21 +443,23 @@ namespace Jack.DTO
             }
         }
 
+        [ScaffoldColumn(false)]
         public virtual string IdadeCrianca
         {
             get
             {
                 if (MedidaIdade == "A")
                 {
-                    return Idade.ToString() + " Anos";
+                    return idade.ToString() + " Anos";
                 }
                 else
                 {
-                    return Idade.ToString() + " Meses";
+                    return idade.ToString() + " Meses";
                 }
             }
         }
 
+        [ScaffoldColumn(false)]
         public virtual string NecessidadeEspecial
         {
             get
@@ -481,6 +468,7 @@ namespace Jack.DTO
             }
         }
 
+        [ScaffoldColumn(false)]
         public virtual string MoralCrista
         {
             get
@@ -489,6 +477,7 @@ namespace Jack.DTO
             }
         }
 
+        [ScaffoldColumn(false)]
         public virtual string Sacolinha
         {
             get
@@ -497,6 +486,7 @@ namespace Jack.DTO
             }
         }
 
+        [ScaffoldColumn(false)]
         public virtual string Consistente
         {
             get
@@ -505,6 +495,7 @@ namespace Jack.DTO
             }
         }
 
+        [ScaffoldColumn(false)]
         public virtual string CriancaMaior
         {
             get

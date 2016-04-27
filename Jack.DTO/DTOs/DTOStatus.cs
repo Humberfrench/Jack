@@ -1,19 +1,53 @@
 ﻿using Jack.Library.Extensions;
 
+
+
 namespace Jack.DTO
 {
-    public class DTOStatus : BaseDTO
+    public class DTOStatus 
     {
-        public DTOStatus() :base()
+        public DTOStatus()
         {
+            codigo = 0;
+            descricao = string.Empty;
             permiteSacola = string.Empty;
             nivelStatus = string.Empty;
         }
 
+        protected DTOStatus(int pCodigo, string pDescricao) :this()
+        {
+            codigo = pCodigo;
+            descricao = pDescricao;
+        }
+        private int codigo;
+        private string descricao;
         private string permiteSacola;
         private string nivelStatus;
         private string permiteSacolaDesc;
         private string nivelStatusDesc;
+
+        public int Codigo
+        {
+            get
+            {
+                return codigo;
+            }
+            set
+            {
+                codigo = value;
+            }
+        }
+        public string Descricao
+        {
+            get
+            {
+                return descricao;
+            }
+            set
+            {
+                descricao = value;
+            }
+        }
 
         public string PermiteSacola
         {
@@ -27,7 +61,6 @@ namespace Jack.DTO
                 permiteSacolaDesc = permiteSacola.ToSimNao();
             }
         }
-
         public string NivelStatus
         {
             get
@@ -47,7 +80,6 @@ namespace Jack.DTO
                 return permiteSacolaDesc;
             }
         }
-
         public virtual string NivelStatusDesc
         {
             get
@@ -55,6 +87,5 @@ namespace Jack.DTO
                 return nivelStatusDesc;
             }
         }
-
     }
 }
