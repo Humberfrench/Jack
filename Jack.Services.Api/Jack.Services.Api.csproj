@@ -16,7 +16,7 @@
     <RootNamespace>Jack.Services.Api</RootNamespace>
     <AssemblyName>Jack.Services.Api</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
-    <UseIISExpress>true</UseIISExpress>
+    <UseIISExpress>false</UseIISExpress>
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
@@ -86,6 +86,20 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\AnosController.cs" />
+    <Compile Include="Controllers\Crianca\CriancaController.cs" />
+    <Compile Include="Controllers\FamiliaCrianca\CriancasPorFamiliaController.cs" />
+    <Compile Include="Controllers\FamiliaCrianca\CriancasPorFamiliaReprController.cs" />
+    <Compile Include="Controllers\Familia\FamiliaController.cs" />
+    <Compile Include="Controllers\Presenca\ChamadaController.cs" />
+    <Compile Include="Controllers\Presenca\ChamadaFiltroController.cs" />
+    <Compile Include="Controllers\Presenca\PresencaController.cs" />
+    <Compile Include="Controllers\Reuniao\DataReuniaoController.cs" />
+    <Compile Include="Controllers\Status\StatusController.cs" />
+    <Compile Include="Controllers\Status\StatusCriancaController.cs" />
+    <Compile Include="Controllers\Status\StatusFamiliaController.cs" />
+    <Compile Include="Controllers\TesteController.cs" />
+    <Compile Include="Controllers\TipoItemController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -102,8 +116,25 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Controllers\" />
     <Folder Include="Models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Jack.Application\Jack.Application.csproj">
+      <Project>{4d307578-5f8a-42b7-91ba-aa7c69800a08}</Project>
+      <Name>Jack.Application</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Jack.DTO\Jack.DTO.csproj">
+      <Project>{23265646-9a5f-4ffa-8609-a6762a8cb01b}</Project>
+      <Name>Jack.DTO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Jack.Library\Jack.Library.csproj">
+      <Project>{9bae2eee-5392-4ea6-8ee9-b0e5521ff8fd}</Project>
+      <Name>Jack.Library</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Jack.Model\Jack.Model.csproj">
+      <Project>{03bc258c-3dba-4bdc-85e7-908b9d2f673b}</Project>
+      <Name>Jack.Model</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -120,7 +151,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>57765</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:57765/</IISUrl>
+          <IISUrl>http://localhost:7107</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

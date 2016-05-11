@@ -27,7 +27,7 @@ namespace Controllers.API
 		}
 
 		[HttpGet()]
-		public DTOFamilia GetValue([FromUri()] int ID)
+		public DTOFamilia GetValue(int ID)
 		{
 
             DTOFamilia oRetorno = null;
@@ -54,7 +54,7 @@ namespace Controllers.API
 		}
 
         [HttpPost()]
-        public void Salvar([FromBody()] DTOFamilia family)
+        public void Salvar(DTOFamilia family)
         {
             FamiliaApp oApplication = null;
             try
@@ -70,7 +70,7 @@ namespace Controllers.API
         }
 
         [HttpDelete()]
-        public void Delete([FromUri()] int ID)
+        public void Delete(int ID)
         {
             FamiliaApp oApplication = null;
             try

@@ -16,7 +16,7 @@
     <RootNamespace>Jack.Presentation.Web</RootNamespace>
     <AssemblyName>Jack.Presentation.Web</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
-    <UseIISExpress>true</UseIISExpress>
+    <UseIISExpress>false</UseIISExpress>
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
@@ -220,28 +220,13 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="Controllers\API\AnosController.cs" />
-    <Compile Include="Controllers\API\FamiliaCrianca\CriancasPorFamiliaController.cs" />
-    <Compile Include="Controllers\API\Presenca\ChamadaController.cs" />
-    <Compile Include="Controllers\API\Crianca\CriancaController.cs" />
-    <Compile Include="Controllers\API\Presenca\ChamadaFiltroController.cs" />
-    <Compile Include="Controllers\API\Familia\FamiliaController.cs" />
-    <Compile Include="Controllers\API\FamiliaCrianca\CriancasPorFamiliaReprController.cs" />
-    <Compile Include="Controllers\API\Presenca\PresencaController.cs" />
-    <Compile Include="Controllers\API\Reuniao\DataReuniaoController.cs" />
-    <Compile Include="Controllers\API\Status\StatusCriancaController.cs" />
-    <Compile Include="Controllers\API\Status\StatusFamiliaController.cs" />
-    <Compile Include="Controllers\API\Status\StatusController.cs" />
-    <Compile Include="Controllers\API\TesteController.cs" />
-    <Compile Include="Controllers\API\TipoItemController.cs" />
-    <Compile Include="Controllers\MVC\BaseController.cs" />
-    <Compile Include="Controllers\MVC\CalcadosController.cs" />
-    <Compile Include="Controllers\MVC\ChamadaController.cs" />
-    <Compile Include="Controllers\MVC\FamiliaController.cs" />
-    <Compile Include="Controllers\MVC\FamiliaCriancaController.cs" />
-    <Compile Include="Controllers\MVC\RoupasController.cs" />
-    <Compile Include="Controllers\MVC\SacolasController.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\CalcadosController.cs" />
+    <Compile Include="Controllers\ChamadaController.cs" />
+    <Compile Include="Controllers\FamiliaController.cs" />
+    <Compile Include="Controllers\FamiliaCriancaController.cs" />
+    <Compile Include="Controllers\RoupasController.cs" />
+    <Compile Include="Controllers\SacolasController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -271,6 +256,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Controllers\API\" />
+    <Folder Include="Controllers\MVC\" />
     <Folder Include="Models\" />
     <Folder Include="Views\Base\" />
     <Folder Include="Views\Reuniao\" />
@@ -309,7 +296,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>17719</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:17719/</IISUrl>
+          <IISUrl>http://localhost:7007</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
