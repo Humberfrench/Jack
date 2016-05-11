@@ -32,7 +32,7 @@ namespace Jack.Presentation.Web.Controllers.MVC
         {
             using (var restClient = CriaRestClient())
             {
-                var request = new RestRequest("v1/" + uri, Method.GET);
+                var request = new RestRequest(uri, Method.GET);
 
                 if (parameters != null && parameters.Count > 0)
                 {
@@ -54,7 +54,7 @@ namespace Jack.Presentation.Web.Controllers.MVC
         {
             using (var restClient = CriaRestClient())
             {
-                var request = new RestRequest("v1/" + uri, Method.POST) { RequestFormat = DataFormat.Json };
+                var request = new RestRequest(uri, Method.POST) { RequestFormat = DataFormat.Json };
 
                 request.AddBody(model);
 

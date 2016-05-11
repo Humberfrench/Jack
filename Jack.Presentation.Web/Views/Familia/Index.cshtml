@@ -1,70 +1,59 @@
-﻿@model IEnumerable<Jack.DTO.DTOFamilia>
+﻿@using Jack.Library.Extensions
+@model IEnumerable<Jack.DTO.DTOFamilia>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Famílias";
     Layout = "~/Views/SharedFolder/_JackLayoutPage.cshtml";
 }
 
-<h2>Index</h2>
+<h2>Lista de Familias</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Codigo)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Nome)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.IsSacolinha)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.IsConsistente)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Contato)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Nivel)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DataAtualizacao)
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Codigo)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Nome)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.IsSacolinha)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.IsConsistente)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Contato)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Nivel)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DataAtualizacao)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-        </td>
-    </tr>
-}
-
+<table class="table table-striped table-hover table-condensed">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Codigo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsSacolinha)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsConsistente)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Contato)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nivel)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DataAtualizacao)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Codigo</td>
+                <td>@item.Nome</td>
+                <td>@item.IsSacolinha</td>
+                <td>@item.IsConsistente</td>
+                <td>@item.Contato</td>
+                <td>@item.Nivel</td>
+                <td>@item.DataAtualizacao.ToDateFormated()</td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                    @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                </td>
+            </tr>
+        }
+    </tbody>
 </table>
