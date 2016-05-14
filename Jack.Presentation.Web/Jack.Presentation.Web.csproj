@@ -246,6 +246,7 @@
     <Content Include="Views\FamiliaCrianca\Index.cshtml" />
     <Content Include="Scripts\jquery-2.2.3.min.map" />
     <Content Include="Views\Familia\Index.cshtml" />
+    <Content Include="Views\Familia\Edit.cshtml" />
     <None Include="Views\SharedFolder\_JackLayoutPage.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

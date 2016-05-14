@@ -3,16 +3,17 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
-using Jack.Library.Extensions;
 
 namespace Jack.DTO
 {
-    public class DTOFamilia : BaseDTO2
+    public class DTOFamilia 
     {
         #region "Construtor"
+
         public DTOFamilia()
-            : base()
         {
+            codigo = 0;
+            nome = string.Empty;
             isSacolinha = string.Empty;
             isConsistente = string.Empty;
             contato = string.Empty;
@@ -39,6 +40,8 @@ namespace Jack.DTO
         #endregion
 
         #region Fields
+        private int codigo;
+        private string nome;
         private string isSacolinha;
         private string isConsistente;
         private string contato;
@@ -51,6 +54,32 @@ namespace Jack.DTO
         #endregion
 
         #region Properties
+
+        [Display(Name = "Código")]
+        public int Codigo
+        {
+            get
+            {
+                return codigo;
+            }
+            set
+            {
+                codigo = value;
+            }
+        }
+        [Display(Name = "Nome")]
+        [MaxLength(100)]
+        public string Nome
+        {
+            get
+            {
+                return nome;
+            }
+            set
+            {
+                nome = value;
+            }
+        }
 
         [Display(Name = "Sacolinha?")]
         [MaxLength(1)]
@@ -118,7 +147,8 @@ namespace Jack.DTO
             {
                 dataAtualizacao = value;
                 dataAtualizacaoString = dataAtualizacao.ToShortDateString();
-                dataFormated = dataAtualizacao.ToDateFormated();
+                dataFormated = dataAtualizacao.ToShortDateString();
+                //dataFormated = dataAtualizacao.ToDateFormated();
             }
         }
 

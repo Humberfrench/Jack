@@ -48,10 +48,10 @@
                 <td>@item.IsConsistente</td>
                 <td>@item.Contato</td>
                 <td>@item.Nivel</td>
-                <td>@item.DataAtualizacao.ToDateFormated()</td>
+                <td>@item.DataAtualizacao</td>
                 <td>
-                    @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                    @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                    @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }, new { @class = "btn btn-default" })&nbsp;
+                    @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ }, new { @class = "btn btn-danger" })
                 </td>
             </tr>
         }
