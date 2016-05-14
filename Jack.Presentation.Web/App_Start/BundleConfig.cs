@@ -13,6 +13,7 @@ namespace Jack.Presentation.Web
             basicBundle.Include("~/Content/bootstrap.min.css");
             basicBundle.Include("~/Content/bootstrap-theme.min.css");
             basicBundle.Include("~/Content/toastr.min.css");
+            basicBundle.Include("~/Content/css/select2.css");
             basicBundle.Orderer = new AsIsBundleOrderer();
             bundles.Add(basicBundle);
 
@@ -20,6 +21,8 @@ namespace Jack.Presentation.Web
             basicStyleBundle.Include("~/Scripts/jquery-{version}.js");
             basicStyleBundle.Include("~/Scripts/toastr.min.js");
             basicStyleBundle.Include("~/Scripts/bootstrap.min.js");
+            basicStyleBundle.Include("~/Scripts/jquery.dataTables*");
+            basicStyleBundle.Include("~/Scripts/select2.js");
             basicStyleBundle.Orderer = new AsIsBundleOrderer();
             bundles.Add(basicStyleBundle);
 
@@ -73,6 +76,35 @@ namespace Jack.Presentation.Web
 
         }
 
+    }
+
+    void toAdd()
+    {
+        bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
+            "~/Scripts/jquery-{version}.js"));
+
+        bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
+                    "~/Scripts/jquery.validate*"));
+
+        bundles.Add(new ScriptBundle("~/bundles/jquery-datatable").Include(
+                    "~/Scripts/jquery.dataTables*"));
+
+        // Use the development version of Modernizr to develop with and learn from. Then, when you're
+        // ready for production, use the build tool at http://modernizr.com to pick only the tests you need.
+        bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
+                    "~/Scripts/modernizr-*"));
+
+        bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
+                  "~/Scripts/bootstrap.js",
+                  "~/Scripts/respond.js"));
+
+        bundles.Add(new ScriptBundle("~/bundles/select2").Include(
+                  "~/Scripts/select2.js"));
+
+        bundles.Add(new StyleBundle("~/Content/css").Include(
+                  "~/Content/bootstrap.css",
+                  "~/Content/css/select2.css",
+                  "~/Content/site.css"));
     }
 }
 
