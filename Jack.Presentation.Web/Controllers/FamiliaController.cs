@@ -20,5 +20,16 @@ namespace Controllers.MVC
 
 		}
 
+        public ActionResult Edit(int id)
+        {
+            HttpStatusCode httpStatus;
+            var param = new Dictionary<string, object>();
+            param.Add("id", id);
+
+            var umaFamilias = GetApiMethod<DTOFamilia>("/Familia", param, out httpStatus);
+
+            return View(umaFamilias);
+        }
+
 	}
 }

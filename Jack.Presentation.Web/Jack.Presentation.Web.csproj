@@ -447,8 +447,10 @@
     <Compile Include="Controllers\ChamadaController.cs" />
     <Compile Include="Controllers\FamiliaController.cs" />
     <Compile Include="Controllers\FamiliaCriancaController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\RoupasController.cs" />
     <Compile Include="Controllers\SacolasController.cs" />
+    <Compile Include="Controllers\StatusController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -470,8 +472,9 @@
     <Content Include="Views\Familia\Index.cshtml" />
     <Content Include="Views\Familia\Edit.cshtml" />
     <Content Include="Views\Familia\SeiLa.cshtml" />
-    <Content Include="Views\SharedFolder\_JackLayoutPage.cshtml" />
-    <None Include="Views\SharedFolder\_JackLayoutPage2.cshtml" />
+    <Content Include="Views\Shared\_JackLayoutPage.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <None Include="Views\Shared\_JackLayoutPage2.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -485,6 +488,7 @@
     <Folder Include="Views\Base\" />
     <Folder Include="Views\Reuniao\" />
     <Folder Include="Views\Roupa\" />
+    <Folder Include="Views\Status\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Jack.Application\Jack.Application.csproj">

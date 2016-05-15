@@ -7,14 +7,14 @@
 /// <reference path="/engine/geral/util.js" />
 
 var Status = new Object;
-
+var urlApi = 'localhost:7107';
 
 Status.LoadForChildrem = function ()
 {
     var objRet = null;
     $.ajax({
         type: 'GET',
-        url: '/api/status/StatusCrianca/',
+        url:  urlApi + '/api/status/StatusCrianca/',
         dataType: 'json',
         cache: 'false',
         contentType: 'application/json; charset=utf-8',
@@ -37,7 +37,7 @@ Status.LoadForFamily = function ()
     var objRet = null;
     $.ajax({
         type: 'GET',
-        url: '/api/status/StatusFamilia/',
+        url: urlApi + '/api/status/StatusFamilia/',
         dataType: 'json',
         cache: 'false',
         contentType: 'application/json; charset=utf-8',

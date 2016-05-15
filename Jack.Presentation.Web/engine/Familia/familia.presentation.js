@@ -13,7 +13,7 @@
 $(function ()
 {
     // Load Combo3
-    Familia.LoadStatus(ddlStatus, Status.LoadForFamily());
+    Familia.LoadStatus();
 
     //$("#txtNivel").val($("#ddlNivel").val());
     //$("#txtStatus").val($("#ddlStatus").val());

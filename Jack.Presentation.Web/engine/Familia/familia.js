@@ -14,30 +14,8 @@
 
 
 var Familia = new Object;
+var urlApi = 'http://localhost:7107';
 
-Familia.Load = function ()
-{
-    var objRet = null;
-    $.ajax({
-        type: 'GET',
-        url: '/api/familia/',
-        dataType: 'json',
-        cache: 'false',
-        contentType: 'application/json; charset=utf-8',
-        async: false,
-        success: function (data, textStatus, xhr)
-        {
-            objRet = data;
-        },
-        error: function (xhr, msg, e)
-        {
-            Mensagem.Erro(xhr.responseText);
-        }
-    });
-
-    return objRet;
-
-};
 
 Familia.Consistir = function()
 {
@@ -133,16 +111,26 @@ Familia.Delete = function (intItem)
 
 };
 
-Familia.LoadStatus = function (comboBox, listaDados)
+Familia.LoadStatus = function ()
 {
-    comboBox.innerHTML = '';
-    for (intCont = 0; intCont < listaDados.length; intCont++)
+    var objRet = null;
+    var url = '/Status/Familia/';
+    var opt = '<option value="-1">Selecione</option>';
+    $.get(url).success(function (data)
     {
-        var opt = document.createElement("option");
-        opt.value = listaDados[intCont].Codigo;
-        opt.innerHTML = listaDados[intCont].Descricao; // whatever property it has
+        var listaDados = eval(data);
+        $("#selStatus").innerHTML = '';
+        for (intCont = 0; intCont < listaDados.length; intCont++)
+        {
+            opt = opt + '<option value="' + listaDados[intCont].Codigo + '"><'
+            opt = opt + listaDados[intCont].Descricao + '>'
 
+        }
         // then append it to the select element
-        comboBox.appendChild(opt);
-    }
+        $("#selStatus").innerHTML(opt);
+    }).fail(function (xhr, msg, e)
+    {
+        Mensagem.Erro(xhr.statusText);
+    });
+
 }
