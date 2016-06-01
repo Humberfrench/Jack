@@ -47,6 +47,7 @@
     <Compile Include="DTOs\DTOAnos.cs" />
     <Compile Include="DTOs\DTOCrianca.cs" />
     <Compile Include="DTOs\DTOCriancaRepresentante.cs" />
+    <Compile Include="DTOs\DTOCriancas.cs" />
     <Compile Include="DTOs\DTOFamilia.cs" />
     <Compile Include="DTOs\DTOFamiliaChamada.cs" />
     <Compile Include="DTOs\DTOMneumonicos.cs" />

@@ -67,6 +67,7 @@ namespace Jack.DTO
                 codigo = value;
             }
         }
+
         [Display(Name = "Nome")]
         [MaxLength(100)]
         public string Nome

@@ -1,17 +1,13 @@
 ﻿@using Jack.Library.Extensions
 @model IEnumerable<Jack.DTO.DTOFamilia>
-
 @{
     ViewBag.Title = "Famílias";
-    Layout = "~/Views/SharedFolder/_JackLayoutPage.cshtml";
+    Layout = "~/Views/Shared/_JackLayoutPage.cshtml";
+    var codigo = 1;
 }
-
+<link href="~/Content/css/util.css" rel="stylesheet" />
 <h2>Lista de Familias</h2>
-
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table table-striped table-hover table-condensed">
+<table class="table table-striped table-hover table-condensed" id="tabelaDados">
     <thead>
         <tr>
             <th>
@@ -50,10 +46,172 @@
                 <td>@item.Nivel</td>
                 <td>@item.DataAtualizacao</td>
                 <td>
-                    @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }, new { @class = "btn btn-default" })&nbsp;
+                    <a href="javascript:void(0);" class="btn btn-default" onclick="Edit('@codigo')">Edit</a>
                     @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ }, new { @class = "btn btn-danger" })
                 </td>
             </tr>
         }
     </tbody>
 </table>
+
+<div class="modal fade" tabindex="-1" role="dialog" id="modalEdit">
+    <div class="modal-dialog modal-lg">
+        <section class="container-fluid form-group bg-white">
+            <h2>Edit</h2>
+
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="form-horizontal col-md-12">
+                    <h4>Edição de Familia</h4>
+                    <hr />
+                    <div class="form-group">
+                        <div class="col-md-2 control-label">Nome da Mãe</div>
+                        <div class="col-md-10">
+                            <input type="hidden" class="form-control" maxlength="50" name="Codigo" id="Codigo" />
+                            <input type="text" class="form-control col-md-10" maxlength="50" name="Nome" id="Nome" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-2 control-label">Contato</div>
+                        <div class="col-md-10">
+                            <input type="text" class="form-control col-md-10" maxlength="50" name="Contato" id="Contato" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-5 control-label">
+                            Sacolinha:
+                            <input type="checkbox" id="IsSacolinha" name="IsSacolinha" class="checkbox" />
+                        </div>
+                        <div class="col-md-5 control-label">
+                            Consistente:
+                            <input type="checkbox" id="IsConsistente" name="IsConsistente" class="checkbox" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-2 control-label">Nível</div>
+                        <div class="col-md-10">
+                            <select id="Nivel" name="Nivel">
+                                <option value="-1">Selecione</option>
+                                <optiongroup label="Eletíveis">
+                                    <option value="1">Nível 1</option>
+                                    <option value="2">Nível 2</option>
+                                    <option value="3">Nível 3</option>
+                                    <option value="4">Nível 4</option>
+                                    <option value="5">Nível 5</option>
+                                </optiongroup>
+                                <optiongroup label="Não Eletíveis">
+                                    <option value="6">Nível 6</option>
+                                    <option value="99">Inconsistente / Erro</option>
+                                </optiongroup>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-2 control-label">Status</div>
+                        <div class="col-md-10">
+                            <select id="Status" name="Status">
+                                <option value="-1">Selecione</option>
+                                <optiongroup label="Eletíveis">
+                                    <option value="1">Nível 1</option>
+                                    <option value="2">Nível 2</option>
+                                    <option value="3">Nível 3</option>
+                                    <option value="4">Nível 4</option>
+                                    <option value="5">Nível 5</option>
+                                </optiongroup>
+                                <optiongroup label="Não Eletíveis">
+                                    <option value="6">Nível 6</option>
+                                    <option value="99">Inconsistente / Erro</option>
+                                </optiongroup>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-2 control-label">Data Atualizacao</div>
+                        <div class="col-md-10">
+                            <input type="text" class="form-control col-md-6" maxlength="10" name="DataAtualizacao" id="DataAtualizacao" readonly="" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-4">
+                            <button type="button" class="btn btn-default" id="btnGravar">Gravar</button>
+                        </div>
+                        <div class="col-md-4">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+
+            }
+
+        </section>
+    </div>
+
+</div>
+
+@section HeadJavascript
+{
+    <script type="text/javascript">
+    //https://bootswatch.com/
+    $(function ()
+    {
+        $.fn.select2.defaults.set("theme", "classic");
+        $("#tabelaDados").DataTable({
+            "searching": false,
+            "autoWidth": false,
+            "lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]],
+            "language": {
+                "sEmptyTable": "Nenhum registro encontrado",
+                "sInfo": "Mostrando de _START_ até _END_ de _TOTAL_ registros",
+                "sInfoEmpty": "Mostrando 0 até 0 de 0 registros",
+                "sInfoFiltered": "(Filtrados de _MAX_ registros)",
+                "sInfoPostFix": "",
+                "sInfoThousands": ".",
+                "sLengthMenu": "_MENU_ resultados por página",
+                "sLoadingRecords": "Carregando...",
+                "sProcessing": "Processando...",
+                "sZeroRecords": "Nenhum registro encontrado",
+                "sSearchPlaceholder": "Busque pelo nome da família."
+            },
+            "classes": {
+                "sFilterInput": "form-control campo-busca",
+                "sInfo": "num-pag col-xs-12 text-right no-pad hidden-xs",
+                "sPaging": "text-center",
+                "sPageButtonActive": "active"
+            },
+            "dom": '<"top"li>rt<"bottom"p><"clear">',
+            "pagingType": "simple_numbers"
+        });
+        $('.dataTables_empty').prop('colspan', '8');
+
+        $("#Nivel").select2();
+        $("#Status").select2();
+
+        $("#btnGravar").click(function ()
+        {
+
+            //.modal('hide')
+        });
+
+
+    });
+    //"sDom": "flrtip",
+    function Edit(id)
+    {
+        $.get("/Familia/Edit",
+                { 'id': id},
+                function (data, textStatus, jqXHR)
+                {
+                    var familiaObject = eval(data);
+                    $("#Nome").val(familiaObject.Nome);
+                    $("#Codigo").val(familiaObject.Codigo);
+                    $("#Contato").val(familiaObject.Contato);
+                    $("#Nivel").val(familiaObject.Nivel);
+                });
+
+        $("#modalEdit").modal();
+    }
+    </script>
+
+}

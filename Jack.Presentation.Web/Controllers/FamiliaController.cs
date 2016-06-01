@@ -20,5 +20,17 @@ namespace Controllers.MVC
 
 		}
 
-	}
+        public JsonResult Edit(int id)
+        {
+            HttpStatusCode httpStatus;
+            var param = new Dictionary<string, object>
+            {
+                { "id", id }
+            };
+
+            var familia = GetApiMethod<List<DTOFamilia>>("/Familia", param, out httpStatus);
+
+            return Json(familia, JsonRequestBehavior.AllowGet);
+        }
+    }
 }
