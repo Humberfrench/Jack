@@ -21,7 +21,7 @@ namespace Jack.Presentation.Web
             basicStyleBundle.Include("~/Scripts/jquery-{version}.js");
             basicStyleBundle.Include("~/Scripts/toastr.min.js");
             basicStyleBundle.Include("~/Scripts/bootstrap.min.js");
-            basicStyleBundle.Include("~/Scripts/jquery.dataTables*");
+            basicStyleBundle.Include("~/Scripts/datatables/jquery.dataTables*");
             basicStyleBundle.Include("~/Scripts/select2.js");
             basicStyleBundle.Orderer = new AsIsBundleOrderer();
             bundles.Add(basicStyleBundle);
@@ -76,7 +76,10 @@ namespace Jack.Presentation.Web
         }
 
     }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 940b687e7126d6dfd5a2b8d7e93ce6c3739cff8d
 }
 
 public class AsIsBundleOrderer : IBundleOrderer

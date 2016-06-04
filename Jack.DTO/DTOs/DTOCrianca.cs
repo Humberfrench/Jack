@@ -1,5 +1,8 @@
 ﻿using Jack.Library.Extensions;
 using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
 
 namespace Jack.DTO
 {
@@ -28,9 +31,9 @@ namespace Jack.DTO
             isCriancaMaior = string.Empty;
             dataCriacao = new DateTime();
             dataAtualizacao = new DateTime();
-          }
-
-    private int codigo;
+        }
+        private int codigo;
+        private int familia;
         private string nome;
         private int idade;
         private string medidaIdade;
@@ -66,7 +69,6 @@ namespace Jack.DTO
         private string vMoralCrista;
         private string vCriancaMaior;
 
-
         public virtual int Codigo
         {
             get
@@ -78,7 +80,17 @@ namespace Jack.DTO
                 codigo = value;
             }
         }
-
+        public virtual int Familia
+        {
+            get
+            {
+                return familia;
+            }
+            set
+            {
+                familia = value;
+            }
+        }        
         public virtual string Nome
         {
             get
@@ -90,7 +102,6 @@ namespace Jack.DTO
                 nome = value;
             }
         }
-
         public virtual int Idade
         {
             get
@@ -102,7 +113,6 @@ namespace Jack.DTO
                 idade = value;
             }
         }
-
         public virtual string MedidaIdade
         {
             get
@@ -114,7 +124,6 @@ namespace Jack.DTO
                 medidaIdade = value;
             }
         }
-
         public virtual DateTime DataNascimento
         {
             get
@@ -128,7 +137,6 @@ namespace Jack.DTO
                 dataNascimentoFormated = dataNascimento.ToDateFormated();
             }
         }
-
         public virtual string Sexo
         {
             get
@@ -140,7 +148,6 @@ namespace Jack.DTO
                 sexo = value;
             }
         }
-
         public virtual int Calcado
         {
             get
@@ -152,7 +159,6 @@ namespace Jack.DTO
                 calcado = value;
             }
         }
-
         public virtual string Roupa
         {
             get
@@ -164,7 +170,6 @@ namespace Jack.DTO
                 roupa = value;
             }
         }
-
         public virtual int CalcadoPadrao
         {
             get
@@ -176,7 +181,6 @@ namespace Jack.DTO
                 calcadoPadrao = value;
             }
         }
-
         public virtual string RoupaPadrao
         {
             get
@@ -188,7 +192,6 @@ namespace Jack.DTO
                 roupaPadrao = value;
             }
         }
-
         public virtual int CodigoKit
         {
             get
@@ -200,7 +203,6 @@ namespace Jack.DTO
                 codigoKit = value;
             }
         }
-
         public virtual string Kit
         {
             get
@@ -212,7 +214,6 @@ namespace Jack.DTO
                 kit = value;
             }
         }
-
         public virtual string IsSacolinha
         {
             get
@@ -225,7 +226,6 @@ namespace Jack.DTO
                 vSacolinha = IsSacolinha.ToSimNao();
             }
         }
-
         public virtual string IsConsistente
         {
             get
@@ -238,7 +238,6 @@ namespace Jack.DTO
                 vConsistente = isConsistente.ToSimNao();
             }
         }
-
         public virtual string IsNecessidadeEspecial
         {
             get
@@ -251,7 +250,6 @@ namespace Jack.DTO
                 vNecessidadeEspecial = isNecessidadeEspecial.ToSimNao();
             }
         }
-
         public virtual string IsMoralCrista
         {
             get
@@ -264,7 +262,6 @@ namespace Jack.DTO
                 vMoralCrista = isMoralCrista.ToSimNao();
             }
         }
-
         public virtual string IsCriancaMaior
         {
             get
@@ -277,7 +274,6 @@ namespace Jack.DTO
                 vCriancaMaior = IsCriancaMaior.ToSimNao();
             }
         }
-
         public virtual string IdadeNominal
         {
             get
@@ -289,7 +285,6 @@ namespace Jack.DTO
                 idadeNominal = value;
             }
         }
-
         public virtual string IdadeNominalReduzida
         {
             get
@@ -301,7 +296,6 @@ namespace Jack.DTO
                 idadeNominalReduzida = value;
             }
         }
-
         public virtual int CodigoStatus
         {
             get
@@ -313,7 +307,6 @@ namespace Jack.DTO
                 codigoStatus = value;
             }
         }
-
         public virtual string Status
         {
             get
@@ -325,7 +318,6 @@ namespace Jack.DTO
                 status = value;
             }
         }
-
         // locais de uso local
         public virtual DateTime DataAtualizacao
         {
@@ -340,7 +332,6 @@ namespace Jack.DTO
                 dataAtualizacaoFormated = dataAtualizacao.ToDateFormated();
             }
         }
-
         public virtual DateTime DataCriacao
         {
             get
@@ -354,7 +345,6 @@ namespace Jack.DTO
                 dataCriacaoFormated = dataCriacao.ToDateFormated();
             }
         }
-
         public virtual string DataCriacaoString
         {
             get
@@ -362,7 +352,6 @@ namespace Jack.DTO
                 return dataCriacaoString;
             }
         }
-
         public virtual string DataCriacaoFormated
         {
             get
@@ -370,7 +359,6 @@ namespace Jack.DTO
                 return dataCriacaoFormated;
             }
         }
-
         public virtual string DataAtualizacaoString
         {
             get
@@ -378,7 +366,6 @@ namespace Jack.DTO
                 return dataAtualizacaoString;
             }
         }
-
         public virtual string DataAtualizacaoFormated
         {
             get
@@ -386,7 +373,6 @@ namespace Jack.DTO
                 return dataAtualizacaoFormated;
             }
         }
-
         public virtual string DataNascimentoString
         {
             get
@@ -394,7 +380,6 @@ namespace Jack.DTO
                 return dataNascimentoString;
             }
         }
-
         public virtual string DataNascimentoFormated
         {
             get
@@ -402,7 +387,6 @@ namespace Jack.DTO
                 return dataNascimentoFormated;
             }
         }
-
         public virtual string IdadeCrianca
         {
             get
@@ -411,12 +395,12 @@ namespace Jack.DTO
                 {
                     return Idade.ToString() + " Anos";
                 }
-                else {
+                else
+                {
                     return Idade.ToString() + " Meses";
                 }
             }
         }
-
         public virtual string NecessidadeEspecial
         {
             get
@@ -424,7 +408,6 @@ namespace Jack.DTO
                 return vNecessidadeEspecial;
             }
         }
-
         public virtual string MoralCrista
         {
             get
@@ -432,7 +415,6 @@ namespace Jack.DTO
                 return vMoralCrista;
             }
         }
-
         public virtual string Sacolinha
         {
             get
@@ -440,7 +422,6 @@ namespace Jack.DTO
                 return vSacolinha;
             }
         }
-
         public virtual string Consistente
         {
             get
@@ -448,7 +429,6 @@ namespace Jack.DTO
                 return vConsistente;
             }
         }
-
         public virtual string CriancaMaior
         {
             get
@@ -458,4 +438,5 @@ namespace Jack.DTO
         }
 
     }
+
 }

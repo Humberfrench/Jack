@@ -20,6 +20,7 @@ namespace Controllers.MVC
 
 		}
 
+<<<<<<< HEAD
         public ActionResult Edit(int id)
         {
             HttpStatusCode httpStatus;
@@ -32,4 +33,19 @@ namespace Controllers.MVC
         }
 
 	}
+=======
+        public JsonResult Edit(int id)
+        {
+            HttpStatusCode httpStatus;
+            var param = new Dictionary<string, object>
+            {
+                { "id", id }
+            };
+
+            var familia = GetApiMethod<List<DTOFamilia>>("/Familia", param, out httpStatus);
+
+            return Json(familia, JsonRequestBehavior.AllowGet);
+        }
+    }
+>>>>>>> 940b687e7126d6dfd5a2b8d7e93ce6c3739cff8d
 }
