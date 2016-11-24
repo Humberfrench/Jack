@@ -1,0 +1,31 @@
+﻿@using Jack.Application.ViewModel
+@model IEnumerable<CriancaViewModel>
+@{
+    Layout = null;
+}
+
+<table id="TableCriancas" class="table table-striped">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.Codigo)</th>
+            <th>@Html.DisplayNameFor(model => model.Nome)</th>
+            <th>@Html.DisplayNameFor(model => model.IdadeNominal)</th>
+            <th>@Html.DisplayNameFor(model => model.Calcado)</th>
+            <th>@Html.DisplayNameFor(model => model.Roupa)</th>
+            <th>@Html.DisplayNameFor(model => model.Status)</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Codigo</td>
+                <td>@item.Nome</td>
+                <td>@item.IdadeNominal</td>
+                <td>@item.Calcado</td>
+                <td>@item.Roupa</td>
+                <td>@item.Status.Descricao</td>
+            </tr>
+        }
+    </tbody>
+</table>

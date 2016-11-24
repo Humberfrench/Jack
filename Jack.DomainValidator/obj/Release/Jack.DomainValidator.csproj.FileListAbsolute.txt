@@ -1,0 +1,7 @@
+C:\Users\humberto.almeida.ext\Documents\Visual Studio 2013\Projects\Jack\Jack.DomainValidator\bin\Release\Jack.DomainValidator.dll
+C:\Users\humberto.almeida.ext\Documents\Visual Studio 2013\Projects\Jack\Jack.DomainValidator\bin\Release\Jack.DomainValidator.pdb
+C:\Users\humberto.almeida.ext\Documents\Visual Studio 2013\Projects\Jack\Jack.DomainValidator\bin\Release\Newtonsoft.Json.dll
+C:\Users\humberto.almeida.ext\Documents\Visual Studio 2013\Projects\Jack\Jack.DomainValidator\bin\Release\Newtonsoft.Json.xml
+C:\Users\humberto.almeida.ext\Documents\Visual Studio 2013\Projects\Jack\Jack.DomainValidator\obj\Release\Jack.DomainValidator.csprojResolveAssemblyReference.cache
+C:\Users\humberto.almeida.ext\Documents\Visual Studio 2013\Projects\Jack\Jack.DomainValidator\obj\Release\Jack.DomainValidator.dll
+C:\Users\humberto.almeida.ext\Documents\Visual Studio 2013\Projects\Jack\Jack.DomainValidator\obj\Release\Jack.DomainValidator.pdb

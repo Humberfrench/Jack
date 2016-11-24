@@ -1,0 +1,122 @@
+﻿<!-- Edição Modal -->  
+@{
+    IEnumerable<SelectListItem> statusLista = ViewBag.Status as IEnumerable<SelectListItem>;
+    IEnumerable<SelectListItem> nivelLista = ViewBag.Nivel as IEnumerable<SelectListItem>;
+
+}  
+@Styles.Render("~/plugins/awesomeCheckboxStyles")
+@Html.AntiForgeryToken()
+<div id="modalEdicao" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="gridSystemModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content animated">
+            <div class="modal-header success-element">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="gridSystemModalLabel">Famílias</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-1">&nbsp;</div>
+                    <div class="col-md-2"><label id="labelCodigo" for="Codigo">Código</label></div>
+                    <div class="col-md-8"><input type="text" id="Codigo" name="Codigo" value="" readonly="readonly" class="form-control m-b-md" /></div>
+                    <div class="col-md-1">&nbsp;</div>
+                </div>
+                <div class="row">
+                    <div class="col-md-1">&nbsp;</div>
+                    <div class="col-md-2"><label id="labelNome" for="Nome">Nome</label></div>
+                    <div class="col-md-8"><input type="text" id="Nome" name="Nome" value="" class="form-control m-b-md" placeholder="Nome da Mãe" maxlength="75" /></div>
+                    <div class="col-md-1">&nbsp;</div>
+                </div>
+                <div class="row">
+                    <div class="col-md-1">&nbsp;</div>
+                    <div class="col-md-2"><label id="labelContato" for="Contato">Contato</label></div>
+                    <div class="col-md-8"><input type="text" id="Contato" name="Contato" value="" class="form-control m-b-md" placeholder="Contato" maxlength="50" /></div>
+                    <div class="col-md-1">&nbsp;</div>
+                </div>
+                <div class="row">
+                    <div class="col-md-1">&nbsp;</div>
+                    <div class="col-md-2"><label id="labelStatus" for="Status">Status</label></div>
+                    <div class="col-md-8">
+                        @Html.DropDownList("Status", statusLista, new { @id = "Status", @class = "form-control m-b" })
+                    </div>
+                    <div class="col-md-1">&nbsp;</div>
+                </div>
+                <div class="row">
+                    <div class="col-md-1">&nbsp;</div>
+                    <div class="col-md-2"><label id="labelNivel" for="Nivel">Nivel</label></div>
+                    <div class="col-md-8">
+                        @Html.DropDownList("Nivel", nivelLista, new { @id = "Nivel", @class = "form-control m-b" })
+                    </div>
+                    <div class="col-md-1">&nbsp;</div>
+                </div>
+                <div class="row">
+                    <div class="col-md-1">&nbsp;</div>
+                    <div class="col-md-2">
+                        <div class="checkbox checkbox-primary">
+                            <input type="checkbox" name="Consistente" id="Consistente">
+                            <label id="labelConsistente" for="Consistente">Consistente?</label>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="checkbox checkbox-primary">
+                            <input type="checkbox" name="Sacolinha" id="Sacolinha">
+                            <label id="labelSacolinha" for="Sacolinha">Sacolinha?</label>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="checkbox checkbox-primary" data-toggle="tooltip" data-placement="top" title="Família que ganha presença sem precisar comparecer a Reunião.">
+                            <input type="checkbox" name="PresencaJustificada" id="PresencaJustificada">
+                            <label id="labelPresencaJustificada" for="PresencaJustificada">Presenca Justificada</label>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="checkbox checkbox-primary" data-toggle="tooltip" data-placement="top" title="Se checado este valor, é permitido mais que o limite máximo de crianças por família.">
+                            <input type="checkbox" name="PermiteExcedente" id="PermiteExcedente">
+                            <label id="labelPermiteExcedente" for="PermiteExcedente">Permite Excedentes</label>
+                        </div>
+                    </div>
+                    <div class="col-md-1">&nbsp;</div>
+                </div>
+                <div class="row">
+                    <div class="col-md-1">&nbsp;</div>
+                    <div class="col-md-2">
+                        <div class="checkbox checkbox-primary">
+                            <input type="checkbox" name="Fake" id="Fake">
+                            <label id="labelFake" for="Fake">Fake</label>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="checkbox checkbox-primary" data-toggle="tooltip" data-placement="top" title="Ao Faltar em uma entrega ela recebe esta marca negativa, na segunda falta é excluída.">
+                            <input type="checkbox" name="labelBlacklistPasso1" id="BlacklistPasso1">
+                            <label id="labelBlacklistPasso1" for="BlacklistPasso1">Faltou Uma Entrega?</label>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="checkbox checkbox-primary" data-toggle="tooltip" data-placement="top" title="Familia que é Removida de Qualquer entrega após segunda falta. Campo preenchido quando apenas já preencheu a falta na primeira entrega.">
+                            <input type="checkbox" name="BlacklistPasso2" id="BlacklistPasso2" disabled="disabled">
+                            <label id="labelBlacklistPasso2" for="BlacklistPasso2">Faltou Segunda Entrega?</label>
+                        </div>
+                    </div>
+                    <div class="col-md-1">&nbsp;</div>
+                </div> 
+                <div class="row">
+                    <div class="col-md-1">&nbsp;</div>
+                    <div class="col-md-2"><label id="labelDataCriacao" for="DataCriacao">Data Inclusão</label></div>
+                    <div class="col-md-3"><input type="text" id="DataCriacao" name="DataCriacao" class="form-control m-b-md" readonly="readonly" /></div>
+                    <div class="col-md-2"><label id="labelDataAtualizacao" for="DataAtualizacao">Data Alteração</label></div>
+                    <div class="col-md-3"><input type="text" id="DataAtualizacao" name="DataAtualizacao" class="form-control m-b-md" readonly="readonly" /></div>
+                    <div class="col-md-1">&nbsp;</div>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">
+                    <i class="glyphicon glyphicon-remove"></i>Fechar
+                </button>
+                <button type="button" class="btn btn-primary" id="Gravar">
+                    <i class="glyphicon glyphicon-floppy-disk"></i>Gravar
+                </button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
