@@ -6,17 +6,17 @@
 @{
     ViewBag.Title = "Família";
     Layout = "~/Views/Shared/_Layout2.cshtml";
-    var disabled = "";
+    var disabledExc = "";
 }
 
 <input type="hidden" name="URLObterTodos" id="URLObterTodos" value="@Url.Action("Index")" />
-<input type="hidden" name="URLFiltrar" id="URLFiltrar" value="@Url.Action("Filtrar")" />
 <input type="hidden" name="URLEdit" id="URLEdit" value="@Url.Action("Edit", new { id = UrlParameter.Optional })" />
 <input type="hidden" name="URLGravar" id="URLGravar" value="@Url.Action("Gravar")" />
 <input type="hidden" name="URLExcluir" id="URLExcluir" value="@Url.Action("Excluir")" />
 <input type="hidden" name="URLObterCriancas" id="URLObterCriancas" value="@Url.Action("ObterCriancas")"  />
 <input type="hidden" name="URLObterRepresentantes" id="URLObterRepresentantes" value="@Url.Action("ObterRepresentantes")" />
 <input type="hidden" name="URLObterPresencas" id="URLObterPresencas" value="@Url.Action("ObterPresencas")" />
+<input type="hidden" name="URLProcessar" id="URLProcessar" value="@Url.Action("Processar")" />
 
 <div class="wrapper wrapper-content animated fadeInRight">
     <div class="row">
@@ -34,22 +34,19 @@
                     </div>
                 </div>
                 <div class="ibox-content">
-                    <div class="row col-lg-12">
-                        <div class="row col-lg-10">Pesquisar</div>
-                        <div class="row col-lg-2">&nbsp;</div>
-                    </div>
-                    <div class="row col-lg-12">
-                        <div class="row col-lg-10 col-md-'0'">
+                    <div class="row">
+                        <div class="row col-lg-1">&nbsp;</div>
+                        <div class="row col-lg-9">
+                            <label id="labelPesquisarNome" for="PesquisarNome">Pesquisar</label> 
                             <input type="text" class="form-control" id="PesquisarNome" name="PesquisarNome" placeholder="Digite o nome ou parte dele" />
                         </div>
                         <div class="row col-lg-1">&nbsp;</div>
                         <div class="row col-lg-1">
-                            <a href="#" id="Pesquisar" class="btn btn-primary btn-md" data-toggle="tooltip" data-placement="top" title="Pesquisar"><i class="glyphicon glyphicon-search"></i></a>
+                            <br/><a href="#" id="Pesquisar" class="btn btn-primary btn-md" data-toggle="tooltip" data-placement="top" title="Pesquisar"><i class="glyphicon glyphicon-search"></i></a>
                         </div>
                     </div>
-
-                    <div class="row col-lg-12 col-md-12">&nbsp;</div>
-
+                </div>
+                <div class="ibox-content">
                     <table class="table table-striped" id="TableFamilia">
                         <thead>
                             <tr>
@@ -79,12 +76,24 @@
                                         @Html.DisplayFor(modelItem => item.Nivel.Codigo)
                                     </td>
                                     <td style="text-align:center;">
+                                        @if (item.QuantidadePresencas > 0)
+                                        {
+                                            disabledExc = "disabled=disabled";
+                                        }
                                         @Html.DisplayFor(modelItem => item.QuantidadePresencas)
                                     </td>
                                     <td style="text-align:center;">
+                                        @if (item.QuantidadeCriancas > 0)
+                                        {
+                                            disabledExc = "disabled=disabled";
+                                        }
                                         @Html.DisplayFor(modelItem => item.QuantidadeCriancas)
                                     </td>
                                     <td style="text-align:center;">
+                                        @if (item.QuantidadeFamiliasRepresentadas > 0)
+                                        {
+                                            disabledExc = "disabled=disabled";
+                                        }
                                         @Html.DisplayFor(modelItem => item.QuantidadeFamiliasRepresentadas)
                                     </td>
                                     <td>
@@ -94,19 +103,22 @@
                                         @Html.DisplayFor(modelItem => item.Status.Descricao)
                                     </td>
                                     <td style="text-align:right;">
-                                        <button type="button" class="btn btn-primary btn-sm" onclick="return Familia.Representantes('@item.Codigo')">
+                                        <button type="button" class="btn btn-info btn-sm" onclick="return Familia.Processar('@item.Codigo')">
+                                            <i class="glyphicon glyphicon-flag" data-toggle="tooltip" data-placement="top" title="Processar Dados da Família"></i>
+                                        </button>
+                                        <button type="button" class="btn warning btn-sm" onclick="return Familia.Representantes('@item.Codigo')">
                                             <i class="fa fa-group" data-toggle="tooltip" data-placement="top" title="Representantes"></i>
                                         </button>
-                                        <button type="button" class="btn btn-primary btn-sm" onclick="return Familia.Criancas('@item.Codigo')">
+                                        <button type="button" class="btn btn-warning btn-sm" onclick="return Familia.Criancas('@item.Codigo')">
                                             <i class="fa fa-child" data-toggle="tooltip" data-placement="top" title="Crianças"></i>
                                         </button>
-                                        <button type="button" class="btn btn-primary btn-sm" onclick="return Familia.Presencas('@item.Codigo')">
+                                        <button type="button" class="btn btn-warning btn-sm" onclick="return Familia.Presencas('@item.Codigo')">
                                             <i class="glyphicon glyphicon-calendar" data-toggle="tooltip" data-placement="top" title="Datas de Presenças"></i>
                                         </button>
-                                        <button type="button" class="btn btn-primary btn-sm" onclick="return Familia.Editar('@item.Codigo')">
+                                        <button type="button" class="btn btn-success btn-sm" onclick="return Familia.Editar('@item.Codigo')">
                                             <i class="glyphicon glyphicon-pencil" data-toggle="tooltip" data-placement="top" title="Editar Registro"></i>
                                         </button>
-                                        <button type="button" id="Excluir" name="Excluir" class="btn btn-danger btn-sm" onclick="return Familia.ExcluirConfirmar('@item.Codigo','@item.Nome')" @disabled>
+                                        <button type="button" id="Excluir" name="Excluir" class="btn btn-danger btn-sm" onclick="return Familia.ExcluirConfirmar('@item.Codigo','@item.Nome')" @disabledExc>
                                             <i class=" glyphicon glyphicon-trash" data-toggle="tooltip" data-placement="top" title="Excluir Registro">
                                             </i>
                                         </button>

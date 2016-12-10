@@ -67,6 +67,7 @@
     <Compile Include="Interfaces\IColaboradorServiceApp.cs" />
     <Compile Include="Interfaces\IColaboradorCriancaServiceApp.cs" />
     <Compile Include="Interfaces\IFeriadoServiceApp.cs" />
+    <Compile Include="Interfaces\IParametroServiceApp.cs" />
     <Compile Include="Interfaces\IServiceBaseApp.cs" />
     <Compile Include="Interfaces\IKitServiceApp.cs" />
     <Compile Include="Interfaces\IKitItemServiceApp.cs" />
@@ -81,6 +82,7 @@
     <Compile Include="Interfaces\IStatusCriancaServiceApp.cs" />
     <Compile Include="Interfaces\ITipoItemServiceApp.cs" />
     <Compile Include="Interfaces\INivelServiceApp.cs" />
+    <Compile Include="ParametroServiceApp.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="CalcadoServiceApp.cs" />
     <Compile Include="ColaboradorServiceApp.cs" />

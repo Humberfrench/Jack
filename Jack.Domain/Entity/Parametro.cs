@@ -29,6 +29,7 @@ namespace Jack.Domain.Entity
             primeiroSabado = 0;
             segundoSabado = 0;
             terceiroSabado = 0;
+            anoCorrente = 0;
         }
 
         private int codigo;
@@ -40,6 +41,7 @@ namespace Jack.Domain.Entity
         private int primeiroSabado;
         private int segundoSabado;
         private int terceiroSabado;
+        private int anoCorrente;
 
         public virtual int IdadeLimite
         {
@@ -134,6 +136,18 @@ namespace Jack.Domain.Entity
             set
             {
                 terceiroSabado = value;
+            }
+        }
+
+        public virtual int AnoCorrente
+        {
+            get
+            {
+                return anoCorrente;
+            }
+            set
+            {
+                anoCorrente = value;
             }
         }
 

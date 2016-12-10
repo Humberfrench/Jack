@@ -5,6 +5,7 @@ using Jack.Domain.Entity;
 using Jack.Domain.Enum;
 using Jack.Domain.Interfaces.Repository;
 using Jack.Domain.Interfaces.Services;
+using Jack.Domain.ObjectValue;
 using Jack.DomainValidator;
 using Jack.Extensions;
 
@@ -15,6 +16,7 @@ namespace Jack.Domain.Services
     {
 
         private readonly ICriancaRepository repCrianca;
+        private readonly IFamiliaRepository repFamilia;
         private readonly IStatusCriancaRepository repStatus;
         private readonly IKitRepository repKit;
         private readonly ICalcadoRepository repCalcado;
@@ -24,6 +26,7 @@ namespace Jack.Domain.Services
         private readonly ValidationResult validationResult = new ValidationResult();
 
         public CriancaService(ICriancaRepository repCrianca,
+                              IFamiliaRepository repFamilia,
                               IStatusCriancaRepository repStatus,
                               IKitRepository repKit,
                               ICalcadoRepository repCalcado,
@@ -32,6 +35,7 @@ namespace Jack.Domain.Services
             : base(repCrianca)
         {
             this.repCrianca = repCrianca;
+            this.repFamilia = repFamilia;
             this.repStatus = repStatus;
             this.repKit = repKit;
             this.repCalcado = repCalcado;
@@ -46,6 +50,13 @@ namespace Jack.Domain.Services
 
         public ValidationResult Gravar(Crianca item)
         {
+            //acerto de dados
+            item.Familia = repFamilia.ObterPorId(item.Familia.Codigo);
+            item.Status = repStatus.ObterPorId(item.Status.Codigo);
+            item.Kit = repKit.ObterPorId(item.Kit.Codigo);
+            item.DataAtualizacao = DateTime.Now;
+            item.DataCriacao = ObterPorId(item.Codigo).DataCriacao;
+            
             if (item.Codigo == 0)
             {
                 Adicionar(item);
@@ -56,6 +67,24 @@ namespace Jack.Domain.Services
             }
 
             return validationResult;
+        }
+
+        public ValidationResult GravarVestimentas(int crianca, int calcado, string roupa)
+        {
+            var item = repCrianca.ObterPorId(crianca);
+
+            if (item == null)
+            {
+                validationResult.Add(new ValidationError("Registro não encontrado"));
+                return validationResult;
+            }
+            item.Roupa = roupa;
+            item.Calcado = calcado;
+
+            Atualizar(item);
+            
+            return validationResult;
+
         }
 
         public ValidationResult Excluir(int id)
@@ -86,8 +115,8 @@ namespace Jack.Domain.Services
 
         public bool ValidaRoupa(string sexo, int idade, string medidaIdade, bool isCriancaGrande, string roupa)
         {
-            var roupaDado = repRoupa.ObterPorSexoIdade(sexo, idade, medidaIdade);
-            var roupaDadoIdadeAcima = repRoupa.ObterPorSexoIdade(sexo, idade + 1, medidaIdade);
+            var roupaDado = repRoupa.ObterPorIdade(idade, medidaIdade);
+            var roupaDadoIdadeAcima = repRoupa.ObterPorIdade(idade + 1, medidaIdade);
 
             string roupaPadrao;
             string roupaPadraoIdadeAcima;
@@ -132,7 +161,15 @@ namespace Jack.Domain.Services
 
         public Crianca AtualizaCrianca(Crianca crianca, bool gravar = true)
         {
-            var valCrianca = ValidaCrianca(crianca.DataNascimento, crianca.Sexo, crianca.NecessidadeEspecial);
+            var valCrianca = ValidaCrianca(
+                new CriancaValue
+                {
+                    DataNascimento = crianca.DataNascimento, 
+                    Sexo = crianca.Sexo, 
+                    NescessidadeEspecial = crianca.NecessidadeEspecial ,
+                    CadastroNovo = false
+                }
+                );
             crianca.Idade = valCrianca.Idade;
             crianca.IdadeNominal = valCrianca.IdadeNominal;
             crianca.IdadeNominalReduzida = valCrianca.IdadeNominalReduzida;
@@ -167,18 +204,44 @@ namespace Jack.Domain.Services
             return crianca;
         }
 
-        public Crianca ValidaCrianca(DateTime dataNasc, string sexo, bool cadastroNovo = false, bool necessidadeEspecial = false)
+        public Dictionary<string, string> ObterVestimentaPadrao(int idade, string medidaIdade, string sexo, bool isCriancaGrande = false)
+        {
+            var calcadoPadrao = repCalcado.ObterPorSexoIdade(sexo, idade, medidaIdade).ToString();
+            var roupaPadrao = repRoupa.ObterPorIdade(idade, medidaIdade);
+
+            var dicReturn = new Dictionary<string, string>
+            {
+                {"calcado", calcadoPadrao}, 
+                {"roupa", isCriancaGrande ? roupaPadrao.RoupaGrande : roupaPadrao.Roupa}
+            };
+
+            return dicReturn;
+
+        }
+
+        public IEnumerable<CriancaVestimenta> ObterDadosCriancaVestimentas(int familia)
+        {
+            var criancas = repCrianca.ObterDadosCriancaVestimentas(familia).ToList();
+
+            criancas.ForEach(cr => cr.CalcadoPadrao = repCalcado.ObterPorSexoIdade(cr.Sexo, cr.Idade, cr.MedidaIdade));
+            criancas.ForEach(cr => cr.RoupaPadrao = repRoupa.ObterPorIdade(cr.Idade, cr.MedidaIdade, cr.CriancaGrande));
+
+            return criancas;
+        }
+
+        public Crianca ValidaCrianca(CriancaValue criancaValue)
         {
             var crianca = new Crianca
             {
-                DataNascimento = dataNasc,
-                Sexo = sexo,
-                NecessidadeEspecial = necessidadeEspecial
+                DataNascimento = criancaValue.DataNascimento,
+                Sexo = criancaValue.Sexo,
+                NecessidadeEspecial = criancaValue.NescessidadeEspecial,
+                CriancaGrande = criancaValue.CriancaGrande
             };
             crianca.CalculaIdade();
             crianca.Kit = repKit.ObterKitPorIdade(crianca.Idade, crianca.Sexo, crianca.NecessidadeEspecial);
 
-            if (cadastroNovo)
+            if (criancaValue.CadastroNovo)
             {
                 crianca.Status = repStatus.ObterPorId(EnumStatusCrianca.CadastroNovo.Int());
                 AjustaRoupaseCalcado(ref crianca);
@@ -204,14 +267,11 @@ namespace Jack.Domain.Services
 
         private void AjustaRoupaseCalcado(ref Crianca crianca)
         {
-            var obterRoupa = repRoupa.ObterPorSexoIdade(crianca.Sexo, crianca.Idade, crianca.MedidaIdade);
+            var obterRoupa = repRoupa.ObterPorIdade(crianca.Idade, crianca.MedidaIdade);
             crianca.Calcado = repCalcado.ObterPorSexoIdade(crianca.Sexo, crianca.Idade, crianca.MedidaIdade);
+            crianca.Roupa = obterRoupa.Roupa;
 
             if (crianca.CriancaGrande)
-            {
-                crianca.Roupa = obterRoupa.Roupa;
-            }
-            else
             {
                 crianca.Roupa = obterRoupa.RoupaGrande;
             }

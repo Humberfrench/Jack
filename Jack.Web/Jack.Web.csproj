@@ -67,10 +67,6 @@
       <HintPath>..\packages\Ninject.MVC5.3.2.1.0\lib\net45-full\Ninject.Web.Mvc.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="RestSharp, Version=105.2.3.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\RestSharp.105.2.3\lib\net452\RestSharp.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -1285,7 +1281,9 @@
     <None Include="Properties\PublishProfiles\1.pubxml" />
     <None Include="Properties\PublishProfiles\GerenciarTeste.pubxml" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
+    <Content Include="Scripts\Crianca\acertoVestimenta.js" />
     <Content Include="Scripts\Crianca\main.js" />
+    <Content Include="Scripts\Presenca\lista.js" />
     <Content Include="Scripts\DataTables\autoFill.bootstrap.js" />
     <Content Include="Scripts\DataTables\autoFill.bootstrap.min.js" />
     <Content Include="Scripts\DataTables\autoFill.bootstrap4.js" />
@@ -1367,6 +1365,7 @@
     <Content Include="Scripts\jquery-2.1.1.js" />
     <Content Include="Scripts\jquery-2.1.1.min.js" />
     <Content Include="Scripts\Familia\main.js" />
+    <Content Include="Scripts\Presenca\main.js" />
     <Content Include="Scripts\TipoItem\main.js" />
     <Content Include="Scripts\locales\bootstrap-datepicker.ar.min.js" />
     <Content Include="Scripts\locales\bootstrap-datepicker.az.min.js" />
@@ -1872,6 +1871,8 @@
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\CriancaController.cs" />
     <Compile Include="Controllers\FamiliaController.cs" />
+    <Compile Include="Controllers\ParametroController.cs" />
+    <Compile Include="Controllers\PresencaController.cs" />
     <Compile Include="Controllers\TipoItemController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\SiteController.cs" />
@@ -1967,6 +1968,15 @@
     <Content Include="Views\Familia\Criancas.cshtml" />
     <Content Include="Views\Familia\PopDados.cshtml" />
     <Content Include="Views\Crianca\Index.cshtml" />
+    <Content Include="Views\Crianca\Edicao.cshtml" />
+    <Content Include="Views\Crianca\Exclusao.cshtml" />
+    <Content Include="Views\Parametro\Index.cshtml" />
+    <Content Include="Views\Crianca\AcertoVestimentas.cshtml" />
+    <Content Include="Views\Site\Alertar.cshtml" />
+    <Content Include="Views\Crianca\Mensagem.cshtml" />
+    <Content Include="Views\Presenca\ListaPresenca.cshtml" />
+    <Content Include="Views\Presenca\Index.cshtml" />
+    <Content Include="Views\Presenca\ListaFamilias.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

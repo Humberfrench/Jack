@@ -1,0 +1,117 @@
+﻿@using Jack.Application.ViewModel
+@using Jack.Extensions
+@model IEnumerable<PresencaViewModel>
+
+@Styles.Render("~/Content/plugins/dataTables/dataTablesStyles")
+@Styles.Render("~/plugins/awesomeCheckboxStyles")
+@Styles.Render("~/plugins/chartistStyles")
+@{
+    ViewBag.Title = "Lista de Presenças das Famílias";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+    IEnumerable<SelectListItem> familiaLista = ViewBag.Familia as IEnumerable<SelectListItem>;
+}
+
+<input type="hidden" name="URLObterTodos" id="URLObterTodos" value="@Url.Action("Index")" />
+<input type="hidden" name="URLEdit" id="URLEdit" value="@Url.Action("Edit", new { id = UrlParameter.Optional })" />
+<input type="hidden" name="URLGravar" id="URLGravar" value="@Url.Action("Gravar")" />
+<input type="hidden" name="URLObterDadosPresenca" id="URLObterDadosPresenca" value="@Url.Action("ObterDadosPresenca")" />
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>Lista de Presenças das Famílias</h5>
+                    <div class="ibox-tools"></div>
+                </div>
+                <div class="ibox-content">
+                    <div class="row">
+                        <div class="col-lg-5">
+                            <label id="labelFamilia" for="Familia">Família</label>
+                            @Html.DropDownList("Familia", familiaLista, new { @id = "Familia", @class = "form-control m-b" })
+                            <input type="hidden" value="@ViewBag.FamiliaId" id="CodigoFamilia" name="CodigoFamilia" />
+                            <input type="hidden" value="@ViewBag.AnoPresenca" id="AnoPresenca" name="AnoPresenca" />
+                        </div>
+                        <div class="col-lg-2">
+                            <label id="labelAno" for="Ano">Ano</label>
+                            <select name="Ano" id="Ano" class="form-control m-b">
+                                <option value="0">Ano</option>
+                                <option value="2014">2014</option>
+                                <option value="2015">2015</option>
+                                <option value="2016">2016</option>
+                                <option value="2017">2017</option>
+                                <option value="2018">2018</option>
+                                <option value="2019">2019</option>
+                                <option value="2020">2020</option>
+                                <option value="2021">2021</option>
+                                <option value="2022">2022</option>
+                            </select>
+                        </div>
+                        <div class="col-lg-1" style="text-align:center;">
+                            <br />
+                            <button id="Pesquisar" class="btn btn-primary btn-md" data-toggle="tooltip" data-placement="top" title="Pesquisar" onclick="return Presenca.Pesquisar();">
+                                <i class="glyphicon glyphicon-search"></i>
+                            </button>
+                        </div>
+                        <div class="col-lg-1">
+                            <label id="labelCriancas" for="Criancas">Crianças</label>
+                            <input type="text" name="Criancas" id="Criancas" readonly="readonly" class="form-control m-b" value="@ViewBag.Criancas" style="width:75%;">
+                        </div>
+                        <div class="col-lg-1">
+                            <label id="labelPresencas" for="Presencas">Presenças</label>
+                            <input type="text" name="Presencas" id="Presencas" readonly="readonly" class="form-control m-b" value="@ViewBag.Presencas" style="width:75%;">
+                        </div>
+                        <div class="col-lg-1">
+                            <label id="labelReunioes" for="Presencas">Reuniões</label>
+                            <input type="text" name="Reunioes" id="Reunioes" readonly="readonly" class="form-control m-b" value="@ViewBag.Reunioes" style="width:75%;">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-2">
+                            <label id="labelPercentualCriancas" for="Criancas">% de Crianças</label>
+                            <input type="text" name="PercentualCriancas" id="PercentualCriancas" readonly="readonly" class=".dial" value="@ViewBag.PercentualCriancas">
+                        </div>
+                        <div class="col-lg-2">
+                            <label id="labelPercentualPresencas" for="Criancas">% de Presenças</label>
+                            <input type="text" name="PercentualPresencas" id="PercentualPresencas" readonly="readonly" class=".dial" value="@ViewBag.PercentualReunioes">
+                        </div>
+                        <div class="col-lg-8" style="height:150px;">
+                            <div class="ct-chart ct-perfect-fourth" style="width:600px; height:150px"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="ibox">
+                    <div class="ibox-title">Presenças</div>
+                    <div class="ibox-content">
+                        <div class="row">
+                            @foreach (var item in Model)
+                            {
+                                <div class="col-md-3">
+                                    <div class="panel panel-info">
+                                        <div class="panel-heading">
+                                            <i class="fa fa-info-circle"></i> Presença
+                                        </div>
+                                        <div class="panel-body">
+                                            <p>Reunião: @item.Reuniao.Data.ToDateFormated()</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts
+{
+    @Scripts.Render("~/plugins/dataTables")
+    @Scripts.Render("~/plugins/dataPicker")
+    @Scripts.Render("~/plugins/Moment")
+    @Scripts.Render("~/plugins/knob")
+    @Scripts.Render("~/plugins/chartist")
+    @Scripts.Render("~/script/Presenca/lista")
+}
+
+

@@ -12,6 +12,7 @@ Familia.URLExcluir = '';
 Familia.URLObterCriancas = '';
 Familia.URLObterRepresentantes = '';
 Familia.URLObterPresencas = '';
+Familia.URLProcessar = '';
 
 $(document).ready(function ()
 {
@@ -24,6 +25,7 @@ $(document).ready(function ()
     Familia.URLObterCriancas = $("#URLObterCriancas").val();
     Familia.URLObterPresencas = $("#URLObterPresencas").val();
     Familia.URLObterRepresentantes = $("#URLObterRepresentantes").val();
+    Familia.URLProcessar = $("#URLProcessar").val();
 
     $("#Pesquisar").click(function ()
     {
@@ -133,15 +135,18 @@ Familia.PesquisarTodos = function ()
 
 Familia.LimparForm = function ()
 {
-    $("#Codigo").val('');
+    $("#divReuniao").show();
+    $("#Codigo").val('0');
     $("#Nome").val('');
     $("#Contato").val('');
     $("#DataAtualizacao").val('');
     $("#DataCriacao").val('');
-    $("#Nivel").val('');
-    $("#Status").val('');
-    $("#Nivel").prop('disabled', '');
-    $("#Status").prop('disabled', '');
+
+    $("#Nivel").prop('disabled', 'disabled');
+    $("#Nivel").val('99');
+    $("#Status").prop('disabled', 'disabled');
+    $("#Status").val('14');
+
     $("#Sacolinha").prop('checked', '');
     $("#Consistente").prop('checked', '');
     $("#PermiteExcedente").prop('checked', '');
@@ -167,7 +172,7 @@ Familia.Editar = function (codigo)
         var dataValueInc = '';
 
         Familia.LimparForm();
-
+        $("#divReuniao").hide();
         $("#Codigo").val(codigo);
         $("#Nome").val(dataObj.Nome);
         $("#Contato").val(dataObj.Contato);
@@ -285,6 +290,17 @@ Familia.Gravar = function ()
         opcoes.dadoEnvio.BlackListPasso1 = $("#BlackListPasso1").prop('checked');
         opcoes.dadoEnvio.BlackListPasso2 = $("#BlackListPasso2").prop('checked');
 
+        var reuniao = 0;
+        if ($("#Codigo").val() === '0')
+        {
+            if ($("#MarcarPresenca").prop('checked'))
+            {
+                reuniao = $("#Reunioes").val();
+            }
+        }
+
+        opcoes.dadoEnvio.reuniao = reuniao;
+
         opcoes.type = 'POST';
         opcoes.async = false;
 
@@ -340,7 +356,6 @@ Familia.Consistir = function (nome)
     return true;
 }
 
-
 Familia.Criancas = function (codigo)
 {
     $("#divDados").html('');
@@ -361,7 +376,6 @@ Familia.Criancas = function (codigo)
 
     Ajax.Get(opcoes);
 }
-
 
 Familia.Presencas = function (codigo)
 {
@@ -404,6 +418,38 @@ Familia.Representantes = function (codigo)
 
     Ajax.Get(opcoes);
 }
+
+Familia.Processar = function (codigo)
+{
+    var opcoes = new Object;
+    opcoes.url = Familia.URLProcessar;
+
+    opcoes.callBackSuccess = function (response)
+    {
+        var dataObj = eval(response);
+        if (dataObj.Erro)
+        {
+            Mensagens.Erro(dataObj.Mensagem);
+        }
+        else
+        {
+            Mensagens.Sucesso(dataObj.Mensagem);
+            setTimeout(function ()
+            {
+                location.reload();
+            }, 1500);
+        }
+    };
+
+    opcoes.dadoEnvio = new Object;
+    opcoes.dadoEnvio.id = codigo;
+    opcoes.type = 'POST';
+    opcoes.async = false;
+
+    Ajax.Execute(opcoes);
+
+}
+
 
 Familia.DefaultDefinitionOfTable = {
     "bSort": false,

@@ -301,9 +301,9 @@ namespace Jack.Domain.Entity
 
         public virtual bool TemDocumentacaoTodasCriancas()
         {
-            var criancasMaiores = Criancas.Where(c => !c.DocumentoOk).ToList().Count;
+            var criancasDocoK = Criancas.Where(c => c.DocumentoOk).ToList().Count;
             var totalCriancas = Criancas.ToList().Count;
-            return (criancasMaiores == totalCriancas);
+            return (criancasDocoK == totalCriancas);
         }
 
         public virtual bool FamiliaSemPresenca()

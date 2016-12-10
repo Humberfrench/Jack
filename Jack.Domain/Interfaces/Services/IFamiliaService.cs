@@ -8,9 +8,11 @@ namespace Jack.Domain.Interfaces.Services
     {
         IEnumerable<Familia> Filtrar(string nome);
         ValidationResult Gravar(Familia entity);
+        ValidationResult Gravar(Familia entity, int reuniao);
         ValidationResult Excluir(int id);
         void AtualizarFamilias();
         Familia AtualizarFamilia(Familia familia, bool gravar = true);
-        void AtualizaNivel(ref Familia familia, bool gravar = true);
+        ValidationResult AtualizarFamilia(int id, bool gravar = true);
+        void AtualizaNivel(ref Familia familia);
     }
 }

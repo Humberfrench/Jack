@@ -1,4 +1,4 @@
-﻿<!-- Edição Modal -->    
+﻿<!-- Edição Modal -->
 @Styles.Render("~/plugins/awesomeCheckboxStyles")
 @Html.AntiForgeryToken()
 <div id="modalEdicao" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="gridSystemModalLabel">
@@ -11,16 +11,11 @@
             <div class="modal-body">
                 <div class="row">
                     <div class="col-md-1">&nbsp;</div>
-                    <div class="col-md-2"><label id="labelCodigo" for="Codigo">Código</label></div>
-                    <div class="col-md-1">&nbsp;</div>
-                    <div class="col-md-7"><input type="text" id="Codigo" name="Codigo" value="" readonly="readonly" class="form-control m-b-md" /></div>
-                    <div class="col-md-1">&nbsp;</div>
-                </div>
-                <div class="row">
-                    <div class="col-md-1">&nbsp;</div>
-                    <div class="col-md-2"><label id="labelDescricao" for="Descricao">Descrição</label></div>
-                    <div class="col-md-1">&nbsp;</div>
-                    <div class="col-md-7"><input type="text" id="Descricao" name="Descricao" value="" class="form-control m-b-md" placeholder="Descricao" /></div>
+                    <div class="col-md-10">
+                        <label id="labelDescricao" for="Descricao">Descrição</label>
+                        <input type="hidden" id="Codigo" name="Codigo" value="" readonly="readonly" class="form-control m-b-md" />
+                        <input type="text" id="Descricao" name="Descricao" value="" class="form-control m-b-md" placeholder="Descricao" />
+                    </div>
                     <div class="col-md-1">&nbsp;</div>
                 </div>
                 <div class="row">
@@ -45,4 +40,3 @@
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
-

@@ -17,18 +17,21 @@ namespace Jack.Domain.Services
         private readonly INivelRepository repNivel;
         private readonly IStatusFamiliaRepository repStatus;
         private readonly IReuniaoRepository repReuniao;
+        private readonly IPresencaRepository repPresenca;
         private readonly ValidationResult validationResult = new ValidationResult();
 
         public FamiliaService(IFamiliaRepository repFamilia,
                               INivelRepository repNivel,
                               IStatusFamiliaRepository repStatus,
-                              IReuniaoRepository repReuniao)
+                              IReuniaoRepository repReuniao,
+                              IPresencaRepository repPresenca)
             : base(repFamilia)
         {
             this.repFamilia = repFamilia;
             this.repNivel = repNivel;
             this.repStatus = repStatus;
             this.repReuniao = repReuniao;
+            this.repPresenca = repPresenca;
         }
         public IEnumerable<Familia> Filtrar(string nome)
         {
@@ -49,7 +52,7 @@ namespace Jack.Domain.Services
                 var familia = ObterPorId(item.Codigo);
                 if (item.DataCriacao.Year == 1)
                 {
-                    item.DataCriacao = DateTime.Now;    
+                    item.DataCriacao = DateTime.Now;
                 }
                 item.DataAtualizacao = DateTime.Now;
                 item.Criancas = familia.Criancas;
@@ -58,6 +61,31 @@ namespace Jack.Domain.Services
                 item.Presencas = familia.Presencas;
                 Atualizar(item);
             }
+
+            return validationResult;
+        }
+
+        public ValidationResult Gravar(Familia item, int reuniao)
+        {
+            var reuniaoPresenca = repReuniao.ObterPorId(reuniao);
+
+            if (reuniaoPresenca == null)
+            {
+                validationResult.Add(new ValidationError("Reunião não encontrada"));
+                return validationResult;
+            } 
+            
+            item.DataCriacao = DateTime.Now;
+            item.DataAtualizacao = DateTime.Now;
+            Adicionar(item);
+
+            var presenca = new Presenca
+            {
+                Familia = item,
+                Reuniao = reuniaoPresenca
+            };
+
+            repPresenca.Adicionar(presenca);
 
             return validationResult;
         }
@@ -87,15 +115,29 @@ namespace Jack.Domain.Services
                 AtualizarFamilia(familiaItem, true);
             }
         }
+        public ValidationResult AtualizarFamilia(int id, bool gravar = true)
+        {
+            var item = ObterPorId(id);
 
+            if (item == null)
+            {
+                validationResult.Add(new ValidationError("Família não encontrada"));
+                return validationResult;
+            }
+
+            AtualizarFamilia(item, gravar);
+
+            return validationResult;
+
+        }
         public Familia AtualizarFamilia(Familia familia, bool gravar = true)
         {
             // sem crianças
             if (!familia.TemCriancas())
             {
                 AtualizarFamiliaNivel99(ref familia, EnumStatusFamilia.FamiliaSemCrianca);
-                if (gravar) 
-                { 
+                if (gravar)
+                {
                     Gravar(familia);
                 }
                 return familia;
@@ -123,8 +165,8 @@ namespace Jack.Domain.Services
                 return familia;
             }
 
-            //sem presença
-            if (familia.TemDocumentacaoTodasCriancas())
+            //sem Documentacao
+            if (!familia.TemDocumentacaoTodasCriancas())
             {
                 AtualizarFamiliaNivel99(ref familia, EnumStatusFamilia.FamiliaSemDocumentacao);
                 if (gravar)
@@ -136,24 +178,37 @@ namespace Jack.Domain.Services
 
             AtualizaNivel(ref familia);
 
+            if (gravar)
+            {
+                Gravar(familia);
+            }
             return familia;
         }
 
-        public void AtualizaNivel(ref Familia familia,bool gravar = true)
-        {    
+        public void AtualizaNivel(ref Familia familia)
+        {
+            if (familia.PresencaJustificada)
+            {
+                familia.Nivel = repNivel.ObterPorId(1);
+                return;
+            }
+            
             var ano = DateTime.Now.Year;
 
             var reunioesFeitas = ObterQuantidadeReunioesAno(ano);
             var qtdePresencas = ObterQuantidadePresencas(familia.Presencas, ano);
             var percPresenca = (qtdePresencas / reunioesFeitas) * 100;
 
-            familia.Nivel = repNivel.ObterNivelPorFaixaPresencial(percPresenca); ;
-
-            if (gravar)
+            familia.Nivel = repNivel.ObterNivelPorFaixaPresencial(percPresenca); 
+            if (familia.Nivel.Codigo == 99)
             {
-                Gravar(familia);
+                familia.Status = repStatus.ObterPorId((int)EnumStatusFamilia.FamiliaSemPresenca);    
             }
-            
+            else
+            {
+                familia.Status = repStatus.ObterPorId((int)EnumStatusFamilia.DadosOk);    
+            }
+ 
         }
 
         private float ObterQuantidadeReunioesAno(int ano)

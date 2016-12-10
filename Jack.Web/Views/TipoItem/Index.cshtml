@@ -8,6 +8,7 @@
     var disabled = "";
 }
 
+
 <input type="hidden" name="URLObterTodos" id="URLObterTodos" value="@Url.Action("Index")" />
 <input type="hidden" name="URLEdit" id="URLEdit" value="@Url.Action("Edit", new { id = UrlParameter.Optional })" />
 <input type="hidden" name="URLGravar" id="URLGravar" value="@Url.Action("Gravar")" />
@@ -28,23 +29,18 @@
                     </div>
                 </div>
                 <div class="ibox-content">
-                    <div class="row col-lg-12">
-                        <div class="row col-lg-10">Pesquisar</div>
-                        <div class="row col-lg-2">&nbsp;</div>
-                    </div>
-                    <div class="row col-lg-12">
-                        <div class="row col-lg-10 col-md-'0'">
+                    <div class="row">
+                        <div class="row col-lg-1">&nbsp;</div>
+                        <div class="row col-lg-9">
+                            <label id="labelPesquisarNome" for="PesquisarNome">Pesquisar</label>
                             <input type="text" class="form-control" id="PesquisarNome" name="PesquisarNome" placeholder="Digite o nome ou parte dele" />
                         </div>
                         <div class="row col-lg-1">&nbsp;</div>
                         <div class="row col-lg-1">
-                            <a href="#" id="Pesquisar" class="btn btn-primary btn-md" data-toggle="tooltip" data-placement="top" title="Pesquisar"><i class="glyphicon glyphicon-search"></i></a>
+                            <br /><a href="#" id="Pesquisar" class="btn btn-primary btn-md" data-toggle="tooltip" data-placement="top" title="Pesquisar"><i class="glyphicon glyphicon-search"></i></a>
                         </div>
                     </div>
-
-                    <div class="row col-lg-12 col-md-12">&nbsp;</div>
-
-                </div> 
+                </div>
                 <div class="ibox-content">
                     <table class="table table-striped" id="TableTipoItem">
                         <thead>

@@ -109,6 +109,22 @@ Util.VerificaCaracteresIndesejadosSemEspacos = function (textForm)
 
 }
 
+Util.MedidaIdade = function (medida)
+{
+    if (medida === 'A')
+    {
+        return 'Anos';
+    }
+    else if (medida === 'M')
+    {
+        return 'Meses';
+    }
+    else                                    
+    {
+        return '';
+    }
+}
+
 Util.TesteOverloading = function (dados)
 {
     alert(dados.valor1);

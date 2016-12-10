@@ -25,6 +25,7 @@ namespace Jack.Repository.Mappings
             Map(x => x.Roupa).Column("Roupa").Nullable(); 
             Map(x => x.Sacolinha).Column("Sacolinha").Not.Nullable();
             Map(x => x.Consistente).Column("Consistente").Not.Nullable();
+            Map(x => x.DocumentoOk).Column("DocumentoOk").Not.Nullable();
             Map(x => x.NecessidadeEspecial).Column("NecessidadeEspecial").Nullable(); 
             Map(x => x.MoralCrista).Column("MoralCrista").Not.Nullable();
             Map(x => x.CriancaGrande).Column("CriancaGrande").Not.Nullable(); 

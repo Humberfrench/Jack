@@ -8,6 +8,8 @@ namespace Jack.Application.Interfaces
     {
         IEnumerable<FamiliaViewModel> Filtrar(string nome);
         ValidationResult Gravar(FamiliaViewModel entity);
+        ValidationResult Gravar(FamiliaViewModel entity, int reuniao);
         ValidationResult Excluir(int id);
+        ValidationResult AtualizarFamilia(int id, bool gravar = true);
     }
 }

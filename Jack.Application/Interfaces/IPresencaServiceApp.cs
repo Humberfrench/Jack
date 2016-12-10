@@ -8,5 +8,8 @@ namespace Jack.Application.Interfaces
     {
         ValidationResult Gravar(int reuniao, int familia);
         ValidationResult Excluir(int id);
+        List<StatsViewModel> ObterDadosPresenca(int familiaId);
+        IEnumerable<FamiliaViewModel> ObterFamiliasDisponiveis(int reuniao);
+        IEnumerable<FamiliaViewModel> ObterFamiliasDisponiveis(int reuniao, string letra);
     }
-}
+}             

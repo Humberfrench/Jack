@@ -26,6 +26,42 @@ namespace Jack.Web.Controllers
             return PartialView("_Navigation");
         }
 
+        [AllowAnonymous]
+        public ActionResult Alertar()
+        {
+            var avisoExibicao = (Aviso)this.TempData["Aviso"];
+
+            if (avisoExibicao == null)
+                return PartialView(avisoExibicao);
+
+            switch (avisoExibicao.TipoMensagem)
+            {
+                case Aviso.Tipo.Atencao:
+                    ViewBag.TipoAlerta = "alert-warning";
+                    ViewBag.Icone = "icone-exclamacao";
+                    break;
+
+                case Aviso.Tipo.Erro:
+                    ViewBag.TipoAlerta = "alert-danger";
+                    ViewBag.Icone = "icone-exclamacao";
+                    break;
+
+                case Aviso.Tipo.Informacao:
+                    ViewBag.TipoAlerta = "alert-info";
+                    ViewBag.Icone = "";
+                    break;
+
+                case Aviso.Tipo.Sucesso:
+                    ViewBag.TipoAlerta = "alert-success";
+                    ViewBag.Icone = "";
+                    break;
+
+            }
+
+            return this.PartialView(avisoExibicao);
+        }
+
+
         #endregion
     }
 }

@@ -375,8 +375,11 @@ namespace Jack.Domain.Entity
             idade = oIdade.Anos;
             idadeNominal = string.Format("{0} anos e {1} Meses", oIdade.Anos, oIdade.Meses);
             idadeNominalReduzida = string.Format("{0}A{1}M", oIdade.Anos, oIdade.Meses);
-
-            //acertar status
+            medidaIdade = "A";
+            if (idade == 0)
+            {
+                medidaIdade = "M";
+            }
         }
 
     }

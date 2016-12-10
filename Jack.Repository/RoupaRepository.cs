@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Jack.Domain.Entity;
 using Jack.Domain.Interfaces.Repository;
+using Jack.Domain.ObjectValue;
 using Jack.Repository.UnityOfWork;
 
 namespace Jack.Repository
@@ -26,32 +27,39 @@ namespace Jack.Repository
            return base.GetAll();
         }
 
-        //public Tuple<string,string> ObterPorSexoIdade(string sexo, int idade, string medidaIdade)
-        //{
-        //    var roupa = GetAll().FirstOrDefault(dado => dado.Idade <= idade
-        //                                                && dado.MedidaIdade == medidaIdade);
-            
-        //    var retorno = new Tuple<string,string>("99","99");
-
-        //    if (roupa == null)
-        //    {
-        //        return retorno;
-        //    }
-        //    retorno =  new Tuple<string, string>(roupa.Tamanho, roupa.TamanhoMaior);
-        //    return retorno;
-        //}
-        public dynamic ObterPorSexoIdade(string sexo, int idade, string medidaIdade)
+        public RoupaValue ObterPorIdade(int idade, string medidaIdade)
         {
-            var roupa = GetAll().FirstOrDefault(dado => dado.Idade <= idade
+            var roupa = GetAll().FirstOrDefault(dado => dado.Idade == idade
                                                         && dado.MedidaIdade == medidaIdade);
 
-            var retorno = new { Roupa = "99", RoupaGrande = "99" };
+            var retorno = new RoupaValue { Roupa = "99", RoupaGrande = "99" };
 
             if (roupa == null)
             {
                 return retorno;
             }
-            retorno =  new { Roupa = roupa.Tamanho,RoupaGrande =  roupa.TamanhoMaior};
+            retorno = new RoupaValue { Roupa = roupa.Tamanho, RoupaGrande = roupa.TamanhoMaior };
+            return retorno;
+        }
+        public string ObterPorIdade(int idade, string medidaIdade, bool isCriancaGrande)
+        {
+            var roupa = GetAll().FirstOrDefault(dado => dado.Idade == idade
+                                                        && dado.MedidaIdade == medidaIdade);
+
+            var retorno = "99";
+
+            if (roupa == null)
+            {
+                return retorno;
+            }
+
+            retorno = roupa.Tamanho;
+
+            if (isCriancaGrande)
+            {
+                retorno = roupa.TamanhoMaior;
+            }
+
             return retorno;
         }
 

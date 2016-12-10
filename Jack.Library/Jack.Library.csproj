@@ -92,9 +92,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AsIsBundleOrderer.cs" />
+    <Compile Include="Aviso.cs" />
     <Compile Include="BreadCrumb.cs" />
     <Compile Include="BreadCrumbETitulo.cs" />
     <Compile Include="CustomJsonResult.cs" />
+    <Compile Include="GetEnumDescription.cs" />
     <Compile Include="NoCacheAttribute.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ValidateJsonAntiForgeryToken.cs" />

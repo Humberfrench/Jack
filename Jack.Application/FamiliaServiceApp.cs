@@ -25,9 +25,21 @@ namespace Jack.Application
             return _service.Gravar(familiaSalvar);
         }
 
+        public ValidationResult Gravar(FamiliaViewModel familia, int reuniao)
+        {
+            var familiaSalvar = Mapper.Map<Familia>(familia);
+            return _service.Gravar(familiaSalvar, reuniao);
+        }
+
         public ValidationResult Excluir(int id)
         {
             return _service.Excluir(id);
+        }
+
+        public ValidationResult AtualizarFamilia(int id, bool gravar = true)
+        {
+            var familia = _service.AtualizarFamilia(id, gravar);
+            return familia;
         }
 
         public FamiliaViewModel ObterPorId(int id)

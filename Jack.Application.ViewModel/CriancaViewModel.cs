@@ -39,12 +39,16 @@ namespace Jack.Application.ViewModel
 
         public virtual bool Consistente { get; set; }
 
+        [Display(Name = "Necessidade Especial")]
         public virtual bool NecessidadeEspecial { get; set; }
 
+        [Display(Name = "Moral Crista")]
         public virtual bool MoralCrista { get; set; }
 
+        [Display(Name = "Crianca Grande?")]
         public virtual bool CriancaGrande { get; set; }
 
+        [Display(Name = "Documento Ok?")]
         public virtual bool DocumentoOk { get; set; }
 
         [Display(Name = "Idade")]

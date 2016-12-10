@@ -9,7 +9,7 @@ namespace Jack.Repository.Mappings
         public MapParametro()
         {
             //Table
-            Table("Parametro");
+            Table("Parametros");
 
             Id(x => x.Codigo).Column("Codigo").Not.Nullable();
             LazyLoad();
@@ -23,6 +23,7 @@ namespace Jack.Repository.Mappings
             Map(x => x.PrimeiroSabado).Column("PrimeiroSabado").Nullable();
             Map(x => x.SegundoSabado).Column("SegundoSabado").Nullable();
             Map(x => x.TerceiroSabado).Column("TerceiroSabado").Nullable();
+            Map(x => x.AnoCorrente).Column("AnoCorrente").Nullable();
 
         }
     }

@@ -29,6 +29,24 @@ namespace Jack.Application
             return _service.Excluir(id);
         }
 
+        public List<StatsViewModel> ObterDadosPresenca(int familiaId)
+        {
+            var presenca = _service.ObterDadosPresenca(familiaId);
+            return Mapper.Map<List<StatsViewModel>>(presenca);
+        }
+
+        public IEnumerable<FamiliaViewModel> ObterFamiliasDisponiveis(int reuniao)
+        {
+            var presenca = _service.ObterFamiliasDisponiveis(reuniao);
+            return Mapper.Map<IEnumerable<FamiliaViewModel>>(presenca);
+        }
+
+        public IEnumerable<FamiliaViewModel> ObterFamiliasDisponiveis(int reuniao, string letra)
+        {
+            var presenca = _service.ObterFamiliasDisponiveis(reuniao, letra);
+            return Mapper.Map<IEnumerable<FamiliaViewModel>>(presenca);
+        }
+
         public PresencaViewModel ObterPorId(int id)
         {
             var presenca = _service.ObterPorId(id);

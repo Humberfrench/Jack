@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using Jack.Application.Interfaces;
 using Jack.Application.ViewModel;
 using Jack.Library;
+using Jack.DomainValidator;
 
 namespace Jack.Web.Controllers
 {
@@ -17,6 +18,7 @@ namespace Jack.Web.Controllers
         private readonly IFamiliaServiceApp familiaAppService;
         private readonly IStatusFamiliaServiceApp statusAppService;
         private readonly INivelServiceApp nivelAppService;
+        private readonly IReuniaoServiceApp reuniaoAppService;
 
         #endregion
 
@@ -24,17 +26,20 @@ namespace Jack.Web.Controllers
 
         public FamiliaController(IFamiliaServiceApp familiaAppService,
                                  IStatusFamiliaServiceApp statusAppService,
-                                 INivelServiceApp nivelAppService)
+                                 INivelServiceApp nivelAppService,
+                                 IReuniaoServiceApp reuniaoAppService)
         {
             this.familiaAppService = familiaAppService;
             this.statusAppService = statusAppService;
             this.nivelAppService = nivelAppService;
+            this.reuniaoAppService = reuniaoAppService;
         }
 
         #endregion
 
         #region Public Methods
 
+        [Route("")]
         public ActionResult Index()
         {
             #region BreadCrumb
@@ -53,6 +58,7 @@ namespace Jack.Web.Controllers
 
             ViewBag.Status = ObterStatusParaCombo();
             ViewBag.Nivel = ObterNivelParaCombo();
+            ViewBag.Reuniao = ObterReuniaoParaCombo();
 
             var listaDados = familiaAppService.ObterTodos();
             return View(listaDados);
@@ -78,11 +84,13 @@ namespace Jack.Web.Controllers
 
             ViewBag.Status = ObterStatusParaCombo();
             ViewBag.Nivel = ObterNivelParaCombo();
+            ViewBag.Reuniao = ObterReuniaoParaCombo();
 
             var listaDados = familiaAppService.Filtrar(nome);
             return View("Index", listaDados);
         }
 
+        [Route("Edit")]
         public ActionResult Edit(int id)
         {
             var familia = familiaAppService.ObterPorId(id);
@@ -100,9 +108,19 @@ namespace Jack.Web.Controllers
 
         [HttpPost]
         [ValidateJsonAntiForgeryToken]
-        public ActionResult Gravar(FamiliaViewModel familia)
+        public ActionResult Gravar(FamiliaViewModel familia, int reuniao)
         {
-            var gravarResult = familiaAppService .Gravar(familia);
+            ValidationResult gravarResult;
+
+            if (reuniao==0)
+            {
+                gravarResult = familiaAppService.Gravar(familia);
+            }
+            else
+            {
+                gravarResult = familiaAppService.Gravar(familia, reuniao);
+            }
+
             object retorno;
             if (gravarResult.IsValid)
             {
@@ -124,6 +142,7 @@ namespace Jack.Web.Controllers
             return Json(retorno, JsonRequestBehavior.AllowGet);
         }
 
+        [Route("Excluir")]
         public ActionResult Excluir(int id)
         {
             var excluirResult = familiaAppService.Excluir(id);
@@ -149,18 +168,47 @@ namespace Jack.Web.Controllers
             return Json(retorno, JsonRequestBehavior.AllowGet);
         }
 
+        [Route("Processar")]
+        public ActionResult Processar(int id)
+        {
+            var processarResult = familiaAppService.AtualizarFamilia(id);
+
+            object retorno;
+            if (processarResult.IsValid)
+            {
+                retorno = new
+                {
+                    Mensagem = "Família Atualizada com Sucesso",
+                    Erro = false
+                };
+            }
+            else
+            {
+                retorno = new
+                {
+                    Mensagem = RenderizeErros(processarResult),
+                    Erro = true
+                };
+            }
+
+            return Json(retorno, JsonRequestBehavior.AllowGet);
+        }
+
+        [Route("ObterRepresentantes")]
         public ActionResult ObterRepresentantes(int codigo)
         {
             var familia = familiaAppService.ObterPorId(codigo);
             return View("Representantes",familia.Representantes);
         }
 
+        [Route("ObterCriancas")]
         public ActionResult ObterCriancas(int codigo)
         {
             var familia = familiaAppService.ObterPorId(codigo);
             return View("Criancas", familia.Criancas);
         }
 
+        [Route("ObterPresencas")]
         public ActionResult ObterPresencas(int codigo)
         {
             var familia = familiaAppService.ObterPorId(codigo);
@@ -172,32 +220,45 @@ namespace Jack.Web.Controllers
 
         #region Métodos Privados
 
+        private IList<ReuniaoViewModel> ObterReuniao()
+        {
+            var lista = reuniaoAppService.ObterReunioesNoAno().ToList();
+            return lista;
+        }
+
+        private SelectList ObterReuniaoParaCombo()
+        {
+            var lista = ObterReuniao();
+            var listaSelect = new SelectList(lista, "Codigo", "DataTexto");
+
+            return listaSelect;
+        }
         private IList<StatusFamiliaViewModel> ObterStatus()
         {
-            var status = statusAppService.ObterTodos().ToList();
-            return status;
+            var lista = statusAppService.ObterTodos().ToList();
+            return lista;
         }
 
         private SelectList ObterStatusParaCombo()
         {
-            var status = ObterStatus();
-            var statusSelect = new SelectList(status, "Codigo", "Descricao");
+            var lista = ObterStatus();
+            var listaSelect = new SelectList(lista, "Codigo", "Descricao");
 
-            return statusSelect;
+            return listaSelect;
         }
 
         private IList<NivelViewModel> ObterNivel()
         {
-            var nivel = nivelAppService.ObterTodos().ToList();
-            return nivel;
+            var lista = nivelAppService.ObterTodos().ToList();
+            return lista;
         }
 
         private SelectList ObterNivelParaCombo()
         {
-            var nivel = ObterNivel();
-            var nivelSelect = new SelectList(nivel, "Codigo", "Nome");
+            var lista = ObterNivel();
+            var listaSelect = new SelectList(lista, "Codigo", "Nome");
 
-            return nivelSelect;
+            return listaSelect;
         }
 
         #endregion

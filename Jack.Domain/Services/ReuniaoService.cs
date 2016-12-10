@@ -16,6 +16,7 @@ namespace Jack.Domain.Services
         private readonly IParametroRepository repParametros;
         private readonly IFeriadoRepository repFeriado;
         private readonly ValidationResult validationResult = new ValidationResult();
+        private Parametro parametros;
 
         public ReuniaoService(IReuniaoRepository repReuniao,
                               IParametroRepository repParametros,
@@ -25,6 +26,8 @@ namespace Jack.Domain.Services
             this.repReuniao = repReuniao;
             this.repParametros = repParametros;
             this.repFeriado = repFeriado;
+
+            parametros = repParametros.Obter();
         }
         public ValidationResult Gravar(Reuniao item)
         {
@@ -59,7 +62,6 @@ namespace Jack.Domain.Services
         public ValidationResult MontarDataReuniao(int ano)
         {
             var anoAntes = ano - 1;
-            var parametros = repParametros.Obter();
             if (parametros == null)
             {
                 validationResult.Add("Problemas ao carregar parametros");    
@@ -95,6 +97,16 @@ namespace Jack.Domain.Services
                 Adicionar(reuniao);
             }
             return validationResult;
+        }
+
+        public IEnumerable<Reuniao> ObterReunioesNoAno()
+        {
+            return repReuniao.ObterTodos().Where(r => r.AnoCorrente == parametros.AnoCorrente);
+        }
+
+        public IEnumerable<Reuniao> ObterReunioesNoAno(int ano)
+        {
+            return repReuniao.ObterTodos().Where(r => r.AnoCorrente == ano);
         }
 
         private void InserirPrimeiraVarredura(int anoAntes, ref List<DatasReuniao> datas)

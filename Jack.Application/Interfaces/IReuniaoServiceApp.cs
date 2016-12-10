@@ -8,5 +8,7 @@ namespace Jack.Application.Interfaces
     {
         ValidationResult Gravar(ReuniaoViewModel entity);
         ValidationResult Excluir(int id);
+        IEnumerable<ReuniaoViewModel> ObterReunioesNoAno();
+        IEnumerable<ReuniaoViewModel> ObterReunioesNoAno(int ano);
     }
 }

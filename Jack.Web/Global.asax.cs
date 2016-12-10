@@ -116,8 +116,8 @@ namespace Jack.Web
             #endregion
 
             #region Parametro
-            //kernel.Bind<IParametroServiceApp>().To<ParametroServiceApp>();
-            //kernel.Bind<IParametroService>().To<ParametroService>();
+            kernel.Bind<IParametroServiceApp>().To<ParametroServiceApp>();
+            kernel.Bind<IParametroService>().To<ParametroService>();
             kernel.Bind<IParametroRepository>().To<ParametroRepository>();
             #endregion
 
@@ -149,12 +149,6 @@ namespace Jack.Web
             kernel.Bind<ISacolaServiceApp>().To<SacolaServiceApp>();
             kernel.Bind<ISacolaService>().To<SacolaService>();
             kernel.Bind<ISacolaRepository>().To<SacolaRepository>();
-            #endregion
-
-            #region Status
-            //kernel.Bind<IStatusServiceApp>().To<StatusServiceApp>();
-            //kernel.Bind<IStatusService>().To<StatusService>();
-            //kernel.Bind<IStatusRepository>().To<StatusRepository>();
             #endregion
 
             #region Status Crianca

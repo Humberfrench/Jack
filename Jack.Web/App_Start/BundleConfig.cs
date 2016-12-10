@@ -34,12 +34,12 @@ namespace Jack.Web
             RegisterFamiliaBundle(ref bundles);
             #endregion
 
-            #region Atividade Preferida Bundles
+            #region Criança Bundles
             RegisterCriancaBundle(ref bundles);
             #endregion
 
-            #region Problemas de Saude Bundles
-            RegisterProblemasSaudeBundle(ref bundles);
+            #region Presença Bundles
+            RegisterPresencaBundle(ref bundles);
             #endregion
 
             #region Responsavel Bundles
@@ -567,7 +567,7 @@ namespace Jack.Web
             jssTinyIcon.Orderer = new AsIsBundleOrderer();
             bundles.Add(jssTinyIcon);
 
-            // jsTree styles
+            // chartist styles
             var jssChartList = new ScriptBundle("~/plugins/chartist");
             jssChartList.Include("~/Scripts/plugins/chartist/chartist.min.js");
             jssChartList.Orderer = new AsIsBundleOrderer();
@@ -717,16 +717,26 @@ namespace Jack.Web
             jssCrianca.Orderer = new AsIsBundleOrderer();
             bundles.Add(jssCrianca);
 
+            var jssCriancaAcerto = new ScriptBundle("~/script/Crianca/acerto/vestimenta");
+            jssCriancaAcerto.Include("~/Scripts/Crianca/acertoVestimenta.js");
+            jssCriancaAcerto.Orderer = new AsIsBundleOrderer();
+            bundles.Add(jssCriancaAcerto);
+
            
         }
 
-        private static void RegisterProblemasSaudeBundle(ref BundleCollection bundles)
+        private static void RegisterPresencaBundle(ref BundleCollection bundles)
         {
 
-            var jssProblemasSaude = new ScriptBundle("~/script/ProblemasSaude/main");
-            jssProblemasSaude.Include("~/Scripts/ProblemasSaude/main.js");
-            jssProblemasSaude.Orderer = new AsIsBundleOrderer();
-            bundles.Add(jssProblemasSaude);
+            var jssPresenca = new ScriptBundle("~/script/Presenca/lista");
+            jssPresenca.Include("~/Scripts/Presenca/lista.js");
+            jssPresenca.Orderer = new AsIsBundleOrderer();
+            bundles.Add(jssPresenca);
+
+            jssPresenca = new ScriptBundle("~/script/Presenca/main");
+            jssPresenca.Include("~/Scripts/Presenca/main.js");
+            jssPresenca.Orderer = new AsIsBundleOrderer();
+            bundles.Add(jssPresenca);
           
         }
 

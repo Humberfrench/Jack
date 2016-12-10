@@ -4,6 +4,7 @@ using System.Linq;
 using Jack.Domain.Entity;
 using Jack.Domain.Interfaces.Repository;
 using Jack.Domain.Interfaces.Services;
+using Jack.Domain.ObjectValue;
 using Jack.DomainValidator;
 
 namespace Jack.Domain.Services
@@ -20,14 +21,13 @@ namespace Jack.Domain.Services
             this.repRoupa = repository;
         }
 
-        //public Tuple<string, string> ObterPorSexoIdade(string sexo, int idade, string medidaIdade)
-        //{
-        //    return repRoupa.ObterPorSexoIdade(sexo,idade,medidaIdade);
-        //}
-
-        public dynamic ObterPorSexoIdade(string sexo, int idade, string medidaIdade)
+        public RoupaValue ObterPorSexoIdade(int idade, string medidaIdade)
         {
-            return repRoupa.ObterPorSexoIdade(sexo,idade,medidaIdade);
+            return repRoupa.ObterPorIdade(idade, medidaIdade);
+        }
+        public string ObterPorSexoIdade(int idade, string medidaIdade, bool criancaGrande)
+        {
+            return repRoupa.ObterPorIdade(idade, medidaIdade, criancaGrande);
         }
     }
 }

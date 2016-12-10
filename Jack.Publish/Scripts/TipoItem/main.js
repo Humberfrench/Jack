@@ -3,7 +3,7 @@
 var TipoItem = new Object();
 
 TipoItem.URLObterTodos = '';
-TipoItem.URLFiltrar = '';
+TipoItem.URLFiltrar = '/TipoItem/Filtrar/';
 TipoItem.URLEdit = '';
 TipoItem.URLGravar = '';
 TipoItem.URLExcluir = '';
@@ -13,7 +13,6 @@ $(document).ready(function ()
 {
     TipoItem.MontarTabela();
     TipoItem.URLObterTodos = $("#URLObterTodos").val();
-    TipoItem.URLFiltrar = $("#URLFiltrar").val();
     TipoItem.URLEdit = $("#URLEdit").val();
     TipoItem.URLGravar = $("#URLGravar").val();
     TipoItem.URLExcluir = $("#URLExcluir").val();
@@ -108,7 +107,7 @@ TipoItem.Pesquisar = function (nome)
     }
     else
     {
-        location.href = TipoItem.URLFiltrar + '/' + nome;
+        location.href = TipoItem.URLFiltrar + nome;
     }
 }
 

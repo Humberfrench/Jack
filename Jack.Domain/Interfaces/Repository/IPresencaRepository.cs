@@ -7,6 +7,8 @@ namespace Jack.Domain.Interfaces.Repository
     {
         IEnumerable<Presenca> ObterFamiliaPorReuniao(int reuniao);
         IEnumerable<Presenca> ObterFamiliaLivrePorReuniao(int reuniao);
-        Presenca Obter(int familia, int reuniao);
+        int? ObterDadoPresencaExistente(int familia, int reuniao);
+        IEnumerable<Familia> ObterFamiliasDisponiveis(int reuniao);
+        IEnumerable<Familia> ObterFamiliasDisponiveis(int reuniao, string letra);
     }
 }

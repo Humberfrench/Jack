@@ -24,3 +24,29 @@ C:\Users\humberto.almeida.ext\Documents\Visual Studio 2013\Projects\Jack\Jack.Li
 C:\Users\humberto.almeida.ext\Documents\Visual Studio 2013\Projects\Jack\Jack.Library\obj\Debug\Jack.Library.csprojResolveAssemblyReference.cache
 C:\Users\humberto.almeida.ext\Documents\Visual Studio 2013\Projects\Jack\Jack.Library\obj\Debug\Jack.Library.dll
 C:\Users\humberto.almeida.ext\Documents\Visual Studio 2013\Projects\Jack\Jack.Library\obj\Debug\Jack.Library.pdb
+C:\Desenvolvimento\Sistemas\jack\Jack.Library\bin\Debug\Jack.Library.dll.config
+C:\Desenvolvimento\Sistemas\jack\Jack.Library\bin\Debug\Jack.Library.dll
+C:\Desenvolvimento\Sistemas\jack\Jack.Library\bin\Debug\Jack.Library.pdb
+C:\Desenvolvimento\Sistemas\jack\Jack.Library\bin\Debug\Antlr3.Runtime.dll
+C:\Desenvolvimento\Sistemas\jack\Jack.Library\bin\Debug\Microsoft.Web.Infrastructure.dll
+C:\Desenvolvimento\Sistemas\jack\Jack.Library\bin\Debug\Newtonsoft.Json.dll
+C:\Desenvolvimento\Sistemas\jack\Jack.Library\bin\Debug\System.Web.Helpers.dll
+C:\Desenvolvimento\Sistemas\jack\Jack.Library\bin\Debug\System.Web.Mvc.dll
+C:\Desenvolvimento\Sistemas\jack\Jack.Library\bin\Debug\System.Web.Optimization.dll
+C:\Desenvolvimento\Sistemas\jack\Jack.Library\bin\Debug\System.Web.Razor.dll
+C:\Desenvolvimento\Sistemas\jack\Jack.Library\bin\Debug\System.Web.WebPages.Deployment.dll
+C:\Desenvolvimento\Sistemas\jack\Jack.Library\bin\Debug\System.Web.WebPages.dll
+C:\Desenvolvimento\Sistemas\jack\Jack.Library\bin\Debug\System.Web.WebPages.Razor.dll
+C:\Desenvolvimento\Sistemas\jack\Jack.Library\bin\Debug\WebGrease.dll
+C:\Desenvolvimento\Sistemas\jack\Jack.Library\bin\Debug\Antlr3.Runtime.pdb
+C:\Desenvolvimento\Sistemas\jack\Jack.Library\bin\Debug\Newtonsoft.Json.xml
+C:\Desenvolvimento\Sistemas\jack\Jack.Library\bin\Debug\System.Web.Helpers.xml
+C:\Desenvolvimento\Sistemas\jack\Jack.Library\bin\Debug\System.Web.Mvc.xml
+C:\Desenvolvimento\Sistemas\jack\Jack.Library\bin\Debug\System.Web.Optimization.xml
+C:\Desenvolvimento\Sistemas\jack\Jack.Library\bin\Debug\System.Web.Razor.xml
+C:\Desenvolvimento\Sistemas\jack\Jack.Library\bin\Debug\System.Web.WebPages.xml
+C:\Desenvolvimento\Sistemas\jack\Jack.Library\bin\Debug\System.Web.WebPages.Deployment.xml
+C:\Desenvolvimento\Sistemas\jack\Jack.Library\bin\Debug\System.Web.WebPages.Razor.xml
+C:\Desenvolvimento\Sistemas\jack\Jack.Library\obj\Debug\Jack.Library.csprojResolveAssemblyReference.cache
+C:\Desenvolvimento\Sistemas\jack\Jack.Library\obj\Debug\Jack.Library.dll
+C:\Desenvolvimento\Sistemas\jack\Jack.Library\obj\Debug\Jack.Library.pdb

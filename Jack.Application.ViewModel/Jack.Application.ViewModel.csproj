@@ -49,6 +49,8 @@
     <Compile Include="CalcadoViewModel.cs" />
     <Compile Include="ColaboradorViewModel.cs" />
     <Compile Include="ColaboradorCriancaViewModel.cs" />
+    <Compile Include="CriancaValueViewModel.cs" />
+    <Compile Include="CriancaVestimentaViewModel.cs" />
     <Compile Include="CriancaViewModel.cs" />
     <Compile Include="FamiliaViewModel.cs" />
     <Compile Include="FeriadoViewModel.cs" />
@@ -62,6 +64,7 @@
     <Compile Include="ReuniaoViewModel.cs" />
     <Compile Include="RoupaViewModel.cs" />
     <Compile Include="SacolaViewModel.cs" />
+    <Compile Include="StatsViewModel.cs" />
     <Compile Include="StatusCriancaViewModel.cs" />
     <Compile Include="StatusFamiliaViewModel.cs">
       <SubType>Code</SubType>

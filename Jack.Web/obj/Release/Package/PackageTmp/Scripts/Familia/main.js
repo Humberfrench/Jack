@@ -1,22 +1,23 @@
 ﻿/// <reference path="../util/mensagens.js" />
 /// <reference path="../util/ajax.js" />
+/// <reference path="../moment.js" />
 
 var Familia = new Object();
 
 Familia.URLObterTodos = '';
-Familia.URLFiltrar = '';
+Familia.URLFiltrar = '/Familia/Filtrar/';
 Familia.URLEdit = '';
 Familia.URLGravar = '';
 Familia.URLExcluir = '';
 Familia.URLObterCriancas = '';
 Familia.URLObterRepresentantes = '';
 Familia.URLObterPresencas = '';
+Familia.URLProcessar = '';
 
 $(document).ready(function ()
 {
     Familia.MontarTabela();
     Familia.URLObterTodos = $("#URLObterTodos").val();
-    Familia.URLFiltrar = $("#URLFiltrar").val();
     Familia.URLEdit = $("#URLEdit").val();
     Familia.URLGravar = $("#URLGravar").val();
     Familia.URLExcluir = $("#URLExcluir").val();
@@ -24,6 +25,7 @@ $(document).ready(function ()
     Familia.URLObterCriancas = $("#URLObterCriancas").val();
     Familia.URLObterPresencas = $("#URLObterPresencas").val();
     Familia.URLObterRepresentantes = $("#URLObterRepresentantes").val();
+    Familia.URLProcessar = $("#URLProcessar").val();
 
     $("#Pesquisar").click(function ()
     {
@@ -41,6 +43,16 @@ $(document).ready(function ()
         Familia.LimparForm();
         $("#modalEdicao").modal('show');
     });
+
+    $("#BlacklistPasso1").change(function ()
+    {
+        $("#BlacklistPasso2").prop('disabled', 'disabled');
+        if ($(this).prop('checked'))
+        {
+            $("#BlacklistPasso2").prop('disabled', '');
+        }
+    });
+
 
 });
 
@@ -60,13 +72,6 @@ function Excluir()
     }
 
     Familia.Excluir($("#codigoExclusao").val());
-}
-
-function Edit(id)
-{
-    Familia.LimparForm();
-    Familia.Edit(id);
-    $("#modalEdicao").modal('show');
 }
 
 Familia.MontarTabela = function ()
@@ -119,7 +124,7 @@ Familia.Pesquisar = function (nome)
     }
     else
     {
-        location.href = Familia.URLFiltrar + '/' + nome;
+        location.href = Familia.URLFiltrar + nome;
     }
 }
 
@@ -130,26 +135,101 @@ Familia.PesquisarTodos = function ()
 
 Familia.LimparForm = function ()
 {
+    $("#divReuniao").show();
     $("#Codigo").val('0');
-    $("#Descricao").val('');
-    $("#Opcional").prop('checked', '');
+    $("#Nome").val('');
+    $("#Contato").val('');
+    $("#DataAtualizacao").val('');
+    $("#DataCriacao").val('');
+
+    $("#Nivel").prop('disabled', 'disabled');
+    $("#Nivel").val('99');
+    $("#Status").prop('disabled', 'disabled');
+    $("#Status").val('14');
+
+    $("#Sacolinha").prop('checked', '');
+    $("#Consistente").prop('checked', '');
+    $("#PermiteExcedente").prop('checked', '');
+    $("#PresencaJustificada").prop('checked', '');
+    $("#Fake").prop('checked', '');
+
+    $("#BlackListPasso1").prop('checked', '');
+    $("#BlackListPasso2").prop('checked', '');
+    $("#BlackListPasso2").prop('disabled', 'disabled');
+
 }
 
-Familia.Edit = function (codigo)
+Familia.Editar = function (codigo)
 {
 
+    $("#modalEdicao").modal('show');
     var opcoes = new Object;
     opcoes.url = Familia.URLEdit;
     opcoes.callBackSuccess = function (response)
     {
         var dataObj = eval(response);
+        var dataValueAlt = '';
+        var dataValueInc = '';
+
         Familia.LimparForm();
+        $("#divReuniao").hide();
         $("#Codigo").val(codigo);
-        $("#Descricao").val(dataObj.Descricao);
-        if (dataObj.Opcional)
+        $("#Nome").val(dataObj.Nome);
+        $("#Contato").val(dataObj.Contato);
+
+        if (dataObj.DataAtualizacao !== null)
         {
-            $("#Opcional").prop('checked', 'checked');
+            dataValueAlt = moment(dataObj.DataAtualizacao.toString()).format("DD/MM/YYYY HH:mm");
         }
+
+        if (dataObj.DataCriacao !== null)
+        {
+            dataValueInc = moment(dataObj.DataCriacao.toString()).format("DD/MM/YYYY HH:mm");
+        }
+
+        $("#DataAtualizacao").val(dataValueAlt);
+        $("#DataCriacao").val(dataValueInc);
+        $("#Nivel").val(dataObj.Nivel.Codigo);
+        $("#Status").val(dataObj.Status.Codigo);
+        $("#Nivel").prop('disabled', 'disabled');
+        $("#Status").prop('disabled', 'disabled');
+
+        if (dataObj.Sacolinha)
+        {
+            $("#Sacolinha").prop('checked', 'checked');
+        }
+
+        if (dataObj.Consistente)
+        {
+            $("#Consistente").prop('checked', 'checked');
+        }
+
+        if (dataObj.PermiteExcedente)
+        {
+            $("#PermiteExcedente").prop('checked', 'checked');
+        }
+
+        if (dataObj.Fake)
+        {
+            $("#Fake").prop('checked', 'checked');
+        }
+
+        if (dataObj.PresencaJustificada)
+        {
+            $("#PresencaJustificada").prop('checked', 'checked');
+        }
+
+        if (dataObj.BlackListPasso1)
+        {
+            $("#BlackListPasso1").prop('checked', 'checked');
+            $("#BlackListPasso2").prop('disabled', '');
+        }
+
+        if (dataObj.BlackListPasso2)
+        {
+            $("#BlackListPasso2").prop('checked', 'checked');
+        }
+
     };
 
     opcoes.dadoEnvio = new Object;
@@ -190,9 +270,37 @@ Familia.Gravar = function ()
         };
 
         opcoes.dadoEnvio = new Object;
+
         opcoes.dadoEnvio.Codigo = $("#Codigo").val();
-        opcoes.dadoEnvio.Descricao = $("#Descricao").val();
-        opcoes.dadoEnvio.Opcional = opcional;
+        opcoes.dadoEnvio.Nome = $("#Nome").val();
+        opcoes.dadoEnvio.Contato = $("#Contato").val();
+        opcoes.dadoEnvio.DataCriacao = $("#DataCriacao").val();
+
+        opcoes.dadoEnvio.Nivel = new Object;
+        opcoes.dadoEnvio.Nivel.Codigo = $("#Nivel").val();
+
+        opcoes.dadoEnvio.Status = new Object;
+        opcoes.dadoEnvio.Status.Codigo = $("#Status").val();
+
+        opcoes.dadoEnvio.Sacolinha = $("#Sacolinha").prop('checked');
+        opcoes.dadoEnvio.Consistente = $("#Consistente").prop('checked');
+        opcoes.dadoEnvio.PermiteExcedente = $("#PermiteExcedente").prop('checked');
+        opcoes.dadoEnvio.PresencaJustificada = $("#PresencaJustificada").prop('checked');
+        opcoes.dadoEnvio.Fake = $("#Fake").prop('checked');
+        opcoes.dadoEnvio.BlackListPasso1 = $("#BlackListPasso1").prop('checked');
+        opcoes.dadoEnvio.BlackListPasso2 = $("#BlackListPasso2").prop('checked');
+
+        var reuniao = 0;
+        if ($("#Codigo").val() === '0')
+        {
+            if ($("#MarcarPresenca").prop('checked'))
+            {
+                reuniao = $("#Reunioes").val();
+            }
+        }
+
+        opcoes.dadoEnvio.reuniao = reuniao;
+
         opcoes.type = 'POST';
         opcoes.async = false;
 
@@ -248,7 +356,6 @@ Familia.Consistir = function (nome)
     return true;
 }
 
-
 Familia.Criancas = function (codigo)
 {
     $("#divDados").html('');
@@ -269,7 +376,6 @@ Familia.Criancas = function (codigo)
 
     Ajax.Get(opcoes);
 }
-
 
 Familia.Presencas = function (codigo)
 {
@@ -312,6 +418,38 @@ Familia.Representantes = function (codigo)
 
     Ajax.Get(opcoes);
 }
+
+Familia.Processar = function (codigo)
+{
+    var opcoes = new Object;
+    opcoes.url = Familia.URLProcessar;
+
+    opcoes.callBackSuccess = function (response)
+    {
+        var dataObj = eval(response);
+        if (dataObj.Erro)
+        {
+            Mensagens.Erro(dataObj.Mensagem);
+        }
+        else
+        {
+            Mensagens.Sucesso(dataObj.Mensagem);
+            setTimeout(function ()
+            {
+                location.reload();
+            }, 1500);
+        }
+    };
+
+    opcoes.dadoEnvio = new Object;
+    opcoes.dadoEnvio.id = codigo;
+    opcoes.type = 'POST';
+    opcoes.async = false;
+
+    Ajax.Execute(opcoes);
+
+}
+
 
 Familia.DefaultDefinitionOfTable = {
     "bSort": false,

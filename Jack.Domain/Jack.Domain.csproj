@@ -85,6 +85,7 @@
     <Compile Include="Interfaces\Repository\IFamiliaRepository.cs" />
     <Compile Include="Interfaces\Repository\IFeriadoRepository.cs" />
     <Compile Include="Interfaces\Repository\ITipoItemRepository.cs" />
+    <Compile Include="Interfaces\Services\IParametroService.cs" />
     <Compile Include="Interfaces\Services\IRoupaService.cs" />
     <Compile Include="Interfaces\Services\IServiceBaseReadOnly.cs" />
     <Compile Include="Interfaces\Services\IServiceBase.cs" />
@@ -104,13 +105,18 @@
     <Compile Include="Interfaces\Services\IFamiliaService.cs" />
     <Compile Include="Interfaces\Services\IFeriadoService.cs" />
     <Compile Include="Interfaces\Services\ITipoItemService.cs" />
+    <Compile Include="ObjectValue\CriancaValue.cs" />
+    <Compile Include="ObjectValue\CriancaVestimenta.cs" />
     <Compile Include="ObjectValue\DatasReuniao.cs" />
     <Compile Include="ObjectValue\QuantidadeSacolasColaborador.cs" />
+    <Compile Include="ObjectValue\RoupaValue.cs" />
+    <Compile Include="ObjectValue\Stats.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\CalcadoService.cs" />
     <Compile Include="Services\ServiceBaseReadOnly.cs" />
     <Compile Include="Services\ServiceBase.cs" />
     <Compile Include="Services\NivelService.cs" />
+    <Compile Include="Services\ParametroService.cs" />
     <Compile Include="Services\StatusCriancaService.cs" />
     <Compile Include="Services\StatusFamiliaService.cs" />
     <Compile Include="Services\KitItemService.cs" />

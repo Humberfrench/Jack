@@ -30,6 +30,18 @@ namespace Jack.Application
             return _service.Excluir(id);
         }
 
+        public IEnumerable<ReuniaoViewModel> ObterReunioesNoAno()
+        {
+            var reuniao = _service.ObterReunioesNoAno();
+            return Mapper.Map<IEnumerable<ReuniaoViewModel>>(reuniao);
+        }
+
+        public IEnumerable<ReuniaoViewModel> ObterReunioesNoAno(int ano)
+        {
+            var reuniao = _service.ObterReunioesNoAno(ano);
+            return Mapper.Map<IEnumerable<ReuniaoViewModel>>(reuniao);
+        }
+
         public ReuniaoViewModel ObterPorId(int id)
         {
             var reuniao = _service.ObterPorId(id);

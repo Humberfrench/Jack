@@ -12,9 +12,9 @@
                     <a aria-expanded="false" role="button" href="#" class="dropdown-toggle" data-toggle="dropdown">Sacolas<span class="caret"></span></a>
                     <ul role="menu" class="dropdown-menu">
                         <li><a href="@Url.Action("Index","Familia")">Famílias</a></li>
-                        <li><a href="">Crianças</a></li>
-                        <li><a href="">Altera Dados Crianças</a></li>
-                        <li><a href="">Cadastro Presenças</a></li>
+                        <li><a href="@Url.Action("Index","Crianca")">Crianças</a></li>
+                        <li><a href="@Url.Action("AcertoVestimentas", "Crianca")">Acerto de Vestimentas</a></li>
+                        <li><a href="@Url.Action("Index","Presenca")" ">Cadastro Presenças</a></li>
                         <li><a href="">Representantes</a></li>
                         <li><a href="">Sacolas do Colaborador</a></li>
                         <li><a href="">Consulta Sacolas</a></li>
@@ -23,7 +23,7 @@
                 <li class="dropdown">
                     <a aria-expanded="false" role="button" href="#" class="dropdown-toggle" data-toggle="dropdown">Consultas<span class="caret"></span></a>
                     <ul role="menu" class="dropdown-menu">
-                        <li><a href="">Presenças Famílias</a></li>
+                        <li><a href="@Url.Action("ListaPresenca","Presenca")">Presenças Famílias</a></li>
                         <li><a href="">Presenças Reuniões</a></li>
                         <li><a href="">Menu item</a></li>
                         <li><a href="">Menu item</a></li>
@@ -50,7 +50,8 @@
                         <li><a href="">Roupa</a></li>
                         <li><a href="">Status</a></li>
                         <li><a href="">Nível</a></li>
-                        <li><a href="">Parâmetros do Sistema</a></li>
+                        <li><a href="">Relação / Parentesco</a></li>
+                        <li><a href="@Url.Action("Index", "Parametro")">Parâmetros do Sistema</a></li>
                     </ul>
                 </li>
 

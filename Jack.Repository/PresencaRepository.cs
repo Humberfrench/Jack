@@ -61,6 +61,7 @@ namespace Jack.Repository
                 splitOn: "p.Codigo,f.Codigo.r.Codigo");
             return result;
         }
+
         public IEnumerable<Presenca> ObterFamiliaLivrePorReuniao(int reuniao)
         {
             var sql = @"SELECT	p.*, f.*, r.*
@@ -84,13 +85,48 @@ namespace Jack.Repository
             return result;
         }
 
-        public Presenca Obter(int familia, int reuniao)
+        public IEnumerable<Familia> ObterFamiliasDisponiveis(int reuniao)
         {
-            var sql = @"SELECT * FROM Presenca 
+            var sql = @"SELECT	distinct f.Codigo, f.Nome
+                        FROM	Presenca p
+                        JOIN	Familia f
+                        ON		p.Familia = f.Codigo
+                        JOIN	Reuniao r
+                        ON		p.Reuniao = r.Codigo
+                        WHERE	f.Codigo NOT IN (
+		                        SELECT	Familia
+		                        FROM	Presenca
+		                        WHERE	Reuniao = @reuniao)
+                        ORDER BY f.Nome";
+            var result = Conn.Query<Familia>(sql, new { @reuniao = reuniao});
+            return result;
+        }
+
+        public IEnumerable<Familia> ObterFamiliasDisponiveis(int reuniao, string letra)
+        {
+            var sql = @"SELECT	distinct f.Codigo, f.Nome
+                        FROM	Presenca p
+                        JOIN	Familia f
+                        ON		p.Familia = f.Codigo
+                        JOIN	Reuniao r
+                        ON		p.Reuniao = r.Codigo
+                        WHERE	f.Codigo NOT IN (
+		                        SELECT	Familia
+		                        FROM	Presenca
+		                        WHERE	Reuniao = @reuniao)
+                        And     f.Nome like @letra + '%'
+                        ORDER BY f.Nome";
+            var result = Conn.Query<Familia>(sql, new { @reuniao = reuniao, @letra =  letra.ToUpper()});
+            return result;
+        }
+
+        public int? ObterDadoPresencaExistente(int familia, int reuniao)
+        {
+            var sql = @"SELECT Codigo FROM Presenca 
                         WHERE Reuniao = @reuniao
                         AND   Familia = @familia";
 
-            return Conn.Query<Presenca>(sql, new {@reuniao = reuniao, @familia=familia}).FirstOrDefault();
+            return  Conn.Query<int?>(sql, new { @reuniao = reuniao, @familia = familia }).FirstOrDefault();
         }
 
     }

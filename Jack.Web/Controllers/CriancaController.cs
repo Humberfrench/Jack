@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using Jack.Application.Interfaces;
 using Jack.Application.ViewModel;
 using Jack.Library;
+using WebGrease.Css.Extensions;
 
 namespace Jack.Web.Controllers
 {
@@ -17,21 +18,25 @@ namespace Jack.Web.Controllers
         private readonly ICriancaServiceApp criancaAppService;
         private readonly IFamiliaServiceApp familiaAppService;
         private readonly IStatusCriancaServiceApp statusAppService;
+        private readonly IParametroServiceApp parametroAppService;
         private readonly IKitServiceApp kitAppService;
-
+        private readonly ParametroViewModel parametros;
         #endregion
 
         #region Ctor
 
         public CriancaController(ICriancaServiceApp criancaAppService,
-                                 IFamiliaServiceApp familiaAppService, 
+                                 IFamiliaServiceApp familiaAppService,
                                  IStatusCriancaServiceApp statusAppService,
+                                 IParametroServiceApp parametroAppService,
                                  IKitServiceApp kitAppService)
         {
             this.criancaAppService = criancaAppService;
             this.familiaAppService = familiaAppService;
             this.statusAppService = statusAppService;
+            this.parametroAppService = parametroAppService;
             this.kitAppService = kitAppService;
+            parametros = parametroAppService.Obter();
         }
 
         #endregion
@@ -59,6 +64,7 @@ namespace Jack.Web.Controllers
             ViewBag.Kit = ObterKitParaCombo();
             ViewBag.Familia = ObterFamiliaParaCombo();
             ViewBag.FamiliaId = 0;
+            ViewBag.PercentualCriancas = 0;
 
             var listaDados = new List<CriancaViewModel>();
             return View(listaDados);
@@ -87,6 +93,7 @@ namespace Jack.Web.Controllers
 
             ViewBag.Presencas = 0;
             ViewBag.Criancas = 0;
+            ViewBag.PercentualCriancas = 0;
             ViewBag.PermiteExcedente = "";
             ViewBag.Consistente = "";
             ViewBag.Sacolinha = "";
@@ -104,9 +111,15 @@ namespace Jack.Web.Controllers
                 ViewBag.Consistente = familiaDado.Familia.PermiteExcedente ? "checked=checked" : "";
                 ViewBag.Sacolinha = familiaDado.Familia.Sacolinha ? "checked=checked" : "";
                 ViewBag.PresencaJustificada = familiaDado.Familia.PresencaJustificada ? "checked=checked" : "";
+                var percCriancas = ((double)familiaDado.Familia.QuantidadeCriancas / (double)parametros.NumeroMaximoCricancas) * 100;
+                ViewBag.PercentualCriancas = string.Format("{0} %",percCriancas);
             }
+
+
             return View(listaDados);
         }
+
+        [Route("Edit")]
         public ActionResult Edit(int id)
         {
             var crianca = criancaAppService.ObterPorId(id);
@@ -114,10 +127,42 @@ namespace Jack.Web.Controllers
             //zerando listas, não preciso da informação para serializar e evitar erros de referencia circular.
             crianca.Status.Criancas.Clear();
             crianca.Kit.Criancas.Clear();
+            crianca.Kit.Items.Clear();
             crianca.Familia.Criancas.Clear();
+            crianca.Familia.Nivel = null;
+            crianca.Familia.Status = null;
+            crianca.Familia.Presencas.Clear();
+            crianca.Familia.Representantes.Clear();
             crianca.Sacola = null;
 
             return Json(crianca, JsonRequestBehavior.AllowGet);
+        }
+
+        [Route("ValidaCrianca")]
+        public ActionResult ValidaCrianca(CriancaValueViewModel criancaValue)
+        {
+            var crianca = criancaAppService.ValidaCrianca(criancaValue);
+
+            crianca.Status.Criancas.Clear();
+            crianca.Kit.Criancas.Clear();
+            crianca.Kit.Items.Clear();
+            crianca.Familia = null;
+            crianca.Sacola = null;
+
+            return Json(crianca, JsonRequestBehavior.AllowGet);
+        }
+
+        [Route("ObterVestimentaPadrao")]
+        public ActionResult ObterVestimentaPadrao(int idade, string medidaIdade, string sexo, bool isCriancaGrande = false)
+        {
+            var crianca = criancaAppService.ObterVestimentaPadrao(idade,medidaIdade,sexo, isCriancaGrande);
+
+            var retorno = new
+            {
+                calcado = crianca["calcado"],
+                roupa = crianca["roupa"]
+            };
+            return Json(retorno, JsonRequestBehavior.AllowGet);
         }
 
         [HttpPost]
@@ -171,9 +216,88 @@ namespace Jack.Web.Controllers
             return Json(retorno, JsonRequestBehavior.AllowGet);
         }
 
+        [Route("Acerto/Vestimentas")]
+        public ActionResult AcertoVestimentas()
+        {
+            #region BreadCrumb
+            var breadCrumb = new BreadCrumbETitulo
+            {
+                Titulo = "Crianças",
+                BreadCrumbs = new List<BreadCrumb>
+                {
+                 new BreadCrumb {LinkText = "Crianças", ActionName = "Index", ControllerName = "Crianca"},
+                 new BreadCrumb {LinkText = "Acerto Vestimentas", ActionName = "AcertoVestimentas", ControllerName = "Crianca"}
+                }
+            };
+
+            TempData["BreadCrumETitulo"] = breadCrumb;
+            #endregion
+
+            ViewBag.Familia = ObterFamiliaParaCombo();
+            ViewBag.FamiliaId = 0;
+            ViewBag.Criancas = 0;
+
+            var listaDados = new List<CriancaVestimentaViewModel>();
+            return View(listaDados);
+        }
+
+        [Route("Acerto/Vestimentas/{familia}")]
+        public ActionResult AcertoVestimentas(int familia)
+        {
+            #region BreadCrumb
+            var breadCrumb = new BreadCrumbETitulo
+            {
+                Titulo = "Crianças",
+                BreadCrumbs = new List<BreadCrumb>
+                {
+                 new BreadCrumb {LinkText = "Crianças", ActionName = "Index", ControllerName = "Crianca"},
+                 new BreadCrumb {LinkText = "Acerto Vestimentas", ActionName = "AcertoVestimentas", ControllerName = "Crianca"}
+                }
+            };
+
+            TempData["BreadCrumETitulo"] = breadCrumb;
+            #endregion
+
+            ViewBag.Familia = ObterFamiliaParaCombo();
+            ViewBag.FamiliaId = 0;
+
+            ViewBag.FamiliaId = familia;
+
+            var listaDados = criancaAppService.ObterDadosCriancaVestimentas(familia).ToList();
+            ViewBag.Criancas = listaDados.Count;
+
+            return View(listaDados);
+        }
+
+        [Route("Acerto/Vestimentas/Gravar")]
+        public ActionResult GravarVestimentas(int crianca, int calcado, string roupa)
+        {
+            var gravarResult = criancaAppService.GravarVestimentas(crianca, calcado, roupa);
+            object retorno;
+            if (gravarResult.IsValid)
+            {
+                retorno = new
+                {
+                    Mensagem = "Registro Gravado com Sucesso",
+                    Erro = false
+                };
+            }
+            else
+            {
+                retorno = new
+                {
+                    Mensagem = RenderizeErros(gravarResult),
+                    Erro = true
+                };
+            }
+
+            return Json(retorno, JsonRequestBehavior.AllowGet);
+            
+        }
+
         #endregion
 
-
+        
         #region Métodos Privados
 
         private IList<StatusCriancaViewModel> ObterStatus()
