@@ -8,7 +8,6 @@ namespace Jack.Domain.Entity
         {
             codigo = 0;
             sacolaFamilia = 0;
-            familiaRepresentante = new Familia();
             sexo = string.Empty;
             impressa = false;
             liberado = false;

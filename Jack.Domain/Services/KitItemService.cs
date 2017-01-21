@@ -49,5 +49,9 @@ namespace Jack.Domain.Services
 
         }
 
+        public IEnumerable<KitItem> ObterTodos(int id)
+        {
+            return ObterTodos().Where(k => k.Kit.Codigo == id);
+        }
     }
 }

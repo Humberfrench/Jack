@@ -13,6 +13,11 @@
     {
         temIdadeLimiteExcecao = "checked=checked";
     }
+    var podeGerarNovasSacolas = "";
+    if (Model.PodeGerarNovasSacolas)
+    {
+        podeGerarNovasSacolas = "checked=checked";
+    }
 }
 
 <div class="wrapper wrapper-content animated fadeInRight">
@@ -66,8 +71,12 @@
                         <div class="row">
                             <div class="col-lg-1">&nbsp;</div>
                             <div class="col-lg-2">
-                                <label id="labelNumeroMaximoCricancas" for="NumeroMaximoCricancas">Número Máximo Cricanças</label>
-                                <input type="text" name="NumeroMaximoCricancas" id="NumeroMaximoCricancas" class="form-control m-b" value="@Model.NumeroMaximoCricancas" maxlength="2" onkeypress="return Util.SomenteNumeros(event);">
+                                <label id="labelNumeroMaximoRepresentantes" for="NumeroMaximoRepresentantes">Limite Representantes</label>
+                                <input type="text" data-toggle="tooltip" data-placement="top" tooltip="Numero Maximo de Representantes" name="NumeroMaximoRepresentantes" id="NumeroMaximoRepresentantes" class="form-control m-b" value="@Model.NumeroMaximoCricancas" maxlength="2" onkeypress="return Util.SomenteNumeros(event);">
+                            </div>
+                            <div class="col-lg-2">
+                                <label id="labelNumeroMaximoCricancas" for="NumeroMaximoCricancas">Limite Crianças</label>
+                                <input type="text" data-toggle="tooltip" data-placement="top" tooltip="Numero Maximo de Crianças" name="NumeroMaximoCricancas" id="NumeroMaximoCricancas" class="form-control m-b" value="@Model.NumeroMaximoCricancas" maxlength="2" onkeypress="return Util.SomenteNumeros(event);">
                             </div>
                             <div class="col-lg-2">
                                 <label id="labelPrimeiroSabado" for="PrimeiroSabado">Primeiro Sábado</label>
@@ -81,7 +90,17 @@
                                 <label id="labelTerceiroSabado" for="TerceiroSabado">Terceiro Sábado</label>
                                 <input type="text" name="TerceiroSabado" id="TerceiroSabado" class="form-control m-b" value="@Model.TerceiroSabado" maxlength="1" onkeypress="return Util.SomenteNumeros(event);">
                             </div>
-                            <div class="col-lg-3">&nbsp;</div>
+                            <div class="col-lg-1">&nbsp;</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-1">&nbsp;</div>
+                            <div class="col-lg-3">
+                                <br />
+                                <div class="checkbox checkbox-primary">
+                                    <input type="checkbox" name="PodeGerarNovasSacolas" id="PodeGerarNovasSacolas" @podeGerarNovasSacolas>
+                                    <label id="labelPodeGerarNovasSacolas" for="PodeGerarNovasSacolas">Pode Gerar Novas Sacolas?</label>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

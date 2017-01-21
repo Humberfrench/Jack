@@ -19,12 +19,7 @@ namespace Jack.Repository.Mappings
             //Fields
             Id(x => x.Codigo).Column("Codigo");
             Map(x => x.SacolaFamilia).Column("SacolaFamilia").Not.Nullable();
-            //Map(x => x.Familia).Column("Familia").Not.Nullable();
-            //Map(x => x.FamiliaRepresentante).Column("FamiliaRepresentante").Not.Nullable();
-            //Map(x => x.Crianca).Column("Crianca").Not.Nullable();
             Map(x => x.Sexo).Column("Sexo").Not.Nullable();
-            //Map(x => x.Kit).Column("Kit").Not.Nullable();
-            //Map(x => x.Nivel).Column("Nivel").Not.Nullable();
             Map(x => x.Impressa).Column("Impressa").Not.Nullable();
             Map(x => x.Liberado).Column("Liberado").Not.Nullable();
 

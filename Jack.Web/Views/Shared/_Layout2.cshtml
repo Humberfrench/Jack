@@ -32,6 +32,8 @@
             <!-- Top Navbar -->
             @Html.Partial("_TopNavbar2")
 
+            @Html.Action("TituloEBreadCrumb", "Site")
+
             <!-- Main view  -->
             @RenderBody()
 
@@ -41,7 +43,10 @@
         </div>
         <!-- End page wrapper-->
 
-    </div>
+    </div>                                  
+    
+    <div class="modalLoading"></div>
+
     <!-- End wrapper-->
     <!-- Section for main scripts render -->
     @Scripts.Render("~/bundles/jquery")
@@ -55,5 +60,6 @@
 
     <!-- Handler for local scripts -->
     @RenderSection("scripts", required: false)
+
 </body>
 </html>

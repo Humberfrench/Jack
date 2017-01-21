@@ -8,5 +8,6 @@ namespace Jack.Domain.Interfaces.Services
     {
         ValidationResult Gravar(KitItem entity);
         ValidationResult Excluir(int id);
+        IEnumerable<KitItem> ObterTodos(int id);
     }
 }

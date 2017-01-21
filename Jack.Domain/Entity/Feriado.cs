@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Jack.Domain.Interfaces;
 
 namespace Jack.Domain.Entity
@@ -14,9 +10,9 @@ namespace Jack.Domain.Entity
         private string nome;
         private DateTime data;
         private int anoEfetivo;
+        private DateTime reuniaoAnterior;
         private DateTime proximaReuniao;
-        private bool temReuniao;
-
+        private bool podeTerReuniao;
 
         public virtual int Codigo
         {
@@ -66,6 +62,18 @@ namespace Jack.Domain.Entity
             }
         }
 
+        public virtual DateTime ReuniaoAnterior
+        {
+            get
+            {
+                return reuniaoAnterior;
+            }
+            set
+            {
+                reuniaoAnterior = value;
+            }
+        }
+
         public virtual DateTime ProximaReuniao
         {
             get
@@ -78,15 +86,15 @@ namespace Jack.Domain.Entity
             }
         }
 
-        public virtual bool TemReuniao
+        public virtual bool PodeTerReuniao
         {
             get
             {
-                return temReuniao;
+                return podeTerReuniao;
             }
             set
             {
-                temReuniao = value;
+                podeTerReuniao = value;
             }
         }
 

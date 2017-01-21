@@ -16,7 +16,7 @@ namespace Jack.Repository.Mappings
             Id(x => x.Codigo).Column("Codigo");
             Map(x => x.Nome).Column("Nome").Not.Nullable();
             Map(x => x.Descricao).Column("Descricao").Not.Nullable();
-            Map(x => x.PercentualIncial).Column("PercentualIncial").Not.Nullable();
+            Map(x => x.PercentualInicial).Column("PercentualInicial").Not.Nullable();
             Map(x => x.PercentualFinal).Column("PercentualFinal").Not.Nullable();
             Map(x => x.SacolaGarantida).Column("SacolaGarantida").Nullable();
             Map(x => x.ListaDeEspera).Column("ListaDeEspera").Nullable();

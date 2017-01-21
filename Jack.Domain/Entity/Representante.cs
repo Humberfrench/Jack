@@ -18,6 +18,7 @@ namespace Jack.Domain.Entity
         private bool ativo;
         private Familia familiaRepresentante;
         private Familia familiaRepresentada;
+        private TipoParentesco tipoParentesco;
 
         public virtual int Codigo
         {
@@ -64,6 +65,18 @@ namespace Jack.Domain.Entity
             set
             {
                 familiaRepresentada = value;
+            }
+        }
+
+        public virtual TipoParentesco TipoParentesco
+        {
+            get
+            {
+                return tipoParentesco;
+            }
+            set
+            {
+                tipoParentesco = value;
             }
         }
     }

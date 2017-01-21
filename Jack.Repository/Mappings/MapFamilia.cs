@@ -18,7 +18,8 @@ namespace Jack.Repository.Mappings
             Map(x => x.Nome).Column("Nome").Not.Nullable();
             Map(x => x.Sacolinha).Column("Sacolinha").Not.Nullable();
             Map(x => x.Consistente).Column("Consistente").Not.Nullable();
-            Map(x => x.PermiteExcedente).Column("PermiteExcedente").Not.Nullable();
+            Map(x => x.PermiteExcedenteCriancas).Column("PermiteExcedenteCriancas").Not.Nullable();
+            Map(x => x.PermiteExcedenteRepresentantes).Column("PermiteExcedenteRepresentantes").Not.Nullable();
             Map(x => x.Contato).Column("Contato").Nullable();
             Map(x => x.DataAtualizacao).Column("DataAtualizacao").Nullable();
             Map(x => x.DataCriacao).Column("DataCriacao").Nullable();

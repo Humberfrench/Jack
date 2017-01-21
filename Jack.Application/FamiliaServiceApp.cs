@@ -42,6 +42,12 @@ namespace Jack.Application
             return familia;
         }
 
+        public ValidationResult AtualizarPresencas(FamiliaViewModel familia)
+        {
+            var familiaSalvar = Mapper.Map<Familia>(familia);
+            return _service.AtualizarPresencas(familiaSalvar);
+        }
+
         public FamiliaViewModel ObterPorId(int id)
         {
             var familia = _service.ObterPorId(id);

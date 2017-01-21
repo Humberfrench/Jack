@@ -37,6 +37,7 @@ namespace Jack.Application.AutoMapper
             Mapper.CreateMap<StatusFamiliaViewModel, StatusFamilia>();
             Mapper.CreateMap<StatusCriancaViewModel, StatusCrianca>();
             Mapper.CreateMap<TipoItemViewModel, TipoItem>();
+            Mapper.CreateMap<TipoParentescoViewModel, TipoParentesco>();
 
         }
     }

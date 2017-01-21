@@ -1,0 +1,32 @@
+﻿@using Jack.Application.ViewModel
+@using Jack.Extensions
+@model IEnumerable<FamiliaViewModel>
+@{
+    Layout = null;
+}
+
+<table id="TableRepresentante" class="table table-striped">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.Codigo)</th>
+            <th>@Html.DisplayNameFor(model => model.Nome)</th> 
+            <th>&nbsp;</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Codigo</td>
+                <td>@item.Nome</td>
+                <td>
+                    <button type="button" id="Gravar" name="Gravar" class="btn btn-success btn-sm" onclick="return Representante.Gravar('@item.Codigo')">
+                        <i class=" glyphicon glyphicon-plus-sign" data-toggle="tooltip" data-placement="top" title="Gravar Representante">
+                        </i>
+                    </button>                    
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+

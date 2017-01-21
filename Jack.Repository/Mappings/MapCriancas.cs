@@ -35,6 +35,7 @@ namespace Jack.Repository.Mappings
             //References
             References(x => x.Familia).Column("Familia").Not.Nullable().Not.LazyLoad(); 
             References(x => x.Kit).Column("Kit").Not.Nullable();
+            References(x => x.TipoParentesco).Column("TipoParentesco").Not.Nullable();
             References(x => x.Status).Column("Status").Not.Nullable().Not.LazyLoad();
 
             //Has Many

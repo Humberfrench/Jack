@@ -13,6 +13,7 @@ namespace Jack.Domain.Entity
         private int ano;
         private bool devolvida;
         private DateTime dataCriacao;
+        private DateTime? dataDevolucao;
 
         #endregion
 
@@ -87,6 +88,18 @@ namespace Jack.Domain.Entity
             set
             {
                 dataCriacao = value;
+            }
+        }
+
+        public virtual DateTime? DataDevolucao
+        {
+            get
+            {
+                return dataDevolucao;
+            }
+            set
+            {
+                dataDevolucao = value;
             }
         }
         

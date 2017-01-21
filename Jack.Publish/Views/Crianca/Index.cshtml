@@ -7,12 +7,11 @@
 @{
     ViewBag.Title = "Crianças";
     Layout = "~/Views/Shared/_Layout2.cshtml";
-    var disabledExc = "";
     IEnumerable<SelectListItem> familiaLista = ViewBag.Familia as IEnumerable<SelectListItem>;
 }
 
 <input type="hidden" name="URLObterTodos" id="URLObterTodos" value="@Url.Action("Index")" />
-<input type="hidden" name="URLEdit" id="URLEdit" value="@Url.Action("Edit", new { id = UrlParameter.Optional })" />
+<input type="hidden" name="URLEdit" id="URLEdit" value="@Url.Action("Edit")" />
 <input type="hidden" name="URLGravar" id="URLGravar" value="@Url.Action("Gravar")" />
 <input type="hidden" name="URLExcluir" id="URLExcluir" value="@Url.Action("Excluir")" />
 
@@ -24,7 +23,7 @@
                     <h5>Crianças</h5>
                     <div class="ibox-tools">
                         <button type="button" id="Novo" name="Novo"
-                                class="btn btn-primary btn-lg"
+                                class="btn btn-success btn-lg"
                                 data-toggle="tooltip" data-placement="top"
                                 title="Novo Registro">
                             <i class="glyphicon glyphicon-file"></i>Novo
@@ -39,6 +38,7 @@
                             <input type="hidden" value="@ViewBag.FamiliaId" id="CodigoFamilia" name="CodigoFamilia" />
                         </div>
                         <div class="col-lg-1" style="text-align:center;">
+                            <br /> 
                             <button id="Pesquisar" class="btn btn-primary btn-md" data-toggle="tooltip" data-placement="top" title="Pesquisar" onclick="return Crianca.Pesquisar();">
                                 <i class="glyphicon glyphicon-search"></i>
                             </button>
@@ -52,7 +52,7 @@
                             <input type="text" name="Presencas" id="Presencas" readonly="readonly" class="form-control m-b" value="@ViewBag.Presencas" style="width:75%;">
                         </div>
                         <div class="col-lg-2">
-                            <label id="labelPercentualCriancas" for="Criancas">% Crianças</label>
+                            <label id="labelPercentualCriancas" for="Criancas">% Crianças</label><br />
                             <input type="text" name="PercentualCriancas" id="PercentualCriancas" readonly="readonly" class=".dial" value="@ViewBag.PercentualCriancas" style="width:75%;">
                         </div>
 
@@ -87,7 +87,7 @@
                     </div>
                 </div>
                 <div class="ibox-content">
-                    <table class="table table-striped" id="TableFamilia">
+                    <table class="table table-striped table-hover" id="TableFamilia">
                         <thead>
                             <tr>
                                 <th>@Html.DisplayNameFor(model => model.Codigo)</th>
@@ -98,7 +98,7 @@
                                 <th>@Html.DisplayNameFor(model => model.Roupa)</th>
                                 <th>@Html.DisplayNameFor(model => model.Calcado)</th>
                                 <th>@Html.DisplayNameFor(model => model.Status)</th>
-                                <th>Ações</th>
+                                <th>&nbsp;</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -131,13 +131,13 @@
                                         @Html.DisplayFor(modelItem => item.Status.Descricao)
                                     </td>
                                     <td style="text-align:right;">
-                                        <button type="button" class="btn btn-info btn-sm" onclick="return Crianca.Processar('@item.Codigo')">
-                                            <i class="glyphicon glyphicon-flag" data-toggle="tooltip" data-placement="top" title="Processar Dados da Crianca"></i>
+                                        <button type="button" class="btn btn-info btn-sm" onclick="return Crianca.Processar('@item.Codigo')" data-toggle="tooltip" data-placement="top" title="Processar Dados da Crianca">
+                                            <i class="glyphicon glyphicon-flag"></i>
                                         </button>
-                                        <button type="button" class="btn btn-success btn-sm" onclick="return Crianca.Editar('@item.Codigo')">
-                                            <i class="glyphicon glyphicon-pencil" data-toggle="tooltip" data-placement="top" title="Editar Registro"></i>
+                                        <button type="button" class="btn btn-success btn-sm" onclick="return Crianca.Editar('@item.Codigo')" data-toggle="tooltip" data-placement="top" title="Editar Registro">
+                                            <i class="glyphicon glyphicon-pencil"></i>
                                         </button>
-                                        <button type="button" id="Excluir" name="Excluir" class="btn btn-danger btn-sm" onclick="return Crianca.ExcluirConfirmar('@item.Codigo','@item.Nome')" @disabledExc>
+                                        <button type="button" id="Excluir" name="Excluir" class="btn btn-danger btn-sm" onclick="return ExcluirConfirmar('@item.Codigo','@item.Nome')" data-toggle="tooltip" data-placement="top" title="Excluir Registro">
                                             <i class=" glyphicon glyphicon-trash" data-toggle="tooltip" data-placement="top" title="Excluir Registro">
                                             </i>
                                         </button>
@@ -152,8 +152,9 @@
     </div>
 </div>
 
-@Html.Partial("Edicao");
-@Html.Partial("Exclusao");
+@Html.Partial("Edicao")
+@Html.Partial("Exclusao")
+@Html.Partial("MEnsagem")
 
 @section scripts
 {

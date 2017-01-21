@@ -40,6 +40,7 @@ Presenca.MontarTabela = function ()
         "searching": false,
         "autoWidth": false,
         "lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "Todos"]],
+        "order": [],
         "language": {
             "sEmptyTable": "Nenhum registro encontrado",
             "sInfo": "Mostrando de _START_ até _END_ de _TOTAL_ registros",
@@ -80,6 +81,10 @@ Presenca.Pesquisar = function (reuniao, letra)
         $("#divReuniao").html(response);
     };
 
+    if (letra === undefined)
+    {
+        letra = '0';
+    }
     opcoes.dadoEnvio = new Object;
     opcoes.dadoEnvio.reuniao = reuniao;
     opcoes.dadoEnvio.letra = letra;
@@ -132,7 +137,8 @@ Presenca.Gravar = function (familia)
         {
             Mensagens.Sucesso(dataObj.Mensagem);
             var reuniao = $("#Reuniao").val();
-            Presenca.Pesquisar(reuniao);
+            var letra = $("#Letra").val();
+            Presenca.Pesquisar(reuniao, letra);
         }
     };
 

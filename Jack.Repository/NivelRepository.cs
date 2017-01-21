@@ -42,7 +42,7 @@ namespace Jack.Repository
 
         public Nivel ObterNivelPorFaixaPresencial(float percPresenca)
         {
-            var nivel = GetAll().FirstOrDefault(nvl => nvl.PercentualIncial <= percPresenca
+            var nivel = GetAll().FirstOrDefault(nvl => nvl.PercentualInicial <= percPresenca
                                                         && nvl.PercentualFinal >= percPresenca);
 
             if (nivel == null)

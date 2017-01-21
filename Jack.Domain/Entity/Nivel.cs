@@ -11,7 +11,7 @@ namespace Jack.Domain.Entity
             codigo = 0;
             nome = string.Empty;
             descricao = string.Empty;
-            percentualIncial = 0;
+            percentualInicial = 0;
             percentualFinal = 0;
             sacolaGarantida = false;
             listaDeEspera = false;
@@ -24,7 +24,7 @@ namespace Jack.Domain.Entity
         private int codigo;
         private string nome;
         private string descricao;
-        private float percentualIncial;
+        private float percentualInicial;
         private float percentualFinal;
         private bool sacolaGarantida;
         private bool listaDeEspera;
@@ -70,15 +70,15 @@ namespace Jack.Domain.Entity
             }
         }
 
-        public virtual float PercentualIncial
+        public virtual float PercentualInicial
         {
             get
             {
-                return percentualIncial;
+                return percentualInicial;
             }
             set
             {
-                percentualIncial = value;
+                percentualInicial = value;
             }
         }
 

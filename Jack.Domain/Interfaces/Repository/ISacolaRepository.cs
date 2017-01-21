@@ -2,7 +2,7 @@
 
 namespace Jack.Domain.Interfaces.Repository
 {
-    public interface ISacolaRepository : IRepositoryBaseReadOnly<Sacola>
+    public interface ISacolaRepository : IRepositoryBase<Sacola>
     {
         Sacola ObterSacolaPorCrianca(int crianca);     
     }

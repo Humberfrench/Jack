@@ -11,5 +11,7 @@ namespace Jack.Application.Interfaces
         ValidationResult Gravar(FamiliaViewModel entity, int reuniao);
         ValidationResult Excluir(int id);
         ValidationResult AtualizarFamilia(int id, bool gravar = true);
+        ValidationResult AtualizarPresencas(FamiliaViewModel familia);
+
     }
 }

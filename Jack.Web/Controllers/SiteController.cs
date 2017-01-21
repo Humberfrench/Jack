@@ -19,10 +19,13 @@ namespace Jack.Web.Controllers
         }
 
 
+        public ActionResult MenuTopo()
+        {
+            return PartialView("_TopNavBar2");
+        }
+
         public ActionResult MenuLateral()
         {
-            @ViewBag.Usuario = "";
-            @ViewBag.Perfil = "";
             return PartialView("_Navigation");
         }
 

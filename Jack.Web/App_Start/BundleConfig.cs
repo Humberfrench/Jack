@@ -42,28 +42,47 @@ namespace Jack.Web
             RegisterPresencaBundle(ref bundles);
             #endregion
 
-            #region Responsavel Bundles
-            RegisterResponsavelBundle(ref bundles);
+            #region Representante Bundles
+            RegisterRepresentanteBundle(ref bundles);
             #endregion
 
-            #region Evangelizador Bundles
-            RegisterEvangelizadorBundle(ref bundles);
+            #region Colaborador Bundles
+            RegisterColaboradorBundle(ref bundles);
             #endregion
 
-            #region Turma Bundles
-            RegisterTurmaBundle(ref bundles);
+            #region Sacolas Bundles
+            RegisterSacolasBundle(ref bundles);
             #endregion
+
+            #region Vestimentas Bundles
+            RegisterVestimentasBundle(ref bundles);
+            #endregion
+
+            #region Kit Bundles
+            RegisterKitBundle(ref bundles);
+            #endregion
+
+            #region Status Bundles
+            RegisterStatusBundle(ref bundles);
+            #endregion
+
+            #region Nivel Bundles
+            RegisterNivelBundle(ref bundles);
+            #endregion
+
+            #region Tipo Parentesco Bundles
+            RegisterTipoParentescoBundle(ref bundles);
+            #endregion
+
+            #region Feriado Bundles
+            RegisterFeriadoBundle(ref bundles);
+            #endregion
+
+            #region Reuniao Bundles
+            RegisterReuniaoBundle(ref bundles);
+            #endregion
+
        }
-
-        private static void RegisterTipoItemBundle(ref BundleCollection bundles)
-        {
-
-            var jssCaracteristica = new ScriptBundle("~/script/TipoItem/main");
-            jssCaracteristica.Include("~/Scripts/TipoItem/main.js");
-            jssCaracteristica.Orderer = new AsIsBundleOrderer();
-            bundles.Add(jssCaracteristica);
-           
-        }
 
         private static void RegisterCssBundle(ref BundleCollection bundles)
         {
@@ -71,6 +90,7 @@ namespace Jack.Web
             var cssInspinia = new StyleBundle("~/Content/css");
             cssInspinia.Include("~/Content/bootstrap.min.css",
                                 "~/Content/animate.css",
+                                "~/Content/main.css",
                                 "~/Content/style.css");
             cssInspinia.Orderer = new AsIsBundleOrderer();
             bundles.Add(cssInspinia);
@@ -306,6 +326,7 @@ namespace Jack.Web
 
         private static void RegisterJsBundle(ref BundleCollection bundles)
         {
+
             // jQuery
             var jssjQuery = new ScriptBundle("~/bundles/jquery");
             jssjQuery.Include("~/Scripts/jquery-2.1.1.min.js");
@@ -337,6 +358,12 @@ namespace Jack.Web
             jssSkinConfig.Include("~/Scripts/app/skin.config.min.js");
             jssSkinConfig.Orderer = new AsIsBundleOrderer();
             bundles.Add(jssSkinConfig);
+
+            // bootbox
+            var jssBootBox = new ScriptBundle("~/bundles/bootbox");
+            jssBootBox.Include("~/Scripts/bootbox.min.js");
+            jssBootBox.Orderer = new AsIsBundleOrderer();
+            bundles.Add(jssBootBox);
 
             // SlimScroll
             var jssSlimScroll = new ScriptBundle("~/bundles/slimScroll");
@@ -698,6 +725,16 @@ namespace Jack.Web
  
         }
 
+        private static void RegisterTipoItemBundle(ref BundleCollection bundles)
+        {
+
+            var jssCaracteristica = new ScriptBundle("~/script/TipoItem/main");
+            jssCaracteristica.Include("~/Scripts/TipoItem/main.js");
+            jssCaracteristica.Orderer = new AsIsBundleOrderer();
+            bundles.Add(jssCaracteristica);
+           
+        }
+
         private static void RegisterFamiliaBundle(ref BundleCollection bundles)
         {
 
@@ -738,46 +775,145 @@ namespace Jack.Web
             jssPresenca.Orderer = new AsIsBundleOrderer();
             bundles.Add(jssPresenca);
           
-        }
+            jssPresenca = new ScriptBundle("~/script/Presenca/Reunioes");
+            jssPresenca.Include("~/Scripts/Presenca/PresencaReunioes.js");
+            jssPresenca.Orderer = new AsIsBundleOrderer();
+            bundles.Add(jssPresenca);
+                  }
 
-        private static void RegisterResponsavelBundle(ref BundleCollection bundles)
+        private static void RegisterRepresentanteBundle(ref BundleCollection bundles)
         {
 
-            var jssResponsavel = new ScriptBundle("~/script/Responsavel/main");
-            jssResponsavel.Include("~/Scripts/Responsavel/main.js");
+            var jssResponsavel = new ScriptBundle("~/script/Representante/main");
+            jssResponsavel.Include("~/Scripts/Representante/main.js");
             jssResponsavel.Orderer = new AsIsBundleOrderer();
             bundles.Add(jssResponsavel);
 
         }
 
-        private static void RegisterEvangelizadorBundle(ref BundleCollection bundles)
+        private static void RegisterColaboradorBundle(ref BundleCollection bundles)
         {
 
-            var jssResponsavel = new ScriptBundle("~/script/Evangelizador/main");
-            jssResponsavel.Include("~/Scripts/Evangelizador/main.js");
-            jssResponsavel.Orderer = new AsIsBundleOrderer();
-            bundles.Add(jssResponsavel);
+            var jssColaborador = new ScriptBundle("~/script/Colaborador/main");
+            jssColaborador.Include("~/Scripts/Colaborador/main.js");
+            jssColaborador.Orderer = new AsIsBundleOrderer();
+            bundles.Add(jssColaborador);
+
+            jssColaborador = new ScriptBundle("~/script/ColaboradorCrianca/main");
+            jssColaborador.Include("~/Scripts/Colaborador/ColaboradorCrianca.js");
+            jssColaborador.Orderer = new AsIsBundleOrderer();
+            bundles.Add(jssColaborador);
+
+            jssColaborador = new ScriptBundle("~/script/ColaboradorCrianca/Add");
+            jssColaborador.Include("~/Scripts/Colaborador/ColaboradorCriancaAdd.js");
+            jssColaborador.Orderer = new AsIsBundleOrderer();
+            bundles.Add(jssColaborador);
+
+            jssColaborador = new ScriptBundle("~/script/ColaboradorCrianca/Add/Lista");
+            jssColaborador.Include("~/Scripts/Colaborador/ColaboradorCriancaAddLista.js");
+            jssColaborador.Orderer = new AsIsBundleOrderer();
+            bundles.Add(jssColaborador);
+        }
+
+        private static void RegisterSacolasBundle(ref BundleCollection bundles)
+        {
+
+            var jssSacolas = new ScriptBundle("~/script/Sacolas/main");
+            jssSacolas.Include("~/Scripts/Sacolas/main.js");
+            jssSacolas.Orderer = new AsIsBundleOrderer();
+            bundles.Add(jssSacolas);
+
+            jssSacolas = new ScriptBundle("~/script/Sacolas/AdicionarCriancas");
+            jssSacolas.Include("~/Scripts/Sacolas/AdicionarCrianca.js");
+            jssSacolas.Orderer = new AsIsBundleOrderer();
+            bundles.Add(jssSacolas);
+
+       }
+
+        private static void RegisterKitBundle(ref BundleCollection bundles)
+        {
+
+            var jssKit = new ScriptBundle("~/script/Kit/main");
+            jssKit.Include("~/Scripts/Kit/main.js");
+            jssKit.Orderer = new AsIsBundleOrderer();
+            bundles.Add(jssKit);
+           
+            jssKit = new ScriptBundle("~/script/KitItem/main");
+            jssKit.Include("~/Scripts/KitItem/main.js");
+            jssKit.Orderer = new AsIsBundleOrderer();
+            bundles.Add(jssKit);
+           
+        }
+
+        private static void RegisterVestimentasBundle(ref BundleCollection bundles)
+        {
+
+            var jssVestimentas = new ScriptBundle("~/script/Calcado/main");
+            jssVestimentas.Include("~/Scripts/Calcado/main.js");
+            jssVestimentas.Orderer = new AsIsBundleOrderer();
+            bundles.Add(jssVestimentas);
+           
+            jssVestimentas = new ScriptBundle("~/script/Roupa/main");
+            jssVestimentas.Include("~/Scripts/Roupa/main.js");
+            jssVestimentas.Orderer = new AsIsBundleOrderer();
+            bundles.Add(jssVestimentas);
+           
+        }
+
+        private static void RegisterStatusBundle(ref BundleCollection bundles)
+        {
+
+            var jssStatus = new ScriptBundle("~/script/Status/crianca");
+            jssStatus.Include("~/Scripts/StatusCrianca/main.js");
+            jssStatus.Orderer = new AsIsBundleOrderer();
+            bundles.Add(jssStatus);
+
+            jssStatus = new ScriptBundle("~/script/Status/familia");
+            jssStatus.Include("~/Scripts/StatusFamilia/main.js");
+            jssStatus.Orderer = new AsIsBundleOrderer();
+            bundles.Add(jssStatus);
+           
+        }
+
+        private static void RegisterNivelBundle(ref BundleCollection bundles)
+        {
+
+            var jssNivel = new ScriptBundle("~/script/Nivel/main");
+            jssNivel.Include("~/Scripts/Nivel/main.js");
+            jssNivel.Orderer = new AsIsBundleOrderer();
+            bundles.Add(jssNivel);
 
         }
 
-        private static void RegisterTurmaBundle(ref BundleCollection bundles)
+        private static void RegisterTipoParentescoBundle(ref BundleCollection bundles)
         {
 
-            var jssTurmaAluno = new ScriptBundle("~/script/Turma/Evangelizador");
-            jssTurmaAluno.Include("~/Scripts/Turma/Turma.js");
-            jssTurmaAluno.Orderer = new AsIsBundleOrderer();
-            bundles.Add(jssTurmaAluno);
-
-            var jssTurma = new ScriptBundle("~/script/Turmas/main");
-            jssTurma.Include("~/Scripts/Turma/main.js");
-            jssTurma.Orderer = new AsIsBundleOrderer();
-            bundles.Add(jssTurma);
-
-
-            var jssCopiarTurma = new ScriptBundle("~/script/Turmas/CopiarTurma");
-            jssCopiarTurma.Include("~/Scripts/Turma/CopiarTurma.js");
-            jssCopiarTurma.Orderer = new AsIsBundleOrderer();
-            bundles.Add(jssCopiarTurma);
+            var jssTipoParentesco = new ScriptBundle("~/script/TipoParentesco/main");
+            jssTipoParentesco.Include("~/Scripts/TipoParentesco/main.js");
+            jssTipoParentesco.Orderer = new AsIsBundleOrderer();
+            bundles.Add(jssTipoParentesco);
+           
         }
+
+        private static void RegisterFeriadoBundle(ref BundleCollection bundles)
+        {
+
+            var jssTipoParentesco = new ScriptBundle("~/script/Feriado/main");
+            jssTipoParentesco.Include("~/Scripts/Feriado/main.js");
+            jssTipoParentesco.Orderer = new AsIsBundleOrderer();
+            bundles.Add(jssTipoParentesco);
+           
+        }
+
+        private static void RegisterReuniaoBundle(ref BundleCollection bundles)
+        {
+
+            var jssTipoParentesco = new ScriptBundle("~/script/Reuniao/main");
+            jssTipoParentesco.Include("~/Scripts/Reuniao/main.js");
+            jssTipoParentesco.Orderer = new AsIsBundleOrderer();
+            bundles.Add(jssTipoParentesco);
+           
+        }
+
     }
 }

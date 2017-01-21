@@ -17,8 +17,9 @@ namespace Jack.Repository.Mappings
             Map(x => x.Nome).Column("Nome").Not.Nullable();
             Map(x => x.Data).Column("Data").Not.Nullable();
             Map(x => x.AnoEfetivo).Column("AnoEfetivo").Not.Nullable();
+            Map(x => x.ReuniaoAnterior).Column("ReuniaoAnterior").Not.Nullable();
             Map(x => x.ProximaReuniao).Column("ProximaReuniao").Not.Nullable();
-            Map(x => x.TemReuniao).Column("TemReuniao").Not.Nullable();
+            Map(x => x.PodeTerReuniao).Column("PodeTerReuniao").Not.Nullable();
 
         }
     }

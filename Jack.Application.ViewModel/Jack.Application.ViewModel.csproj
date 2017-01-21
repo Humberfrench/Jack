@@ -70,6 +70,13 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="TipoItemViewModel.cs" />
+    <Compile Include="TipoParentescoViewModel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Jack.Extensions\Jack.Extensions.csproj">
+      <Project>{0e63a054-3d47-4cde-bd08-7ca8782c5555}</Project>
+      <Name>Jack.Extensions</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />

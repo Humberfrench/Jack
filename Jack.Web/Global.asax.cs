@@ -18,15 +18,6 @@ namespace Jack.Web
 
     public class MvcApplication : NinjectHttpApplication
     {
-        //protected  void Application_Start()
-        //{
-        //    AreaRegistration.RegisterAllAreas();
-        //    FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
-        //    RouteConfig.RegisterRoutes(RouteTable.Routes);
-        //    BundleConfig.RegisterBundles(BundleTable.Bundles);
-        //    AutoMapperConfig.RegisterMappings();
-        //    //NinjectWebCommon.Start();
-        //}
 
         protected override void OnApplicationStarted()
         {
@@ -167,6 +158,13 @@ namespace Jack.Web
             kernel.Bind<ITipoItemServiceApp>().To<TipoItemServiceApp>();
             kernel.Bind<ITipoItemService>().To<TipoItemService>();
             kernel.Bind<ITipoItemRepository>().To<TipoItemRepository>();
+            #endregion
+
+
+            #region Tipo Parentesco
+            kernel.Bind<ITipoParentescoServiceApp>().To<TipoParentescoServiceApp>();
+            kernel.Bind<ITipoParentescoService>().To<TipoParentescoService>();
+            kernel.Bind<ITipoParentescoRepository>().To<TipoParentescoRepository>();
             #endregion
 
         }        

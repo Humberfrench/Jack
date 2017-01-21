@@ -18,8 +18,8 @@ namespace Jack.Web.Controllers
         private readonly ICriancaServiceApp criancaAppService;
         private readonly IFamiliaServiceApp familiaAppService;
         private readonly IStatusCriancaServiceApp statusAppService;
-        private readonly IParametroServiceApp parametroAppService;
         private readonly IKitServiceApp kitAppService;
+        private readonly IParametroServiceApp parametroAppService;
         private readonly ParametroViewModel parametros;
         #endregion
 
@@ -34,8 +34,8 @@ namespace Jack.Web.Controllers
             this.criancaAppService = criancaAppService;
             this.familiaAppService = familiaAppService;
             this.statusAppService = statusAppService;
-            this.parametroAppService = parametroAppService;
             this.kitAppService = kitAppService;
+            this.parametroAppService = parametroAppService;
             parametros = parametroAppService.Obter();
         }
 
@@ -100,15 +100,15 @@ namespace Jack.Web.Controllers
             ViewBag.PresencaJustificada = "";
             ViewBag.FamiliaId = familia;
 
-            var listaDados = criancaAppService.ObterCriancas(familia).ToList();
+            var listaDados = criancaAppService.ObterCriancas(familia).OrderBy(c => c.Nome).ToList();
             var familiaDado = listaDados.FirstOrDefault() ;
             if (familiaDado != null)
             {
 
                 ViewBag.Presencas = familiaDado.Familia.QuantidadePresencas;
                 ViewBag.Criancas = familiaDado.Familia.QuantidadeCriancas;
-                ViewBag.PermiteExcedente = familiaDado.Familia.PermiteExcedente ? "checked=checked" : "";
-                ViewBag.Consistente = familiaDado.Familia.PermiteExcedente ? "checked=checked" : "";
+                ViewBag.PermiteExcedente = familiaDado.Familia.PermiteExcedenteCriancas ? "checked=checked" : "";
+                ViewBag.Consistente = familiaDado.Familia.PermiteExcedenteCriancas ? "checked=checked" : "";
                 ViewBag.Sacolinha = familiaDado.Familia.Sacolinha ? "checked=checked" : "";
                 ViewBag.PresencaJustificada = familiaDado.Familia.PresencaJustificada ? "checked=checked" : "";
                 var percCriancas = ((double)familiaDado.Familia.QuantidadeCriancas / (double)parametros.NumeroMaximoCricancas) * 100;
@@ -167,6 +167,7 @@ namespace Jack.Web.Controllers
 
         [HttpPost]
         [ValidateJsonAntiForgeryToken]
+        [Route("Gravar")]
         public ActionResult Gravar(CriancaViewModel crianca)
         {
             var gravarResult = criancaAppService .Gravar(crianca);
@@ -191,6 +192,7 @@ namespace Jack.Web.Controllers
             return Json(retorno, JsonRequestBehavior.AllowGet);
         }
 
+        [Route("Excluir")]
         public ActionResult Excluir(int id)
         {
             var excluirResult = criancaAppService.Excluir(id);
@@ -296,7 +298,6 @@ namespace Jack.Web.Controllers
         }
 
         #endregion
-
         
         #region Métodos Privados
 
@@ -330,7 +331,7 @@ namespace Jack.Web.Controllers
 
         private IList<FamiliaViewModel> ObterFamilia()
         {
-            var dados = familiaAppService.ObterTodos().ToList();
+            var dados = familiaAppService.ObterTodos().OrderBy(c => c.Nome).ToList();
             return dados;
         }
 

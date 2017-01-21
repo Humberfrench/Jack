@@ -1,0 +1,127 @@
+﻿@using Jack.Application.ViewModel
+@using Jack.Extensions
+@model IEnumerable<ColaboradorCriancaViewModel>
+
+@Styles.Render("~/Content/plugins/dataTables/dataTablesStyles")
+@Styles.Render("~/plugins/awesomeCheckboxStyles")
+@{
+    ViewBag.Title = "Crianças do Colaborador";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+    var disabled = "";
+    IEnumerable<SelectListItem> colaboradorLista = ViewBag.Colaborador as IEnumerable<SelectListItem>;
+}
+
+<input type="hidden" name="URLObterTodos" id="URLObterTodos" value="@Url.Action("Index")" />
+<input type="hidden" name="URLExcluirSacola" id="URLExcluirSacola" value="@Url.Action("Excluir")" />
+<input type="hidden" name="URLDevolver" id="URLDevolver" value="@Url.Action("Devolver")" />
+
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>Crianças do Colaborador</h5>
+                    <div class="ibox-tools">
+                        <button type="button" id="Novo" name="Novo"
+                                class="btn btn-success btn-lg"
+                                data-toggle="tooltip" data-placement="top"
+                                title="Novo Registro">
+                            <i class="glyphicon glyphicon-file"></i>Novo
+                        </button>
+                    </div>
+                </div>
+                <div class="ibox-content">
+                    <div class="row">
+                        <div class="col-lg-1">
+                        </div>
+                       <div class="col-lg-6">
+                            <label id="labelFamilia" for="Colaborador">Colaborador</label>
+                            @Html.DropDownList("Colaborador", colaboradorLista, new { @id = "Colaborador", @class = "form-control m-b" })
+                           <input type="hidden" value="@ViewBag.ColaboradorId" id="ColaboradorId" name="ColaboradorId" />
+                           <input type="hidden" value="@ViewBag.Ano" id="AnoValue" name="AnoValue" />
+                        </div>
+                        <div class="col-lg-2">
+                            <label id="labelAno" for="Ano">Ano</label>
+                            <select name="Ano" id="Ano" class="form-control m-b">
+                                <option value="0">Ano</option>
+                                <option value="2014">2014</option>
+                                <option value="2015">2015</option>
+                                <option value="2016">2016</option>
+                                <option value="2017">2017</option>
+                                <option value="2018">2018</option>
+                                <option value="2019">2019</option>
+                                <option value="2020">2020</option>
+                                <option value="2021">2021</option>
+                                <option value="2022">2022</option>
+                            </select>
+                        </div>
+                        <div class="col-lg-1" style="text-align:center;">
+                            <br />
+                            <button id="Pesquisar" class="btn btn-primary btn-md" data-toggle="tooltip" data-placement="top" title="Pesquisar" onclick="return Colaborador.Pesquisar();">
+                                <i class="glyphicon glyphicon-search"></i>
+                            </button>
+                        </div>
+                        <div class="col-lg-1">&nbsp;</div>
+                    </div>
+                </div>
+                <div class="ibox-content">
+                    <table class="table table-striped table-hover" id="TableFamilia">
+                        <thead>
+                            <tr>
+                                <th>@Html.DisplayNameFor(model => model.Crianca.Sacola.SacolaFamilia)</th>
+                                <th>@Html.DisplayNameFor(model => model.Crianca.Sacola.Codigo)</th>
+                                <th>@Html.DisplayNameFor(model => model.Crianca.Nome)</th>
+                                <th>@Html.DisplayNameFor(model => model.Crianca.IdadeNominalReduzida)</th>
+                                <th>@Html.DisplayNameFor(model => model.Crianca.Calcado)</th>
+                                <th>@Html.DisplayNameFor(model => model.Crianca.Roupa)</th>
+                                <th>@Html.DisplayNameFor(model => model.Devolvida)</th>
+                                <th>@Html.DisplayNameFor(model => model.DataDevolucao)</th>
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                disabled = "";
+                                if (item.Devolvida)
+                                {
+                                    disabled = "disabled=disabled";
+                                }
+                                <tr>
+                                    <td>@Html.DisplayFor(modelItem => item.Crianca.Sacola.SacolaFamilia)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.Crianca.Sacola.Codigo)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.Crianca.Nome)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.Crianca.IdadeNominalReduzida)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.Crianca.Calcado)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.Crianca.Roupa)</td>
+                                    <td>@item.Devolvida.ToSimNao() </td>
+                                    <td>@item.DataDevolucao.ToDateFormated() </td>
+                                    <td style="text-align:right;">
+                                        <button type="button" id="Devolver" name="Devolver" class="btn btn-success btn-sm" onclick="return Colaborador.Devolver('@item.Crianca.Sacola.Codigo', '@item.Colaborador.Codigo','@item.Ano')" @disabled>
+                                            <i class=" glyphicon glyphicon-gift" data-toggle="tooltip" data-placement="top" title="Devolver Sacola">
+                                            </i>
+                                        </button>
+                                        <button type="button" id="Excluir" name="Excluir" class="btn btn-danger btn-sm" onclick="return Colaborador.ExcluirSacola('@item.Codigo')">
+                                            <i class=" glyphicon glyphicon-trash" data-toggle="tooltip" data-placement="top" title="Excluir Crianca">
+                                            </i>
+                                        </button>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts
+{
+    @Scripts.Render("~/plugins/dataTables")
+    @Scripts.Render("~/plugins/dataPicker")
+    @Scripts.Render("~/plugins/Moment")
+    @Scripts.Render("~/plugins/knob")
+    @Scripts.Render("~/script/ColaboradorCrianca/main")
+}

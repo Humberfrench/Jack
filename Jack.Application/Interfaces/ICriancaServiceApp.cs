@@ -8,6 +8,7 @@ namespace Jack.Application.Interfaces
     public interface ICriancaServiceApp : IServiceBase<CriancaViewModel>
     {
         IEnumerable<CriancaViewModel> ObterCriancas(int familia);
+        IEnumerable<CriancaViewModel> ObterCriancasSacola(int familia);
         ValidationResult Gravar(CriancaViewModel entity);
         ValidationResult GravarVestimentas(int crianca, int calcado, string roupa);
         ValidationResult Excluir(int id);

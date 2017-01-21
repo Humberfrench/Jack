@@ -8,5 +8,6 @@ namespace Jack.Application.Interfaces
     {
         ValidationResult Gravar(KitItemViewModel entity);
         ValidationResult Excluir(int id);
+        IEnumerable<KitItemViewModel> ObterTodos(int id);
     }
 }

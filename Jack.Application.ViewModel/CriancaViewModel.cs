@@ -10,10 +10,10 @@ namespace Jack.Application.ViewModel
         [DisplayFormat(NullDisplayText = "")]
         public virtual int Codigo { get; set; }
 
-        public virtual FamiliaViewModel Familia { get; set; }
-
         [Display(Name = "Nome")]
         public virtual string Nome { get; set; }
+
+        public virtual FamiliaViewModel Familia { get; set; }
 
         [Display(Name = "Idade")]
         public virtual int Idade { get; set; }
@@ -34,6 +34,9 @@ namespace Jack.Application.ViewModel
         public virtual string Roupa { get; set; }
 
         public virtual KitViewModel Kit { get; set; }
+
+        [Display(Name = "Tipo de Parentesco")]
+        public  virtual TipoParentescoViewModel TipoParentesco { get; set; }
 
         public virtual bool Sacolinha { get; set; }
 

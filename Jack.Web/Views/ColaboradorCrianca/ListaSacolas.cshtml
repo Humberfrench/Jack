@@ -1,0 +1,55 @@
+﻿@using Jack.Application.ViewModel
+@using Jack.Extensions
+@model IEnumerable<SacolaViewModel>   
+@{
+    Layout = null;
+}
+
+
+<table class="table table-striped table-hover" id="TableFamilia">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.Codigo)</th>
+            <th>@Html.DisplayNameFor(model => model.SacolaFamilia)</th>
+            <th>@Html.DisplayNameFor(model => model.Crianca.Nome)</th>
+            <th>@Html.DisplayNameFor(model => model.Familia.Nome)</th>
+            <th>@Html.DisplayNameFor(model => model.Crianca.IdadeNominalReduzida)</th>
+            <th>@Html.DisplayNameFor(model => model.Crianca.Calcado)</th>
+            <th>@Html.DisplayNameFor(model => model.Crianca.Roupa)</th>
+            <th>@Html.DisplayNameFor(model => model.Sexo)</th>
+            <th>@Html.DisplayNameFor(model => model.Liberado)</th>
+            <th>&nbsp;</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+
+            <tr>
+                <td>
+                    <div class="checkbox checkbox-primary">
+                        <input type="checkbox" name="AddCrianca" id="AddCrianca_@item.Codigo" value="@item.Codigo">
+                        <label id="labelAddCrianca" for="AddCrianca_@item.Codigo">@item.Codigo</label>
+                    </div>
+                </td>
+                <td>@Html.DisplayFor(model => item.SacolaFamilia)</td>
+                <td>@Html.DisplayFor(model => item.Crianca.Nome)</td>
+                <td>@Html.DisplayFor(model => item.Familia.Nome)</td>
+                <td>@Html.DisplayFor(model => item.Crianca.IdadeNominalReduzida)</td>
+                <td>@Html.DisplayFor(model => item.Crianca.Calcado)</td>
+                <td>@Html.DisplayFor(model => item.Crianca.Roupa)</td>
+                <td>@item.Sexo.ToSexo()</td>
+                <td>@item.Liberado.ToSimNao()</td>
+                <td>
+                    <button type="button" class="btn btn-success btn-sm" onclick="return Colaborador.Adicionar('@item.Crianca.Codigo')">
+                        <i class="glyphicon glyphicon-plus-sign" data-toggle="tooltip" data-placement="top" title="Editar Registro"></i>
+                    </button>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>   
+
+
+
+

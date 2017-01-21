@@ -43,6 +43,7 @@ namespace Jack.Domain.Entity
         private int calcado;
         private string roupa;
         private Kit kit;
+        private TipoParentesco tipoParentesco;
         private bool sacolinha;
         private bool consistente;
         private bool necessidadeEspecial;
@@ -53,7 +54,6 @@ namespace Jack.Domain.Entity
         private DateTime dataAtualizacao;
         private DateTime dataCriacao;
         private IList<ColaboradorCrianca> colaboradores;
- 
         private Sacola sacola;
 
         public virtual int Codigo
@@ -173,6 +173,18 @@ namespace Jack.Domain.Entity
             set
             {
                 kit = value;
+            }
+        }
+
+        public virtual TipoParentesco TipoParentesco
+        {
+            get
+            {
+                return tipoParentesco;
+            }
+            set
+            {
+                tipoParentesco = value;
             }
         }
 
@@ -346,7 +358,7 @@ namespace Jack.Domain.Entity
         public virtual bool IdadePermitida()
         {
             DateTime dataBase = new DateTime(DateTime.Now.Year, 12, 31);
-            int anos = dataBase.Year - dataNascimento.Year;
+            int anos = idade; //dataBase.Year - dataNascimento.Year;
 
             if (dataBase.Month < dataNascimento.Month || 
                 (dataBase.Month == dataNascimento.Month && dataBase.Day < dataNascimento.Day))

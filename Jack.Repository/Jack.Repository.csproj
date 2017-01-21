@@ -45,11 +45,11 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Iesi.Collections, Version=4.0.0.0, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
-      <HintPath>..\packages\Iesi.Collections.4.0.1.4000\lib\net40\Iesi.Collections.dll</HintPath>
+      <HintPath>..\packages\Iesi.Collections.4.0.0.4000\lib\net40\Iesi.Collections.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="NHibernate, Version=4.0.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
-      <HintPath>..\packages\NHibernate.4.0.4.4000\lib\net40\NHibernate.dll</HintPath>
+      <HintPath>..\packages\NHibernate.4.0.0.4000\lib\net40\NHibernate.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
@@ -67,6 +67,7 @@
     <Compile Include="Mappings\MapSacola.cs" />
     <Compile Include="Mappings\MapStatusCrianca.cs" />
     <Compile Include="Mappings\MapStatusFamilia.cs" />
+    <Compile Include="Mappings\MapTipoParentesco.cs" />
     <Compile Include="ParametroRepository.cs" />
     <Compile Include="RoupaRepository.cs" />
     <Compile Include="Mappings\MapNivel.cs" />
@@ -97,6 +98,7 @@
     <Compile Include="CriancaRepository.cs" />
     <Compile Include="FamiliaRepository.cs" />
     <Compile Include="FeriadoRepository.cs" />
+    <Compile Include="TipoParentescoRepository.cs" />
     <Compile Include="TipoItemRepository.cs" />
     <Compile Include="UnityOfWork\IRepository.cs" />
     <Compile Include="UnityOfWork\IUnityOfWork.cs" />
@@ -106,12 +108,17 @@
     <Compile Include="UnityOfWork\UnityOfWork.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Jack.Domain\Jack.Domain.csproj">
       <Project>{f7b3290e-90da-4d22-ac2a-9543ce892909}</Project>
       <Name>Jack.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Jack.Extensions\Jack.Extensions.csproj">
+      <Project>{0e63a054-3d47-4cde-bd08-7ca8782c5555}</Project>
+      <Name>Jack.Extensions</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

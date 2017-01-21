@@ -1,0 +1,98 @@
+﻿@using Jack.Application.ViewModel
+@using Jack.Extensions
+@model IEnumerable<TipoParentescoViewModel>
+@Styles.Render("~/Content/plugins/dataTables/dataTablesStyles")
+@{
+    ViewBag.Title = "Tipo de Item";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+
+
+<input type="hidden" name="URLObterTodos" id="URLObterTodos" value="@Url.Action("Index")" />
+<input type="hidden" name="URLEdit" id="URLEdit" value="@Url.Action("Edit")" />
+<input type="hidden" name="URLGravar" id="URLGravar" value="@Url.Action("Gravar")" />
+<input type="hidden" name="URLExcluir" id="URLExcluir" value="@Url.Action("Excluir")" />
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>Tipo de Parentesco</h5>
+                    <div class="ibox-tools">
+                        <button type="button" id="Novo" name="Novo"
+                                class="btn btn-primary btn-lg"
+                                data-toggle="tooltip" data-placement="top"
+                                title="Novo Registro">
+                            <i class="glyphicon glyphicon-file"></i>Novo
+                        </button>
+                    </div>
+                </div>
+                <div class="ibox-content">
+                    <div class="row">
+                        <div class="row col-lg-1">&nbsp;</div>
+                        <div class="row col-lg-9">
+                            <label id="labelPesquisarNome" for="PesquisarNome">Pesquisar</label>
+                            <input type="text" class="form-control" id="PesquisarNome" name="PesquisarNome" placeholder="Digite o nome ou parte dele" />
+                        </div>
+                        <div class="row col-lg-1">&nbsp;</div>
+                        <div class="row col-lg-1">
+                            <br /><a href="#" id="Pesquisar" class="btn btn-primary btn-md" data-toggle="tooltip" data-placement="top" title="Pesquisar"><i class="glyphicon glyphicon-search"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="ibox-content">
+                    <table class="table table-striped table-hover" id="TableTipoParentesco">
+                        <thead>
+                            <tr>
+                                <th>@Html.DisplayNameFor(model => model.Codigo)</th>
+                                <th>@Html.DisplayNameFor(model => model.Descricao)</th>
+                                <th>@Html.DisplayNameFor(model => model.Parente)</th>
+                                <th>@Html.DisplayNameFor(model => model.GrauParentesco)</th>
+                                <th>&nbsp;</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Codigo)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Descricao)
+                                    </td>
+                                    <td>
+                                        @item.Parente.ToSimNao()
+                                    </td>
+                                    <td>
+                                        @item.GrauParentesco.ToGrauParentesco()
+                                    </td>
+                                    <td style="text-align:right;">
+                                        <button type="button" class="btn btn-success btn-sm" onclick="Edit('@item.Codigo')">
+                                            <i class="glyphicon glyphicon-pencil" data-toggle="tooltip" data-placement="top" title="Editar Registro"></i>
+                                        </button>
+                                        <button type="button" id="Excluir" name="Excluir" class="btn btn-danger btn-sm" onclick="ExcluirConfirmar('@item.Codigo','@item.Descricao')">
+                                            <i class=" glyphicon glyphicon-trash" data-toggle="tooltip" data-placement="top" title="Excluir Registro">
+                                            </i>
+                                        </button>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+@Html.Partial("Edicao")
+@Html.Partial("Exclusao")
+
+@section scripts
+{
+    @Scripts.Render("~/plugins/dataTables")
+    @Scripts.Render("~/script/TipoParentesco/main")
+}

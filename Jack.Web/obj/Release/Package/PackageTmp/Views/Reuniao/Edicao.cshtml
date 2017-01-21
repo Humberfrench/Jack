@@ -1,0 +1,62 @@
+﻿<!-- Edição Modal -->
+@Styles.Render("~/plugins/awesomeCheckboxStyles")
+@Html.AntiForgeryToken()
+<div id="modalEdicao" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="gridSystemModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content animated">
+            <div class="modal-header success-element">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="gridSystemModalLabel">Reunião</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-1">&nbsp;</div>
+                    <div class="col-md-3">
+                        <label id="labelAno" for="Ano">Ano</label>
+                        <input type="hidden" id="Codigo" name="Codigo" value="" readonly="readonly" class="form-control m-b-md" />
+                        <select name="Ano" id="Ano" class="form-control m-b">
+                            <option value="0">Ano</option>
+                            <option value="2014">2014</option>
+                            <option value="2015">2015</option>
+                            <option value="2016">2016</option>
+                            <option value="2017">2017</option>
+                            <option value="2018">2018</option>
+                            <option value="2019">2019</option>
+                            <option value="2020">2020</option>
+                            <option value="2021">2021</option>
+                            <option value="2022">2022</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3">
+                        <label id="labelAnoCorrente" for="Ano">Ano Corrente</label>
+                        <select name="Ano" id="AnoCorrente" class="form-control m-b">
+                            <option value="0">Ano</option>
+                            <option value="2014">2014</option>
+                            <option value="2015">2015</option>
+                            <option value="2016">2016</option>
+                            <option value="2017">2017</option>
+                            <option value="2018">2018</option>
+                            <option value="2019">2019</option>
+                            <option value="2020">2020</option>
+                            <option value="2021">2021</option>
+                            <option value="2022">2022</option>
+                        </select>
+                    </div>
+                    <div class="col-md-4">
+                        <label id="labelData" for="Data">Data</label>
+                        <input type="text" id="Data" name="Data" value="" class="form-control m-b-md" />
+                    </div>
+                    <div class="col-md-1">&nbsp;</div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">
+                    <i class="glyphicon glyphicon-remove"></i>Fechar
+                </button>
+                <button type="button" class="btn btn-primary" id="Gravar">
+                    <i class="glyphicon glyphicon-floppy-disk"></i>Gravar
+                </button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->

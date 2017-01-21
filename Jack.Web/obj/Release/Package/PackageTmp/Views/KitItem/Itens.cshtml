@@ -1,0 +1,69 @@
+﻿@using Jack.Application.ViewModel
+@using Jack.Extensions
+@model IEnumerable<KitItemViewModel>
+@Styles.Render("~/Content/plugins/dataTables/dataTablesStyles")
+@Styles.Render("~/plugins/awesomeCheckboxStyles")
+@{
+    ViewBag.Title = "Item dos Kits de Sacolas";
+    Layout = null;
+
+    var necessidadeEspecial = (bool)ViewBag.NecessicadeEspecialKit ? "checked=checked" : "";
+}
+
+<div class="row">
+    <div class="col-lg-4">
+        <label id="labelDescricao" for="Descricao">Descrição</label>
+        <input type="hidden" id="Codigo" name="Codigo" value="@ViewBag.CodigoKit" readonly="readonly" class="form-control m-b-md" />
+        <input type="text" id="Descricao" name="Descricao" value="@ViewBag.DescricaoKit" class="form-control m-b-md" readonly="readonly" />
+    </div>
+    <div class="col-md-2">
+        <label id="labelIdadeMinima" for="IdadeMinima">Idade Mínima</label>
+        <input type="text" id="IdadeMinima" name="IdadeMinima" value="@ViewBag.IdadeMinimaKit" class="form-control m-b-md" readonly="readonly" />
+    </div>
+    <div class="col-md-2">
+        <label id="labelIdadeMaxima" for="IdadeMaxima">Idade Máxima</label>
+        <input type="text" id="IdadeMaxima" name="IdadeMaxima" value="@ViewBag.IdadeMaximaKit" class="form-control m-b-md" readonly="readonly" />
+    </div>
+    <div class="col-md-2">
+        <label id="labelSexo" for="Sexo">Sexo</label>
+        <input type="text" id="Sexo" name="Sexo" value="@ViewBag.SexoKit" class="form-control m-b-md" readonly="readonly" />
+    </div>
+    <div class="col-lg-2">
+        <label id="label1"></label>
+        <div class="checkbox checkbox-primary">
+            <input type="checkbox" name="NecessidadeEspecial" id="NecessidadeEspecial" @necessidadeEspecial disabled="disabled">
+            <label id="labelNecessidadeEspecial" for="NecessidadeEspecial">Especial</label>
+        </div>
+    </div>
+</div>
+<table class="table table-striped table-hover" id="TableKitItens">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.Ordem)</th>
+            <th>@Html.DisplayNameFor(model => model.TipoItem.Descricao)</th>
+            <th>@Html.DisplayNameFor(model => model.TipoItem.Opcional)</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Ordem)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TipoItem.Descricao)
+                </td>
+                <td>
+                    @item.TipoItem.Opcional.ToSimNao()
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+@section scripts
+{
+    @Scripts.Render("~/plugins/dataTables")
+}

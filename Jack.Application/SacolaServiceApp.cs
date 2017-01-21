@@ -36,5 +36,45 @@ namespace Jack.Application
             GC.SuppressFinalize(this);
         }
 
+        public IEnumerable<SacolaViewModel> ObterTodosPorNivel(int nivel, int liberado)
+        {
+            var sacola = _service.ObterTodosPorNivel(nivel,liberado);
+            return Mapper.Map<IEnumerable<SacolaViewModel>>(sacola);
+        }
+
+        public IEnumerable<FamiliaViewModel> ObterFamiliasSacola()
+        {
+            var familias = _service.ObterFamiliasSacola();
+            return Mapper.Map<IEnumerable<FamiliaViewModel>>(familias);
+        }
+
+        public ValidationResult AddCrianca(int crianca)
+        {
+            return _service.AddCrianca(crianca);
+        }
+
+        public ValidationResult Liberar(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IEnumerable<SacolaViewModel> ObterSacolasLivres(int ano, bool? liberado)
+        {
+            var familias = _service.ObterSacolasLivres(ano, liberado);
+            return Mapper.Map<IEnumerable<SacolaViewModel>>(familias);
+        }
+
+        public IEnumerable<SacolaViewModel> ObterSacolasLivres(int nivel = 0, int liberado = 2)
+        {
+            var familias = _service.ObterSacolasLivres(nivel, liberado);
+            return Mapper.Map<IEnumerable<SacolaViewModel>>(familias);
+        }
+
+        public IEnumerable<SacolaViewModel> ObterSacolasLivres(bool? liberado, int ano, int nivel = 0, 
+                                                               int familia = 0, string sexo = "", int kit = 0)
+        {
+            var familias = _service.ObterSacolasLivres(liberado, ano,nivel,familia,sexo,kit );
+            return Mapper.Map<IEnumerable<SacolaViewModel>>(familias);
+        }
     }
 }

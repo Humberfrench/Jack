@@ -4,9 +4,11 @@ using Jack.Library;
 
 namespace Jack.Web.Controllers
 {
+    [RoutePrefix("Home")]
     public class HomeController : BaseController
     {
         // GET: Home
+        [Route("")]
         public ActionResult Index()
         {
             #region BreadCrumb

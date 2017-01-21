@@ -76,10 +76,6 @@ namespace Jack.Repository.UnityOfWork
                 _transaction.Rollback();
                 throw;
             }
-            finally
-            {
-                Session.Close();
-            }
         }
 
         public static void CreationDb()

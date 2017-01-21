@@ -1,0 +1,60 @@
+﻿<!-- Edição Modal -->
+@Styles.Render("~/plugins/awesomeCheckboxStyles")
+@Html.AntiForgeryToken()
+<div id="modalEdicao" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="gridSystemModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content animated">
+            <div class="modal-header success-element">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="gridSystemModalLabel">Colaborador</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-1">&nbsp;</div>
+                    <div class="col-md-10">
+                        <label id="labelNome" for="Nome">Nome</label>
+                        <input type="hidden" id="Codigo" name="Codigo" value="" readonly="readonly" class="form-control m-b-md" />
+                        <input type="text" id="Nome" name="Nome" value="" class="form-control m-b-md" placeholder="Nome" />
+                    </div>
+                    <div class="col-md-1">&nbsp;</div>
+                </div>
+                <div class="row">
+                    <div class="col-md-1">&nbsp;</div>
+                    <div class="col-md-10">
+                        <label id="labelEmail" for="Email">E-Mail</label>
+                        <input type="text" id="Email" name="Email" value="" class="form-control m-b-md" placeholder="E-Mail" />
+                    </div>
+                    <div class="col-md-1">&nbsp;</div>
+                </div>
+                <div class="row">
+                    <div class="col-md-1">&nbsp;</div>
+                    <div class="col-md-5">
+                        <label id="labelCelular" for="Celular">Celular</label>
+                        <input type="text" id="Celular" name="Celular" value="" class="form-control m-b-md" placeholder="Celular" maxlength="15" data-mask="(99)99999-9999" />
+                    </div>
+                    <div class="col-md-5">
+                        <label id="labelTelefone" for="Telefone">Telefone</label>
+                        <input type="text" id="Telefone" name="Telefone" value="" class="form-control m-b-md" placeholder="Telefone" maxlength="14" data-mask="(99)9999-9999" />
+                    </div>
+                    <div class="col-md-1">&nbsp;</div>
+                </div>
+                <div class="row">
+                    <div class="col-md-1">&nbsp;</div>
+                    <div class="col-md-5">
+                        <label id="labelCPF" for="Celular">C.P.F. / C.N.P.J.</label>
+                        <input type="text" id="CPF" name="CPF" value="" class="form-control m-b-md" placeholder="CPF" maxlength="15" />
+                    </div>
+                    <div class="col-md-6">&nbsp;</div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">
+                    <i class="glyphicon glyphicon-remove"></i>Fechar
+                </button>
+                <button type="button" class="btn btn-primary" id="Gravar">
+                    <i class="glyphicon glyphicon-floppy-disk"></i>Gravar
+                </button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->

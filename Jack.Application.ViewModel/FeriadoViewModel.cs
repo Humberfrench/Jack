@@ -12,7 +12,8 @@ namespace Jack.Application.ViewModel
         public string Nome { get; set; }
         public DateTime Data { get; set; }
         public int AnoEfetivo { get; set; }
+        public DateTime ReuniaoAnterior { get; set; }
         public DateTime ProximaReuniao { get; set; }
-        public bool TemReuniao { get; set; }
+        public bool PodeTerReuniao { get; set; }
     }
 }

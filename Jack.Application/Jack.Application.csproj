@@ -82,6 +82,7 @@
     <Compile Include="Interfaces\IStatusCriancaServiceApp.cs" />
     <Compile Include="Interfaces\ITipoItemServiceApp.cs" />
     <Compile Include="Interfaces\INivelServiceApp.cs" />
+    <Compile Include="Interfaces\ITipoParentescoServiceApp.cs" />
     <Compile Include="ParametroServiceApp.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="CalcadoServiceApp.cs" />
@@ -99,6 +100,7 @@
     <Compile Include="RepresentanteServiceApp.cs" />
     <Compile Include="StatusCriancaServiceApp.cs" />
     <Compile Include="StatusFamiliaServiceApp.cs" />
+    <Compile Include="TipoParentescoServiceApp.cs" />
     <Compile Include="TipoItemServiceApp.cs" />
     <Compile Include="NivelServiceApp.cs" />
   </ItemGroup>

@@ -48,9 +48,13 @@ namespace Jack.Application.ViewModel
         [DisplayFormat(NullDisplayText = "")]
         public virtual bool Consistente { get; set; }
 
-        [Display(Name = "Permite Excedente")]
+        [Display(Name = "Permite Excedente Crianças")]
         [DisplayFormat(NullDisplayText = "")]
-        public virtual bool PermiteExcedente { get; set; }
+        public virtual bool PermiteExcedenteCriancas { get; set; }
+
+        [Display(Name = "Permite Excedente Representantes")]
+        [DisplayFormat(NullDisplayText = "")]
+        public virtual bool PermiteExcedenteRepresentantes { get; set; }
 
         [Display(Name = "Familia Fake")]
         [DisplayFormat(NullDisplayText = "")]
@@ -72,7 +76,6 @@ namespace Jack.Application.ViewModel
         [Display(Name = "Black List Passo 1")]
         [DisplayFormat(NullDisplayText = "")]
         public virtual bool BlackListPasso1 { get; set; }
-
 
         [Display(Name = "Black List Passo 1 ")]
         [DisplayFormat(NullDisplayText = "")]

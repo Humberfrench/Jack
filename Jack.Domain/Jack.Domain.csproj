@@ -61,6 +61,8 @@
     <Compile Include="Entity\StatusFamilia.cs" />
     <Compile Include="Entity\StatusCrianca.cs" />
     <Compile Include="Entity\TipoItem.cs" />
+    <Compile Include="Entity\TipoParentesco.cs" />
+    <Compile Include="Enum\enumGrauParentesco.cs" />
     <Compile Include="Enum\enumStatusFamilia.cs" />
     <Compile Include="Enum\enumStatusCrianca.cs" />
     <Compile Include="Helpers\Idade.cs" />
@@ -84,6 +86,7 @@
     <Compile Include="Interfaces\Repository\ICriancaRepository.cs" />
     <Compile Include="Interfaces\Repository\IFamiliaRepository.cs" />
     <Compile Include="Interfaces\Repository\IFeriadoRepository.cs" />
+    <Compile Include="Interfaces\Repository\ITipoParentescoRepository.cs" />
     <Compile Include="Interfaces\Repository\ITipoItemRepository.cs" />
     <Compile Include="Interfaces\Services\IParametroService.cs" />
     <Compile Include="Interfaces\Services\IRoupaService.cs" />
@@ -104,6 +107,7 @@
     <Compile Include="Interfaces\Services\ICriancaService.cs" />
     <Compile Include="Interfaces\Services\IFamiliaService.cs" />
     <Compile Include="Interfaces\Services\IFeriadoService.cs" />
+    <Compile Include="Interfaces\Services\ITipoParentescoService.cs" />
     <Compile Include="Interfaces\Services\ITipoItemService.cs" />
     <Compile Include="ObjectValue\CriancaValue.cs" />
     <Compile Include="ObjectValue\CriancaVestimenta.cs" />
@@ -130,6 +134,7 @@
     <Compile Include="Services\CriancaService.cs" />
     <Compile Include="Services\FamiliaService.cs" />
     <Compile Include="Services\FeriadoService.cs" />
+    <Compile Include="Services\TipoParentescoService.cs" />
     <Compile Include="Services\TipoItemService.cs" />
     <Compile Include="Services\RoupaService.cs" />
   </ItemGroup>

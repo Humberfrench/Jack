@@ -14,44 +14,48 @@
                         <li><a href="@Url.Action("Index","Familia")">Famílias</a></li>
                         <li><a href="@Url.Action("Index","Crianca")">Crianças</a></li>
                         <li><a href="@Url.Action("AcertoVestimentas", "Crianca")">Acerto de Vestimentas</a></li>
-                        <li><a href="@Url.Action("Index","Presenca")" ">Cadastro Presenças</a></li>
-                        <li><a href="">Representantes</a></li>
-                        <li><a href="">Sacolas do Colaborador</a></li>
-                        <li><a href="">Consulta Sacolas</a></li>
+                        <li><a href="@Url.Action("Index","Reuniao")">Reunião</a></li>
+                        <li><a href="@Url.Action("Index","Presenca")">Cadastro Presenças</a></li>
+                        <li><a href="@Url.Action("Index","Representante")">Representantes</a></li>
+                        <li><a href="@Url.Action("Adicionar", "ColaboradorCrianca")">Adicionar Sacolas a Colaborador</a></li>
+                        <li><a href="@Url.Action("AdicionarCrianca", "Sacolas")">Adicionar Criança à Sacolas</a></li>
+                        <li><a href="">Trocar Criança de Família</a></li>
                     </ul>
                 </li>
                 <li class="dropdown">
                     <a aria-expanded="false" role="button" href="#" class="dropdown-toggle" data-toggle="dropdown">Consultas<span class="caret"></span></a>
                     <ul role="menu" class="dropdown-menu">
                         <li><a href="@Url.Action("ListaPresenca","Presenca")">Presenças Famílias</a></li>
-                        <li><a href="">Presenças Reuniões</a></li>
-                        <li><a href="">Menu item</a></li>
-                        <li><a href="">Menu item</a></li>
+                        <li><a href="@Url.Action("PresencaReunioes","Presenca")">Presenças Reuniões</a></li>
+                        <li><a href="@Url.Action("Index", "Sacolas")">Consulta Sacolas</a></li>
+                        <li><a href="@Url.Action("SacolasLivres", "Sacolas")">Sacolas Livres</a></li>
+                        <li><a href="@Url.Action("Index","ColaboradorCrianca")">Sacolas por Colaborador</a></li>
+                        <li><a href="">Estatística de Sacolas</a></li>
                     </ul>
                 </li>
                 <li class="dropdown">
                     <a aria-expanded="false" role="button" href="#" class="dropdown-toggle" data-toggle="dropdown">Cadastros<span class="caret"></span></a>
                     <ul role="menu" class="dropdown-menu">
-                        <li><a href="">Colaborador</a></li>
-                        <li><a href="">Reunião</a></li>
-                        <li><a href="">Famílias Fake</a></li>
-                        <li><a href="">Famílias Black List</a></li>
-                        <li><a href="">Famílias Presença Justificada</a></li>
-                        <li><a href="">Kits</a></li>
-                        <li><a href="">Itens dos Kits</a></li>
+                        <li><a href="@Url.Action("Index", "Colaborador")">Colaborador</a></li>
+                        <li><a href="@Url.Action("Index", "Kit")">Kits</a></li>
                         <li><a href="@Url.Action("Index", "TipoItem")">Tipos de Itens</a></li>
+                        <li><a href="@Url.Action("Index", "Feriado")">Feriados</a></li>
+                        <li><a href="@Url.Action("Index", "Calcado")">Calçado</a></li>
+                        <li><a href="@Url.Action("Index", "Roupa")">Roupa</a></li>
+                        <li><a href="@Url.Action("Index", "StatusCrianca")">Status Criança</a></li>
+                        <li><a href="@Url.Action("Index", "StatusFamilia")">Status Família</a></li>
+                        <li><a href="@Url.Action("Index", "Nivel")">Nível de Presença</a></li>
+                        <li><a href="@Url.Action("Index", "TipoParentesco")">Relação / Parentesco</a></li>
+                        <li><a href="@Url.Action("Index", "Parametro")">Parâmetros do Sistema</a></li>
                     </ul>
                 </li>
                 <li class="dropdown">
-                    <a aria-expanded="false" role="button" href="#" class="dropdown-toggle" data-toggle="dropdown">Outros<span class="caret"></span></a>
+                    <a aria-expanded="false" role="button" href="#" class="dropdown-toggle" data-toggle="dropdown">Processamento<span class="caret"></span></a>
                     <ul role="menu" class="dropdown-menu">
-                        <li><a href="">Feriados</a></li>
-                        <li><a href="">Calçado</a></li>
-                        <li><a href="">Roupa</a></li>
-                        <li><a href="">Status</a></li>
-                        <li><a href="">Nível</a></li>
-                        <li><a href="">Relação / Parentesco</a></li>
-                        <li><a href="@Url.Action("Index", "Parametro")">Parâmetros do Sistema</a></li>
+                        <li><a href="">Gerar Sacolas</a></li>
+                        <li><a href="">Processar Dados de Presenças</a></li>
+                        <li><a href="">Processar Dados de Familias</a></li>
+                        <li><a href="">Processar Dados de Crianças</a></li>
                     </ul>
                 </li>
 

@@ -1,0 +1,121 @@
+﻿@using Jack.Extensions
+
+@Styles.Render("~/plugins/awesomeCheckboxStyles")
+@Styles.Render("~/Content/plugins/dataTables/dataTablesStyles")
+@{
+    ViewBag.Title = "Adicionar Crianças ao Colaborador";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+
+    IEnumerable<SelectListItem> colaboradorLista = ViewBag.Colaborador as IEnumerable<SelectListItem>;
+    IEnumerable<SelectListItem> familiaLista = ViewBag.Familia as IEnumerable<SelectListItem>;
+    IEnumerable<SelectListItem> kitLista = ViewBag.Kit as IEnumerable<SelectListItem>;
+    IEnumerable<SelectListItem> nivelLista = ViewBag.Nivel as IEnumerable<SelectListItem>;
+}
+
+<input type="hidden" id="URLListaSacolas" name="URLListaSacolas" value="@Url.Action("ListaSacolas")" />
+<input type="hidden" id="URLAdicionarSacola" name="URLAdicionarSacola" value="@Url.Action("AdicionarSacola")" />
+<input type="hidden" id="URLAdicionarSacolas" name="URLAdicionarSacolas" value="@Url.Action("AdicionarSacolas")" />
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>Crianças do Colaborador</h5>
+                    <div class="ibox-tools">
+                        <button type="button" id="GravarSelecionadosTop" name="GravarSelecionados"
+                                class="btn btn-success btn-lg"
+                                data-toggle="tooltip" data-placement="top"
+                                title="Gravar Selecionados" onclick="return Colaborador.AdicionarVarios();">
+                            <i class="glyphicon glyphicon-file"></i>Gravar Selecionados
+                        </button>
+                    </div>                </div>
+                <div class="ibox-content">
+                    <div class="row">
+                        <div class="col-lg-1">
+                        </div>
+                        <div class="col-lg-4">
+                            <label id="labelColaborador" for="Colaborador">Colaborador</label>
+                            @Html.DropDownList("Colaborador", colaboradorLista, new { @id = "Colaborador", @class = "form-control m-b" })
+                            <input type="hidden" value="@ViewBag.ColaboradorId" id="ColaboradorId" name="ColaboradorId" />
+                        </div>
+                        <div class="col-lg-2">
+                            <label id="labelAno" for="Ano">Ano</label>
+                            <select name="Ano" id="Ano" class="form-control m-b">
+                                <option value="0">Ano</option>
+                                <option value="2014">2014</option>
+                                <option value="2015">2015</option>
+                                <option value="2016">2016</option>
+                                <option value="2017">2017</option>
+                                <option value="2018">2018</option>
+                                <option value="2019">2019</option>
+                                <option value="2020">2020</option>
+                                <option value="2021">2021</option>
+                                <option value="2022">2022</option>
+                            </select>
+                        </div>
+                        <div class="col-lg-2">
+                            <label id="labelSexo" for="Sexo">Sexo</label>
+                            <select name="Sexo" id="Sexo" class="form-control m-b">
+                                <option value="0">Todos</option>
+                                <option value="M">Menino</option>
+                                <option value="F">Menina</option>
+                            </select>
+                        </div>
+                        <div class="col-lg-2">
+                            <label id="labelLiberado" for="Liberado">Liberado</label>
+                            <select name="Sexo" id="Liberado" class="form-control m-b">
+                                <option value="0">Todos</option>
+                                <option value="1">Liberado</option>
+                                <option value="2">Não Liberado</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-1">&nbsp;</div>
+                        <div class="col-lg-4">
+                            <label id="labelFamilia" for="Familia">Família</label>
+                            @Html.DropDownList("Familia", familiaLista, new { @id = "Familia", @class = "form-control m-b" })
+                            <input type="hidden" value="@ViewBag.ColaboradorId" id="ColaboradorId" name="ColaboradorId" />
+                        </div>
+                        <div class="col-lg-3">
+                            <label id="labelKit" for="Kit">Kit</label>
+                            @Html.DropDownList("Kit", kitLista, new { @id = "Kit", @class = "form-control m-b" })
+                            <input type="hidden" value="@ViewBag.ColaboradorId" id="ColaboradorId" name="ColaboradorId" />
+                        </div>
+                        <div class="col-lg-2">
+                            <label id="labelNivel" for="Nivel">Nível</label>
+                            @Html.DropDownList("Nivel", nivelLista, new { @id = "Nivel", @class = "form-control m-b" })
+                            <input type="hidden" value="@ViewBag.ColaboradorId" id="ColaboradorId" name="ColaboradorId" />
+                        </div>
+                        <div class="col-lg-1" style="text-align:center;">
+                            <br />
+                            <button id="Pesquisar" class="btn btn-primary btn-md" data-toggle="tooltip" data-placement="top" title="Pesquisar" onclick="return Colaborador.Pesquisar();">
+                                <i class="glyphicon glyphicon-search"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="ibox-content">
+                            <div id="divListaSacolas"></div> 
+                    </div>
+                    <div class="ibox-tools">
+                        <button type="button" id="GravarSelecionadosBotton" name="GravarSelecionados"
+                                class="btn btn-success btn-lg"
+                                data-toggle="tooltip" data-placement="top"
+                                title="Gravar Selecionados" onclick="return Colaborador.AdicionarVarios();">
+                            <i class="glyphicon glyphicon-file"></i>Gravar Selecionados
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section scripts
+{
+    @Scripts.Render("~/plugins/knob")
+    @Scripts.Render("~/plugins/dataTables")
+    @Scripts.Render("~/plugins/dataPicker")
+    @Scripts.Render("~/plugins/Moment")
+    @Scripts.Render("~/script/ColaboradorCrianca/add")
+    @Scripts.Render("~/script/ColaboradorCrianca/add/Lista")
+}

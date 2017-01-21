@@ -11,6 +11,6 @@ namespace Jack.Domain.Interfaces.Services
         ValidationResult Gravar(Feriado entity);
         ValidationResult Excluir(int id);
         IEnumerable<Feriado> ObterPorAnoEfetivo(int ano);
-        Feriado ObterFeriado(int ano, DateTime dataReuniao);
+        Feriado ObterFeriado(DateTime dataReuniao);
     }
 }

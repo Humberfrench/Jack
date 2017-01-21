@@ -1,0 +1,79 @@
+﻿<!-- Edição Modal -->
+@Styles.Render("~/plugins/awesomeCheckboxStyles")
+@Html.AntiForgeryToken()
+<div id="modalEdicao" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="gridSystemModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content animated">
+            <div class="modal-header success-element">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="gridSystemModalLabel">Nível de Presença</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-1">&nbsp;</div>
+                    <div class="col-md-3">
+                        <label id="labelCodigo" for="Codigo">Código</label>
+                        <input type="text" id="Codigo" name="Codigo" value="" class="form-control m-b-md" placeholder="Código" />
+                    </div>
+                    <div class="col-md-7">
+                        <label id="labelNome" for="Nome">Nome</label>
+                        <input type="text" id="Nome" name="Nome" value="" class="form-control m-b-md" placeholder="Nome" />
+                    </div>
+                    <div class="col-md-1">&nbsp;</div>
+                </div>
+                <div class="row">
+                    <div class="col-md-1">&nbsp;</div>
+
+                    <div class="col-md-10">
+                        <label id="labelDescricao" for="Descricao">Descrição</label>
+                        <input type="text" id="Descricao" name="Descricao" value="" class="form-control m-b-md" placeholder="Descrição" />
+                    </div>
+                    <div class="col-md-1">&nbsp;</div>
+                </div>
+                <div class="row">
+                    <div class="col-md-1">&nbsp;</div>
+                    <div class="col-md-3">
+                        <label id="labelPercentualInicial" for="PercentualInicial">% Inicial</label>
+                        <input type="text" id="PercentualInicial" name="PercentualInicial" value="" class="form-control m-b-md" placeholder="% Inicial" />
+                    </div>
+                    <div class="col-md-3">
+                        <label id="labelPercentualFinal" for="PercentualFinal">% Final</label>
+                        <input type="text" id="PercentualFinal" name="PercentualFinal" value="" class="form-control m-b-md" placeholder="% Final" />
+                    </div>
+                    <div class="col-md-4">&nbsp;</div>
+                    <div class="col-md-1">&nbsp;</div>
+                </div>
+                <div class="row">
+                    <div class="col-md-1">&nbsp;</div>
+                    <div class="col-md-3">
+                        <div class="checkbox checkbox-primary">
+                            <input type="checkbox" name="NuncaGerarSacola" id="NuncaGerarSacola">
+                            <label id="labelNuncaGerarSacola" for="NuncaGerarSacola">Nunca Gerar Sacola</label>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="checkbox checkbox-primary">
+                            <input type="checkbox" name="ListaDeEspera" id="ListaDeEspera">
+                            <label id="labelListaDeEspera" for="ListaDeEspera">Lista de Espera</label>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="checkbox checkbox-primary">
+                            <input type="checkbox" name="SacolaGarantida" id="SacolaGarantida">
+                            <label id="labelSacolaGarantida" for="SacolaGarantida">Sacola Garantida</label>
+                        </div>
+                    </div>
+                    <div class="col-md-1">&nbsp;</div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">
+                    <i class="glyphicon glyphicon-remove"></i>Fechar
+                </button>
+                <button type="button" class="btn btn-primary" id="Gravar">
+                    <i class="glyphicon glyphicon-floppy-disk"></i>Gravar
+                </button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->

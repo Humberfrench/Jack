@@ -16,8 +16,8 @@ namespace Jack.Web.Controllers
         #region Vars
 
         private readonly IFamiliaServiceApp familiaAppService;
-        private readonly IStatusFamiliaServiceApp statusAppService;
         private readonly INivelServiceApp nivelAppService;
+        private readonly IStatusFamiliaServiceApp statusAppService;
         private readonly IReuniaoServiceApp reuniaoAppService;
 
         #endregion
@@ -60,7 +60,7 @@ namespace Jack.Web.Controllers
             ViewBag.Nivel = ObterNivelParaCombo();
             ViewBag.Reuniao = ObterReuniaoParaCombo();
 
-            var listaDados = familiaAppService.ObterTodos();
+            var listaDados = familiaAppService.ObterTodos().OrderBy(c => c.Nome);
             return View(listaDados);
         }
 
@@ -108,6 +108,7 @@ namespace Jack.Web.Controllers
 
         [HttpPost]
         [ValidateJsonAntiForgeryToken]
+        [Route("Gravar")]
         public ActionResult Gravar(FamiliaViewModel familia, int reuniao)
         {
             ValidationResult gravarResult;

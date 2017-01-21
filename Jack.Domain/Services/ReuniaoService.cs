@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using Jack.Domain.Entity;
 using Jack.Domain.Interfaces.Repository;
 using Jack.Domain.Interfaces.Services;
 using Jack.Domain.ObjectValue;
 using Jack.DomainValidator;
+using Jack.Extensions;
 
 namespace Jack.Domain.Services
 {
@@ -16,7 +18,7 @@ namespace Jack.Domain.Services
         private readonly IParametroRepository repParametros;
         private readonly IFeriadoRepository repFeriado;
         private readonly ValidationResult validationResult = new ValidationResult();
-        private Parametro parametros;
+        private readonly Parametro parametros;
 
         public ReuniaoService(IReuniaoRepository repReuniao,
                               IParametroRepository repParametros,
@@ -31,6 +33,14 @@ namespace Jack.Domain.Services
         }
         public ValidationResult Gravar(Reuniao item)
         {
+            var podeGravar = !repReuniao.ExisteData(item.Data);
+
+            if (!podeGravar)
+            {
+                validationResult.Add(string.Format("Já existe reunião para a data {0}", item.Data));
+                return validationResult;
+            }
+            
             if (item.Codigo == 0)
             {
                 Adicionar(item);
@@ -78,15 +88,24 @@ namespace Jack.Domain.Services
             // inserir as reunioes
             foreach (var dataReuniao in datasReuniaoEfetivas)
             {
-                var feriado = repFeriado.ObterFeriado(ano, dataReuniao);
-                var podeGravar = false;
-                //verifica se pode gravar, se ferido é null pode gravar, 
-                //se existe feriado na data proxima, 
-                //mas o indicador TemReuniao diz que pode ter, então pode gravar
-                podeGravar = feriado == null || feriado.TemReuniao;
+               
+                var podeGravar = PodeGravar(ano, dataReuniao);
                 
-                if (!podeGravar) continue;
-                
+                if (!podeGravar)
+                {
+                    validationResult.Add(string.Format("Data {0} não pode ser adicionada, é feriado ou tem feriado próximo.", dataReuniao.ToDateFormated()));
+                    continue;
+                }
+
+                podeGravar = !repReuniao.ExisteData(dataReuniao);
+
+                if (!podeGravar)
+                {
+                    validationResult.Add(string.Format("Data {0} já cadastrada na Base.", dataReuniao.ToDateFormated()));
+                    continue;
+                }
+
+
                 var reuniao = new Reuniao
                 {
                     Codigo = 0,
@@ -97,6 +116,30 @@ namespace Jack.Domain.Services
                 Adicionar(reuniao);
             }
             return validationResult;
+        }
+
+        private bool PodeGravar(int ano, DateTime dataReuniao)
+        {
+            var feriado = repFeriado.ObterFeriado(dataReuniao);
+            //verifica se pode gravar, se ferido é null pode gravar, 
+            //se existe feriado na data da reunião, 
+            //precisa verificar se proximo da data tem, 
+            //tipo quinta, sexta, segunda e terça -1 e -2 , +2 e +3 na data, 
+            //mas o indicador TemReuniao diz que pode ter, então pode gravar
+            // encontrado.
+            if (feriado != null)
+            {
+                return feriado.PodeTerReuniao;
+            }
+
+            //ver o antes e o depois.
+            feriado = repFeriado.ObterFeriadoAntesOuDepois(dataReuniao);
+            if (feriado != null)
+            {
+                return feriado.PodeTerReuniao;
+            }
+
+            return true;
         }
 
         public IEnumerable<Reuniao> ObterReunioesNoAno()
@@ -125,7 +168,7 @@ namespace Jack.Domain.Services
                     {
                         break;
                     }
-                    var data = new DateTime(dia, mes, anoAntes);
+                    var data = new DateTime(anoAntes, mes, dia);
                     if (data.DayOfWeek == DayOfWeek.Saturday)
                     {
                         dataReuniao.Datas.Add(data);
@@ -157,7 +200,7 @@ namespace Jack.Domain.Services
                     {
                         break;
                     }
-                    var data = new DateTime(dia, mes, ano);
+                    var data = new DateTime(ano, mes, dia);
                     if (data.DayOfWeek == DayOfWeek.Saturday)
                     {
                         dataReuniao.Datas.Add(data);

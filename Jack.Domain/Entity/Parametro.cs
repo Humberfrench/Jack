@@ -26,6 +26,7 @@ namespace Jack.Domain.Entity
             temIdadeLimiteExcecao = false;
             calcadoLimite = 0;
             numeroMaximoCricancas = 0;
+            numeroMaximoRepresentantes = 0;
             primeiroSabado = 0;
             segundoSabado = 0;
             terceiroSabado = 0;
@@ -38,10 +39,12 @@ namespace Jack.Domain.Entity
         private bool temIdadeLimiteExcecao;
         private int calcadoLimite;
         private int numeroMaximoCricancas;
+        private int numeroMaximoRepresentantes;
         private int primeiroSabado;
         private int segundoSabado;
         private int terceiroSabado;
         private int anoCorrente;
+        private bool podeGerarNovasSacolas;
 
         public virtual int IdadeLimite
         {
@@ -103,6 +106,18 @@ namespace Jack.Domain.Entity
             }
         }
 
+        public virtual int NumeroMaximoRepresentantes
+        {
+            get
+            {
+                return numeroMaximoRepresentantes;
+            }
+            set
+            {
+                numeroMaximoRepresentantes = value;
+            }
+        }
+
         public virtual int PrimeiroSabado
         {
             get
@@ -148,6 +163,18 @@ namespace Jack.Domain.Entity
             set
             {
                 anoCorrente = value;
+            }
+        }
+
+        public virtual bool PodeGerarNovasSacolas
+        {
+            get
+            {
+                return podeGerarNovasSacolas;
+            }
+            set
+            {
+                podeGerarNovasSacolas = value;
             }
         }
 

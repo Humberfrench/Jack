@@ -42,6 +42,11 @@ namespace Jack.Application
             return Mapper.Map<IEnumerable<ReuniaoViewModel>>(reuniao);
         }
 
+        public ValidationResult MontarDataReuniao(int ano)
+        {
+            return _service.MontarDataReuniao(ano);
+        }
+
         public ReuniaoViewModel ObterPorId(int id)
         {
             var reuniao = _service.ObterPorId(id);

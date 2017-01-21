@@ -68,6 +68,7 @@ TipoItem.MontarTabela = function ()
         "searching": false,
         "autoWidth": false,
         "lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "Todos"]],
+        "order": [],
         "language": {
             "sEmptyTable": "Nenhum registro encontrado",
             "sInfo": "Mostrando de _START_ até _END_ de _TOTAL_ registros",
@@ -149,7 +150,7 @@ TipoItem.Edit = function (codigo)
 
 TipoItem.Gravar = function ()
 {
-    if (TipoItem.Consistir())
+    if (TipoItem.Consistir($("#Descricao").val()))
     {
         var token = $('input[name="__RequestVerificationToken"]').val();
         var opcional = $("#Opcional").prop('checked');
@@ -221,12 +222,12 @@ TipoItem.Excluir = function (codigo)
 
 }
 
-TipoItem.Consistir = function (nome)
+TipoItem.Consistir = function (descricao)
 {
     var mensagemErro = '';
-    if(nome === '')
+    if(descricao === '')
     {
-        mensagemErro = 'O Campo Nome é Obrigatório';
+        mensagemErro = 'O Campo Descrição é Obrigatório';
     }
     if (mensagemErro !== '')
     {

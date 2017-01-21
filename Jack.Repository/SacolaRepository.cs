@@ -14,6 +14,21 @@ namespace Jack.Repository
         {
             UnitWork = unitWork;
         }
+        public void Adicionar(Sacola entity)
+        {
+            UnitWork.Salvar(entity);
+        }
+
+        public void Atualizar(Sacola entity)
+        {
+            UnitWork.Salvar(entity);
+        }
+
+        public void Excluir(Sacola entity)
+        {
+            UnitWork.Excluir(entity);
+        }
+
 
         public Sacola ObterPorId(int id)
         {
@@ -27,7 +42,8 @@ namespace Jack.Repository
 
         public Sacola ObterSacolaPorCrianca(int crianca)
         {
-            return ObterTodos().FirstOrDefault(sac => sac.Crianca.Codigo == crianca);
+            var sacola = ObterTodos().FirstOrDefault(sac => sac.Crianca.Codigo == crianca);
+            return sacola;
         }
     }
 }

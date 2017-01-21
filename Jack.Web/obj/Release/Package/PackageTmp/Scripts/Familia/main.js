@@ -204,9 +204,14 @@ Familia.Editar = function (codigo)
             $("#Consistente").prop('checked', 'checked');
         }
 
-        if (dataObj.PermiteExcedente)
+        if (dataObj.PermiteExcedenteCrianca)
         {
-            $("#PermiteExcedente").prop('checked', 'checked');
+            $("#PermiteExcedenteCrianca").prop('checked', 'checked');
+        }
+
+        if (dataObj.PermiteExcedenteRepresentante)
+        {
+            $("#PermiteExcedenteRepresentante").prop('checked', 'checked');
         }
 
         if (dataObj.Fake)
@@ -284,7 +289,8 @@ Familia.Gravar = function ()
 
         opcoes.dadoEnvio.Sacolinha = $("#Sacolinha").prop('checked');
         opcoes.dadoEnvio.Consistente = $("#Consistente").prop('checked');
-        opcoes.dadoEnvio.PermiteExcedente = $("#PermiteExcedente").prop('checked');
+        opcoes.dadoEnvio.PermiteExcedenteCrianca = $("#PermiteExcedenteCrianca").prop('checked');
+        opcoes.dadoEnvio.PermiteExcedenteRepresentante = $("#PermiteExcedenteRepresentante").prop('checked');
         opcoes.dadoEnvio.PresencaJustificada = $("#PresencaJustificada").prop('checked');
         opcoes.dadoEnvio.Fake = $("#Fake").prop('checked');
         opcoes.dadoEnvio.BlackListPasso1 = $("#BlackListPasso1").prop('checked');
@@ -456,6 +462,7 @@ Familia.DefaultDefinitionOfTable = {
     "searching": false,
     "autoWidth": false,
     "lengthMenu": [[6, 12, 20, -1], [6, 12, 20, "Todos"]],
+    "order": [],
     "language": {
         "sEmptyTable": "Nenhum registro encontrado",
         "sInfo": "Mostrando de _START_ até _END_ de _TOTAL_ registros",

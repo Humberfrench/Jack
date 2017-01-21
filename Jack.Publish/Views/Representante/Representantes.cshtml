@@ -1,0 +1,26 @@
+﻿@{
+    IEnumerable<SelectListItem> tipoParentescoLista = ViewBag.TipoParentesco as IEnumerable<SelectListItem>;
+}
+<div id="modalRepresentantes" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="gridSystemModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content animated">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Adicionar Representantes</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-5">
+                        <label id="labelTipoParentesco" for="TipoParentesco">Grau de Parentesco</label>
+                        @Html.DropDownList("TipoParentesco", tipoParentescoLista, new { @id = "TipoParentesco", @class = "form-control m-b" })
+                    </div>
+                    <div class="col-md-7">&nbsp;</div>
+                </div>
+                <div id="divRepresentantes"></div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal" onclick="return Representante.Pesquisar()">Fechar</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->

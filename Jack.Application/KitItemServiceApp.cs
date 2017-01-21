@@ -42,6 +42,12 @@ namespace Jack.Application
             return Mapper.Map<IEnumerable<KitItemViewModel>>(kitItem);
         }
 
+        public IEnumerable<KitItemViewModel> ObterTodos(int id)
+        {
+            var kitItem = _service.ObterTodos(id);
+            return Mapper.Map<IEnumerable<KitItemViewModel>>(kitItem);
+        }
+
         public void Dispose()
         {
             GC.SuppressFinalize(this);

@@ -13,15 +13,15 @@ namespace Jack.Application
     {
         private readonly IColaboradorService _service;
 
-        public ColaboradorServiceApp(IColaboradorService ColaboradorService)
+        public ColaboradorServiceApp(IColaboradorService colaboradorService)
         {
-            _service = ColaboradorService;
+            _service = colaboradorService;
         }
 
-        public ValidationResult Gravar(ColaboradorViewModel Colaborador)
+        public ValidationResult Gravar(ColaboradorViewModel colaborador)
         {
-            var ColaboradorSalvar = Mapper.Map<Colaborador>(Colaborador);
-            return _service.Gravar(ColaboradorSalvar);
+            var colaboradorSalvar = Mapper.Map<Colaborador>(colaborador);
+            return _service.Gravar(colaboradorSalvar);
         }
 
         public ValidationResult Excluir(int id)
@@ -31,14 +31,14 @@ namespace Jack.Application
 
         public ColaboradorViewModel ObterPorId(int id)
         {
-            var Colaborador = _service.ObterPorId(id);
-            return Mapper.Map<ColaboradorViewModel>(Colaborador);
+            var colaborador = _service.ObterPorId(id);
+            return Mapper.Map<ColaboradorViewModel>(colaborador);
         }
 
         public IEnumerable<ColaboradorViewModel> ObterTodos()
         {
-            var Colaborador = _service.ObterTodos();
-            return Mapper.Map<IEnumerable<ColaboradorViewModel>>(Colaborador);
+            var colaborador = _service.ObterTodos();
+            return Mapper.Map<IEnumerable<ColaboradorViewModel>>(colaborador);
         }
 
         public IEnumerable<ColaboradorViewModel> Filtrar(string nome)

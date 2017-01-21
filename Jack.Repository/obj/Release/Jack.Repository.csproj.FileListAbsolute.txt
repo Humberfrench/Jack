@@ -20,3 +20,4 @@ C:\Users\humberto.almeida.ext\Documents\Visual Studio 2013\Projects\Jack\Jack.Re
 C:\Users\humberto.almeida.ext\Documents\Visual Studio 2013\Projects\Jack\Jack.Repository\obj\Release\Jack.Repository.csprojResolveAssemblyReference.cache
 C:\Users\humberto.almeida.ext\Documents\Visual Studio 2013\Projects\Jack\Jack.Repository\obj\Release\Jack.Repository.dll
 C:\Users\humberto.almeida.ext\Documents\Visual Studio 2013\Projects\Jack\Jack.Repository\obj\Release\Jack.Repository.pdb
+C:\Users\humberto.almeida.ext\Documents\Visual Studio 2013\Projects\Jack\Jack.Repository\bin\Release\Jack.Repository.dll.config

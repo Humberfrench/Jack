@@ -85,28 +85,22 @@
                         </div>
                     </div>
                     <div class="col-md-3">
-                        <div class="checkbox checkbox-primary" data-toggle="tooltip" data-placement="top" title="Se checado este valor, é permitido mais que o limite máximo de crianças por família.">
-                            <input type="checkbox" name="PermiteExcedente" id="PermiteExcedente">
-                            <label id="labelPermiteExcedente" for="PermiteExcedente">Permite Excedentes</label>
+                        <div class="checkbox checkbox-primary">
+                            <input type="checkbox" name="Fake" id="Fake">
+                            <label id="labelFake" for="Fake">Familia Fake</label>
                         </div>
                     </div>
                     <div class="col-md-1">&nbsp;</div>
                 </div>
                 <div class="row">
                     <div class="col-md-1">&nbsp;</div>
-                    <div class="col-md-2">
-                        <div class="checkbox checkbox-primary">
-                            <input type="checkbox" name="Fake" id="Fake">
-                            <label id="labelFake" for="Fake">Fake</label>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
+                    <div class="col-md-5">
                         <div class="checkbox checkbox-primary" data-toggle="tooltip" data-placement="top" title="Ao Faltar em uma entrega ela recebe esta marca negativa, na segunda falta é excluída.">
                             <input type="checkbox" name="labelBlacklistPasso1" id="BlacklistPasso1">
                             <label id="labelBlacklistPasso1" for="BlacklistPasso1">Faltou Uma Entrega?</label>
                         </div>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-5">
                         <div class="checkbox checkbox-primary" data-toggle="tooltip" data-placement="top" title="Familia que é Removida de Qualquer entrega após segunda falta. Campo preenchido quando apenas já preencheu a falta na primeira entrega.">
                             <input type="checkbox" name="BlacklistPasso2" id="BlacklistPasso2" disabled="disabled">
                             <label id="labelBlacklistPasso2" for="BlacklistPasso2">Faltou Segunda Entrega?</label>
@@ -116,6 +110,18 @@
                 </div>
                 <div class="row">
                     <div class="col-md-1">&nbsp;</div>
+                    <div class="col-md-5">
+                        <div class="checkbox checkbox-primary" data-toggle="tooltip" data-placement="top" title="Se checado este valor, é permitido mais que o limite máximo de Crianças por família.">
+                            <input type="checkbox" name="PermiteExcedenteCrianca" id="PermiteExcedenteCrianca">
+                            <label id="labelPermiteExcedenteCrianca" for="">Permite Excedentes de Crianças</label>
+                        </div>
+                    </div>
+                    <div class="col-md-5">
+                        <div class="checkbox checkbox-primary" data-toggle="tooltip" data-placement="top" title="Se checado este valor, é permitido mais que o limite máximo de Representantes por família.">
+                            <input type="checkbox" name="PermiteExcedenteRepresentante" id="PermiteExcedenteRepresentante">
+                            <label id="labelPermiteExcedenteRepresentante" for="PermiteExcedenteRepresentante">Permite Excedentes de Representantes</label>
+                        </div>
+                    </div>
                     <div class="col-md-1">&nbsp;</div>
                 </div>
 

@@ -20,10 +20,17 @@ Crianca.CalcadoLimite = 0;
 $(document).ready(function ()
 {
     Crianca.MontarTabela();
+
+    $("#Familia").val(null);
     if ($("#CodigoFamilia").val() !== 0)
     {
         $("#Familia").val($("#CodigoFamilia").val());
     }
+    if ($("#Familia").val() === null)
+    {
+        $("#Novo").prop('disabled', 'disabled');
+    }
+
     $("#Status").val(14);
     Crianca.UpdateCalendario();
     Crianca.ObterParametros();
@@ -99,6 +106,11 @@ $(document).ready(function ()
 
     $("#Novo").click(function ()
     {
+        if (($("#Familia").val() === null) || ($("#CodigoFamilia").val() === 0))
+        {
+            Mensagens.Erro('Selecione a Família', 'Erro');
+            return false;
+        }
         Crianca.LimparForm();
         $("#modalEdicao").modal('show');
     });
@@ -200,7 +212,7 @@ Crianca.ValidaCrianca = function (validaCrianca)
         {
             $("#Kit").val(dataObj.Kit.Codigo);
             $("#Idade").val(dataObj.Idade);
-            $("#MedidaIdade").val(Util.MedidaIdade(dataObj.MedidaIdade));
+            $("#MedidaIdade").val(dataObj.MedidaIdade);
             $("#IdadeNominal").val(dataObj.IdadeNominal);
             $("#IdadeNominalReduzida").val(dataObj.IdadeNominalReduzida);
         }
@@ -241,6 +253,25 @@ Crianca.ObterVestimentaPadrao = function (validaCrianca)
     Ajax.Get(opcoes);
 }
 
+function ExcluirConfirmar(codigo, nome)
+{
+    $("#spnCodigo").html(codigo);
+    $("#spnNome").html(nome);
+    $("#codigoExclusao").val(codigo);
+    $("#modalExclusao").modal('show');
+}
+
+function Excluir()
+{
+    if ($("#codigoExclusao").val() === '')
+    {
+        return false;
+    }
+
+    Crianca.Excluir($("#codigoExclusao").val());
+}
+
+
 Crianca.Consistir = function ()
 {
     var mensagem = '';
@@ -259,12 +290,10 @@ Crianca.Consistir = function ()
         mensagem = mensagem + 'Preencher o Campo Calcado <br />';
     }
 
-
     if ($("#Roupa").val() === '')
     {
         mensagem = mensagem + 'Preencher o Campo Roupa <br />';
     }
-
 
     if (mensagem !== '')
     {
@@ -380,6 +409,7 @@ Crianca.Gravar = function ()
     opcoes.url = Crianca.URLGravar;
     opcoes.headers = {};
     opcoes.headers['__RequestVerificationToken'] = token;
+    opcoes.type = "POST";
     opcoes.callBackSuccess = function (response)
     {
         var dataObj = eval(response);
@@ -401,6 +431,7 @@ Crianca.Gravar = function ()
 
     opcoes.url = '/Crianca/Gravar';
 
+    opcoes.dadoEnvio = new Object;
     opcoes.dadoEnvio.Codigo = $("#Codigo").val();
     opcoes.dadoEnvio.Nome = $("#Nome").val();
     opcoes.dadoEnvio.Familia = {};
@@ -412,11 +443,10 @@ Crianca.Gravar = function ()
     opcoes.dadoEnvio.Kit = {};
     opcoes.dadoEnvio.Kit.Codigo = $("#Kit").val();
     opcoes.dadoEnvio.Status = {};
-    opcoes.dadoEnvio.Status.Codigo = $("#Status").val(14);
-    opcoes.dadoEnvio.Calcado = $("#Calcado").val('99');
-    opcoes.dadoEnvio.Roupa = $("#Roupa").val('99');
-    opcoes.dadoEnvio.CalcadoPadrao = $("#CalcadoPadrao").val('99');
-    opcoes.dadoEnvio.RoupaPadrao = $("#RoupaPadrao").val('99');
+    opcoes.dadoEnvio.Status.Codigo = $("#Status").val();
+    opcoes.dadoEnvio.Calcado = $("#Calcado").val();
+    opcoes.dadoEnvio.Roupa = $("#Roupa").val();
+    opcoes.dadoEnvio.Sexo = $("#Sexo").val();
     opcoes.dadoEnvio.DataNascimento = $("#DataNascimento").val();
 
     opcoes.dadoEnvio.CriancaGrande = $("#CriancaGrande").prop('checked');
@@ -442,6 +472,7 @@ Crianca.MontarTabela = function ()
         "searching": false,
         "autoWidth": false,
         "lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "Todos"]],
+        "order": [],
         "language": {
             "sEmptyTable": "Nenhum registro encontrado",
             "sInfo": "Mostrando de _START_ até _END_ de _TOTAL_ registros",
@@ -490,6 +521,10 @@ Crianca.VerificarCalcado = function ()
     {
         return true;
     }
+    if ((calcado === '99') || (calcado === 99))
+    {
+        return true;
+    }
 
     if (Math.abs(calcado - calcadoPadrao) > Crianca.CalcadoLimite)
     {
@@ -509,3 +544,35 @@ Crianca.ShowAviso = function ()
 {
     $("#modalMensagem").modal();
 }
+
+Crianca.Excluir = function (codigo)
+{
+    var opcoes = new Object;
+    opcoes.url = Crianca.URLExcluir;
+
+    opcoes.callBackSuccess = function (response)
+    {
+        var dataObj = eval(response);
+        if (dataObj.Erro)
+        {
+            Mensagens.Erro(dataObj.Mensagem);
+        }
+        else
+        {
+            Mensagens.Sucesso(dataObj.Mensagem);
+            setTimeout(function ()
+            {
+                location.reload();
+            }, 1500);
+        }
+    };
+
+    opcoes.dadoEnvio = new Object;
+    opcoes.dadoEnvio.id = codigo;
+    opcoes.type = 'POST';
+    opcoes.async = false;
+
+    Ajax.Execute(opcoes);
+
+}
+

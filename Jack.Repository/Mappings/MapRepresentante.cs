@@ -17,6 +17,7 @@ namespace Jack.Repository.Mappings
             Map(x => x.Ativo).Column("Ativo").Not.Nullable();
 
             //References
+            References(x => x.TipoParentesco).Column("TipoParentesco").Not.Nullable();
             References(x => x.FamiliaRepresentante).Column("FamiliaRepresentante").Not.Nullable();
             References(x => x.FamiliaRepresentada).Column("FamiliaRepresentada").Not.Nullable();
 

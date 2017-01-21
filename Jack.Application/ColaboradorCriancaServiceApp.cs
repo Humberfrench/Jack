@@ -18,6 +18,12 @@ namespace Jack.Application
             _service = colaboradorCriancaService;
         }
 
+        public IEnumerable<ColaboradorCriancaViewModel> Obter(int id, int ano)
+        {
+            var colaboradorCrianca = _service.Obter(id,ano);
+            return Mapper.Map<IEnumerable<ColaboradorCriancaViewModel>>(colaboradorCrianca);
+        }
+
         public ValidationResult Excluir(int id)
         {
             return _service.Excluir(id);
@@ -33,9 +39,14 @@ namespace Jack.Application
             return _service.AdicionaColaboradorCrianca(colaborador, sacola, ano);
         }
 
+        public ValidationResult AdicionarSacolas(int colaborador, string sacolas, int ano)
+        {
+            return _service.AdicionarSacolas(colaborador, sacolas, ano);
+        }
+
         public ValidationResult DevolveuSacola(int colaborador, int sacola, int ano)
         {
-            return _service.AdicionaColaboradorCrianca(colaborador, sacola, ano);
+            return _service.DevolveuSacola(colaborador, sacola, ano);
         }
 
         public ColaboradorCriancaViewModel ObterPorId(int id)

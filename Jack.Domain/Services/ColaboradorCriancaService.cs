@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using Jack.Domain.Entity;
 using Jack.Domain.Interfaces.Repository;
 using Jack.Domain.Interfaces.Services;
@@ -10,19 +12,19 @@ namespace Jack.Domain.Services
     public class ColaboradorCriancaService : ServiceBase<ColaboradorCrianca>, IColaboradorCriancaService
     {
 
-        private readonly IColaboradorCriancaRepository repository;
+        private readonly IColaboradorCriancaRepository repColaboradorCrianca;
         private readonly ICriancaRepository repCrianca;
         private readonly IColaboradorRepository repColaborador;
         private readonly ISacolaRepository repSacola;
         private readonly ValidationResult validationResult = new ValidationResult();
 
-        public ColaboradorCriancaService(IColaboradorCriancaRepository repository,
+        public ColaboradorCriancaService(IColaboradorCriancaRepository repColaboradorCriancaRepository,
                                          ICriancaRepository repCrianca,
                                          IColaboradorRepository repColaborador,
                                          ISacolaRepository repSacola)
-            : base(repository)
+            : base(repColaboradorCriancaRepository)
         {
-            this.repository = repository;
+            this.repColaboradorCrianca = repColaboradorCriancaRepository;
             this.repCrianca = repCrianca;
             this.repColaborador = repColaborador;
             this.repSacola = repSacola;
@@ -30,10 +32,10 @@ namespace Jack.Domain.Services
 
         public ValidationResult AdicionaColaboradorCrianca(int colaboradorId, int criancaId, int ano)
         {
-            var crianca = repCrianca.ObterPorId(criancaId);
-            if (crianca == null)
+            var sacola = repSacola.ObterSacolaPorCrianca(criancaId);
+            if (sacola == null)
             {
-                validationResult.Add("Criança não encontrada");
+                validationResult.Add("Criança não encontrada para esta sacola.");
                 return validationResult;
             }
 
@@ -44,15 +46,19 @@ namespace Jack.Domain.Services
                 return validationResult;
             }
 
+            //atualizar e liberar sacola - caso não esteja liberada
+            sacola.Liberado = true;
+            repSacola.Atualizar(sacola);
+
             var item = new ColaboradorCrianca
             {
                 Codigo = 0,
-                Crianca = crianca,
+                Crianca = sacola.Crianca,
                 Colaborador = colaborador,
                 Ano =  ano,
+                DataCriacao = DateTime.Now,
                 Devolvida = false
             };
-
 
             Adicionar(item);
 
@@ -75,18 +81,48 @@ namespace Jack.Domain.Services
                 return validationResult;
             }
 
+            //atualizar e liberar sacola  - caso não esteja liberada
+            sacola.Liberado = true;
+            repSacola.Atualizar(sacola);
+
             var item = new ColaboradorCrianca
             {
                 Codigo = 0,
                 Crianca = sacola.Crianca,
                 Colaborador = colaborador,
                 Ano = ano,
+                DataCriacao = DateTime.Now,
                 Devolvida = false
             };
             Adicionar(item);
 
             return validationResult;
         }
+
+        public ValidationResult AdicionarSacolas(int colaborador, string sacolas, int ano)
+        {
+            var sacolasArray = sacolas.Split(',');
+            var retorno = new ValidationResult();
+            foreach (var sacola in sacolasArray)
+            {
+                int sacolaId = 0;
+                if (!Int32.TryParse(sacola, out sacolaId))
+                {
+                    validationResult.Add(new ValidationError(String.Format("Problemas para converter o número da Sacola {0}", sacola)));
+                    return validationResult;
+                }
+
+                var retAdd = AdicionaColaboradorSacola(colaborador, sacolaId, ano);
+                //caso haja problemas, tentar o proximo
+                if (!retorno.IsValid)
+                {
+                    retAdd.Erros.ToList().ForEach(e => retorno.Add(e));    
+                }
+            }
+
+            return retorno;
+        }
+
         public ValidationResult DevolveuSacola(int colaboradorId, int sacolaId, int ano)
         {
             var sacola = repSacola.ObterPorId(sacolaId);
@@ -113,12 +149,22 @@ namespace Jack.Domain.Services
                 return validationResult;
             }
 
-
+            item.Devolvida = true;
+            item.DataDevolucao = DateTime.Now;
             Atualizar(item);
 
             return validationResult;
         }
 
+
+        public IEnumerable<ColaboradorCrianca> Obter(int id, int ano)
+        {
+            var colaboradorCriancas = ObterTodos().Where(cc => cc.Colaborador.Codigo == id && cc.Ano == ano).ToList() ;
+
+            colaboradorCriancas.ForEach(cc => cc.Crianca.Sacola = repSacola.ObterSacolaPorCrianca(cc.Crianca.Codigo)); 
+
+            return colaboradorCriancas;
+        }
 
         public ValidationResult Excluir(int id)
         {
@@ -130,7 +176,7 @@ namespace Jack.Domain.Services
                 return validationResult;
             }
 
-            repository.Excluir(item);
+            repColaboradorCrianca.Excluir(item);
 
             return validationResult;
 

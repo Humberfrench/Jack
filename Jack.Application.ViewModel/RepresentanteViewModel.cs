@@ -22,5 +22,9 @@ namespace Jack.Application.ViewModel
         [DisplayFormat(NullDisplayText = "")]
         public virtual FamiliaViewModel FamiliaRepresentada { get; set; }
 
+        [Display(Name = "Tipo de Parentesco")]
+        [DisplayFormat(NullDisplayText = "")]
+        public virtual TipoParentescoViewModel TipoParentesco { get; set; }
+
     }
 }

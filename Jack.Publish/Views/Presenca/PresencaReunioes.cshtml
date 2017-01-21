@@ -1,0 +1,104 @@
+﻿@using Jack.Application.ViewModel
+@using Jack.Extensions
+@model IEnumerable<PresencaViewModel>
+@Styles.Render("~/Content/plugins/dataTables/dataTablesStyles")
+@{
+    ViewBag.Title = "Cadastro de Presença";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+
+
+<input type="hidden" name="URLObterReunioes" id="URLObterReunioes" value="@Url.Action("ObterReunioes")" />
+<input type="hidden" name="URLListaFamilias" id="URLListaFamilias" value="@Url.Action("ListaFamilias")" />
+<input type="hidden" name="URLGravar" id="URLGravar" value="@Url.Action("Gravar")" />
+<input type="hidden" name="AnoPresenca" id="AnoPresenca" value="@ViewBag.AnoPresenca" />
+<input type="hidden" name="ReuniaoSelecionada" id="ReuniaoSelecionada" value="@ViewBag.ReuniaoSelecionada" />
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>Cadastro de Presença</h5>
+                </div>
+                <div class="ibox-content">
+                    <div class="row">
+                        <div class="col-lg-2">
+                            <label id="labelAno" for="Ano">Ano</label>
+                            <select name="Ano" id="Ano" class="form-control m-b">
+                                <option value="0">Ano</option>
+                                <option value="2014">2014</option>
+                                <option value="2015">2015</option>
+                                <option value="2016">2016</option>
+                                <option value="2017">2017</option>
+                                <option value="2018">2018</option>
+                                <option value="2019">2019</option>
+                                <option value="2020">2020</option>
+                                <option value="2021">2021</option>
+                                <option value="2022">2022</option>
+                            </select>
+                        </div>
+                        <div class="col-lg-3">
+                            <label id="labelReuniao" for="Reuniao">Reunião</label> 
+                            <select name="Reuniao" id="Reuniao" class="form-control m-b">
+                            </select>
+                        </div>
+                        <div class="col-lg-2"> &nbsp;</div>
+                        <div class="col-lg-1">
+                            <br /><a href="#" id="Pesquisar" class="btn btn-primary btn-md" data-toggle="tooltip" data-placement="top" title="Pesquisar"><i class="glyphicon glyphicon-search"></i></a>
+                        </div>
+                        <div class="col-lg-4">&nbsp;</div>
+                    </div>
+                </div>
+                <div class="ibox-content">
+                    <table class="table table-striped table-hover" id="TablePresencaReunioes">
+                        <thead>
+                            <tr>
+                                <th>@Html.DisplayNameFor(model => model.Codigo)</th>
+                                <th>@Html.DisplayNameFor(model => model.Familia.Nome)</th>
+                                <th>@Html.DisplayNameFor(model => model.Familia.Nivel)</th>
+                                <th>@Html.DisplayNameFor(model => model.Familia.QuantidadePresencas)</th>
+                                <th>@Html.DisplayNameFor(model => model.Familia.QuantidadeCriancas)</th>
+                                <th>@Html.DisplayNameFor(model => model.Familia.QuantidadeFamiliasRepresentadas)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Codigo)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Familia.Nome)
+                                    </td>
+                                    <td style="text-align:center;">
+                                        @Html.DisplayFor(modelItem => item.Familia.Nivel.Codigo)
+                                    </td>
+                                    <td style="text-align:center;">
+                                        @Html.DisplayFor(modelItem => item.Familia.QuantidadePresencas)
+                                    </td>
+                                    <td style="text-align:center;">
+
+                                        @Html.DisplayFor(modelItem => item.Familia.QuantidadeCriancas)
+                                    </td>
+                                    <td style="text-align:center;">
+
+                                        @Html.DisplayFor(modelItem => item.Familia.QuantidadeFamiliasRepresentadas)
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts
+{
+    @Scripts.Render("~/plugins/dataTables")
+    @Scripts.Render("~/script/Presenca/Reunioes")
+}

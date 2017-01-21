@@ -18,7 +18,7 @@ namespace Jack.Application.ViewModel
         public virtual string Descricao { get; set; }
 
         [Display(Name = "Opcional")]
-        [DisplayFormat(NullDisplayText = "0")]
+        [DisplayFormat(NullDisplayText = "Não")]
         public virtual bool Opcional { get; set; }
 
     }

@@ -22,6 +22,7 @@ namespace Jack.Domain.Services
         private readonly ICalcadoRepository repCalcado;
         private readonly IRoupaRepository repRoupa;
         private readonly IParametroRepository repParametros;
+        private readonly ISacolaRepository repSacola;
 
         private readonly ValidationResult validationResult = new ValidationResult();
 
@@ -31,7 +32,8 @@ namespace Jack.Domain.Services
                               IKitRepository repKit,
                               ICalcadoRepository repCalcado,
                               IRoupaRepository repRoupa,
-                              IParametroRepository repParametros)
+                              IParametroRepository repParametros,
+                              ISacolaRepository repSacola)
             : base(repCrianca)
         {
             this.repCrianca = repCrianca;
@@ -41,11 +43,26 @@ namespace Jack.Domain.Services
             this.repCalcado = repCalcado;
             this.repRoupa = repRoupa;
             this.repParametros = repParametros;
+            this.repSacola = repSacola;
         }
+
         public IEnumerable<Crianca> ObterCriancas(int familia)
         {
-            var registros = Pesquisar(p => p.Familia.Codigo == familia).ToList();
+            var registros = Pesquisar(p => p.Familia.Codigo == familia).OrderBy(c => c.Nome).ToList();
             return registros;
+        }
+
+        public IEnumerable<Crianca> ObterCriancasSacola(int familia)
+        {
+            var registros = Pesquisar(p => p.Familia.Codigo == familia).ToList();
+            var sacolasFamilia = repSacola.ObterTodos().Where(s => s.Familia.Codigo == familia).ToList();
+
+            foreach (var crianca in registros)
+            {
+                crianca.Sacolinha = sacolasFamilia.Any(s => s.Crianca.Codigo == crianca.Codigo);
+            }
+
+            return registros.OrderBy(c => c.Nome).ToList();
         }
 
         public ValidationResult Gravar(Crianca item)
@@ -55,14 +72,15 @@ namespace Jack.Domain.Services
             item.Status = repStatus.ObterPorId(item.Status.Codigo);
             item.Kit = repKit.ObterPorId(item.Kit.Codigo);
             item.DataAtualizacao = DateTime.Now;
-            item.DataCriacao = ObterPorId(item.Codigo).DataCriacao;
             
             if (item.Codigo == 0)
             {
+                item.DataCriacao = DateTime.Now;
                 Adicionar(item);
             }
             else
             {
+                item.DataCriacao = ObterPorId(item.Codigo).DataCriacao;
                 Atualizar(item);
             }
 

@@ -60,9 +60,9 @@ namespace Jack.Domain.Services
             return repFeriado.ObterPorAnoEfetivo(ano);
         }
 
-        public Feriado ObterFeriado(int ano, DateTime dataReuniao)
+        public Feriado ObterFeriado(DateTime dataReuniao)
         {
-            return repFeriado.ObterFeriado(ano, dataReuniao);
+            return repFeriado.ObterFeriado(dataReuniao);
         }
     }
 }

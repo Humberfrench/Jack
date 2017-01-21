@@ -104,10 +104,10 @@ namespace Jack.Web.Controllers
             #region BreadCrumb
             var breadCrumb = new BreadCrumbETitulo
             {
-                Titulo = "Lista Presenca",
+                Titulo = "Lista de Presença",
                 BreadCrumbs = new List<BreadCrumb>
                 {
-                 new BreadCrumb {LinkText = "Lista Presenca", ActionName = "ListaPresenca", ControllerName = "Presenca"}
+                 new BreadCrumb {LinkText = "Lista de Presença", ActionName = "ListaPresenca", ControllerName = "Presenca"}
                 }
             };
 
@@ -132,10 +132,10 @@ namespace Jack.Web.Controllers
             #region BreadCrumb
             var breadCrumb = new BreadCrumbETitulo
             {
-                Titulo = "Lista Presenca",
+                Titulo = "Lista de Presença",
                 BreadCrumbs = new List<BreadCrumb>
                 {
-                 new BreadCrumb {LinkText = "Lista Presenca", ActionName = "ListaPresenca", ControllerName = "Presenca"}
+                 new BreadCrumb {LinkText = "Lista de Presença", ActionName = "ListaPresenca", ControllerName = "Presenca"}
                 }
             };
 
@@ -191,13 +191,58 @@ namespace Jack.Web.Controllers
 
             return Json(retorno, JsonRequestBehavior.AllowGet);
         }
+
+        [Route("Reunioes")]
+        public ActionResult PresencaReunioes()
+        {
+            #region BreadCrumb
+            var breadCrumb = new BreadCrumbETitulo
+            {
+                Titulo = "Presença em Reuniões",
+                BreadCrumbs = new List<BreadCrumb>
+                {
+                 new BreadCrumb {LinkText = "Presença em Reuniões", ActionName = "PresencaReunioes", ControllerName = "Presenca"}
+                }
+            };
+
+            TempData["BreadCrumETitulo"] = breadCrumb;
+            #endregion
+
+            ViewBag.AnoPresenca = 0;
+            ViewBag.ReuniaoSelecionada = 0;
+            var presencas = new List<PresencaViewModel>();
+            return View(presencas);
+        }
+
+        [Route("Reunioes/{id}")]
+        public ActionResult PresencaReunioes(int id)
+        {
+            #region BreadCrumb
+            var breadCrumb = new BreadCrumbETitulo
+            {
+                Titulo = "Presença em Reuniões",
+                BreadCrumbs = new List<BreadCrumb>
+                {
+                 new BreadCrumb {LinkText = "Presença em Reuniões", ActionName = "PresencaReunioes", ControllerName = "Presenca"}
+                }
+            };
+
+            TempData["BreadCrumETitulo"] = breadCrumb;
+            #endregion
+
+            var reuniao = reuniaoAppService.ObterPorId(id);
+            ViewBag.AnoPresenca = reuniao.AnoCorrente;
+            ViewBag.ReuniaoSelecionada = id;
+            return View(reuniao.FamiliaPresenca.ToList());
+        }
+
         #endregion
 
         #region Métodos Privados
 
         private IList<FamiliaViewModel> ObterFamilia()
         {
-            var dados = familiaAppService.ObterTodos().ToList();
+            var dados = familiaAppService.ObterTodos().OrderBy(c => c.Nome).ToList();
             return dados;
         }
 

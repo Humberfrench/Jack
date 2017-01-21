@@ -6,7 +6,12 @@ namespace Jack.Application.Interfaces
 {
     public interface IRepresentanteServiceApp : IServiceBase<RepresentanteViewModel>
     {
-        ValidationResult Gravar(RepresentanteViewModel entity);
+        ValidationResult Gravar(int familiaRepresentante, int familiaRepresentada, int tipoParentesco);
+        ValidationResult Gravar(int codigo, int tipoParentesco, bool ativo);
+        ValidationResult Ativar(int id);
+        ValidationResult Desativar(int id);
+        ValidationResult Gravar(RepresentanteViewModel representante);
         ValidationResult Excluir(int id);
+        IEnumerable<FamiliaViewModel> ObterFamilias(int familia); 
     }
 }

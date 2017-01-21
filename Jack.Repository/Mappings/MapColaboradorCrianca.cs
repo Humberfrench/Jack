@@ -19,6 +19,7 @@ namespace Jack.Repository.Mappings
                 Map(x => x.Ano).Column("Ano").Not.Nullable();
                 Map(x => x.Devolvida).Column("Devolvida").Not.Nullable();
                 Map(x => x.DataCriacao).Column("DataCriacao");
+                Map(x => x.DataDevolucao).Column("DataDevolucao");
 
                 //HasManyToMany
                 References(x => x.Crianca).Column("Crianca").Not.Nullable();

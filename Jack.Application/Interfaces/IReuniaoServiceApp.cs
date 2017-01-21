@@ -10,5 +10,6 @@ namespace Jack.Application.Interfaces
         ValidationResult Excluir(int id);
         IEnumerable<ReuniaoViewModel> ObterReunioesNoAno();
         IEnumerable<ReuniaoViewModel> ObterReunioesNoAno(int ano);
+        ValidationResult MontarDataReuniao(int ano);
     }
 }

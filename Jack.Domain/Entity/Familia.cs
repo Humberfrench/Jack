@@ -16,7 +16,8 @@ namespace Jack.Domain.Entity
             nome = string.Empty;
             sacolinha = false;
             consistente = false;
-            permiteExcedente = false;
+            permiteExcedenteCriancas = false;
+            permiteExcedenteRepresentantes = false;
             contato = string.Empty;
             fake = false;
             presencaJustificada = false;
@@ -38,7 +39,8 @@ namespace Jack.Domain.Entity
         private string nome;
         private bool sacolinha;
         private bool consistente;
-        private bool permiteExcedente;
+        private bool permiteExcedenteCriancas;
+        private bool permiteExcedenteRepresentantes;
         private string contato;
         private bool fake;
         private bool presencaJustificada;
@@ -104,15 +106,27 @@ namespace Jack.Domain.Entity
             }
         }
 
-        public virtual bool PermiteExcedente
+        public virtual bool PermiteExcedenteCriancas
         {
             get
             {
-                return permiteExcedente;
+                return permiteExcedenteCriancas;
             }
             set
             {
-                permiteExcedente = value;
+                permiteExcedenteCriancas = value;
+            }
+        }
+
+        public virtual bool PermiteExcedenteRepresentantes
+        {
+            get
+            {
+                return permiteExcedenteRepresentantes;
+            }
+            set
+            {
+                permiteExcedenteRepresentantes = value;
             }
         }
 

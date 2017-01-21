@@ -43,6 +43,14 @@ namespace Jack.Extensions
             return mensagem;
         }
 
+        public static string ToMedidaIdade(this string text)
+        {
+            if(text == "A")
+            {
+                return "Anos";
+            }
+            return "Meses";
+        }
         public static bool IsNumeric(this string text)
         {
             try
@@ -58,7 +66,63 @@ namespace Jack.Extensions
 
         public static string ToDateFormated(this DateTime dateValue)
         {
-            return dateValue.Day.ToString("00") + "/" + dateValue.Month.ToString("00") + "/" + dateValue.Year.ToString("0000");
+            return dateValue.ToString("dd/MM/yyyy");
+        }
+
+        public static string ToAnsiDate(this DateTime dateValue)
+        {
+            return dateValue.ToString("yyyyMMdd");
+        }
+
+        public static string ToTimeFormated(this DateTime dateValue)
+        {
+            return dateValue.ToString("HH:mm");
+        }
+
+        public static string ToDateTimeFormated(this DateTime dateValue)
+        {
+            return string.Format("{0} | {1}", dateValue.ToString("dd/MM/yyyy"), dateValue.ToString("HH:mm"));
+        }
+
+        public static string ToDateTimeFormated(this DateTime dateValue, string separador)
+        {
+            return string.Format("{0} {1} {2}", dateValue.ToString("dd/MM/yyyy"), separador, dateValue.ToString("HH:mm"));
+        }
+
+        public static string ToDateFormated(this DateTime? dateValue)
+        {
+            if (dateValue.HasValue)
+            {
+                return dateValue.Value.ToString("dd/MM/yyyy");
+            }
+            return "";
+        }
+
+        public static string ToTimeFormated(this DateTime? dateValue)
+        {
+            if (dateValue.HasValue)
+            {
+                return dateValue.Value.ToString("HH:mm");
+            }
+            return "";
+        }
+
+        public static string ToDateTimeFormated(this DateTime? dateValue)
+        {
+            if (dateValue.HasValue)
+            {
+                return string.Format("{0} | {1}", dateValue.Value.ToString("dd/MM/yyyy"), dateValue.Value.ToString("HH:mm"));
+            }
+            return "";
+        }
+
+        public static string ToDateTimeFormated(this DateTime? dateValue, string separador)
+        {
+            if (dateValue.HasValue)
+            {
+                return string.Format("{0} {1} {2}", dateValue.Value.ToString("dd/MM/yyyy"), separador, dateValue.Value.ToString("HH:mm"));
+            }
+            return "";
         }
 
         public static string ToSimNao(this string stringValue)
@@ -77,17 +141,35 @@ namespace Jack.Extensions
             }
             return "Não";
         }
+        public static string ToParente(this bool boolValue)
+        {
+            if (boolValue)
+            {
+                return "É parente";
+            }
+            return "Sem Parentesco";
+        }
+        public static string ToGrauParentesco(this int boolValue)
+        {
+            switch (boolValue)
+            {
+                case 1:
+                    return "Primeiro Grau";
+                case 2:
+                    return "Segundo Grau";
+                case 3:
+                    return "Não é Parente";
+                default:
+                    return "Nenhum";
+            }
+        }
         public static string ToSimNaoIcone(this bool boolValue)
         {
             if (boolValue)
             {
-                return @"<button type='button' class='btn btn-primary btn-sm'>
-                        <i class='glyphicon glyphicon-ok-circle'></i>
-                        </button>";
+                return @"<i class='glyphicon glyphicon-ok-circle'></i>";
             }
-            return @"<button type='button' class='btn btn-danger btn-sm'>
-                    <i class='glyphicon glyphicon-remove-circle'></i>
-                    </button>";
+            return @"<i class='glyphicon glyphicon-remove-circle'></i>";
         }
         public static string ToSexo(this string stringValue)
         {

@@ -27,6 +27,7 @@ namespace Jack.Web.Controllers
         #endregion
 
         #region Public Methods
+        [Route("")]
         public ActionResult Index()
         {
             #region BreadCrumb
@@ -69,14 +70,16 @@ namespace Jack.Web.Controllers
             return View("Index", listaDados);
         }
 
+        [Route("Edit")]
         public ActionResult Edit(int id)
         {
-            var grupo = tipoItemAppService.ObterPorId(id);
-            return Json(grupo, JsonRequestBehavior.AllowGet);
+            var tipoItem = tipoItemAppService.ObterPorId(id);
+            return Json(tipoItem, JsonRequestBehavior.AllowGet);
         }
 
         [HttpPost]
         [ValidateJsonAntiForgeryToken]
+        [Route("Gravar")]
         public ActionResult Gravar(TipoItemViewModel tipoItem)
         {
             var gravarResult = tipoItemAppService .Gravar(tipoItem);
@@ -101,6 +104,7 @@ namespace Jack.Web.Controllers
             return Json(retorno, JsonRequestBehavior.AllowGet);
         }
 
+        [Route("Excluir")]
         public ActionResult Excluir(int id)
         {
             var excluirResult = tipoItemAppService.Excluir(id);
