@@ -16,6 +16,7 @@ namespace Jack.Web.Controllers
         #region Vars
 
         private readonly IFamiliaServiceApp familiaAppService;
+        private readonly ICriancaServiceApp criancaAppService;
         private readonly INivelServiceApp nivelAppService;
         private readonly IStatusFamiliaServiceApp statusAppService;
         private readonly IReuniaoServiceApp reuniaoAppService;
@@ -24,12 +25,14 @@ namespace Jack.Web.Controllers
 
         #region Ctor
 
-        public FamiliaController(IFamiliaServiceApp familiaAppService,
+        public FamiliaController(IFamiliaServiceApp familiaAppService, 
+                                 ICriancaServiceApp criancaAppService,
                                  IStatusFamiliaServiceApp statusAppService,
                                  INivelServiceApp nivelAppService,
                                  IReuniaoServiceApp reuniaoAppService)
         {
             this.familiaAppService = familiaAppService;
+            this.criancaAppService = criancaAppService;
             this.statusAppService = statusAppService;
             this.nivelAppService = nivelAppService;
             this.reuniaoAppService = reuniaoAppService;
@@ -173,6 +176,32 @@ namespace Jack.Web.Controllers
         public ActionResult Processar(int id)
         {
             var processarResult = familiaAppService.AtualizarFamilia(id);
+
+            object retorno;
+            if (processarResult.IsValid)
+            {
+                retorno = new
+                {
+                    Mensagem = "Família Atualizada com Sucesso",
+                    Erro = false
+                };
+            }
+            else
+            {
+                retorno = new
+                {
+                    Mensagem = RenderizeErros(processarResult),
+                    Erro = true
+                };
+            }
+
+            return Json(retorno, JsonRequestBehavior.AllowGet);
+        }
+
+        [Route("ProcessarCriancas")]
+        public ActionResult ProcessarCriancas(int id)
+        {
+            var processarResult = criancaAppService.AtualizaCriancas(id);
 
             object retorno;
             if (processarResult.IsValid)

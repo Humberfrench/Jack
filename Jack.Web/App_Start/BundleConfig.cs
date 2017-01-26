@@ -754,8 +754,8 @@ namespace Jack.Web
             jssCrianca.Orderer = new AsIsBundleOrderer();
             bundles.Add(jssCrianca);
 
-            var jssCriancaAcerto = new ScriptBundle("~/script/Crianca/acerto/vestimenta");
-            jssCriancaAcerto.Include("~/Scripts/Crianca/acertoVestimenta.js");
+            var jssCriancaAcerto = new ScriptBundle("~/script/Crianca/acerto/Dados");
+            jssCriancaAcerto.Include("~/Scripts/Crianca/acertoDados.js");
             jssCriancaAcerto.Orderer = new AsIsBundleOrderer();
             bundles.Add(jssCriancaAcerto);
 
@@ -828,6 +828,10 @@ namespace Jack.Web
             jssSacolas.Orderer = new AsIsBundleOrderer();
             bundles.Add(jssSacolas);
 
+            jssSacolas = new ScriptBundle("~/script/Sacolas/QrCode");
+            jssSacolas.Include("~/Scripts/Sacolas/QrCode.js");
+            jssSacolas.Orderer = new AsIsBundleOrderer();
+            bundles.Add(jssSacolas);
        }
 
         private static void RegisterKitBundle(ref BundleCollection bundles)

@@ -3,6 +3,7 @@ using Jack.Application.Interfaces;
 using Jack.Application.ViewModel;
 using System;
 using System.Collections.Generic;
+using Jack.Application.AutoMapper;
 using Jack.Domain.Entity;
 using Jack.Domain.Interfaces.Services;
 using Jack.DomainValidator;
@@ -13,15 +14,17 @@ namespace Jack.Application
     {
 
         private readonly ITipoItemService _service;
+        private readonly IMapper mapper;
 
         public TipoItemServiceApp(ITipoItemService tipoItemService)
         {
             _service = tipoItemService;
+            mapper = AutoMapperConfig.Config.CreateMapper();
         }
 
         public ValidationResult Gravar(TipoItemViewModel tipoItem)
         {
-            var tipoItemSalvar = Mapper.Map<TipoItem>(tipoItem);
+            var tipoItemSalvar = mapper.Map<TipoItem>(tipoItem);
             return _service.Gravar(tipoItemSalvar);
         }
 
@@ -33,19 +36,19 @@ namespace Jack.Application
         public TipoItemViewModel ObterPorId(int id)
         {
             var tipoItem = _service.ObterPorId(id);
-            return Mapper.Map<TipoItemViewModel>(tipoItem);
+            return mapper.Map<TipoItemViewModel>(tipoItem);
         }
 
         public IEnumerable<TipoItemViewModel> ObterTodos()
         {
             var tipoItem = _service.ObterTodos();
-            return Mapper.Map<IEnumerable<TipoItemViewModel>>(tipoItem);
+            return mapper.Map<IEnumerable<TipoItemViewModel>>(tipoItem);
         }
 
         public IEnumerable<TipoItemViewModel> Filtrar(string nome)
         {
             var tipoItem = _service.Filtrar(nome);
-            return Mapper.Map<IEnumerable<TipoItemViewModel>>(tipoItem);
+            return mapper.Map<IEnumerable<TipoItemViewModel>>(tipoItem);
         }
 
 

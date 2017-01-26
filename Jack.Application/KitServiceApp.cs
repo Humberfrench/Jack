@@ -3,6 +3,7 @@ using Jack.Application.Interfaces;
 using Jack.Application.ViewModel;
 using System;
 using System.Collections.Generic;
+using Jack.Application.AutoMapper;
 using Jack.Domain.Entity;
 using Jack.Domain.Interfaces.Services;
 using Jack.DomainValidator;
@@ -13,16 +14,18 @@ namespace Jack.Application
     {
 
         private readonly IKitService _service;
+        private readonly IMapper mapper;
 
-        public KitServiceApp(IKitService KitService)
+        public KitServiceApp(IKitService kitService)
         {
-            _service = KitService;
+            _service = kitService;
+            mapper = AutoMapperConfig.Config.CreateMapper();
         }
 
-        public ValidationResult Gravar(KitViewModel Kit)
+        public ValidationResult Gravar(KitViewModel kit)
         {
-            var KitSalvar = Mapper.Map<Kit>(Kit);
-            return _service.Gravar(KitSalvar);
+            var kitSalvar = mapper.Map<Kit>(kit);
+            return _service.Gravar(kitSalvar);
         }
 
         public ValidationResult Excluir(int id)
@@ -32,20 +35,20 @@ namespace Jack.Application
 
         public KitViewModel ObterPorId(int id)
         {
-            var Kit = _service.ObterPorId(id);
-            return Mapper.Map<KitViewModel>(Kit);
+            var kit = _service.ObterPorId(id);
+            return mapper.Map<KitViewModel>(kit);
         }
 
         public IEnumerable<KitViewModel> ObterTodos()
         {
-            var Kit = _service.ObterTodos();
-            return Mapper.Map<IEnumerable<KitViewModel>>(Kit);
+            var kit = _service.ObterTodos();
+            return mapper.Map<IEnumerable<KitViewModel>>(kit);
         }
 
         public IEnumerable<KitViewModel> Filtrar(string nome)
         {
-            var Kit = _service.Filtrar(nome);
-            return Mapper.Map<IEnumerable<KitViewModel>>(Kit);
+            var kit = _service.Filtrar(nome);
+            return mapper.Map<IEnumerable<KitViewModel>>(kit);
         }
 
 

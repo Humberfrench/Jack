@@ -3,6 +3,7 @@ using Jack.Application.Interfaces;
 using Jack.Application.ViewModel;
 using System;
 using System.Collections.Generic;
+using Jack.Application.AutoMapper;
 using Jack.Domain.Entity;
 using Jack.Domain.Interfaces.Services;
 using Jack.DomainValidator;
@@ -13,10 +14,12 @@ namespace Jack.Application
     {
 
         private readonly IPresencaService _service;
+        private readonly IMapper mapper;
 
         public PresencaServiceApp(IPresencaService presencaService)
         {
             _service = presencaService;
+            mapper = AutoMapperConfig.Config.CreateMapper();
         }
 
         public ValidationResult Gravar(int reuniao, int familia)
@@ -32,31 +35,31 @@ namespace Jack.Application
         public List<StatsViewModel> ObterDadosPresenca(int familiaId)
         {
             var presenca = _service.ObterDadosPresenca(familiaId);
-            return Mapper.Map<List<StatsViewModel>>(presenca);
+            return mapper.Map<List<StatsViewModel>>(presenca);
         }
 
         public IEnumerable<FamiliaViewModel> ObterFamiliasDisponiveis(int reuniao)
         {
             var presenca = _service.ObterFamiliasDisponiveis(reuniao);
-            return Mapper.Map<IEnumerable<FamiliaViewModel>>(presenca);
+            return mapper.Map<IEnumerable<FamiliaViewModel>>(presenca);
         }
 
         public IEnumerable<FamiliaViewModel> ObterFamiliasDisponiveis(int reuniao, string letra)
         {
             var presenca = _service.ObterFamiliasDisponiveis(reuniao, letra);
-            return Mapper.Map<IEnumerable<FamiliaViewModel>>(presenca);
+            return mapper.Map<IEnumerable<FamiliaViewModel>>(presenca);
         }
 
         public PresencaViewModel ObterPorId(int id)
         {
             var presenca = _service.ObterPorId(id);
-            return Mapper.Map<PresencaViewModel>(presenca);
+            return mapper.Map<PresencaViewModel>(presenca);
         }
 
         public IEnumerable<PresencaViewModel> ObterTodos()
         {
             var presenca = _service.ObterTodos();
-            return Mapper.Map<IEnumerable<PresencaViewModel>>(presenca);
+            return mapper.Map<IEnumerable<PresencaViewModel>>(presenca);
         }
 
         public void Dispose()

@@ -79,6 +79,7 @@ Familia.MontarTabela = function ()
     $('#TableFamilia').DataTable({
         "searching": false,
         "autoWidth": false,
+        "order": [],
         "lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "Todos"]],
         "language": {
             "sEmptyTable": "Nenhum registro encontrado",
@@ -103,7 +104,7 @@ Familia.MontarTabela = function ()
         "dom": '<"top"li>rt<"bottom"p><"clear">',
         "pagingType": "numbers",
         "aoColumnDefs": [
-            { "aTargets": [0], "asSorting": ["asc"], "bSortable": true },
+            { "aTargets": [0], "bSortable": true },
             { "aTargets": [1], "bSortable": true },
             { "aTargets": [2], "bSortable": false },
             { "aTargets": [3], "bSortable": false },
@@ -435,7 +436,7 @@ Familia.Processar = function (codigo)
         var dataObj = eval(response);
         if (dataObj.Erro)
         {
-            Mensagens.Erro(dataObj.Mensagem);
+            Mensagens.Info(dataObj.Mensagem);
         }
         else
         {
@@ -444,6 +445,33 @@ Familia.Processar = function (codigo)
             {
                 location.reload();
             }, 1500);
+        }
+    };
+
+    opcoes.dadoEnvio = new Object;
+    opcoes.dadoEnvio.id = codigo;
+    opcoes.type = 'POST';
+    opcoes.async = false;
+
+    Ajax.Execute(opcoes);
+
+}
+
+Familia.ProcessarCriancas = function (codigo)
+{
+    var opcoes = new Object;
+    opcoes.url = Familia.URLProcessarCriancas;
+
+    opcoes.callBackSuccess = function (response)
+    {
+        var dataObj = eval(response);
+        if (dataObj.Erro)
+        {
+            Mensagens.Info(dataObj.Mensagem);
+        }
+        else
+        {
+            Mensagens.Sucesso(dataObj.Mensagem);
         }
     };
 

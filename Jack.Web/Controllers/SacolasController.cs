@@ -60,6 +60,26 @@ namespace Jack.Web.Controllers
             return View(listaDados);
         }
 
+        [Route("QrCode")]
+        public ActionResult QrCode()
+        {
+            #region BreadCrumb
+            var breadCrumb = new BreadCrumbETitulo
+            {
+                Titulo = "Consulta de Sacolas",
+                BreadCrumbs = new List<BreadCrumb>
+                {
+                 new BreadCrumb {LinkText = "Teste de Qr Code", ActionName = "QrCode", ControllerName = "Sacolas"}
+                }
+            };
+
+            TempData["BreadCrumETitulo"] = breadCrumb;
+            #endregion
+
+            var listaDados = sacolaAppService.ObterTodos();
+            return View();
+        }
+
         [Route("Nivel/{nivel}/Liberado/{liberado}")]
         public ActionResult Index(int nivel, int liberado)
         {
@@ -238,6 +258,18 @@ namespace Jack.Web.Controllers
             }
 
             return Json(retorno, JsonRequestBehavior.AllowGet);
+        }
+
+        [Route("GerarQrCode")]
+        [HttpPost]
+        public ActionResult GerarQrCode(int width, int height, int crianca)
+        {
+            var tipo = sacolaAppService.GerarQrCode(width, height, crianca);
+
+            byte[] imgBytes = (byte[])tipo;
+            string base64String = Convert.ToBase64String(imgBytes, 0, imgBytes.Length);
+
+            return Json(base64String, JsonRequestBehavior.AllowGet);
         }
 
         #endregion

@@ -148,6 +148,10 @@
       <Project>{0e63a054-3d47-4cde-bd08-7ca8782c5555}</Project>
       <Name>Jack.Extensions</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Jack.Library\Jack.Library.csproj">
+      <Project>{08a4638f-7190-48dd-b8c2-9c131b517cd2}</Project>
+      <Name>Jack.Library</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

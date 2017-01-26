@@ -3,6 +3,7 @@ using Jack.Application.Interfaces;
 using Jack.Application.ViewModel;
 using System;
 using System.Collections.Generic;
+using Jack.Application.AutoMapper;
 using Jack.Domain.Entity;
 using Jack.Domain.Interfaces.Services;
 using Jack.DomainValidator;
@@ -13,15 +14,17 @@ namespace Jack.Application
     {
 
         private readonly ITipoParentescoService _service;
+        private readonly IMapper mapper;
 
         public TipoParentescoServiceApp(ITipoParentescoService tipoParentescoService)
         {
             _service = tipoParentescoService;
+            mapper = AutoMapperConfig.Config.CreateMapper();
         }
 
         public ValidationResult Gravar(TipoParentescoViewModel tipoParentesco)
         {
-            var tipoParentescoSalvar = Mapper.Map<TipoParentesco>(tipoParentesco);
+            var tipoParentescoSalvar = mapper.Map<TipoParentesco>(tipoParentesco);
             return _service.Gravar(tipoParentescoSalvar);
         }
 
@@ -33,19 +36,19 @@ namespace Jack.Application
         public TipoParentescoViewModel ObterPorId(int id)
         {
             var tipoParentesco = _service.ObterPorId(id);
-            return Mapper.Map<TipoParentescoViewModel>(tipoParentesco);
+            return mapper.Map<TipoParentescoViewModel>(tipoParentesco);
         }
 
         public IEnumerable<TipoParentescoViewModel> ObterTodos()
         {
             var tipoParentesco = _service.ObterTodos();
-            return Mapper.Map<IEnumerable<TipoParentescoViewModel>>(tipoParentesco);
+            return mapper.Map<IEnumerable<TipoParentescoViewModel>>(tipoParentesco);
         }
 
         public IEnumerable<TipoParentescoViewModel> Filtrar(string nome)
         {
             var tipoParentesco = _service.Filtrar(nome);
-            return Mapper.Map<IEnumerable<TipoParentescoViewModel>>(tipoParentesco);
+            return mapper.Map<IEnumerable<TipoParentescoViewModel>>(tipoParentesco);
         }
 
 

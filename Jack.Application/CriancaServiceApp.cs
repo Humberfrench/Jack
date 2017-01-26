@@ -3,7 +3,7 @@ using Jack.Application.Interfaces;
 using Jack.Application.ViewModel;
 using System;
 using System.Collections.Generic;
-using System.Runtime.InteropServices;
+using Jack.Application.AutoMapper;
 using Jack.Domain.Entity;
 using Jack.Domain.Interfaces.Services;
 using Jack.Domain.ObjectValue;
@@ -14,69 +14,88 @@ namespace Jack.Application
     public class CriancaServiceApp :  ICriancaServiceApp
     {
 
-        private readonly ICriancaService _service;
+        private readonly ICriancaService criancaService;
+        private readonly IMapper mapper;
 
         public CriancaServiceApp(ICriancaService criancaService)
         {
-            _service = criancaService;
+            this.criancaService = criancaService;
+            mapper = AutoMapperConfig.Config.CreateMapper();
         }
 
         public ValidationResult Gravar(CriancaViewModel crianca)
         {
-            var criancaSalvar = Mapper.Map<Crianca>(crianca);
-            return _service.Gravar(criancaSalvar);
+            var criancaSalvar = mapper.Map<Crianca>(crianca);
+            return criancaService.Gravar(criancaSalvar);
         }
 
-        public ValidationResult GravarVestimentas(int crianca, int calcado, string roupa)
+        public ValidationResult GravarDados(int crianca, int calcado, string roupa, int tipoParentesco)
         {
-            return _service.GravarVestimentas(crianca, calcado, roupa);
+            return criancaService.GravarDados(crianca, calcado, roupa, tipoParentesco);
         }
 
         public ValidationResult Excluir(int id)
         {
-            return _service.Excluir(id);
+            return criancaService.Excluir(id);
         }
 
         public CriancaViewModel ValidaCrianca(CriancaValueViewModel criancaValue)
         {
-            var paramCrianca = Mapper.Map<CriancaValue>(criancaValue);
-            var crianca = _service.ValidaCrianca(paramCrianca);
-            return Mapper.Map<CriancaViewModel>(crianca);
+            var paramCrianca = mapper.Map<CriancaValue>(criancaValue);
+            var crianca = criancaService.ValidaCrianca(paramCrianca);
+            return mapper.Map<CriancaViewModel>(crianca);
+        }
+
+        public ValidationResult AtualizaCriancas()
+        {
+            return criancaService.AtualizaCriancas();
+        }
+
+        public ValidationResult AtualizaCriancas(int familiaId)
+        {
+            return criancaService.AtualizaCriancas(familiaId);
+        }
+
+        public ValidationResult AtualizaCrianca(CriancaViewModel crianca, bool gravar = true)
+        {
+            var paramCrianca = mapper.Map<Crianca>(crianca);
+            var retCrianca =  criancaService.AtualizaCrianca(paramCrianca, gravar);
+            return retCrianca;
         }
 
         public Dictionary<string, string> ObterVestimentaPadrao(int idade, string medidaIdade, string sexo, bool isCriancaGrande = false)
         {
-            return _service.ObterVestimentaPadrao(idade, medidaIdade, sexo, isCriancaGrande);
+            return criancaService.ObterVestimentaPadrao(idade, medidaIdade, sexo, isCriancaGrande);
         }
 
         public IEnumerable<CriancaVestimentaViewModel> ObterDadosCriancaVestimentas(int familia)
         {
-            var crianca = _service.ObterDadosCriancaVestimentas(familia);
-            return Mapper.Map<IEnumerable<CriancaVestimentaViewModel>>(crianca);
+            var crianca = criancaService.ObterDadosCriancaVestimentas(familia);
+            return mapper.Map<IEnumerable<CriancaVestimentaViewModel>>(crianca);
         }
 
         public CriancaViewModel ObterPorId(int id)
         {
-            var crianca = _service.ObterPorId(id);
-            return Mapper.Map<CriancaViewModel>(crianca);
+            var crianca = criancaService.ObterPorId(id);
+            return mapper.Map<CriancaViewModel>(crianca);
         }
 
         public IEnumerable<CriancaViewModel> ObterTodos()
         {
-            var crianca = _service.ObterTodos();
-            return Mapper.Map<IEnumerable<CriancaViewModel>>(crianca);
+            var crianca = criancaService.ObterTodos();
+            return mapper.Map<IEnumerable<CriancaViewModel>>(crianca);
         }
 
         public IEnumerable<CriancaViewModel> ObterCriancas(int familia)
         {
-            var crianca = _service.ObterCriancas(familia);
-            return Mapper.Map<IEnumerable<CriancaViewModel>>(crianca);
+            var crianca = criancaService.ObterCriancas(familia);
+            return mapper.Map<IEnumerable<CriancaViewModel>>(crianca);
         }
 
         public IEnumerable<CriancaViewModel> ObterCriancasSacola(int familia)
         {
-            var crianca = _service.ObterCriancasSacola(familia);
-            return Mapper.Map<IEnumerable<CriancaViewModel>>(crianca);
+            var crianca = criancaService.ObterCriancasSacola(familia);
+            return mapper.Map<IEnumerable<CriancaViewModel>>(crianca);
         }
 
         public void Dispose()

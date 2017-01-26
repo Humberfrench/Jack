@@ -2,13 +2,14 @@
 /// <reference path="../util/util.js" />
 /// <reference path="../util/ajax.js" />
 /// <reference path="../moment.js" />
-/// <reference path="../plugins/sweetalert/sweetalert.min.js" />
 
 var Representante = new Object();
 
 Representante.URLObterTodos = '';
 Representante.URLGravar = '';
+Representante.URLGravarEdicao = '';
 Representante.URLExcluir = '';
+Representante.URLEdit = '';
 Representante.URLAtivar = '';
 Representante.URLDesativar = '';
 Representante.URLObterListaRepresentantes = '';
@@ -20,7 +21,9 @@ $(document).ready(function ()
     Representante.URLObterListaRepresentantes = $("#URLObterListaRepresentantes").val();
     Representante.URLAtivar = $("#URLAtivar").val();
     Representante.URLDesativar = $("#URLDesativar").val();
+    Representante.URLEdit = $("#URLEdit").val();
     Representante.URLGravar = $("#URLGravar").val();
+    Representante.URLGravarEdicao = $("#URLGravarEdicao").val();
     Representante.URLExcluir = $("#URLExcluir").val();
 
     $("#Familia").val(null);
@@ -45,14 +48,55 @@ $(document).ready(function ()
             'stopper' : false
         });
 
-
     $("#Adicionar").click(function ()
     {
         $("#modalRepresentantes").modal('show');
         Representante.Carregar();
     });
 
+    $("#TipoParentesco").change(function ()
+    {
+        $("#Parente").prop('checked', 'checked');
+        if (($(this).val() === '6') || ($(this).val() === '7'))
+        {
+            $("#Parente").prop('checked', '');
+        }
+    });
+
 });
+
+Representante.Editar = function (codigo)
+{
+
+    var opcoes = new Object;
+    opcoes.url = Representante.URLEdit;
+    opcoes.callBackSuccess = function (response)
+    {
+        var dataObj = eval(response);
+        Representante.LimparForm();
+        $("#Codigo").val(codigo);
+        $("#CodigoFamiliaRepresentante").val(dataObj.FamiliaRepresentante.Codigo);
+        $("#CodigoFamiliaRepresentada").val(dataObj.FamiliaRepresentada.Codigo);
+        $("#FamiliaRepresentante").val(dataObj.FamiliaRepresentante.Nome);
+        $("#FamiliaRepresentada").val(dataObj.FamiliaRepresentada.Nome);
+        $("#TipoParentesco").val(dataObj.TipoParentesco.Codigo);
+        if (dataObj.TipoParentesco.Parente)
+        {
+            $("#Parente").prop('checked', 'checked');
+        }
+        if (dataObj.Ativo)
+        {
+            $("#Ativo").prop('checked', 'checked');
+        }
+        $("#modalEdicao").modal('show');
+    };
+
+    opcoes.dadoEnvio = new Object;
+    opcoes.dadoEnvio.id = codigo;
+
+    Ajax.Get(opcoes);
+
+}
 
 Representante.Carregar = function ()
 {
@@ -83,12 +127,49 @@ Representante.Pesquisar = function ()
 
     location.href = '/Representante/' + $("#Familia").val();
 }
+
 Representante.LimparForm = function ()
 {
 
 }
 
-Representante.Gravar = function (idRepsesentada)
+Representante.GravarEdicao = function ()
+{
+    var codigo = $("#Codigo").val();
+    var ativo = $("#Ativo").prop('checked');
+
+    var opcoes = new Object;
+    opcoes.url = Representante.URLGravarEdicao;
+    opcoes.type = "POST";
+
+    opcoes.callBackSuccess = function (response)
+    {
+        var dataObj = eval(response);
+        if (dataObj.Erro)
+        {
+            Mensagens.Erro(dataObj.Mensagem);
+        }
+        else
+        {
+            Mensagens.Sucesso(dataObj.Mensagem);
+            $("#modalEdicao").modal('hide');
+            setTimeout(function ()
+            {
+                location.reload();
+            }, 1500);
+        }
+    };
+
+    opcoes.dadoEnvio = new Object;
+    opcoes.dadoEnvio.codigo = codigo;
+    opcoes.dadoEnvio.ativo = ativo;
+    opcoes.dadoEnvio.tipoParentesco = $("#TipoParentesco").val();
+
+    Ajax.Execute(opcoes);
+}
+
+
+Representante.Gravar = function (idRepresentada)
 {
     var idRepresentante = $("#CodigoFamilia").val();
     
@@ -112,7 +193,7 @@ Representante.Gravar = function (idRepsesentada)
 
     opcoes.dadoEnvio = new Object;
     opcoes.dadoEnvio.familiaRepresentante = idRepresentante;
-    opcoes.dadoEnvio.familiaRepresentada = idRepsesentada;
+    opcoes.dadoEnvio.familiaRepresentada = idRepresentada;
     opcoes.dadoEnvio.tipoParentesco = $("#TipoParentesco").val();
 
     Ajax.Execute(opcoes);

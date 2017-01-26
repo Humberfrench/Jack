@@ -60,4 +60,71 @@ C:\Users\humberto.almeida.ext\Documents\Visual Studio 2013\Projects\Jack\Jack.We
 C:\Users\humberto.almeida.ext\Documents\Visual Studio 2013\Projects\Jack\Jack.Web\obj\Debug\Jack.Web.csprojResolveAssemblyReference.cache
 C:\Users\humberto.almeida.ext\Documents\Visual Studio 2013\Projects\Jack\Jack.Web\obj\Debug\Jack.Web.dll
 C:\Users\humberto.almeida.ext\Documents\Visual Studio 2013\Projects\Jack\Jack.Web\obj\Debug\Jack.Web.pdb
-C:\Users\humberto.almeida.ext\Documents\Visual Studio 2013\Projects\Jack\Jack.Web\bin\AutoMapper.Net4.dll
+C:\Users\humberto.almeida.ext\Documents\Visual Studio 2013\Projects\Jack\Jack.Web\bin\zxing.dll
+C:\Users\humberto.almeida.ext\Documents\Visual Studio 2013\Projects\Jack\Jack.Web\bin\zxing.pdb
+C:\Users\humberto.almeida.ext\Documents\Visual Studio 2013\Projects\Jack\Jack.Web\bin\zxing.xml
+D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Web\bin\Jack.Web.dll.config
+D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Web\bin\Jack.Web.dll
+D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Web\bin\Jack.Web.pdb
+D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Web\bin\Antlr3.Runtime.dll
+D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Web\bin\Jack.Application.dll
+D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Web\bin\Jack.Application.ViewModel.dll
+D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Web\bin\Jack.Domain.dll
+D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Web\bin\Jack.DomainValidator.dll
+D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Web\bin\Jack.Extensions.dll
+D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Web\bin\Jack.Library.dll
+D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Web\bin\Jack.Repository.dll
+D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Web\bin\Microsoft.Web.Infrastructure.dll
+D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Web\bin\Newtonsoft.Json.dll
+D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Web\bin\Ninject.dll
+D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Web\bin\Ninject.Web.Common.dll
+D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Web\bin\Ninject.Web.Mvc.dll
+D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Web\bin\System.Net.Http.Formatting.dll
+D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Web\bin\System.Web.Helpers.dll
+D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Web\bin\System.Web.Http.dll
+D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Web\bin\System.Web.Mvc.dll
+D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Web\bin\System.Web.Optimization.dll
+D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Web\bin\System.Web.Razor.dll
+D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Web\bin\System.Web.Webpages.Deployment.dll
+D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Web\bin\System.Web.Webpages.dll
+D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Web\bin\System.Web.Webpages.Razor.dll
+D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Web\bin\WebActivatorEx.dll
+D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Web\bin\WebGrease.dll
+D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Web\bin\zxing.dll
+D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Web\bin\FluentNHibernate.dll
+D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Web\bin\NHibernate.dll
+D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Web\bin\Dapper.dll
+D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Web\bin\AutoMapper.dll
+D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Web\bin\Iesi.Collections.dll
+D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Web\bin\Jack.Application.ViewModel.pdb
+D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Web\bin\Jack.DomainValidator.pdb
+D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Web\bin\Jack.Domain.pdb
+D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Web\bin\Jack.Extensions.pdb
+D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Web\bin\Jack.Library.pdb
+D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Web\bin\Jack.Repository.pdb
+D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Web\bin\Jack.Application.pdb
+D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Web\bin\Antlr3.Runtime.pdb
+D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Web\bin\Newtonsoft.Json.xml
+D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Web\bin\Ninject.xml
+D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Web\bin\Ninject.Web.Common.xml
+D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Web\bin\Ninject.Web.Mvc.xml
+D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Web\bin\System.Net.Http.Formatting.xml
+D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Web\bin\System.Web.Http.xml
+D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Web\bin\System.Web.Optimization.xml
+D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Web\bin\System.Web.Razor.xml
+D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Web\bin\System.Web.Webpages.xml
+D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Web\bin\System.Web.Webpages.Deployment.xml
+D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Web\bin\System.Web.Webpages.Razor.xml
+D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Web\bin\System.Web.Helpers.xml
+D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Web\bin\System.Web.Mvc.xml
+D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Web\bin\zxing.pdb
+D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Web\bin\zxing.xml
+D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Web\bin\FluentNHibernate.pdb
+D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Web\bin\FluentNHibernate.xml
+D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Web\bin\NHibernate.xml
+D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Web\bin\Dapper.xml
+D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Web\bin\AutoMapper.xml
+D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Web\bin\Iesi.Collections.xml
+D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Web\obj\Debug\Jack.Web.csprojResolveAssemblyReference.cache
+D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Web\obj\Debug\Jack.Web.dll
+D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Web\obj\Debug\Jack.Web.pdb

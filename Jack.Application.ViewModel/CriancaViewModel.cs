@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace Jack.Application.ViewModel
@@ -72,6 +73,7 @@ namespace Jack.Application.ViewModel
 
         public virtual SacolaViewModel Sacola { get; set; }
 
+        public virtual IList<ColaboradorCriancaViewModel> Colaboradores { get; set; }
     }
 
 }

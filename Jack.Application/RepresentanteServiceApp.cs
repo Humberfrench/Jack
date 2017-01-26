@@ -3,6 +3,7 @@ using Jack.Application.Interfaces;
 using Jack.Application.ViewModel;
 using System;
 using System.Collections.Generic;
+using Jack.Application.AutoMapper;
 using Jack.Domain.Entity;
 using Jack.Domain.Enum;
 using Jack.Domain.Interfaces.Services;
@@ -14,15 +15,17 @@ namespace Jack.Application
     {
 
         private readonly IRepresentanteService _service;
+        private readonly IMapper mapper;
 
         public RepresentanteServiceApp(IRepresentanteService representanteService)
         {
             _service = representanteService;
+            mapper = AutoMapperConfig.Config.CreateMapper();
         }
 
         public ValidationResult Gravar(RepresentanteViewModel representante)
         {
-            var representanteSalvar = Mapper.Map<Representante>(representante);
+            var representanteSalvar = mapper.Map<Representante>(representante);
             return _service.Gravar(representanteSalvar);
         }
 
@@ -54,19 +57,19 @@ namespace Jack.Application
         public IEnumerable<FamiliaViewModel> ObterFamilias(int familia)
         {
             var familias = _service.ObterFamilias(familia);
-            return Mapper.Map<IEnumerable<FamiliaViewModel>>(familias);
+            return mapper.Map<IEnumerable<FamiliaViewModel>>(familias);
         }
 
         public RepresentanteViewModel ObterPorId(int id)
         {
             var representante = _service.ObterPorId(id);
-            return Mapper.Map<RepresentanteViewModel>(representante);
+            return mapper.Map<RepresentanteViewModel>(representante);
         }
 
         public IEnumerable<RepresentanteViewModel> ObterTodos()
         {
             var representante = _service.ObterTodos();
-            return Mapper.Map<IEnumerable<RepresentanteViewModel>>(representante);
+            return mapper.Map<IEnumerable<RepresentanteViewModel>>(representante);
         }
 
         public void Dispose()

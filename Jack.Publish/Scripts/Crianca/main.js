@@ -161,8 +161,9 @@ Crianca.LimparForm = function ()
     $("#MedidaIdade").val('');
     $("#IdadeNominal").val('');
     $("#IdadeNominalReduzida").val('');
-    $("#Kit").val('');
+    $("#Kit").val(0);
     $("#Status").val(14);
+    $("#TipoParentesco").val(0);
     $("#Calcado").val('99');
     $("#Roupa").val('99');
     $("#CalcadoPadrao").val('99');
@@ -271,13 +272,17 @@ function Excluir()
     Crianca.Excluir($("#codigoExclusao").val());
 }
 
-
 Crianca.Consistir = function ()
 {
     var mensagem = '';
     if ($("#Nome").val() === '')
     {
         mensagem = mensagem + 'Preencher o Campo Nome <br />';
+    }
+
+    if ($("#TipoParentesco").val() === '0')
+    {
+        mensagem = mensagem + 'Preencher o Campo Tipo de Parentesco <br />';
     }
 
     if ($("#DataNascimento").val() === '')
@@ -334,6 +339,7 @@ Crianca.Editar = function (id)
 
         $("#Codigo").val(dataObj.Codigo);
         $("#Nome").val(dataObj.Nome);
+        $("#TipoParentesco").val(dataObj.TipoParentesco.Codigo);
 
         $("#DataAtualizacao").val(dataValueAlt);
         $("#DataCriacao").val(dataValueInc);
@@ -440,6 +446,8 @@ Crianca.Gravar = function ()
     opcoes.dadoEnvio.MedidaIdade = $("#MedidaIdade").val();
     opcoes.dadoEnvio.IdadeNominal = $("#IdadeNominal").val();
     opcoes.dadoEnvio.IdadeNominalReduzida = $("#IdadeNominalReduzida").val();
+    opcoes.dadoEnvio.TipoParentesco = {};
+    opcoes.dadoEnvio.TipoParentesco.Codigo = $("#TipoParentesco").val();
     opcoes.dadoEnvio.Kit = {};
     opcoes.dadoEnvio.Kit.Codigo = $("#Kit").val();
     opcoes.dadoEnvio.Status = {};
@@ -496,7 +504,7 @@ Crianca.MontarTabela = function ()
         "dom": '<"top"li>rt<"bottom"p><"clear">',
         "pagingType": "numbers",
         "aoColumnDefs": [
-            { "aTargets": [0], "asSorting": ["asc"], "bSortable": true },
+            { "aTargets": [0], "bSortable": true },
             { "aTargets": [1], "bSortable": true },
             { "aTargets": [2], "bSortable": false },
             { "aTargets": [3], "bSortable": false },
@@ -504,23 +512,37 @@ Crianca.MontarTabela = function ()
             { "aTargets": [5], "bSortable": false },
             { "aTargets": [6], "bSortable": false },
             { "aTargets": [7], "bSortable": false },
-            { "aTargets": [8], "bSortable": false }
+            { "aTargets": [8], "bSortable": false },
+            { "aTargets": [9], "bSortable": false }
         ]
     });
 }
 
 Crianca.VerificarCalcado = function ()
 {
+    var idade = parseInt($("#Idade").val());
     var calcado = parseInt($("#Calcado").val());
     var calcadoPadrao = parseInt($("#CalcadoPadrao").val());
     var erroCalcadoGrande = 'Não é permitido que escolha um número muito grande de calçado.\n';
     erroCalcadoGrande = erroCalcadoGrande + 'O limite é de ' + Crianca.CalcadoLimite.toString() + ' números.\n';
     erroCalcadoGrande = erroCalcadoGrande + 'Favor Verificar.';
+    var moralCrista = $("#MoralCrista").prop('checked');
+
+    //Temp para Crianças MAIORES e Moral Cristã
+    //Para ficar OK, deve ser acertado a tabela de calçados
+    if ((calcadoPadrao === '99') || (calcadoPadrao === 99))
+    {
+        if ((moralCrista) && idade > 10)
+        {
+            return true;
+        }
+    }
 
     if (calcado === calcadoPadrao)
     {
         return true;
     }
+
     if ((calcado === '99') || (calcado === 99))
     {
         return true;

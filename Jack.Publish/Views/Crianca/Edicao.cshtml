@@ -2,6 +2,7 @@
 @{
     IEnumerable<SelectListItem> statusLista = ViewBag.Status as IEnumerable<SelectListItem>;
     IEnumerable<SelectListItem> kitLista = ViewBag.kit as IEnumerable<SelectListItem>;
+    IEnumerable<SelectListItem> tipoParentescoLista = ViewBag.TipoParentesco as IEnumerable<SelectListItem>;
 
 }
 @Styles.Render("~/plugins/awesomeCheckboxStyles")
@@ -17,10 +18,14 @@
             <div class="modal-body">
                 <div class="row">
                     <div class="col-lg-1">&nbsp;</div>
-                    <div class="col-lg-10">
+                    <div class="col-lg-8">
                         <label id="labelNome" for="Nome">Criança</label>
                         <input type="hidden" id="Codigo" name="Codigo" value="" />
                         <input type="text" id="Nome" name="Nome" value="" class="form-control m-b-md" placeholder="Nome da Criança" maxlength="75" />
+                    </div>
+                    <div class="col-lg-2">
+                        <label id="labelParentesco" for="TipoParentesco">Parentesco</label>
+                        @Html.DropDownList("TipoParentesco", tipoParentescoLista, new { @id = "TipoParentesco", @class = "form-control m-b" })                        
                     </div>
                     <div class="col-lg-1">&nbsp;</div>
                 </div>

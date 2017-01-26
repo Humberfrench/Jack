@@ -203,6 +203,34 @@ namespace Jack.Web.Controllers
             }
         }
 
+        [HttpPost]
+        [Route("GravarEdicao")]
+        public ActionResult GravarEdicao(int codigo, int tipoParentesco, bool ativo)
+        {
+            {
+                var gravarResult = representanteAppService.Gravar(codigo, tipoParentesco, ativo);
+                object retorno;
+                if (gravarResult.IsValid)
+                {
+                    retorno = new
+                    {
+                        Mensagem = "Representante Gravado com Sucesso",
+                        Erro = false
+                    };
+                }
+                else
+                {
+                    retorno = new
+                    {
+                        Mensagem = RenderizeErros(gravarResult),
+                        Erro = true
+                    };
+                }
+
+                return Json(retorno, JsonRequestBehavior.AllowGet);
+            }
+        }
+
         [Route("Excluir")]
         [HttpPost]
         public ActionResult Excluir(int id)
@@ -229,6 +257,28 @@ namespace Jack.Web.Controllers
 
                 return Json(retorno, JsonRequestBehavior.AllowGet);
             }
+        }
+
+        [Route("Edit")]
+        public ActionResult Edit(int id)
+        {
+            var representante = representanteAppService.ObterPorId(id);
+
+            representante.FamiliaRepresentante.Criancas.Clear();
+            representante.FamiliaRepresentante.Nivel.Familias.Clear();
+            representante.FamiliaRepresentante.Status.Familias.Clear();
+            representante.FamiliaRepresentante.Presencas.Clear();
+            representante.FamiliaRepresentante.Representantes.Clear();
+            representante.FamiliaRepresentante.Sacolas.Clear();
+
+            representante.FamiliaRepresentada.Criancas.Clear();
+            representante.FamiliaRepresentada.Nivel.Familias.Clear();
+            representante.FamiliaRepresentada.Status.Familias.Clear();
+            representante.FamiliaRepresentada.Presencas.Clear();
+            representante.FamiliaRepresentada.Representantes.Clear();
+            representante.FamiliaRepresentada.Sacolas.Clear();
+
+            return Json(representante, JsonRequestBehavior.AllowGet);
         }
 
         #endregion

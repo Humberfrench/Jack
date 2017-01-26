@@ -7,6 +7,8 @@ namespace Jack.Domain.ObjectValue
     {
         public virtual int Codigo { get; set; }
         public virtual string Nome { get; set; }
+        public virtual int TipoParentescoId { get; set; }
+        public virtual string TipoParentesco { get; set; }
         public virtual string Familia { get; set; }
         public virtual int Idade { get; set; }
         public virtual string MedidaIdade { get; set; }

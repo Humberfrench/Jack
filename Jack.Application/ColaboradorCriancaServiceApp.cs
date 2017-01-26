@@ -5,6 +5,7 @@ using Jack.Domain.Interfaces.Services;
 using Jack.DomainValidator;
 using System;
 using System.Collections.Generic;
+using Jack.Application.AutoMapper;
 
 namespace Jack.Application
 {
@@ -12,16 +13,18 @@ namespace Jack.Application
     {
 
         private readonly IColaboradorCriancaService _service;
+        private readonly IMapper mapper;
 
         public ColaboradorCriancaServiceApp(IColaboradorCriancaService colaboradorCriancaService)
         {
             _service = colaboradorCriancaService;
+            mapper = AutoMapperConfig.Config.CreateMapper();
         }
 
         public IEnumerable<ColaboradorCriancaViewModel> Obter(int id, int ano)
         {
             var colaboradorCrianca = _service.Obter(id,ano);
-            return Mapper.Map<IEnumerable<ColaboradorCriancaViewModel>>(colaboradorCrianca);
+            return mapper.Map<IEnumerable<ColaboradorCriancaViewModel>>(colaboradorCrianca);
         }
 
         public ValidationResult Excluir(int id)
@@ -52,13 +55,13 @@ namespace Jack.Application
         public ColaboradorCriancaViewModel ObterPorId(int id)
         {
             var colaboradorCrianca = _service.ObterPorId(id);
-            return Mapper.Map<ColaboradorCriancaViewModel>(colaboradorCrianca);
+            return mapper.Map<ColaboradorCriancaViewModel>(colaboradorCrianca);
         }
 
         public IEnumerable<ColaboradorCriancaViewModel> ObterTodos()
         {
             var colaboradorCrianca = _service.ObterTodos();
-            return Mapper.Map<IEnumerable<ColaboradorCriancaViewModel>>(colaboradorCrianca);
+            return mapper.Map<IEnumerable<ColaboradorCriancaViewModel>>(colaboradorCrianca);
         }
 
         public void Dispose()

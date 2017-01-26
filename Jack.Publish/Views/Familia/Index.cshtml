@@ -13,10 +13,11 @@
 <input type="hidden" name="URLEdit" id="URLEdit" value="@Url.Action("Edit")" />
 <input type="hidden" name="URLGravar" id="URLGravar" value="@Url.Action("Gravar")" />
 <input type="hidden" name="URLExcluir" id="URLExcluir" value="@Url.Action("Excluir")" />
-<input type="hidden" name="URLObterCriancas" id="URLObterCriancas" value="@Url.Action("ObterCriancas")"  />
+<input type="hidden" name="URLObterCriancas" id="URLObterCriancas" value="@Url.Action("ObterCriancas")" />
 <input type="hidden" name="URLObterRepresentantes" id="URLObterRepresentantes" value="@Url.Action("ObterRepresentantes")" />
 <input type="hidden" name="URLObterPresencas" id="URLObterPresencas" value="@Url.Action("ObterPresencas")" />
 <input type="hidden" name="URLProcessar" id="URLProcessar" value="@Url.Action("Processar")" />
+<input type="hidden" name="URLProcessarCriancas" id="URLProcessarCriancas" value="@Url.Action("ProcessarCriancas")" />
 
 <div class="wrapper wrapper-content animated fadeInRight">
     <div class="row">
@@ -29,7 +30,13 @@
                                 class="btn btn-success btn-lg"
                                 data-toggle="tooltip" data-placement="top"
                                 title="Novo Registro">
-                            <i class="glyphicon glyphicon-file"></i>Novo
+                            <i class="glyphicon glyphicon-file"></i>&nbsp;Novo
+                        </button>
+                        <button type="button" id="AtualizarPagina" name="AtualizarPagina"
+                                class="btn btn-danger btn-lg"
+                                data-toggle="tooltip" data-placement="top"
+                                title="Atualizar Página" onclick="return location.reload();">
+                            <i class="glyphicon glyphicon-refresh"></i>&nbsp;Atualizar
                         </button>
                     </div>
                 </div>
@@ -37,12 +44,12 @@
                     <div class="row">
                         <div class="row col-lg-1">&nbsp;</div>
                         <div class="row col-lg-9">
-                            <label id="labelPesquisarNome" for="PesquisarNome">Pesquisar</label> 
+                            <label id="labelPesquisarNome" for="PesquisarNome">Pesquisar</label>
                             <input type="text" class="form-control" id="PesquisarNome" name="PesquisarNome" placeholder="Digite o nome ou parte dele" />
                         </div>
                         <div class="row col-lg-1">&nbsp;</div>
                         <div class="row col-lg-1">
-                            <br/><a href="#" id="Pesquisar" class="btn btn-primary btn-md" data-toggle="tooltip" data-placement="top" title="Pesquisar"><i class="glyphicon glyphicon-search"></i></a>
+                            <br /><a href="#" id="Pesquisar" class="btn btn-primary btn-md" data-toggle="tooltip" data-placement="top" title="Pesquisar"><i class="glyphicon glyphicon-search"></i></a>
                         </div>
                     </div>
                 </div>
@@ -103,10 +110,12 @@
                                         @Html.DisplayFor(modelItem => item.Status.Descricao)
                                     </td>
                                     <td style="text-align:right;">
+                                        <button type="button" class="btn btn-warning btn-sm" onclick="return Familia.ProcessarCriancas('@item.Codigo')">
+                                            <i class="glyphicon glyphicon-flag" data-toggle="tooltip" data-placement="top" title="Processar Dados de Crianças da Família"></i>
+                                        </button>
                                         <button type="button" class="btn btn-info btn-sm" onclick="return Familia.Processar('@item.Codigo')">
                                             <i class="glyphicon glyphicon-flag" data-toggle="tooltip" data-placement="top" title="Processar Dados da Família"></i>
-                                        </button>
-                                        <button type="button" class="btn warning btn-sm" onclick="return Familia.Representantes('@item.Codigo')">
+                                        </button>                                        <button type="button" class="btn warning btn-sm" onclick="return Familia.Representantes('@item.Codigo')">
                                             <i class="fa fa-group" data-toggle="tooltip" data-placement="top" title="Representantes"></i>
                                         </button>
                                         <button type="button" class="btn btn-warning btn-sm" onclick="return Familia.Criancas('@item.Codigo')">

@@ -21,6 +21,7 @@ namespace Jack.Web.Controllers
         private readonly IKitServiceApp kitAppService;
         private readonly IParametroServiceApp parametroAppService;
         private readonly ParametroViewModel parametros;
+        private readonly ITipoParentescoServiceApp tipoParentescoAppService;
         #endregion
 
         #region Ctor
@@ -29,13 +30,15 @@ namespace Jack.Web.Controllers
                                  IFamiliaServiceApp familiaAppService,
                                  IStatusCriancaServiceApp statusAppService,
                                  IParametroServiceApp parametroAppService,
-                                 IKitServiceApp kitAppService)
+                                 IKitServiceApp kitAppService,
+                                 ITipoParentescoServiceApp tipoParentescoAppService)
         {
             this.criancaAppService = criancaAppService;
             this.familiaAppService = familiaAppService;
             this.statusAppService = statusAppService;
             this.kitAppService = kitAppService;
             this.parametroAppService = parametroAppService;
+            this.tipoParentescoAppService = tipoParentescoAppService;
             parametros = parametroAppService.Obter();
         }
 
@@ -63,8 +66,16 @@ namespace Jack.Web.Controllers
             ViewBag.Status = ObterStatusParaCombo();
             ViewBag.Kit = ObterKitParaCombo();
             ViewBag.Familia = ObterFamiliaParaCombo();
-            ViewBag.FamiliaId = 0;
+            ViewBag.TipoParentesco = ObterTipoParentescoParaCombo();
+
+            ViewBag.Presencas = 0;
+            ViewBag.Criancas = 0;
             ViewBag.PercentualCriancas = 0;
+            ViewBag.PermiteExcedente = "";
+            ViewBag.Consistente = "";
+            ViewBag.Sacolinha = "";
+            ViewBag.PresencaJustificada = "";
+            ViewBag.FamiliaId = 0;
 
             var listaDados = new List<CriancaViewModel>();
             return View(listaDados);
@@ -90,6 +101,7 @@ namespace Jack.Web.Controllers
             ViewBag.Status = ObterStatusParaCombo();
             ViewBag.Kit = ObterKitParaCombo();
             ViewBag.Familia = ObterFamiliaParaCombo();
+            ViewBag.TipoParentesco = ObterTipoParentescoParaCombo();
 
             ViewBag.Presencas = 0;
             ViewBag.Criancas = 0;
@@ -125,6 +137,7 @@ namespace Jack.Web.Controllers
             var crianca = criancaAppService.ObterPorId(id);
 
             //zerando listas, não preciso da informação para serializar e evitar erros de referencia circular.
+            crianca.Colaboradores.Clear();
             crianca.Status.Criancas.Clear();
             crianca.Kit.Criancas.Clear();
             crianca.Kit.Items.Clear();
@@ -218,8 +231,8 @@ namespace Jack.Web.Controllers
             return Json(retorno, JsonRequestBehavior.AllowGet);
         }
 
-        [Route("Acerto/Vestimentas")]
-        public ActionResult AcertoVestimentas()
+        [Route("Acerto/Dados")]
+        public ActionResult AcertoDados()
         {
             #region BreadCrumb
             var breadCrumb = new BreadCrumbETitulo
@@ -235,6 +248,7 @@ namespace Jack.Web.Controllers
             TempData["BreadCrumETitulo"] = breadCrumb;
             #endregion
 
+            ViewBag.TipoParentesco = ObterTipoParentesco();
             ViewBag.Familia = ObterFamiliaParaCombo();
             ViewBag.FamiliaId = 0;
             ViewBag.Criancas = 0;
@@ -243,8 +257,8 @@ namespace Jack.Web.Controllers
             return View(listaDados);
         }
 
-        [Route("Acerto/Vestimentas/{familia}")]
-        public ActionResult AcertoVestimentas(int familia)
+        [Route("Acerto/Dados/{familia}")]
+        public ActionResult AcertoDados(int familia)
         {
             #region BreadCrumb
             var breadCrumb = new BreadCrumbETitulo
@@ -260,6 +274,7 @@ namespace Jack.Web.Controllers
             TempData["BreadCrumETitulo"] = breadCrumb;
             #endregion
 
+            ViewBag.TipoParentesco = ObterTipoParentesco();
             ViewBag.Familia = ObterFamiliaParaCombo();
             ViewBag.FamiliaId = 0;
 
@@ -271,10 +286,10 @@ namespace Jack.Web.Controllers
             return View(listaDados);
         }
 
-        [Route("Acerto/Vestimentas/Gravar")]
-        public ActionResult GravarVestimentas(int crianca, int calcado, string roupa)
+        [Route("Acerto/Dados/Gravar")]
+        public ActionResult GravarVestimentas(int crianca, int calcado, string roupa, int tipoParentesco)
         {
-            var gravarResult = criancaAppService.GravarVestimentas(crianca, calcado, roupa);
+            var gravarResult = criancaAppService.GravarDados(crianca, calcado, roupa, tipoParentesco);
             object retorno;
             if (gravarResult.IsValid)
             {
@@ -318,6 +333,12 @@ namespace Jack.Web.Controllers
         private IList<KitViewModel> ObterKit()
         {
             var dados = kitAppService.ObterTodos().ToList();
+            var kit = new KitViewModel
+            {
+                Codigo = 0,
+                Descricao = "Selecione Kit"
+            };
+            dados.Insert(0, kit);
             return dados;
         }
 
@@ -332,6 +353,13 @@ namespace Jack.Web.Controllers
         private IList<FamiliaViewModel> ObterFamilia()
         {
             var dados = familiaAppService.ObterTodos().OrderBy(c => c.Nome).ToList();
+            var familia = new FamiliaViewModel
+            {
+                Codigo = 0,
+                Nome = "Selecione Família"
+            };
+            dados.Insert(0, familia);
+
             return dados;
         }
 
@@ -339,6 +367,26 @@ namespace Jack.Web.Controllers
         {
             var dados = ObterFamilia();
             var dadosSelect = new SelectList(dados, "Codigo", "Nome");
+
+            return dadosSelect;
+        }
+
+        private IList<TipoParentescoViewModel> ObterTipoParentesco()
+        {
+            var dados = tipoParentescoAppService.ObterTodos().ToList();
+            var tipoParentesco = new TipoParentescoViewModel
+            {
+                Codigo = 0,
+                Descricao = "Selecione Tipo de Parentesco"
+            };
+            dados.Insert(0, tipoParentesco);
+            return dados;
+        }
+
+        private SelectList ObterTipoParentescoParaCombo()
+        {
+            var dados = ObterTipoParentesco();
+            var dadosSelect = new SelectList(dados, "Codigo", "Descricao");
 
             return dadosSelect;
         }

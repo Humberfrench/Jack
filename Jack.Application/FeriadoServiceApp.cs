@@ -3,6 +3,7 @@ using Jack.Application.Interfaces;
 using Jack.Application.ViewModel;
 using System;
 using System.Collections.Generic;
+using Jack.Application.AutoMapper;
 using Jack.Domain.Entity;
 using Jack.Domain.Interfaces.Services;
 using Jack.DomainValidator;
@@ -13,15 +14,17 @@ namespace Jack.Application
     {
        
         private readonly IFeriadoService _service;
+        private readonly IMapper mapper;
 
         public FeriadoServiceApp(IFeriadoService feriadoService)
         {
             _service = feriadoService;
+            mapper = AutoMapperConfig.Config.CreateMapper();
         }
 
         public ValidationResult Gravar(FeriadoViewModel feriado)
         {
-            var feriadoSalvar = Mapper.Map<Feriado>(feriado);
+            var feriadoSalvar = mapper.Map<Feriado>(feriado);
             return _service.Gravar(feriadoSalvar);
         }
 
@@ -33,20 +36,20 @@ namespace Jack.Application
         public FeriadoViewModel ObterPorId(int id)
         {
             var feriado = _service.ObterPorId(id);
-            return Mapper.Map<FeriadoViewModel>(feriado);
+            return mapper.Map<FeriadoViewModel>(feriado);
         }
 
         public IEnumerable<FeriadoViewModel> ObterTodos()
         {
             var feriado = _service.ObterTodos();
-            var retorno = Mapper.Map<IEnumerable<FeriadoViewModel>>(feriado);
+            var retorno = mapper.Map<IEnumerable<FeriadoViewModel>>(feriado);
             return retorno;
         }
 
         public IEnumerable<FeriadoViewModel> Filtrar(string nome)
         {
             var feriado = _service.Filtrar(nome);
-            return Mapper.Map<IEnumerable<FeriadoViewModel>>(feriado);
+            return mapper.Map<IEnumerable<FeriadoViewModel>>(feriado);
         }
 
         public void Dispose()

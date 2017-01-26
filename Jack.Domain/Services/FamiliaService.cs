@@ -73,7 +73,6 @@ namespace Jack.Domain.Services
                 Atualizar(item);
             }
 
-            AtualizarFamilia(item, true);
             return validationResult;
         }
 
@@ -98,8 +97,6 @@ namespace Jack.Domain.Services
             };
 
             repPresenca.Adicionar(presenca);
-
-            AtualizarFamilia(item, true);
 
             return validationResult;
         }
@@ -157,6 +154,8 @@ namespace Jack.Domain.Services
                 {
                     Gravar(familia);
                 }
+                validationResult.Add(new ValidationError("Família sem Crianças"));
+
                 return familia;
             }
 
@@ -168,6 +167,7 @@ namespace Jack.Domain.Services
                 {
                     Gravar(familia);
                 }
+                validationResult.Add(new ValidationError("Família sem Crianças"));
                 return familia;
             }
 
@@ -179,6 +179,7 @@ namespace Jack.Domain.Services
                 {
                     Gravar(familia);
                 }
+                validationResult.Add(new ValidationError("Família sem Documentação"));
                 return familia;
             }
             if (familia.PresencaJustificada)
@@ -192,6 +193,7 @@ namespace Jack.Domain.Services
             if (familia.FamiliaSemPresenca())
             {
                 AtualizarFamiliaNivel99(ref familia, EnumStatusFamilia.FamiliaSemPresenca);
+                validationResult.Add(new ValidationError("Família sem Presença"));
                 return familia;
             }
 
@@ -205,7 +207,7 @@ namespace Jack.Domain.Services
 
             if (gravar)
             {
-                Gravar(familia);
+                Atualizar(familia);
             }
             return familia;
         }
@@ -221,13 +223,15 @@ namespace Jack.Domain.Services
 
             if (limiteRepresantante >= quantidadeRepresentantesLimitada) return;
 
-            if (familia.Status.Codigo == (int)EnumStatusFamilia.CriancasExcedido)
+            if (familia.Status.Codigo == EnumStatusFamilia.CriancasExcedido.Int())
             {
-                familia.Status = repStatus.ObterPorId((int)EnumStatusFamilia.CriancasERepresentanteExcedido);
+                familia.Status = repStatus.ObterPorId(EnumStatusFamilia.CriancasERepresentanteExcedido.Int());
+                validationResult.Add(new ValidationError("Quantidade de Representantes e Crianças Excedida"));
             }
             else
             {
-                familia.Status = repStatus.ObterPorId((int)EnumStatusFamilia.RepresentanteExcedido);
+                familia.Status = repStatus.ObterPorId(EnumStatusFamilia.RepresentanteExcedido.Int());
+                validationResult.Add(new ValidationError("Quantidade de Representantes Excedida"));
             }
 
         }
@@ -243,13 +247,16 @@ namespace Jack.Domain.Services
 
             if (limiteCrianca >= quantidadeCriancaLimitada) return;
 
-            if (familia.Status.Codigo == (int)EnumStatusFamilia.RepresentanteExcedido)
+            if (familia.Status.Codigo == EnumStatusFamilia.RepresentanteExcedido.Int())
             {
-                familia.Status = repStatus.ObterPorId((int)EnumStatusFamilia.CriancasERepresentanteExcedido);
+                familia.Status = repStatus.ObterPorId(EnumStatusFamilia.CriancasERepresentanteExcedido.Int());
+                validationResult.Add(new ValidationError("Quantidade de Representantes e Crianças Excedida"));
+
             }
             else
             {
-                familia.Status = repStatus.ObterPorId((int)EnumStatusFamilia.CriancasExcedido);
+                familia.Status = repStatus.ObterPorId(EnumStatusFamilia.CriancasExcedido.Int());
+                validationResult.Add(new ValidationError("Quantidade de Crianças Excedida"));
             }
 
         }
@@ -266,11 +273,11 @@ namespace Jack.Domain.Services
             familia.Nivel = repNivel.ObterNivelPorFaixaPresencial(percPresenca); 
             if (familia.Nivel.Codigo == 99)
             {
-                familia.Status = repStatus.ObterPorId((int)EnumStatusFamilia.FamiliaSemPresenca);    
+                familia.Status = repStatus.ObterPorId(EnumStatusFamilia.FamiliaSemPresenca.Int());    
             }
             else
             {
-                familia.Status = repStatus.ObterPorId((int)EnumStatusFamilia.DadosOk);    
+                familia.Status = repStatus.ObterPorId(EnumStatusFamilia.DadosOk.Int());    
             }
  
         }

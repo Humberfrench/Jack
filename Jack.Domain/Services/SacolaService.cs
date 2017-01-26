@@ -1,10 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Remoting.Messaging;
+using System.Text;
 using Jack.Domain.Entity;
 using Jack.Domain.Interfaces.Repository;
 using Jack.Domain.Interfaces.Services;
 using Jack.DomainValidator;
+using Jack.Extensions;
+using Jack.Library;
 
 namespace Jack.Domain.Services
 {
@@ -258,6 +262,79 @@ namespace Jack.Domain.Services
             sacola.Liberado = true;
             Atualizar(sacola);
             return validationResult;
+        }
+
+        public byte[] GerarQrCode(int width, int height, int crianca)
+        {
+            var dadoCrianca = repCrianca.ObterPorId(crianca);
+            return GerarQrCode(width, height, dadoCrianca);
+        }
+
+        public byte[] GerarQrCodeSacola(int width, int height, int sacola)
+        {
+            var dadoSacola = repSacola.ObterPorId(sacola);
+            return GerarQrCode(width, height, dadoSacola);
+        }
+
+        public byte[] GerarQrCode(int width, int height, Crianca crianca)
+        {
+            var qrCoder = new QrCoder();
+            var dadoQrCode = FormataDadoCriancaQrCode(crianca);
+
+            return qrCoder.GerarQrCode(width, height, dadoQrCode);
+
+        }
+
+        public byte[] GerarQrCode(int width, int height, Sacola sacola)
+        {
+            var qrCoder = new QrCoder();
+
+            var crianca = sacola.Crianca;
+
+            var dadoQrCodeCrianca = FormataDadoCriancaQrCode(crianca);
+
+            var dadoQrCodeSacola = FormataDadoSacolaQrCode(sacola);
+
+            var dadoQrCode = dadoQrCodeSacola + dadoQrCodeCrianca;
+
+            return qrCoder.GerarQrCode(width, height, dadoQrCode);
+
+        }
+
+        string FormataDadoSacolaQrCode(Sacola sacola)
+        {
+            StringBuilder dadoQrCode = new StringBuilder();
+            dadoQrCode.AppendFormat("Sacola Número: {0}", sacola.Codigo);
+            dadoQrCode.AppendLine();
+            dadoQrCode.AppendFormat("Família Número: {0}", sacola.SacolaFamilia);
+            dadoQrCode.AppendLine();
+            return dadoQrCode.ToString();
+        }
+
+        string FormataDadoCriancaQrCode(Crianca crianca)
+        {
+            StringBuilder dadoQrCode = new StringBuilder();
+
+            dadoQrCode.AppendFormat("Criança: {0}", crianca.Nome);
+            dadoQrCode.AppendLine();
+            dadoQrCode.AppendFormat("Idade: {0}", crianca.IdadeNominal);
+            dadoQrCode.AppendLine();
+            dadoQrCode.AppendFormat("Sexo: {0}", crianca.Sexo.ToSexo());
+            dadoQrCode.AppendLine();
+            dadoQrCode.AppendFormat("Calçado: {0} - Roupa: {1}", crianca.Calcado, crianca.Roupa);
+            dadoQrCode.AppendLine();
+            dadoQrCode.AppendFormat("Itens");
+            dadoQrCode.AppendLine();
+
+            foreach (var kitItem in crianca.Kit.Items.OrderBy(ki => ki.Ordem))
+            {
+                var opcional = kitItem.TipoItem.Opcional ? "(Opcional)" : "";
+                dadoQrCode.AppendFormat("{0} - {1} {2}", kitItem.Ordem, kitItem.TipoItem.Descricao, opcional);
+                dadoQrCode.AppendLine();
+            }
+
+            return dadoQrCode.ToString();
+
         }
     }
 }

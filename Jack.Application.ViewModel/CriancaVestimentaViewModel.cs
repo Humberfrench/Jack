@@ -12,6 +12,12 @@ namespace Jack.Application.ViewModel
         [Display(Name = "Nome")]
         public virtual string Nome { get; set; }
 
+        [Display(Name = "Parentesco")]
+        public virtual int TipoParentescoId { get; set; }
+
+        [Display(Name = "Parentesco")]
+        public virtual string TipoParentesco { get; set; }
+
         [Display(Name = "Família")]
         public virtual string Familia { get; set; }
 

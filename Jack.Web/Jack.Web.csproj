@@ -1381,7 +1381,7 @@
     <Content Include="Scripts\Colaborador\ColaboradorCriancaAddLista.js" />
     <Content Include="Scripts\Colaborador\ColaboradorCriancaAdd.js" />
     <Content Include="Scripts\Colaborador\ColaboradorCrianca.js" />
-    <Content Include="Scripts\Crianca\acertoVestimenta.js" />
+    <Content Include="Scripts\Crianca\acertoDados.js" />
     <Content Include="Scripts\Crianca\main.js" />
     <Content Include="Scripts\Presenca\lista.js" />
     <Content Include="Scripts\DataTables\autoFill.bootstrap.js" />
@@ -1465,6 +1465,7 @@
     <Content Include="Scripts\Presenca\main.js" />
     <Content Include="Scripts\Representante\main.js" />
     <Content Include="Scripts\Kit\main.js" />
+    <Content Include="Scripts\Sacolas\QrCode.js" />
     <Content Include="Scripts\StatusCrianca\main.js" />
     <Content Include="Scripts\StatusFamilia\main.js" />
     <Content Include="Scripts\Feriado\main.js" />
@@ -1916,6 +1917,7 @@
     <Compile Include="Controllers\NivelController.cs" />
     <Compile Include="Controllers\ParametroController.cs" />
     <Compile Include="Controllers\PresencaController.cs" />
+    <Compile Include="Controllers\ProcessarController.cs" />
     <Compile Include="Controllers\RepresentanteController.cs" />
     <Compile Include="Controllers\ReuniaoController.cs" />
     <Compile Include="Controllers\RoupaController.cs" />
@@ -2021,7 +2023,7 @@
     <Content Include="Views\Crianca\Edicao.cshtml" />
     <Content Include="Views\Crianca\Exclusao.cshtml" />
     <Content Include="Views\Parametro\Index.cshtml" />
-    <Content Include="Views\Crianca\AcertoVestimentas.cshtml" />
+    <Content Include="Views\Crianca\AcertoDados.cshtml" />
     <Content Include="Views\Site\Alertar.cshtml" />
     <Content Include="Views\Crianca\Mensagem.cshtml" />
     <Content Include="Views\Presenca\ListaPresenca.cshtml" />
@@ -2070,6 +2072,8 @@
     <Content Include="Scripts\jquery-3.1.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.1.1.min.map" />
     <Content Include="Views\Representante\Edicao.cshtml" />
+    <Content Include="Views\Sacolas\QrCode.cshtml" />
+    <Content Include="Views\Processar\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

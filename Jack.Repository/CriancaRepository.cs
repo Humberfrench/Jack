@@ -46,6 +46,7 @@ namespace Jack.Repository
             var sql = @"SELECT	cr.Codigo, cr.Nome, cr.Idade, cr.MedidaIdade, cr.Sexo, cr.Calcado, 
                                 cr.Roupa, 99 as CalcadoPadrao, '99' as RoupaPadrao, cr.NecessidadeEspecial, 
                                 cr.CriancaGrande, cr.IdadeNominal, cr.IdadeNominalReduzida,
+                                cr.TipoParentesco as TipoParentescoId, tp.Descricao as TipoParentesco,
                                 st.Descricao as Status, fa.Nome as Familia
                         FROM	Crianca cr
                         JOIN	StatusCrianca st
@@ -53,10 +54,13 @@ namespace Jack.Repository
                         JOIN	Familia fa
                         ON		cr.Familia = fa.Codigo
                         AND		cr.Familia = @familia
+                        JOIN    TipoParentesco tp
+                        ON      tp.Codigo = cr.TipoParentesco
                         UNION ALL
                         SELECT	cr.Codigo, cr.Nome, cr.Idade, cr.MedidaIdade, cr.Sexo, cr.Calcado, 
                                 cr.Roupa, 99 as CalcadoPadrao, '99' as RoupaPadrao, cr.NecessidadeEspecial, 
                                 cr.CriancaGrande, cr.IdadeNominal, cr.IdadeNominalReduzida,
+                                cr.TipoParentesco as TipoParentescoId, tp.Descricao as TipoParentesco,
                                 st.Descricao as Status, fa.Nome as Familia
                         FROM	Crianca cr
                         JOIN	StatusCrianca st
@@ -66,6 +70,8 @@ namespace Jack.Repository
                         AND		cr.Familia IN (SELECT FamiliaRepresentada 
                                                FROM Representante 
                                                WHERE FamiliaRepresentante = @familia)
+                        JOIN    TipoParentesco tp
+                        ON      tp.Codigo = cr.TipoParentesco
                         ORDER BY fa.Nome, cr.Nome";
 
             var result = Session.Connection.Query<CriancaVestimenta>(sql, new { familia });

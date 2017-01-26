@@ -3,6 +3,7 @@ using Jack.Application.Interfaces;
 using Jack.Application.ViewModel;
 using System;
 using System.Collections.Generic;
+using Jack.Application.AutoMapper;
 using Jack.Domain.Entity;
 using Jack.Domain.Interfaces.Services;
 using Jack.Domain.Services;
@@ -14,10 +15,11 @@ namespace Jack.Application
     {
        
         private readonly INivelService _service;
-        //readonly IMapper Mapper;
+        private readonly IMapper mapper;
 
         public NivelServiceApp(INivelService nivelService)
         {
+            mapper = AutoMapperConfig.Config.CreateMapper();
             _service = nivelService;
         }
 
@@ -28,7 +30,7 @@ namespace Jack.Application
 
         public ValidationResult Gravar(NivelViewModel nivel)
         {
-            var nivelDado = Mapper.Map<Nivel>(nivel);
+            var nivelDado = mapper.Map<Nivel>(nivel);
             return _service.Gravar(nivelDado);
         }
 
@@ -46,14 +48,14 @@ namespace Jack.Application
         public NivelViewModel ObterPorId(int id)
         {
             var nivel = _service.ObterPorId(id);
-            var nivelVm = Mapper.Map<NivelViewModel>(nivel);
+            var nivelVm = mapper.Map<NivelViewModel>(nivel);
             return nivelVm;
         }
 
         public IEnumerable<NivelViewModel> ObterTodos()
         {
             var nivel = _service.ObterTodos();
-            var nivelVm = Mapper.Map<IEnumerable<NivelViewModel>>(nivel);
+            var nivelVm = mapper.Map<IEnumerable<NivelViewModel>>(nivel);
             return nivelVm;
         }
     }

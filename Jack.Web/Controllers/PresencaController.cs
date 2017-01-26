@@ -43,6 +43,18 @@ namespace Jack.Web.Controllers
         [Route("")]
         public ActionResult Index()
         {
+            #region BreadCrumb
+            var breadCrumb = new BreadCrumbETitulo
+            {
+                Titulo = "Presenças",
+                BreadCrumbs = new List<BreadCrumb>
+                {
+                 new BreadCrumb {LinkText = "Presenças", ActionName = "Index", ControllerName = "Presenca"}
+                }
+            };
+
+            TempData["BreadCrumETitulo"] = breadCrumb;
+            #endregion
             return View();
         }
 

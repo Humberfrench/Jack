@@ -9,8 +9,8 @@ namespace Jack.Application.ViewModel
         [DisplayFormat(NullDisplayText = "")]
         public virtual int Codigo { get; set; }
 
-        [Display(Name = "Descricao")]
-        [Required(ErrorMessage = "Descrição é obrigatório.")]
+        [Display(Name = "Parentesco")]
+        [Required(ErrorMessage = "Parentesco é obrigatório.")]
         [MaxLength(50)]
         [DisplayFormat(NullDisplayText = "")]
         public virtual string Descricao { get; set; }

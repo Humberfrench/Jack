@@ -3,11 +3,14 @@
     public enum EnumStatusCrianca : int 
      {
          DadosOk = 1,
+         CriancaSemRoupa = 2,
+         CriancaSemCalcado = 3,       
          CriancaSemDocumentacao = 4,
          CriancaSemRoupaCalcado = 5,
          DiferencaGrandeCalcado = 6,
          DataNascimentoDesatualizada = 7,
          CriancaMaior = 8,
+         DiferencaGrandeCalcadoRoupas = 9,
          CriancaMaiorLiberadaMoralCrista = 11,
          Inativo = 12,
          DiferencaGrandeRoupas = 13,

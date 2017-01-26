@@ -14,5 +14,9 @@ namespace Jack.Domain.Interfaces.Services
         IEnumerable<Sacola> ObterSacolasLivres(int ano, bool? liberado);
         IEnumerable<Sacola> ObterSacolasLivres(bool? liberado, int ano, int nivel = 0, int familia = 0,
                                                string sexo = "", int kit = 0);
+        byte[] GerarQrCode(int width, int height, int crianca);
+        byte[] GerarQrCode(int width, int height, Crianca crianca);
+        byte[] GerarQrCode(int width, int height, Sacola sacola);
+        byte[] GerarQrCodeSacola(int width, int height, int sacola);
     }
 }
