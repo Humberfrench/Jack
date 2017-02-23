@@ -5,6 +5,7 @@ namespace Jack.Domain.ObjectValue
     public class CriancaValue
     {
         public DateTime DataNascimento { get; set; }
+        public int Codigo { get; set; }
         public string Nome { get; set; }
         public string Sexo { get; set; }
         public bool CadastroNovo { get; set; }

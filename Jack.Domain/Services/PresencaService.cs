@@ -5,6 +5,7 @@ using Jack.Domain.ObjectValue;
 using Jack.DomainValidator;
 using Jack.Extensions;
 using System;
+using System.Activities.Statements;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -85,8 +86,8 @@ namespace Jack.Domain.Services
             var presenca = repPresenca.ObterDadoPresencaExistente(familiaId, reuniaoId);
             if (presenca != null)
             {
-                validationResult.AddWarning(string.Format("Presença da Família {0} na Reunião de {1} não encontrada", familia.Nome, reuniao.Data.ToDateFormated()));
-                validationResult.AddWarning("Presença já cadastrada");
+                //desabilitadoi pelo excessivo acumulo das mensagens, sem necessidade.
+                //validationResult.AddWarning("Presença já cadastrada");
                 return validationResult;
             }
 
@@ -174,9 +175,9 @@ namespace Jack.Domain.Services
 
         public ValidationResult ProcessarPresencaRepresentantes()
         {
-            var familiasRepresentante = repRepresentante.ObterTodos(); ;
+            var familiasRepresentante = repRepresentante.ObterTodos().ToList(); ;
             var parametro = repParametros.Obter();
-             
+
             foreach (var familia in familiasRepresentante)
             {
 

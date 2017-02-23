@@ -7,6 +7,8 @@
 var Colaborador = new Object();
 
 Colaborador.URLLiberar = '';
+Colaborador.URLExcluirSacola = '';
+Colaborador.URLDevolver = '';
 
 
 $(document).ready(function ()

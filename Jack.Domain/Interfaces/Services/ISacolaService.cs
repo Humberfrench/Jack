@@ -19,8 +19,10 @@ namespace Jack.Domain.Interfaces.Services
         IEnumerable<Sacola> ObterSacolasLivres(int nivel = 0, int liberado = 2);
         IEnumerable<Sacola> ObterSacolasLivres(bool? liberado, int ano, int nivel = 0, int familia = 0, string sexo = "", int kit = 0);
         IEnumerable<Sacola> ObterTodosPorNivel(int nivel, int liberado);
-        ValidationResult ProcessarSacolas(int ano);
+        List<Sacola> ProcessarSacolas(int ano);
+        List<Sacola> ProcessarSacolas(int ano, bool todas);
         List<Familia> ProcessarSacolasEObterFamilias(int ano);
+        List<Familia> ProcessarSacolasEObterFamilias(int ano, bool todas);
         void ValidarCrianca(Crianca crianca);
     }
 }

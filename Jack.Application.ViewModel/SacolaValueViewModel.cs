@@ -19,7 +19,7 @@ namespace Jack.Application.ViewModel
         public string Roupa { get; set; }
         public string IdadeNominal { get; set; }
         public string Colaborador { get; set; }
-        public IEnumerable<ItemValueViewModel> ItensKit { get; set; }
+        public IEnumerable<ItemValueViewModel> Itens { get; set; }
  
     }
 }

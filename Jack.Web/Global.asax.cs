@@ -1,7 +1,4 @@
-﻿using System.Web.Http;
-using Ninject;
-using Ninject.Web.Common;
-using Jack.Application;
+﻿using Jack.Application;
 using Jack.Application.AutoMapper;
 using Jack.Application.Interfaces;
 using Jack.Domain.Interfaces.Repository;
@@ -9,6 +6,9 @@ using Jack.Domain.Interfaces.Services;
 using Jack.Domain.Services;
 using Jack.Repository;
 using Jack.Repository.UnityOfWork;
+using Ninject;
+using Ninject.Web.Common;
+using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
@@ -32,6 +32,9 @@ namespace Jack.Web
             var config = new HttpConfiguration();
             config.Formatters.JsonFormatter.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
             config.Formatters.JsonFormatter.SerializerSettings.NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore;
+
+            config.Filters.Add(new ElmahExceptionFilter());
+
         }
 
         protected override IKernel CreateKernel()
@@ -100,6 +103,10 @@ namespace Jack.Web
             kernel.Bind<IKitItemRepository>().To<KitItemRepository>();
             #endregion
 
+            #region Logs
+            kernel.Bind<ILogRepository>().To<LogRepository>();
+            #endregion
+
             #region Nivel
             kernel.Bind<INivelServiceApp>().To<NivelServiceApp>();
             kernel.Bind<INivelService>().To<NivelService>();
@@ -159,7 +166,6 @@ namespace Jack.Web
             kernel.Bind<ITipoItemService>().To<TipoItemService>();
             kernel.Bind<ITipoItemRepository>().To<TipoItemRepository>();
             #endregion
-
 
             #region Tipo Parentesco
             kernel.Bind<ITipoParentescoServiceApp>().To<TipoParentescoServiceApp>();

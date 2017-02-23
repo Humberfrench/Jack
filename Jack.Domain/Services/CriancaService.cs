@@ -8,6 +8,7 @@ using Jack.Extensions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace Jack.Domain.Services
 {
@@ -24,6 +25,7 @@ namespace Jack.Domain.Services
         private readonly IParametroRepository repParametros;
         private readonly ISacolaRepository repSacola;
         private readonly ITipoParentescoRepository repTipoParentesco;
+        private readonly ILogRepository repLog;
         private readonly Parametro Parametro;
 
 
@@ -37,7 +39,8 @@ namespace Jack.Domain.Services
                               IRoupaRepository repRoupa,
                               IParametroRepository repParametros,
                               ITipoParentescoRepository repTipoParentesco,
-                              ISacolaRepository repSacola)
+                              ISacolaRepository repSacola,
+                              ILogRepository repLog)
             : base(repCrianca)
         {
             this.repCrianca = repCrianca;
@@ -49,6 +52,7 @@ namespace Jack.Domain.Services
             this.repParametros = repParametros;
             this.repTipoParentesco = repTipoParentesco;
             this.repSacola = repSacola;
+            this.repLog = repLog;
             Parametro = repParametros.Obter();
         }
 
@@ -73,22 +77,35 @@ namespace Jack.Domain.Services
 
         public ValidationResult Gravar(Crianca item)
         {
-            //acerto de dados
-            item.Familia = repFamilia.ObterPorId(item.Familia.Codigo);
-            item.Status = repStatus.ObterPorId(item.Status.Codigo);
-            item.Kit = repKit.ObterPorId(item.Kit.Codigo);
-            item.DataAtualizacao = DateTime.Now;
+            var crianca = ObterPorId(item.Codigo);
 
-            if (item.Codigo == 0)
+            crianca.Calcado = item.Calcado;
+            crianca.CriancaGrande = item.CriancaGrande;
+            crianca.Consistente = item.Consistente;
+            crianca.DataAtualizacao = DateTime.Now;
+            crianca.DataNascimento = item.DataNascimento;
+            crianca.CalculaIdade();
+            crianca.DocumentoOk = item.DocumentoOk;
+
+            if (crianca.Kit.Codigo != item.Kit.Codigo)
             {
-                item.DataCriacao = DateTime.Now;
-                Adicionar(item);
+                crianca.Kit = repKit.ObterPorId(item.Kit.Codigo);
             }
-            else
+
+            crianca.Roupa = item.Roupa;
+            crianca.Calcado = item.Calcado;
+            crianca.MoralCrista = item.MoralCrista;
+            crianca.NecessidadeEspecial = item.NecessidadeEspecial;
+            crianca.Nome = crianca.Nome;
+            crianca.Sacolinha = item.Sacolinha;
+            crianca.Sexo = item.Sexo;
+
+            if (crianca.TipoParentesco.Codigo != item.TipoParentesco.Codigo)
             {
-                item.DataCriacao = ObterPorId(item.Codigo).DataCriacao;
-                Atualizar(item);
+                crianca.TipoParentesco = repTipoParentesco.ObterPorId(item.TipoParentesco.Codigo);
             }
+
+            AtualizaCrianca(crianca, true);
 
             return validationResult;
         }
@@ -181,6 +198,11 @@ namespace Jack.Domain.Services
             var familia = repFamilia.ObterPorId(familiaId);
             var criancas = familia.Criancas.ToList();
 
+            //Parallel.ForEach(criancas, crianca =>
+            //{
+            //    AtualizaCrianca(crianca.Codigo, true);
+            //});
+
             foreach (var crianca in criancas)
             {
                 AtualizaCrianca(crianca.Codigo, true);
@@ -188,9 +210,37 @@ namespace Jack.Domain.Services
             return validationResult;
         }
 
+        public ValidationResult AtualizaCriancasMaiores()
+        {
+            IList<Crianca> criancas = ObterTodos().Where(c => c.Idade > 10 && c.MedidaIdade == "A").ToList();
+
+            foreach (var crianca in criancas)
+            {
+                crianca.CalculaIdade();
+                Atualizar(crianca);
+            }
+            return validationResult;
+        }
+
         public ValidationResult AtualizaCriancas()
         {
-            var criancas = ObterTodos().ToList();
+            return AtualizaCriancas(true);
+        }
+
+        public ValidationResult AtualizaCriancas(bool todas)
+        {
+            IList<Crianca> criancas;
+
+            if (todas)
+            {
+                criancas = ObterTodos().ToList();
+
+            }
+            else
+            {
+                criancas = ObterTodos().Where(c => c.Idade <= Parametro.IdadeLimite && c.MedidaIdade == "A").ToList();
+            }
+
             foreach (var crianca in criancas)
             {
                 AtualizaCrianca(crianca.Codigo, true);
@@ -207,15 +257,22 @@ namespace Jack.Domain.Services
                 validationResult.Add("Registro não encontrado");
                 return validationResult;
             }
+            AtualizaCrianca(crianca, gravar);
 
+            return validationResult;
+        }
+
+        public ValidationResult AtualizaCrianca(Crianca crianca, bool gravar)
+        {
             var valCrianca = ValidaCrianca(
                 new CriancaValue
                 {
+                    Codigo = crianca.Codigo,
                     Nome = crianca.Nome.GetFirstName(),
                     DataNascimento = crianca.DataNascimento,
                     Sexo = crianca.Sexo,
                     NescessidadeEspecial = crianca.NecessidadeEspecial,
-                    CadastroNovo = false ,
+                    CadastroNovo = false,
                     Calcado = crianca.Calcado,
                     Roupa = crianca.Roupa
                 });
@@ -240,7 +297,8 @@ namespace Jack.Domain.Services
                 crianca.Status = repStatus.ObterPorId(EnumStatusCrianca.CriancaSemDocumentacao.Int());
                 crianca.Consistente = false;
                 crianca.Sacolinha = false;
-                validationResult.AddWarning(string.Format("{0} - Criança Sem Documentação", crianca.Nome.GetFirstName()));
+                AddLog(crianca.Codigo, EnumStatusCrianca.CriancaSemDocumentacao.Int(), "AtualizaCrianca", "Criança sem documentação");
+                validationResult.AddWarning(string.Format("{0} - {1} - Criança Sem Documentação", crianca.Codigo, crianca.Nome.GetFirstName()));
             }
 
             if (gravar)
@@ -268,7 +326,7 @@ namespace Jack.Domain.Services
 
         public IEnumerable<CriancaVestimenta> ObterDadosCriancaVestimentas(int familia)
         {
-            var criancas = repCrianca.ObterDadosCriancaVestimentas(familia).ToList();
+            var criancas = repCrianca.ObterDadosCriancaVestimentas(familia).AsParallel().ToList();
 
             criancas.ForEach(cr => cr.CalcadoPadrao = repCalcado.ObterPorSexoIdade(cr.Sexo, cr.Idade, cr.MedidaIdade));
             criancas.ForEach(cr => cr.RoupaPadrao = repRoupa.ObterPorIdade(cr.Idade, cr.MedidaIdade, cr.CriancaGrande));
@@ -280,6 +338,7 @@ namespace Jack.Domain.Services
         {
             var crianca = new Crianca
             {
+                Codigo = criancaValue.Codigo,
                 Nome = criancaValue.Nome,
                 DataNascimento = criancaValue.DataNascimento,
                 Sexo = criancaValue.Sexo,
@@ -319,33 +378,32 @@ namespace Jack.Domain.Services
             #endregion
 
             #region Verifica se tem calçado preenchido
-            if (!verifyCalcado)
+            if (!verifyCalcado && verifyRoupa)
             {
                 crianca.Status = repStatus.ObterPorId(EnumStatusCrianca.CriancaSemCalcado.Int());
                 crianca.Sacolinha = crianca.Status.PermiteSacola;
                 crianca.Consistente = crianca.Status.PermiteSacola;
-                validationResult.AddWarning(string.Format("{0} - Criança sem Calçado", crianca.Nome));
+                AddLog(crianca.Codigo, EnumStatusCrianca.CriancaSemCalcado.Int(), "ValidarCalcadoERoupa", "Criança sem Calçado");
             }
             #endregion
 
             #region Verifica se tem roupa preenchida
-            if (!verifyRoupa)
+            if (!verifyRoupa && verifyCalcado)
             {
                 crianca.Status = repStatus.ObterPorId(EnumStatusCrianca.CriancaSemRoupa.Int());
                 crianca.Sacolinha = crianca.Status.PermiteSacola;
                 crianca.Consistente = crianca.Status.PermiteSacola;
-                validationResult.AddWarning(string.Format("{0} - Criança sem Roupa", crianca.Nome));
+                AddLog(crianca.Codigo, EnumStatusCrianca.CriancaSemRoupa.Int(), "ValidarCalcadoERoupa", "Criança sem Roupa");
             }
             #endregion
-
             #region Roupa e Calcado Não Preenchidos
             if ((!verifyCalcadoERoupa))
             {
-                    crianca.Status = repStatus.ObterPorId(EnumStatusCrianca.CriancaSemRoupaCalcado.Int());
-                    crianca.Sacolinha = crianca.Status.PermiteSacola;
-                    crianca.Consistente = crianca.Status.PermiteSacola;
-                    validationResult.AddWarning(string.Format("{0} - Criança sem Calçado e Roupa", crianca.Nome));
-                    return;
+                crianca.Status = repStatus.ObterPorId(EnumStatusCrianca.CriancaSemRoupaCalcado.Int());
+                crianca.Sacolinha = crianca.Status.PermiteSacola;
+                crianca.Consistente = crianca.Status.PermiteSacola;
+                AddLog(crianca.Codigo, EnumStatusCrianca.CriancaSemRoupaCalcado.Int(), "ValidarCalcadoERoupa", "Criança sem Calçado e Roupa");
+                return;
             }
             #endregion
 
@@ -355,18 +413,17 @@ namespace Jack.Domain.Services
             if (!crianca.IdadePermitida())
             {
                 //moral crista - temp para ajustar os dados
-                if (!crianca.CriancaMaiorMoralCrista())
+                if (crianca.CriancaMaiorMoralCrista())
                 {
                     crianca.Status = repStatus.ObterPorId(EnumStatusCrianca.CriancaMaiorLiberadaMoralCrista.Int());
                     crianca.Sacolinha = crianca.Status.PermiteSacola;
                     crianca.Consistente = crianca.Status.PermiteSacola;
-                    validationResult.AddWarning(string.Format("{0} - Criança Maior e moral Cristã, não consistiu calçado", crianca.Nome));
                     return;
                 }
                 crianca.Status = repStatus.ObterPorId(EnumStatusCrianca.CriancaMaior.Int());
                 crianca.Sacolinha = crianca.Status.PermiteSacola;
                 crianca.Consistente = crianca.Status.PermiteSacola;
-                validationResult.AddWarning(string.Format("{0} - Criança com idade não permitida", crianca.Nome));
+                AddLog(crianca.Codigo, EnumStatusCrianca.CriancaMaior.Int(), "ValidarCalcadoERoupa", "Criança com idade não permitida");
                 return;
             }
             #endregion
@@ -377,12 +434,24 @@ namespace Jack.Domain.Services
             #region Informações para trabalho na consistencia de calçado
             var limiteCalcado = Parametro.CalcadoLimite;
             var calcadoService = new CalcadoService(repCalcado);
-            var calcado = calcadoService.ObterCalcadoCrianca(crianca.Idade, crianca.MedidaIdade, crianca.Sexo);
-            var diferenca = Math.Abs((crianca.Calcado - calcado.Numero));
+            var sexo = crianca.Sexo == "I" ? "M" : crianca.Sexo;
+            var calcado = calcadoService.ObterCalcadoCrianca(crianca.Idade, crianca.MedidaIdade, sexo);
+            var diferenca = (crianca.Calcado - calcado.Numero);
+            var diferencaAbsoluta = Math.Abs((crianca.Calcado - calcado.Numero));
             #endregion
-
+            if (Parametro.AjusteAutomaticoNoProcessamento)
+            {
+                // ajusto para tamanho menores apenas, para atualizar 
+                // se for maior é por que a mãe informou maior. ai consisto
+                //zero a diferença para que ele seja válido
+                if (diferenca < 0)
+                {
+                    crianca.Calcado = calcado.Numero;
+                    diferencaAbsoluta = 0;
+                }
+            }
             #region Analisa diferença
-            if (diferenca > limiteCalcado)
+            if (diferencaAbsoluta > limiteCalcado)
             {
                 crianca.Status = repStatus.ObterPorId(EnumStatusCrianca.DiferencaGrandeCalcado.Int());
                 crianca.Sacolinha = crianca.Status.PermiteSacola;
@@ -402,6 +471,26 @@ namespace Jack.Domain.Services
             var roupaOk = ConsisteRoupas(crianca.Roupa, roupa);
             #endregion
 
+            #region Ver de Novo um ano menor?
+
+            if (!roupaOk)
+            {
+                idade = ObterIdadeParaPesquisaDeRoupas(crianca.Idade - 1, crianca.MedidaIdade, crianca.CriancaGrande);
+                roupa = repRoupa.ObterPorIdade(idade, crianca.MedidaIdade);
+                roupaOk = ConsisteRoupas(crianca.Roupa, roupa);
+                if (roupaOk)
+                {
+                    //altero a roupa que ele mandou, por que pediu tamanho menor 
+                    // que o permitido para a idade, assim automaticamente ajusto
+                    // para o tamanho maior
+                    // desta forma, se a mãe em um ano esquece, há o automatico ajuste para o maior.
+                    idade = ObterIdadeParaPesquisaDeRoupas(crianca.Idade, crianca.MedidaIdade, crianca.CriancaGrande);
+                    roupa = repRoupa.ObterPorIdade(idade, crianca.MedidaIdade);
+                    crianca.Roupa = crianca.CriancaGrande ? roupa.RoupaGrande : roupa.Roupa;
+                }
+            }
+
+            #endregion
             #region Tamanho Menor
             //não houve consenso para a idade. Verificarei para tamanho menor.
             if (!roupaOk)
@@ -426,12 +515,14 @@ namespace Jack.Domain.Services
                     if (crianca.Status.Codigo == EnumStatusCrianca.DiferencaGrandeCalcado.Int())
                     {
                         crianca.Status = repStatus.ObterPorId(EnumStatusCrianca.DiferencaGrandeCalcadoRoupas.Int());
-                        validationResult.AddWarning(string.Format("{0} - Criança com diferença grande de Calçado", crianca.Nome));
+                        AddLog(crianca.Codigo, EnumStatusCrianca.DiferencaGrandeCalcado.Int(), "ValidarCalcadoERoupa", "Criança com com diferença grande de Calçado");
+                        //validationResult.AddWarning(string.Format("{0} - {1} - Criança com diferença grande de Calçado", crianca.Codigo, crianca.Nome.GetFirstName()));
                     }
-                    else
+                    else // => ver aqui
                     {
                         crianca.Status = repStatus.ObterPorId(EnumStatusCrianca.DiferencaGrandeRoupas.Int());
-                        validationResult.AddWarning(string.Format("{0} - Criança com diferença grande de Roupas", crianca.Nome));
+                        AddLog(crianca.Codigo, EnumStatusCrianca.DiferencaGrandeRoupas.Int(), "ValidarCalcadoERoupa", "Criança com com diferença grande de Roupas");
+                        //validationResult.AddWarning(string.Format("{0} - {1} - Criança com diferença grande de Roupas", crianca.Codigo, crianca.Nome.GetFirstName()));
                     }
                     crianca.Sacolinha = crianca.Status.PermiteSacola;
                     crianca.Consistente = crianca.Status.PermiteSacola;
@@ -465,7 +556,8 @@ namespace Jack.Domain.Services
                 if (crianca.Status.Codigo == EnumStatusCrianca.DiferencaGrandeCalcado.Int())
                 {
                     crianca.Status = repStatus.ObterPorId(EnumStatusCrianca.DiferencaGrandeCalcadoRoupas.Int());
-                    validationResult.AddWarning(string.Format("{0} - Criança com diferença grande de Calçado e de Roupas", crianca.Nome));
+                    AddLog(crianca.Codigo, EnumStatusCrianca.DiferencaGrandeCalcado.Int(), "ValidarCalcadoERoupa", "Criança com com diferença grande de Calçado e Roupas");
+                    validationResult.AddWarning(string.Format("{0} - {1} - Criança com diferença grande de Calçado e Roupas", crianca.Codigo, crianca.Nome.GetFirstName()));
                 }
                 else
                 {
@@ -538,6 +630,22 @@ namespace Jack.Domain.Services
             }
 
         }
+
+        void AddLog(int codigo, int status, string processo, string mensagem)
+        {
+            var log = new Log
+            {
+                Codigo = codigo,
+                StatusEntidade = status,
+                Mensagem = mensagem,
+                Processo = processo,
+                Data = DateTime.Now,
+                Entidade = "Crianca"
+            };
+
+            repLog.Adicionar(log);
+        }
+
 
     }
 }

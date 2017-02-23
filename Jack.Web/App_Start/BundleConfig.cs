@@ -1,6 +1,5 @@
-﻿using System.Web.Optimization;
-using System.Web.UI;
-using Jack.Library;
+﻿using Jack.Library;
+using System.Web.Optimization;
 
 namespace Jack.Web
 {
@@ -852,6 +851,11 @@ namespace Jack.Web
 
             jssSacolas = new ScriptBundle("~/script/Sacolas/Modelo");
             jssSacolas.Include("~/Scripts/Sacolas/modelo.js");
+            jssSacolas.Orderer = new AsIsBundleOrderer();
+            bundles.Add(jssSacolas);
+
+            jssSacolas = new ScriptBundle("~/script/Sacolas/Gerar");
+            jssSacolas.Include("~/Scripts/Sacolas/Gerar.js");
             jssSacolas.Orderer = new AsIsBundleOrderer();
             bundles.Add(jssSacolas);
 

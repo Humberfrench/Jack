@@ -18,7 +18,11 @@
     {
         podeGerarNovasSacolas = "checked=checked";
     }
-}
+    var ajusteAutomaticoNoProcessamento = "";
+    if (Model.AjusteAutomaticoNoProcessamento)
+    {
+        ajusteAutomaticoNoProcessamento = "checked=checked";
+    }}
 
 <div class="wrapper wrapper-content animated fadeInRight">
     <div class="row">
@@ -105,6 +109,13 @@
                                 <div class="checkbox checkbox-primary">
                                     <input type="checkbox" name="PodeGerarNovasSacolas" id="PodeGerarNovasSacolas" @podeGerarNovasSacolas>
                                     <label id="labelPodeGerarNovasSacolas" for="PodeGerarNovasSacolas">Pode Gerar Novas Sacolas?</label>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <br />
+                                <div class="checkbox checkbox-primary">
+                                    <input type="checkbox" name="AjusteAutomaticoNoProcessamento" id="AjusteAutomaticoNoProcessamento" @ajusteAutomaticoNoProcessamento>
+                                    <label id="labelAjusteAutomaticoNoProcessamento" for="AjusteAutomaticoNoProcessamento">Ajuste Automatico de Calçado e Roupas No Processamento?</label>
                                 </div>
                             </div>
                         </div>

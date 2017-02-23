@@ -213,6 +213,7 @@ namespace Jack.Web.Controllers
             return View(listaDados);
         }
 
+        [Route("GerarSacolas")]
         public ActionResult GerarSacolas()
         {
             #region BreadCrumb
@@ -234,6 +235,8 @@ namespace Jack.Web.Controllers
             return View(listaDados);
 
         }
+
+        [Route("GerarSacolas/{ano}")]
         public ActionResult GerarSacolas(int ano)
         {
             #region BreadCrumb
@@ -252,9 +255,10 @@ namespace Jack.Web.Controllers
 
             ViewBag.Ano = ano;
 
-            var retorno = sacolaAppService.ProcessarSacolas(ano);
+            var retorno = sacolaAppService.ProcessarSacolas(ano, false);
+            var listaDados = new List<SacolaViewModel>();
 
-            return View(retorno);
+            return View(listaDados);
         }
 
         [Route("AdicionarCriancaNaSacola")]
@@ -286,7 +290,6 @@ namespace Jack.Web.Controllers
         #endregion
 
         #region Métodos Privados
-
 
         private IList<NivelViewModel> ObterNivel()
         {

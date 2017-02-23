@@ -6,6 +6,11 @@ namespace Jack.Application.ViewModel
     public class SacolaViewModel
     {
 
+
+        [Display(Name = "Sac.Id")]
+        [DisplayFormat(NullDisplayText = "")]
+        public virtual int Id { get; set; }
+        
         [Display(Name = "Sac.Num.")]
         [DisplayFormat(NullDisplayText = "")]
         public int Codigo { get; set; }

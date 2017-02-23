@@ -23,6 +23,8 @@ namespace Jack.Domain.Entity
             idadeLimite = 0;
             idadeLimiteExcecao = 0;
             temIdadeLimiteExcecao = false;
+            ajusteAutomaticoNoProcessamento = false;
+            podeGerarNovasSacolas = false;
             calcadoLimite = 0;
             numeroMaximoCricancas = 0;
             numeroMaximoRepresentantes = 0;
@@ -44,6 +46,7 @@ namespace Jack.Domain.Entity
         private int terceiroSabado;
         private int anoCorrente;
         private bool podeGerarNovasSacolas;
+        private bool ajusteAutomaticoNoProcessamento;
 
         public virtual int IdadeLimite
         {
@@ -177,5 +180,16 @@ namespace Jack.Domain.Entity
             }
         }
 
+        public virtual bool AjusteAutomaticoNoProcessamento
+        {
+            get
+            {
+                return ajusteAutomaticoNoProcessamento;
+            }
+            set
+            {
+                ajusteAutomaticoNoProcessamento = value;
+            }
+        }
     }
 }
