@@ -1,7 +1,6 @@
-﻿using System;
+﻿using Jack.Domain.Interfaces;
+using System;
 using System.Collections.Generic;
-using Jack.Domain.Interfaces;
-using Jack.Extensions;
 
 //using Jack.Library.Extensions;
 

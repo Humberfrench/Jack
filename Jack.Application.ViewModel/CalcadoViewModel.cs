@@ -1,6 +1,6 @@
 ﻿
-using System.ComponentModel.DataAnnotations;
 using Jack.Extensions;
+using System.ComponentModel.DataAnnotations;
 
 namespace Jack.Application.ViewModel
 {

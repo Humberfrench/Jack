@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-using Jack.Application.Interfaces;
+﻿using Jack.Application.Interfaces;
 using Jack.Application.ViewModel;
 using Jack.Library;
-using WebGrease.Css.Extensions;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web.Mvc;
 
 namespace Jack.Web.Controllers
 {
@@ -76,7 +73,8 @@ namespace Jack.Web.Controllers
             ViewBag.Sacolinha = "";
             ViewBag.PresencaJustificada = "";
             ViewBag.FamiliaId = 0;
-
+            ViewBag.Nivel = 0;
+            ViewBag.Acoes = "disabled=disabled";
             var listaDados = new List<CriancaViewModel>();
             return View(listaDados);
         }
@@ -111,20 +109,28 @@ namespace Jack.Web.Controllers
             ViewBag.Sacolinha = "";
             ViewBag.PresencaJustificada = "";
             ViewBag.FamiliaId = familia;
+            ViewBag.Nivel = 0;
+            ViewBag.Acoes = "disabled=disabled";
 
             var listaDados = criancaAppService.ObterCriancas(familia).OrderBy(c => c.Nome).ToList();
-            var familiaDado = listaDados.FirstOrDefault() ;
-            if (familiaDado != null)
+            var criancaDado = listaDados.FirstOrDefault();
+            if (criancaDado != null)
             {
+                var familiaDado = criancaDado.Familia ;
 
-                ViewBag.Presencas = familiaDado.Familia.QuantidadePresencas;
-                ViewBag.Criancas = familiaDado.Familia.QuantidadeCriancas;
-                ViewBag.PermiteExcedente = familiaDado.Familia.PermiteExcedenteCriancas ? "checked=checked" : "";
-                ViewBag.Consistente = familiaDado.Familia.PermiteExcedenteCriancas ? "checked=checked" : "";
-                ViewBag.Sacolinha = familiaDado.Familia.Sacolinha ? "checked=checked" : "";
-                ViewBag.PresencaJustificada = familiaDado.Familia.PresencaJustificada ? "checked=checked" : "";
-                var percCriancas = ((double)familiaDado.Familia.QuantidadeCriancas / (double)parametros.NumeroMaximoCricancas) * 100;
-                ViewBag.PercentualCriancas = string.Format("{0} %",percCriancas);
+                if (familiaDado != null)
+                {
+                    ViewBag.Nivel = familiaDado.Nivel.Nome;
+                    ViewBag.Presencas = familiaDado.QuantidadePresencas;
+                    ViewBag.Criancas = familiaDado.QuantidadeCriancas;
+                    ViewBag.PermiteExcedente = familiaDado.PermiteExcedenteCriancas ? "checked=checked" : "";
+                    ViewBag.Consistente = familiaDado.PermiteExcedenteCriancas ? "checked=checked" : "";
+                    ViewBag.Sacolinha = familiaDado.Sacolinha ? "checked=checked" : "";
+                    ViewBag.PresencaJustificada = familiaDado.PresencaJustificada ? "checked=checked" : "";
+                    var percCriancas = ((double)familiaDado.QuantidadeCriancas / (double)parametros.NumeroMaximoCricancas) * 100;
+                    ViewBag.PercentualCriancas = string.Format("{0} %",percCriancas);
+                    ViewBag.Acoes = "";
+                }
             }
 
 
@@ -284,6 +290,32 @@ namespace Jack.Web.Controllers
             ViewBag.Criancas = listaDados.Count;
 
             return View(listaDados);
+        }
+
+        [Route("ProcessarCrianca")]
+        public ActionResult ProcessarCrianca(int id)
+        {
+            var gravarResult = criancaAppService.AtualizaCrianca(id, true);
+
+            object retorno;
+            if (gravarResult.IsValid)
+            {
+                retorno = new
+                {
+                    Mensagem = "Registro Processado com Sucesso",
+                    Erro = false
+                };
+            }
+            else
+            {
+                retorno = new
+                {
+                    Mensagem = RenderizeErros(gravarResult),
+                    Erro = true
+                };
+            }
+
+            return Json(retorno, JsonRequestBehavior.AllowGet);
         }
 
         [Route("Acerto/Dados/Gravar")]

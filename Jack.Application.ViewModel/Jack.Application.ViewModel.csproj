@@ -17,6 +17,12 @@
     <SccProvider>SAK</SccProvider>
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
     <RestorePackages>true</RestorePackages>
+    <UpdateAssemblyVersion>True</UpdateAssemblyVersion>
+    <UpdateAssemblyFileVersion>True</UpdateAssemblyFileVersion>
+    <UpdateAssemblyInfoVersion>True</UpdateAssemblyInfoVersion>
+    <AssemblyVersionSettings>None.None.None.None</AssemblyVersionSettings>
+    <AssemblyFileVersionSettings>None.None.None.None</AssemblyFileVersionSettings>
+    <AssemblyInfoVersionSettings>None.None.None.None</AssemblyInfoVersionSettings>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -54,6 +60,7 @@
     <Compile Include="CriancaViewModel.cs" />
     <Compile Include="FamiliaViewModel.cs" />
     <Compile Include="FeriadoViewModel.cs" />
+    <Compile Include="ItemValueViewModel.cs" />
     <Compile Include="KitViewModel.cs" />
     <Compile Include="KitItemViewModel.cs" />
     <Compile Include="NivelViewModel.cs" />
@@ -63,6 +70,7 @@
     <Compile Include="RepresentanteViewModel.cs" />
     <Compile Include="ReuniaoViewModel.cs" />
     <Compile Include="RoupaViewModel.cs" />
+    <Compile Include="SacolaValueViewModel.cs" />
     <Compile Include="SacolaViewModel.cs" />
     <Compile Include="StatsViewModel.cs" />
     <Compile Include="StatusCriancaViewModel.cs" />

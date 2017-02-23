@@ -1,12 +1,11 @@
-﻿using System;
+﻿using Jack.Application.Interfaces;
+using Jack.Application.ViewModel;
+using Jack.DomainValidator;
+using Jack.Library;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
-using Jack.Application.Interfaces;
-using Jack.Application.ViewModel;
-using Jack.Library;
-using Jack.DomainValidator;
 
 namespace Jack.Web.Controllers
 {
@@ -183,7 +182,8 @@ namespace Jack.Web.Controllers
                 retorno = new
                 {
                     Mensagem = "Família Atualizada com Sucesso",
-                    Erro = false
+                    Erro = false,
+                    Warning = false
                 };
             }
             else
@@ -191,7 +191,8 @@ namespace Jack.Web.Controllers
                 retorno = new
                 {
                     Mensagem = RenderizeErros(processarResult),
-                    Erro = true
+                    Erro = true,
+                    Warning = processarResult.Warning
                 };
             }
 
@@ -209,7 +210,8 @@ namespace Jack.Web.Controllers
                 retorno = new
                 {
                     Mensagem = "Família Atualizada com Sucesso",
-                    Erro = false
+                    Erro = false,
+                    Warning = false
                 };
             }
             else
@@ -217,13 +219,41 @@ namespace Jack.Web.Controllers
                 retorno = new
                 {
                     Mensagem = RenderizeErros(processarResult),
-                    Erro = true
+                    Erro = true,
+                    Warning = processarResult.Warning
                 };
             }
 
             return Json(retorno, JsonRequestBehavior.AllowGet);
         }
 
+        [Route("ProcessarPresenca")]
+        public ActionResult ProcessarPresenca(int id)
+        {
+            var processarResult = criancaAppService.AtualizaCriancas(id);
+
+            object retorno;
+            if (processarResult.IsValid)
+            {
+                retorno = new
+                {
+                    Mensagem = "Família Atualizada com Sucesso",
+                    Erro = false,
+                    Warning = false
+                };
+            }
+            else
+            {
+                retorno = new
+                {
+                    Mensagem = RenderizeErros(processarResult),
+                    Erro = true,
+                    Warning = processarResult.Warning
+                };
+            }
+
+            return Json(retorno, JsonRequestBehavior.AllowGet);
+        }
         [Route("ObterRepresentantes")]
         public ActionResult ObterRepresentantes(int codigo)
         {

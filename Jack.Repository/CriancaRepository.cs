@@ -1,9 +1,9 @@
-﻿using System.Collections.Generic;
-using Dapper;
+﻿using Dapper;
 using Jack.Domain.Entity;
 using Jack.Domain.Interfaces.Repository;
 using Jack.Domain.ObjectValue;
 using Jack.Repository.UnityOfWork;
+using System.Collections.Generic;
 
 namespace Jack.Repository
 {

@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
-using Jack.Domain.Interfaces.Repository;
+﻿using Jack.Domain.Interfaces.Repository;
 using Jack.Domain.Interfaces.Services;
+using System;
+using System.Collections.Generic;
+using System.Linq.Expressions;
 
 namespace Jack.Domain.Services
 {

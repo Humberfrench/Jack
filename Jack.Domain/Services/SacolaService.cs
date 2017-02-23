@@ -1,14 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.Remoting.Messaging;
-using System.Text;
-using Jack.Domain.Entity;
+﻿using Jack.Domain.Entity;
 using Jack.Domain.Interfaces.Repository;
 using Jack.Domain.Interfaces.Services;
+using Jack.Domain.ObjectValue;
 using Jack.DomainValidator;
 using Jack.Extensions;
 using Jack.Library;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 
 namespace Jack.Domain.Services
 {
@@ -23,14 +23,33 @@ namespace Jack.Domain.Services
         private readonly ValidationResult validationResult = new ValidationResult();
         private readonly IKitRepository repKit;
         private readonly IColaboradorCriancaService servColaboradorCrianca;
+        private readonly IParametroRepository repParametros;
+        private readonly Parametro Parametro;
 
-        public SacolaService(ISacolaRepository repSacola, 
+        //suporte sacola geração
+        private readonly IStatusCriancaRepository repStatusCrianca;
+        private readonly IStatusFamiliaRepository repStatusFamilia;
+        private readonly ICalcadoRepository repCalcado;
+        private readonly IRoupaRepository repRoupa;
+        private readonly ITipoParentescoRepository repTipoParentesco;
+        private readonly IReuniaoRepository repReuniao;
+        private readonly IPresencaRepository repPresenca;
+
+        public SacolaService(ISacolaRepository repSacola,
                              IFamiliaRepository repFamilia,
                              INivelRepository repNivel,
                              ICriancaRepository repCrianca,
                              IRepresentanteRepository repRepresentante,
                              IKitRepository repKit,
-                             IColaboradorCriancaService servColaboradorCrianca)
+                             IColaboradorCriancaService servColaboradorCrianca,
+                             IParametroRepository repParametros,
+                             IStatusCriancaRepository repStatusCrianca,
+                             IStatusFamiliaRepository repStatusFamilia,
+                             ICalcadoRepository repCalcado,
+                             IRoupaRepository repRoupa,
+                             ITipoParentescoRepository repTipoParentesco,
+                             IReuniaoRepository repReuniao,
+                             IPresencaRepository repPresenca)
             : base(repSacola)
         {
             this.repSacola = repSacola;
@@ -40,6 +59,15 @@ namespace Jack.Domain.Services
             this.repRepresentante = repRepresentante;
             this.servColaboradorCrianca = servColaboradorCrianca;
             this.repKit = repKit;
+            this.repParametros = repParametros;
+            this.repStatusCrianca = repStatusCrianca;
+            this.repStatusFamilia = repStatusFamilia;
+            this.repCalcado = repCalcado;
+            this.repRoupa = repRoupa;
+            this.repTipoParentesco = repTipoParentesco;
+            this.repReuniao = repReuniao;
+            this.repPresenca = repPresenca;
+            Parametro = this.repParametros.Obter();
         }
 
         public IEnumerable<Sacola> ObterTodosPorNivel(int nivel, int liberado)
@@ -59,7 +87,7 @@ namespace Jack.Domain.Services
                 sacolas = ObterTodos().Where(s => s.Nivel.Codigo == nivel).ToList();
             }
 
-            return sacolas.OrderBy( s => s.Familia.Codigo);
+            return sacolas.OrderBy(s => s.Familia.Codigo);
 
         }
 
@@ -77,7 +105,7 @@ namespace Jack.Domain.Services
         public IEnumerable<Sacola> ObterSacolasLivres(int nivel = 0, int liberado = 2)
         {
             bool? isLiberado;
-            if(liberado == 0)
+            if (liberado == 0)
             {
                 isLiberado = true;
             }
@@ -115,19 +143,19 @@ namespace Jack.Domain.Services
                 var sacola = sacolas.FirstOrDefault(s => s.Crianca.Codigo == codigo);
                 sacolas.Remove(sacola);
             }
-            
+
             if (liberado.HasValue)
             {
                 sacolas = sacolas.Where(s => s.Liberado == liberado.Value).ToList();
             }
 
-            return sacolas; 
+            return sacolas;
         }
 
         public IEnumerable<Sacola> ObterSacolasLivres(bool? liberado,
-                                                      int ano, 
-                                                      int nivel = 0, 
-                                                      int familia = 0, 
+                                                      int ano,
+                                                      int nivel = 0,
+                                                      int familia = 0,
                                                       string sexo = "",
                                                       int kit = 0)
         {
@@ -135,7 +163,7 @@ namespace Jack.Domain.Services
 
             if (nivel != 0)
             {
-                sacolas = sacolas.Where(s => s.Nivel.Codigo == nivel);    
+                sacolas = sacolas.Where(s => s.Nivel.Codigo == nivel);
             }
 
             if (familia != 0)
@@ -171,9 +199,9 @@ namespace Jack.Domain.Services
             }
             //consistir a criança  
             ValidarCrianca(criancaSacola);
-            if(!validationResult.IsValid)
+            if (!validationResult.IsValid)
             {
-                return validationResult;               
+                return validationResult;
             }
 
             var sacolas = ObterTodos().ToList();
@@ -188,11 +216,11 @@ namespace Jack.Domain.Services
             else
             {
                 var ultimaSacola = sacolas.OrderByDescending(s => s.SacolaFamilia).FirstOrDefault();
-                    if (ultimaSacola != null)
-                    {
-                        numeroSacolaFamilia = ultimaSacola.SacolaFamilia + 1;
-                    }
-                
+                if (ultimaSacola != null)
+                {
+                    numeroSacolaFamilia = ultimaSacola.SacolaFamilia + 1;
+                }
+
             }
 
             var existeCrianca = sacolasFamilia.FirstOrDefault(s => s.Crianca.Codigo == crianca);
@@ -214,9 +242,9 @@ namespace Jack.Domain.Services
                 Crianca = criancaSacola,
                 Familia = criancaSacola.Familia,
                 FamiliaRepresentante = familiaRepresentante,
-                Kit = criancaSacola.Kit, 
-                Impressa = false, 
-                Nivel = criancaSacola.Familia.Nivel, 
+                Kit = criancaSacola.Kit,
+                Impressa = false,
+                Nivel = criancaSacola.Familia.Nivel,
                 Liberado = true,
                 Sexo = criancaSacola.Sexo
             };
@@ -238,7 +266,7 @@ namespace Jack.Domain.Services
             {
                 validationResult.Add("Criança com Calçado inválido.");
             }
-            
+
             if (!crianca.VerifyRoupa())
             {
                 validationResult.Add("Criança com Roupa inválida.");
@@ -336,5 +364,147 @@ namespace Jack.Domain.Services
             return dadoQrCode.ToString();
 
         }
+
+        public IEnumerable<SacolaValue> ObterSacolaParaImpressao(string sacolasNumero)
+        {
+            return repSacola.ObterSacolaParaImpressao(sacolasNumero, Parametro.AnoCorrente);
+        }
+
+        public ValidationResult ProcessarSacolas(int ano)
+        {
+            #region passos
+            //1 - processa dados das crianças
+            //2 - processa dados de presenças de famílias
+            //5 - Limpar a tabela.
+            //3 - processa dados de famílias
+            //4 - obtem famílias de nível 1 a 5
+            //5 - le família a família, e pega as crianças válidas
+            //Passos acima, no método abaixo
+            #endregion
+
+            var sacolaFamilia = 0;
+            var sacolaGeral = 0;
+            var familias = ProcessarSacolasEObterFamilias(ano);
+
+            #region 6 - formando o registro da sacola e inserindo.
+            var sacolas = new List<Sacola>();
+            foreach (var familia in familias)
+            {
+                sacolaFamilia++;
+                var representante = repRepresentante.ObterRepresentante(familia.Codigo);
+                if (representante == null)
+                {
+                    representante = familia;
+                }
+                foreach (var crianca in familia.Criancas)
+                {
+                    sacolaGeral++;
+                    var sacola = new Sacola
+                    {
+                        Codigo = sacolaGeral,
+                        SacolaFamilia = sacolaFamilia,
+                        Crianca = crianca,
+                        Nivel = familia.Nivel,
+                        Familia = familia,
+                        FamiliaRepresentante = representante,
+                        Impressa = false,
+                        Liberado = familia.Nivel.Codigo == 1 ? true : false,
+                        Kit = crianca.Kit,
+                        Sexo = crianca.Sexo
+
+                    };
+
+                    repSacola.Adicionar(sacola);
+                    sacolas.Add(sacola);
+
+                }
+            }
+            #endregion
+
+            validationResult.Retorno = sacolas;
+
+            return validationResult;
+
+        }
+
+        public List<Familia> ProcessarSacolasEObterFamilias(int ano)
+        {
+
+            var retValidator = new ValidationResult();
+
+            //passos
+            #region 1 - processa dados das crianças
+            var criancaService = new CriancaService(repCrianca, repFamilia,
+                                                    repStatusCrianca, repKit,
+                                                    repCalcado, repRoupa,
+                                                    repParametros,
+                                                    repTipoParentesco, repSacola);
+
+            retValidator = criancaService.AtualizaCriancas();
+            retValidator.Erros.ToList().ForEach(e => validationResult.Add(e));
+            #endregion
+
+            #region 2 - processa dados de presenças de famílias
+            var presencaService = new PresencaService(repPresenca, repFamilia, repRepresentante, repReuniao, repParametros);
+
+            retValidator = presencaService.ProcessarPresencaGarantida();
+            retValidator.Erros.ToList().ForEach(e => validationResult.Add(e));
+
+            retValidator = presencaService.ProcessarPresencaRepresentantes();
+            retValidator.Erros.ToList().ForEach(e => validationResult.Add(e));
+            #endregion
+
+            #region 3 - processa dados de famílias
+            var familiaService = new FamiliaService(repFamilia, repNivel,
+                                                    repStatusFamilia, repReuniao,
+                                                    repPresenca, repParametros);
+
+            familiaService.AtualizarFamilias();
+            #endregion
+
+            #region 4 - obtem famílias de nível 1 a 5
+            var familias = repFamilia.ObterTodos()
+                                     .Where(f => f.Nivel.Codigo <= 5
+                                             && f.Status.Codigo == 1)
+                                     .OrderBy(n => n.Nivel.Codigo)
+                                     .ThenBy(f => f.Nome).ToList();
+            #endregion
+
+            #region 5 - le família a família, e pega as crianças válidas
+
+            foreach (var familia in familias)
+            {
+                foreach (var crianca in familia.Criancas)
+                {
+                    //remove todas com status inválido.
+                    if (!crianca.ValidaPorStatus())
+                    {
+                        familia.Criancas.Remove(crianca);
+                    }
+
+                    if (!crianca.VerifyCalcado())
+                    {
+                        familia.Criancas.Remove(crianca);
+                    }
+
+                    if (!crianca.VerifyRoupa())
+                    {
+                        familia.Criancas.Remove(crianca);
+                    }
+
+                    if (!crianca.IdadePermitida())
+                    {
+                        familia.Criancas.Remove(crianca);
+                    }
+
+                }
+            }
+
+            #endregion
+
+            return familias;
+
+        }
+
     }
 }

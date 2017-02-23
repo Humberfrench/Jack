@@ -1,0 +1,165 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F7B3290E-90DA-4D22-AC2A-9543CE892909}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Jack.Domain</RootNamespace>
+    <AssemblyName>Jack.Domain</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Entity\Calcado.cs" />
+    <Compile Include="Entity\Feriado.cs" />
+    <Compile Include="Entity\Representante.cs" />
+    <Compile Include="Entity\Sacola.cs" />
+    <Compile Include="Entity\Colaborador.cs" />
+    <Compile Include="Entity\ColaboradorCrianca.cs" />
+    <Compile Include="Entity\Crianca.cs" />
+    <Compile Include="Entity\Familia.cs" />
+    <Compile Include="Entity\Nivel.cs" />
+    <Compile Include="Entity\Parametro.cs" />
+    <Compile Include="Entity\Kit.cs" />
+    <Compile Include="Entity\KitItem.cs" />
+    <Compile Include="Entity\Presenca.cs" />
+    <Compile Include="Entity\Reuniao.cs" />
+    <Compile Include="Entity\Roupa.cs" />
+    <Compile Include="Entity\StatusFamilia.cs" />
+    <Compile Include="Entity\StatusCrianca.cs" />
+    <Compile Include="Entity\TipoItem.cs" />
+    <Compile Include="Entity\TipoParentesco.cs" />
+    <Compile Include="Enum\enumGrauParentesco.cs" />
+    <Compile Include="Enum\enumStatusFamilia.cs" />
+    <Compile Include="Enum\enumStatusCrianca.cs" />
+    <Compile Include="Helpers\Idade.cs" />
+    <Compile Include="Interfaces\IEntidade.cs" />
+    <Compile Include="Interfaces\Repository\IParametroRepository.cs" />
+    <Compile Include="Interfaces\Repository\IRoupaRepository.cs" />
+    <Compile Include="Interfaces\Repository\IRepositoryBaseReadOnly.cs" />
+    <Compile Include="Interfaces\Repository\IRepositoryBase.cs" />
+    <Compile Include="Interfaces\Repository\ICalcadoRepository.cs" />
+    <Compile Include="Interfaces\Repository\INivelRepository.cs" />
+    <Compile Include="Interfaces\Repository\IStatusFamiliaRepository.cs" />
+    <Compile Include="Interfaces\Repository\IStatusCriancaRepository.cs" />
+    <Compile Include="Interfaces\Repository\IKitItemRepository.cs" />
+    <Compile Include="Interfaces\Repository\IKitRepository.cs" />
+    <Compile Include="Interfaces\Repository\IRepresentanteRepository.cs" />
+    <Compile Include="Interfaces\Repository\IColaboradorRepository.cs" />
+    <Compile Include="Interfaces\Repository\IColaboradorCriancaRepository.cs" />
+    <Compile Include="Interfaces\Repository\IReuniaoRepository.cs" />
+    <Compile Include="Interfaces\Repository\IPresencaRepository.cs" />
+    <Compile Include="Interfaces\Repository\ISacolaRepository.cs" />
+    <Compile Include="Interfaces\Repository\ICriancaRepository.cs" />
+    <Compile Include="Interfaces\Repository\IFamiliaRepository.cs" />
+    <Compile Include="Interfaces\Repository\IFeriadoRepository.cs" />
+    <Compile Include="Interfaces\Repository\ITipoParentescoRepository.cs" />
+    <Compile Include="Interfaces\Repository\ITipoItemRepository.cs" />
+    <Compile Include="Interfaces\Services\IParametroService.cs" />
+    <Compile Include="Interfaces\Services\IRoupaService.cs" />
+    <Compile Include="Interfaces\Services\IServiceBaseReadOnly.cs" />
+    <Compile Include="Interfaces\Services\IServiceBase.cs" />
+    <Compile Include="Interfaces\Services\ICalcadoService.cs" />
+    <Compile Include="Interfaces\Services\INivelService .cs" />
+    <Compile Include="Interfaces\Services\IStatusCriancaService.cs" />
+    <Compile Include="Interfaces\Services\IStatusFamiliaService.cs" />
+    <Compile Include="Interfaces\Services\IKitItemService.cs" />
+    <Compile Include="Interfaces\Services\IKitService.cs" />
+    <Compile Include="Interfaces\Services\IRepresentanteService.cs" />
+    <Compile Include="Interfaces\Services\IColaboradorService.cs" />
+    <Compile Include="Interfaces\Services\IColaboradorCriancaService.cs" />
+    <Compile Include="Interfaces\Services\IReuniaoService.cs" />
+    <Compile Include="Interfaces\Services\IPresencaService.cs" />
+    <Compile Include="Interfaces\Services\ISacolaService.cs" />
+    <Compile Include="Interfaces\Services\ICriancaService.cs" />
+    <Compile Include="Interfaces\Services\IFamiliaService.cs" />
+    <Compile Include="Interfaces\Services\IFeriadoService.cs" />
+    <Compile Include="Interfaces\Services\ITipoParentescoService.cs" />
+    <Compile Include="Interfaces\Services\ITipoItemService.cs" />
+    <Compile Include="ObjectValue\CriancaValue.cs" />
+    <Compile Include="ObjectValue\CriancaVestimenta.cs" />
+    <Compile Include="ObjectValue\DatasReuniao.cs" />
+    <Compile Include="ObjectValue\FamiliaValue.cs" />
+    <Compile Include="ObjectValue\QuantidadeSacolasColaborador.cs" />
+    <Compile Include="ObjectValue\RoupaValue.cs" />
+    <Compile Include="ObjectValue\Stats.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\CalcadoService.cs" />
+    <Compile Include="Services\ServiceBaseReadOnly.cs" />
+    <Compile Include="Services\ServiceBase.cs" />
+    <Compile Include="Services\NivelService.cs" />
+    <Compile Include="Services\ParametroService.cs" />
+    <Compile Include="Services\StatusCriancaService.cs" />
+    <Compile Include="Services\StatusFamiliaService.cs" />
+    <Compile Include="Services\KitItemService.cs" />
+    <Compile Include="Services\KitService.cs" />
+    <Compile Include="Services\RepresentanteService.cs" />
+    <Compile Include="Services\ColaboradorService.cs" />
+    <Compile Include="Services\ColaboradorCriancaService.cs" />
+    <Compile Include="Services\ReuniaoService.cs" />
+    <Compile Include="Services\PresencaService.cs" />
+    <Compile Include="Services\SacolaService.cs" />
+    <Compile Include="Services\CriancaService.cs" />
+    <Compile Include="Services\FamiliaService.cs" />
+    <Compile Include="Services\FeriadoService.cs" />
+    <Compile Include="Services\TipoParentescoService.cs" />
+    <Compile Include="Services\TipoItemService.cs" />
+    <Compile Include="Services\RoupaService.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Jack.DomainValidator\Jack.DomainValidator.csproj">
+      <Project>{D1D4158A-1FFB-48B4-9584-47E032BE352A}</Project>
+      <Name>Jack.DomainValidator</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Jack.Extensions\Jack.Extensions.csproj">
+      <Project>{0e63a054-3d47-4cde-bd08-7ca8782c5555}</Project>
+      <Name>Jack.Extensions</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Jack.Library\Jack.Library.csproj">
+      <Project>{08a4638f-7190-48dd-b8c2-9c131b517cd2}</Project>
+      <Name>Jack.Library</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,12 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using Jack.Domain.Entity;
+﻿using Jack.Domain.Entity;
 using Jack.Domain.Enum;
 using Jack.Domain.Interfaces.Repository;
 using Jack.Domain.Interfaces.Services;
 using Jack.DomainValidator;
 using Jack.Extensions;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Jack.Domain.Services
 {
@@ -154,7 +154,7 @@ namespace Jack.Domain.Services
                 {
                     Gravar(familia);
                 }
-                validationResult.Add(new ValidationError("Família sem Crianças"));
+                validationResult.AddWarning(string.Format("{0} - Família sem Crianças", familia.Nome));
 
                 return familia;
             }
@@ -167,7 +167,7 @@ namespace Jack.Domain.Services
                 {
                     Gravar(familia);
                 }
-                validationResult.Add(new ValidationError("Família sem Crianças"));
+                validationResult.AddWarning(string.Format("{0} - Família sem Crianças", familia.Nome));
                 return familia;
             }
 
@@ -179,7 +179,7 @@ namespace Jack.Domain.Services
                 {
                     Gravar(familia);
                 }
-                validationResult.Add(new ValidationError("Família sem Documentação"));
+                validationResult.AddWarning(string.Format("{0} - Família sem Documentação", familia.Nome));
                 return familia;
             }
             if (familia.PresencaJustificada)
@@ -193,7 +193,7 @@ namespace Jack.Domain.Services
             if (familia.FamiliaSemPresenca())
             {
                 AtualizarFamiliaNivel99(ref familia, EnumStatusFamilia.FamiliaSemPresenca);
-                validationResult.Add(new ValidationError("Família sem Presença"));
+                validationResult.AddWarning(string.Format("{0} - Família sem Presença", familia.Nome));
                 return familia;
             }
 
@@ -226,12 +226,12 @@ namespace Jack.Domain.Services
             if (familia.Status.Codigo == EnumStatusFamilia.CriancasExcedido.Int())
             {
                 familia.Status = repStatus.ObterPorId(EnumStatusFamilia.CriancasERepresentanteExcedido.Int());
-                validationResult.Add(new ValidationError("Quantidade de Representantes e Crianças Excedida"));
+                validationResult.AddWarning(string.Format("{0} - Quantidade de Representantes e Crianças Excedida", familia.Nome));
             }
             else
             {
                 familia.Status = repStatus.ObterPorId(EnumStatusFamilia.RepresentanteExcedido.Int());
-                validationResult.Add(new ValidationError("Quantidade de Representantes Excedida"));
+                validationResult.AddWarning(string.Format("{0} - Quantidade de Representantes Excedida", familia.Nome));
             }
 
         }
@@ -250,13 +250,13 @@ namespace Jack.Domain.Services
             if (familia.Status.Codigo == EnumStatusFamilia.RepresentanteExcedido.Int())
             {
                 familia.Status = repStatus.ObterPorId(EnumStatusFamilia.CriancasERepresentanteExcedido.Int());
-                validationResult.Add(new ValidationError("Quantidade de Representantes e Crianças Excedida"));
+                validationResult.AddWarning(string.Format("{0} - Quantidade de Representantes e Crianças Excedida", familia.Nome));
 
             }
             else
             {
                 familia.Status = repStatus.ObterPorId(EnumStatusFamilia.CriancasExcedido.Int());
-                validationResult.Add(new ValidationError("Quantidade de Crianças Excedida"));
+                validationResult.AddWarning(string.Format("{0} - Quantidade de Crianças Excedida", familia.Nome));
             }
 
         }

@@ -1,8 +1,7 @@
-﻿using Jack.DomainValidator;
+﻿using Jack.Domain.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Jack.Domain.Interfaces;
 
 namespace Jack.Domain.Entity
 {

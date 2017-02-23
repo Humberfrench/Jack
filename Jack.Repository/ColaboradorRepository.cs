@@ -1,46 +1,20 @@
-﻿using System.Collections.Generic;
-using System.Data;
-using System.Linq;
-using Dapper;
+﻿using Dapper;
 using Jack.Domain.Entity;
 using Jack.Domain.Interfaces.Repository;
 using Jack.Domain.ObjectValue;
 using Jack.Repository.UnityOfWork;
+using System.Collections.Generic;
+using System.Data;
 
 namespace Jack.Repository
 {
-    public class ColaboradorRepository   : Repository<Colaborador>, IColaboradorRepository
+    public class ColaboradorRepository : BaseRepository<Colaborador>, IColaboradorRepository
     {
         private readonly IUnityOfWork UnitWork;
         public ColaboradorRepository(IUnityOfWork unitWork)
             : base(unitWork)
         {
             UnitWork = unitWork;
-        }
-
-        public void Adicionar(Colaborador entity)
-        {
-            UnitWork.Salvar(entity);
-        }
-
-        public void Atualizar(Colaborador entity)
-        {
-            UnitWork.Salvar(entity);
-        }
-
-        public void Excluir(Colaborador entity)
-        {
-            UnitWork.Excluir(entity);
-        }
-
-        public Colaborador ObterPorId(int id)
-        {
-            return GetById(id);
-        }
-
-        public IEnumerable<Colaborador> ObterTodos()
-        {
-           return GetAll();
         }
 
         public IEnumerable<QuantidadeSacolasColaborador> ObterQuantidadeSacolasColaborador(int ano, int nivelMaximo)

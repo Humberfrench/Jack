@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Newtonsoft.Json;
+using System;
 using System.Web.Mvc;
-using Newtonsoft.Json;
 
 namespace Jack.Library
 {
@@ -12,13 +8,13 @@ namespace Jack.Library
     {
         private static readonly JsonSerializerSettings Settings = new JsonSerializerSettings
         {
-            Formatting = Newtonsoft.Json.Formatting.Indented,
-            ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
+            Formatting = Formatting.Indented,
+            ReferenceLoopHandling = ReferenceLoopHandling.Ignore
         };
 
         public override void ExecuteResult(ControllerContext context)
         {
-            if (this.JsonRequestBehavior == JsonRequestBehavior.DenyGet &&
+            if (JsonRequestBehavior == JsonRequestBehavior.DenyGet &&
                 string.Equals(context.HttpContext.Request.HttpMethod, "GET", StringComparison.OrdinalIgnoreCase))
             {
                 throw new InvalidOperationException("GET request not allowed");
@@ -26,19 +22,19 @@ namespace Jack.Library
 
             var response = context.HttpContext.Response;
 
-            response.ContentType = !string.IsNullOrEmpty(this.ContentType) ? this.ContentType : "application/json";
+            response.ContentType = !string.IsNullOrEmpty(ContentType) ? ContentType : "application/json";
 
-            if (this.ContentEncoding != null)
+            if (ContentEncoding != null)
             {
-                response.ContentEncoding = this.ContentEncoding;
+                response.ContentEncoding = ContentEncoding;
             }
 
-            if (this.Data == null)
+            if (Data == null)
             {
                 return;
             }
 
-            response.Write(JsonConvert.SerializeObject(this.Data, Settings));
+            response.Write(JsonConvert.SerializeObject(Data, Settings));
         }
     }
 }

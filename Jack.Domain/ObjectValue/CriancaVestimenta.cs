@@ -1,6 +1,4 @@
-﻿using System;
-using Jack.Domain.Entity;
-
+﻿
 namespace Jack.Domain.ObjectValue
 {
     public class CriancaVestimenta

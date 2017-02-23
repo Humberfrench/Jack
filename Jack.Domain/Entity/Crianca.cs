@@ -1,8 +1,6 @@
-﻿using Jack.DomainValidator;
+﻿using Jack.Domain.Interfaces;
 using System;
 using System.Collections.Generic;
-using Jack.Domain.Interfaces;
-using Jack.Extensions;
 
 namespace Jack.Domain.Entity
 {
@@ -364,7 +362,12 @@ namespace Jack.Domain.Entity
                 (dataBase.Month == dataNascimento.Month && dataBase.Day < dataNascimento.Day))
                 anos--;
 
-            return ((anos < 11) && (!MoralCrista));
+            if (anos < 11)
+            {
+                return true;
+            }
+
+            return MoralCrista;
         }
 
         public virtual bool CriancaMaiorMoralCrista()
@@ -376,7 +379,7 @@ namespace Jack.Domain.Entity
                 (dataBase.Month == dataNascimento.Month && dataBase.Day < dataNascimento.Day))
                 anos--;
 
-            return ((anos < 11) && (MoralCrista));
+            return ((anos > 10) && (MoralCrista));
         }
 
         public virtual void CalculaIdade()
@@ -387,11 +390,54 @@ namespace Jack.Domain.Entity
             idade = oIdade.Anos;
             idadeNominal = string.Format("{0} anos e {1} Meses", oIdade.Anos, oIdade.Meses);
             idadeNominalReduzida = string.Format("{0}A{1}M", oIdade.Anos, oIdade.Meses);
+            if (oIdade.Meses == 0)
+            {
+                idadeNominal = string.Format("{0} anos", oIdade.Anos);
+                idadeNominalReduzida = string.Format("{0}A", oIdade.Anos);
+            }
+            if (oIdade.Anos == 0)
+            {
+                idadeNominal = string.Format("{0} meses", oIdade.Meses);
+                idadeNominalReduzida = string.Format("{0}M", oIdade.Meses);
+            }
             medidaIdade = "A";
             if (idade == 0)
             {
                 medidaIdade = "M";
             }
+        }
+
+        public virtual bool ValidaPorStatus()
+        {
+            var status = false;
+            switch (Status.Codigo)
+            {
+                case 1:
+                case 7:
+                case 11:
+                    status = true;
+                    break;
+                case 2:
+                case 3:
+                case 4:
+                case 5:
+                case 6:
+                case 8:
+                case 9:
+                case 10:
+                case 12:
+                case 13:
+                case 14:
+                case 15:
+                case 16:
+                case 17:
+                    status = false;
+                    break;
+                default:
+                    status = false;
+                    break;
+            }
+            return status;
         }
 
     }

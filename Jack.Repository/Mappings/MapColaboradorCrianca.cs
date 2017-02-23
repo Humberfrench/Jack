@@ -1,5 +1,4 @@
 ﻿using FluentNHibernate.Mapping;
-using System;
 using Jack.Domain.Entity;
 
 

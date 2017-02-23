@@ -1,5 +1,5 @@
-﻿using System.Linq;
-using Jack.Domain.Interfaces;
+﻿using Jack.Domain.Interfaces;
+using System.Linq;
 
 namespace Jack.Repository.UnityOfWork
 {

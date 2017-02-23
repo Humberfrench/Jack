@@ -1,6 +1,4 @@
-﻿using System;
-using Jack.Domain.Interfaces;
-using Jack.Extensions;
+﻿using Jack.Domain.Interfaces;
 namespace Jack.Domain.Entity
 {
     public class KitItem : IEntidade

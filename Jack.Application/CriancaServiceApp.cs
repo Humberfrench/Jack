@@ -1,17 +1,17 @@
 ﻿using AutoMapper;
+using Jack.Application.AutoMapper;
 using Jack.Application.Interfaces;
 using Jack.Application.ViewModel;
-using System;
-using System.Collections.Generic;
-using Jack.Application.AutoMapper;
 using Jack.Domain.Entity;
 using Jack.Domain.Interfaces.Services;
 using Jack.Domain.ObjectValue;
 using Jack.DomainValidator;
+using System;
+using System.Collections.Generic;
 
 namespace Jack.Application
 {
-    public class CriancaServiceApp :  ICriancaServiceApp
+    public class CriancaServiceApp : ICriancaServiceApp
     {
 
         private readonly ICriancaService criancaService;
@@ -56,11 +56,20 @@ namespace Jack.Application
             return criancaService.AtualizaCriancas(familiaId);
         }
 
-        public ValidationResult AtualizaCrianca(CriancaViewModel crianca, bool gravar = true)
+        public ValidationResult AtualizaCriancas(bool todas)
         {
-            var paramCrianca = mapper.Map<Crianca>(crianca);
-            var retCrianca =  criancaService.AtualizaCrianca(paramCrianca, gravar);
-            return retCrianca;
+            return criancaService.AtualizaCriancas(todas);
+        }
+
+        public ValidationResult AtualizaCrianca(int id, bool gravar)
+        {
+            return criancaService.AtualizaCrianca(id, gravar);
+        }
+
+        public ValidationResult AtualizaCrianca(CriancaViewModel crianca, bool gravar)
+        {
+            var criancaValor = mapper.Map<Crianca>(crianca);
+            return criancaService.AtualizaCrianca(criancaValor, gravar);
         }
 
         public Dictionary<string, string> ObterVestimentaPadrao(int idade, string medidaIdade, string sexo, bool isCriancaGrande = false)
@@ -103,5 +112,9 @@ namespace Jack.Application
             GC.SuppressFinalize(this);
         }
 
+        public ValidationResult AtualizaCriancasMaiores()
+        {
+            return criancaService.AtualizaCriancasMaiores();
+        }
     }
 }

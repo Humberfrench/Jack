@@ -32,68 +32,31 @@ C:\Users\humberto.almeida.ext\Documents\Visual Studio 2013\Projects\Jack\Jack.Ap
 C:\Users\humberto.almeida.ext\Documents\Visual Studio 2013\Projects\Jack\Jack.Application\bin\Debug\Jack.DomainValidator.dll
 C:\Users\humberto.almeida.ext\Documents\Visual Studio 2013\Projects\Jack\Jack.Application\bin\Debug\Jack.Extensions.dll
 C:\Users\humberto.almeida.ext\Documents\Visual Studio 2013\Projects\Jack\Jack.Application\bin\Debug\Microsoft.CSharp.dll
-C:\Users\humberto.almeida.ext\Documents\Visual Studio 2013\Projects\Jack\Jack.Application\bin\Debug\Newtonsoft.Json.dll
-C:\Users\humberto.almeida.ext\Documents\Visual Studio 2013\Projects\Jack\Jack.Application\bin\Debug\Jack.Application.ViewModel.pdb
-C:\Users\humberto.almeida.ext\Documents\Visual Studio 2013\Projects\Jack\Jack.Application\bin\Debug\Jack.DomainValidator.pdb
-C:\Users\humberto.almeida.ext\Documents\Visual Studio 2013\Projects\Jack\Jack.Application\bin\Debug\Jack.Domain.pdb
-C:\Users\humberto.almeida.ext\Documents\Visual Studio 2013\Projects\Jack\Jack.Application\bin\Debug\Jack.Extensions.pdb
-C:\Users\humberto.almeida.ext\Documents\Visual Studio 2013\Projects\Jack\Jack.Application\bin\Debug\AutoMapper.xml
-C:\Users\humberto.almeida.ext\Documents\Visual Studio 2013\Projects\Jack\Jack.Application\bin\Debug\Newtonsoft.Json.xml
-C:\Users\humberto.almeida.ext\Documents\Visual Studio 2013\Projects\Jack\Jack.Application\obj\Debug\Jack.Application.csprojResolveAssemblyReference.cache
-C:\Users\humberto.almeida.ext\Documents\Visual Studio 2013\Projects\Jack\Jack.Application\obj\Debug\Jack.Application.dll
-C:\Users\humberto.almeida.ext\Documents\Visual Studio 2013\Projects\Jack\Jack.Application\obj\Debug\Jack.Application.pdb
 C:\Users\humberto.almeida.ext\Documents\Visual Studio 2013\Projects\Jack\Jack.Application\bin\Debug\Jack.Library.dll
 C:\Users\humberto.almeida.ext\Documents\Visual Studio 2013\Projects\Jack\Jack.Application\bin\Debug\System.Web.Optimization.dll
 C:\Users\humberto.almeida.ext\Documents\Visual Studio 2013\Projects\Jack\Jack.Application\bin\Debug\System.Web.Mvc.dll
+C:\Users\humberto.almeida.ext\Documents\Visual Studio 2013\Projects\Jack\Jack.Application\bin\Debug\Newtonsoft.Json.dll
 C:\Users\humberto.almeida.ext\Documents\Visual Studio 2013\Projects\Jack\Jack.Application\bin\Debug\zxing.dll
 C:\Users\humberto.almeida.ext\Documents\Visual Studio 2013\Projects\Jack\Jack.Application\bin\Debug\System.Web.WebPages.dll
 C:\Users\humberto.almeida.ext\Documents\Visual Studio 2013\Projects\Jack\Jack.Application\bin\Debug\System.Web.Razor.dll
 C:\Users\humberto.almeida.ext\Documents\Visual Studio 2013\Projects\Jack\Jack.Application\bin\Debug\System.Web.WebPages.Razor.dll
 C:\Users\humberto.almeida.ext\Documents\Visual Studio 2013\Projects\Jack\Jack.Application\bin\Debug\System.Web.WebPages.Deployment.dll
+C:\Users\humberto.almeida.ext\Documents\Visual Studio 2013\Projects\Jack\Jack.Application\bin\Debug\Jack.Application.ViewModel.pdb
+C:\Users\humberto.almeida.ext\Documents\Visual Studio 2013\Projects\Jack\Jack.Application\bin\Debug\Jack.DomainValidator.pdb
+C:\Users\humberto.almeida.ext\Documents\Visual Studio 2013\Projects\Jack\Jack.Application\bin\Debug\Jack.Domain.pdb
+C:\Users\humberto.almeida.ext\Documents\Visual Studio 2013\Projects\Jack\Jack.Application\bin\Debug\Jack.Extensions.pdb
+C:\Users\humberto.almeida.ext\Documents\Visual Studio 2013\Projects\Jack\Jack.Application\bin\Debug\AutoMapper.xml
+C:\Users\humberto.almeida.ext\Documents\Visual Studio 2013\Projects\Jack\Jack.Application\bin\Debug\Microsoft.CSharp.xml
 C:\Users\humberto.almeida.ext\Documents\Visual Studio 2013\Projects\Jack\Jack.Application\bin\Debug\Jack.Library.pdb
 C:\Users\humberto.almeida.ext\Documents\Visual Studio 2013\Projects\Jack\Jack.Application\bin\Debug\System.Web.Optimization.xml
 C:\Users\humberto.almeida.ext\Documents\Visual Studio 2013\Projects\Jack\Jack.Application\bin\Debug\System.Web.Mvc.xml
+C:\Users\humberto.almeida.ext\Documents\Visual Studio 2013\Projects\Jack\Jack.Application\bin\Debug\Newtonsoft.Json.xml
 C:\Users\humberto.almeida.ext\Documents\Visual Studio 2013\Projects\Jack\Jack.Application\bin\Debug\zxing.pdb
 C:\Users\humberto.almeida.ext\Documents\Visual Studio 2013\Projects\Jack\Jack.Application\bin\Debug\zxing.xml
 C:\Users\humberto.almeida.ext\Documents\Visual Studio 2013\Projects\Jack\Jack.Application\bin\Debug\System.Web.WebPages.xml
 C:\Users\humberto.almeida.ext\Documents\Visual Studio 2013\Projects\Jack\Jack.Application\bin\Debug\System.Web.Razor.xml
 C:\Users\humberto.almeida.ext\Documents\Visual Studio 2013\Projects\Jack\Jack.Application\bin\Debug\System.Web.WebPages.Razor.xml
 C:\Users\humberto.almeida.ext\Documents\Visual Studio 2013\Projects\Jack\Jack.Application\bin\Debug\System.Web.WebPages.Deployment.xml
-C:\Users\humberto.almeida.ext\Documents\Visual Studio 2013\Projects\Jack\Jack.Application\bin\Debug\Microsoft.CSharp.xml
-D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Application\bin\Debug\Jack.Application.dll.config
-D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Application\bin\Debug\Jack.Application.dll
-D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Application\bin\Debug\Jack.Application.pdb
-D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Application\bin\Debug\AutoMapper.dll
-D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Application\bin\Debug\Jack.Application.ViewModel.dll
-D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Application\bin\Debug\Jack.Domain.dll
-D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Application\bin\Debug\Jack.DomainValidator.dll
-D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Application\bin\Debug\Jack.Extensions.dll
-D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Application\bin\Debug\Microsoft.CSharp.dll
-D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Application\bin\Debug\Newtonsoft.Json.dll
-D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Application\bin\Debug\Jack.Library.dll
-D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Application\bin\Debug\System.Web.Optimization.dll
-D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Application\bin\Debug\System.Web.Mvc.dll
-D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Application\bin\Debug\zxing.dll
-D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Application\bin\Debug\System.Web.WebPages.dll
-D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Application\bin\Debug\Microsoft.Web.Infrastructure.dll
-D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Application\bin\Debug\System.Web.Razor.dll
-D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Application\bin\Debug\System.Web.WebPages.Razor.dll
-D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Application\bin\Debug\System.Web.WebPages.Deployment.dll
-D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Application\bin\Debug\Jack.Application.ViewModel.pdb
-D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Application\bin\Debug\Jack.DomainValidator.pdb
-D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Application\bin\Debug\Jack.Domain.pdb
-D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Application\bin\Debug\Jack.Extensions.pdb
-D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Application\bin\Debug\AutoMapper.xml
-D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Application\bin\Debug\Newtonsoft.Json.xml
-D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Application\bin\Debug\Jack.Library.pdb
-D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Application\bin\Debug\System.Web.Optimization.xml
-D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Application\bin\Debug\System.Web.Mvc.xml
-D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Application\bin\Debug\zxing.pdb
-D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Application\bin\Debug\zxing.xml
-D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Application\bin\Debug\System.Web.WebPages.xml
-D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Application\bin\Debug\System.Web.Razor.xml
-D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Application\bin\Debug\System.Web.WebPages.Razor.xml
-D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Application\bin\Debug\System.Web.WebPages.Deployment.xml
-D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Application\obj\Debug\Jack.Application.csprojResolveAssemblyReference.cache
-D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Application\obj\Debug\Jack.Application.dll
-D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Application\obj\Debug\Jack.Application.pdb
+C:\Users\humberto.almeida.ext\Documents\Visual Studio 2013\Projects\Jack\Jack.Application\obj\Debug\Jack.Application.csprojResolveAssemblyReference.cache
+C:\Users\humberto.almeida.ext\Documents\Visual Studio 2013\Projects\Jack\Jack.Application\obj\Debug\Jack.Application.dll
+C:\Users\humberto.almeida.ext\Documents\Visual Studio 2013\Projects\Jack\Jack.Application\obj\Debug\Jack.Application.pdb

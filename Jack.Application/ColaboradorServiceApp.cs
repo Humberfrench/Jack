@@ -1,12 +1,12 @@
-﻿using System;
-using AutoMapper;
+﻿using AutoMapper;
+using Jack.Application.AutoMapper;
 using Jack.Application.Interfaces;
 using Jack.Application.ViewModel;
-using System.Collections.Generic;
-using Jack.Application.AutoMapper;
 using Jack.Domain.Entity;
 using Jack.Domain.Interfaces.Services;
 using Jack.DomainValidator;
+using System;
+using System.Collections.Generic;
 
 namespace Jack.Application
 {

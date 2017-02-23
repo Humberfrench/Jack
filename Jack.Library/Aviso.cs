@@ -16,7 +16,7 @@ namespace Jack.Library
             {
                 get
                 {
-                    return String.Join(", ", this.Mensagens);
+                    return String.Join(", ", Mensagens);
                 }
 
             }
@@ -30,8 +30,8 @@ namespace Jack.Library
 
             public Aviso()
             {
-                this.FieldAlerts = new List<string>();
-                this.Mensagens = new List<string>();
+                FieldAlerts = new List<string>();
+                Mensagens = new List<string>();
             }
 
             public Aviso(string mensagem)
@@ -43,8 +43,8 @@ namespace Jack.Library
             public Aviso(string mensagem, Tipo tipoMensagem)
                 : this()
             {
-                this.TipoMensagem = tipoMensagem;
-                this.Mensagens.Add(mensagem);
+                TipoMensagem = tipoMensagem;
+                Mensagens.Add(mensagem);
             }
         }
  

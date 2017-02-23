@@ -1,6 +1,6 @@
-﻿using System.Collections.Generic;
-using Jack.Application.ViewModel;
+﻿using Jack.Application.ViewModel;
 using Jack.DomainValidator;
+using System.Collections.Generic;
 
 namespace Jack.Application.Interfaces
 {

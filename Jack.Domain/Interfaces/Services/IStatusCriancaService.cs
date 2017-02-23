@@ -1,6 +1,6 @@
-﻿using System.Collections.Generic;
-using Jack.Domain.Entity;
+﻿using Jack.Domain.Entity;
 using Jack.DomainValidator;
+using System.Collections.Generic;
 
 namespace Jack.Domain.Interfaces.Services
 {

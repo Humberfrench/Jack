@@ -7,10 +7,10 @@ var QrCode = new Object();
 
 $("#Gerar").click(function ()
 {
-    QrCode.ObterTeste(128, 128, 151);
+    QrCode.Obter(128, 128, 151);
 });
 
-QrCode.ObterTeste = function (width, height, crianca)
+QrCode.Obter = function (width, height, crianca)
 {
 
     var opcoes = new Object;

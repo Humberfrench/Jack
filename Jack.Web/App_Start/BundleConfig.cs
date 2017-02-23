@@ -54,6 +54,10 @@ namespace Jack.Web
             RegisterSacolasBundle(ref bundles);
             #endregion
 
+            #region Print Sacolas Bundles
+            RegisterPrintSacolasBundle(ref bundles);
+            #endregion
+
             #region Vestimentas Bundles
             RegisterVestimentasBundle(ref bundles);
             #endregion
@@ -828,11 +832,35 @@ namespace Jack.Web
             jssSacolas.Orderer = new AsIsBundleOrderer();
             bundles.Add(jssSacolas);
 
-            jssSacolas = new ScriptBundle("~/script/Sacolas/QrCode");
+       }
+
+        private static void RegisterPrintSacolasBundle(ref BundleCollection bundles)
+        {
+
+
+            var jssjMain = new ScriptBundle("~/script/main/Sacolas");
+            jssjMain.Include("~/Scripts/util/ajax.js");
+            jssjMain.Include("~/Scripts/util/mensagens.js");
+            jssjMain.Include("~/Scripts/util/util.js");
+            jssjMain.Orderer = new AsIsBundleOrderer();
+            bundles.Add(jssjMain);
+ 
+            var jssSacolas = new ScriptBundle("~/script/Sacolas/QrCode");
             jssSacolas.Include("~/Scripts/Sacolas/QrCode.js");
             jssSacolas.Orderer = new AsIsBundleOrderer();
             bundles.Add(jssSacolas);
-       }
+
+            jssSacolas = new ScriptBundle("~/script/Sacolas/Modelo");
+            jssSacolas.Include("~/Scripts/Sacolas/modelo.js");
+            jssSacolas.Orderer = new AsIsBundleOrderer();
+            bundles.Add(jssSacolas);
+
+            // CSS Print 
+            var cssLoad = new StyleBundle("~/Content/Sacola/Print");
+            cssLoad.Include("~/Content/printsacola.css","~/Content/main.css");
+            cssLoad.Orderer = new AsIsBundleOrderer();
+            bundles.Add(cssLoad);
+        }
 
         private static void RegisterKitBundle(ref BundleCollection bundles)
         {

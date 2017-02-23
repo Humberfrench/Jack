@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using Jack.Domain.Entity;
+﻿using Jack.Domain.Entity;
 
 namespace Jack.Domain.Interfaces.Repository
 {

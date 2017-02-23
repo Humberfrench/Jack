@@ -1,5 +1,4 @@
 ﻿using AutoMapper;
-using Jack.Application.AutoMapper;
 using Jack.Application.ViewModel;
 using Jack.Domain.Entity;
 using Jack.Domain.ObjectValue;
@@ -22,6 +21,7 @@ namespace Jack.Application.AutoMapper
                 cfg.CreateMap<CriancaVestimenta, CriancaVestimentaViewModel>().MaxDepth(2);
                 cfg.CreateMap<Familia, FamiliaViewModel>().MaxDepth(2);
                 cfg.CreateMap<Feriado, FeriadoViewModel>().MaxDepth(2);
+                cfg.CreateMap<ItemValue, ItemValueViewModel>().MaxDepth(2);
                 cfg.CreateMap<Kit, KitViewModel>().MaxDepth(2);
                 cfg.CreateMap<KitItem, KitItemViewModel>().MaxDepth(2);
                 cfg.CreateMap<Nivel, NivelViewModel>().MaxDepth(2);
@@ -31,6 +31,7 @@ namespace Jack.Application.AutoMapper
                 cfg.CreateMap<Reuniao, ReuniaoViewModel>().MaxDepth(2);
                 cfg.CreateMap<Roupa, RoupaViewModel>().MaxDepth(2);
                 cfg.CreateMap<Sacola, SacolaViewModel>().MaxDepth(2);
+                cfg.CreateMap<SacolaValue, SacolaValueViewModel>().MaxDepth(2);
                 cfg.CreateMap<Stats, StatsViewModel>().MaxDepth(2);
                 cfg.CreateMap<StatusFamilia, StatusFamiliaViewModel>().MaxDepth(2);
                 cfg.CreateMap<StatusCrianca, StatusCriancaViewModel>().MaxDepth(2);
@@ -44,6 +45,7 @@ namespace Jack.Application.AutoMapper
                 cfg.CreateMap<CriancaViewModel, Crianca>();
                 cfg.CreateMap<FamiliaViewModel, Familia>();
                 cfg.CreateMap<FeriadoViewModel, Feriado>();
+                cfg.CreateMap<ItemValueViewModel, ItemValue>();
                 cfg.CreateMap<KitViewModel, Kit>();
                 cfg.CreateMap<KitItemViewModel, KitItem>();
                 cfg.CreateMap<NivelViewModel, Nivel>();
@@ -53,6 +55,7 @@ namespace Jack.Application.AutoMapper
                 cfg.CreateMap<ReuniaoViewModel, Reuniao>();
                 cfg.CreateMap<RoupaViewModel, Roupa>();
                 cfg.CreateMap<SacolaViewModel, Sacola>();
+                cfg.CreateMap<SacolaValueViewModel, SacolaValue>();
                 cfg.CreateMap<StatsViewModel, Stats>();
                 cfg.CreateMap<StatusFamiliaViewModel, StatusFamilia>();
                 cfg.CreateMap<StatusCriancaViewModel, StatusCrianca>();

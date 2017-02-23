@@ -1,0 +1,122 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.40629.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jack.Domain", "Jack.Domain\Jack.Domain.csproj", "{F7B3290E-90DA-4D22-AC2A-9543CE892909}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0 - Web", "0 - Web", "{BECBBFEF-3B2A-4D20-BE9E-B233C71E6A2F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Application", "1 - Application", "{295C93B9-2255-4E82-9A3E-002DB1C9E92F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Domain", "2 - Domain", "{A642E6BC-0C8C-4E12-8674-9109EF723255}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Data", "3 - Data", "{243C0169-EEA4-4FEF-9E28-328C023EDBDC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Infra", "4 - Infra", "{6709E419-C8CF-420B-B4D5-823857394F65}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jack.Extensions", "Jack.Extensions\Jack.Extensions.csproj", "{0E63A054-3D47-4CDE-BD08-7CA8782C5555}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jack.DomainValidator", "Jack.DomainValidator\Jack.DomainValidator.csproj", "{D1D4158A-1FFB-48B4-9584-47E032BE352A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jack.Repository", "Jack.Repository\Jack.Repository.csproj", "{B6ACF504-4DCB-4EFB-89FA-E94FF2EB4459}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jack.Application.ViewModel", "Jack.Application.ViewModel\Jack.Application.ViewModel.csproj", "{AEB5842E-8F8E-41B0-A8CF-1F05152ADA5C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jack.Application", "Jack.Application\Jack.Application.csproj", "{0F74E976-88E7-4168-B1C6-5A97C4E69682}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jack.Web", "Jack.Web\Jack.Web.csproj", "{7E3D5D93-E460-40DA-965B-168495F6D435}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jack.Library", "Jack.Library\Jack.Library.csproj", "{08A4638F-7190-48DD-B8C2-9C131B517CD2}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 9
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://humberfrench.visualstudio.com/defaultcollection
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = Jack.Domain\\Jack.Domain.csproj
+		SccProjectTopLevelParentUniqueName1 = Jack.sln
+		SccProjectName1 = Jack.Domain
+		SccLocalPath1 = Jack.Domain
+		SccProjectUniqueName2 = Jack.DomainValidator\\Jack.DomainValidator.csproj
+		SccProjectTopLevelParentUniqueName2 = Jack.sln
+		SccProjectName2 = Jack.DomainValidator
+		SccLocalPath2 = Jack.DomainValidator
+		SccProjectUniqueName3 = Jack.Extensions\\Jack.Extensions.csproj
+		SccProjectTopLevelParentUniqueName3 = Jack.sln
+		SccProjectName3 = Jack.Extensions
+		SccLocalPath3 = Jack.Extensions
+		SccProjectUniqueName4 = Jack.Repository\\Jack.Repository.csproj
+		SccProjectTopLevelParentUniqueName4 = Jack.sln
+		SccProjectName4 = Jack.Repository
+		SccLocalPath4 = Jack.Repository
+		SccProjectUniqueName5 = Jack.Application.ViewModel\\Jack.Application.ViewModel.csproj
+		SccProjectTopLevelParentUniqueName5 = Jack.sln
+		SccProjectName5 = Jack.Application.ViewModel
+		SccLocalPath5 = Jack.Application.ViewModel
+		SccProjectUniqueName6 = Jack.Application\\Jack.Application.csproj
+		SccProjectTopLevelParentUniqueName6 = Jack.sln
+		SccProjectName6 = Jack.Application
+		SccLocalPath6 = Jack.Application
+		SccProjectUniqueName7 = Jack.Web\\Jack.Web.csproj
+		SccProjectTopLevelParentUniqueName7 = Jack.sln
+		SccProjectName7 = Jack.Web
+		SccLocalPath7 = Jack.Web
+		SccProjectUniqueName8 = Jack.Library\\Jack.Library.csproj
+		SccProjectTopLevelParentUniqueName8 = Jack.sln
+		SccProjectName8 = Jack.Library
+		SccLocalPath8 = Jack.Library
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F7B3290E-90DA-4D22-AC2A-9543CE892909}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F7B3290E-90DA-4D22-AC2A-9543CE892909}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F7B3290E-90DA-4D22-AC2A-9543CE892909}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F7B3290E-90DA-4D22-AC2A-9543CE892909}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0E63A054-3D47-4CDE-BD08-7CA8782C5555}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0E63A054-3D47-4CDE-BD08-7CA8782C5555}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0E63A054-3D47-4CDE-BD08-7CA8782C5555}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0E63A054-3D47-4CDE-BD08-7CA8782C5555}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D1D4158A-1FFB-48B4-9584-47E032BE352A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D1D4158A-1FFB-48B4-9584-47E032BE352A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D1D4158A-1FFB-48B4-9584-47E032BE352A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D1D4158A-1FFB-48B4-9584-47E032BE352A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B6ACF504-4DCB-4EFB-89FA-E94FF2EB4459}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B6ACF504-4DCB-4EFB-89FA-E94FF2EB4459}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B6ACF504-4DCB-4EFB-89FA-E94FF2EB4459}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B6ACF504-4DCB-4EFB-89FA-E94FF2EB4459}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AEB5842E-8F8E-41B0-A8CF-1F05152ADA5C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AEB5842E-8F8E-41B0-A8CF-1F05152ADA5C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AEB5842E-8F8E-41B0-A8CF-1F05152ADA5C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AEB5842E-8F8E-41B0-A8CF-1F05152ADA5C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0F74E976-88E7-4168-B1C6-5A97C4E69682}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0F74E976-88E7-4168-B1C6-5A97C4E69682}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0F74E976-88E7-4168-B1C6-5A97C4E69682}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0F74E976-88E7-4168-B1C6-5A97C4E69682}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7E3D5D93-E460-40DA-965B-168495F6D435}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E3D5D93-E460-40DA-965B-168495F6D435}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E3D5D93-E460-40DA-965B-168495F6D435}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E3D5D93-E460-40DA-965B-168495F6D435}.Release|Any CPU.Build.0 = Release|Any CPU
+		{08A4638F-7190-48DD-B8C2-9C131B517CD2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{08A4638F-7190-48DD-B8C2-9C131B517CD2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{08A4638F-7190-48DD-B8C2-9C131B517CD2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{08A4638F-7190-48DD-B8C2-9C131B517CD2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{F7B3290E-90DA-4D22-AC2A-9543CE892909} = {A642E6BC-0C8C-4E12-8674-9109EF723255}
+		{0E63A054-3D47-4CDE-BD08-7CA8782C5555} = {6709E419-C8CF-420B-B4D5-823857394F65}
+		{D1D4158A-1FFB-48B4-9584-47E032BE352A} = {6709E419-C8CF-420B-B4D5-823857394F65}
+		{B6ACF504-4DCB-4EFB-89FA-E94FF2EB4459} = {243C0169-EEA4-4FEF-9E28-328C023EDBDC}
+		{AEB5842E-8F8E-41B0-A8CF-1F05152ADA5C} = {295C93B9-2255-4E82-9A3E-002DB1C9E92F}
+		{0F74E976-88E7-4168-B1C6-5A97C4E69682} = {295C93B9-2255-4E82-9A3E-002DB1C9E92F}
+		{7E3D5D93-E460-40DA-965B-168495F6D435} = {BECBBFEF-3B2A-4D20-BE9E-B233C71E6A2F}
+		{08A4638F-7190-48DD-B8C2-9C131B517CD2} = {6709E419-C8CF-420B-B4D5-823857394F65}
+	EndGlobalSection
+EndGlobal

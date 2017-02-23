@@ -1,5 +1,5 @@
-﻿using System.Collections.Generic;
-using Jack.DomainValidator.Interfaces;
+﻿using Jack.DomainValidator.Interfaces;
+using System.Collections.Generic;
 
 namespace Jack.DomainValidator
 {

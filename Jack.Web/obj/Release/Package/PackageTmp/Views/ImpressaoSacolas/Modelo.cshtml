@@ -1,0 +1,96 @@
+﻿@{
+    ViewBag.Title = "Modelo";
+    Layout = "~/Views/Shared/_etiqueta.cshtml";
+}
+<input type="hidden" id="Crianca1" name="Crianca1" value="95" />
+<input type="hidden" id="URLGerarQrCode" name="URLGerarQrCode" value="@Url.Action("GerarQrCode")" />
+<div class="row">&nbsp;</div>
+<div class="container">
+    <div class="panel panel-default">
+        <div class="row">
+            <div class="col-lg-8">
+                @Html.Partial("Header")
+            </div>
+            <div class="col-lg-2">
+                <div>
+                    <h6 class="text-center"><small>Número da Sacola</small></h6>
+                    <h1 class="text-center"><strong>57</strong></h1>
+                </div>
+            </div>
+            <div class="col-lg-2">
+                <div id="divImagemChave"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-10">
+                @Html.Partial("SubHeader")
+            </div>
+        </div>
+        <div class="row">&nbsp;</div>
+        <div class="row">
+            <div class="col-lg-1">&nbsp;</div>
+            <div class="col-lg-5">
+                <h4>Nome da Criança</h4>
+                <h3>José da Silva Santos da Silva</h3>
+            </div>
+            <div class="col-lg-1">
+                <h4>Sexo</h4>
+                <h4>Masculino</h4>
+            </div>
+            <div class="col-lg-2">
+                <h4>Idade</h4>
+                <h4>7 Anos e 11 Meses</h4>
+            </div>
+            <div class="col-lg-2">
+                <h4>É uma Criança Grande/Gordinha</h4>
+            </div>
+            <div class="col-lg-1">&nbsp;</div>
+        </div>
+        <div class="row">
+            <div class="col-lg-1">&nbsp;</div>
+            <div class="col-lg-4">
+                <h6><strong>Nome da Mãe</strong></h6>
+                <h6>Maria da Silva Santos da Silva</h6>
+            </div>
+            <div class="col-lg-4">
+                <h6><strong>Colaborador</strong></h6>
+                <h6>Cátia Petri Nakano</h6>
+            </div>
+            <div class="col-lg-1">
+                <h4>Calçado</h4>
+                <h4>32</h4>
+            </div>
+            <div class="col-lg-1">
+                <h4>Roupa</h4>
+                <h4>8</h4>
+            </div>
+            <div class="col-lg-1">&nbsp;</div>
+        </div>
+        <div class="row">
+            <div class="col-lg-1">&nbsp;</div>
+            <div class="col-lg-6">
+                <h4>Kit da Criança</h4>
+                <h4>Criança Menino (07 Anos)</h4>
+            </div>
+            <div class="col-lg-1">&nbsp;</div>
+        </div>
+        <div class="row">
+            <div class="col-lg-1">&nbsp;</div>
+            <div class="col-lg-10">
+                @Html.Partial("Kit")
+            </div>
+            <div class="col-lg-1">&nbsp;</div>
+        </div>   
+        <div class="row">&nbsp;</div>
+        <div class="row">@Html.Partial("Footer")</div>
+        <div class="row">&nbsp;</div>
+    </div>
+</div>
+@section scripts
+{
+    @Scripts.Render("~/plugins/dataTables")
+    @Scripts.Render("~/script/Sacolas/Modelo")
+}
+
+
+

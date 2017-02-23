@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-using Jack.Application.Interfaces;
+﻿using Jack.Application.Interfaces;
 using Jack.Application.ViewModel;
 using Jack.Library;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web.Mvc;
 
 namespace Jack.Web.Controllers
 {   [RoutePrefix("Parametros")]
@@ -82,7 +80,7 @@ namespace Jack.Web.Controllers
                     TituloMensagem = "Problemas com o formulário:"
                 };
 
-                gravarResult.Erros.ToList().ForEach(x => aviso.Mensagens.Add(x.Message));
+                gravarResult.Erros.ToList().ForEach(x => aviso.Mensagens.Add(x.Messagem));
 
                 TempData["Aviso"] = aviso;
                 return View("Index");

@@ -1,11 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using Dapper;
+﻿using Dapper;
 using Jack.Domain.Entity;
 using Jack.Domain.Interfaces.Repository;
 using Jack.Extensions;
 using Jack.Repository.UnityOfWork;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Jack.Repository
 {

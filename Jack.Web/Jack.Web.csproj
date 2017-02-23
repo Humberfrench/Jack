@@ -402,6 +402,7 @@
     <Content Include="Content\plugins\switchery\switchery.css" />
     <Content Include="Content\plugins\toastr\toastr.min.css" />
     <Content Include="Content\plugins\touchspin\jquery.bootstrap-touchspin.min.css" />
+    <Content Include="Content\printsacola.css" />
     <Content Include="Content\style.css" />
     <Content Include="fonts\font-awesome\css\font-awesome.css" />
     <Content Include="fonts\font-awesome\css\font-awesome.min.css" />
@@ -1294,7 +1295,6 @@
     <Content Include="Content\bootstrap-datepicker.min.css.map" />
     <Content Include="Content\bootstrap-datepicker.css.map" />
     <None Include="Properties\PublishProfiles\1.pubxml" />
-    <None Include="Properties\PublishProfiles\GerenciarTeste.pubxml" />
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.1.1.js" />
     <Content Include="Scripts\jquery-3.1.1.min.js" />
@@ -1465,6 +1465,7 @@
     <Content Include="Scripts\Presenca\main.js" />
     <Content Include="Scripts\Representante\main.js" />
     <Content Include="Scripts\Kit\main.js" />
+    <Content Include="Scripts\Sacolas\modelo.js" />
     <Content Include="Scripts\Sacolas\QrCode.js" />
     <Content Include="Scripts\StatusCrianca\main.js" />
     <Content Include="Scripts\StatusFamilia\main.js" />
@@ -1912,6 +1913,7 @@
     <Compile Include="Controllers\CriancaController.cs" />
     <Compile Include="Controllers\FamiliaController.cs" />
     <Compile Include="Controllers\FeriadoController.cs" />
+    <Compile Include="Controllers\ImpressaoSacolasController.cs" />
     <Compile Include="Controllers\KitController.cs" />
     <Compile Include="Controllers\KitItemController.cs" />
     <Compile Include="Controllers\NivelController.cs" />
@@ -2072,8 +2074,18 @@
     <Content Include="Scripts\jquery-3.1.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.1.1.min.map" />
     <Content Include="Views\Representante\Edicao.cshtml" />
-    <Content Include="Views\Sacolas\QrCode.cshtml" />
+    <Content Include="Views\ImpressaoSacolas\QrCode.cshtml" />
     <Content Include="Views\Processar\Index.cshtml" />
+    <Content Include="Views\ImpressaoSacolas\Modelo2.cshtml" />
+    <Content Include="Views\Shared\_etiqueta.cshtml" />
+    <Content Include="Views\ImpressaoSacolas\Header.cshtml" />
+    <Content Include="Views\ImpressaoSacolas\SubHeader2.cshtml" />
+    <Content Include="Views\ImpressaoSacolas\Kit.cshtml" />
+    <Content Include="Views\ImpressaoSacolas\Footer.cshtml" />
+    <Content Include="Views\ImpressaoSacolas\Cecam.cshtml" />
+    <Content Include="Views\ImpressaoSacolas\Modelo.cshtml" />
+    <Content Include="Views\ImpressaoSacolas\SubHeader.cshtml" />
+    <Content Include="Views\ImpressaoSacolas\Header2.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

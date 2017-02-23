@@ -1,5 +1,5 @@
-﻿using System;
-using Jack.Domain.Interfaces;
+﻿using Jack.Domain.Interfaces;
+using System;
 
 namespace Jack.Domain.Entity
 {
@@ -12,7 +12,7 @@ namespace Jack.Domain.Entity
         private Crianca crianca;
         private int ano;
         private bool devolvida;
-        private DateTime dataCriacao;
+        private DateTime? dataCriacao;
         private DateTime? dataDevolucao;
 
         #endregion
@@ -79,7 +79,7 @@ namespace Jack.Domain.Entity
             }
         }
 
-        public virtual DateTime DataCriacao
+        public virtual DateTime? DataCriacao
         {
             get
             {

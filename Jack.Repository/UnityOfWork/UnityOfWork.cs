@@ -1,12 +1,9 @@
 ﻿using FluentNHibernate.Cfg;
-using FluentNHibernate.Cfg.Db;
 using FluentNHibernate.Conventions.Helpers;
 using FluentNHibernate.Conventions.Inspections;
+using Jack.Domain.Interfaces;
 using NHibernate;
 using NHibernate.Cfg;
-using NHibernate.Tool.hbm2ddl;
-using Jack.Domain.Interfaces;
-using System;
 
 namespace Jack.Repository.UnityOfWork
 {
@@ -42,7 +39,7 @@ namespace Jack.Repository.UnityOfWork
         }
         public void Salvar(IEntidade entidade)
         {
-            Session.Clear();
+            //Session.Clear();
             BeginTransaction();
             Session.SaveOrUpdate(entidade);
             Commit();

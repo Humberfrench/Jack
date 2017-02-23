@@ -7,7 +7,6 @@
 @{
     ViewBag.Title = "Crianças do Colaborador";
     Layout = "~/Views/Shared/_Layout2.cshtml";
-    var disabled = "";
     IEnumerable<SelectListItem> colaboradorLista = ViewBag.Colaborador as IEnumerable<SelectListItem>;
 }
 
@@ -34,11 +33,11 @@
                     <div class="row">
                         <div class="col-lg-1">
                         </div>
-                       <div class="col-lg-6">
+                        <div class="col-lg-6">
                             <label id="labelFamilia" for="Colaborador">Colaborador</label>
                             @Html.DropDownList("Colaborador", colaboradorLista, new { @id = "Colaborador", @class = "form-control m-b" })
-                           <input type="hidden" value="@ViewBag.ColaboradorId" id="ColaboradorId" name="ColaboradorId" />
-                           <input type="hidden" value="@ViewBag.Ano" id="AnoValue" name="AnoValue" />
+                            <input type="hidden" value="@ViewBag.ColaboradorId" id="ColaboradorId" name="ColaboradorId" />
+                            <input type="hidden" value="@ViewBag.Ano" id="AnoValue" name="AnoValue" />
                         </div>
                         <div class="col-lg-2">
                             <label id="labelAno" for="Ano">Ano</label>
@@ -82,22 +81,32 @@
                         <tbody>
                             @foreach (var item in Model)
                             {
-                                disabled = "";
+                                var disabled = "";
+                                var metodo = string.Format("return Colaborador.Devolver('{0}','{1}','{2}'", 0, item.Colaborador.Codigo, item.Ano);
+                                var sacolaFamilia = "N/A";
+                                var sacola = "N/A";
+
                                 if (item.Devolvida)
                                 {
                                     disabled = "disabled=disabled";
                                 }
+                                if(item.Crianca.Sacola != null)
+                                {
+                                    metodo = string.Format("return Colaborador.Devolver('{0}','{1}','{2}'", item.Crianca.Sacola.Codigo, item.Colaborador.Codigo, item.Ano);
+                                    sacolaFamilia = item.Crianca.Sacola.SacolaFamilia.ToString();
+                                    sacola = item.Crianca.Sacola.Codigo.ToString();
+                                }
                                 <tr>
-                                    <td>@Html.DisplayFor(modelItem => item.Crianca.Sacola.SacolaFamilia)</td>
-                                    <td>@Html.DisplayFor(modelItem => item.Crianca.Sacola.Codigo)</td>
+                                    <td>@sacolaFamilia</td>
+                                    <td>@sacola</td>
                                     <td>@Html.DisplayFor(modelItem => item.Crianca.Nome)</td>
                                     <td>@Html.DisplayFor(modelItem => item.Crianca.IdadeNominalReduzida)</td>
                                     <td>@Html.DisplayFor(modelItem => item.Crianca.Calcado)</td>
                                     <td>@Html.DisplayFor(modelItem => item.Crianca.Roupa)</td>
-                                    <td>@item.Devolvida.ToSimNao() </td>
-                                    <td>@item.DataDevolucao.ToDateFormated() </td>
-                                    <td style="text-align:right;">
-                                        <button type="button" id="Devolver" name="Devolver" class="btn btn-success btn-sm" onclick="return Colaborador.Devolver('@item.Crianca.Sacola.Codigo', '@item.Colaborador.Codigo','@item.Ano')" @disabled>
+                                    <td>@item.Devolvida.ToSimNao()</td>
+                                    <td>@item.DataDevolucao.ToDateFormated()</td>
+                                    <td style="text-align:right;">                                                                                                
+                                        <button type="button" id="Devolver" name="Devolver" class="btn btn-success btn-sm" onclick="@metodo" @disabled>
                                             <i class=" glyphicon glyphicon-gift" data-toggle="tooltip" data-placement="top" title="Devolver Sacola">
                                             </i>
                                         </button>

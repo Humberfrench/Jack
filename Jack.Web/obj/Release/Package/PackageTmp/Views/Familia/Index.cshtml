@@ -18,6 +18,7 @@
 <input type="hidden" name="URLObterPresencas" id="URLObterPresencas" value="@Url.Action("ObterPresencas")" />
 <input type="hidden" name="URLProcessar" id="URLProcessar" value="@Url.Action("Processar")" />
 <input type="hidden" name="URLProcessarCriancas" id="URLProcessarCriancas" value="@Url.Action("ProcessarCriancas")" />
+<input type="hidden" name="URLProcessarPresenca" id="URLProcessarPresenca" value="@Url.Action("ProcessarPresenca", "Familia")" />
 
 <div class="wrapper wrapper-content animated fadeInRight">
     <div class="row">
@@ -115,7 +116,11 @@
                                         </button>
                                         <button type="button" class="btn btn-info btn-sm" onclick="return Familia.Processar('@item.Codigo')">
                                             <i class="glyphicon glyphicon-flag" data-toggle="tooltip" data-placement="top" title="Processar Dados da Família"></i>
-                                        </button>                                        <button type="button" class="btn warning btn-sm" onclick="return Familia.Representantes('@item.Codigo')">
+                                        </button>
+                                        <button type="button" class="btn btn-warning btn-sm" onclick="return Familia.ProcessarPresenca('@item.Codigo')">
+                                            <i class="glyphicon glyphicon-scale" data-toggle="tooltip" data-placement="top" title="Processar Dados de Presença da Família"></i>
+                                        </button>
+                                        <button type="button" class="btn warning btn-sm" onclick="return Familia.Representantes('@item.Codigo')">
                                             <i class="fa fa-group" data-toggle="tooltip" data-placement="top" title="Representantes"></i>
                                         </button>
                                         <button type="button" class="btn btn-warning btn-sm" onclick="return Familia.Criancas('@item.Codigo')">

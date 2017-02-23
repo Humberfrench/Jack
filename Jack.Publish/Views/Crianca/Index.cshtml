@@ -8,12 +8,18 @@
     ViewBag.Title = "Crianças";
     Layout = "~/Views/Shared/_Layout2.cshtml";
     IEnumerable<SelectListItem> familiaLista = ViewBag.Familia as IEnumerable<SelectListItem>;
+    var habilitado = ViewBag.Acoes;
 }
 
 <input type="hidden" name="URLObterTodos" id="URLObterTodos" value="@Url.Action("Index")" />
 <input type="hidden" name="URLEdit" id="URLEdit" value="@Url.Action("Edit")" />
 <input type="hidden" name="URLGravar" id="URLGravar" value="@Url.Action("Gravar")" />
 <input type="hidden" name="URLExcluir" id="URLExcluir" value="@Url.Action("Excluir")" />
+<input type="hidden" name="URLObterParametro" id="URLObterParametro" value="@Url.Action("Obter","Parametro")" />
+<input type="hidden" name="URLProcessarCriancas" id="URLProcessarCriancas" value="@Url.Action("ProcessarCriancas", "Familia")" />
+<input type="hidden" name="URLProcessarCrianca" id="URLProcessarCrianca" value="@Url.Action("ProcessarCrianca")" />
+<input type="hidden" name="URLProcessarPresenca" id="URLProcessarPresenca" value="@Url.Action("ProcessarPresenca", "Familia")" />
+<input type="hidden" name="URLProcessarFamilia" id="URLProcessarFamilia" value="@Url.Action("Processar", "Familia")" />
 
 <div class="wrapper wrapper-content animated fadeInRight">
     <div class="row">
@@ -22,8 +28,26 @@
                 <div class="ibox-title">
                     <h5>Crianças</h5>
                     <div class="ibox-tools">
+                        <button type="button" id="ProcessarFamilia" name="ProcessarFamilia"
+                                class="btn btn-warning btn-lg" @habilitado
+                                data-toggle="tooltip" data-placement="top"
+                                title="Processar Família">
+                            <i class="glyphicon glyphicon-file"></i>&nbsp;Processar Família
+                        </button>
+                        <button type="button" id="ProcessarPresenca" name="ProcessarPresenca"
+                                class="btn btn-warning btn-lg" @habilitado
+                                data-toggle="tooltip" data-placement="top"
+                                title="Processar Presenças">
+                            <i class="glyphicon glyphicon-file"></i>&nbsp;Processar Presenças
+                        </button>
+                        <button type="button" id="ProcessarCriancas" name="ProcessarCriancas"
+                                class="btn btn-warning btn-lg" @habilitado
+                                data-toggle="tooltip" data-placement="top"
+                                title="Processar Crianças">
+                            <i class="glyphicon glyphicon-file"></i>&nbsp;Processar Crianças
+                        </button>
                         <button type="button" id="Novo" name="Novo"
-                                class="btn btn-success btn-lg"
+                                class="btn btn-success btn-lg" @habilitado
                                 data-toggle="tooltip" data-placement="top"
                                 title="Novo Registro">
                             <i class="glyphicon glyphicon-file"></i>&nbsp;Novo
@@ -49,13 +73,17 @@
                                 <i class="glyphicon glyphicon-search"></i>
                             </button>
                         </div>
-                        <div class="col-lg-2">
+                        <div class="col-lg-1">
                             <label id="labelCriancas" for="Criancas">Crianças</label>
                             <input type="text" name="Criancas" id="Criancas" readonly="readonly" class="form-control m-b" value="@ViewBag.Criancas" style="width:75%;">
                         </div>
-                        <div class="col-lg-2">
+                        <div class="col-lg-1">
                             <label id="labelPresencas" for="Presencas">Presenças</label>
                             <input type="text" name="Presencas" id="Presencas" readonly="readonly" class="form-control m-b" value="@ViewBag.Presencas" style="width:75%;">
+                        </div>
+                        <div class="col-lg-2">
+                            <label id="labelNivel" for="Nivel">Nível</label>
+                            <input type="text" name="Nivel" id="Nivel" readonly="readonly" class="form-control m-b" value="@ViewBag.Nivel" style="width:75%;">
                         </div>
                         <div class="col-lg-2">
                             <label id="labelPercentualCriancas" for="Criancas">% Crianças</label><br />
@@ -141,7 +169,7 @@
                                         @Html.DisplayFor(modelItem => item.Status.Descricao)
                                     </td>
                                     <td style="text-align:right;">
-                                        <button type="button" class="btn btn-info btn-sm" onclick="return Crianca.Processar('@item.Codigo')" data-toggle="tooltip" data-placement="top" title="Processar Dados da Crianca">
+                                        <button type="button" class="btn btn-info btn-sm" onclick="return Crianca.ProcessarCrianca('@item.Codigo')" data-toggle="tooltip" data-placement="top" title="Processar Dados da Crianca">
                                             <i class="glyphicon glyphicon-flag"></i>
                                         </button>
                                         <button type="button" class="btn btn-success btn-sm" onclick="return Crianca.Editar('@item.Codigo')" data-toggle="tooltip" data-placement="top" title="Editar Registro">

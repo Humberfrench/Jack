@@ -1,6 +1,6 @@
 ﻿using Jack.DomainValidator;
-using System.Web.Mvc;
 using Jack.Library;
+using System.Web.Mvc;
 
 namespace Jack.Web.Controllers
 {
@@ -15,7 +15,7 @@ namespace Jack.Web.Controllers
 
             foreach (ValidationError itemErro in resultValue.Erros)
             {
-                var retornoTemp = string.Format("- {0} <br />", itemErro.Message);
+                var retornoTemp = string.Format("- {0} <br />", itemErro.Messagem);
                 retorno += retornoTemp;
             }
 

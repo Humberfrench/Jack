@@ -1,11 +1,8 @@
-﻿using System;
+﻿using Jack.Application.Interfaces;
+using Jack.Library;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
-using Jack.Application.Interfaces;
-using Jack.Application.ViewModel;
-using Jack.Library;
 
 namespace Jack.Web.Controllers
 {

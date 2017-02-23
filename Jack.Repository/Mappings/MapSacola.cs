@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using FluentNHibernate.Mapping;
+﻿using FluentNHibernate.Mapping;
 using Jack.Domain.Entity;
 
 namespace Jack.Repository.Mappings
@@ -17,7 +12,8 @@ namespace Jack.Repository.Mappings
             LazyLoad();
 
             //Fields
-            Id(x => x.Codigo).Column("Codigo");
+            Id(x => x.Id).Column("Id");
+            Map(x => x.Codigo).Column("Codigo").Not.Nullable();
             Map(x => x.SacolaFamilia).Column("SacolaFamilia").Not.Nullable();
             Map(x => x.Sexo).Column("Sexo").Not.Nullable();
             Map(x => x.Impressa).Column("Impressa").Not.Nullable();

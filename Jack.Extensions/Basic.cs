@@ -4,7 +4,6 @@ using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Web.Script.Serialization;
 
 namespace Jack.Extensions
@@ -96,6 +95,25 @@ namespace Jack.Extensions
                 return dateValue.Value.ToString("dd/MM/yyyy");
             }
             return "";
+        }
+
+        public static string ToSaudacao(this DateTime dateValue)
+        {
+            string saudacao = default(string);
+            if (dateValue.Hour >= 0 && dateValue.Hour < 12)
+            {
+                saudacao = "Bom dia";
+            }
+            else if (dateValue.Hour >= 12 && dateValue.Hour < 18)
+            {
+                saudacao = "Boa tarde";
+            }
+            else if (dateValue.Hour >= 18)
+            {
+                saudacao = "Boa noite";
+            }
+
+            return saudacao;
         }
 
         public static string ToTimeFormated(this DateTime? dateValue)
@@ -397,5 +415,21 @@ namespace Jack.Extensions
             return result;
         }
 
+
+        public static string GetFirstAndLastName(this string name)
+        {
+
+            string[] names = name.Split(' ');
+            return string.Format("{0} {1}", names.First(), names.Last());
+
+        }
+
+        public static string GetFirstName(this string name)
+        {
+
+            string[] names = name.Split(' ');
+            return string.Format("{0}", names.First());
+
+        }
     }
 }

@@ -1,6 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using Jack.Library;
+using System.Collections.Generic;
 using System.Web.Mvc;
-using Jack.Library;
 
 namespace Jack.Web.Controllers
 {

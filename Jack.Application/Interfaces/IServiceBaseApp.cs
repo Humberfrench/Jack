@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq.Expressions;
-using Jack.DomainValidator;
+﻿using System.Collections.Generic;
 
 namespace Jack.Application.Interfaces
 {

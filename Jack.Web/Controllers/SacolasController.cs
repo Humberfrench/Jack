@@ -1,10 +1,9 @@
-﻿using System;
+﻿using Jack.Application.Interfaces;
+using Jack.Application.ViewModel;
+using Jack.Library;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
-using Jack.Application.Interfaces;
-using Jack.Application.ViewModel;
-using Jack.Library;
 
 namespace Jack.Web.Controllers
 {
@@ -55,29 +54,9 @@ namespace Jack.Web.Controllers
 
             ViewBag.Nivel = ObterNivelParaCombo();
             ViewBag.NivelId = 0;
-            ViewBag.LiberadoValue = 0; 
+            ViewBag.LiberadoValue = 0;
             var listaDados = sacolaAppService.ObterTodos();
             return View(listaDados);
-        }
-
-        [Route("QrCode")]
-        public ActionResult QrCode()
-        {
-            #region BreadCrumb
-            var breadCrumb = new BreadCrumbETitulo
-            {
-                Titulo = "Consulta de Sacolas",
-                BreadCrumbs = new List<BreadCrumb>
-                {
-                 new BreadCrumb {LinkText = "Teste de Qr Code", ActionName = "QrCode", ControllerName = "Sacolas"}
-                }
-            };
-
-            TempData["BreadCrumETitulo"] = breadCrumb;
-            #endregion
-
-            var listaDados = sacolaAppService.ObterTodos();
-            return View();
         }
 
         [Route("Nivel/{nivel}/Liberado/{liberado}")]
@@ -186,7 +165,7 @@ namespace Jack.Web.Controllers
                 Titulo = "Adicionar Crianca a Sacola",
                 BreadCrumbs = new List<BreadCrumb>
                 {
-                 new BreadCrumb {LinkText = "Adicionar Crianca a Sacola", ActionName = "Index", ControllerName = "Crianca"},
+                 new BreadCrumb {LinkText = "Adicionar Crianca a Sacola", ActionName = "Index", ControllerName = "Sacolas"},
                  new BreadCrumb {LinkText = "Lista", ActionName = "Index", ControllerName = "Crianca"}
                 }
             };
@@ -211,7 +190,7 @@ namespace Jack.Web.Controllers
                 Titulo = "Adicionar Crianca a Sacola",
                 BreadCrumbs = new List<BreadCrumb>
                 {
-                 new BreadCrumb {LinkText = "Adicionar Crianca a Sacola", ActionName = "Index", ControllerName = "Crianca"},
+                 new BreadCrumb {LinkText = "Adicionar Crianca a Sacola", ActionName = "Index", ControllerName = "Sacolas"},
                  new BreadCrumb {LinkText = "Lista", ActionName = "Index", ControllerName = "Crianca"}
                 }
             };
@@ -232,6 +211,50 @@ namespace Jack.Web.Controllers
             }
 
             return View(listaDados);
+        }
+
+        public ActionResult GerarSacolas()
+        {
+            #region BreadCrumb
+            var breadCrumb = new BreadCrumbETitulo
+            {
+                Titulo = "Gerar Sacolas",
+                BreadCrumbs = new List<BreadCrumb>
+                {
+                 new BreadCrumb {LinkText = "Gerar Sacolas", ActionName = "Index", ControllerName = "Sacolas"}
+                }
+            };
+
+            TempData["BreadCrumETitulo"] = breadCrumb;
+            #endregion
+
+            ViewBag.Ano = 0;
+
+            var listaDados = new List<SacolaViewModel>();
+            return View(listaDados);
+
+        }
+        public ActionResult GerarSacolas(int ano)
+        {
+            #region BreadCrumb
+            var breadCrumb = new BreadCrumbETitulo
+            {
+                Titulo = "Gerar Sacolas",
+                BreadCrumbs = new List<BreadCrumb>
+                {
+                 new BreadCrumb {LinkText = "Gerar Sacolas", ActionName = "Index", ControllerName = "Sacolas"}
+                }
+            };
+
+
+            TempData["BreadCrumETitulo"] = breadCrumb;
+            #endregion
+
+            ViewBag.Ano = ano;
+
+            var retorno = sacolaAppService.ProcessarSacolas(ano);
+
+            return View(retorno);
         }
 
         [Route("AdicionarCriancaNaSacola")]
@@ -258,18 +281,6 @@ namespace Jack.Web.Controllers
             }
 
             return Json(retorno, JsonRequestBehavior.AllowGet);
-        }
-
-        [Route("GerarQrCode")]
-        [HttpPost]
-        public ActionResult GerarQrCode(int width, int height, int crianca)
-        {
-            var tipo = sacolaAppService.GerarQrCode(width, height, crianca);
-
-            byte[] imgBytes = (byte[])tipo;
-            string base64String = Convert.ToBase64String(imgBytes, 0, imgBytes.Length);
-
-            return Json(base64String, JsonRequestBehavior.AllowGet);
         }
 
         #endregion

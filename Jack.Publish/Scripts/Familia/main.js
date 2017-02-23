@@ -13,6 +13,8 @@ Familia.URLObterCriancas = '';
 Familia.URLObterRepresentantes = '';
 Familia.URLObterPresencas = '';
 Familia.URLProcessar = '';
+Familia.URLProcessarCriancas = '';
+Familia.URLProcessarPresenca = '';
 
 $(document).ready(function ()
 {
@@ -26,6 +28,8 @@ $(document).ready(function ()
     Familia.URLObterPresencas = $("#URLObterPresencas").val();
     Familia.URLObterRepresentantes = $("#URLObterRepresentantes").val();
     Familia.URLProcessar = $("#URLProcessar").val();
+    Familia.URLProcessarCriancas = $("#URLProcessarCriancas").val();
+    Familia.URLProcessarPresenca = $("#URLProcessarPresenca").val();
 
     $("#Pesquisar").click(function ()
     {
@@ -436,7 +440,14 @@ Familia.Processar = function (codigo)
         var dataObj = eval(response);
         if (dataObj.Erro)
         {
-            Mensagens.Info(dataObj.Mensagem);
+            if (dataObj.Warning)
+            {
+                Mensagens.Info(dataObj.Mensagem);
+            }
+            else
+            {
+                Mensagens.Erro(dataObj.Mensagem);
+            }
         }
         else
         {
@@ -467,7 +478,48 @@ Familia.ProcessarCriancas = function (codigo)
         var dataObj = eval(response);
         if (dataObj.Erro)
         {
-            Mensagens.Info(dataObj.Mensagem);
+            if (dataObj.Warning)
+            {
+                Mensagens.Info(dataObj.Mensagem);
+            }
+            else
+            {
+                Mensagens.Erro(dataObj.Mensagem);
+            }
+        }
+        else
+        {
+            Mensagens.Sucesso(dataObj.Mensagem);
+        }
+    };
+
+    opcoes.dadoEnvio = new Object;
+    opcoes.dadoEnvio.id = codigo;
+    opcoes.type = 'POST';
+    opcoes.async = false;
+
+    Ajax.Execute(opcoes);
+
+}
+
+Familia.ProcessarPresenca = function (codigo)
+{
+    var opcoes = new Object;
+    opcoes.url = Familia.URLProcessarPresenca;
+
+    opcoes.callBackSuccess = function (response)
+    {
+        var dataObj = eval(response);
+        if (dataObj.Erro)
+        {
+            if (dataObj.Warning)
+            {
+                Mensagens.Info(dataObj.Mensagem);
+            }
+            else
+            {
+                Mensagens.Erro(dataObj.Mensagem);
+            }
         }
         else
         {

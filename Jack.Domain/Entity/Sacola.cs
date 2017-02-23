@@ -6,6 +6,7 @@ namespace Jack.Domain.Entity
     {
         public Sacola()
         {
+            id = 0;
             codigo = 0;
             sacolaFamilia = 0;
             sexo = string.Empty;
@@ -13,6 +14,7 @@ namespace Jack.Domain.Entity
             liberado = false;
         }
 
+        private int id;
         private int codigo;
         private int sacolaFamilia;
         private Familia familia;
@@ -36,6 +38,17 @@ namespace Jack.Domain.Entity
             }
         }
 
+        public virtual int Id
+        {
+            get
+            {
+                return id;
+            }
+            set
+            {
+                id = value;
+            }
+        }
         public virtual int SacolaFamilia
         {
             get

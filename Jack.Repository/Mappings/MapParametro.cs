@@ -1,5 +1,4 @@
 ﻿using FluentNHibernate.Mapping;
-using System;
 using Jack.Domain.Entity;
 
 namespace Jack.Repository.Mappings
@@ -26,6 +25,7 @@ namespace Jack.Repository.Mappings
             Map(x => x.TerceiroSabado).Column("TerceiroSabado").Nullable();
             Map(x => x.AnoCorrente).Column("AnoCorrente").Nullable();
             Map(x => x.PodeGerarNovasSacolas).Column("PodeGerarNovasSacolas").Nullable();
+            Map(x => x.AjusteAutomaticoNoProcessamento).Column("AjusteAutomaticoNoProcessamento").Nullable();
 
         }
     }

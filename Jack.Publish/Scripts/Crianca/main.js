@@ -11,14 +11,27 @@ Crianca.URLEdit = '';
 Crianca.URLGravar = '';
 Crianca.URLExcluir = '';
 Crianca.URLObterCriancas = '';
-Crianca.URLObterRepresentantes = '';
+Crianca.URLObterParametro = '';
 Crianca.URLObterPresencas = '';
+Crianca.URLProcessarCriancas = '';
+Crianca.URLProcessarCrianca = '';
+Crianca.URLProcessarPresenca = '';
+Crianca.URLProcessarFamilia = '';
 
 Crianca.NumeroMaximoCricancas = 0;
 Crianca.CalcadoLimite = 0;
 
 $(document).ready(function ()
 {
+    Crianca.URLProcessarCriancas = $("#URLProcessarCriancas").val();
+    Crianca.URLProcessarCrianca = $("#URLProcessarCrianca").val();
+    Crianca.URLProcessarPresenca = $("#URLProcessarPresenca").val();
+    Crianca.URLProcessarFamilia = $("#URLProcessarFamilia").val();
+    Crianca.URLObterTodos = $("#URLObterTodos").val();
+    Crianca.URLEdit = $("#URLEdit").val();
+    Crianca.URLGravar = $("#URLGravar").val();
+    Crianca.URLExcluir = $("#URLExcluir").val();
+    Crianca.URLObterParametro = $("#URLObterParametro").val();
     Crianca.MontarTabela();
 
     $("#Familia").val(null);
@@ -30,6 +43,21 @@ $(document).ready(function ()
     {
         $("#Novo").prop('disabled', 'disabled');
     }
+
+    $("#ProcessarFamilia").click(function ()
+    {
+        Familia.ProcessarFamilia($("#CodigoFamilia").val());
+    });
+
+    $("#ProcessarPresenca").click(function ()
+    {
+        Familia.ProcessarPresenca($("#CodigoFamilia").val());
+    });
+
+    $("#ProcessarCriancas").click(function ()
+    {
+        Familia.ProcessarCriancas($("#CodigoFamilia").val());
+    });
 
     $("#Status").val(14);
     Crianca.UpdateCalendario();
@@ -120,7 +148,7 @@ $(document).ready(function ()
 Crianca.ObterParametros = function ()
 {
     var opcoes = new Object;
-    opcoes.url = '/Parametros/Obter';
+    opcoes.url = Crianca.URLObterParametro;
 
     opcoes.callBackSuccess = function (response)
     {
@@ -571,6 +599,130 @@ Crianca.Excluir = function (codigo)
 {
     var opcoes = new Object;
     opcoes.url = Crianca.URLExcluir;
+
+    opcoes.callBackSuccess = function (response)
+    {
+        var dataObj = eval(response);
+        if (dataObj.Erro)
+        {
+            Mensagens.Erro(dataObj.Mensagem);
+        }
+        else
+        {
+            Mensagens.Sucesso(dataObj.Mensagem);
+            setTimeout(function ()
+            {
+                location.reload();
+            }, 1500);
+        }
+    };
+
+    opcoes.dadoEnvio = new Object;
+    opcoes.dadoEnvio.id = codigo;
+    opcoes.type = 'POST';
+    opcoes.async = false;
+
+    Ajax.Execute(opcoes);
+
+}
+
+Crianca.ProcessarCrianca = function (codigo)
+{
+    var opcoes = new Object;
+    opcoes.url = Crianca.URLProcessarCrianca;
+
+    opcoes.callBackSuccess = function (response)
+    {
+        var dataObj = eval(response);
+        if (dataObj.Erro)
+        {
+            Mensagens.Erro(dataObj.Mensagem);
+        }
+        else
+        {
+            Mensagens.Sucesso(dataObj.Mensagem);
+            setTimeout(function ()
+            {
+                location.reload();
+            }, 1500);
+        }
+    };
+
+    opcoes.dadoEnvio = new Object;
+    opcoes.dadoEnvio.id = codigo;
+    opcoes.type = 'POST';
+    opcoes.async = false;
+
+    Ajax.Execute(opcoes);
+
+}
+
+Crianca.ProcessarPresenca = function (codigo)
+{
+    var opcoes = new Object;
+    opcoes.url = Crianca.URLProcessarPresenca;
+
+    opcoes.callBackSuccess = function (response)
+    {
+        var dataObj = eval(response);
+        if (dataObj.Erro)
+        {
+            Mensagens.Erro(dataObj.Mensagem);
+        }
+        else
+        {
+            Mensagens.Sucesso(dataObj.Mensagem);
+            setTimeout(function ()
+            {
+                location.reload();
+            }, 1500);
+        }
+    };
+
+    opcoes.dadoEnvio = new Object;
+    opcoes.dadoEnvio.id = codigo;
+    opcoes.type = 'POST';
+    opcoes.async = false;
+
+    Ajax.Execute(opcoes);
+
+}
+
+Crianca.ProcessarCriancas = function (codigo)
+{
+    var opcoes = new Object;
+    opcoes.url = Crianca.URLProcessarCriancas;
+
+    opcoes.callBackSuccess = function (response)
+    {
+        var dataObj = eval(response);
+        if (dataObj.Erro)
+        {
+            Mensagens.Erro(dataObj.Mensagem);
+        }
+        else
+        {
+            Mensagens.Sucesso(dataObj.Mensagem);
+            setTimeout(function ()
+            {
+                location.reload();
+            }, 1500);
+        }
+    };
+
+    opcoes.dadoEnvio = new Object;
+    opcoes.dadoEnvio.id = codigo;
+    opcoes.type = 'POST';
+    opcoes.async = false;
+
+    Ajax.Execute(opcoes);
+
+}
+
+Crianca.ProcessarFamilia = function (codigo)
+{
+    var opcoes = new Object;
+    opcoes.url = Crianca.URLProcessarFamilia;
 
     opcoes.callBackSuccess = function (response)
     {

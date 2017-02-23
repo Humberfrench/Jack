@@ -1,9 +1,9 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using Jack.Domain.Entity;
+﻿using Jack.Domain.Entity;
 using Jack.Domain.Interfaces.Repository;
 using Jack.Domain.Interfaces.Services;
 using Jack.DomainValidator;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Jack.Domain.Services
 {

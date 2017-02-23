@@ -7,10 +7,27 @@ namespace Jack.DomainValidator
     {
         public ValidationError(string message)
         {
-            this.Message = message;
+            Codigo = 0;
+            Messagem = message;
+            Erro = true;
         }
+        public ValidationError(string message, bool erro)
+        {
+            Codigo = 0;
+            Messagem = message;
+            Erro = erro;
+        }
+        public ValidationError(int codigo, string message, bool erro)
+        {
+            Codigo = codigo;
+            Messagem = message;
+            Erro = erro;
+        }  
+        public int Codigo{ get; set; }
 
-        public string Message { get; set; }
+        public string Messagem { get; set; }
+
+        public bool Erro { get; set; }
     }
 }
 

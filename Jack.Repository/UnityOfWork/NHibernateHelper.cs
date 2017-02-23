@@ -1,11 +1,9 @@
 ﻿using FluentNHibernate.Cfg;
-using FluentNHibernate.Cfg.Db;
 using FluentNHibernate.Conventions.Helpers;
 using FluentNHibernate.Conventions.Inspections;
 using NHibernate;
 using NHibernate.Cfg;
 using NHibernate.Context;
-using NHibernate.Tool.hbm2ddl;
 using System;
 
 namespace Jack.Repository.UnityOfWork

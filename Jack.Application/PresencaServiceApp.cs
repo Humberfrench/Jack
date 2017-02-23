@@ -1,12 +1,12 @@
 ﻿using AutoMapper;
+using Jack.Application.AutoMapper;
 using Jack.Application.Interfaces;
 using Jack.Application.ViewModel;
-using System;
-using System.Collections.Generic;
-using Jack.Application.AutoMapper;
 using Jack.Domain.Entity;
 using Jack.Domain.Interfaces.Services;
 using Jack.DomainValidator;
+using System;
+using System.Collections.Generic;
 
 namespace Jack.Application
 {
@@ -27,6 +27,17 @@ namespace Jack.Application
             return _service.Gravar(reuniao, familia);
         }
 
+        public ValidationResult Gravar(ReuniaoViewModel reuniao, FamiliaViewModel familia)
+        {
+            
+            var familiaD = mapper.Map<Familia>(familia);
+
+            var reuniaoD = mapper.Map<Reuniao>(reuniao);
+
+            return _service.Gravar(reuniaoD, familiaD);
+
+        }
+
         public ValidationResult Excluir(int id)
         {
             return _service.Excluir(id);
@@ -34,8 +45,11 @@ namespace Jack.Application
 
         public List<StatsViewModel> ObterDadosPresenca(int familiaId)
         {
+           
             var presenca = _service.ObterDadosPresenca(familiaId);
+
             return mapper.Map<List<StatsViewModel>>(presenca);
+
         }
 
         public IEnumerable<FamiliaViewModel> ObterFamiliasDisponiveis(int reuniao)
@@ -48,6 +62,11 @@ namespace Jack.Application
         {
             var presenca = _service.ObterFamiliasDisponiveis(reuniao, letra);
             return mapper.Map<IEnumerable<FamiliaViewModel>>(presenca);
+        }
+
+        public ValidationResult ProcessarPresencaGarantida()
+        {
+            return _service.ProcessarPresencaGarantida();
         }
 
         public PresencaViewModel ObterPorId(int id)

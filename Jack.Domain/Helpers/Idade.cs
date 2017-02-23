@@ -1,5 +1,5 @@
-﻿using System;
-using Jack.DomainValidator;
+﻿using Jack.DomainValidator;
+using System;
 
 namespace Jack.Domain.Helpers
 {

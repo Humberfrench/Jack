@@ -1,5 +1,5 @@
-﻿using System;
-using Jack.Domain.Interfaces;
+﻿using Jack.Domain.Interfaces;
+using System;
 
 namespace Jack.Domain.Entity
 {

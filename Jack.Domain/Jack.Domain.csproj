@@ -15,6 +15,12 @@
     <SccLocalPath>SAK</SccLocalPath>
     <SccAuxPath>SAK</SccAuxPath>
     <SccProvider>SAK</SccProvider>
+    <UpdateAssemblyVersion>True</UpdateAssemblyVersion>
+    <UpdateAssemblyFileVersion>True</UpdateAssemblyFileVersion>
+    <UpdateAssemblyInfoVersion>True</UpdateAssemblyInfoVersion>
+    <AssemblyVersionSettings>None.None.None.Increment</AssemblyVersionSettings>
+    <AssemblyFileVersionSettings>None.None.None.Increment</AssemblyFileVersionSettings>
+    <AssemblyInfoVersionSettings>None.None.None.Increment</AssemblyInfoVersionSettings>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -112,8 +118,11 @@
     <Compile Include="ObjectValue\CriancaValue.cs" />
     <Compile Include="ObjectValue\CriancaVestimenta.cs" />
     <Compile Include="ObjectValue\DatasReuniao.cs" />
+    <Compile Include="ObjectValue\FamiliaValue.cs" />
+    <Compile Include="ObjectValue\ItemValue.cs" />
     <Compile Include="ObjectValue\QuantidadeSacolasColaborador.cs" />
     <Compile Include="ObjectValue\RoupaValue.cs" />
+    <Compile Include="ObjectValue\SacolaValue.cs" />
     <Compile Include="ObjectValue\Stats.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\CalcadoService.cs" />

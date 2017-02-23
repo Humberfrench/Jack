@@ -1,7 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using Jack.Domain.Interfaces;
+﻿using Jack.Domain.Interfaces;
 using Jack.Extensions;
+using System.Collections.Generic;
 
 namespace Jack.Domain.Entity
 {

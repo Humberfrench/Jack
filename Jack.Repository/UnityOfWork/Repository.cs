@@ -1,12 +1,11 @@
-﻿using System;
-using System.CodeDom;
-using System.Collections.Generic;
-using System.Data;
+﻿using Jack.Domain.Interfaces;
 using NHibernate;
 using NHibernate.Linq;
+using System;
+using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Linq.Expressions;
-using Jack.Domain.Interfaces;
 
 namespace Jack.Repository.UnityOfWork
 {

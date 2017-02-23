@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Newtonsoft.Json;
 
 namespace Jack.DomainValidator
 {
@@ -28,10 +27,27 @@ namespace Jack.DomainValidator
             }
         }
 
-        public void Add(string error)
+        public void Add(string error, bool erro = true)
         {
-            var erro = new ValidationError(error);
-            this.errors.Add(erro);
+            var validationErro = new ValidationError(error, erro);
+            this.errors.Add(validationErro);
+        }
+        public void Add(int codigo, string error, bool erro = true)
+        {
+            var validationErro = new ValidationError(codigo, error, erro);
+            this.errors.Add(validationErro);
+        }
+
+        public void AddError(string error)
+        {
+            var validationErro = new ValidationError(error, true);
+            this.errors.Add(validationErro);
+        }
+
+        public void AddWarning(string error)
+        {
+            var validationErro = new ValidationError(error, false);
+            this.errors.Add(validationErro);
         }
 
         public void Remove(ValidationError error)
@@ -42,20 +58,31 @@ namespace Jack.DomainValidator
             }
         }
 
-        public IEnumerable<ValidationError> Erros { get { return this.errors; } }
+        public IList<ValidationError> Erros { get { return errors; } }
 
         public bool IsValid
         {
             get
             {
-                return this.errors.Count == 0;
+                return !errors.Any(vr => vr.Erro);
             }
         }
 
-        public string Message { get; set; }
+        public string Messagem { get; set; }
 
-        [JsonIgnore]
+        public int CodigoMessagem { get; set; }
+
+        public object Retorno { get; set; }
+
         public bool ProblemaDeInfraestrutura { get; set; }
+
+        public bool Warning
+        {
+            get
+            {
+                return this.errors.Count(vr => vr.Erro) != this.Erros.Count();
+            }
+        }
     }
 }
 

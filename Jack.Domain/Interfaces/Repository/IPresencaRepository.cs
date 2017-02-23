@@ -1,5 +1,5 @@
-﻿using System.Collections.Generic;
-using Jack.Domain.Entity;
+﻿using Jack.Domain.Entity;
+using System.Collections.Generic;
 
 namespace Jack.Domain.Interfaces.Repository
 {
@@ -10,5 +10,6 @@ namespace Jack.Domain.Interfaces.Repository
         int? ObterDadoPresencaExistente(int familia, int reuniao);
         IEnumerable<Familia> ObterFamiliasDisponiveis(int reuniao);
         IEnumerable<Familia> ObterFamiliasDisponiveis(int reuniao, string letra);
+        IEnumerable<int> ObterTodosPorFamilia(int familia);
     }
 }
