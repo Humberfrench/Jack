@@ -11,38 +11,24 @@
     <!-- Add local styles, mostly for plugins css file -->
     @if (IsSectionDefined("Styles"))
     {@RenderSection("Styles", required: false)}
-
-    <!-- Add jQuery Style direct - used for jQGrid plugin -->
-    <link href="@Url.Content("~/Scripts/plugins/jquery-ui/jquery-ui.css")" rel="stylesheet" type="text/css" />
-
     <!-- Primary Inspinia style -->
-    @Styles.Render("~/plugins/toastr")
-    @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/Sacola/Print")
     @Styles.Render("~/font-awesome/css")
 </head>
 <body class="top-navigation">
 
-    <div id="wrapper" class="@Html.PageClass()">
 
-        <!-- Page wraper -->
-        <div id="page-wrapper" class="white-bg">
+    <!-- Page wraper -->
+    <div style="width:1280px;margin:0 auto; background-color:#fff;">
 
-            <!-- Main view  -->
-            @RenderBody()
+        <!-- Main view  -->
+        @RenderBody()
 
-        </div>
-    </div>                                  
+    </div>
 
     <!-- End wrapper-->
     <!-- Section for main scripts render -->
     @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @Scripts.Render("~/bundles/slimScroll")
-    @Scripts.Render("~/bundles/inspinia")
-    @Scripts.Render("~/bundles/toastr")
-    @Scripts.Render("~/plugins/Moment")
-    @Scripts.Render("~/script/main")
-
 
     <!-- Handler for local scripts -->
     @RenderSection("scripts", required: false)

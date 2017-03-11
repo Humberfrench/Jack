@@ -25,6 +25,7 @@ C:\Users\humberto.almeida.ext\Documents\Visual Studio 2013\Projects\Jack\Jack.We
 C:\Users\humberto.almeida.ext\Documents\Visual Studio 2013\Projects\Jack\Jack.Web\bin\System.Web.Webpages.Razor.dll
 C:\Users\humberto.almeida.ext\Documents\Visual Studio 2013\Projects\Jack\Jack.Web\bin\WebActivatorEx.dll
 C:\Users\humberto.almeida.ext\Documents\Visual Studio 2013\Projects\Jack\Jack.Web\bin\WebGrease.dll
+C:\Users\humberto.almeida.ext\Documents\Visual Studio 2013\Projects\Jack\Jack.Web\bin\zxing.dll
 C:\Users\humberto.almeida.ext\Documents\Visual Studio 2013\Projects\Jack\Jack.Web\bin\FluentNHibernate.dll
 C:\Users\humberto.almeida.ext\Documents\Visual Studio 2013\Projects\Jack\Jack.Web\bin\NHibernate.dll
 C:\Users\humberto.almeida.ext\Documents\Visual Studio 2013\Projects\Jack\Jack.Web\bin\Dapper.dll
@@ -51,6 +52,8 @@ C:\Users\humberto.almeida.ext\Documents\Visual Studio 2013\Projects\Jack\Jack.We
 C:\Users\humberto.almeida.ext\Documents\Visual Studio 2013\Projects\Jack\Jack.Web\bin\System.Web.Webpages.Razor.xml
 C:\Users\humberto.almeida.ext\Documents\Visual Studio 2013\Projects\Jack\Jack.Web\bin\System.Web.Helpers.xml
 C:\Users\humberto.almeida.ext\Documents\Visual Studio 2013\Projects\Jack\Jack.Web\bin\System.Web.Mvc.xml
+C:\Users\humberto.almeida.ext\Documents\Visual Studio 2013\Projects\Jack\Jack.Web\bin\zxing.pdb
+C:\Users\humberto.almeida.ext\Documents\Visual Studio 2013\Projects\Jack\Jack.Web\bin\zxing.xml
 C:\Users\humberto.almeida.ext\Documents\Visual Studio 2013\Projects\Jack\Jack.Web\bin\FluentNHibernate.pdb
 C:\Users\humberto.almeida.ext\Documents\Visual Studio 2013\Projects\Jack\Jack.Web\bin\FluentNHibernate.xml
 C:\Users\humberto.almeida.ext\Documents\Visual Studio 2013\Projects\Jack\Jack.Web\bin\NHibernate.xml
@@ -60,6 +63,4 @@ C:\Users\humberto.almeida.ext\Documents\Visual Studio 2013\Projects\Jack\Jack.We
 C:\Users\humberto.almeida.ext\Documents\Visual Studio 2013\Projects\Jack\Jack.Web\obj\Debug\Jack.Web.csprojResolveAssemblyReference.cache
 C:\Users\humberto.almeida.ext\Documents\Visual Studio 2013\Projects\Jack\Jack.Web\obj\Debug\Jack.Web.dll
 C:\Users\humberto.almeida.ext\Documents\Visual Studio 2013\Projects\Jack\Jack.Web\obj\Debug\Jack.Web.pdb
-C:\Users\humberto.almeida.ext\Documents\Visual Studio 2013\Projects\Jack\Jack.Web\bin\zxing.dll
-C:\Users\humberto.almeida.ext\Documents\Visual Studio 2013\Projects\Jack\Jack.Web\bin\zxing.pdb
-C:\Users\humberto.almeida.ext\Documents\Visual Studio 2013\Projects\Jack\Jack.Web\bin\zxing.xml
+C:\Users\humberto.almeida.ext\Documents\Visual Studio 2013\Projects\Jack\Jack.Web\bin\Elmah.dll

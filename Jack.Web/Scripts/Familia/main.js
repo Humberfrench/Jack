@@ -37,6 +37,15 @@ $(document).ready(function ()
         Familia.Pesquisar(nome);
     });
 
+    $("#PesquisarStatus").click(function () {
+        var status = $("#Status").val();
+        if ((status === 0) || (status === undefined) || (status === ''))
+        {
+            return;
+        }
+        Familia.PesquisarStatus(status);
+    });
+
     $("#Gravar").click(function ()
     {
         Familia.Gravar();
@@ -130,6 +139,19 @@ Familia.Pesquisar = function (nome)
     else
     {
         location.href = Familia.URLFiltrar + nome;
+    }
+}
+
+Familia.PesquisarStatus = function (status)
+{
+
+    if (status === '')
+    {
+        Familia.PesquisarTodos();
+    }
+    else
+    {
+        location.href = Familia.URLObterTodos + '/' + status;
     }
 }
 

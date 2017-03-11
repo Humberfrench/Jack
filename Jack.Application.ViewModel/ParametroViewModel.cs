@@ -10,12 +10,15 @@
         public virtual int CalcadoLimite { get; set; }
         public virtual int NumeroMaximoCricancas { get; set; }
         public virtual int NumeroMaximoRepresentantes { get; set; }
+        public virtual int NumeroMaximoCricancasRepresentantes { get; set; }
+        public virtual int LimiteIdadeMoralCrista { get; set; }
+        public virtual bool PodeUltrapassarNumeroMaximoFilhos { get; set; }
         public virtual int PrimeiroSabado { get; set; }
         public virtual int SegundoSabado { get; set; }
         public virtual int TerceiroSabado { get; set; }
         public virtual int AnoCorrente { get; set; }
         public virtual bool PodeGerarNovasSacolas { get; set; }
         public virtual bool AjusteAutomaticoNoProcessamento { get; set; }
-                               
+
     }
 }

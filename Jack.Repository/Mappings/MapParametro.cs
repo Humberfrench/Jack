@@ -19,6 +19,9 @@ namespace Jack.Repository.Mappings
             Map(x => x.IdadeLimiteExcecao).Column("IdadeLimiteExcecao").Not.Nullable();
             Map(x => x.NumeroMaximoCricancas).Column("NumeroMaximoCricancas").Not.Nullable();
             Map(x => x.NumeroMaximoRepresentantes).Column("NumeroMaximoRepresentantes").Not.Nullable();
+            Map(x => x.PodeUltrapassarNumeroMaximoFilhos).Column("PodeUltrapassarNumeroMaximoFilhos").Not.Nullable();
+            Map(x => x.NumeroMaximoCricancasRepresentantes).Column("NumeroMaximoCricancasRepresentantes").Not.Nullable();
+            Map(x => x.LimiteIdadeMoralCrista).Column("LimiteIdadeMoralCrista").Not.Nullable();
             Map(x => x.TemIdadeLimiteExcecao).Column("TemIdadeLimiteExcecao").Nullable();
             Map(x => x.PrimeiroSabado).Column("PrimeiroSabado").Nullable();
             Map(x => x.SegundoSabado).Column("SegundoSabado").Nullable();

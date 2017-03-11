@@ -105,6 +105,7 @@ namespace Jack.Web
 
             #region Logs
             kernel.Bind<ILogRepository>().To<LogRepository>();
+            kernel.Bind<ILogSacolasRepository>().To<LogSacolasRepository>();
             #endregion
 
             #region Nivel

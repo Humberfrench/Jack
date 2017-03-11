@@ -52,6 +52,7 @@
   <ItemGroup>
     <Compile Include="Entity\Calcado.cs" />
     <Compile Include="Entity\Feriado.cs" />
+    <Compile Include="Entity\LogSacolas.cs" />
     <Compile Include="Entity\Log.cs" />
     <Compile Include="Entity\Representante.cs" />
     <Compile Include="Entity\Sacola.cs" />
@@ -75,6 +76,7 @@
     <Compile Include="Enum\enumStatusCrianca.cs" />
     <Compile Include="Helpers\Idade.cs" />
     <Compile Include="Interfaces\IEntidade.cs" />
+    <Compile Include="Interfaces\Repository\ILogSacolasRepository.cs" />
     <Compile Include="Interfaces\Repository\ILogRepository.cs" />
     <Compile Include="Interfaces\Repository\IParametroRepository.cs" />
     <Compile Include="Interfaces\Repository\IRoupaRepository.cs" />

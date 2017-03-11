@@ -11,6 +11,7 @@
         DataNascimentoDesatualizada = 7,
         CriancaMaior = 8,
         DiferencaGrandeCalcadoRoupas = 9,
+        CriancaMaiorNaoLiberadaMoralCrista = 10,
         CriancaMaiorLiberadaMoralCrista = 11,
         Inativo = 12,
         DiferencaGrandeRoupas = 13,

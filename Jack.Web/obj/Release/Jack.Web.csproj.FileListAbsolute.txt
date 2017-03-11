@@ -63,3 +63,4 @@ C:\Users\humberto.almeida.ext\Documents\Visual Studio 2013\Projects\Jack\Jack.We
 C:\Users\humberto.almeida.ext\Documents\Visual Studio 2013\Projects\Jack\Jack.Web\bin\zxing.dll
 C:\Users\humberto.almeida.ext\Documents\Visual Studio 2013\Projects\Jack\Jack.Web\bin\zxing.pdb
 C:\Users\humberto.almeida.ext\Documents\Visual Studio 2013\Projects\Jack\Jack.Web\bin\zxing.xml
+C:\Users\humberto.almeida.ext\Documents\Visual Studio 2013\Projects\Jack\Jack.Web\bin\Elmah.dll

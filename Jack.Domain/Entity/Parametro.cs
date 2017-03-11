@@ -37,10 +37,13 @@ namespace Jack.Domain.Entity
         private int codigo;
         private int idadeLimite;
         private int idadeLimiteExcecao;
+        private int limiteIdadeMoralCrista;
         private bool temIdadeLimiteExcecao;
         private int calcadoLimite;
         private int numeroMaximoCricancas;
         private int numeroMaximoRepresentantes;
+        private int numeroMaximoCricancasRepresentantes;
+        private bool podeUltrapassarNumeroMaximoFilhos;
         private int primeiroSabado;
         private int segundoSabado;
         private int terceiroSabado;
@@ -69,6 +72,29 @@ namespace Jack.Domain.Entity
             set
             {
                 idadeLimiteExcecao = value;
+            }
+        }
+        public virtual int NumeroMaximoCricancasRepresentantes
+        {
+            get
+            {
+                return numeroMaximoCricancasRepresentantes;
+            }
+            set
+            {
+                numeroMaximoCricancasRepresentantes = value;
+            }
+        }
+
+        public virtual int LimiteIdadeMoralCrista
+        {
+            get
+            {
+                return limiteIdadeMoralCrista;
+            }
+            set
+            {
+                limiteIdadeMoralCrista = value;
             }
         }
 
@@ -117,6 +143,18 @@ namespace Jack.Domain.Entity
             set
             {
                 numeroMaximoRepresentantes = value;
+            }
+        }
+
+        public virtual bool PodeUltrapassarNumeroMaximoFilhos
+        {
+            get
+            {
+                return podeUltrapassarNumeroMaximoFilhos;
+            }
+            set
+            {
+                podeUltrapassarNumeroMaximoFilhos = value;
             }
         }
 

@@ -10,7 +10,7 @@ using System.Collections.Generic;
 
 namespace Jack.Application
 {
-    public class FamiliaServiceApp :  IFamiliaServiceApp
+    public class FamiliaServiceApp : IFamiliaServiceApp
     {
 
         private readonly IFamiliaService _service;
@@ -69,11 +69,21 @@ namespace Jack.Application
             return mapper.Map<IEnumerable<FamiliaViewModel>>(familia);
         }
 
-
         public void Dispose()
         {
             GC.SuppressFinalize(this);
         }
 
+        public IEnumerable<FamiliaViewModel> ObterNaoSacolas()
+        {
+            var familia = _service.ObterNaoSacolas();
+            return mapper.Map<IEnumerable<FamiliaViewModel>>(familia);
+        }
+
+        public IEnumerable<FamiliaViewModel> ObterPorStatus(int status)
+        {
+            var familia = _service.ObterPorStatus(status);
+            return mapper.Map<IEnumerable<FamiliaViewModel>>(familia);
+        }
     }
 }

@@ -60,5 +60,3 @@ C:\Users\humberto.almeida.ext\Documents\Visual Studio 2013\Projects\Jack\Jack.Re
 C:\Users\humberto.almeida.ext\Documents\Visual Studio 2013\Projects\Jack\Jack.Repository\obj\Debug\Jack.Repository.csprojResolveAssemblyReference.cache
 C:\Users\humberto.almeida.ext\Documents\Visual Studio 2013\Projects\Jack\Jack.Repository\obj\Debug\Jack.Repository.dll
 C:\Users\humberto.almeida.ext\Documents\Visual Studio 2013\Projects\Jack\Jack.Repository\obj\Debug\Jack.Repository.pdb
-C:\Users\humberto.almeida.ext\Documents\Visual Studio 2013\Projects\Jack\Jack.Repository\bin\Debug\Jack.Repository.dll.CodeAnalysisLog.xml
-C:\Users\humberto.almeida.ext\Documents\Visual Studio 2013\Projects\Jack\Jack.Repository\bin\Debug\Jack.Repository.dll.lastcodeanalysissucceeded

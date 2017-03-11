@@ -2,93 +2,207 @@
     ViewBag.Title = "Modelo";
     Layout = "~/Views/Shared/_etiqueta.cshtml";
 }
+
 <input type="hidden" id="Crianca1" name="Crianca1" value="95" />
 <input type="hidden" id="URLGerarQrCode" name="URLGerarQrCode" value="@Url.Action("GerarQrCode")" />
-<div class="row">&nbsp;</div>
-<div class="container">
-    <div class="panel panel-default">
-        <div class="row">
-            <div class="col-lg-8">
-                @Html.Partial("Header")
-            </div>
-            <div class="col-lg-2">
-                <div>
-                    <h6 class="text-center"><small>Número da Sacola</small></h6>
-                    <h1 class="text-center"><strong>57</strong></h1>
+<br />
+<div class="panel" style="width: 1020px;">
+    <table style="width: 1020px;">
+        <tr>
+            <td style="width:85px;"></td>
+            <td style="width:85px;"></td>
+            <td style="width:85px;"></td>
+            <td style="width:85px;"></td>
+            <td style="width:85px;"></td>
+            <td style="width:85px;"></td>
+            <td style="width:85px;"></td>
+            <td style="width:85px;"></td>
+            <td style="width:85px;"></td>
+            <td style="width:85px;"></td>
+            <td style="width:85px;"></td>
+            <td style="width:85px;"></td>
+        </tr>
+        <tr>
+            <td colspan="8">@Html.Partial("Header")</td>
+            <td colspan="2">
+                <div class="" style="width: 150px;">
+                    <h6 style="width: 140px; text-align: center">Número da Sacola</h6>
+                    <div style="width: 140px; text-align: center" class="NumFamilia">67</div>
                 </div>
-            </div>
-            <div class="col-lg-2">
-                <div id="divImagemChave"></div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-10">
+            </td>
+            <td colspan="2"><div id="divImagemChave"></div></td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td colspan="10">
                 @Html.Partial("SubHeader")
-            </div>
-        </div>
-        <div class="row">&nbsp;</div>
-        <div class="row">
-            <div class="col-lg-1">&nbsp;</div>
-            <div class="col-lg-5">
-                <h4>Nome da Criança</h4>
-                <h3>José da Silva Santos da Silva</h3>
-            </div>
-            <div class="col-lg-1">
-                <h4>Sexo</h4>
+            </td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td colspan="5">
+                <h5><strong>Nome da Criança</strong></h5>
+                <h4>José da Silva Santos da Silva</h4>
+            </td>
+            <td colspan="1">
+                <h5><strong>Sexo</strong></h5>
                 <h4>Masculino</h4>
-            </div>
-            <div class="col-lg-2">
-                <h4>Idade</h4>
+            </td>
+            <td colspan="2">
+                <h5><strong>Idade</strong></h5>
                 <h4>7 Anos e 11 Meses</h4>
-            </div>
-            <div class="col-lg-2">
-                <h4>É uma Criança Grande/Gordinha</h4>
-            </div>
-            <div class="col-lg-1">&nbsp;</div>
-        </div>
-        <div class="row">
-            <div class="col-lg-1">&nbsp;</div>
-            <div class="col-lg-4">
-                <h6><strong>Nome da Mãe</strong></h6>
-                <h6>Maria da Silva Santos da Silva</h6>
-            </div>
-            <div class="col-lg-4">
-                <h6><strong>Colaborador</strong></h6>
-                <h6>Cátia Petri Nakano</h6>
-            </div>
-            <div class="col-lg-1">
-                <h4>Calçado</h4>
-                <h4>32</h4>
-            </div>
-            <div class="col-lg-1">
-                <h4>Roupa</h4>
-                <h4>8</h4>
-            </div>
-            <div class="col-lg-1">&nbsp;</div>
-        </div>
-        <div class="row">
-            <div class="col-lg-1">&nbsp;</div>
-            <div class="col-lg-6">
-                <h4>Kit da Criança</h4>
-                <h4>Criança Menino (07 Anos)</h4>
-            </div>
-            <div class="col-lg-1">&nbsp;</div>
-        </div>
-        <div class="row">
-            <div class="col-lg-1">&nbsp;</div>
-            <div class="col-lg-10">
+            </td>
+            <td colspan="2">
+                <h5><strong>É uma Criança Grande/Gordinha</strong></h5>
+            </td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td colspan="4">
+                <h5><strong>Nome da Mãe/Família</strong></h5>
+                <h5>Maria da Silva Santos da Silva</h5>
+            </td>
+            <td colspan="4">
+                <h5><strong>Colaborador</strong></h5>
+                <h5>David Gabriel</h5>
+            </td>
+            <td colspan="1">
+                <h5><strong>Calçado</strong></h5>
+                <h3>34</h3>
+            </td>
+            <td colspan="1">
+                <h5><strong>Roupa</strong></h5>
+                <h3>10</h3>
+            </td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td colspan="10">
                 @Html.Partial("Kit")
-            </div>
-            <div class="col-lg-1">&nbsp;</div>
-        </div>   
-        <div class="row">&nbsp;</div>
-        <div class="row">@Html.Partial("Footer")</div>
-        <div class="row">&nbsp;</div>
-    </div>
+            </td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td colspan="10">
+                @Html.Partial("Footer")
+            </td>
+            <td>&nbsp;</td>
+        </tr> 
+        <tr>
+            <td>&nbsp;</td>
+            <td style="font-size:8px;">Controle Interno:</td>
+            <td style="font-size:8px;">Familia - 239</td>
+            <td style="font-size:8px;">Criança - 349</td>
+            <td style="font-size:8px;">Kit - 1</td>
+            <td colspan="7">&nbsp;</td>
+        </tr>
+    </table>
+</div>
+<br />
+<div class="panel" style="width: 1020px;">
+    <table style="width: 1020px;">
+        <tr>
+            <td style="width:85px;"></td>
+            <td style="width:85px;"></td>
+            <td style="width:85px;"></td>
+            <td style="width:85px;"></td>
+            <td style="width:85px;"></td>
+            <td style="width:85px;"></td>
+            <td style="width:85px;"></td>
+            <td style="width:85px;"></td>
+            <td style="width:85px;"></td>
+            <td style="width:85px;"></td>
+            <td style="width:85px;"></td>
+            <td style="width:85px;"></td>
+        </tr>
+        <tr>
+            <td colspan="8">@Html.Partial("Header")</td>
+            <td colspan="2">
+                <div class="" style="width: 150px;">
+                    <h6 style="width: 140px; text-align: center">Número da Sacola</h6>
+                    <div style="width: 140px; text-align: center" class="NumFamilia">67</div>
+                </div>
+            </td>
+            <td colspan="2"><div id="divImagemChave"></div></td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td colspan="10">
+                @Html.Partial("SubHeader")
+            </td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td colspan="5">
+                <h5><strong>Nome da Criança</strong></h5>
+                <h4>José da Silva Santos da Silva</h4>
+            </td>
+            <td colspan="1">
+                <h5><strong>Sexo</strong></h5>
+                <h4>Masculino</h4>
+            </td>
+            <td colspan="2">
+                <h5><strong>Idade</strong></h5>
+                <h4>7 Anos e 11 Meses</h4>
+            </td>
+            <td colspan="2">
+                <h5><strong>É uma Criança Grande/Gordinha</strong></h5>
+            </td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td colspan="4">
+                <h5><strong>Nome da Mãe/Família</strong></h5>
+                <h5>Maria da Silva Santos da Silva</h5>
+            </td>
+            <td colspan="4">
+                <h5><strong>Colaborador</strong></h5>
+                <h5>David Gabriel</h5>
+            </td>
+            <td colspan="1">
+                <h5><strong>Calçado</strong></h5>
+                <h3>34</h3>
+            </td>
+            <td colspan="1">
+                <h5><strong>Roupa</strong></h5>
+                <h3>10</h3>
+            </td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td colspan="10">
+                @Html.Partial("Kit")
+            </td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td colspan="10">
+                @Html.Partial("Footer")
+            </td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td style="font-size:8px;">Controle Interno:</td>
+            <td style="font-size:8px;">Familia - 239</td>
+            <td style="font-size:8px;">Criança - 349</td>
+            <td style="font-size:8px;">Kit - 1</td>
+            <td colspan="7">&nbsp;</td>
+        </tr>
+    </table>
 </div>
 @section scripts
 {
     @Scripts.Render("~/plugins/dataTables")
+    @Scripts.Render("~/script/main/Sacolas")
     @Scripts.Render("~/script/Sacolas/Modelo")
 }
 

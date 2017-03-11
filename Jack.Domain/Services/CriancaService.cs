@@ -77,7 +77,16 @@ namespace Jack.Domain.Services
 
         public ValidationResult Gravar(Crianca item)
         {
-            var crianca = ObterPorId(item.Codigo);
+            Crianca crianca;
+            if (item.Codigo == 0)
+            {
+                crianca = new Crianca();
+                crianca.DataCriacao = DateTime.Now;
+            }
+            else
+            {
+                crianca = ObterPorId(item.Codigo);
+            }
 
             crianca.Calcado = item.Calcado;
             crianca.CriancaGrande = item.CriancaGrande;
@@ -105,7 +114,16 @@ namespace Jack.Domain.Services
                 crianca.TipoParentesco = repTipoParentesco.ObterPorId(item.TipoParentesco.Codigo);
             }
 
-            AtualizaCrianca(crianca, true);
+            AtualizaCrianca(crianca, false);
+
+            if (crianca.Codigo == 0)
+            {
+                Adicionar(crianca);
+            }
+            else
+            {
+                Atualizar(crianca);
+            }
 
             return validationResult;
         }
@@ -212,7 +230,7 @@ namespace Jack.Domain.Services
 
         public ValidationResult AtualizaCriancasMaiores()
         {
-            IList<Crianca> criancas = ObterTodos().Where(c => c.Idade > 10 && c.MedidaIdade == "A").ToList();
+            IList<Crianca> criancas = ObterTodos().Where(c => c.Idade > 10 && c.MedidaIdade == "A" && !c.MoralCrista).ToList();
 
             foreach (var crianca in criancas)
             {
@@ -239,6 +257,10 @@ namespace Jack.Domain.Services
             else
             {
                 criancas = ObterTodos().Where(c => c.Idade <= Parametro.IdadeLimite && c.MedidaIdade == "A").ToList();
+                ObterTodos()
+                    .Where(c => c.Idade > Parametro.IdadeLimite && c.MedidaIdade == "A" && c.MoralCrista)
+                    .ToList()
+                    .ForEach(cr => criancas.Add(cr));
             }
 
             foreach (var crianca in criancas)
@@ -415,15 +437,23 @@ namespace Jack.Domain.Services
                 //moral crista - temp para ajustar os dados
                 if (crianca.CriancaMaiorMoralCrista())
                 {
-                    crianca.Status = repStatus.ObterPorId(EnumStatusCrianca.CriancaMaiorLiberadaMoralCrista.Int());
-                    crianca.Sacolinha = crianca.Status.PermiteSacola;
-                    crianca.Consistente = crianca.Status.PermiteSacola;
-                    return;
+                    if (crianca.Idade > Parametro.LimiteIdadeMoralCrista)
+                    {
+                        crianca.Status = repStatus.ObterPorId(EnumStatusCrianca.CriancaMaiorNaoLiberadaMoralCrista.Int());
+                        AddLog(crianca.Codigo, EnumStatusCrianca.CriancaMaiorNaoLiberadaMoralCrista.Int(), "ValidarCalcadoERoupa", "Criança com idade não permitida, ex-aluno Moral Cristã");
+                    }
+                    else
+                    {
+                        crianca.Status = repStatus.ObterPorId(EnumStatusCrianca.CriancaMaiorLiberadaMoralCrista.Int());
+                    }
                 }
-                crianca.Status = repStatus.ObterPorId(EnumStatusCrianca.CriancaMaior.Int());
+                else
+                {                   
+                    crianca.Status = repStatus.ObterPorId(EnumStatusCrianca.CriancaMaior.Int());
+                    AddLog(crianca.Codigo, EnumStatusCrianca.CriancaMaior.Int(), "ValidarCalcadoERoupa", "Criança com idade não permitida");
+               }
                 crianca.Sacolinha = crianca.Status.PermiteSacola;
                 crianca.Consistente = crianca.Status.PermiteSacola;
-                AddLog(crianca.Codigo, EnumStatusCrianca.CriancaMaior.Int(), "ValidarCalcadoERoupa", "Criança com idade não permitida");
                 return;
             }
             #endregion

@@ -69,6 +69,8 @@
   <ItemGroup>
     <Compile Include="BaseRepository.cs" />
     <Compile Include="LogRepository.cs" />
+    <Compile Include="LogSacolasRepository.cs" />
+    <Compile Include="Mappings\MapLogSacolas.cs" />
     <Compile Include="Mappings\MapLog.cs" />
     <Compile Include="Mappings\MapParametro.cs" />
     <Compile Include="Mappings\MapRepresentante.cs" />

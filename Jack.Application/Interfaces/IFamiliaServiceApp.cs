@@ -6,6 +6,8 @@ namespace Jack.Application.Interfaces
 {
     public interface IFamiliaServiceApp : IServiceBase<FamiliaViewModel>
     {
+        IEnumerable<FamiliaViewModel> ObterNaoSacolas();
+        IEnumerable<FamiliaViewModel> ObterPorStatus(int status);
         IEnumerable<FamiliaViewModel> Filtrar(string nome);
         ValidationResult Gravar(FamiliaViewModel entity);
         ValidationResult Gravar(FamiliaViewModel entity, int reuniao);

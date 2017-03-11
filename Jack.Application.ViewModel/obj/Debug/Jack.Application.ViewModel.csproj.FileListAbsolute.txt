@@ -10,5 +10,3 @@ C:\Users\humberto.almeida.ext\Documents\Visual Studio 2013\Projects\Jack\Jack.Ap
 C:\Users\humberto.almeida.ext\Documents\Visual Studio 2013\Projects\Jack\Jack.Application.ViewModel\obj\Debug\Jack.Application.ViewModel.csprojResolveAssemblyReference.cache
 C:\Users\humberto.almeida.ext\Documents\Visual Studio 2013\Projects\Jack\Jack.Application.ViewModel\obj\Debug\Jack.Application.ViewModel.dll
 C:\Users\humberto.almeida.ext\Documents\Visual Studio 2013\Projects\Jack\Jack.Application.ViewModel\obj\Debug\Jack.Application.ViewModel.pdb
-C:\Users\humberto.almeida.ext\Documents\Visual Studio 2013\Projects\Jack\Jack.Application.ViewModel\bin\Debug\Jack.Application.ViewModel.dll.CodeAnalysisLog.xml
-C:\Users\humberto.almeida.ext\Documents\Visual Studio 2013\Projects\Jack\Jack.Application.ViewModel\bin\Debug\Jack.Application.ViewModel.dll.lastcodeanalysissucceeded

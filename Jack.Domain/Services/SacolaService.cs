@@ -23,8 +23,8 @@ namespace Jack.Domain.Services
         private readonly ValidationResult validationResult = new ValidationResult();
         private readonly IKitRepository repKit;
         private readonly IColaboradorCriancaService servColaboradorCrianca;
-        private readonly IParametroRepository repParametros;
         private readonly Parametro Parametro;
+        private readonly ILogSacolasRepository repLogSacolas;
 
         //suporte sacola geração
         private readonly IStatusCriancaRepository repStatusCrianca;
@@ -35,6 +35,7 @@ namespace Jack.Domain.Services
         private readonly IReuniaoRepository repReuniao;
         private readonly IPresencaRepository repPresenca;
         private readonly ILogRepository repLog;
+        private readonly IParametroRepository repParametros;
 
         public SacolaService(ISacolaRepository repSacola,
                              IFamiliaRepository repFamilia,
@@ -51,7 +52,8 @@ namespace Jack.Domain.Services
                              ITipoParentescoRepository repTipoParentesco,
                              IReuniaoRepository repReuniao,
                              IPresencaRepository repPresenca,
-                             ILogRepository repLog)
+                             ILogRepository repLog,
+                             ILogSacolasRepository repLogSacolas)
             : base(repSacola)
         {
             this.repSacola = repSacola;
@@ -70,7 +72,8 @@ namespace Jack.Domain.Services
             this.repReuniao = repReuniao;
             this.repPresenca = repPresenca;
             this.repLog = repLog;
-            Parametro = this.repParametros.Obter();
+            this.repLogSacolas = repLogSacolas;
+            Parametro = repParametros.Obter();
         }
 
         public IEnumerable<Sacola> ObterTodosPorNivel(int nivel, int liberado)
@@ -421,6 +424,11 @@ namespace Jack.Domain.Services
                     };
 
                     repSacola.Adicionar(sacola);
+                    AddLog(sacola.Familia.Codigo,
+                           sacola.FamiliaRepresentante.Codigo,
+                           sacola.Crianca.Codigo,
+                           sacola.Kit.Codigo,
+                           DateTime.Now.Year);
                     sacolas.Add(sacola);
 
                 }
@@ -477,7 +485,8 @@ namespace Jack.Domain.Services
             #region 4 - obtem famílias de nível 1 a 5
             var familias = repFamilia.ObterTodos()
                                      .Where(f => f.Nivel.Codigo <= 5
-                                            && f.Status.PermiteSacola)
+                                            && f.Status.PermiteSacola
+                                            && !f.BlackListPasso2)
                                      .OrderBy(n => n.Nivel.Codigo)
                                      .ThenBy(f => f.Nome).ToList();
             #endregion
@@ -523,6 +532,19 @@ namespace Jack.Domain.Services
 
             return familias.ToList();
 
+        }
+        private void AddLog(int familia, int familiaRepresentante, int crianca, int kit, int ano)
+        {
+            var log = new LogSacolas
+            {
+                FamiliaRepresentante = familiaRepresentante,
+                Familia = familia,
+                Crianca = crianca,
+                Kit = kit,
+                Ano = ano
+            };
+
+            repLogSacolas.Adicionar(log);
         }
 
     }

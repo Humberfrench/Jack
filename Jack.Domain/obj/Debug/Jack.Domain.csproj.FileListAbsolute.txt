@@ -37,5 +37,3 @@ C:\Users\humberto.almeida.ext\Documents\Visual Studio 2013\Projects\Jack\Jack.Do
 C:\Users\humberto.almeida.ext\Documents\Visual Studio 2013\Projects\Jack\Jack.Domain\obj\Debug\Jack.Domain.csprojResolveAssemblyReference.cache
 C:\Users\humberto.almeida.ext\Documents\Visual Studio 2013\Projects\Jack\Jack.Domain\obj\Debug\Jack.Domain.dll
 C:\Users\humberto.almeida.ext\Documents\Visual Studio 2013\Projects\Jack\Jack.Domain\obj\Debug\Jack.Domain.pdb
-C:\Users\humberto.almeida.ext\Documents\Visual Studio 2013\Projects\Jack\Jack.Domain\bin\Debug\Jack.Domain.dll.CodeAnalysisLog.xml
-C:\Users\humberto.almeida.ext\Documents\Visual Studio 2013\Projects\Jack\Jack.Domain\bin\Debug\Jack.Domain.dll.lastcodeanalysissucceeded

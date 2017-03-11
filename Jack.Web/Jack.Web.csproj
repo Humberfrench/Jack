@@ -34,7 +34,7 @@
     <AssemblyFileVersionSettings>None.None.None.Increment</AssemblyFileVersionSettings>
     <AssemblyInfoVersionSettings>None.None.None.Increment</AssemblyInfoVersionSettings>
     <PrimaryVersionType>AssemblyVersionAttribute</PrimaryVersionType>
-    <AssemblyVersion>3.0.0.62</AssemblyVersion>
+    <AssemblyVersion>3.0.0.92</AssemblyVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -1387,6 +1387,7 @@
     <Content Include="Scripts\moment.min.js" />
     <Content Include="Scripts\Nivel\main.js" />
     <Content Include="Scripts\Presenca\PresencaReunioes.js" />
+    <Content Include="Scripts\Processar\main.js" />
     <Content Include="Scripts\Roupa\main.js" />
     <Content Include="Scripts\Calcado\main.js" />
     <Content Include="Scripts\Colaborador\main.js" />
@@ -2104,6 +2105,9 @@
     <Content Include="Views\ImpressaoSacolas\SubHeader.cshtml" />
     <Content Include="Views\ImpressaoSacolas\Header2.cshtml" />
     <Content Include="Views\Sacolas\GerarSacolas.cshtml" />
+    <Content Include="Views\Familia\ConsultaPorStatus.cshtml" />
+    <Content Include="Views\Familia\ObterFamiliasNaoSacolas.cshtml" />
+    <Content Include="Views\Processar\Criancas.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -6,6 +6,8 @@ namespace Jack.Domain.Interfaces.Services
 {
     public interface IFamiliaService : IServiceBase<Familia>
     {
+        IEnumerable<Familia> ObterNaoSacolas();
+        IEnumerable<Familia> ObterPorStatus(int status);
         IEnumerable<Familia> Filtrar(string nome);
         ValidationResult Gravar(Familia entity);
         ValidationResult Gravar(Familia entity, int reuniao);

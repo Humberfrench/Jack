@@ -7,7 +7,8 @@ namespace Jack.Domain.Entity
     public class Crianca : IEntidade
     {
 
-        public Crianca():base()
+        public Crianca()
+            : base()
         {
             nome = string.Empty;
             idade = 0;
@@ -17,8 +18,8 @@ namespace Jack.Domain.Entity
             calcado = 99;
             roupa = "99";
             idadeNominal = string.Empty;
-            idadeNominalReduzida = string.Empty; 
-            criancaGrande=false;
+            idadeNominalReduzida = string.Empty;
+            criancaGrande = false;
             sacolinha = false;
             consistente = false;
             necessidadeEspecial = false;
@@ -358,7 +359,7 @@ namespace Jack.Domain.Entity
             DateTime dataBase = new DateTime(DateTime.Now.Year, 12, 31);
             int anos = idade; //dataBase.Year - dataNascimento.Year;
 
-            if (dataBase.Month < dataNascimento.Month || 
+            if (dataBase.Month < dataNascimento.Month ||
                 (dataBase.Month == dataNascimento.Month && dataBase.Day < dataNascimento.Day))
                 anos--;
 
@@ -409,13 +410,13 @@ namespace Jack.Domain.Entity
 
         public virtual bool ValidaPorStatus()
         {
-            var status = false;
-            switch (Status.Codigo)
+            var statusAValidar = false;
+            switch (status.Codigo)
             {
                 case 1:
                 case 7:
                 case 11:
-                    status = true;
+                    statusAValidar = true;
                     break;
                 case 2:
                 case 3:
@@ -431,13 +432,13 @@ namespace Jack.Domain.Entity
                 case 15:
                 case 16:
                 case 17:
-                    status = false;
+                    statusAValidar = false;
                     break;
                 default:
-                    status = false;
+                    statusAValidar = false;
                     break;
             }
-            return status;
+            return statusAValidar;
         }
 
     }

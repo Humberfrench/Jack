@@ -9,6 +9,7 @@
         RepresentanteExcedido = 5,
         CriancasExcedido = 6,
         CriancasERepresentanteExcedido = 7,
+        CriancasDaFamilaEDoRepresentanteExcedido = 8,
         FamiliaSemPresenca = 9,
         FamiliaInconsistente = 10,
         Inativo = 12,

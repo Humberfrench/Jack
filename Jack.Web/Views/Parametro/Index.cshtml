@@ -53,41 +53,54 @@
                         <input type="hidden" name="Codigo" id="Codigo" class="form-control m-b" value="@Model.Codigo">
                         <div class="row">
                             <div class="col-lg-1">&nbsp;</div>
-                            <div class="col-lg-2">
+                            <div class="col-lg-2" data-toggle="tooltip" data-placement="top" title="Ano Corrente atual das Sacolas">
                                 <label id="labelAnoCorrente" for="AnoCorrente">Ano Corrente</label>
                                 <input type="text" name="AnoCorrente" id="AnoCorrente" class="form-control m-b" value="@Model.AnoCorrente" maxlength="4" onkeypress="return Util.SomenteNumeros(event);">
                             </div>
-                            <div class="col-lg-2">
+                            <div class="col-lg-2" data-toggle="tooltip" data-placement="top" title="Limite idade máxima para a sacolas">
                                 <label id="labelIdadeLimite" for="IdadeLimite">Idade Limite:</label>
                                 <input type="text" name="IdadeLimite" id="IdadeLimite" class="form-control m-b" value="@Model.IdadeLimite" maxlength="2" onkeypress="return Util.SomenteNumeros(event);">
                             </div>
                             <div class="col-lg-2">
-                                <label id="labelIdadeLimiteExcecao" for="IdadeLimiteExcecao">Idade Limite Exceção</label>
-                                <input type="text" name="IdadeLimiteExcecao" id="IdadeLimiteExcecao" class="form-control m-b" value="@Model.IdadeLimiteExcecao" maxlength="2" onkeypress="return Util.SomenteNumeros(event);">
-                            </div>
-                            <div class="col-lg-2">
                                 <br />
-                                <div class="checkbox checkbox-primary">
+                                <div class="checkbox checkbox-primary" data-toggle="tooltip" data-placement="top" title="Idade máxima em exceção">
                                     <input type="checkbox" name="TemIdadeLimiteExcecao" id="TemIdadeLimiteExcecao" @temIdadeLimiteExcecao>
                                     <label id="labelTemIdadeLimiteExcecao" for="TemIdadeLimiteExcecao">Limite Exceção?</label>
                                 </div>
                             </div>
-                            <div class="col-lg-2">
-                                <label id="labelCalcadoLimite" for="CalcadoLimite">Calçado Limite</label>
-                                <input type="text" name="CalcadoLimite" id="CalcadoLimite" class="form-control m-b" value="@Model.CalcadoLimite" maxlength="2" onkeypress="return Util.SomenteNumeros(event);">
+                            <div class="col-lg-2" data-toggle="tooltip" data-placement="top" title="Limite de idade máxima para sacolas em exceção.">
+                                <label id="labelIdadeLimiteExcecao" for="IdadeLimiteExcecao">Idade Limite Exceção</label>
+                                <input type="text" name="IdadeLimiteExcecao" id="IdadeLimiteExcecao" class="form-control m-b" value="@Model.IdadeLimiteExcecao" maxlength="2" onkeypress="return Util.SomenteNumeros(event);">
+                            </div>
+
+                            <div class="col-lg-2" data-toggle="tooltip" data-placement="top" title="Idade Máxima para alunos da Moral Cristã">
+                                <label id="labelLimiteIdadeMoralCrista" for="LimiteIdadeMoralCrista">Idade Moral Cristã</label>
+                                <input type="text" name="LimiteIdadeMoralCrista" id="LimiteIdadeMoralCrista" class="form-control m-b" value="@Model.CalcadoLimite" maxlength="2" onkeypress="return Util.SomenteNumeros(event);">
                             </div>
                             <div class="col-lg-1">&nbsp;</div>
                         </div>
                         <div class="row">
                             <div class="col-lg-1">&nbsp;</div>
-                            <div class="col-lg-2">
+                            <div class="col-lg-2" data-toggle="tooltip" data-placement="top" title="Valor Máximo de Diferença de Calçados entre o fornecido e o padrão ABNT">
+                                <label id="labelCalcadoLimite" for="CalcadoLimite">Calçado Limite</label>
+                                <input type="text" name="CalcadoLimite" id="CalcadoLimite" class="form-control m-b" value="@Model.CalcadoLimite" maxlength="2" onkeypress="return Util.SomenteNumeros(event);">
+                            </div>
+                            <div class="col-lg-2" data-toggle="tooltip" data-placement="top" title="Quantidade máxima de representantes por família.">
                                 <label id="labelNumeroMaximoRepresentantes" for="NumeroMaximoRepresentantes">Limite Representantes</label>
-                                <input type="text" data-toggle="tooltip" data-placement="top" tooltip="Numero Maximo de Representantes" name="NumeroMaximoRepresentantes" id="NumeroMaximoRepresentantes" class="form-control m-b" value="@Model.NumeroMaximoCricancas" maxlength="2" onkeypress="return Util.SomenteNumeros(event);">
+                                <input type="text" name="NumeroMaximoRepresentantes" id="NumeroMaximoRepresentantes" class="form-control m-b" value="@Model.NumeroMaximoCricancas" maxlength="2" onkeypress="return Util.SomenteNumeros(event);">
                             </div>
-                            <div class="col-lg-2">
+                            <div class="col-lg-2" data-toggle="tooltip" data-placement="top" title="Quantidade Máxima de Crianças por família">
                                 <label id="labelNumeroMaximoCricancas" for="NumeroMaximoCricancas">Limite Crianças</label>
-                                <input type="text" data-toggle="tooltip" data-placement="top" tooltip="Numero Maximo de Crianças" name="NumeroMaximoCricancas" id="NumeroMaximoCricancas" class="form-control m-b" value="@Model.NumeroMaximoCricancas" maxlength="2" onkeypress="return Util.SomenteNumeros(event);">
+                                <input type="text" name="NumeroMaximoCricancas" id="NumeroMaximoCricancas" class="form-control m-b" value="@Model.NumeroMaximoCricancas" maxlength="2" onkeypress="return Util.SomenteNumeros(event);">
                             </div>
+                            <div class="col-lg-2" data-toggle="tooltip" data-placement="top" title="Quantidade Máxima de Crianças por família com Representante">
+                                <label id="labelNumeroMaximoCricancasRepresentantes" for="NumeroMaximoCricancasRepresentantes">Máx. Crianças Repr.</label>
+                                <input type="text" name="NumeroMaximoCricancasRepresentantes" id="NumeroMaximoCricancasRepresentantes" class="form-control m-b" value="@Model.NumeroMaximoCricancas" maxlength="2" onkeypress="return Util.SomenteNumeros(event);">
+                            </div>
+                            <div class="col-lg-1">&nbsp;</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-1">&nbsp;</div>
                             <div class="col-lg-2">
                                 <label id="labelPrimeiroSabado" for="PrimeiroSabado">Primeiro Sábado</label>
                                 <input type="text" name="PrimeiroSabado" id="PrimeiroSabado" class="form-control m-b" value="@Model.PrimeiroSabado" maxlength="1" onkeypress="return Util.SomenteNumeros(event);">
@@ -106,16 +119,23 @@
                             <div class="col-lg-1">&nbsp;</div>
                             <div class="col-lg-3">
                                 <br />
-                                <div class="checkbox checkbox-primary">
+                                <div class="checkbox checkbox-primary" data-toggle="tooltip" data-placement="top" title="Pode Gerar Novas Sacolas ?????">
                                     <input type="checkbox" name="PodeGerarNovasSacolas" id="PodeGerarNovasSacolas" @podeGerarNovasSacolas>
                                     <label id="labelPodeGerarNovasSacolas" for="PodeGerarNovasSacolas">Pode Gerar Novas Sacolas?</label>
                                 </div>
                             </div>
-                            <div class="col-lg-6">
+                            <div class="col-lg-4">
                                 <br />
-                                <div class="checkbox checkbox-primary">
+                                <div class="checkbox checkbox-primary" data-toggle="tooltip" data-placement="top" title="Para atualizar calçados e roupas com o crescimento quando o valor é menor que o padrão.">
                                     <input type="checkbox" name="AjusteAutomaticoNoProcessamento" id="AjusteAutomaticoNoProcessamento" @ajusteAutomaticoNoProcessamento>
-                                    <label id="labelAjusteAutomaticoNoProcessamento" for="AjusteAutomaticoNoProcessamento">Ajuste Automatico de Calçado e Roupas No Processamento?</label>
+                                    <label id="labelAjusteAutomaticoNoProcessamento" for="AjusteAutomaticoNoProcessamento">Ajuste Automatico de Vestimenta no Processamento?</label>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <br />
+                                <div class="checkbox checkbox-primary" title="Ignora o número máximo de crianças e deixa passar os que são filhos acima do limite." data-toggle="tooltip" data-placement="top">
+                                    <input type="checkbox" name="PodeUltrapassarNumeroMaximoFilhos" id="PodeUltrapassarNumeroMaximoFilhos" @ajusteAutomaticoNoProcessamento>
+                                    <label id="labelPodeUltrapassarNumeroMaximoFilhos" for="PodeUltrapassarNumeroMaximoFilhos">Pode Ultrapassar Numero Máximo de Filhos?</label>
                                 </div>
                             </div>
                         </div>
@@ -131,7 +151,6 @@
     @Scripts.Render("~/plugins/dataTables")
     @Scripts.Render("~/plugins/dataPicker")
     @Scripts.Render("~/plugins/Moment")
-    @Scripts.Render("~/script/Parametros/main")
 }
 
 
