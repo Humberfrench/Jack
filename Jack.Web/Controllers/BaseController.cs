@@ -1,4 +1,5 @@
-﻿using Jack.DomainValidator;
+﻿using System.Linq;
+using Jack.DomainValidator;
 using Jack.Library;
 using System.Web.Mvc;
 
@@ -10,17 +11,7 @@ namespace Jack.Web.Controllers
 
         protected string RenderizeErros(ValidationResult resultValue)
         {
-
-            string retorno = string.Empty;
-
-            foreach (ValidationError itemErro in resultValue.Erros)
-            {
-                var retornoTemp = string.Format("- {0} <br />", itemErro.Messagem);
-                retorno += retornoTemp;
-            }
-
-            return retorno;
+            return resultValue.Erros.Select(itemErro => string.Format("- {0} <br />", itemErro.Messagem)).Aggregate(string.Empty, (current, retornoTemp) => current + retornoTemp);
         }
-
     }
 }

@@ -1,5 +1,4 @@
 ﻿using AutoMapper;
-using Jack.Application.AutoMapper;
 using Jack.Application.Interfaces;
 using Jack.Application.ViewModel;
 using Jack.Domain.Entity;
@@ -10,21 +9,19 @@ using System.Collections.Generic;
 
 namespace Jack.Application
 {
-    public class KitServiceApp :  IKitServiceApp
+    public class KitServiceApp : IKitServiceApp
     {
 
         private readonly IKitService _service;
-        private readonly IMapper mapper;
 
         public KitServiceApp(IKitService kitService)
         {
             _service = kitService;
-            mapper = AutoMapperConfig.Config.CreateMapper();
         }
 
         public ValidationResult Gravar(KitViewModel kit)
         {
-            var kitSalvar = mapper.Map<Kit>(kit);
+            var kitSalvar = Mapper.Map<Kit>(kit);
             return _service.Gravar(kitSalvar);
         }
 
@@ -36,19 +33,19 @@ namespace Jack.Application
         public KitViewModel ObterPorId(int id)
         {
             var kit = _service.ObterPorId(id);
-            return mapper.Map<KitViewModel>(kit);
+            return Mapper.Map<KitViewModel>(kit);
         }
 
         public IEnumerable<KitViewModel> ObterTodos()
         {
             var kit = _service.ObterTodos();
-            return mapper.Map<IEnumerable<KitViewModel>>(kit);
+            return Mapper.Map<IEnumerable<KitViewModel>>(kit);
         }
 
         public IEnumerable<KitViewModel> Filtrar(string nome)
         {
             var kit = _service.Filtrar(nome);
-            return mapper.Map<IEnumerable<KitViewModel>>(kit);
+            return Mapper.Map<IEnumerable<KitViewModel>>(kit);
         }
 
 

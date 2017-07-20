@@ -4,6 +4,12 @@ namespace Jack.Domain.ObjectValue
 {
     public class SacolaValue
     {
+
+        public SacolaValue()
+        {
+            itens = new List<ItemValue>();
+        }
+
         public int Numero { get; set; }
         public int SacolaFamilia { get; set; }
         public int Familia { get; set; }
@@ -19,6 +25,8 @@ namespace Jack.Domain.ObjectValue
         public string Roupa { get; set; }
         public string IdadeNominal { get; set; }
         public string Colaborador { get; set; }
-        public IEnumerable<ItemValue> Itens { get; set; }
+
+        private IList<ItemValue> itens;
+        public IList<ItemValue> Itens { get; set; }
     }
 }

@@ -1,0 +1,73 @@
+﻿<!-- Edição Modal -->
+@{
+    IEnumerable<SelectListItem> tipoItemLista = ViewBag.TipoItem as IEnumerable<SelectListItem>;
+
+}
+@Styles.Render("~/plugins/awesomeCheckboxStyles")
+@Html.AntiForgeryToken()
+<div id="modalEdicao" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="gridSystemModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content animated">
+            <div class="modal-header success-element">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="gridSystemModalLabel">Item dos Kits de Sacolas</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-1">&nbsp;</div>
+                    <div class="col-md-10">
+                        <label id="labelTipoItem" for="TipoItem">Tipo de Item</label>
+                        <input type="hidden" id="Codigo" name="Codigo" value="" readonly="readonly" class="form-control m-b-md" />
+                        @Html.DropDownList("TipoItem", tipoItemLista, new { @id = "TipoItem", @class = "form-control m-b" })
+                    </div>
+                    <div class="col-md-1">&nbsp;</div>
+                </div>
+                <div class="row">
+                    <div class="col-md-1">&nbsp;</div>
+                    <div class="col-md-4">
+                        <label id="labelIdadeMinima" for="Ordem">Ordem</label>
+                        <select id="Ordem" name="Ordem" class="form-control m-b">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                            <option value="11">11</option>
+                            <option value="12">12</option>
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        <label id="label1" for=""></label>
+                        <div class="checkbox checkbox-primary">
+                            <input type="checkbox" name="Opcional" id="Opcional">
+                            <label id="labelOpcional" for="Opcional">Item Opcional</label>
+                        </div>
+                    </div>
+
+                    <div class="col-md-1">&nbsp;</div>
+                </div>
+                <div class="row">
+                    <div class="col-md-1">&nbsp;</div>
+                    <div class="col-md-10">
+                        <label id="labelObservacao" for="Observacao">Observação</label>
+                        <input type="text" id="Observacao" name="Observacao" value="" class="form-control m-b-md" placeholder="" maxlength="50" />
+                    </div>
+                    <div class="col-md-1">&nbsp;</div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">
+                    <i class="glyphicon glyphicon-remove"></i>Fechar
+                </button>
+                <button type="button" class="btn btn-primary" id="Gravar">
+                    <i class="glyphicon glyphicon-floppy-disk"></i>Gravar
+                </button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->

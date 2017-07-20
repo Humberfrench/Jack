@@ -33,7 +33,7 @@ namespace Jack.Web.Controllers
 
         #endregion
 
-        [Route("QrCode")]
+        [Route(nameof(QrCode))]
         public ActionResult QrCode()
         {
             #region BreadCrumb
@@ -42,7 +42,7 @@ namespace Jack.Web.Controllers
                 Titulo = "Consulta de Sacolas",
                 BreadCrumbs = new List<BreadCrumb>
                 {
-                 new BreadCrumb {LinkText = "Teste de Qr Code", ActionName = "QrCode", ControllerName = "Sacolas"}
+                 new BreadCrumb {LinkText = "Teste de Qr Code", ActionName = nameof(QrCode), ControllerName = "Sacolas"}
                 }
             };
 
@@ -53,19 +53,19 @@ namespace Jack.Web.Controllers
             return View();
         }
 
-        [Route("GerarQrCode")]
+        [Route(nameof(GerarQrCode))]
         [HttpPost]
         public ActionResult GerarQrCode(int width, int height, int crianca)
         {
             var tipo = sacolaAppService.GerarQrCode(width, height, crianca);
 
-            byte[] imgBytes = (byte[])tipo;
-            string base64String = Convert.ToBase64String(imgBytes, 0, imgBytes.Length);
+            var imgBytes = (byte[])tipo;
+            var base64String = Convert.ToBase64String(imgBytes, 0, imgBytes.Length);
 
             return Json(base64String, JsonRequestBehavior.AllowGet);
         }
 
-        [Route("Modelo")]
+        [Route(nameof(Modelo))]
         public ActionResult Modelo()
         {
             return View();

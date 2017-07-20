@@ -85,7 +85,10 @@ namespace Jack.Web
             RegisterReuniaoBundle(ref bundles);
             #endregion
 
-       }
+            #region Reuniao Bundles
+            RegisterProcessarBundle(ref bundles);
+            #endregion
+        }
 
         private static void RegisterCssBundle(ref BundleCollection bundles)
         {
@@ -324,7 +327,7 @@ namespace Jack.Web
             //cssTypeAhead.Include("~/Content/plugins/c3/c3.min.css");
             //cssTypeAhead.Orderer = new AsIsBundleOrderer();
             //bundles.Add(cssTypeAhead);
-     
+
         }
 
         private static void RegisterJsBundle(ref BundleCollection bundles)
@@ -367,6 +370,12 @@ namespace Jack.Web
             jssBootBox.Include("~/Scripts/bootbox.min.js");
             jssBootBox.Orderer = new AsIsBundleOrderer();
             bundles.Add(jssBootBox);
+
+            // bootbox
+            var jssMask = new ScriptBundle("~/bundles/jquery-mask-plugin");
+            jssMask.Include("~/Scripts/plugins/jquery-mask-plugin/jquery.mask.min.js");
+            jssMask.Orderer = new AsIsBundleOrderer();
+            bundles.Add(jssMask);
 
             // SlimScroll
             var jssSlimScroll = new ScriptBundle("~/bundles/slimScroll");
@@ -709,7 +718,7 @@ namespace Jack.Web
             // toastr notification 
             var jssToastr = new ScriptBundle("~/bundles/toastr");
             jssToastr.Include("~/Scripts/plugins/toastr/toastr.min.js");
-             jssToastr.Include("~/Scripts/toastr-configuracao.js");
+            jssToastr.Include("~/Scripts/toastr-configuracao.js");
             jssToastr.Orderer = new AsIsBundleOrderer();
             bundles.Add(jssToastr);
 
@@ -725,7 +734,7 @@ namespace Jack.Web
             jssjQuery.Include("~/Scripts/util/util.js");
             jssjQuery.Orderer = new AsIsBundleOrderer();
             bundles.Add(jssjQuery);
- 
+
         }
 
         private static void RegisterTipoItemBundle(ref BundleCollection bundles)
@@ -735,7 +744,7 @@ namespace Jack.Web
             jssCaracteristica.Include("~/Scripts/TipoItem/main.js");
             jssCaracteristica.Orderer = new AsIsBundleOrderer();
             bundles.Add(jssCaracteristica);
-           
+
         }
 
         private static void RegisterFamiliaBundle(ref BundleCollection bundles)
@@ -746,7 +755,7 @@ namespace Jack.Web
             jssAluno.Orderer = new AsIsBundleOrderer();
             bundles.Add(jssAluno);
 
-           
+
         }
 
         private static void RegisterCriancaBundle(ref BundleCollection bundles)
@@ -762,7 +771,7 @@ namespace Jack.Web
             jssCriancaAcerto.Orderer = new AsIsBundleOrderer();
             bundles.Add(jssCriancaAcerto);
 
-           
+
         }
 
         private static void RegisterPresencaBundle(ref BundleCollection bundles)
@@ -777,12 +786,12 @@ namespace Jack.Web
             jssPresenca.Include("~/Scripts/Presenca/main.js");
             jssPresenca.Orderer = new AsIsBundleOrderer();
             bundles.Add(jssPresenca);
-          
+
             jssPresenca = new ScriptBundle("~/script/Presenca/Reunioes");
             jssPresenca.Include("~/Scripts/Presenca/PresencaReunioes.js");
             jssPresenca.Orderer = new AsIsBundleOrderer();
             bundles.Add(jssPresenca);
-                  }
+        }
 
         private static void RegisterRepresentanteBundle(ref BundleCollection bundles)
         {
@@ -831,7 +840,12 @@ namespace Jack.Web
             jssSacolas.Orderer = new AsIsBundleOrderer();
             bundles.Add(jssSacolas);
 
-       }
+            jssSacolas = new ScriptBundle("~/script/Sacolas/Pesquisa");
+            jssSacolas.Include("~/Scripts/Sacolas/SacolasPesquisa.js");
+            jssSacolas.Orderer = new AsIsBundleOrderer();
+            bundles.Add(jssSacolas);
+
+        }
 
         private static void RegisterPrintSacolasBundle(ref BundleCollection bundles)
         {
@@ -843,7 +857,7 @@ namespace Jack.Web
             jssjMain.Include("~/Scripts/util/util.js");
             jssjMain.Orderer = new AsIsBundleOrderer();
             bundles.Add(jssjMain);
- 
+
             var jssSacolas = new ScriptBundle("~/script/Sacolas/QrCode");
             jssSacolas.Include("~/Scripts/Sacolas/QrCode.js");
             jssSacolas.Orderer = new AsIsBundleOrderer();
@@ -861,7 +875,7 @@ namespace Jack.Web
 
             // CSS Print 
             var cssLoad = new StyleBundle("~/Content/Sacola/Print");
-            cssLoad.Include("~/Content/printsacola.css","~/Content/main.css");
+            cssLoad.Include("~/Content/printsacola.css", "~/Content/main.css");
             cssLoad.Orderer = new AsIsBundleOrderer();
             bundles.Add(cssLoad);
         }
@@ -873,12 +887,12 @@ namespace Jack.Web
             jssKit.Include("~/Scripts/Kit/main.js");
             jssKit.Orderer = new AsIsBundleOrderer();
             bundles.Add(jssKit);
-           
+
             jssKit = new ScriptBundle("~/script/KitItem/main");
             jssKit.Include("~/Scripts/KitItem/main.js");
             jssKit.Orderer = new AsIsBundleOrderer();
             bundles.Add(jssKit);
-           
+
         }
 
         private static void RegisterVestimentasBundle(ref BundleCollection bundles)
@@ -888,12 +902,12 @@ namespace Jack.Web
             jssVestimentas.Include("~/Scripts/Calcado/main.js");
             jssVestimentas.Orderer = new AsIsBundleOrderer();
             bundles.Add(jssVestimentas);
-           
+
             jssVestimentas = new ScriptBundle("~/script/Roupa/main");
             jssVestimentas.Include("~/Scripts/Roupa/main.js");
             jssVestimentas.Orderer = new AsIsBundleOrderer();
             bundles.Add(jssVestimentas);
-           
+
         }
 
         private static void RegisterStatusBundle(ref BundleCollection bundles)
@@ -908,7 +922,7 @@ namespace Jack.Web
             jssStatus.Include("~/Scripts/StatusFamilia/main.js");
             jssStatus.Orderer = new AsIsBundleOrderer();
             bundles.Add(jssStatus);
-           
+
         }
 
         private static void RegisterNivelBundle(ref BundleCollection bundles)
@@ -928,7 +942,7 @@ namespace Jack.Web
             jssTipoParentesco.Include("~/Scripts/TipoParentesco/main.js");
             jssTipoParentesco.Orderer = new AsIsBundleOrderer();
             bundles.Add(jssTipoParentesco);
-           
+
         }
 
         private static void RegisterFeriadoBundle(ref BundleCollection bundles)
@@ -938,7 +952,7 @@ namespace Jack.Web
             jssTipoParentesco.Include("~/Scripts/Feriado/main.js");
             jssTipoParentesco.Orderer = new AsIsBundleOrderer();
             bundles.Add(jssTipoParentesco);
-           
+
         }
 
         private static void RegisterReuniaoBundle(ref BundleCollection bundles)
@@ -948,7 +962,17 @@ namespace Jack.Web
             jssTipoParentesco.Include("~/Scripts/Reuniao/main.js");
             jssTipoParentesco.Orderer = new AsIsBundleOrderer();
             bundles.Add(jssTipoParentesco);
-           
+
+        }
+
+        private static void RegisterProcessarBundle(ref BundleCollection bundles)
+        {
+
+            var jssTipoParentesco = new ScriptBundle("~/script/Processa/main");
+            jssTipoParentesco.Include("~/Scripts/Processa/main.js");
+            jssTipoParentesco.Orderer = new AsIsBundleOrderer();
+            bundles.Add(jssTipoParentesco);
+
         }
 
     }

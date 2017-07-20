@@ -1,6 +1,6 @@
-﻿using System.Collections.Generic;
-using Jack.Domain.Interfaces;
+﻿using Jack.Domain.Interfaces;
 using Jack.Repository.UnityOfWork;
+using System.Collections.Generic;
 namespace Jack.Repository
 {
     public class BaseRepository<TClass> : Repository<TClass> where TClass : IEntidade
@@ -34,7 +34,7 @@ namespace Jack.Repository
 
         public IEnumerable<TClass> ObterTodos()
         {
-           return GetAll();
+            return GetAll();
         }
 
         public void Truncate(string table)

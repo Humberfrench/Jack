@@ -44,23 +44,30 @@ namespace Jack.Extensions
 
         public static string ToMedidaIdade(this string text)
         {
-            if(text == "A")
+            if (text == "A")
             {
                 return "Anos";
             }
             return "Meses";
         }
-        public static bool IsNumeric(this string text)
+
+        public static bool IsNumeric2(this string text)
         {
             try
             {
-                Convert.ToInt32(text);
+                var inteiro = Convert.ToInt32(text);
                 return true;
             }
-            catch
+            catch (Exception)
             {
                 return false;
             }
+        }
+
+        public static bool IsNumeric(this string text)
+        {
+            var numero = 0;
+            return int.TryParse(text, out numero);
         }
 
         public static string ToDateFormated(this DateTime dateValue)
@@ -151,6 +158,7 @@ namespace Jack.Extensions
             }
             return "Não";
         }
+
         public static string ToSimNao(this bool boolValue)
         {
             if (boolValue)
@@ -159,6 +167,7 @@ namespace Jack.Extensions
             }
             return "Não";
         }
+
         public static string ToParente(this bool boolValue)
         {
             if (boolValue)
@@ -167,6 +176,7 @@ namespace Jack.Extensions
             }
             return "Sem Parentesco";
         }
+
         public static string ToGrauParentesco(this int boolValue)
         {
             switch (boolValue)
@@ -181,6 +191,7 @@ namespace Jack.Extensions
                     return "Nenhum";
             }
         }
+
         public static string ToSimNaoIcone(this bool boolValue)
         {
             if (boolValue)
@@ -189,6 +200,7 @@ namespace Jack.Extensions
             }
             return @"<i class='glyphicon glyphicon-remove-circle'></i>";
         }
+
         public static string ToSexo(this string stringValue)
         {
             if (stringValue == "F")
@@ -225,7 +237,6 @@ namespace Jack.Extensions
         {
             return Convert.ToInt32(enumer);
         }
-
 
         /// <summary>
         /// transforma a primeira letra e a primeira letra apos white-space em maiuscula, 
@@ -415,7 +426,6 @@ namespace Jack.Extensions
             return result;
         }
 
-
         public static string GetFirstAndLastName(this string name)
         {
 
@@ -431,5 +441,21 @@ namespace Jack.Extensions
             return string.Format("{0}", names.First());
 
         }
+
+        public static bool IsNullOrEmptyOrWhiteSpace(this string value)
+        {
+            return string.IsNullOrEmpty(value) || string.IsNullOrWhiteSpace(value);
+        }
+
+        public static bool IsNull(this object value)
+        {
+            return value == null;
+        }
+
+        public static bool ToBoolean(this int value)
+        {
+            return (value == 1);
+        }
+
     }
 }

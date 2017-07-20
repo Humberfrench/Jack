@@ -1,0 +1,95 @@
+﻿@using Jack.Application.ViewModel
+@using Jack.Extensions
+@Styles.Render("~/Content/plugins/dataTables/dataTablesStyles")
+@{
+    ViewBag.Title = "Cadastro de Presença";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+    var disabled = "";
+}
+
+
+<input type="hidden" name="URLObterReunioes" id="URLObterReunioes" value="@Url.Action("ObterReunioes")" />
+<input type="hidden" name="URLListaFamilias" id="URLListaFamilias" value="@Url.Action("ListaFamilias")" />
+<input type="hidden" name="URLGravar" id="URLGravar" value="@Url.Action("Gravar")" />
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>Cadastro de Presença</h5>
+                </div>
+                <div class="ibox-content">
+                    <div class="row">
+                        <div class="col-lg-1">&nbsp;</div>
+                        <div class="col-lg-2">
+                            <label id="labelAno" for="Ano">Ano</label>
+                            <select name="Ano" id="Ano" class="form-control m-b">
+                                <option value="0">Ano</option>
+                                <option value="2014">2014</option>
+                                <option value="2015">2015</option>
+                                <option value="2016">2016</option>
+                                <option value="2017">2017</option>
+                                <option value="2018">2018</option>
+                                <option value="2019">2019</option>
+                                <option value="2020">2020</option>
+                                <option value="2021">2021</option>
+                                <option value="2022">2022</option>
+                            </select>
+                        </div>
+                        <div class="col-lg-3">
+                            <label id="labelReuniao" for="Reuniao">Reunião</label> 
+                            <select name="Reuniao" id="Reuniao" class="form-control m-b">
+                            </select>
+                        </div>
+                        <div class="col-lg-2">
+                            <label id="labelLetra" for="Letra">Letra:</label>
+                            <select name="Letra" id="Letra" class="form-control m-b">
+                                <option value="0">Todos</option>
+                                <option value="A">A</option>
+                                <option value="B">B</option>
+                                <option value="C">C</option>
+                                <option value="D">D</option>
+                                <option value="E">E</option>
+                                <option value="F">F</option>
+                                <option value="G">G</option>
+                                <option value="H">H</option>
+                                <option value="I">I</option>
+                                <option value="J">J</option>
+                                <option value="K">K</option>
+                                <option value="L">L</option>
+                                <option value="M">M</option>
+                                <option value="N">N</option>
+                                <option value="O">O</option>
+                                <option value="P">P</option>
+                                <option value="Q">Q</option>
+                                <option value="R">R</option>
+                                <option value="S">S</option>
+                                <option value="T">T</option>
+                                <option value="U">U</option>
+                                <option value="V">V</option>
+                                <option value="X">X</option>
+                                <option value="Y">Y</option>
+                                <option value="W">W</option>
+                                <option value="Z">Z</option>
+                            </select>
+                        </div>
+                        <div class="col-lg-1">
+                            <br /><a href="#" id="Pesquisar" class="btn btn-primary btn-md" data-toggle="tooltip" data-placement="top" title="Pesquisar"><i class="glyphicon glyphicon-search"></i></a>
+                        </div>
+                        <div class="col-lg-3">&nbsp;</div>
+                    </div>
+                </div>
+                <div class="ibox-content">
+                <div id="divReuniao"></div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts
+{
+    @Scripts.Render("~/plugins/dataTables")
+    @Scripts.Render("~/script/Presenca/main")
+}

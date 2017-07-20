@@ -1,0 +1,22 @@
+﻿@model IEnumerable<Jack.Application.ViewModel.FamiliaViewModel>
+@{
+    Layout = null;
+}
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-md-3" onclick="return Presenca.Gravar('@item.Codigo')" style="cursor:pointer">
+            <div class="panel panel-success">
+                <div class="panel-heading">
+                    <i class="fa fa-success-circle"></i> Família <i class="fa fa-success-floppy-disk"></i>
+                </div>
+                <div class="panel-body">
+                    @item.Nome
+                </div>
+            </div>
+        </div>
+
+    }
+</div>
+
+

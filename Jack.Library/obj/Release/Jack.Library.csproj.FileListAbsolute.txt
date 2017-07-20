@@ -30,3 +30,37 @@ C:\Users\humberto.almeida.ext\Documents\Visual Studio 2013\Projects\Jack\Jack.Li
 C:\Users\humberto.almeida.ext\Documents\Visual Studio 2013\Projects\Jack\Jack.Library\bin\Release\zxing.xml
 C:\Users\humberto.almeida.ext\Documents\Visual Studio 2013\Projects\Jack\Jack.Library\bin\Release\zxing.presentation.pdb
 C:\Users\humberto.almeida.ext\Documents\Visual Studio 2013\Projects\Jack\Jack.Library\bin\Release\zxing.presentation.xml
+C:\Humberto\Projetos\Jack\Jack.Library\bin\Release\Jack.Library.dll.config
+C:\Humberto\Projetos\Jack\Jack.Library\bin\Release\Jack.Library.dll
+C:\Humberto\Projetos\Jack\Jack.Library\bin\Release\Jack.Library.pdb
+C:\Humberto\Projetos\Jack\Jack.Library\bin\Release\Antlr3.Runtime.dll
+C:\Humberto\Projetos\Jack\Jack.Library\bin\Release\Jack.Extensions.dll
+C:\Humberto\Projetos\Jack\Jack.Library\bin\Release\Microsoft.Web.Infrastructure.dll
+C:\Humberto\Projetos\Jack\Jack.Library\bin\Release\Newtonsoft.Json.dll
+C:\Humberto\Projetos\Jack\Jack.Library\bin\Release\System.Web.Helpers.dll
+C:\Humberto\Projetos\Jack\Jack.Library\bin\Release\System.Web.Mvc.dll
+C:\Humberto\Projetos\Jack\Jack.Library\bin\Release\System.Web.Optimization.dll
+C:\Humberto\Projetos\Jack\Jack.Library\bin\Release\System.Web.Razor.dll
+C:\Humberto\Projetos\Jack\Jack.Library\bin\Release\System.Web.WebPages.Deployment.dll
+C:\Humberto\Projetos\Jack\Jack.Library\bin\Release\System.Web.WebPages.dll
+C:\Humberto\Projetos\Jack\Jack.Library\bin\Release\System.Web.WebPages.Razor.dll
+C:\Humberto\Projetos\Jack\Jack.Library\bin\Release\WebGrease.dll
+C:\Humberto\Projetos\Jack\Jack.Library\bin\Release\zxing.dll
+C:\Humberto\Projetos\Jack\Jack.Library\bin\Release\zxing.presentation.dll
+C:\Humberto\Projetos\Jack\Jack.Library\bin\Release\Jack.Extensions.pdb
+C:\Humberto\Projetos\Jack\Jack.Library\bin\Release\Antlr3.Runtime.pdb
+C:\Humberto\Projetos\Jack\Jack.Library\bin\Release\Newtonsoft.Json.xml
+C:\Humberto\Projetos\Jack\Jack.Library\bin\Release\System.Web.Helpers.xml
+C:\Humberto\Projetos\Jack\Jack.Library\bin\Release\System.Web.Mvc.xml
+C:\Humberto\Projetos\Jack\Jack.Library\bin\Release\System.Web.Optimization.xml
+C:\Humberto\Projetos\Jack\Jack.Library\bin\Release\System.Web.Razor.xml
+C:\Humberto\Projetos\Jack\Jack.Library\bin\Release\System.Web.WebPages.xml
+C:\Humberto\Projetos\Jack\Jack.Library\bin\Release\System.Web.WebPages.Deployment.xml
+C:\Humberto\Projetos\Jack\Jack.Library\bin\Release\System.Web.WebPages.Razor.xml
+C:\Humberto\Projetos\Jack\Jack.Library\bin\Release\zxing.pdb
+C:\Humberto\Projetos\Jack\Jack.Library\bin\Release\zxing.xml
+C:\Humberto\Projetos\Jack\Jack.Library\bin\Release\zxing.presentation.pdb
+C:\Humberto\Projetos\Jack\Jack.Library\bin\Release\zxing.presentation.xml
+C:\Humberto\Projetos\Jack\Jack.Library\obj\Release\Jack.Library.csprojResolveAssemblyReference.cache
+C:\Humberto\Projetos\Jack\Jack.Library\obj\Release\Jack.Library.dll
+C:\Humberto\Projetos\Jack\Jack.Library\obj\Release\Jack.Library.pdb

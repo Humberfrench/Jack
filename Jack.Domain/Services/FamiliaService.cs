@@ -6,8 +6,8 @@ using Jack.DomainValidator;
 using Jack.Extensions;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
-using System.Security.Cryptography;
 
 namespace Jack.Domain.Services
 {
@@ -79,10 +79,17 @@ namespace Jack.Domain.Services
             else
             {
                 var familia = ObterPorId(item.Codigo);
+                if (familia.FamiliaBanida())
+                {
+                    validationResult.AddError("Não é possível alterar esta família, Status 13. Banida.");
+                    return validationResult;
+                }
+
                 if (item.DataCriacao.Year == 1)
                 {
                     item.DataCriacao = DateTime.Now;
                 }
+
                 familia.DataAtualizacao = DateTime.Now;
                 familia.BlackListPasso1 = item.BlackListPasso1;
                 familia.BlackListPasso2 = item.BlackListPasso2;
@@ -94,7 +101,7 @@ namespace Jack.Domain.Services
                 familia.PermiteExcedenteRepresentantes = item.PermiteExcedenteRepresentantes;
                 familia.PresencaJustificada = item.PresencaJustificada;
                 familia.Sacolinha = item.Sacolinha;
-                
+
                 Atualizar(familia);
             }
 
@@ -146,7 +153,8 @@ namespace Jack.Domain.Services
 
         public void AtualizarFamilias()
         {
-            var familias = ObterTodos().ToList();
+            //Alteração, para familia status 13, Banida, não pode fazer nada, nem mexer.
+            var familias = ObterTodos().Where(f => f.Status.Codigo != EnumStatusFamilia.FamiliaBanidaPorProblemas.Int()).ToList();
             foreach (var familiaItem in familias)
             {
                 AtualizarFamilia(familiaItem, true);
@@ -171,6 +179,13 @@ namespace Jack.Domain.Services
 
         public Familia AtualizarFamilia(Familia familia, bool gravar = true)
         {
+            //Observar o STATUS
+            if (familia.FamiliaBanida())
+            {
+                AddLog(familia.Codigo, EnumStatusFamilia.FamiliaBanidaPorProblemas.Int(), nameof(AtualizarFamilia), "Familia Banida.Não pode atualizar");
+                return familia;
+            }
+
             // sem crianças
             if (!familia.TemCriancas())
             {
@@ -179,7 +194,7 @@ namespace Jack.Domain.Services
                 {
                     Gravar(familia);
                 }
-                AddLog(familia.Codigo, EnumStatusFamilia.FamiliaSemCrianca.Int(), "AtualizarFamilia", "Familia Sem Criança");
+                AddLog(familia.Codigo, EnumStatusFamilia.FamiliaSemCrianca.Int(), nameof(AtualizarFamilia), "Familia Sem Criança");
 
                 return familia;
             }
@@ -192,7 +207,7 @@ namespace Jack.Domain.Services
                 {
                     Gravar(familia);
                 }
-                AddLog(familia.Codigo, EnumStatusFamilia.FamiliaSemCrianca.Int(), "AtualizarFamilia", "Familia Sem Criança");
+                AddLog(familia.Codigo, EnumStatusFamilia.FamiliaSemCrianca.Int(), nameof(AtualizarFamilia), "Familia Sem Criança");
                 return familia;
             }
 
@@ -204,21 +219,14 @@ namespace Jack.Domain.Services
                 {
                     Gravar(familia);
                 }
-                AddLog(familia.Codigo, EnumStatusFamilia.FamiliaSemDocumentacao.Int(), "AtualizarFamilia", "Familia Sem Documentação");
+                AddLog(familia.Codigo, EnumStatusFamilia.FamiliaSemDocumentacao.Int(), nameof(AtualizarFamilia), "Familia Sem Documentação");
                 return familia;
             }
-            if (familia.PresencaJustificada)
-            {
-                familia.Nivel = repNivel.ObterPorId(1);
-                AtualizarPresencas(familia);
-                return familia;
-            }
-
             //sem presença
             if (familia.FamiliaSemPresenca())
             {
                 AtualizarFamiliaNivel99(ref familia, EnumStatusFamilia.FamiliaSemPresenca);
-                AddLog(familia.Codigo, EnumStatusFamilia.FamiliaSemPresenca.Int(), "AtualizarFamilia", "Familia Sem Presença");
+                AddLog(familia.Codigo, EnumStatusFamilia.FamiliaSemPresenca.Int(), nameof(AtualizarFamilia), "Familia Sem Presença");
                 return familia;
             }
 
@@ -230,6 +238,18 @@ namespace Jack.Domain.Services
             //Criancas
             AtualizaStatusPorCrianca(ref familia);
 
+            if (familia.PresencaJustificada)
+            {
+                familia.Nivel = repNivel.ObterPorId(1);
+                familia.Status = ObterStatus(EnumStatusFamilia.DadosOk.Int()); // ok
+                AtualizarPresencas(familia);
+                if (gravar)
+                {
+                    Atualizar(familia);
+                }
+                return familia;
+            }
+
             if (gravar)
             {
                 Atualizar(familia);
@@ -237,30 +257,182 @@ namespace Jack.Domain.Services
             return familia;
         }
 
-        private bool FamiliaComCriancasEmExcesso(int status)
+        //substituidas como negocio dentro do dominio.
+        //private int QuantidadeTotalDeCriancas(Familia familia)
+        //{
+        //    var criancas = familia.Criancas.Where(c => c.Status.PermiteSacola).ToList().Count;
+
+        //    familia.Representantes.ToList()
+        //           .ForEach(r => criancas += r.FamiliaRepresentada.Criancas.Where(c => c.Status.PermiteSacola).ToList().Count);
+
+        //    return criancas;
+
+        //}
+
+        //private bool FamiliaComCriancasDeRepresentanteExcedida(Familia familia)
+        //{
+        //    return (Parametro.NumeroMaximoCricancasRepresentantes < QuantidadeTotalDeCriancas(familia));
+        //}
+
+        //private bool FamiliaComCriancasEmExcesso(int status)
+        //{
+        //    return status == EnumStatusFamilia.CriancasExcedido.Int();
+        //}
+
+        //private bool FamiliaComTotalDeCriancasEmExcesso(int status)
+        //{
+        //    return status == EnumStatusFamilia.CriancasDaFamilaEDoRepresentanteExcedido.Int();
+        //}
+
+        //private bool FamiliaRepresentanteEmExcesso(int status)
+        //{
+        //    return status == EnumStatusFamilia.RepresentanteExcedido.Int();
+        //}
+        public void RemoverCriancasDiferentesDoGrauUm(ref Familia familia)
         {
-            return status == EnumStatusFamilia.CriancasExcedido.Int();
+            var criancas = familia.Criancas.Where(c => c.TipoParentesco.GrauParentesco != EnumGrauParentesco.PrimeiroGrau.Int()).ToList();
+            {
+                foreach (var crianca in criancas)
+                {
+                    crianca.Status = ObterStatusCrianca(EnumStatusCrianca.CriancaExcedente.Int());
+                    AddLog(crianca.Codigo, EnumStatusCrianca.CriancaExcedente.Int(), nameof(ResolverCriancasAMais), "Criança Removida da Sacola. Excedente. Grau Parentesco diferente de 1");
+                }
+            }
         }
 
-        private bool FamiliaComTotalDeCriancasEmExcesso(int status)
+        public void ResolverCriancasAMais(ref Familia familia, int quantidadeLimitada, int quantidadeCriancas)
         {
-            return status == EnumStatusFamilia.CriancasDaFamilaEDoRepresentanteExcedido.Int();
+            var quantidadedeCriancaGrauParentescoUm = quantidadeCriancas - quantidadeLimitada;
+            var quantidadeQuePode = 0;
+            var quantidadeARemover = 0;
+
+            //se a quantidade de filhos for maior que o limite
+            if (Parametro.NumeroMaximoCricancas < quantidadedeCriancaGrauParentescoUm)
+            {
+                var criancasGrauUm = familia.Criancas.Where(c => c.TipoParentesco.GrauParentesco == 1
+                                                            && c.Status.PermiteSacola).ToList();
+                quantidadeARemover = quantidadedeCriancaGrauParentescoUm - Parametro.NumeroMaximoCricancas;
+                var criancasAAlterarGrauUm = criancasGrauUm.OrderBy(c => c.MedidaIdade)
+                                                           .ThenByDescending(c => c.Idade)
+                                                           .Take(quantidadeARemover);
+                foreach (var criancaAlterar in criancasAAlterarGrauUm)
+                {
+                    criancaAlterar.Status = ObterStatusCrianca(EnumStatusCrianca.CriancaExcedente.Int());
+                    AddLog(criancaAlterar.Codigo, EnumStatusCrianca.CriancaExcedente.Int(), nameof(ResolverCriancasAMais), "Criança Removida da Sacola. Excedente. Grau Parentesco = 1");
+                }
+            }
+
+            quantidadeQuePode = Parametro.NumeroMaximoCricancas - quantidadedeCriancaGrauParentescoUm;
+            quantidadeARemover = quantidadeLimitada - quantidadeQuePode;
+
+            //crianças que não são de grau de parentesco == 1. Serão Retiradas
+            var criancasGrauDiferente = familia.Criancas.Where(c => c.TipoParentesco.GrauParentesco > 1
+                                                               && c.Status.PermiteSacola).ToList();
+            var criancasParaAlterar = criancasGrauDiferente.OrderBy(c => c.MedidaIdade)
+                                                           .ThenByDescending(c => c.Idade)
+                                                           .Take(quantidadeARemover);
+
+            foreach (var criancaAlterar in criancasParaAlterar)
+            {
+                criancaAlterar.Status = ObterStatusCrianca(EnumStatusCrianca.CriancaExcedente.Int());
+                AddLog(criancaAlterar.Codigo, EnumStatusCrianca.CriancaExcedente.Int(), nameof(ResolverCriancasAMais), "Criança Removida da Sacola. Excedente. Grau Parentesco > 1");
+            }
+            //criancasParaAlterar.ToList().ForEach(
+            // c => c.Status = ObterStatusCrianca(EnumStatusCrianca.CriancaExcedente.Int()));
+
         }
 
-        private bool FamiliaRepresentanteEmExcesso(int status)
+        public void AtualizaNivel(ref Familia familia)
         {
-            return status == EnumStatusFamilia.RepresentanteExcedido.Int();
+
+            var ano = DateTime.Now.Year;
+
+            var reunioesFeitas = ObterQuantidadeReunioesAno(ano);
+            var qtdePresencas = ObterQuantidadePresencas(familia.Presencas, ano);
+            var percPresenca = (qtdePresencas / reunioesFeitas) * 100;
+
+            familia.Nivel = repNivel.ObterNivelPorFaixaPresencial(percPresenca);
+            if (familia.Nivel.Codigo == 99)
+            {
+                familia.Status = ObterStatus(EnumStatusFamilia.FamiliaSemPresenca.Int());
+            }
+            else
+            {
+                familia.Status = ObterStatus(EnumStatusFamilia.DadosOk.Int());
+            }
+
         }
+
+        public ValidationResult AtualizarPresencas(Familia familia)
+        {
+            var data = DateTime.Now;
+            var ano = data.Month < 8 ? data.Year : data.Year + 1;
+
+            var reunioes = repReuniao.ObterTodosAteHoje(ano, data);
+            foreach (var reuniao in reunioes)
+            {
+                var presenca = new Presenca
+                {
+                    Familia = familia,
+                    Reuniao = reuniao
+                };
+                repPresenca.Adicionar(presenca);
+            }
+            return validationResult;
+        }
+
+        public IEnumerable<Familia> ObterFamiliasBanidas()
+        {
+            return ObterPorStatus(EnumStatusFamilia.FamiliaBanidaPorProblemas.Int());
+        }
+
+        public ValidationResult AtualizarFamiliaParaBanida(int familiaId)
+        {
+            var familia = ObterPorId(familiaId);
+            if (familia == null)
+            {
+                validationResult.AddError("Familia não encontrada");
+                return validationResult;
+            }
+            familia.Status = ObterStatus(EnumStatusFamilia.FamiliaBanidaPorProblemas.Int());
+
+            //método herdado por que o atual não deixa grava e fazer nada com familia status 13
+            base.Atualizar(familia);
+
+            return validationResult;
+        }
+
+        public ValidationResult LiberarFamiliaBanida(int familiaId)
+        {
+            var familia = ObterPorId(familiaId);
+            if (familia == null)
+            {
+                validationResult.AddError("Familia não encontrada");
+                return validationResult;
+            }
+            familia.Status = ObterStatus(EnumStatusFamilia.DadosOk.Int());
+
+            //uso o atualizar por que ele vai analisar a familia, e por ela no status correto
+            // analisa e grava.
+            AtualizarFamilia(familia);
+
+            return validationResult;
+        }
+
+
+        #region Private Metodos
 
         private void AtualizaStatusPorRepresentante(ref Familia familia)
         {
             //rever
             if (familia.PermiteExcedenteRepresentantes)
             {
-                if (FamiliaComCriancasDeRepresentanteExcedida(familia))
+                var limite = Parametro.NumeroMaximoCricancasRepresentantes;
+                //if (FamiliaComCriancasDeRepresentanteExcedida(familia))
+                if (familia.FamiliaComCriancasDeRepresentanteExcedida(limite))
                 {
-                    familia.Status = repStatus.ObterPorId(EnumStatusFamilia.CriancasDaFamilaEDoRepresentanteExcedido.Int());
-                    AddLog(familia.Codigo, EnumStatusFamilia.CriancasDaFamilaEDoRepresentanteExcedido.Int(), "AtualizaStatusPorRepresentante", "Quantidade de Crianças da Familia com as da Representantes foram Excedidas");
+                    familia.Status = ObterStatus(EnumStatusFamilia.CriancasDaFamilaEDoRepresentanteExcedido.Int());
+                    AddLog(familia.Codigo, EnumStatusFamilia.CriancasDaFamilaEDoRepresentanteExcedido.Int(), nameof(AtualizaStatusPorRepresentante), "Quantidade de Crianças da Familia com as da Representantes foram Excedidas");
                 }
                 return;
             }
@@ -269,33 +441,18 @@ namespace Jack.Domain.Services
 
             if (limiteRepresantante >= quantidadeRepresentantesLimitada) return;
 
-            if (FamiliaComCriancasEmExcesso(familia.Status.Codigo))
+            //if (FamiliaComCriancasEmExcesso(familia.Status.Codigo))
+            if (familia.FamiliaComCriancasEmExcesso())
             {
-                familia.Status = repStatus.ObterPorId(EnumStatusFamilia.CriancasERepresentanteExcedido.Int());
-                AddLog(familia.Codigo, EnumStatusFamilia.CriancasERepresentanteExcedido.Int(), "AtualizaStatusPorRepresentante", "Quantidade de Representantes e Crianças Excedida");
+                familia.Status = ObterStatus(EnumStatusFamilia.CriancasERepresentanteExcedido.Int());
+                AddLog(familia.Codigo, EnumStatusFamilia.CriancasERepresentanteExcedido.Int(), nameof(AtualizaStatusPorRepresentante), "Quantidade de Representantes e Crianças Excedida");
             }
             else
             {
-                familia.Status = repStatus.ObterPorId(EnumStatusFamilia.RepresentanteExcedido.Int());
-                AddLog(familia.Codigo, EnumStatusFamilia.RepresentanteExcedido.Int(), "AtualizaStatusPorRepresentante", "Quantidade de Representantes Excedida");
+                familia.Status = ObterStatus(EnumStatusFamilia.RepresentanteExcedido.Int());
+                AddLog(familia.Codigo, EnumStatusFamilia.RepresentanteExcedido.Int(), nameof(AtualizaStatusPorRepresentante), "Quantidade de Representantes Excedida");
             }
 
-        }
-
-        private int QuantidadeTotalDeCriancas(Familia familia)
-        {
-            var criancas = familia.Criancas.Where(c => c.Status.PermiteSacola).ToList().Count;
-
-            familia.Representantes.ToList()
-                   .ForEach(r => criancas += r.FamiliaRepresentada.Criancas.Where(c => c.Status.PermiteSacola).ToList().Count);
-
-            return criancas;
-
-        }
-
-        private bool FamiliaComCriancasDeRepresentanteExcedida(Familia familia)
-        {
-            return (Parametro.NumeroMaximoCricancasRepresentantes < QuantidadeTotalDeCriancas(familia));
         }
 
         private void AtualizaStatusPorCrianca(ref Familia familia)
@@ -327,116 +484,25 @@ namespace Jack.Domain.Services
                 }
             }
 
-            if (FamiliaRepresentanteEmExcesso(familia.Status.Codigo))
+            //if (FamiliaRepresentanteEmExcesso(familia.Status.Codigo))
+            if (familia.FamiliaRepresentanteEmExcesso())
             {
-                familia.Status = repStatus.ObterPorId(EnumStatusFamilia.CriancasERepresentanteExcedido.Int());
-                AddLog(familia.Codigo, EnumStatusFamilia.CriancasERepresentanteExcedido.Int(), "AtualizaStatusPorCrianca", "Quantidade de Representantes e Crianças Excedida");
+                familia.Status = ObterStatus(EnumStatusFamilia.CriancasERepresentanteExcedido.Int());
+                AddLog(familia.Codigo, EnumStatusFamilia.CriancasERepresentanteExcedido.Int(), nameof(AtualizaStatusPorCrianca), "Quantidade de Representantes e Crianças Excedida");
 
             }
             else
             {
-                familia.Status = repStatus.ObterPorId(EnumStatusFamilia.CriancasExcedido.Int());
-                AddLog(familia.Codigo, EnumStatusFamilia.CriancasExcedido.Int(), "AtualizaStatusPorCrianca", "Quantidade de Crianças Excedida");
+                familia.Status = ObterStatus(EnumStatusFamilia.CriancasExcedido.Int());
+                AddLog(familia.Codigo, EnumStatusFamilia.CriancasExcedido.Int(), nameof(AtualizaStatusPorCrianca), "Quantidade de Crianças Excedida");
             }
 
             // vamos tratar as crianças excedentes!
-            if (FamiliaComCriancasEmExcesso(familia.Status.Codigo))
+            //if (FamiliaComCriancasEmExcesso(familia.Status.Codigo))
+            if (familia.FamiliaComCriancasEmExcesso())
             {
                 ResolverCriancasAMais(ref familia, quantidadeCriancaLimitada, quantidadeCrianca);
             }
-        }
-
-        public void RemoverCriancasDiferentesDoGrauUm(ref Familia familia)
-        {
-            var criancas = familia.Criancas.Where(c => c.TipoParentesco.GrauParentesco != EnumGrauParentesco.PrimeiroGrau.Int()).ToList();
-            {
-                foreach (var crianca in criancas)
-                {
-                    crianca.Status = repStatusCrianca.ObterPorId(EnumStatusCrianca.CriancaExcedente.Int());
-                    AddLog(crianca.Codigo, EnumStatusCrianca.CriancaExcedente.Int(), "ResolverCriancasAMais", "Criança Removida da Sacola. Excedente. Grau Parentesco diferente de 1");
-                }
-            }
-        }
-
-        public void ResolverCriancasAMais(ref Familia familia, int quantidadeLimitada, int quantidadeCriancas)
-        {
-            var quantidadedeCriancaGrauParentescoUm = quantidadeCriancas - quantidadeLimitada;
-            var quantidadeQuePode = 0;
-            var quantidadeARemover = 0;
-
-            //se a quantidade de filhos for maior que o limite
-            if (Parametro.NumeroMaximoCricancas < quantidadedeCriancaGrauParentescoUm)
-            {
-                var criancasGrauUm = familia.Criancas.Where(c => c.TipoParentesco.GrauParentesco == 1
-                                                            && c.Status.PermiteSacola).ToList();
-                quantidadeARemover = quantidadedeCriancaGrauParentescoUm - Parametro.NumeroMaximoCricancas;
-                var criancasAAlterarGrauUm = criancasGrauUm.OrderBy(c => c.MedidaIdade)
-                                                           .ThenByDescending(c => c.Idade)
-                                                           .Take(quantidadeARemover);
-                foreach (var criancaAlterar in criancasAAlterarGrauUm)
-                {
-                    criancaAlterar.Status = repStatusCrianca.ObterPorId(EnumStatusCrianca.CriancaExcedente.Int());
-                    AddLog(criancaAlterar.Codigo, EnumStatusCrianca.CriancaExcedente.Int(), "ResolverCriancasAMais", "Criança Removida da Sacola. Excedente. Grau Parentesco = 1");
-                }
-            }
-
-            quantidadeQuePode = Parametro.NumeroMaximoCricancas - quantidadedeCriancaGrauParentescoUm;
-            quantidadeARemover = quantidadeLimitada - quantidadeQuePode;
-
-            //crianças que não são de grau de parentesco == 1. Serão Retiradas
-            var criancasGrauDiferente = familia.Criancas.Where(c => c.TipoParentesco.GrauParentesco > 1
-                                                               && c.Status.PermiteSacola).ToList();
-            var criancasParaAlterar = criancasGrauDiferente.OrderBy(c => c.MedidaIdade)
-                                                           .ThenByDescending(c => c.Idade)
-                                                           .Take(quantidadeARemover);
-
-            foreach (var criancaAlterar in criancasParaAlterar)
-            {
-                criancaAlterar.Status = repStatusCrianca.ObterPorId(EnumStatusCrianca.CriancaExcedente.Int());
-                AddLog(criancaAlterar.Codigo, EnumStatusCrianca.CriancaExcedente.Int(), "ResolverCriancasAMais", "Criança Removida da Sacola. Excedente. Grau Parentesco > 1");
-            }
-            //criancasParaAlterar.ToList().ForEach(
-            // c => c.Status = repStatusCrianca.ObterPorId(EnumStatusCrianca.CriancaExcedente.Int()));
-
-        }
-
-        public void AtualizaNivel(ref Familia familia)
-        {
-
-            var ano = DateTime.Now.Year;
-
-            var reunioesFeitas = ObterQuantidadeReunioesAno(ano);
-            var qtdePresencas = ObterQuantidadePresencas(familia.Presencas, ano);
-            var percPresenca = (qtdePresencas / reunioesFeitas) * 100;
-
-            familia.Nivel = repNivel.ObterNivelPorFaixaPresencial(percPresenca);
-            if (familia.Nivel.Codigo == 99)
-            {
-                familia.Status = repStatus.ObterPorId(EnumStatusFamilia.FamiliaSemPresenca.Int());
-            }
-            else
-            {
-                familia.Status = repStatus.ObterPorId(EnumStatusFamilia.DadosOk.Int());
-            }
-
-        }
-
-        public ValidationResult AtualizarPresencas(Familia familia)
-        {
-            var data = DateTime.Now;
-            var ano = data.Month < 8 ? data.Year : data.Year + 1;
-
-            var reunioes = repReuniao.ObterTodosAteHoje(ano, data);
-            foreach (var reuniao in reunioes)
-            {
-                var presenca = new Presenca
-                {
-                    Familia = familia,
-                    Reuniao = reuniao
-                };
-                repPresenca.Adicionar(presenca);
-            }
-            return validationResult;
         }
 
         private float ObterQuantidadeReunioesAno(int ano)
@@ -458,11 +524,41 @@ namespace Jack.Domain.Services
         private void AtualizarFamiliaNivel99(ref Familia familia, EnumStatusFamilia status)
         {
             familia.Nivel = repNivel.ObterPorId(99);
-            familia.Status = repStatus.ObterPorId(status.Int());
+            familia.Status = ObterStatus(status.Int());
             familia.Consistente = false;
             familia.Sacolinha = false;
             familia.DataAtualizacao = DateTime.Now;
         }
+
+        private StatusFamilia ObterStatus(int statusId)
+        {
+            var status = repStatus.ObterPorId(statusId);
+            return status;
+
+        }
+
+        private StatusFamilia ObterStatus(EnumStatusFamilia statusEnum)
+        {
+            var status = ObterStatus(statusEnum.Int());
+            return status;
+
+        }
+
+        private StatusCrianca ObterStatusCrianca(int statusId)
+        {
+            var status = repStatusCrianca.ObterPorId(statusId);
+            return status;
+
+        }
+
+        private StatusCrianca ObterStatusCrianca(EnumStatusFamilia statusEnum)
+        {
+            var status = ObterStatusCrianca(statusEnum.Int());
+            return status;
+
+        }
+
+        #endregion
 
         #endregion
 
@@ -477,7 +573,7 @@ namespace Jack.Domain.Services
                 Mensagem = mensagem,
                 Processo = processo,
                 Data = DateTime.Now,
-                Entidade = "Familia"
+                Entidade = nameof(Familia)
             };
 
             repLog.Adicionar(log);

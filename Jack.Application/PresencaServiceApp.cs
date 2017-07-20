@@ -1,6 +1,4 @@
-﻿using AutoMapper;
-using Jack.Application.AutoMapper;
-using Jack.Application.Interfaces;
+﻿using Jack.Application.Interfaces;
 using Jack.Application.ViewModel;
 using Jack.Domain.Entity;
 using Jack.Domain.Interfaces.Services;
@@ -10,16 +8,14 @@ using System.Collections.Generic;
 
 namespace Jack.Application
 {
-    public class PresencaServiceApp :  IPresencaServiceApp
+    public class PresencaServiceApp : AppServiceBase, IPresencaServiceApp
     {
 
         private readonly IPresencaService _service;
-        private readonly IMapper mapper;
 
         public PresencaServiceApp(IPresencaService presencaService)
         {
             _service = presencaService;
-            mapper = AutoMapperConfig.Config.CreateMapper();
         }
 
         public ValidationResult Gravar(int reuniao, int familia)
@@ -29,10 +25,10 @@ namespace Jack.Application
 
         public ValidationResult Gravar(ReuniaoViewModel reuniao, FamiliaViewModel familia)
         {
-            
-            var familiaD = mapper.Map<Familia>(familia);
 
-            var reuniaoD = mapper.Map<Reuniao>(reuniao);
+            var familiaD = Mapper.Map<Familia>(familia);
+
+            var reuniaoD = Mapper.Map<Reuniao>(reuniao);
 
             return _service.Gravar(reuniaoD, familiaD);
 
@@ -45,23 +41,23 @@ namespace Jack.Application
 
         public List<StatsViewModel> ObterDadosPresenca(int familiaId)
         {
-           
+
             var presenca = _service.ObterDadosPresenca(familiaId);
 
-            return mapper.Map<List<StatsViewModel>>(presenca);
+            return Mapper.Map<List<StatsViewModel>>(presenca);
 
         }
 
         public IEnumerable<FamiliaViewModel> ObterFamiliasDisponiveis(int reuniao)
         {
             var presenca = _service.ObterFamiliasDisponiveis(reuniao);
-            return mapper.Map<IEnumerable<FamiliaViewModel>>(presenca);
+            return Mapper.Map<IEnumerable<FamiliaViewModel>>(presenca);
         }
 
         public IEnumerable<FamiliaViewModel> ObterFamiliasDisponiveis(int reuniao, string letra)
         {
             var presenca = _service.ObterFamiliasDisponiveis(reuniao, letra);
-            return mapper.Map<IEnumerable<FamiliaViewModel>>(presenca);
+            return Mapper.Map<IEnumerable<FamiliaViewModel>>(presenca);
         }
 
         public ValidationResult ProcessarPresencaGarantida()
@@ -72,13 +68,13 @@ namespace Jack.Application
         public PresencaViewModel ObterPorId(int id)
         {
             var presenca = _service.ObterPorId(id);
-            return mapper.Map<PresencaViewModel>(presenca);
+            return Mapper.Map<PresencaViewModel>(presenca);
         }
 
         public IEnumerable<PresencaViewModel> ObterTodos()
         {
             var presenca = _service.ObterTodos();
-            return mapper.Map<IEnumerable<PresencaViewModel>>(presenca);
+            return Mapper.Map<IEnumerable<PresencaViewModel>>(presenca);
         }
 
         public void Dispose()

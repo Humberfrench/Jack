@@ -1,14 +1,12 @@
 ﻿using Jack.Domain.Interfaces;
 using System;
 using System.Collections.Generic;
-
 namespace Jack.Domain.Entity
 {
     public class Crianca : IEntidade
     {
 
         public Crianca()
-            : base()
         {
             nome = string.Empty;
             idade = 0;
@@ -52,6 +50,7 @@ namespace Jack.Domain.Entity
         private StatusCrianca status;
         private DateTime dataAtualizacao;
         private DateTime dataCriacao;
+        private DateTime dataAtualizacaoVestuario;
         private IList<ColaboradorCrianca> colaboradores;
         private Sacola sacola;
 
@@ -319,6 +318,17 @@ namespace Jack.Domain.Entity
             }
         }
 
+        public virtual DateTime DataAtualizacaoVestuario
+        {
+            get
+            {
+                return dataAtualizacaoVestuario;
+            }
+            set
+            {
+                dataAtualizacaoVestuario = value;
+            }
+        }
         public virtual IList<ColaboradorCrianca> Colaboradores
         {
             get
@@ -385,21 +395,20 @@ namespace Jack.Domain.Entity
 
         public virtual void CalculaIdade()
         {
-            Helpers.Idade oIdade = new Helpers.Idade(DataNascimento,
-                                                     new DateTime(DateTime.Now.Year, 12, 31));
+            var oIdade = new Helpers.Idade(DataNascimento, new DateTime(DateTime.Now.Year, 12, 31));
 
             idade = oIdade.Anos;
-            idadeNominal = string.Format("{0} anos e {1} Meses", oIdade.Anos, oIdade.Meses);
-            idadeNominalReduzida = string.Format("{0}A{1}M", oIdade.Anos, oIdade.Meses);
+            idadeNominal = $"{oIdade.Anos} anos e {oIdade.Meses} Meses";
+            idadeNominalReduzida = $"{oIdade.Anos}A{oIdade.Meses}M";
             if (oIdade.Meses == 0)
             {
-                idadeNominal = string.Format("{0} anos", oIdade.Anos);
-                idadeNominalReduzida = string.Format("{0}A", oIdade.Anos);
+                idadeNominal = $"{oIdade.Anos} anos";
+                idadeNominalReduzida = $"{oIdade.Anos}A";
             }
             if (oIdade.Anos == 0)
             {
-                idadeNominal = string.Format("{0} meses", oIdade.Meses);
-                idadeNominalReduzida = string.Format("{0}M", oIdade.Meses);
+                idadeNominal = $"{oIdade.Meses} meses";
+                idadeNominalReduzida = $"{oIdade.Meses}M";
             }
             medidaIdade = "A";
             if (idade == 0)

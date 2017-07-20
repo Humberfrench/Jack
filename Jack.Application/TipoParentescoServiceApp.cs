@@ -1,6 +1,4 @@
-﻿using AutoMapper;
-using Jack.Application.AutoMapper;
-using Jack.Application.Interfaces;
+﻿using Jack.Application.Interfaces;
 using Jack.Application.ViewModel;
 using Jack.Domain.Entity;
 using Jack.Domain.Interfaces.Services;
@@ -10,21 +8,19 @@ using System.Collections.Generic;
 
 namespace Jack.Application
 {
-    public class TipoParentescoServiceApp :  ITipoParentescoServiceApp
+    public class TipoParentescoServiceApp : AppServiceBase, ITipoParentescoServiceApp
     {
 
         private readonly ITipoParentescoService _service;
-        private readonly IMapper mapper;
 
         public TipoParentescoServiceApp(ITipoParentescoService tipoParentescoService)
         {
             _service = tipoParentescoService;
-            mapper = AutoMapperConfig.Config.CreateMapper();
         }
 
         public ValidationResult Gravar(TipoParentescoViewModel tipoParentesco)
         {
-            var tipoParentescoSalvar = mapper.Map<TipoParentesco>(tipoParentesco);
+            var tipoParentescoSalvar = Mapper.Map<TipoParentesco>(tipoParentesco);
             return _service.Gravar(tipoParentescoSalvar);
         }
 
@@ -36,19 +32,19 @@ namespace Jack.Application
         public TipoParentescoViewModel ObterPorId(int id)
         {
             var tipoParentesco = _service.ObterPorId(id);
-            return mapper.Map<TipoParentescoViewModel>(tipoParentesco);
+            return Mapper.Map<TipoParentescoViewModel>(tipoParentesco);
         }
 
         public IEnumerable<TipoParentescoViewModel> ObterTodos()
         {
             var tipoParentesco = _service.ObterTodos();
-            return mapper.Map<IEnumerable<TipoParentescoViewModel>>(tipoParentesco);
+            return Mapper.Map<IEnumerable<TipoParentescoViewModel>>(tipoParentesco);
         }
 
         public IEnumerable<TipoParentescoViewModel> Filtrar(string nome)
         {
             var tipoParentesco = _service.Filtrar(nome);
-            return mapper.Map<IEnumerable<TipoParentescoViewModel>>(tipoParentesco);
+            return Mapper.Map<IEnumerable<TipoParentescoViewModel>>(tipoParentesco);
         }
 
 

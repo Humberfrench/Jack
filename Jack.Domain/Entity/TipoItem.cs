@@ -8,7 +8,7 @@ namespace Jack.Domain.Entity
 
         #region "Construtor"
 
-        public TipoItem() : base()
+        public TipoItem()
         {
             codigo = 0;
             descricao = string.Empty;

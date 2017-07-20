@@ -14,6 +14,10 @@ namespace Jack.Application.Interfaces
         ValidationResult Excluir(int id);
         ValidationResult AtualizarFamilia(int id, bool gravar = true);
         ValidationResult AtualizarPresencas(FamiliaViewModel familia);
+        IEnumerable<FamiliaViewModel> ObterFamiliasBanidas();
+        ValidationResult AtualizarFamiliaParaBanida(int familiaId);
+        ValidationResult LiberarFamiliaBanida(int familiaId);
+
 
     }
 }

@@ -1,0 +1,27 @@
+﻿@using Jack.Library
+@model Aviso
+
+@if (Model != null)
+{
+    <script type="text/javascript">
+
+        $(function () {
+
+            @switch (Model.TipoMensagem.GetDescription()) {
+                case "Atencao":
+                    @: toastr.info("@Model.Mensagem", "@Model.TituloMensagem");
+                            break;
+                case "Sucesso":
+                    @: toastr.success("@Model.Mensagem", "@Model.TituloMensagem");
+                            break;
+                case "Informacao":
+                    @: toastr.info("@Model.Mensagem", "@Model.TituloMensagem");
+                            break;
+                case "Erro":
+                    @: toastr.error("@Model.Mensagem", "@Model.TituloMensagem");
+                            break;
+            }
+        });
+
+    </script>
+}

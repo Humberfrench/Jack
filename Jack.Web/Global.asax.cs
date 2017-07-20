@@ -174,7 +174,7 @@ namespace Jack.Web
             kernel.Bind<ITipoParentescoRepository>().To<TipoParentescoRepository>();
             #endregion
 
-        }        
+        }
 
     }
 }

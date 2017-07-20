@@ -1,6 +1,4 @@
-﻿using AutoMapper;
-using Jack.Application.AutoMapper;
-using Jack.Application.Interfaces;
+﻿using Jack.Application.Interfaces;
 using Jack.Application.ViewModel;
 using Jack.Domain.Entity;
 using Jack.Domain.Interfaces.Services;
@@ -10,20 +8,18 @@ using System.Collections.Generic;
 
 namespace Jack.Application
 {
-    public class ColaboradorServiceApp :  IColaboradorServiceApp
+    public class ColaboradorServiceApp : AppServiceBase, IColaboradorServiceApp
     {
         private readonly IColaboradorService _service;
-        private readonly IMapper mapper;
 
         public ColaboradorServiceApp(IColaboradorService colaboradorService)
         {
             _service = colaboradorService;
-            mapper = AutoMapperConfig.Config.CreateMapper();
         }
 
         public ValidationResult Gravar(ColaboradorViewModel colaborador)
         {
-            var colaboradorSalvar = mapper.Map<Colaborador>(colaborador);
+            var colaboradorSalvar = Mapper.Map<Colaborador>(colaborador);
             return _service.Gravar(colaboradorSalvar);
         }
 
@@ -35,19 +31,19 @@ namespace Jack.Application
         public ColaboradorViewModel ObterPorId(int id)
         {
             var colaborador = _service.ObterPorId(id);
-            return mapper.Map<ColaboradorViewModel>(colaborador);
+            return Mapper.Map<ColaboradorViewModel>(colaborador);
         }
 
         public IEnumerable<ColaboradorViewModel> ObterTodos()
         {
             var colaborador = _service.ObterTodos();
-            return mapper.Map<IEnumerable<ColaboradorViewModel>>(colaborador);
+            return Mapper.Map<IEnumerable<ColaboradorViewModel>>(colaborador);
         }
 
         public IEnumerable<ColaboradorViewModel> Filtrar(string nome)
         {
             var atividade = _service.Filtrar(nome);
-            return mapper.Map<IEnumerable<ColaboradorViewModel>>(atividade);
+            return Mapper.Map<IEnumerable<ColaboradorViewModel>>(atividade);
         }
 
         public void Dispose()

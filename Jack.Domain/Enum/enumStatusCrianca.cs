@@ -1,6 +1,6 @@
 ﻿namespace Jack.Domain.Enum
 {
-    public enum EnumStatusCrianca : int
+    public enum EnumStatusCrianca
     {
         DadosOk = 1,
         CriancaSemRoupa = 2,

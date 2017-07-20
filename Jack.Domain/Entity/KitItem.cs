@@ -6,7 +6,7 @@ namespace Jack.Domain.Entity
 
         #region "Construtor"
 
-        public KitItem():base()
+        public KitItem()
         {
             codigo = 0;
             tipoItem = new TipoItem();

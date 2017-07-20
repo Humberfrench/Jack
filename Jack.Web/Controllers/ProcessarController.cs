@@ -1,4 +1,6 @@
-﻿using System.Web.Mvc;
+﻿using System.Collections.Generic;
+using System.Web.Mvc;
+using Jack.Library;
 
 namespace Jack.Web.Controllers
 {
@@ -7,6 +9,19 @@ namespace Jack.Web.Controllers
         // GET: Processar
         public ActionResult Index()
         {
+            #region BreadCrumb
+            var breadCrumb = new BreadCrumbETitulo
+            {
+                Titulo = "Processar",
+                BreadCrumbs = new List<BreadCrumb>
+                {
+                 new BreadCrumb {LinkText = "Processar", ActionName = "Index", ControllerName = "Processar"}
+                }
+            };
+
+            TempData["BreadCrumETitulo"] = breadCrumb;
+            #endregion
+
             return View();
         }
     }

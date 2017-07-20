@@ -17,5 +17,8 @@ namespace Jack.Domain.Interfaces.Services
         ValidationResult AtualizarFamilia(int id, bool gravar = true);
         void AtualizaNivel(ref Familia familia);
         ValidationResult AtualizarPresencas(Familia familia);
+        IEnumerable<Familia> ObterFamiliasBanidas();
+        ValidationResult AtualizarFamiliaParaBanida(int familiaId);
+        ValidationResult LiberarFamiliaBanida(int familiaId);
     }
 }

@@ -1,5 +1,0 @@
-C:\Users\humberto.almeida.ext\Documents\Visual Studio 2013\Projects\Jack\Jack.Extensions\bin\Release\Jack.Extensions.dll
-C:\Users\humberto.almeida.ext\Documents\Visual Studio 2013\Projects\Jack\Jack.Extensions\bin\Release\Jack.Extensions.pdb
-C:\Users\humberto.almeida.ext\Documents\Visual Studio 2013\Projects\Jack\Jack.Extensions\obj\Release\Jack.Extensions.csprojResolveAssemblyReference.cache
-C:\Users\humberto.almeida.ext\Documents\Visual Studio 2013\Projects\Jack\Jack.Extensions\obj\Release\Jack.Extensions.dll
-C:\Users\humberto.almeida.ext\Documents\Visual Studio 2013\Projects\Jack\Jack.Extensions\obj\Release\Jack.Extensions.pdb

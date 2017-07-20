@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.40629.0
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jack.Domain", "Jack.Domain\Jack.Domain.csproj", "{F7B3290E-90DA-4D22-AC2A-9543CE892909}"
 EndProject
@@ -14,6 +14,9 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Data", "3 - Data", "{243C0169-EEA4-4FEF-9E28-328C023EDBDC}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Infra", "4 - Infra", "{6709E419-C8CF-420B-B4D5-823857394F65}"
+	ProjectSection(SolutionItems) = preProject
+		Acertos.sql = Acertos.sql
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jack.Extensions", "Jack.Extensions\Jack.Extensions.csproj", "{0E63A054-3D47-4CDE-BD08-7CA8782C5555}"
 EndProject
@@ -34,44 +37,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{2F73C6
 		.nuget\packages.config = .nuget\packages.config
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jack.Domain.Services", "Jack.Domain.Services\Jack.Domain.Services.csproj", "{B1761FC7-07B9-4D15-A264-D83C43D1776E}"
+EndProject
 Global
-	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 9
-		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
-		SccLocalPath0 = .
-		SccProjectUniqueName1 = Jack.DomainValidator\\Jack.DomainValidator.csproj
-		SccProjectTopLevelParentUniqueName1 = Jack.sln
-		SccProjectName1 = Jack.DomainValidator
-		SccLocalPath1 = Jack.DomainValidator
-		SccProjectUniqueName2 = Jack.Extensions\\Jack.Extensions.csproj
-		SccProjectTopLevelParentUniqueName2 = Jack.sln
-		SccProjectName2 = Jack.Extensions
-		SccLocalPath2 = Jack.Extensions
-		SccProjectUniqueName3 = Jack.Library\\Jack.Library.csproj
-		SccProjectTopLevelParentUniqueName3 = Jack.sln
-		SccProjectName3 = Jack.Library
-		SccLocalPath3 = Jack.Library
-		SccProjectUniqueName4 = Jack.Domain\\Jack.Domain.csproj
-		SccProjectTopLevelParentUniqueName4 = Jack.sln
-		SccProjectName4 = Jack.Domain
-		SccLocalPath4 = Jack.Domain
-		SccProjectUniqueName5 = Jack.Repository\\Jack.Repository.csproj
-		SccProjectTopLevelParentUniqueName5 = Jack.sln
-		SccProjectName5 = Jack.Repository
-		SccLocalPath5 = Jack.Repository
-		SccProjectUniqueName6 = Jack.Application.ViewModel\\Jack.Application.ViewModel.csproj
-		SccProjectTopLevelParentUniqueName6 = Jack.sln
-		SccProjectName6 = Jack.Application.ViewModel
-		SccLocalPath6 = Jack.Application.ViewModel
-		SccProjectUniqueName7 = Jack.Application\\Jack.Application.csproj
-		SccProjectTopLevelParentUniqueName7 = Jack.sln
-		SccProjectName7 = Jack.Application
-		SccLocalPath7 = Jack.Application
-		SccProjectUniqueName8 = Jack.Web\\Jack.Web.csproj
-		SccProjectTopLevelParentUniqueName8 = Jack.sln
-		SccProjectName8 = Jack.Web
-		SccLocalPath8 = Jack.Web
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
@@ -109,6 +77,10 @@ Global
 		{08A4638F-7190-48DD-B8C2-9C131B517CD2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{08A4638F-7190-48DD-B8C2-9C131B517CD2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{08A4638F-7190-48DD-B8C2-9C131B517CD2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B1761FC7-07B9-4D15-A264-D83C43D1776E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B1761FC7-07B9-4D15-A264-D83C43D1776E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B1761FC7-07B9-4D15-A264-D83C43D1776E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B1761FC7-07B9-4D15-A264-D83C43D1776E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -122,5 +94,6 @@ Global
 		{0F74E976-88E7-4168-B1C6-5A97C4E69682} = {295C93B9-2255-4E82-9A3E-002DB1C9E92F}
 		{7E3D5D93-E460-40DA-965B-168495F6D435} = {BECBBFEF-3B2A-4D20-BE9E-B233C71E6A2F}
 		{08A4638F-7190-48DD-B8C2-9C131B517CD2} = {6709E419-C8CF-420B-B4D5-823857394F65}
+		{B1761FC7-07B9-4D15-A264-D83C43D1776E} = {A642E6BC-0C8C-4E12-8674-9109EF723255}
 	EndGlobalSection
 EndGlobal

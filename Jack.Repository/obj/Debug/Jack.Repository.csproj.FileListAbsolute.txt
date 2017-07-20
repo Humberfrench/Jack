@@ -60,3 +60,25 @@ C:\Users\humberto.almeida.ext\Documents\Visual Studio 2013\Projects\Jack\Jack.Re
 C:\Users\humberto.almeida.ext\Documents\Visual Studio 2013\Projects\Jack\Jack.Repository\obj\Debug\Jack.Repository.csprojResolveAssemblyReference.cache
 C:\Users\humberto.almeida.ext\Documents\Visual Studio 2013\Projects\Jack\Jack.Repository\obj\Debug\Jack.Repository.dll
 C:\Users\humberto.almeida.ext\Documents\Visual Studio 2013\Projects\Jack\Jack.Repository\obj\Debug\Jack.Repository.pdb
+C:\Users\humberto.almeida.ext\Documents\Visual Studio 2013\Projects\Jack\Jack.Repository\bin\Debug\Microsoft.Web.Infrastructure.dll
+C:\Humberto\Projetos\Jack\Jack.Repository\bin\Debug\Jack.Repository.dll.config
+C:\Humberto\Projetos\Jack\Jack.Repository\bin\Debug\Jack.Repository.dll
+C:\Humberto\Projetos\Jack\Jack.Repository\bin\Debug\Jack.Repository.pdb
+C:\Humberto\Projetos\Jack\Jack.Repository\bin\Debug\Dapper.dll
+C:\Humberto\Projetos\Jack\Jack.Repository\bin\Debug\FluentNHibernate.dll
+C:\Humberto\Projetos\Jack\Jack.Repository\bin\Debug\Iesi.Collections.dll
+C:\Humberto\Projetos\Jack\Jack.Repository\bin\Debug\Jack.Domain.dll
+C:\Humberto\Projetos\Jack\Jack.Repository\bin\Debug\Jack.DomainValidator.dll
+C:\Humberto\Projetos\Jack\Jack.Repository\bin\Debug\Jack.Extensions.dll
+C:\Humberto\Projetos\Jack\Jack.Repository\bin\Debug\NHibernate.dll
+C:\Humberto\Projetos\Jack\Jack.Repository\bin\Debug\Jack.DomainValidator.pdb
+C:\Humberto\Projetos\Jack\Jack.Repository\bin\Debug\Jack.Domain.pdb
+C:\Humberto\Projetos\Jack\Jack.Repository\bin\Debug\Jack.Extensions.pdb
+C:\Humberto\Projetos\Jack\Jack.Repository\bin\Debug\Dapper.xml
+C:\Humberto\Projetos\Jack\Jack.Repository\bin\Debug\FluentNHibernate.pdb
+C:\Humberto\Projetos\Jack\Jack.Repository\bin\Debug\FluentNHibernate.xml
+C:\Humberto\Projetos\Jack\Jack.Repository\bin\Debug\Iesi.Collections.xml
+C:\Humberto\Projetos\Jack\Jack.Repository\bin\Debug\NHibernate.xml
+C:\Humberto\Projetos\Jack\Jack.Repository\obj\Debug\Jack.Repository.csprojResolveAssemblyReference.cache
+C:\Humberto\Projetos\Jack\Jack.Repository\obj\Debug\Jack.Repository.dll
+C:\Humberto\Projetos\Jack\Jack.Repository\obj\Debug\Jack.Repository.pdb

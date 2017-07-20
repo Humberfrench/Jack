@@ -1,0 +1,73 @@
+﻿<!-- Edição Modal -->
+@Styles.Render("~/plugins/awesomeCheckboxStyles")
+@Html.AntiForgeryToken()
+<div id="modalEdicao" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="gridSystemModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content animated">
+            <div class="modal-header success-element">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="gridSystemModalLabel">Feriados</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-1">&nbsp;</div>
+                    <div class="col-md-10">
+                        <label id="labelNome" for="Nome">Nome do Feriado</label>
+                        <input type="hidden" id="Codigo" name="Codigo" value="" readonly="readonly" class="form-control m-b-md" />
+                        <input type="text" id="Nome" name="Nome" value="" class="form-control m-b-md" placeholder="Descricao" maxlength="50" />
+                    </div>
+                    <div class="col-md-1">&nbsp;</div>
+                </div>
+                <div class="row">
+                    <div class="col-md-1">&nbsp;</div>
+                    <div class="col-lg-4">
+                        <label id="labelAno" for="Ano">Ano</label>
+                        <select name="Ano" id="Ano" class="form-control m-b">
+                            <option value="0">Ano</option>
+                            <option value="2014">2014</option>
+                            <option value="2015">2015</option>
+                            <option value="2016">2016</option>
+                            <option value="2017">2017</option>
+                            <option value="2018">2018</option>
+                            <option value="2019">2019</option>
+                            <option value="2020">2020</option>
+                            <option value="2021">2021</option>
+                            <option value="2022">2022</option>
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="checkbox checkbox-primary">
+                            <input type="checkbox" name="PodeTerReuniao" id="PodeTerReuniao">
+                            <label id="labelTemReuniao" for="PodeTerReuniao">Pode Ter Reunião na Data</label>
+                        </div>
+                    </div>
+                    <div class="col-md-1">&nbsp;</div>
+               </div>
+                <div class="row">
+                    <div class="col-md-1">&nbsp;</div>
+                    <div class="col-md-3">
+                        <label id="labelData" for="Data">Data</label>
+                        <input type="text" id="Data" name="Data" value="" class="form-control m-b-md" />
+                    </div>
+                    <div class="col-md-3">
+                        <label id="labelProximaReuniao" for="ProximaReuniao">Próxima Reunião</label>
+                        <input type="text" id="ProximaReuniao" name="ProximaReuniao" value="" class="form-control m-b-md" />
+                    </div>
+                    <div class="col-md-3">
+                        <label id="labelReuniaoAnterior" for="ReuniaoAnterior">Próxima Reunião</label>
+                        <input type="text" id="ReuniaoAnterior" name="ReuniaoAnterior" value="" class="form-control m-b-md" />
+                    </div>
+                    <div class="col-md-2">&nbsp;</div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">
+                    <i class="glyphicon glyphicon-remove"></i>Fechar
+                </button>
+                <button type="button" class="btn btn-primary" id="Gravar">
+                    <i class="glyphicon glyphicon-floppy-disk"></i>Gravar
+                </button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->

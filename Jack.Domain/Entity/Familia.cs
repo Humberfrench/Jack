@@ -1,17 +1,24 @@
-﻿using Jack.Domain.Interfaces;
+﻿using Jack.Domain.Enum;
+using Jack.Domain.Interfaces;
+using Jack.Domain.Validations.Familia;
+using Jack.DomainValidator;
+using Jack.DomainValidator.Interfaces;
+using Jack.Extensions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace Jack.Domain.Entity
 {
-    public class Familia : IEntidade
+    public class Familia : IEntidade, IValidator<Familia>
     {
 
         #region "Construtor"
 
         public Familia()
         {
+            isValid = null;
+            validationResult = new ValidationResult();
             nome = string.Empty;
             sacolinha = false;
             consistente = false;
@@ -53,6 +60,8 @@ namespace Jack.Domain.Entity
         private DateTime dataCriacao;
         private IList<Presenca> presencas;
         private IList<Representante> representantes;
+        private ValidationResult validationResult;
+        private bool? isValid;
         #endregion
 
         #region Properties
@@ -325,7 +334,63 @@ namespace Jack.Domain.Entity
             return (numeroPresencas == 0);
         }
 
-        #endregion
+        public virtual bool FamiliaBanida()
+        {
+            return Status.Codigo == EnumStatusFamilia.FamiliaBanidaPorProblemas.Int();
+        }
 
+        public virtual bool FamiliaComCriancasEmExcesso()
+        {
+            return Status.Codigo == EnumStatusFamilia.CriancasExcedido.Int();
+        }
+
+        public virtual bool FamiliaComTotalDeCriancasEmExcesso()
+        {
+            return Status.Codigo == EnumStatusFamilia.CriancasDaFamilaEDoRepresentanteExcedido.Int();
+        }
+
+        public virtual bool FamiliaRepresentanteEmExcesso()
+        {
+            return Status.Codigo == EnumStatusFamilia.RepresentanteExcedido.Int();
+        }
+
+        public virtual int QuantidadeTotalDeCriancas()
+        {
+            var totalCriancas = Criancas.Where(c => c.Status.PermiteSacola).ToList().Count;
+
+            Representantes.ToList()
+                          .ForEach(r => totalCriancas += r.FamiliaRepresentada.Criancas
+                                        .Where(c => c.Status.PermiteSacola).ToList().Count);
+
+            return totalCriancas;
+
+        }
+
+        public virtual bool FamiliaComCriancasDeRepresentanteExcedida(int limite)
+        {
+            return (limite < QuantidadeTotalDeCriancas());
+        }
+
+        #endregion                                       
+
+        public virtual ValidationResult ValidationResult => validationResult;
+
+        public virtual bool IsValid()
+        {
+            if (!isValid.HasValue)
+            {
+                validationResult = Validar(this);
+                return validationResult.IsValid;
+            }
+            return isValid.Value;
+
+        }
+
+        public virtual ValidationResult Validar(Familia entity)
+        {
+            var entidadeValidate = new FamiliaEstaConsistente();
+            validationResult = entidadeValidate.Validar(entity);
+            return validationResult;
+        }
     }
 }

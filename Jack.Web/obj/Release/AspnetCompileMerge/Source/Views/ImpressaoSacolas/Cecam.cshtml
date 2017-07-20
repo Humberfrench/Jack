@@ -1,0 +1,125 @@
+﻿@{
+    ViewBag.Title = "Cecam";
+    Layout = null;
+}
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Impressão de Sacolas</title>
+    <link href="css/Sacolas.css" rel="stylesheet" />
+    <script type="text/javascript">
+        window.print();
+    </script>
+</head>
+<body style="width:1024px;">
+    <div>
+        <table class="tableSacola">
+            <tr style="height: 15px; line-height: 15px; ">
+                <td style="width: 170px;">&nbsp;</td>
+                <td style="width: 171px;">&nbsp;</td>
+                <td style="width: 171px;">&nbsp;</td>
+                <td style="width: 171px;">&nbsp;</td>
+                <td style="width: 171px;">&nbsp;</td>
+                <td style="width: 170px;">&nbsp;</td>
+            </tr>
+            <tr class="LinhaHeadCECAMBig">
+                <td colspan="5"><div class="HeadCECAMBig">CENTRO ESPIRITA CAMINHO DO AMOR – CECAM</div></td>
+                <td rowspan="5" style="vertical-align: top; text-align: left;">
+                    <div class="Box" style="width: 150px;">
+                        <div class="text" style="width: 150px; text-align: center; font-weight: bold; text-decoration: underline; ">Número da Família</div>
+                        <div class="NumFamilia" style="width: 150px; text-align: center; font-weight: bold;"><%# DataBinder.Eval(Container.DataItem, "NumeroSacolaFamilia")%></div>
+                    </div>
+                </td>
+            </tr>
+            <tr class="LinhaHeadCECAMSoft">
+                <td colspan="5">
+                    <div style="text-align:center;">
+                        <div class="HeadCECAMSmall" style="display:inline-block;">AMAR – ASSISTÊNCIA SOCIAL MARIA DE NAZARÉ&nbsp;&nbsp;&nbsp;–&nbsp;&nbsp;&nbsp;Fundado em 30.05.1997</div>
+                    </div>
+                </td>
+            </tr>
+            <tr class="LinhaHeadCECAMSmall">
+                <td colspan="5"><div class="HeadCECAMSmall">Fundado em 30.05.1997</div></td>
+            </tr>
+            <tr class="LinhaHeadCECAMSmall">
+                <td colspan="5"><div class="HeadCECAMSmall">Rua do Bispo, 65 – Vila Tolstoi – CEP 03268-110 SP/SP.</div></td>
+            </tr>
+            <tr class="LinhaHeadCECAMSmall">
+                <td colspan="5"><div class="HeadCECAMSmall">CNPJ (MF) 02.983.938/0001-02 – REGISTRO 3º R.T.D. Nº327.267/98</div></td>
+            </tr>
+            <tr style="height: 15px; line-height: 15px; ">
+                <td colspan="6">&nbsp;</td>
+            </tr>
+            <tr class="LinhaHeadCECAMSoft">
+                <td colspan="6"><div class="HeadCECAMSoft" style="text-decoration: underline; font-weight: bold;">SACOLINHA DE NATAL</div></td>
+            </tr>
+            <tr style="height: 15px; line-height: 15px; ">
+                <td colspan="6">
+                    <div style="width: 60px; display: inline-block;">&nbsp;</div>
+                    <div class="text" style="width: 900px; display: inline-block;">
+                        Pedimos sua colaboração para que possamos proporcionar um Natal Feliz às Crianças assistidas por esta instituição.<br />
+                        Você pode montar quantas sacolinhas desejar ou puder. Pode ainda entregar a seus familiares e amigos ou até mesmo
+                        dividir a montagem da sacolinha com eles. <br />
+                        <b>Solicitamos, que todos os presentes sejam novos (sem uso), inclusive o Brinquedo.</b><br />
+                    </div>
+                    <div style="width: 60px; display: inline-block;">&nbsp;</div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="6">
+                    <div style="width: 60px; display: inline-block;">&nbsp;</div>
+                    <div class="text" style="width: 900px; display: inline-block;">
+                        <div class="textCrianca" style="width: 160px; display: inline-block; font-weight:bold;">Nome da Criança:</div>
+                        <div class="textCrianca" style="width: 440px; display: inline-block;"><%# DataBinder.Eval(Container.DataItem, "NomeCrianca")%></div>
+                        <div class="textCrianca" style="width: 60px; display: inline-block; font-weight: bold; ">Idade:</div>
+                        <div class="textCrianca" style="width: 200px; display: inline-block;"><%# DataBinder.Eval(Container.DataItem, "IdadeCompleta")%></div>
+                    </div>
+                    <div style="width: 60px; display: inline-block;">&nbsp;</div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="6">
+                    <div style="width: 60px; display: inline-block;">&nbsp;</div>
+                    <div class="text" style="width: 900px; display: inline-block;">
+                        <div class="text" style="width: 160px; display: inline-block; font-weight:bold;">Nome da Mãe:</div>
+                        <div class="text" style="width: 440px; display: inline-block;"><%# DataBinder.Eval(Container.DataItem, "NomeMaeRep")%></div>
+                        <div class="text" style="width: 60px; display: inline-block; font-weight: bold; ">No. Sacola:</div>
+                        <div class="text" style="width: 200px; display: inline-block;"><%# DataBinder.Eval(Container.DataItem, "NumeroSacola")%></div>
+                    </div>
+                    <div style="width: 60px; display: inline-block;">&nbsp;</div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="6">
+                    <div style="display:block;">
+                        <br />
+                        <div style="width: 60px; display: inline-block;">&nbsp;</div>
+                        <div class="Box text" style="width: 900px; display: inline-block;">
+                            <div class="textCrianca" style=" display: block; text-align:center;">
+                                <b>Kit:</b>&nbsp;<%# DataBinder.Eval(Container.DataItem, "DescricaoKit")%>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <b>Calçado:</b>&nbsp;<%# DataBinder.Eval(Container.DataItem, "Calcado")%>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <b>Roupa:</b>&nbsp;<%# DataBinder.Eval(Container.DataItem, "Roupa")%>
+                            </div><br />
+                            <div class="textItem" style="display: inline-block;">
+                                <uc1:kits runat="server" id="kits" Kit='<%# DataBinder.Eval(Container.DataItem, "CodigoKit")%>' />
+                            </div>
+                            <div style="width: 60px; display: inline-block;">&nbsp;</div>
+                        </div>
+                </td>
+            </tr>
+            <tr style="height: 15px; line-height: 15px; ">
+                <td colspan="6">
+                    <div style="width: 60px; display: inline-block;">&nbsp;</div>
+                    <div class="text" style="width: 900px; display: inline-block;">
+                        <br /><br />Por favor devolva esta folha juntamente com a sacolinha até o dia 01/12 para que possamos organizar a distribuição no prazo correto. <br />
+                        Agradecemos a sua preciosa colaboração e reiteramos o convite para que visitem nossa instituição. <br />
+                        Que <b>JESUS</b> nos abençoe neste Natal enchendo nossos corações de Amor, Esperança e Paz.<br />
+                        CECAM
+                    </div>
+                    <div style="width: 60px; display: inline-block;">&nbsp;</div>
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

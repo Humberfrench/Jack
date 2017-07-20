@@ -6,6 +6,7 @@ var Familia = new Object();
 
 Familia.URLObterTodos = '';
 Familia.URLFiltrar = '/Familia/Filtrar/';
+Familia.URLFiltro = '/Familia/Filtro/';
 Familia.URLEdit = '';
 Familia.URLGravar = '';
 Familia.URLExcluir = '';
@@ -15,10 +16,13 @@ Familia.URLObterPresencas = '';
 Familia.URLProcessar = '';
 Familia.URLProcessarCriancas = '';
 Familia.URLProcessarPresenca = '';
+Familia.URLLiberarBloqueio = '';
+Familia.URLBloquear = '';
 
 $(document).ready(function ()
 {
     Familia.MontarTabela();
+    Familia.MontarTabela2();
     Familia.URLObterTodos = $("#URLObterTodos").val();
     Familia.URLEdit = $("#URLEdit").val();
     Familia.URLGravar = $("#URLGravar").val();
@@ -30,11 +34,28 @@ $(document).ready(function ()
     Familia.URLProcessar = $("#URLProcessar").val();
     Familia.URLProcessarCriancas = $("#URLProcessarCriancas").val();
     Familia.URLProcessarPresenca = $("#URLProcessarPresenca").val();
+    Familia.URLLiberarBloqueio = $("#URLLiberarBloqueio").val();
+    Familia.URLBloquear = $("#URLBloquear").val();
 
     $("#Pesquisar").click(function ()
     {
         var nome = $("#PesquisarNome").val();
         Familia.Pesquisar(nome);
+    });
+
+    $("#PesquisarFiltro").click(function ()
+    {
+        var nome = $("#PesquisarNome").val();
+        Familia.Pesquisar(nome);
+    });
+
+    $("#PesquisarStatus").click(function () {
+        var status = $("#Status").val();
+        if ((status === 0) || (status === undefined) || (status === ''))
+        {
+            return;
+        }
+        Familia.PesquisarStatus(status);
     });
 
     $("#Gravar").click(function ()
@@ -57,7 +78,6 @@ $(document).ready(function ()
         }
     });
 
-
 });
 
 function ExcluirConfirmar(codigo, nome)
@@ -78,6 +98,68 @@ function Excluir()
     Familia.Excluir($("#codigoExclusao").val());
 }
 
+Familia.LiberarBloqueio = function (familia)
+{
+    var opcoes = new Object;
+    opcoes.url = Familia.URLLiberarBloqueio;
+
+    opcoes.callBackSuccess = function (response)
+    {
+        var dataObj = eval(response);
+        if (dataObj.Erro)
+        {
+            Mensagens.Erro(dataObj.Mensagem);
+        }
+        else
+        {
+            Mensagens.Sucesso(dataObj.Mensagem);
+            Familia.LimparForm();
+            setTimeout(function ()
+            {
+                location.reload();
+            }, 1500);
+        }
+    };
+
+    opcoes.dadoEnvio = new Object;
+    opcoes.dadoEnvio.id = codigo;
+    opcoes.type = 'POST';
+    opcoes.async = false;
+
+    Ajax.Execute(opcoes);
+
+}
+Familia.Bloquear = function (familia)
+{
+    var opcoes = new Object;
+    opcoes.url = Familia.URLBloquear;
+
+    opcoes.callBackSuccess = function (response)
+    {
+        var dataObj = eval(response);
+        if (dataObj.Erro)
+        {
+            Mensagens.Erro(dataObj.Mensagem);
+        }
+        else
+        {
+            Mensagens.Sucesso(dataObj.Mensagem);
+            Familia.LimparForm();
+            setTimeout(function ()
+            {
+                location.reload();
+            }, 1500);
+        }
+    };
+
+    opcoes.dadoEnvio = new Object;
+    opcoes.dadoEnvio.id = familia;
+    opcoes.type = 'POST';
+    opcoes.async = false;
+
+    Ajax.Execute(opcoes);
+
+}
 Familia.MontarTabela = function ()
 {
     $('#TableFamilia').DataTable({
@@ -120,6 +202,44 @@ Familia.MontarTabela = function ()
     ]    });
 }
 
+Familia.MontarTabela2 = function ()
+{
+    $('#TableFamiliaComplexo').DataTable({
+        "searching": false,
+        "autoWidth": false,
+        "order": [],
+        "lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "Todos"]],
+        "language": {
+            "sEmptyTable": "Nenhum registro encontrado",
+            "sInfo": "Mostrando de _START_ até _END_ de _TOTAL_ registros",
+            "sInfoEmpty": "Mostrando 0 até 0 de 0 registros",
+            "sInfoFiltered": "(Filtrados de _MAX_ registros)",
+            "sInfoPostFix": "",
+            "sInfoThousands": ".",
+            "sLengthMenu": "_MENU_ resultados por página",
+            "sLoadingRecords": "Carregando...",
+            "sProcessing": "Processando...",
+            "sZeroRecords": "<div class='col-xs-12 tabela-contas no-pad'>Nenhum registro encontrado</div>",
+            "sSearchPlaceholder": "Busque pelo nome da empresa, agencia e conta, CNPJ ou apelido."
+        },
+        "classes": {
+            "sFilterInput": "form-control campo-busca",
+            "sInfo": "num-pag col-xs-12 text-right no-pad hidden-xs",
+            "sEmptyTable": "num-pag col-xs-12 text-right no-pad hidden-xs",
+            "sPaging": "text-center",
+            "sPageButtonActive": "active"
+        },
+        "dom": '<"top"li>rt<"bottom"p><"clear">',
+        "pagingType": "numbers",
+        "aoColumnDefs": [
+            { "aTargets": [0], "bSortable": false },
+            { "aTargets": [1], "bSortable": false },
+            { "aTargets": [2], "bSortable": false },
+            { "aTargets": [3], "bSortable": false },
+            { "aTargets": [4], "bSortable": false }
+    ]    });
+}
+
 Familia.Pesquisar = function (nome)
 {
 
@@ -130,6 +250,32 @@ Familia.Pesquisar = function (nome)
     else
     {
         location.href = Familia.URLFiltrar + nome;
+    }
+}
+
+Familia.Pesquisar2 = function (nome)
+{
+
+    if (nome === '')
+    {
+        Familia.PesquisarTodos();
+    }
+    else
+    {
+        location.href = Familia.URLFiltro + nome;
+    }
+}
+
+Familia.PesquisarStatus = function (status)
+{
+
+    if (status === '')
+    {
+        Familia.PesquisarTodos();
+    }
+    else
+    {
+        location.href = Familia.URLObterTodos + '/' + status;
     }
 }
 
@@ -195,9 +341,16 @@ Familia.Editar = function (codigo)
         $("#DataAtualizacao").val(dataValueAlt);
         $("#DataCriacao").val(dataValueInc);
         $("#Nivel").val(dataObj.Nivel.Codigo);
-        $("#Status").val(dataObj.Status.Codigo);
         $("#Nivel").prop('disabled', 'disabled');
+
+        $("#Status").val(dataObj.Status.Codigo);
         $("#Status").prop('disabled', 'disabled');
+
+        if (dataObj.Status.Codigo === 13) // Banido!
+        {
+            $("#Gravar").prop('disabled', 'disabled');
+            Mensagens.Info('Esta família não pode ser alterada.');
+        }
 
         if (dataObj.Sacolinha)
         {

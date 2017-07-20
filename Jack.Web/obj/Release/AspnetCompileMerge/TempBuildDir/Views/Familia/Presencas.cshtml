@@ -1,0 +1,25 @@
+﻿@using Jack.Application.ViewModel
+@model IEnumerable<PresencaViewModel>
+@{
+    Layout = null;
+}
+
+<table id="TablePresencas" class="table table-striped table-hover">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.Codigo)</th>
+            <th>@Html.DisplayNameFor(model => model.Reuniao.Data)</th>
+            <th>@Html.DisplayNameFor(model => model.Reuniao.Ano)</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Codigo</td>
+                <td>@item.Reuniao.Data</td>
+                <td>@item.Reuniao.Ano</td>
+            </tr>
+        }
+    </tbody>
+</table>

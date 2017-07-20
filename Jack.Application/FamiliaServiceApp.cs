@@ -1,5 +1,4 @@
 ﻿using AutoMapper;
-using Jack.Application.AutoMapper;
 using Jack.Application.Interfaces;
 using Jack.Application.ViewModel;
 using Jack.Domain.Entity;
@@ -14,23 +13,21 @@ namespace Jack.Application
     {
 
         private readonly IFamiliaService _service;
-        private readonly IMapper mapper;
 
         public FamiliaServiceApp(IFamiliaService familiaService)
         {
-            mapper = AutoMapperConfig.Config.CreateMapper();
             _service = familiaService;
         }
 
         public ValidationResult Gravar(FamiliaViewModel familia)
         {
-            var familiaSalvar = mapper.Map<Familia>(familia);
+            var familiaSalvar = Mapper.Map<Familia>(familia);
             return _service.Gravar(familiaSalvar);
         }
 
         public ValidationResult Gravar(FamiliaViewModel familia, int reuniao)
         {
-            var familiaSalvar = mapper.Map<Familia>(familia);
+            var familiaSalvar = Mapper.Map<Familia>(familia);
             return _service.Gravar(familiaSalvar, reuniao);
         }
 
@@ -47,26 +44,42 @@ namespace Jack.Application
 
         public ValidationResult AtualizarPresencas(FamiliaViewModel familia)
         {
-            var familiaSalvar = mapper.Map<Familia>(familia);
+            var familiaSalvar = Mapper.Map<Familia>(familia);
             return _service.AtualizarPresencas(familiaSalvar);
+        }
+
+        public IEnumerable<FamiliaViewModel> ObterFamiliasBanidas()
+        {
+            var familia = _service.ObterFamiliasBanidas();
+            return Mapper.Map<IEnumerable<FamiliaViewModel>>(familia);
+        }
+
+        public ValidationResult AtualizarFamiliaParaBanida(int familiaId)
+        {
+            return _service.AtualizarFamiliaParaBanida(familiaId);
+        }
+
+        public ValidationResult LiberarFamiliaBanida(int familiaId)
+        {
+            return _service.LiberarFamiliaBanida(familiaId);
         }
 
         public FamiliaViewModel ObterPorId(int id)
         {
             var familia = _service.ObterPorId(id);
-            return mapper.Map<FamiliaViewModel>(familia);
+            return Mapper.Map<FamiliaViewModel>(familia);
         }
 
         public IEnumerable<FamiliaViewModel> ObterTodos()
         {
             var familia = _service.ObterTodos();
-            return mapper.Map<IEnumerable<FamiliaViewModel>>(familia);
+            return Mapper.Map<IEnumerable<FamiliaViewModel>>(familia);
         }
 
         public IEnumerable<FamiliaViewModel> Filtrar(string nome)
         {
             var familia = _service.Filtrar(nome);
-            return mapper.Map<IEnumerable<FamiliaViewModel>>(familia);
+            return Mapper.Map<IEnumerable<FamiliaViewModel>>(familia);
         }
 
         public void Dispose()
@@ -77,13 +90,13 @@ namespace Jack.Application
         public IEnumerable<FamiliaViewModel> ObterNaoSacolas()
         {
             var familia = _service.ObterNaoSacolas();
-            return mapper.Map<IEnumerable<FamiliaViewModel>>(familia);
+            return Mapper.Map<IEnumerable<FamiliaViewModel>>(familia);
         }
 
         public IEnumerable<FamiliaViewModel> ObterPorStatus(int status)
         {
             var familia = _service.ObterPorStatus(status);
-            return mapper.Map<IEnumerable<FamiliaViewModel>>(familia);
+            return Mapper.Map<IEnumerable<FamiliaViewModel>>(familia);
         }
     }
 }

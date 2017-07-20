@@ -12,16 +12,17 @@ $(function ()
 });
 
 $(document).on(
+{
+    ajaxStart: function ()
     {
-        ajaxStart: function ()
-        {
-            $body.addClass("loading");
+        $body.addClass("loading");
 
-        },
-        ajaxStop: function ()
-        {
-            $body.removeClass("loading");
+    },
 
-        }
-    });
+    ajaxStop: function ()
+    {
+        $body.removeClass("loading");
+
+    }
+});
 

@@ -14,7 +14,7 @@ namespace Jack.Application.Interfaces
         byte[] GerarQrCodeSacola(int width, int height, int sacola);
         ValidationResult Liberar(int id);
         IEnumerable<FamiliaViewModel> ObterFamiliasSacola();
-        IEnumerable<SacolaValueViewModel> ObterSacolaParaImpressao(string sacolasNumero);
+        IEnumerable<SacolaValueViewModel> ObterSacolaParaImpressao(string sacolasNumero, int ano);
         IEnumerable<SacolaViewModel> ObterSacolasLivres(int ano, bool? liberado);
         IEnumerable<SacolaViewModel> ObterSacolasLivres(int nivel = 0, int liberado = 2);
         IEnumerable<SacolaViewModel> ObterSacolasLivres(bool? liberado, int ano, int nivel = 0, int familia = 0, string sexo = "", int kit = 0);
@@ -24,6 +24,7 @@ namespace Jack.Application.Interfaces
         List<FamiliaViewModel> ProcessarSacolasEObterFamilias(int ano);
         List<FamiliaViewModel> ProcessarSacolasEObterFamilias(int ano, bool todas);
         void ValidarCrianca(CriancaViewModel crianca);
+        IEnumerable<SacolaViewModel> PesquisarSacolas(int ano, int familia, int kit, int nivel);
 
     }
 }

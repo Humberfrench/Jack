@@ -10,21 +10,21 @@ using System.Collections.Generic;
 
 namespace Jack.Application
 {
-    public class RepresentanteServiceApp :  IRepresentanteServiceApp
+    public class RepresentanteServiceApp : AppServiceBase, IRepresentanteServiceApp
     {
 
         private readonly IRepresentanteService _service;
-        private readonly IMapper mapper;
+        private readonly IMapper Mapper;
 
         public RepresentanteServiceApp(IRepresentanteService representanteService)
         {
             _service = representanteService;
-            mapper = AutoMapperConfig.Config.CreateMapper();
+            Mapper = AutoMapperConfig.Config.CreateMapper();
         }
 
         public ValidationResult Gravar(RepresentanteViewModel representante)
         {
-            var representanteSalvar = mapper.Map<Representante>(representante);
+            var representanteSalvar = Mapper.Map<Representante>(representante);
             return _service.Gravar(representanteSalvar);
         }
 
@@ -56,19 +56,19 @@ namespace Jack.Application
         public IEnumerable<FamiliaViewModel> ObterFamilias(int familia)
         {
             var familias = _service.ObterFamilias(familia);
-            return mapper.Map<IEnumerable<FamiliaViewModel>>(familias);
+            return Mapper.Map<IEnumerable<FamiliaViewModel>>(familias);
         }
 
         public RepresentanteViewModel ObterPorId(int id)
         {
             var representante = _service.ObterPorId(id);
-            return mapper.Map<RepresentanteViewModel>(representante);
+            return Mapper.Map<RepresentanteViewModel>(representante);
         }
 
         public IEnumerable<RepresentanteViewModel> ObterTodos()
         {
             var representante = _service.ObterTodos();
-            return mapper.Map<IEnumerable<RepresentanteViewModel>>(representante);
+            return Mapper.Map<IEnumerable<RepresentanteViewModel>>(representante);
         }
 
         public void Dispose()

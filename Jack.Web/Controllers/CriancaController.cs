@@ -52,8 +52,8 @@ namespace Jack.Web.Controllers
                 Titulo = "Crianças",
                 BreadCrumbs = new List<BreadCrumb>
                 {
-                 new BreadCrumb {LinkText = "Crianças", ActionName = "Index", ControllerName = "Crianca"},
-                 new BreadCrumb {LinkText = "Lista", ActionName = "Index", ControllerName = "Crianca"}
+                 new BreadCrumb {LinkText = "Crianças", ActionName = nameof(Index), ControllerName = "Crianca"},
+                 new BreadCrumb {LinkText = "Lista", ActionName = nameof(Index), ControllerName = "Crianca"}
                 }
             };
 
@@ -88,8 +88,8 @@ namespace Jack.Web.Controllers
                 Titulo = "Crianças",
                 BreadCrumbs = new List<BreadCrumb>
                 {
-                 new BreadCrumb {LinkText = "Crianças", ActionName = "Index", ControllerName = "Crianca"},
-                 new BreadCrumb {LinkText = "Lista", ActionName = "Index", ControllerName = "Crianca"}
+                 new BreadCrumb {LinkText = "Crianças", ActionName = nameof(Index), ControllerName = "Crianca"},
+                 new BreadCrumb {LinkText = "Lista", ActionName = nameof(Index), ControllerName = "Crianca"}
                 }
             };
 
@@ -116,7 +116,7 @@ namespace Jack.Web.Controllers
             var criancaDado = listaDados.FirstOrDefault();
             if (criancaDado != null)
             {
-                var familiaDado = criancaDado.Familia ;
+                var familiaDado = criancaDado.Familia;
 
                 if (familiaDado != null)
                 {
@@ -128,7 +128,7 @@ namespace Jack.Web.Controllers
                     ViewBag.Sacolinha = familiaDado.Sacolinha ? "checked=checked" : "";
                     ViewBag.PresencaJustificada = familiaDado.PresencaJustificada ? "checked=checked" : "";
                     var percCriancas = ((double)familiaDado.QuantidadeCriancas / (double)parametros.NumeroMaximoCricancas) * 100;
-                    ViewBag.PercentualCriancas = string.Format("{0} %",percCriancas);
+                    ViewBag.PercentualCriancas = string.Format("{0} %", percCriancas);
                     ViewBag.Acoes = "";
                 }
             }
@@ -137,7 +137,7 @@ namespace Jack.Web.Controllers
             return View(listaDados);
         }
 
-        [Route("Edit")]
+        [Route(nameof(Edit))]
         public ActionResult Edit(int id)
         {
             var crianca = criancaAppService.ObterPorId(id);
@@ -157,7 +157,7 @@ namespace Jack.Web.Controllers
             return Json(crianca, JsonRequestBehavior.AllowGet);
         }
 
-        [Route("ValidaCrianca")]
+        [Route(nameof(ValidaCrianca))]
         public ActionResult ValidaCrianca(CriancaValueViewModel criancaValue)
         {
             var crianca = criancaAppService.ValidaCrianca(criancaValue);
@@ -171,10 +171,10 @@ namespace Jack.Web.Controllers
             return Json(crianca, JsonRequestBehavior.AllowGet);
         }
 
-        [Route("ObterVestimentaPadrao")]
+        [Route(nameof(ObterVestimentaPadrao))]
         public ActionResult ObterVestimentaPadrao(int idade, string medidaIdade, string sexo, bool isCriancaGrande = false)
         {
-            var crianca = criancaAppService.ObterVestimentaPadrao(idade,medidaIdade,sexo, isCriancaGrande);
+            var crianca = criancaAppService.ObterVestimentaPadrao(idade, medidaIdade, sexo, isCriancaGrande);
 
             var retorno = new
             {
@@ -186,10 +186,10 @@ namespace Jack.Web.Controllers
 
         [HttpPost]
         [ValidateJsonAntiForgeryToken]
-        [Route("Gravar")]
+        [Route(nameof(Gravar))]
         public ActionResult Gravar(CriancaViewModel crianca)
         {
-            var gravarResult = criancaAppService .Gravar(crianca);
+            var gravarResult = criancaAppService.Gravar(crianca);
             object retorno;
             if (gravarResult.IsValid)
             {
@@ -211,7 +211,7 @@ namespace Jack.Web.Controllers
             return Json(retorno, JsonRequestBehavior.AllowGet);
         }
 
-        [Route("Excluir")]
+        [Route(nameof(Excluir))]
         public ActionResult Excluir(int id)
         {
             var excluirResult = criancaAppService.Excluir(id);
@@ -246,7 +246,7 @@ namespace Jack.Web.Controllers
                 Titulo = "Crianças",
                 BreadCrumbs = new List<BreadCrumb>
                 {
-                 new BreadCrumb {LinkText = "Crianças", ActionName = "Index", ControllerName = "Crianca"},
+                 new BreadCrumb {LinkText = "Crianças", ActionName = nameof(Index), ControllerName = "Crianca"},
                  new BreadCrumb {LinkText = "Acerto Vestimentas", ActionName = "AcertoVestimentas", ControllerName = "Crianca"}
                 }
             };
@@ -272,7 +272,7 @@ namespace Jack.Web.Controllers
                 Titulo = "Crianças",
                 BreadCrumbs = new List<BreadCrumb>
                 {
-                 new BreadCrumb {LinkText = "Crianças", ActionName = "Index", ControllerName = "Crianca"},
+                 new BreadCrumb {LinkText = "Crianças", ActionName = nameof(Index), ControllerName = "Crianca"},
                  new BreadCrumb {LinkText = "Acerto Vestimentas", ActionName = "AcertoVestimentas", ControllerName = "Crianca"}
                 }
             };
@@ -292,7 +292,7 @@ namespace Jack.Web.Controllers
             return View(listaDados);
         }
 
-        [Route("ProcessarCrianca")]
+        [Route(nameof(ProcessarCrianca))]
         public ActionResult ProcessarCrianca(int id)
         {
             var gravarResult = criancaAppService.AtualizaCrianca(id, true);
@@ -341,11 +341,11 @@ namespace Jack.Web.Controllers
             }
 
             return Json(retorno, JsonRequestBehavior.AllowGet);
-            
+
         }
 
         #endregion
-        
+
         #region Métodos Privados
 
         private IList<StatusCriancaViewModel> ObterStatus()

@@ -134,11 +134,19 @@
                                 <th>@Html.DisplayNameFor(model => model.Calcado)</th>
                                 <th>@Html.DisplayNameFor(model => model.Status)</th>
                                 <th>&nbsp;</th>
+                                <th>&nbsp;</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach (var item in Model)
                             {
+                                var icone = "fa fa-thumbs-down";
+                                var label = "btn btn-danger";
+                                if (item.Status.PermiteSacola)
+                                {
+                                    icone = "fa fa-thumbs-up";
+                                    label = "btn btn-primary";
+                                }
 
                                 <tr>
                                     <td>
@@ -167,6 +175,11 @@
                                     </td>
                                     <td>
                                         @Html.DisplayFor(modelItem => item.Status.Descricao)
+                                    </td> 
+                                    <td style="text-align: center;">
+                                        <span class="@label">
+                                            <i class="@icone"></i>
+                                        </span>
                                     </td>
                                     <td style="text-align:right;">
                                         <button type="button" class="btn btn-info btn-sm" onclick="return Crianca.ProcessarCrianca('@item.Codigo')" data-toggle="tooltip" data-placement="top" title="Processar Dados da Crianca">
@@ -176,7 +189,7 @@
                                             <i class="glyphicon glyphicon-pencil"></i>
                                         </button>
                                         <button type="button" id="Excluir" name="Excluir" class="btn btn-danger btn-sm" onclick="return ExcluirConfirmar('@item.Codigo','@item.Nome')" data-toggle="tooltip" data-placement="top" title="Excluir Registro">
-                                            <i class=" glyphicon glyphicon-trash" data-toggle="tooltip" data-placement="top" title="Excluir Registro">
+                                            <i class="glyphicon glyphicon-trash" data-toggle="tooltip" data-placement="top" title="Excluir Registro">
                                             </i>
                                         </button>
                                     </td>
@@ -199,6 +212,7 @@
     @Scripts.Render("~/plugins/dataTables")
     @Scripts.Render("~/plugins/dataPicker")
     @Scripts.Render("~/plugins/Moment")
+    @Scripts.Render("~/bundles/jquery-mask-plugin")
     @Scripts.Render("~/plugins/knob")
     @Scripts.Render("~/script/Crianca/main")
 }

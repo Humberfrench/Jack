@@ -229,35 +229,40 @@ Crianca.ValidaCrianca = function (validaCrianca)
     {
         validaCrianca.obterSoVestimenta = false;
     }
-    else
+    //else
+    //{
+    //    validaCrianca.obterSoVestimenta = true;
+    //}
+    if ($("#Sexo").val() === '')
     {
-        validaCrianca.obterSoVestimenta = true;
+        Mensagens.Erro('Preencher o campo Sexo');
+        $("#Sexo").focus();
     }
-
     opcoes.callBackSuccess = function (response)
     {
         var dataObj = eval(response);
-        if (!validaCrianca.obterSoVestimenta)
-        {
-            $("#Kit").val(dataObj.Kit.Codigo);
-            $("#Idade").val(dataObj.Idade);
-            $("#MedidaIdade").val(dataObj.MedidaIdade);
-            $("#IdadeNominal").val(dataObj.IdadeNominal);
-            $("#IdadeNominalReduzida").val(dataObj.IdadeNominalReduzida);
-        }
-        $("#CalcadoPadrao").val(dataObj.Calcado);
-        $("#RoupaPadrao").val(dataObj.Roupa);
-    }
 
+        $("#Kit").val(dataObj.Kit.Codigo);
+        $("#Idade").val(dataObj.Idade);
+        $("#MedidaIdade").val(dataObj.MedidaIdade);
+        $("#IdadeNominal").val(dataObj.IdadeNominal);
+        $("#IdadeNominalReduzida").val(dataObj.IdadeNominalReduzida);
+
+        validaCrianca.idade = dataObj.Idade;
+        validaCrianca.medidaIdade = dataObj.MedidaIdade;
+
+        Crianca.ObterVestimentaPadrao(validaCrianca);
+    }
 
     opcoes.dadoEnvio = new Object;
     opcoes.dadoEnvio.DataNascimento = moment(validaCrianca.dataNasc, "DD/MM/YYYY").format("MM/DD/YYYY");
     opcoes.dadoEnvio.Sexo = validaCrianca.sexo;
     opcoes.dadoEnvio.CadastroNovo = validaCrianca.cadastroNovo;
-    opcoes.dadoEnvio.CriancaGrande = validaCrianca.necessidadeEspecial;
-    opcoes.dadoEnvio.NescessidadeEspecial = validaCrianca.criancaGrande;
+    opcoes.dadoEnvio.CriancaGrande = validaCrianca.criancaGrande;
+    opcoes.dadoEnvio.NescessidadeEspecial = validaCrianca.necessidadeEspecial;
 
     Ajax.Get(opcoes);
+
 }
 
 Crianca.ObterVestimentaPadrao = function (validaCrianca)
@@ -272,12 +277,13 @@ Crianca.ObterVestimentaPadrao = function (validaCrianca)
         $("#RoupaPadrao").val(dataObj.roupa);
     }
 
+    //ObterVestimentaPadrao(int idade, string medidaIdade, string sexo, bool isCriancaGrande = false)
 
     opcoes.dadoEnvio = new Object;
     opcoes.dadoEnvio.idade = validaCrianca.idade;
     opcoes.dadoEnvio.medidaIdade = validaCrianca.medidaIdade;
     opcoes.dadoEnvio.sexo = validaCrianca.sexo;
-    opcoes.dadoEnvio.criancaGrande = validaCrianca.criancaGrande;
+    opcoes.dadoEnvio.isCriancaGrande = validaCrianca.criancaGrande;
 
     Ajax.Get(opcoes);
 }

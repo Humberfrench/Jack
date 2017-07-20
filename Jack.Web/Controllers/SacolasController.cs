@@ -16,6 +16,7 @@ namespace Jack.Web.Controllers
         private readonly INivelServiceApp nivelAppService;
         private readonly ICriancaServiceApp criancaAppService;
         private readonly IFamiliaServiceApp familiaAppService;
+        private readonly IKitServiceApp kitAppService;
 
         #endregion
 
@@ -24,12 +25,14 @@ namespace Jack.Web.Controllers
         public SacolasController(ICriancaServiceApp criancaAppService,
                                  IFamiliaServiceApp familiaAppService,
                                  ISacolaServiceApp sacolaAppService,
-                                 INivelServiceApp nivelAppService)
+                                 INivelServiceApp nivelAppService,
+                                 IKitServiceApp kitAppService)
         {
             this.sacolaAppService = sacolaAppService;
             this.nivelAppService = nivelAppService;
             this.criancaAppService = criancaAppService;
             this.familiaAppService = familiaAppService;
+            this.kitAppService = kitAppService;
         }
 
         #endregion
@@ -44,8 +47,8 @@ namespace Jack.Web.Controllers
                 Titulo = "Consulta de Sacolas",
                 BreadCrumbs = new List<BreadCrumb>
                 {
-                 new BreadCrumb {LinkText = "Consulta de Sacolas", ActionName = "Index", ControllerName = "Sacolas"},
-                 new BreadCrumb {LinkText = "Lista", ActionName = "Index", ControllerName = "Sacolas"}
+                 new BreadCrumb {LinkText = "Consulta de Sacolas", ActionName = nameof(Index), ControllerName = "Sacolas"},
+                 new BreadCrumb {LinkText = "Lista", ActionName = nameof(Index), ControllerName = "Sacolas"}
                 }
             };
 
@@ -68,8 +71,8 @@ namespace Jack.Web.Controllers
                 Titulo = "Consulta de Sacolas",
                 BreadCrumbs = new List<BreadCrumb>
                 {
-                 new BreadCrumb {LinkText = "Consulta de Sacolas", ActionName = "Index", ControllerName = "Sacolas"},
-                 new BreadCrumb {LinkText = "Lista", ActionName = "Index", ControllerName = "Sacolas"}
+                 new BreadCrumb {LinkText = "Consulta de Sacolas", ActionName = nameof(Index), ControllerName = "Sacolas"},
+                 new BreadCrumb {LinkText = "Lista", ActionName = nameof(Index), ControllerName = "Sacolas"}
                 }
             };
 
@@ -92,8 +95,8 @@ namespace Jack.Web.Controllers
                 Titulo = "Consulta de Sacolas Livres",
                 BreadCrumbs = new List<BreadCrumb>
                 {
-                 new BreadCrumb {LinkText = "Lista", ActionName = "Index", ControllerName = "Sacolas"},
-                 new BreadCrumb {LinkText = "Consulta de Sacolas Livres", ActionName = "Index", ControllerName = "Sacolas Livres"}
+                 new BreadCrumb {LinkText = "Lista", ActionName = nameof(Index), ControllerName = "Sacolas"},
+                 new BreadCrumb {LinkText = "Consulta de Sacolas Livres", ActionName = nameof(Index), ControllerName = "Sacolas Livres"}
                 }
             };
 
@@ -116,8 +119,8 @@ namespace Jack.Web.Controllers
                 Titulo = "Consulta de Sacolas Livres",
                 BreadCrumbs = new List<BreadCrumb>
                 {
-                 new BreadCrumb {LinkText = "Lista", ActionName = "Index", ControllerName = "Sacolas"},
-                 new BreadCrumb {LinkText = "Consulta de Sacolas Livres", ActionName = "Index", ControllerName = "Sacolas Livres"}
+                 new BreadCrumb {LinkText = "Lista", ActionName = nameof(Index), ControllerName = "Sacolas"},
+                 new BreadCrumb {LinkText = "Consulta de Sacolas Livres", ActionName = nameof(Index), ControllerName = "Sacolas Livres"}
                 }
             };
 
@@ -131,7 +134,7 @@ namespace Jack.Web.Controllers
             return View(listaDados);
         }
 
-        [Route("Liberar")]
+        [Route(nameof(Liberar))]
         public ActionResult Liberar(int id)
         {
             var gravarResult = sacolaAppService.Liberar(id);
@@ -156,7 +159,7 @@ namespace Jack.Web.Controllers
             return Json(retorno, JsonRequestBehavior.AllowGet);
         }
 
-        [Route("AdicionarCrianca")]
+        [Route(nameof(AdicionarCrianca))]
         public ActionResult AdicionarCrianca()
         {
             #region BreadCrumb
@@ -165,8 +168,8 @@ namespace Jack.Web.Controllers
                 Titulo = "Adicionar Crianca a Sacola",
                 BreadCrumbs = new List<BreadCrumb>
                 {
-                 new BreadCrumb {LinkText = "Adicionar Crianca a Sacola", ActionName = "Index", ControllerName = "Sacolas"},
-                 new BreadCrumb {LinkText = "Lista", ActionName = "Index", ControllerName = "Crianca"}
+                 new BreadCrumb {LinkText = "Adicionar Crianca a Sacola", ActionName = nameof(Index), ControllerName = "Sacolas"},
+                 new BreadCrumb {LinkText = "Lista", ActionName = nameof(Index), ControllerName = "Crianca"}
                 }
             };
 
@@ -190,8 +193,8 @@ namespace Jack.Web.Controllers
                 Titulo = "Adicionar Crianca a Sacola",
                 BreadCrumbs = new List<BreadCrumb>
                 {
-                 new BreadCrumb {LinkText = "Adicionar Crianca a Sacola", ActionName = "Index", ControllerName = "Sacolas"},
-                 new BreadCrumb {LinkText = "Lista", ActionName = "Index", ControllerName = "Crianca"}
+                 new BreadCrumb {LinkText = "Adicionar Crianca a Sacola", ActionName = nameof(Index), ControllerName = "Sacolas"},
+                 new BreadCrumb {LinkText = "Lista", ActionName = nameof(Index), ControllerName = "Crianca"}
                 }
             };
 
@@ -213,7 +216,7 @@ namespace Jack.Web.Controllers
             return View(listaDados);
         }
 
-        [Route("GerarSacolas")]
+        [Route(nameof(GerarSacolas))]
         public ActionResult GerarSacolas()
         {
             #region BreadCrumb
@@ -222,7 +225,7 @@ namespace Jack.Web.Controllers
                 Titulo = "Gerar Sacolas",
                 BreadCrumbs = new List<BreadCrumb>
                 {
-                 new BreadCrumb {LinkText = "Gerar Sacolas", ActionName = "Index", ControllerName = "Sacolas"}
+                 new BreadCrumb {LinkText = "Gerar Sacolas", ActionName = nameof(Index), ControllerName = "Sacolas"}
                 }
             };
 
@@ -245,7 +248,7 @@ namespace Jack.Web.Controllers
                 Titulo = "Gerar Sacolas",
                 BreadCrumbs = new List<BreadCrumb>
                 {
-                 new BreadCrumb {LinkText = "Gerar Sacolas", ActionName = "Index", ControllerName = "Sacolas"}
+                 new BreadCrumb {LinkText = "Gerar Sacolas", ActionName = nameof(Index), ControllerName = "Sacolas"}
                 }
             };
 
@@ -261,7 +264,7 @@ namespace Jack.Web.Controllers
             return View(listaDados);
         }
 
-        [Route("AdicionarCriancaNaSacola")]
+        [Route(nameof(AdicionarCriancaNaSacola))]
         [HttpPost]
         public ActionResult AdicionarCriancaNaSacola(int id)
         {
@@ -287,6 +290,64 @@ namespace Jack.Web.Controllers
             return Json(retorno, JsonRequestBehavior.AllowGet);
         }
 
+        [Route(nameof(Pesquisar))]
+        public ActionResult Pesquisar()
+        {
+            #region BreadCrumb
+            var breadCrumb = new BreadCrumbETitulo
+            {
+                Titulo = "Pesquisar de Sacolas",
+                BreadCrumbs = new List<BreadCrumb>
+                {
+                 new BreadCrumb {LinkText = "Lista", ActionName = nameof(Index), ControllerName = "Sacolas"},
+                 new BreadCrumb {LinkText = "Pesquisa de Sacolas", ActionName = nameof(Pesquisar), ControllerName = "Sacolas Livres"}
+                }
+            };
+
+            TempData["BreadCrumETitulo"] = breadCrumb;
+            #endregion
+
+            ViewBag.Nivel = ObterNivelParaCombo();
+            ViewBag.Kit = ObterKitParaCombo();
+            ViewBag.Familia = ObterFamiliaParaCombo();
+            ViewBag.NivelNivelId = 0;
+            ViewBag.KitId = 0;
+            ViewBag.FamiliaId = 0;
+            ViewBag.Ano = 0;
+
+            var dados = new List<SacolaValueViewModel>();
+            return View(dados);
+        }
+
+        [Route("Pesquisar/{ano}/{familia}/{kit}/{nivel}")]
+        public ActionResult PesquisarSacolas(int ano, int familia, int kit, int nivel)
+        {
+            #region BreadCrumb
+            var breadCrumb = new BreadCrumbETitulo
+            {
+                Titulo = "Pesquisar de Sacolas",
+                BreadCrumbs = new List<BreadCrumb>
+                {
+                 new BreadCrumb {LinkText = "Lista", ActionName = nameof(Index), ControllerName = "Sacolas"},
+                 new BreadCrumb {LinkText = "Pesquisa de Sacolas", ActionName = nameof(Pesquisar), ControllerName = "Sacolas Livres"}
+                }
+            };
+
+            TempData["BreadCrumETitulo"] = breadCrumb;
+            #endregion
+
+            ViewBag.Nivel = ObterNivelParaCombo();
+            ViewBag.Kit = ObterKitParaCombo();
+            ViewBag.Familia = ObterFamiliaParaCombo();
+            ViewBag.NivelNivelId = nivel;
+            ViewBag.KitId = kit;
+            ViewBag.FamiliaId = familia;
+            ViewBag.Ano = ano;
+
+            var dados = sacolaAppService.PesquisarSacolas(ano, familia, kit, nivel);
+            return View(nameof(Pesquisar), dados);
+        }
+
         #endregion
 
         #region Métodos Privados
@@ -294,6 +355,12 @@ namespace Jack.Web.Controllers
         private IList<NivelViewModel> ObterNivel()
         {
             var lista = nivelAppService.ObterTodos().ToList();
+            var kit = new NivelViewModel
+            {
+                Codigo = 0,
+                Descricao = "Selecione Nível"
+            };
+            lista.Insert(0, kit);
             return lista;
         }
 
@@ -308,6 +375,12 @@ namespace Jack.Web.Controllers
         private IList<FamiliaViewModel> ObterFamilia()
         {
             var dados = familiaAppService.ObterTodos().OrderBy(c => c.Nome).ToList();
+            var familia = new FamiliaViewModel
+            {
+                Codigo = 0,
+                Nome = "Selecione Família"
+            };
+            dados.Insert(0, familia);
             return dados;
         }
 
@@ -315,6 +388,26 @@ namespace Jack.Web.Controllers
         {
             var dados = ObterFamilia();
             var dadosSelect = new SelectList(dados, "Codigo", "Nome");
+
+            return dadosSelect;
+        }
+
+        private IList<KitViewModel> ObterKit()
+        {
+            var dados = kitAppService.ObterTodos().ToList();
+            var kit = new KitViewModel
+            {
+                Codigo = 0,
+                Descricao = "Selecione Kit"
+            };
+            dados.Insert(0, kit);
+            return dados;
+        }
+
+        private SelectList ObterKitParaCombo()
+        {
+            var dados = ObterKit();
+            var dadosSelect = new SelectList(dados, "Codigo", "Descricao");
 
             return dadosSelect;
         }

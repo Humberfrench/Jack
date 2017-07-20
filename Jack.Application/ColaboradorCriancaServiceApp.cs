@@ -1,6 +1,4 @@
-﻿using AutoMapper;
-using Jack.Application.AutoMapper;
-using Jack.Application.Interfaces;
+﻿using Jack.Application.Interfaces;
 using Jack.Application.ViewModel;
 using Jack.Domain.Interfaces.Services;
 using Jack.DomainValidator;
@@ -9,22 +7,20 @@ using System.Collections.Generic;
 
 namespace Jack.Application
 {
-    public class ColaboradorCriancaServiceApp :  IColaboradorCriancaServiceApp
+    public class ColaboradorCriancaServiceApp : AppServiceBase, IColaboradorCriancaServiceApp
     {
 
         private readonly IColaboradorCriancaService _service;
-        private readonly IMapper mapper;
 
         public ColaboradorCriancaServiceApp(IColaboradorCriancaService colaboradorCriancaService)
         {
             _service = colaboradorCriancaService;
-            mapper = AutoMapperConfig.Config.CreateMapper();
         }
 
         public IEnumerable<ColaboradorCriancaViewModel> Obter(int id, int ano)
         {
-            var colaboradorCrianca = _service.Obter(id,ano);
-            return mapper.Map<IEnumerable<ColaboradorCriancaViewModel>>(colaboradorCrianca);
+            var colaboradorCrianca = _service.Obter(id, ano);
+            return Mapper.Map<IEnumerable<ColaboradorCriancaViewModel>>(colaboradorCrianca);
         }
 
         public ValidationResult Excluir(int id)
@@ -55,13 +51,13 @@ namespace Jack.Application
         public ColaboradorCriancaViewModel ObterPorId(int id)
         {
             var colaboradorCrianca = _service.ObterPorId(id);
-            return mapper.Map<ColaboradorCriancaViewModel>(colaboradorCrianca);
+            return Mapper.Map<ColaboradorCriancaViewModel>(colaboradorCrianca);
         }
 
         public IEnumerable<ColaboradorCriancaViewModel> ObterTodos()
         {
             var colaboradorCrianca = _service.ObterTodos();
-            return mapper.Map<IEnumerable<ColaboradorCriancaViewModel>>(colaboradorCrianca);
+            return Mapper.Map<IEnumerable<ColaboradorCriancaViewModel>>(colaboradorCrianca);
         }
 
         public void Dispose()

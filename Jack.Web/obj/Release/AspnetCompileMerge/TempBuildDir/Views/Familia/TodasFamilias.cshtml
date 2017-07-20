@@ -1,0 +1,143 @@
+﻿@using Jack.Application.ViewModel
+@using Jack.Extensions
+@model IEnumerable<FamiliaViewModel>
+
+@{
+    ViewBag.Title = "Família";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+
+    var numeroMaxCriancas = (float?)ViewBag.NumeroMaximoCricancas;
+    var numeroMaximoCriancas = (float)0;
+    if (numeroMaxCriancas.HasValue)
+    {
+        numeroMaximoCriancas = numeroMaxCriancas.Value;
+    }
+    var numeroMaxRepresentantes = (float?)ViewBag.NumeroMaximoRepresentantes;
+    var numeroMaximoRepresentantes = (float)0;
+    if (numeroMaxRepresentantes.HasValue)
+    {
+        numeroMaximoRepresentantes = numeroMaxRepresentantes.Value;
+    }
+    var percentualCriancas = (float)0;
+    var percentualRepresentantes = (float)0;
+
+    var label = "";
+
+}
+
+@functions
+{
+    string ObterLabel(int codigo)
+    {
+        if (codigo == 1)
+        {
+            return "label-primary";
+        }
+        else if ((codigo == 2) || (codigo == 3) || (codigo == 4))
+        {
+            return "label-warning";
+        }
+        else if (codigo == 5)
+        {
+            return "label-default";
+        }
+        else
+        {
+            return "label-danger";
+        }
+    }
+}
+<input type="hidden" name="URLObterTodos" id="URLObterTodos" value="@Url.Action("TodasFamilias")" />
+<input type="hidden" name="URLEdit" id="URLEdit" value="@Url.Action("Edit")" />
+<input type="hidden" name="URLGravar" id="URLGravar" value="@Url.Action("Gravar")" />
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="wrapper wrapper-content animated fadeInUp">
+
+            <div class="ibox">
+                <div class="ibox-title">
+                    <h5>Familias</h5>
+                    <div class="ibox-tools">
+                        <button type="button" id="Novo" name="Novo" class="btn btn-primary btn-xs" >Nova Família</button>
+                    </div>
+                </div>
+                <div class="ibox-content">
+                    <div class="row m-b-sm m-t-sm">
+                        <div class="col-md-1">
+                            <button type="button" id="loading-example-btn" class="btn btn-white btn-sm"><i class="fa fa-refresh" onclick="location.reload();"></i> Refresh</button>
+                        </div>
+                        <div class="col-md-11">
+                            <div class="input-group">
+                                <input type="text" placeholder="Pesquisar pelo nome" class="input-sm form-control" id="PesquisarNome">
+                                <span class="input-group-btn">
+                                    <button type="button" class="btn btn-sm btn-primary" id="PesquisarFiltro"> Go!</button>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-list">
+                        <table class="table table-hover" id="TableFamiliaComplexo">
+                            <thead></thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td class="project-status">
+                                            <span class="label @ObterLabel(item.Nivel.Codigo)">@item.Nivel.Nome</span>
+                                        </td>
+                                        <td class="project-title">
+                                            <label class="label label-default"><strong>@item.Nome</strong></label>&nbsp;&nbsp;
+                                            <small><strong>Contato: </strong> @item.Contato</small><br />
+                                            <small>
+                                                <label class="label label-danger"><strong>Status: </strong>@item.Status.Descricao </label>&nbsp;&nbsp;
+                                                <label class="label label-default"><strong>Criado em: </strong> @item.DataCriacao.ToDateFormated()</label>&nbsp; &nbsp;
+                                                <label class="label label-default"><strong>Atualizado em: </strong> @item.DataAtualizacao.ToDateFormated()</label>
+                                            </small>
+                                        </td>
+                                        <td class="project-completion">
+                                            @{
+                                                if (Math.Abs(numeroMaximoCriancas) > 0)
+                                                {
+                                                    percentualCriancas = (item.QuantidadeCriancas / numeroMaximoCriancas) * 100;
+                                                }
+                                            }
+                                            <small>Quantidade Criancas: @item.QuantidadeCriancas (@percentualCriancas%) </small>
+                                            <div class="progress progress-mini">
+                                                <div style="width: @percentualCriancas%;" class="progress-bar"></div>
+                                            </div>
+                                        </td>
+                                        <td class="project-completion">
+                                            @{
+                                                if (Math.Abs(numeroMaximoRepresentantes) > 0)
+                                                {
+                                                    percentualRepresentantes = (item.QuantidadeFamiliasRepresentadas / numeroMaximoRepresentantes) * 100;
+                                                }
+                                            }
+                                            <small>Quantidade Crianças: @item.QuantidadeFamiliasRepresentadas (@percentualRepresentantes%) </small>
+                                            <div class="progress progress-mini">
+                                                <div style="width: @percentualCriancas%;" class="progress-bar"></div>
+                                            </div>
+                                        </td>
+                                        <td class="project-actions">
+                                            <a href="#" class="btn btn-white btn-sm" onclick="return Familia.Bloquear('@item.Codigo')"><i class="fa fa-lock"></i> Banir </a>
+                                            <a href="#" class="btn btn-white btn-sm" onclick="return Familia.Editar('@item.Codigo')"><i class="fa fa-pencil"></i> Editar </a>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@Html.Partial("Edicao")
+
+
+@section scripts
+{
+    @Scripts.Render("~/plugins/dataTables")
+    @Scripts.Render("~/script/Familia/main")
+}

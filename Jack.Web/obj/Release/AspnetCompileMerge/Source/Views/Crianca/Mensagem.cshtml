@@ -1,0 +1,25 @@
+﻿<div id="modalMensagem" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="gridSystemModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content animated">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Atenção - Inconsistencias</h4>
+            </div>
+            <div class="modal-body">
+                <p>Os calçados estão com valores diferentes do informado, porém dentro do <b>limite</b> de numeração, confirma mesmo assim a gravação?</p>
+                <p><b>Opções:</b></p>
+                <ul class="list-group">
+                    <li class="list-group-item list-group-item-success">Sim, Gravar: Efetua a gravação com o valor que está.</li>
+                    <li class="list-group-item list-group-item-warning">Acertar e Gravar: Acerta o calçado com o valor padrão e efetua a gravação.</li>
+                    <li class="list-group-item list-group-item-danger">Não, Cancele: Volta para a tela para a correção necessária.</li>
+                </ul>                    
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Não, Cancele</button>
+                <button type="button" class="btn btn-warning" data-dismiss="modal" onclick="return Crianca.Acertar()">Acertar e Gravar</button>
+                <button type="button" class="btn btn-success" data-dismiss="modal" onclick="return Crianca.Gravar()">Sim, Gravar</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+

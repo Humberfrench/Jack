@@ -1,0 +1,127 @@
+﻿@using Jack.Application.ViewModel
+@using Jack.Extensions
+@model IEnumerable<KitItemViewModel>
+@Styles.Render("~/Content/plugins/dataTables/dataTablesStyles")
+@Styles.Render("~/plugins/awesomeCheckboxStyles")
+@{
+    ViewBag.Title = "Item dos Kits de Sacolas";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+
+    var necessidadeEspecial = (bool)ViewBag.NecessicadeEspecialKit ? "checked=checked" : "";
+}
+
+<input type="hidden" name="URLObterTodos" id="URLObterTodos" value="@Url.Action("Index")" />
+<input type="hidden" name="URLEdit" id="URLEdit" value="@Url.Action("Edit")" />
+<input type="hidden" name="URLGravar" id="URLGravar" value="@Url.Action("Gravar")" />
+<input type="hidden" name="URLExcluir" id="URLExcluir" value="@Url.Action("Excluir")" />
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>Item dos Kits de Sacolas</h5>
+                    <div class="ibox-tools">
+                        <a href="@Url.Action("Index", "Kit")"
+                           class="btn btn-primary btn-lg"
+                           data-toggle="tooltip" data-placement="top"
+                           title="Voltar">
+                            <i class="glyphicon glyphicon-arrow-left"></i>Voltar
+                        </a>
+                        <button type="button" id="Novo" name="Novo"
+                                class="btn btn-success btn-lg"
+                                data-toggle="tooltip" data-placement="top"
+                                title="Novo Registro">
+                            <i class="glyphicon glyphicon-file"></i>&nbsp;Novo
+                        </button>
+                        <button type="button" id="AtualizarPagina" name="AtualizarPagina"
+                                class="btn btn-danger btn-lg"
+                                data-toggle="tooltip" data-placement="top"
+                                title="Atualizar Página" onclick="return location.reload();">
+                            <i class="glyphicon glyphicon-refresh"></i>&nbsp;Atualizar
+                        </button>
+                    </div>
+                </div>
+                <div class="ibox-content">
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <label id="labelDescricao" for="Descricao">Descrição</label>
+                            <input type="hidden" id="CodigoKit" name="CodigoKit" value="@ViewBag.CodigoKit" readonly="readonly" class="form-control m-b-md" />
+                            <input type="text" id="Descricao" name="Descricao" value="@ViewBag.DescricaoKit" class="form-control m-b-md" readonly="readonly" />
+                        </div>
+                        <div class="col-md-2">
+                            <label id="labelIdadeMinima" for="IdadeMinima">Idade Mínima</label>
+                            <input type="text" id="IdadeMinima" name="IdadeMinima" value="@ViewBag.IdadeMinimaKit" class="form-control m-b-md" readonly="readonly" />
+                        </div>
+                        <div class="col-md-2">
+                            <label id="labelIdadeMaxima" for="IdadeMaxima">Idade Máxima</label>
+                            <input type="text" id="IdadeMaxima" name="IdadeMaxima" value="@ViewBag.IdadeMaximaKit" class="form-control m-b-md" readonly="readonly" />
+                        </div>
+                        <div class="col-md-2">
+                            <label id="labelSexo" for="Sexo">Sexo</label>
+                            <input type="text" id="Sexo" name="Sexo" value="@ViewBag.SexoKit" class="form-control m-b-md" readonly="readonly" />
+                        </div>
+                        <div class="col-lg-2">
+                            <label id="label1"></label>
+                            <div class="checkbox checkbox-primary">
+                                <input type="checkbox" name="NecessidadeEspecial" id="NecessidadeEspecial" @necessidadeEspecial disabled="disabled">
+                                <label id="labelNecessidadeEspecial" for="NecessidadeEspecial">Necessidade Especial</label>
+                            </div>
+                        </div>
+                    </div>
+                    <table class="table table-striped table-hover" id="TableKitItens">
+                        <thead>
+                            <tr>
+                                <th>@Html.DisplayNameFor(model => model.Codigo)</th>
+                                <th>@Html.DisplayNameFor(model => model.Ordem)</th>
+                                <th>@Html.DisplayNameFor(model => model.TipoItem.Descricao)</th>
+                                <th>@Html.DisplayNameFor(model => model.TipoItem.Opcional)</th>
+                                <th>@Html.DisplayNameFor(model => model.Observacao)</th>
+                                <th>&nbsp;</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Codigo)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Ordem)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.TipoItem.Descricao)
+                                    </td>
+                                    <td>
+                                        @item.TipoItem.Opcional.ToSimNao()
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Observacao)
+                                    </td>
+                                    <td style="text-align:right;">
+                                        <button type="button" class="btn btn-success btn-sm" onclick="Edit('@item.Codigo')">
+                                            <i class="glyphicon glyphicon-pencil" data-toggle="tooltip" data-placement="top" title="Editar Registro"></i>
+                                        </button>
+                                        <button type="button" id="Excluir" name="Excluir" class="btn btn-danger btn-sm" onclick="ExcluirConfirmar('@item.Codigo','@item.TipoItem.Descricao')">
+                                            <i class=" glyphicon glyphicon-trash" data-toggle="tooltip" data-placement="top" title="Excluir Registro">
+                                            </i>
+                                        </button>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>  
+
+@Html.Partial("Edicao")
+@Html.Partial("Exclusao")
+
+@section scripts
+{
+    @Scripts.Render("~/plugins/dataTables")
+    @Scripts.Render("~/script/KitItem/main")
+}

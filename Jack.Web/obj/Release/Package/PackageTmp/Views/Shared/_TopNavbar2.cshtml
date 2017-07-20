@@ -12,6 +12,7 @@
                     <a aria-expanded="false" role="button" href="#" class="dropdown-toggle" data-toggle="dropdown">Sacolas<span class="caret"></span></a>
                     <ul role="menu" class="dropdown-menu">
                         <li><a href="@Url.Action("Index","Familia")">Famílias</a></li>
+                        <li><a href="@Url.Action("TodasFamilias","Familia")">Famílias - Sintético</a></li>
                         <li><a href="@Url.Action("Index","Crianca")">Crianças</a></li>
                         <li><a href="@Url.Action("AcertoDados", "Crianca")">Acerto de Dados de Crianças</a></li>
                         <li><a href="@Url.Action("Index","Reuniao")">Reunião</a></li>
@@ -19,6 +20,7 @@
                         <li><a href="@Url.Action("Index","Representante")">Representantes</a></li>
                         <li><a href="@Url.Action("Adicionar", "ColaboradorCrianca")">Adicionar Sacolas a Colaborador</a></li>
                         <li><a href="@Url.Action("AdicionarCrianca", "Sacolas")">Adicionar Criança à Sacolas</a></li>
+                        <li><a href="@Url.Action("FamiliasBanidas","Familia")">Tratamento Família Status 13 - Banido</a></li>
                         <li><a href="">Trocar Criança de Família</a></li>
                     </ul>
                 </li>
@@ -31,6 +33,8 @@
                         <li><a href="@Url.Action("SacolasLivres", "Sacolas")">Sacolas Livres</a></li>
                         <li><a href="@Url.Action("Index","ColaboradorCrianca")">Sacolas por Colaborador</a></li>
                         <li><a href="#">Estatística de Sacolas</a></li>
+                        <li><a href="@Url.Action("ConsultaPorStatus", "Familia")">Familias por Status</a></li>
+                        <li><a href="@Url.Action("ObterFamiliasNaoSacolas", "Familia")">Famílias sem Sacola</a></li>
                     </ul>
                 </li>
                 <li class="dropdown">
@@ -53,9 +57,8 @@
                     <a aria-expanded="false" role="button" href="#" class="dropdown-toggle" data-toggle="dropdown">Processamento<span class="caret"></span></a>
                     <ul role="menu" class="dropdown-menu">
                         <li><a href="@Url.Action("GerarSacolas", "Sacolas")">Gerar Sacolas</a></li>
-                        <li><a href="#">Processar Dados de Presenças</a></li>
-                        <li><a href="#">Processar Dados de Familias</a></li>
-                        <li><a href="#">Processar Dados de Crianças</a></li>
+                        <li><a href="@Url.Action("Index", "Processar")">Processar Dados</a></li>
+                        <li><a href="@Url.Action("Pesquisar", "Sacolas")">Imprimir Sacolas</a></li>
                     </ul>
                 </li>
 

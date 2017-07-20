@@ -1,0 +1,126 @@
+﻿@using Jack.Application.ViewModel
+@using Jack.Extensions
+@model IEnumerable<FamiliaViewModel>
+
+@{
+    ViewBag.Title = "Família";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+
+    var numeroMaxCriancas = (float?)ViewBag.NumeroMaximoCricancas;
+    var numeroMaximoCriancas = (float)0;
+    if (numeroMaxCriancas.HasValue)
+    {
+        numeroMaximoCriancas = numeroMaxCriancas.Value;
+    }
+    var numeroMaxRepresentantes = (float?)ViewBag.NumeroMaximoRepresentantes;
+    var numeroMaximoRepresentantes = (float)0;
+    if (numeroMaxRepresentantes.HasValue)
+    {
+        numeroMaximoRepresentantes = numeroMaxRepresentantes.Value;
+    }
+    var percentualCriancas = (float)0;
+    var percentualRepresentantes = (float)0;
+
+    var label = "";
+
+}
+
+@functions
+{
+    string ObterLabel(int codigo)
+    {
+        if (codigo == 1)
+        {
+            return "label-primary";
+        }
+        else if ((codigo == 2) || (codigo == 3) || (codigo == 4))
+        {
+            return "label-warning";
+        }
+        else if (codigo == 5)
+        {
+            return "label-default";
+        }
+        else
+        {
+            return "label-danger";
+        }
+    }
+}
+<input type="hidden" name="URLObterTodos" id="URLObterTodos" value="@Url.Action("FamiliasBanidas")" />
+<input type="hidden" name="URLLiberarBloqueio" id="URLLiberarBloqueio" value="@Url.Action("Liberar")" />
+<input type="hidden" name="URLLiberarBloqueio" id="URLLiberarBloqueio" value="@Url.Action("Bloquear")" />
+<input type="hidden" name="URLGravar" id="URLGravar" value="@Url.Action("Gravar")" />
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="wrapper wrapper-content animated fadeInUp">
+
+            <div class="ibox">
+                <div class="ibox-title">
+                    <h5>Familias Banidas</h5>
+                </div>
+                <div class="ibox-content">
+                    <div class="project-list">
+                        <table class="table table-hover" id="TableFamiliaComplexo">
+                            <thead></thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td class="project-status">
+                                            <span class="label @ObterLabel(item.Nivel.Codigo)">@item.Nivel.Nome</span>
+                                        </td>
+                                        <td class="project-title">
+                                            <label class="label label-default">@item.Nome</label><br />
+                                            <small><strong>Contato:</strong> @item.Contato</small><br />
+                                            <small>
+                                                <label class="label label-danger"><strong>Status:</strong>@item.Status.Descricao </label>&nbsp;&nbsp;
+                                                <label class="label label-default"><strong>Criado em:</strong> @item.DataCriacao.ToDateFormated()</label>&nbsp; &nbsp;
+                                                <label class="label label-default"><strong>Atualizado em:</strong> @item.DataAtualizacao.ToDateFormated()</label>
+                                            </small>
+                                        </td>
+                                        <td class="project-completion">
+                                            @{
+                                                if (Math.Abs(numeroMaximoCriancas) > 0)
+                                                {
+                                                    percentualCriancas = (item.QuantidadeCriancas / numeroMaximoCriancas) * 100;
+                                                }
+                                            }
+                                            <small>Quantidade Criancas: @item.QuantidadeCriancas (@percentualCriancas%) </small>
+                                            <div class="progress progress-mini">
+                                                <div style="width: @percentualCriancas%;" class="progress-bar"></div>
+                                            </div>
+                                        </td>
+                                        <td class="project-completion">
+                                            @{
+                                                if (Math.Abs(numeroMaximoRepresentantes) > 0)
+                                                {
+                                                    percentualRepresentantes = (item.QuantidadeFamiliasRepresentadas / numeroMaximoRepresentantes) * 100;
+                                                }
+                                            }
+                                            <small>Quantidade Crianças: @item.QuantidadeFamiliasRepresentadas (@percentualRepresentantes%) </small>
+                                            <div class="progress progress-mini">
+                                                <div style="width: @percentualCriancas%;" class="progress-bar"></div>
+                                            </div>
+                                        </td>
+                                        <td class="project-actions">
+                                            <a href="#" class="btn btn-white btn-sm" onclick="return Familia.LiberarBloqueio('@item.Codigo')"><i class="fa fa-unlock"></i> Liberar Bloqueio </a>
+                                        </td>
+                                    </tr>
+                                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section scripts
+{
+    @Scripts.Render("~/plugins/dataTables")
+    @Scripts.Render("~/script/Familia/main")
+}

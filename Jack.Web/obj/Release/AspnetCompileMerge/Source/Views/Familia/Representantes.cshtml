@@ -1,0 +1,30 @@
+﻿@using Jack.Application.ViewModel
+@using Jack.Extensions
+@model IEnumerable<RepresentanteViewModel>
+@{
+    Layout = null;
+}
+
+<table id="TablePresencas" class="table table-striped table-hover">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.Codigo)</th>
+            <th>@Html.DisplayNameFor(model => model.FamiliaRepresentada)</th>
+            <th>@Html.DisplayNameFor(model => model.FamiliaRepresentada.Status)</th>
+            <th>@Html.DisplayNameFor(model => model.FamiliaRepresentada.QuantidadeCriancas)</th>
+            <th>@Html.DisplayNameFor(model => model.Ativo)</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Codigo</td>
+                <td>@item.FamiliaRepresentada.Nome</td>
+                <td>@item.FamiliaRepresentada.Status.Descricao</td>
+                <td>@item.FamiliaRepresentada.QuantidadeCriancas</td>
+                <td>@item.Ativo.ToSimNao()</td>
+            </tr>
+        }
+    </tbody>
+</table>

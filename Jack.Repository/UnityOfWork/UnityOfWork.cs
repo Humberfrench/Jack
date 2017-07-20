@@ -22,19 +22,19 @@ namespace Jack.Repository.UnityOfWork
             {
                 Configuration cfg = new Configuration();
                 cfg.Configure();
-                
+
                 SessionFactory = Fluently.Configure(cfg)
                                 .Diagnostics(d => d.Enable().OutputToConsole())
                                 .CurrentSessionContext("web")
                                 .Mappings(m =>
                                             m.FluentMappings
-                                                .AddFromAssemblyOf<NHibernateHelper>()
-                                                .Conventions.AddFromAssemblyOf<NHibernateHelper>()
+                                                .AddFromAssemblyOf<UnityOfWork>()
+                                                .Conventions.AddFromAssemblyOf<UnityOfWork>()
                                                 .Conventions.Add(DefaultAccess.CamelCaseField(CamelCasePrefix.None))
                                                 )
                                 .BuildSessionFactory();
 
-            } 
+            }
 
         }
         public void Salvar(IEntidade entidade)

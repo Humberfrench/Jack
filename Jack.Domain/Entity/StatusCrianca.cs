@@ -5,10 +5,10 @@ namespace Jack.Domain.Entity
 {
     public class StatusCrianca : IEntidade
     {
- 
+
         #region "Construtor"
 
-        public StatusCrianca() :base()
+        public StatusCrianca()
         {
             codigo = 0;
             descricao = string.Empty;
@@ -16,7 +16,7 @@ namespace Jack.Domain.Entity
             criancas = new List<Crianca>();
         }
 
-        public StatusCrianca(string strDescricao) :this()
+        public StatusCrianca(string strDescricao) : this()
         {
             codigo = 0;
             descricao = strDescricao;

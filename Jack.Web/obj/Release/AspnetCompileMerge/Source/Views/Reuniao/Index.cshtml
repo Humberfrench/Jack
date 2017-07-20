@@ -1,0 +1,148 @@
+﻿@using Jack.Application.ViewModel
+@using Jack.Extensions
+@model IEnumerable<ReuniaoViewModel>
+@Styles.Render("~/Content/plugins/dataTables/dataTablesStyles")
+@Styles.Render("~/plugins/awesomeCheckboxStyles")
+@{
+    ViewBag.Title = "Reuniões";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+
+<input type="hidden" name="URLMontarDataReuniao" id="URLMontarDataReuniao" value="@Url.Action("MontarDataReuniao")" />
+<input type="hidden" name="URLObterTodos" id="URLObterTodos" value="@Url.Action("Index")" />
+<input type="hidden" name="URLEdit" id="URLEdit" value="@Url.Action("Edit")" />
+<input type="hidden" name="URLGravar" id="URLGravar" value="@Url.Action("Gravar")" />
+<input type="hidden" name="URLExcluir" id="URLExcluir" value="@Url.Action("Excluir")" />
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>Reuniões</h5>
+                    <div class="ibox-tools">
+                        <button type="button" id="Novo" name="Novo"
+                                class="btn btn-success btn-lg"
+                                data-toggle="tooltip" data-placement="top"
+                                title="Novo Registro">
+                            <i class="glyphicon glyphicon-file"></i>&nbsp;Novo
+                        </button>
+                        <button type="button" id="AtualizarPagina" name="AtualizarPagina"
+                                class="btn btn-danger btn-lg"
+                                data-toggle="tooltip" data-placement="top"
+                                title="Atualizar Página" onclick="return location.reload();">
+                            <i class="glyphicon glyphicon-refresh"></i>&nbsp;Atualizar
+                        </button>
+
+                    </div>
+                </div>
+                <div class="ibox-content">
+                    <div class="row">
+                        <div class="row col-lg-1">&nbsp;</div>
+                        <div class="row col-lg-3">
+                            <label id="labelAno" for="AnoPesquisa">Pesquisar Pelo Ano</label>
+                            <input type="hidden" id="AnoValue" name="AnoValue" value="@ViewBag.Ano" />
+                            <select name="AnoPesquisa" id="AnoPesquisa" class="form-control m-b">
+                                <option value="0">Ano</option>
+                                <option value="2014">2014</option>
+                                <option value="2015">2015</option>
+                                <option value="2016">2016</option>
+                                <option value="2017">2017</option>
+                                <option value="2018">2018</option>
+                                <option value="2019">2019</option>
+                                <option value="2020">2020</option>
+                                <option value="2021">2021</option>
+                                <option value="2022">2022</option>
+                            </select>
+                        </div>
+                        <div class="row col-lg-1">&nbsp;</div>
+                        <div class="row col-lg-1">
+                            <label id="label1">&nbsp;</label>
+                            <button type="button" id="Pesquisar" name="Pesquisar" class="btn btn-primary btn-md" onclick="return Reuniao.Pesquisar();">
+                                Pesquisar&nbsp;
+                                <i class=" glyphicon glyphicon-search" data-toggle="tooltip" data-placement="top" title="Pesquisar">
+                                </i>
+                            </button>
+                        </div>
+                        <div class="row col-lg-1">&nbsp;</div>
+                        <div class="row col-lg-1">
+                            <label id="label2">&nbsp;</label> 
+                            <button type="button" id="ObterDatas" class="btn btn-primary btn-md" data-toggle="tooltip" data-placement="top" title="Obter Datas de Reuniões" onclick="return Reuniao.MontarDataReuniao();">
+                                Mais Datas
+                                <i class="fa fa-calendar"></i>
+                            </button>
+                        </div>
+                        <div class="row col-lg-4">&nbsp;</div>
+                    </div>
+                </div>
+                <div class="ibox-content">
+                    <table class="table table-striped table-hover" id="TableReuniao">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Ano</th>
+                                <th>Ano Corrente</th>
+                                <th>Data</th>
+                                <th>Data</th>
+                                <th>Presenças</th>
+                                <th>&nbsp;</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                var noDelete = "";
+                                if (item.FamiliaPresenca.Count > 0)
+                                {
+                                    noDelete = "disabled=disabled";
+                                }
+
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Codigo)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Ano)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.AnoCorrente)
+                                    </td>
+                                    <td>
+                                        @item.Data.ToDateFormated()
+                                    </td>
+                                    <td>
+                                        @item.DataTexto
+                                    </td>
+                                    <td>
+                                        @item.FamiliaPresenca.Count
+                                    </td>
+                                    <td style="text-align:right;">
+                                        <button type="button" class="btn btn-success btn-sm" onclick="Edit('@item.Codigo')">
+                                            <i class="glyphicon glyphicon-pencil" data-toggle="tooltip" data-placement="top" title="Editar Registro"></i>
+                                        </button>
+                                        <button type="button" id="Excluir" name="Excluir" @noDelete class="btn btn-danger btn-sm" onclick="ExcluirConfirmar('@item.Codigo','@item.Ano','@item.AnoCorrente','@item.Data.ToDateFormated()')">
+                                            <i class=" glyphicon glyphicon-trash" data-toggle="tooltip" data-placement="top" title="Excluir Registro">
+                                            </i>
+                                        </button>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+@Html.Partial("Edicao")
+@Html.Partial("Exclusao")
+
+@section scripts
+{
+    @Scripts.Render("~/plugins/dataTables")
+    @Scripts.Render("~/plugins/dataPicker")
+    @Scripts.Render("~/plugins/Moment")
+    @Scripts.Render("~/plugins/knob")
+    @Scripts.Render("~/script/Reuniao/main")
+}

@@ -1,6 +1,4 @@
-﻿using AutoMapper;
-using Jack.Application.AutoMapper;
-using Jack.Application.Interfaces;
+﻿using Jack.Application.Interfaces;
 using Jack.Application.ViewModel;
 using Jack.Domain.Entity;
 using Jack.Domain.Interfaces.Services;
@@ -10,21 +8,19 @@ using System.Collections.Generic;
 
 namespace Jack.Application
 {
-    public class StatusCriancaServiceApp :  IStatusCriancaServiceApp
+    public class StatusCriancaServiceApp : AppServiceBase, IStatusCriancaServiceApp
     {
 
         private readonly IStatusCriancaService _service;
-        private readonly IMapper mapper;
 
         public StatusCriancaServiceApp(IStatusCriancaService statusService)
         {
             _service = statusService;
-            mapper = AutoMapperConfig.Config.CreateMapper();
         }
 
         public ValidationResult Gravar(StatusCriancaViewModel status)
         {
-            var statusSalvar = mapper.Map<StatusCrianca>(status);
+            var statusSalvar = Mapper.Map<StatusCrianca>(status);
             return _service.Gravar(statusSalvar);
         }
 
@@ -36,19 +32,19 @@ namespace Jack.Application
         public StatusCriancaViewModel ObterPorId(int id)
         {
             var status = _service.ObterPorId(id);
-            return mapper.Map<StatusCriancaViewModel>(status);
+            return Mapper.Map<StatusCriancaViewModel>(status);
         }
 
         public IEnumerable<StatusCriancaViewModel> ObterTodos()
         {
             var status = _service.ObterTodos();
-            return mapper.Map<IEnumerable<StatusCriancaViewModel>>(status);
+            return Mapper.Map<IEnumerable<StatusCriancaViewModel>>(status);
         }
 
         public IEnumerable<StatusCriancaViewModel> Filtrar(string nome)
         {
             var status = _service.Filtrar(nome);
-            return mapper.Map<IEnumerable<StatusCriancaViewModel>>(status);
+            return Mapper.Map<IEnumerable<StatusCriancaViewModel>>(status);
         }
 
 

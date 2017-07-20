@@ -1,16 +1,16 @@
 ﻿using System.Reflection;
-using System.Runtime.InteropServices;
 using System.Resources;
+using System.Runtime.InteropServices;
 
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("Jack Harckness Web - CECAM - Sacolas")]
-[assembly: AssemblyDescription("Gerenciador de Alunos CECAM")]
+[assembly: AssemblyDescription("Gerenciador de Sacolas CECAM")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("French Web")]
 [assembly: AssemblyProduct("Jack Harckness Web - CECAM - Sacolas")]
-[assembly: AssemblyCopyright("Copyright ©  2016")]
+[assembly: AssemblyCopyright("Copyright ©  2017")]
 [assembly: AssemblyTrademark("French Web")]
 [assembly: AssemblyCulture("")]
 
@@ -31,6 +31,6 @@ using System.Resources;
 //
 // You can specify all the values or you can default the Revision and Build Numbers 
 // by using the '*' as shown below:
-[assembly: AssemblyVersion("1.0.0.0")]
-[assembly: AssemblyFileVersion("1.0.0.0")]
+[assembly: AssemblyVersion("3.0.0.92")]
+[assembly: AssemblyFileVersion("3.0.0.92")]
 [assembly: NeutralResourcesLanguageAttribute("pt-BR")]

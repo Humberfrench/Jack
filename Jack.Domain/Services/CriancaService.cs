@@ -8,7 +8,6 @@ using Jack.Extensions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace Jack.Domain.Services
 {
@@ -77,17 +76,32 @@ namespace Jack.Domain.Services
 
         public ValidationResult Gravar(Crianca item)
         {
-            Crianca crianca;
-            if (item.Codigo == 0)
+            var crianca = new Crianca
             {
-                crianca = new Crianca();
-                crianca.DataCriacao = DateTime.Now;
+                DataCriacao = DateTime.Now
+            };
+
+            if (item.Codigo != 0)
+            {
+                crianca = ObterPorId(item.Codigo);
+                if (crianca.Kit.Codigo != item.Kit.Codigo)
+                {
+                    crianca.Kit = repKit.ObterPorId(item.Kit.Codigo);
+                }
+                if (crianca.TipoParentesco.Codigo != item.TipoParentesco.Codigo)
+                {
+                    crianca.TipoParentesco = repTipoParentesco.ObterPorId(item.TipoParentesco.Codigo);
+                }
             }
             else
             {
-                crianca = ObterPorId(item.Codigo);
+                crianca.Familia = repFamilia.ObterPorId(item.Familia.Codigo);
+                crianca.Kit = repKit.ObterPorId(item.Kit.Codigo);
+                crianca.TipoParentesco = repTipoParentesco.ObterPorId(item.TipoParentesco.Codigo);
             }
 
+
+            crianca.Nome = item.Nome;
             crianca.Calcado = item.Calcado;
             crianca.CriancaGrande = item.CriancaGrande;
             crianca.Consistente = item.Consistente;
@@ -96,10 +110,7 @@ namespace Jack.Domain.Services
             crianca.CalculaIdade();
             crianca.DocumentoOk = item.DocumentoOk;
 
-            if (crianca.Kit.Codigo != item.Kit.Codigo)
-            {
-                crianca.Kit = repKit.ObterPorId(item.Kit.Codigo);
-            }
+            
 
             crianca.Roupa = item.Roupa;
             crianca.Calcado = item.Calcado;
@@ -109,10 +120,6 @@ namespace Jack.Domain.Services
             crianca.Sacolinha = item.Sacolinha;
             crianca.Sexo = item.Sexo;
 
-            if (crianca.TipoParentesco.Codigo != item.TipoParentesco.Codigo)
-            {
-                crianca.TipoParentesco = repTipoParentesco.ObterPorId(item.TipoParentesco.Codigo);
-            }
 
             AtualizaCrianca(crianca, false);
 
@@ -338,7 +345,7 @@ namespace Jack.Domain.Services
 
             var dicReturn = new Dictionary<string, string>
             {
-                {"calcado", calcadoPadrao}, 
+                {"calcado", calcadoPadrao},
                 {"roupa", isCriancaGrande ? roupaPadrao.RoupaGrande : roupaPadrao.Roupa}
             };
 
@@ -448,10 +455,10 @@ namespace Jack.Domain.Services
                     }
                 }
                 else
-                {                   
+                {
                     crianca.Status = repStatus.ObterPorId(EnumStatusCrianca.CriancaMaior.Int());
                     AddLog(crianca.Codigo, EnumStatusCrianca.CriancaMaior.Int(), "ValidarCalcadoERoupa", "Criança com idade não permitida");
-               }
+                }
                 crianca.Sacolinha = crianca.Status.PermiteSacola;
                 crianca.Consistente = crianca.Status.PermiteSacola;
                 return;
