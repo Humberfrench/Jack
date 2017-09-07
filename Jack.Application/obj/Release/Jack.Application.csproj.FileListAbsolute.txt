@@ -46,6 +46,7 @@ C:\Humberto\Projetos\Jack\Jack.Application\bin\Release\Jack.Extensions.dll
 C:\Humberto\Projetos\Jack\Jack.Application\bin\Release\Microsoft.CSharp.dll
 C:\Humberto\Projetos\Jack\Jack.Application\bin\Release\System.ComponentModel.DataAnnotations.dll
 C:\Humberto\Projetos\Jack\Jack.Application\bin\Release\System.dll
+C:\Humberto\Projetos\Jack\Jack.Application\bin\Release\Newtonsoft.Json.dll
 C:\Humberto\Projetos\Jack\Jack.Application\bin\Release\Jack.Application.ViewModel.pdb
 C:\Humberto\Projetos\Jack\Jack.Application\bin\Release\Jack.DomainValidator.pdb
 C:\Humberto\Projetos\Jack\Jack.Application\bin\Release\Jack.Domain.pdb
@@ -54,6 +55,7 @@ C:\Humberto\Projetos\Jack\Jack.Application\bin\Release\AutoMapper.xml
 C:\Humberto\Projetos\Jack\Jack.Application\bin\Release\Microsoft.CSharp.xml
 C:\Humberto\Projetos\Jack\Jack.Application\bin\Release\System.xml
 C:\Humberto\Projetos\Jack\Jack.Application\bin\Release\System.ComponentModel.DataAnnotations.xml
+C:\Humberto\Projetos\Jack\Jack.Application\bin\Release\Newtonsoft.Json.xml
 C:\Humberto\Projetos\Jack\Jack.Application\obj\Release\Jack.Application.csprojResolveAssemblyReference.cache
 C:\Humberto\Projetos\Jack\Jack.Application\obj\Release\Jack.Application.dll
 C:\Humberto\Projetos\Jack\Jack.Application\obj\Release\Jack.Application.pdb

@@ -1,5 +1,4 @@
-﻿using AutoMapper;
-using Jack.Application.Interfaces;
+﻿using Jack.Application.Interfaces;
 using Jack.Application.ViewModel;
 using Jack.Domain.Entity;
 using Jack.Domain.Interfaces.Services;
@@ -9,7 +8,7 @@ using System.Collections.Generic;
 
 namespace Jack.Application
 {
-    public class FamiliaServiceApp : IFamiliaServiceApp
+    public class FamiliaServiceApp : AppServiceBase, IFamiliaServiceApp
     {
 
         private readonly IFamiliaService _service;
@@ -34,6 +33,10 @@ namespace Jack.Application
         public ValidationResult Excluir(int id)
         {
             return _service.Excluir(id);
+        }
+        public ValidationResult AtualizarSimSacola(int familiaId)
+        {
+            return _service.AtualizarSimSacola(familiaId);
         }
 
         public ValidationResult AtualizarFamilia(int id, bool gravar = true)
@@ -63,6 +66,7 @@ namespace Jack.Application
         {
             return _service.LiberarFamiliaBanida(familiaId);
         }
+
 
         public FamiliaViewModel ObterPorId(int id)
         {

@@ -144,10 +144,45 @@ namespace Jack.Application
             service.ValidarCrianca(criancaDado);
         }
 
-        public IEnumerable<SacolaViewModel> PesquisarSacolas(int ano, int familia, int kit, int nivel)
+        public IList<SacolaViewModel> PesquisarSacolas(int ano, int familia, int kit, int nivel)
         {
             var familias = service.PesquisarSacolas(ano, familia, kit, nivel);
             return Mapper.Map<List<SacolaViewModel>>(familias);
+        }
+
+        public IList<SacolaViewModel> PesquisarSacolas(int kit, int nivel)
+        {
+            var familias = service.PesquisarSacolas(kit, nivel);
+            return Mapper.Map<List<SacolaViewModel>>(familias);
+        }
+
+        public IList<SacolaViewModel> PesquisarSacolas(int familia)
+        {
+            var familias = service.PesquisarSacolas(familia);
+            return Mapper.Map<List<SacolaViewModel>>(familias);
+        }
+
+        public IList<FamiliaViewModel> ObterFamilias(int nivel)
+        {
+            var familias = service.ObterFamilias(nivel);
+            return Mapper.Map<List<FamiliaViewModel>>(familias);
+        }
+
+        public ValidationResult AddCrianca(CriancaViewModel crianca)
+        {
+            var criancaDado = Mapper.Map<Crianca>(crianca);
+            return service.AddCrianca(criancaDado);
+        }
+
+        public ValidationResult AddFamilia(int familia)
+        {
+            return service.AddFamilia(familia);
+        }
+
+        public IList<FamiliaViewModel> ObterFamiliasDisponiveis()
+        {
+            var familias = service.ObterFamiliasDisponiveis();
+            return Mapper.Map<List<FamiliaViewModel>>(familias);
         }
     }
 }

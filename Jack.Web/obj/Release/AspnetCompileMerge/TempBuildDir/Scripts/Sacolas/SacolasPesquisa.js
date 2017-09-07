@@ -1,5 +1,7 @@
 ﻿/// <reference path="../util/mensagens.js" />
+/// <reference path="../util/util.js" />
 /// <reference path="../util/ajax.js" />
+/// <reference path="../util/QrCode.js" />
 /// <reference path="../moment.js" />
 
 var SacolasPesquisa = new Object();
@@ -14,6 +16,16 @@ $(document).ready(function ()
         SacolasPesquisa.Pesquisar(nome);
     });
 
+    $("#Nivel").change(function()
+    {
+        if ($(this).val() === '0')
+        {
+            $("#Familia").html('');
+            return false;
+        }
+        SacolasPesquisa.ObterFamilias($(this).val());
+            return false;
+    });
 
 
 });
@@ -52,21 +64,118 @@ SacolasPesquisa.MontarTabela = function ()
             { "aTargets": [1], "bSortable": false },
             { "aTargets": [2], "bSortable": false },
             { "aTargets": [3], "bSortable": false },
-            { "aTargets": [4], "bSortable": false }
+            { "aTargets": [4], "bSortable": false },
+            { "aTargets": [5], "bSortable": false }
         ]
     });
 }
+
+SacolasPesquisa.ObterFamilias = function (nivel)
+{
+    //carregar os dados do grid
+    var opcoes = new Object;
+    opcoes.url = '/Sacolas/Pesquisar/ObterFamilias/' + nivel;
+
+    opcoes.callBackSuccess = function (response)
+    {
+        var listaFamilias = eval(response);
+
+        var optionData = '';
+        for (var intCont = 0; intCont < listaFamilias.length; intCont++) {
+            optionData += Util.ObterLista(listaFamilias[intCont].Codigo, listaFamilias[intCont].Nome);
+        }
+        $("#Familia").html(optionData);
+
+        if ($("#FamiliaId").val() !== '') {
+            $("#Familia").val($("#FamiliaId").val());
+        }
+
+    }
+
+    //opcoes.dadoEnvio = new Object;
+    //opcoes.dadoEnvio.nivel = nivel;
+
+    Ajax.Get(opcoes);
+
+
+}
+
+SacolasPesquisa.Pesquisar = function ()
+{
+    var familia = $("#Familia").val();
+    if (familia === null)
+    {
+        familia = 0;
+    }
+
+    if (familia !== 0)
+    {
+        location.href = '/Sacolas/Pesquisar/Familia/' + $("#Familia").val() + '/Nivel/' + $("#Nivel").val() ;
+    }
+    else
+    {
+        location.href = '/Sacolas/Pesquisar/Nivel/' + $("#Nivel").val() + '/Kit/' + $("#Kit").val();
+    }
+}
+
+SacolasPesquisa.ImprimirSelecionados = function ()
+{
+
+}
+
+SacolasPesquisa.Imprimir = function(codigoSacola)
 {
     
 }
 
-SacolasPesquisa.Pesquisar = function (nome)
+SacolasPesquisa.GerarQrCode = function (width, height, crianca, url)
 {
-    if ($("#Ano").val() === 0)
+
+    QrCode.Gerar(width, height, crianca, '#divImagemChave', url);
+    $("#modalQrCode").modal('show');
+
+}
+
+SacolasPesquisa.PopUpColaborador = function (sacola)
+{
+    //carregar os dados do grid
+    var opcoes = new Object;
+    opcoes.url = '/Sacolas/Pesquisar/AdicionarColaboradores/' + sacola;
+
+    opcoes.callBackSuccess = function (response)
     {
-        Mensagens.Erro('Ano não preenchido.');
-        return false;
+        $("#divDados").html(response);
+        $("#modalAdicionaColaborador").modal();
+
     }
-    //        [Route("Pesquisar/{ano},{familia},{kit},{nivel}")]
-    location.href = '/Sacolas/Pesquisar/' + $("#Ano").val() + '/' + $("#Familia").val() + '/' + $("#Kit").val() + '/' + $("#Nivel").val() + '/';
+
+    Ajax.Get(opcoes);
+
+}
+
+SacolasPesquisa.AdicionarColaborador = function (colaborador, sacola)
+{
+    //carregar os dados do grid
+    var opcoes = new Object;
+    opcoes.url = '/Sacolas/Pesquisar/AdicionarColaborador/';
+
+    opcoes.callBackSuccess = function (response)
+    {
+        var dataObj = eval(response);
+        if (dataObj.Erro) {
+            Mensagens.Erro(dataObj.Mensagem);
+        }
+        else {
+            Mensagens.Sucesso(dataObj.Mensagem);
+            $("#modalAdicionaColaborador").modal('hide');
+            setTimeout(function ()
+            {
+                location.reload();
+            }, 1500);
+        }
+
+
+    }
+
+    Ajax.Post(opcoes);
 }

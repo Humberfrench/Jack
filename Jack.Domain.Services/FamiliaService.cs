@@ -184,6 +184,13 @@ namespace Jack.Domain.Services
         public Familia AtualizarFamilia(Familia familia, bool gravar = true)
         {
             //Observar o STATUS
+            if (familia.FamiliaEmInvestigacao())
+            {
+                AddLog(familia.Codigo, EnumStatusFamilia.FamiliaBanidaPorProblemas.Int(), nameof(AtualizarFamilia), "Familia Banida.Não pode atualizar");
+                return familia;
+            }
+
+            //Observar o STATUS
             if (familia.FamiliaBanida())
             {
                 AddLog(familia.Codigo, EnumStatusFamilia.FamiliaBanidaPorProblemas.Int(), nameof(AtualizarFamilia), "Familia Banida.Não pode atualizar");
@@ -261,37 +268,20 @@ namespace Jack.Domain.Services
             return familia;
         }
 
-        //substituidas como negocio dentro do dominio.
-        //private int QuantidadeTotalDeCriancas(Familia familia)
-        //{
-        //    var criancas = familia.Criancas.Where(c => c.Status.PermiteSacola).ToList().Count;
+        public ValidationResult AtualizarSimSacola(int familiaId)
+        {
+            var familia = repFamilia.ObterPorId(familiaId);
+            if (familia == null)
+            {
+                validationResult.Add(new ValidationError("Família não encontrada"));
+                return validationResult;
+            }
 
-        //    familia.Representantes.ToList()
-        //           .ForEach(r => criancas += r.FamiliaRepresentada.Criancas.Where(c => c.Status.PermiteSacola).ToList().Count);
+            familia.Sacolinha = true;
+            Atualizar(familia);
+            return validationResult;
 
-        //    return criancas;
-
-        //}
-
-        //private bool FamiliaComCriancasDeRepresentanteExcedida(Familia familia)
-        //{
-        //    return (Parametro.NumeroMaximoCricancasRepresentantes < QuantidadeTotalDeCriancas(familia));
-        //}
-
-        //private bool FamiliaComCriancasEmExcesso(int status)
-        //{
-        //    return status == EnumStatusFamilia.CriancasExcedido.Int();
-        //}
-
-        //private bool FamiliaComTotalDeCriancasEmExcesso(int status)
-        //{
-        //    return status == EnumStatusFamilia.CriancasDaFamilaEDoRepresentanteExcedido.Int();
-        //}
-
-        //private bool FamiliaRepresentanteEmExcesso(int status)
-        //{
-        //    return status == EnumStatusFamilia.RepresentanteExcedido.Int();
-        //}
+        }
         public void RemoverCriancasDiferentesDoGrauUm(ref Familia familia)
         {
             var criancas = familia.Criancas.Where(c => c.TipoParentesco.GrauParentesco != EnumGrauParentesco.PrimeiroGrau.Int()).ToList();
@@ -405,6 +395,7 @@ namespace Jack.Domain.Services
 
             return validationResult;
         }
+
 
         public ValidationResult LiberarFamiliaBanida(int familiaId)
         {

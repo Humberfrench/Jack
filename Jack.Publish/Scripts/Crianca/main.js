@@ -229,10 +229,8 @@ Crianca.ValidaCrianca = function (validaCrianca)
     {
         validaCrianca.obterSoVestimenta = false;
     }
-    //else
-    //{
-    //    validaCrianca.obterSoVestimenta = true;
-    //}
+
+
     if ($("#Sexo").val() === '')
     {
         Mensagens.Erro('Preencher o campo Sexo');

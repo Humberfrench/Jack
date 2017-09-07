@@ -176,7 +176,8 @@ namespace Jack.Domain.Services
                 foreach (var familia in familias)
                 {
                     var retValidator = Gravar(reuniao, familia);
-                    retValidator.Erros.ToList().ForEach(e => validationResult.Add(e));
+                    //Anulando o validatos dado a problema de quantidade
+                    //retValidator.Erros.ToList().ForEach(e => validationResult.Add(e));
                 }
             }
 
@@ -195,7 +196,8 @@ namespace Jack.Domain.Services
                 foreach (var reuniao in reunioes)
                 {
                     var retValidator = Gravar(reuniao, familia.FamiliaRepresentada.Codigo);
-                    retValidator.Erros.ToList().ForEach(e => validationResult.Add(e));
+                    //Anulando o validatos dado a problema de quantidade
+                    //retValidator.Erros.ToList().ForEach(e => validationResult.Add(e));
                 }
             }
 

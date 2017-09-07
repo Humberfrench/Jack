@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
+using Newtonsoft.Json;
 
 namespace Jack.Application.ViewModel
 {
@@ -85,6 +86,7 @@ namespace Jack.Application.ViewModel
         [DisplayFormat(NullDisplayText = "")]
         public virtual StatusFamiliaViewModel Status { get; set; }
 
+        [JsonIgnore]
         [Display(Name = "Crianças")]
         [DisplayFormat(NullDisplayText = "")]
         public virtual IList<CriancaViewModel> Criancas
@@ -99,6 +101,7 @@ namespace Jack.Application.ViewModel
             }
         }
 
+        [JsonIgnore]
         [Display(Name = "Sacolas")]
         [DisplayFormat(NullDisplayText = "")]
         public virtual IList<SacolaViewModel> Sacolas 
@@ -121,6 +124,7 @@ namespace Jack.Application.ViewModel
         [DisplayFormat(NullDisplayText = "")]
         public virtual DateTime DataCriacao { get; set; }
 
+        [JsonIgnore]
         [Display(Name = "Presenças")]
         [DisplayFormat(NullDisplayText = "")]
         public IList<PresencaViewModel> Presencas 
@@ -135,6 +139,7 @@ namespace Jack.Application.ViewModel
             }
         }
 
+        [JsonIgnore]
         [Display(Name = "Representantes")]
         [DisplayFormat(NullDisplayText = "")]
         public IList<RepresentanteViewModel> Representantes
@@ -167,7 +172,7 @@ namespace Jack.Application.ViewModel
             }
         }
 
-        [Display(Name = "Representantes")]
+        [Display(Name = nameof(Representantes))]
         public int QuantidadeFamiliasRepresentadas
         {
             get

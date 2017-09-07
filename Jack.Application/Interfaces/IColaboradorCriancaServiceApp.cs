@@ -12,5 +12,6 @@ namespace Jack.Application.Interfaces
         ValidationResult AdicionaColaboradorSacola(int colaborador, int sacola, int ano);
         ValidationResult AdicionarSacolas(int colaborador, string sacolas, int ano);
         ValidationResult DevolveuSacola(int colaborador, int sacola, int ano);
+        ColaboradorViewModel ObterColaborador(int crianca, int ano);
     }
 }

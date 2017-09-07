@@ -1,4 +1,5 @@
-﻿using Jack.Domain.Entity;
+﻿using Dapper;
+using Jack.Domain.Entity;
 using Jack.Domain.Interfaces.Repository;
 using Jack.Repository.UnityOfWork;
 using System.Collections.Generic;
@@ -6,37 +7,13 @@ using System.Linq;
 
 namespace Jack.Repository
 {
-    public class SacolaRepository : Repository<Sacola>, ISacolaRepository
+    public class SacolaRepository : BaseRepository<Sacola>, ISacolaRepository
     {
         private readonly IUnityOfWork UnitWork;
         public SacolaRepository(IUnityOfWork unitWork)
             : base(unitWork)
         {
             UnitWork = unitWork;
-        }
-        public void Adicionar(Sacola entity)
-        {
-            UnitWork.Salvar(entity);
-        }
-
-        public void Atualizar(Sacola entity)
-        {
-            UnitWork.Salvar(entity);
-        }
-
-        public void Excluir(Sacola entity)
-        {
-            UnitWork.Excluir(entity);
-        }
-
-        public Sacola ObterPorId(int id)
-        {
-            return base.GetById(id);
-        }
-
-        public IEnumerable<Sacola> ObterTodos()
-        {
-            return base.GetAll();
         }
 
         public Sacola ObterSacolaPorCrianca(int crianca)
@@ -51,6 +28,19 @@ namespace Jack.Repository
             return sacola;
         }
 
+        public IEnumerable<Familia> ObterFamilias(int nivel)
+        {
+            var sql = $@"SELECT	Distinct f.Codigo, f.Nome
+                        FROM	Familia f
+                        Join	Sacolas s
+                        ON		f.Codigo = s.Familia
+                        AND		s.Nivel = {nivel}
+                        ORDER BY f.Nome";
+
+            var familias = Conn.Query<Familia>(sql);
+
+            return familias;
+        }
         public IEnumerable<Sacola> PesquisarSacolas(int ano, int familia, int kit, int nivel)
         {
             var sacola = ObterTodos().ToList();

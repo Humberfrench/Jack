@@ -42,6 +42,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -71,6 +75,7 @@
     <Compile Include="ReuniaoViewModel.cs" />
     <Compile Include="RoupaViewModel.cs" />
     <Compile Include="SacolaValueViewModel.cs" />
+    <Compile Include="SacolaHistoricoViewModel.cs" />
     <Compile Include="SacolaViewModel.cs" />
     <Compile Include="StatsViewModel.cs" />
     <Compile Include="StatusCriancaViewModel.cs" />
@@ -85,6 +90,9 @@
       <Project>{0e63a054-3d47-4cde-bd08-7ca8782c5555}</Project>
       <Name>Jack.Extensions</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />

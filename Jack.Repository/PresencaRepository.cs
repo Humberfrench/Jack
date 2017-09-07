@@ -89,36 +89,26 @@ namespace Jack.Repository
 
         public IEnumerable<Familia> ObterFamiliasDisponiveis(int reuniao)
         {
-            var sql = @"SELECT	distinct f.Codigo, f.Nome
-						FROM	Presenca p
-						JOIN	Familia f
-						ON		p.Familia = f.Codigo
-						JOIN	Reuniao r
-						ON		p.Reuniao = r.Codigo
-						WHERE	f.Codigo NOT IN (
-								SELECT	Familia
-								FROM	Presenca
-								WHERE	Reuniao = @reuniao)
-						ORDER BY f.Nome";
-            var result = Conn.Query<Familia>(sql, new { @reuniao = reuniao });
+            var sql = $@"SELECT	distinct Codigo, Nome
+                         FROM	Familia 
+                         WHERE	Codigo NOT IN(SELECT Familia 
+					                         FROM	Presenca 
+					                         WHERE	Reuniao = {reuniao})
+                         ORDER BY Nome";
+            var result = Conn.Query<Familia>(sql);
             return result;
         }
 
         public IEnumerable<Familia> ObterFamiliasDisponiveis(int reuniao, string letra)
         {
-            var sql = @"SELECT	distinct f.Codigo, f.Nome
-						FROM	Presenca p
-						JOIN	Familia f
-						ON		p.Familia = f.Codigo
-						JOIN	Reuniao r
-						ON		p.Reuniao = r.Codigo
-						WHERE	f.Codigo NOT IN (
-								SELECT	Familia
-								FROM	Presenca
-								WHERE	Reuniao = @reuniao)
-						And     f.Nome like @letra + '%'
-						ORDER BY f.Nome";
-            var result = Conn.Query<Familia>(sql, new { @reuniao = reuniao, @letra = letra.ToUpper() });
+            var sql = $@"SELECT	distinct Codigo, Nome
+                         FROM	Familia 
+                         WHERE	Codigo NOT IN(SELECT Familia 
+					                         FROM	Presenca 
+					                         WHERE	Reuniao = {reuniao})
+                         And		Nome like '{letra}%'
+                         ORDER BY Nome";
+            var result = Conn.Query<Familia>(sql);
             return result;
         }
 

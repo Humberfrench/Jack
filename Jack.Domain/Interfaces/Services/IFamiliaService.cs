@@ -20,5 +20,6 @@ namespace Jack.Domain.Interfaces.Services
         IEnumerable<Familia> ObterFamiliasBanidas();
         ValidationResult AtualizarFamiliaParaBanida(int familiaId);
         ValidationResult LiberarFamiliaBanida(int familiaId);
+        ValidationResult AtualizarSimSacola(int familiaId);
     }
 }

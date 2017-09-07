@@ -7,38 +7,13 @@ using System.Collections.Generic;
 
 namespace Jack.Repository
 {
-    public class CriancaRepository : Repository<Crianca>, ICriancaRepository
+    public class CriancaRepository : BaseRepository<Crianca>, ICriancaRepository
     {
         private readonly IUnityOfWork UnitWork;
         public CriancaRepository(IUnityOfWork unitWork)
             : base(unitWork)
         {
             UnitWork = unitWork;
-        }
-
-        public void Adicionar(Crianca entity)
-        {
-            UnitWork.Salvar(entity);
-        }
-
-        public void Atualizar(Crianca entity)
-        {
-            UnitWork.Salvar(entity);
-        }
-
-        public void Excluir(Crianca entity)
-        {
-            UnitWork.Excluir(entity);
-        }
-
-        public Crianca ObterPorId(int id)
-        {
-            return base.GetById(id);
-        }
-
-        public IEnumerable<Crianca> ObterTodos()
-        {
-           return base.GetAll();
         }
 
         public IEnumerable<CriancaVestimenta> ObterDadosCriancaVestimentas(int familia)

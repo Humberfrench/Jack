@@ -55,6 +55,7 @@
     <Compile Include="Entity\LogSacolas.cs" />
     <Compile Include="Entity\Log.cs" />
     <Compile Include="Entity\Representante.cs" />
+    <Compile Include="Entity\SacolaHistorico.cs" />
     <Compile Include="Entity\Sacola.cs" />
     <Compile Include="Entity\Colaborador.cs" />
     <Compile Include="Entity\ColaboradorCrianca.cs" />
@@ -84,6 +85,7 @@
     <Compile Include="Interfaces\Repository\IRepositoryBase.cs" />
     <Compile Include="Interfaces\Repository\ICalcadoRepository.cs" />
     <Compile Include="Interfaces\Repository\INivelRepository.cs" />
+    <Compile Include="Interfaces\Repository\ISacolaHistoricoRepository.cs" />
     <Compile Include="Interfaces\Repository\IStatusFamiliaRepository.cs" />
     <Compile Include="Interfaces\Repository\IStatusCriancaRepository.cs" />
     <Compile Include="Interfaces\Repository\IKitItemRepository.cs" />
@@ -101,6 +103,7 @@
     <Compile Include="Interfaces\Repository\ITipoItemRepository.cs" />
     <Compile Include="Interfaces\Services\IParametroService.cs" />
     <Compile Include="Interfaces\Services\IRoupaService.cs" />
+    <Compile Include="Interfaces\Services\ISacolaHistoricoService.cs" />
     <Compile Include="Interfaces\Services\IServiceBaseReadOnly.cs" />
     <Compile Include="Interfaces\Services\IServiceBase.cs" />
     <Compile Include="Interfaces\Services\ICalcadoService.cs" />

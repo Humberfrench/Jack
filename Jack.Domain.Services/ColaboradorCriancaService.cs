@@ -54,7 +54,7 @@ namespace Jack.Domain.Services
                 Codigo = 0,
                 Crianca = sacola.Crianca,
                 Colaborador = colaborador,
-                Ano =  ano,
+                Ano = ano,
                 DataCriacao = DateTime.Now,
                 Devolvida = false
             };
@@ -115,7 +115,7 @@ namespace Jack.Domain.Services
                 //caso haja problemas, tentar o proximo
                 if (!retorno.IsValid)
                 {
-                    retAdd.Erros.ToList().ForEach(e => retorno.Add(e));    
+                    retAdd.Erros.ToList().ForEach(e => retorno.Add(e));
                 }
             }
 
@@ -158,11 +158,18 @@ namespace Jack.Domain.Services
 
         public IEnumerable<ColaboradorCrianca> Obter(int id, int ano)
         {
-            var colaboradorCriancas = ObterTodos().Where(cc => cc.Colaborador.Codigo == id && cc.Ano == ano).ToList() ;
+            var colaboradorCriancas = ObterTodos().Where(cc => cc.Colaborador.Codigo == id && cc.Ano == ano).ToList();
 
-            colaboradorCriancas.ForEach(cc => cc.Crianca.Sacola = repSacola.ObterSacolaPorCrianca(cc.Crianca.Codigo)); 
+            colaboradorCriancas.ForEach(cc => cc.Crianca.Sacola = repSacola.ObterSacolaPorCrianca(cc.Crianca.Codigo));
 
             return colaboradorCriancas;
+        }
+
+        public Colaborador ObterColaborador(int crianca, int ano)
+        {
+            var colaboradorCrianca = ObterTodos().FirstOrDefault(cc => cc.Crianca.Codigo == crianca && cc.Ano == ano);
+
+            return colaboradorCrianca?.Colaborador;
         }
 
         public ValidationResult Excluir(int id)

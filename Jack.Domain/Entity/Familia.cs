@@ -354,6 +354,11 @@ namespace Jack.Domain.Entity
             return Status.Codigo == EnumStatusFamilia.RepresentanteExcedido.Int();
         }
 
+        public virtual bool FamiliaEmInvestigacao()
+        {
+            return Status.Codigo == EnumStatusFamilia.FamiliaEmInvestigacao.Int();
+        }
+
         public virtual int QuantidadeTotalDeCriancas()
         {
             var totalCriancas = Criancas.Where(c => c.Status.PermiteSacola).ToList().Count;

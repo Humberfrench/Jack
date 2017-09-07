@@ -5,7 +5,7 @@ using Jack.Domain.ObjectValue;
 
 
 namespace Jack.Application.AutoMapper
-{                      
+{
     public class AutoMapperConfig
     {
         public static MapperConfiguration Config;
@@ -32,6 +32,7 @@ namespace Jack.Application.AutoMapper
                 cfg.CreateMap<Roupa, RoupaViewModel>().MaxDepth(2);
                 cfg.CreateMap<Sacola, SacolaViewModel>().MaxDepth(2);
                 cfg.CreateMap<SacolaValue, SacolaValueViewModel>().MaxDepth(2);
+                cfg.CreateMap<SacolaHistorico, SacolaHistoricoViewModel>().MaxDepth(2);
                 cfg.CreateMap<Stats, StatsViewModel>().MaxDepth(2);
                 cfg.CreateMap<StatusFamilia, StatusFamiliaViewModel>().MaxDepth(2);
                 cfg.CreateMap<StatusCrianca, StatusCriancaViewModel>().MaxDepth(2);
@@ -55,6 +56,7 @@ namespace Jack.Application.AutoMapper
                 cfg.CreateMap<ReuniaoViewModel, Reuniao>();
                 cfg.CreateMap<RoupaViewModel, Roupa>();
                 cfg.CreateMap<SacolaViewModel, Sacola>();
+                cfg.CreateMap<SacolaHistoricoViewModel, SacolaHistorico>();
                 cfg.CreateMap<SacolaValueViewModel, SacolaValue>();
                 cfg.CreateMap<StatsViewModel, Stats>();
                 cfg.CreateMap<StatusFamiliaViewModel, StatusFamilia>();

@@ -69,6 +69,7 @@
     <Compile Include="Interfaces\IColaboradorCriancaServiceApp.cs" />
     <Compile Include="Interfaces\IFeriadoServiceApp.cs" />
     <Compile Include="Interfaces\IParametroServiceApp.cs" />
+    <Compile Include="Interfaces\ISacolaHistoricoServiceApp.cs" />
     <Compile Include="Interfaces\IServiceBaseApp.cs" />
     <Compile Include="Interfaces\IKitServiceApp.cs" />
     <Compile Include="Interfaces\IKitItemServiceApp.cs" />
@@ -95,6 +96,7 @@
     <Compile Include="PresencaServiceApp.cs" />
     <Compile Include="CriancaServiceApp.cs" />
     <Compile Include="FamiliaServiceApp.cs" />
+    <Compile Include="SacolaHistoricoServiceApp.cs" />
     <Compile Include="SacolaServiceApp.cs" />
     <Compile Include="ReuniaoServiceApp.cs" />
     <Compile Include="RoupaServiceApp.cs" />

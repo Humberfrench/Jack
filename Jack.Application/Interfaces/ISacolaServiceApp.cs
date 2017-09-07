@@ -24,7 +24,13 @@ namespace Jack.Application.Interfaces
         List<FamiliaViewModel> ProcessarSacolasEObterFamilias(int ano);
         List<FamiliaViewModel> ProcessarSacolasEObterFamilias(int ano, bool todas);
         void ValidarCrianca(CriancaViewModel crianca);
-        IEnumerable<SacolaViewModel> PesquisarSacolas(int ano, int familia, int kit, int nivel);
+        IList<SacolaViewModel> PesquisarSacolas(int ano, int familia, int kit, int nivel);
+        IList<SacolaViewModel> PesquisarSacolas(int familia);
+        IList<SacolaViewModel> PesquisarSacolas(int kit, int nivel);
+        IList<FamiliaViewModel> ObterFamilias(int nivel);
+        ValidationResult AddCrianca(CriancaViewModel crianca);
+        ValidationResult AddFamilia(int familia);
+        IList<FamiliaViewModel> ObterFamiliasDisponiveis();
 
     }
 }

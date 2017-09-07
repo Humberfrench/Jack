@@ -1,0 +1,27 @@
+﻿@using Jack.Application.ViewModel
+@using Jack.Extensions
+@model IEnumerable<ColaboradorViewModel>
+
+@Styles.Render("~/Content/plugins/dataTables/dataTablesStyles")
+@Styles.Render("~/plugins/awesomeCheckboxStyles")
+
+@{
+    Layout = null;
+}
+<div class="row col-lg-12 col-md-12">
+@foreach (var item in Model)
+{
+ <div class="col-md-4" onclick="return SacolasPesquisa.AdicionarColaborador(@item.Codigo, @ViewBag.Sacola)" style="cursor:pointer">
+        <div class="panel panel-success">
+            <div class="panel-heading">
+                <i class="fa fa-success-circle"></i> Colaborador <i class="fa fa-success-floppy-disk"></i>
+            </div>
+            <div class="panel-body">
+                @item.Nome
+            </div>
+        </div>
+    </div>
+}
+</div>
+
+

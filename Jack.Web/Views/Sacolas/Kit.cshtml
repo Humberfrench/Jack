@@ -1,0 +1,43 @@
+﻿@using Jack.Application.ViewModel;
+@using Jack.Extensions
+@model KitViewModel 
+@{
+    var items = Model.Items.OrderBy(item => item.Ordem);
+}
+<table style="width: 850px;">
+    <tr>
+        <td style="width:85px;"></td>
+        <td style="width:85px;"></td>
+        <td style="width:85px;"></td>
+        <td style="width:85px;"></td>
+        <td style="width:85px;"></td>
+        <td style="width:85px;"></td>
+        <td style="width:85px;"></td>
+        <td style="width:85px;"></td>
+        <td style="width:85px;"></td>
+        <td style="width:85px;"></td>
+    </tr> 
+    <tr>
+        <td>&nbsp;</td>
+        <td colspan="8"><strong style="font-size:12px;">Kit da Criança - @Model.Descricao</strong></td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+        <td colspan="8">
+            <ol style="font-size:12px;">
+                @foreach (var item in items)
+                {
+                    <li>
+                        @item.TipoItem.Descricao
+                        @if(item.TipoItem.Opcional)
+                        {
+                            <span>(Opcional)</span>
+                        }
+                    </li>
+                }
+            </ol>
+        </td>
+        <td>&nbsp;</td>
+    </tr>
+</table>

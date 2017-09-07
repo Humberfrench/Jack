@@ -14,9 +14,6 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Data", "3 - Data", "{243C0169-EEA4-4FEF-9E28-328C023EDBDC}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Infra", "4 - Infra", "{6709E419-C8CF-420B-B4D5-823857394F65}"
-	ProjectSection(SolutionItems) = preProject
-		Acertos.sql = Acertos.sql
-	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jack.Extensions", "Jack.Extensions\Jack.Extensions.csproj", "{0E63A054-3D47-4CDE-BD08-7CA8782C5555}"
 EndProject
@@ -38,6 +35,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{2F73C6
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jack.Domain.Services", "Jack.Domain.Services\Jack.Domain.Services.csproj", "{B1761FC7-07B9-4D15-A264-D83C43D1776E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5 - Extras", "5 - Extras", "{1DC406A4-DC78-4351-BE06-D7EB9432ECDE}"
+	ProjectSection(SolutionItems) = preProject
+		Acertos.sql = Acertos.sql
+		backlog.txt = backlog.txt
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

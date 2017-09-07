@@ -9,12 +9,13 @@ $(document).ready(function ()
 
     if ($("#Crianca1").val() !== 0)
     {
-        Modelo.Gerar(128,128, $("#Crianca1").val());
+        Modelo.Gerar(128, 128, $("#Crianca1").val(),"#divImagemChave0");
+        Modelo.Gerar(128, 128, $("#Crianca1").val(),"#divImagemChave1");
     }
     
 });
 
-Modelo.Gerar = function (width, height, crianca)
+Modelo.Gerar = function (width, height, crianca, divImagem)
 {
     var opcoes = new Object;
     opcoes.url = URLGerarQrCode.URLGerarQrCode;
@@ -24,7 +25,7 @@ Modelo.Gerar = function (width, height, crianca)
         //var dataObj = eval(response);
         var image = new Image();
         image.src = "data:image/png;base64," + response;
-        $("#divImagemChave").html(image);
+        $(divImagem).html(image);
     }
 
     opcoes.dadoEnvio = new Object;

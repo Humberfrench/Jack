@@ -1,6 +1,7 @@
 ﻿using Jack.Application.Interfaces;
 using Jack.Application.ViewModel;
 using Jack.Library;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
@@ -17,6 +18,8 @@ namespace Jack.Web.Controllers
         private readonly ICriancaServiceApp criancaAppService;
         private readonly IFamiliaServiceApp familiaAppService;
         private readonly IKitServiceApp kitAppService;
+        private readonly IColaboradorServiceApp colaboradorAppService;
+        private readonly IColaboradorCriancaServiceApp colaboradorCriancaAppService;
 
         #endregion
 
@@ -26,13 +29,17 @@ namespace Jack.Web.Controllers
                                  IFamiliaServiceApp familiaAppService,
                                  ISacolaServiceApp sacolaAppService,
                                  INivelServiceApp nivelAppService,
-                                 IKitServiceApp kitAppService)
+                                 IKitServiceApp kitAppService,
+                                 IColaboradorServiceApp colaboradorAppService,
+                                 IColaboradorCriancaServiceApp colaboradorCriancaAppService)
         {
             this.sacolaAppService = sacolaAppService;
             this.nivelAppService = nivelAppService;
             this.criancaAppService = criancaAppService;
             this.familiaAppService = familiaAppService;
             this.kitAppService = kitAppService;
+            this.colaboradorAppService = colaboradorAppService;
+            this.colaboradorCriancaAppService = colaboradorCriancaAppService;
         }
 
         #endregion
@@ -165,10 +172,10 @@ namespace Jack.Web.Controllers
             #region BreadCrumb
             var breadCrumb = new BreadCrumbETitulo
             {
-                Titulo = "Adicionar Crianca a Sacola",
+                Titulo = "Adicionar Criança a Sacola",
                 BreadCrumbs = new List<BreadCrumb>
                 {
-                 new BreadCrumb {LinkText = "Adicionar Crianca a Sacola", ActionName = nameof(Index), ControllerName = "Sacolas"},
+                 new BreadCrumb {LinkText = "Adicionar Criança a Sacola", ActionName = nameof(Index), ControllerName = "Sacolas"},
                  new BreadCrumb {LinkText = "Lista", ActionName = nameof(Index), ControllerName = "Crianca"}
                 }
             };
@@ -190,10 +197,10 @@ namespace Jack.Web.Controllers
             #region BreadCrumb
             var breadCrumb = new BreadCrumbETitulo
             {
-                Titulo = "Adicionar Crianca a Sacola",
+                Titulo = "Adicionar Criança a Sacola",
                 BreadCrumbs = new List<BreadCrumb>
                 {
-                 new BreadCrumb {LinkText = "Adicionar Crianca a Sacola", ActionName = nameof(Index), ControllerName = "Sacolas"},
+                 new BreadCrumb {LinkText = "Adicionar Criança a Sacola", ActionName = nameof(Index), ControllerName = "Sacolas"},
                  new BreadCrumb {LinkText = "Lista", ActionName = nameof(Index), ControllerName = "Crianca"}
                 }
             };
@@ -213,6 +220,27 @@ namespace Jack.Web.Controllers
                 ViewBag.Nivel = familiaDado.Familia.Nivel.Nome;
             }
 
+            return View(listaDados);
+        }
+
+        [Route(nameof(AdicionarFamilia))]
+        public ActionResult AdicionarFamilia()
+        {
+            #region BreadCrumb
+            var breadCrumb = new BreadCrumbETitulo
+            {
+                Titulo = "Adicionar Crianças de Uma Família a Sacola",
+                BreadCrumbs = new List<BreadCrumb>
+                {
+                 new BreadCrumb {LinkText = "Adicionar Crianças de Uma Família a Sacola", ActionName = nameof(Index), ControllerName = "Sacolas"},
+                 new BreadCrumb {LinkText = "Lista", ActionName = nameof(Index), ControllerName = "Crianca"}
+                }
+            };
+
+            TempData["BreadCrumETitulo"] = breadCrumb;
+            #endregion
+
+            var listaDados = sacolaAppService.ObterFamiliasDisponiveis();
             return View(listaDados);
         }
 
@@ -315,12 +343,12 @@ namespace Jack.Web.Controllers
             ViewBag.FamiliaId = 0;
             ViewBag.Ano = 0;
 
-            var dados = new List<SacolaValueViewModel>();
+            var dados = new List<SacolaViewModel>();
             return View(dados);
         }
 
-        [Route("Pesquisar/{ano}/{familia}/{kit}/{nivel}")]
-        public ActionResult PesquisarSacolas(int ano, int familia, int kit, int nivel)
+        [Route("Pesquisar/Nivel/{nivel}/Kit/{kit}")]
+        public ActionResult PesquisarSacolas(int kit, int nivel)
         {
             #region BreadCrumb
             var breadCrumb = new BreadCrumbETitulo
@@ -341,11 +369,102 @@ namespace Jack.Web.Controllers
             ViewBag.Familia = ObterFamiliaParaCombo();
             ViewBag.NivelNivelId = nivel;
             ViewBag.KitId = kit;
-            ViewBag.FamiliaId = familia;
-            ViewBag.Ano = ano;
+            ViewBag.FamiliaId = 0;
 
-            var dados = sacolaAppService.PesquisarSacolas(ano, familia, kit, nivel);
+            var dados = sacolaAppService.PesquisarSacolas(kit, nivel);
             return View(nameof(Pesquisar), dados);
+        }
+
+        [Route("Pesquisar/Familia/{familia}/Nivel/{nivel}")]
+        public ActionResult PesquisarSacolasFamilia(int familia, int nivel)
+        {
+            #region BreadCrumb
+            var breadCrumb = new BreadCrumbETitulo
+            {
+                Titulo = "Pesquisar de Sacolas",
+                BreadCrumbs = new List<BreadCrumb>
+                {
+                    new BreadCrumb {LinkText = "Lista", ActionName = nameof(Index), ControllerName = "Sacolas"},
+                    new BreadCrumb {LinkText = "Pesquisa de Sacolas", ActionName = nameof(Pesquisar), ControllerName = "Sacolas Livres"}
+                }
+            };
+
+            TempData["BreadCrumETitulo"] = breadCrumb;
+            #endregion
+
+            ViewBag.Nivel = ObterNivelParaCombo();
+            ViewBag.Kit = ObterKitParaCombo();
+            ViewBag.Familia = ObterFamiliaParaCombo();
+            ViewBag.NivelNivelId = nivel;
+            ViewBag.KitId = 0;
+            ViewBag.FamiliaId = familia;
+
+            var dados = sacolaAppService.PesquisarSacolas(familia);
+            return View(nameof(Pesquisar), dados);
+        }
+
+
+        [HttpGet]
+        [Route("Pesquisar/ObterFamilias/{nivel}")]
+        public ActionResult ObterFamilias(int nivel)
+        {
+            var sacolas = sacolaAppService.ObterFamilias(nivel).ToList();
+
+            return Json(sacolas, JsonRequestBehavior.AllowGet);
+
+        }
+
+        [HttpGet]
+        [Route("Pesquisar/AdicionarColaboradores/{sacola}")]
+        public ActionResult AdicionarColaboradoresLista(int sacola)
+        {
+            var colaboradores = colaboradorAppService.ObterTodos();
+            ViewBag.Sacola = sacola;
+            return View(colaboradores);
+        }
+
+        [HttpPost]
+        [Route("Pesquisar/AdicionarColaborador")]
+        public ActionResult AdicionarColaborador(int colaborador, int sacola)
+        {
+            var colaboradorResult = colaboradorCriancaAppService.AdicionaColaboradorSacola(colaborador, sacola, DateTime.Now.Year);
+            object retorno;
+            if (colaboradorResult.IsValid)
+            {
+                retorno = new
+                {
+                    Messagem = "Colaborador Adicionado com sucesso",
+                    Sucesso = true
+                };
+            }
+            else
+            {
+                retorno = new
+                {
+                    colaboradorResult.Messagem,
+                    Sucesso = true
+                };
+
+            }
+
+            return Json(retorno, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpGet]
+        [Route("Pesquisar/Print/{sacola}")]
+        public ActionResult Print(int sacola)
+        {
+            var sacolaPrint = sacolaAppService.ObterPorId(sacola);
+            ViewBag.Colaborador = "Não Associado";
+            if (sacolaPrint != null)
+            {
+                var colaborador = colaboradorCriancaAppService.ObterColaborador(sacolaPrint.Crianca.Codigo, DateTime.Now.Year);
+                if (colaborador != null)
+                {
+                    ViewBag.Colaborador = colaborador.Nome;
+                }
+            }
+            return View(sacolaPrint);
         }
 
         #endregion
@@ -355,19 +474,19 @@ namespace Jack.Web.Controllers
         private IList<NivelViewModel> ObterNivel()
         {
             var lista = nivelAppService.ObterTodos().ToList();
-            var kit = new NivelViewModel
+            var nivel = new NivelViewModel
             {
                 Codigo = 0,
-                Descricao = "Selecione Nível"
+                Descricao = "Selecione Nivel"
             };
-            lista.Insert(0, kit);
+            lista.Insert(0, nivel);
             return lista;
         }
 
         private SelectList ObterNivelParaCombo()
         {
-            var lista = ObterNivel();
-            var listaSelect = new SelectList(lista, "Codigo", "Descricao");
+            var lista = ObterNivel().Where(n => n.Codigo < 6).ToList();
+            var listaSelect = new SelectList(lista, "Codigo", "Nome");
 
             return listaSelect;
         }

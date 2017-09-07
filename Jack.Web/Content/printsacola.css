@@ -1,7 +1,7 @@
 ﻿body
 {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 14px;
+  font-size: 16px;
   line-height: 1.42857143;
   color: #333;
   background-color: #fff;
@@ -162,7 +162,7 @@ h6,
 .NumFamilia
 {
     font-family: inherit;
-    font-size: 68px;
+    font-size: 86px;
     font-weight: bold;
     text-shadow: rgba(0, 0, 0, 0.5) -1px 0, rgba(0, 0, 0, 0.3) 0 -1px, rgba(255, 255, 255, 0.5) 0 1px, rgba(0, 0, 0, 0.3) -1px -2px;
     width: 170px;

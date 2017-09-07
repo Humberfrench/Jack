@@ -54,6 +54,7 @@
     <Compile Include="ParametroService.cs" />
     <Compile Include="PresencaService.cs" />
     <Compile Include="RepresentanteService.cs" />
+    <Compile Include="SacolaHistoricoService.cs" />
     <Compile Include="ReuniaoService.cs" />
     <Compile Include="RoupaService.cs" />
     <Compile Include="SacolaService.cs" />

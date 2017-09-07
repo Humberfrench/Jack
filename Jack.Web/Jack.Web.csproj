@@ -1500,6 +1500,7 @@
     <Content Include="Scripts\Representante\main.js" />
     <Content Include="Scripts\Kit\main.js" />
     <Content Include="Scripts\Sacolas\modelo.js" />
+    <Content Include="Scripts\Sacolas\print.js" />
     <Content Include="Scripts\Sacolas\QrCode.js" />
     <Content Include="Scripts\Sacolas\SacolasPesquisa.js" />
     <Content Include="Scripts\StatusCrianca\main.js" />
@@ -1928,6 +1929,7 @@
     <Content Include="Scripts\TipoParentesco\main.js" />
     <Content Include="Scripts\toastr-configuracao.js" />
     <Content Include="Scripts\util\ajax.js" />
+    <Content Include="Scripts\util\QrCode.js" />
     <Content Include="Scripts\util\mensagens.js" />
     <Content Include="Scripts\util\util.js" />
     <Content Include="Views\Shared\_Layout.cshtml" />
@@ -2129,6 +2131,16 @@
     <Content Include="Views\Familia\TodasFamilias.cshtml" />
     <Content Include="Views\Sacolas\Pesquisar.cshtml" />
     <Content Include="Views\Familia\FamiliasBanidas.cshtml" />
+    <Content Include="Views\ImpressaoSacolas\Imprimir.cshtml" />
+    <Content Include="Views\Sacolas\GerarQrCode.cshtml" />
+    <Content Include="Views\Sacolas\AdicionarColaboradores.cshtml" />
+    <Content Include="Views\Sacolas\AdicionarColaboradoresLista.cshtml" />
+    <Content Include="Views\Sacolas\Print.cshtml" />
+    <Content Include="Views\Shared\_SacolaFooter.cshtml" />
+    <Content Include="Views\Shared\_SacolaHeader.cshtml" />
+    <Content Include="Views\Shared\_SacolaSubHeader.cshtml" />
+    <Content Include="Views\Sacolas\Kit.cshtml" />
+    <Content Include="Views\Sacolas\AdicionarFamilia.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

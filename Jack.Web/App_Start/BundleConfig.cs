@@ -88,6 +88,10 @@ namespace Jack.Web
             #region Reuniao Bundles
             RegisterProcessarBundle(ref bundles);
             #endregion
+
+            #region QrCode Bundles
+            RegisterQrCodeBundle(ref bundles);
+            #endregion
         }
 
         private static void RegisterCssBundle(ref BundleCollection bundles)
@@ -868,6 +872,11 @@ namespace Jack.Web
             jssSacolas.Orderer = new AsIsBundleOrderer();
             bundles.Add(jssSacolas);
 
+            jssSacolas = new ScriptBundle("~/script/Sacolas/Print");
+            jssSacolas.Include("~/Scripts/Sacolas/print.js");
+            jssSacolas.Orderer = new AsIsBundleOrderer();
+            bundles.Add(jssSacolas);
+
             jssSacolas = new ScriptBundle("~/script/Sacolas/Gerar");
             jssSacolas.Include("~/Scripts/Sacolas/Gerar.js");
             jssSacolas.Orderer = new AsIsBundleOrderer();
@@ -970,6 +979,15 @@ namespace Jack.Web
 
             var jssTipoParentesco = new ScriptBundle("~/script/Processa/main");
             jssTipoParentesco.Include("~/Scripts/Processa/main.js");
+            jssTipoParentesco.Orderer = new AsIsBundleOrderer();
+            bundles.Add(jssTipoParentesco);
+
+        }
+        private static void RegisterQrCodeBundle(ref BundleCollection bundles)
+        {
+
+            var jssTipoParentesco = new ScriptBundle("~/script/qrcode");
+            jssTipoParentesco.Include("~/Scripts/util/qrcode.js");
             jssTipoParentesco.Orderer = new AsIsBundleOrderer();
             bundles.Add(jssTipoParentesco);
 

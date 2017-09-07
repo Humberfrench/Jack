@@ -6,7 +6,6 @@ namespace Jack.Domain.Interfaces.Services
 {
     public interface ISacolaService : IServiceBase<Sacola>
     {
-        ValidationResult AddCrianca(int crianca);
         byte[] GerarQrCode(int width, int height, Crianca crianca);
         byte[] GerarQrCode(int width, int height, Sacola sacola);
         byte[] GerarQrCode(int width, int height, int crianca);
@@ -24,6 +23,13 @@ namespace Jack.Domain.Interfaces.Services
         void ValidarCrianca(Crianca crianca);
         IList<Sacola> ObterSacolaParaImpressao(string sacolasNumero, int ano);
         IList<Sacola> PesquisarSacolas(int ano, int familia, int kit, int nivel);
+        IList<Sacola> PesquisarSacolas(int familia);
+        IList<Sacola> PesquisarSacolas(int kit, int nivel);
+        IList<Familia> ObterFamilias(int nivel);
+        ValidationResult AddCrianca(int crianca);
+        ValidationResult AddCrianca(Crianca crianca);
+        ValidationResult AddFamilia(int familia);
+        IList<Familia> ObterFamiliasDisponiveis();
 
     }
 }

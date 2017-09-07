@@ -88,3 +88,33 @@ C:\Humberto\Projetos\Jack\Jack.Domain\bin\Debug\System.Web.WebPages.Deployment.x
 C:\Humberto\Projetos\Jack\Jack.Domain\obj\Debug\Jack.Domain.csprojResolveAssemblyReference.cache
 C:\Humberto\Projetos\Jack\Jack.Domain\obj\Debug\Jack.Domain.dll
 C:\Humberto\Projetos\Jack\Jack.Domain\obj\Debug\Jack.Domain.pdb
+D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Domain\bin\Debug\Jack.Domain.dll.config
+D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Domain\bin\Debug\Jack.Domain.dll
+D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Domain\bin\Debug\Jack.Domain.pdb
+D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Domain\bin\Debug\Jack.DomainValidator.dll
+D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Domain\bin\Debug\Jack.Extensions.dll
+D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Domain\bin\Debug\Jack.Library.dll
+D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Domain\bin\Debug\System.Web.Optimization.dll
+D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Domain\bin\Debug\System.Web.Mvc.dll
+D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Domain\bin\Debug\Newtonsoft.Json.dll
+D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Domain\bin\Debug\zxing.dll
+D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Domain\bin\Debug\System.Web.WebPages.dll
+D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Domain\bin\Debug\Microsoft.Web.Infrastructure.dll
+D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Domain\bin\Debug\System.Web.Razor.dll
+D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Domain\bin\Debug\System.Web.WebPages.Razor.dll
+D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Domain\bin\Debug\System.Web.WebPages.Deployment.dll
+D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Domain\bin\Debug\Jack.DomainValidator.pdb
+D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Domain\bin\Debug\Jack.Extensions.pdb
+D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Domain\bin\Debug\Jack.Library.pdb
+D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Domain\bin\Debug\System.Web.Optimization.xml
+D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Domain\bin\Debug\System.Web.Mvc.xml
+D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Domain\bin\Debug\Newtonsoft.Json.xml
+D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Domain\bin\Debug\zxing.pdb
+D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Domain\bin\Debug\zxing.xml
+D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Domain\bin\Debug\System.Web.WebPages.xml
+D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Domain\bin\Debug\System.Web.Razor.xml
+D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Domain\bin\Debug\System.Web.WebPages.Razor.xml
+D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Domain\bin\Debug\System.Web.WebPages.Deployment.xml
+D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Domain\obj\Debug\Jack.Domain.csprojResolveAssemblyReference.cache
+D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Domain\obj\Debug\Jack.Domain.dll
+D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Domain\obj\Debug\Jack.Domain.pdb

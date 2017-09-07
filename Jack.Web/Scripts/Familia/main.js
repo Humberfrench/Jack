@@ -122,7 +122,7 @@ Familia.LiberarBloqueio = function (familia)
     };
 
     opcoes.dadoEnvio = new Object;
-    opcoes.dadoEnvio.id = codigo;
+    opcoes.dadoEnvio.id = familia;
     opcoes.type = 'POST';
     opcoes.async = false;
 

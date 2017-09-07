@@ -6,6 +6,7 @@ using Jack.Extensions;
 using Jack.Library;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 
@@ -74,6 +75,8 @@ namespace Jack.Domain.Services
             this.repLogSacolas = repLogSacolas;
             Parametro = repParametros.Obter();
         }
+
+        public int AnoCorrente => DateTime.Now.Year;
 
         public IEnumerable<Sacola> ObterTodosPorNivel(int nivel, int liberado)
         {
@@ -194,6 +197,44 @@ namespace Jack.Domain.Services
             return sacolas;
         }
 
+        public ValidationResult AddFamilia(int familiaId)
+        {
+
+            var familia = repFamilia.ObterPorId(familiaId);
+            if (familia == null)
+            {
+                validationResult.Add("Familia nao encontrada");
+                return validationResult;
+            }
+
+            var criancasAdded = 0;
+            var criancasErro = new List<string>();
+            foreach (var crianca in familia.Criancas)
+            {
+                var validatorRetorno = AddCrianca(crianca);
+                if (!validatorRetorno.IsValid)
+                {
+                    criancasErro.Add($"Criança: {crianca.Codigo} - {crianca.Nome}");
+                    validationResult.Erros.ToList().AddRange(validatorRetorno.Erros);
+                }
+                else
+                {
+                    criancasAdded++;
+                }
+
+            }
+
+            if (criancasAdded == 0)
+            {
+                validationResult.Add("Familia não tem crianças habilitadas a receber sacolas. Verificar os erros.");
+                validationResult.Messagem = string.Join(",", criancasErro);
+                return validationResult;
+            }
+
+
+            return validationResult;
+        }
+
         public ValidationResult AddCrianca(int crianca)
         {
             var criancaSacola = repCrianca.ObterPorId(crianca);
@@ -202,15 +243,19 @@ namespace Jack.Domain.Services
                 validationResult.Add("Criança não encontrada");
                 return validationResult;
             }
+            return AddCrianca(criancaSacola);
+        }
+        public ValidationResult AddCrianca(Crianca crianca)
+        {
             //consistir a criança  
-            ValidarCrianca(criancaSacola);
+            ValidarCrianca(crianca);
             if (!validationResult.IsValid)
             {
                 return validationResult;
             }
 
             var sacolas = ObterTodos().ToList();
-            var sacolasFamilia = sacolas.Where(s => s.Familia.Codigo == criancaSacola.Familia.Codigo).ToList();
+            var sacolasFamilia = sacolas.Where(s => s.Familia.Codigo == crianca.Familia.Codigo).ToList();
             var numeroSacolaFamilia = 0;
 
             if (sacolasFamilia.Any())
@@ -228,30 +273,30 @@ namespace Jack.Domain.Services
 
             }
 
-            var existeCrianca = sacolasFamilia.FirstOrDefault(s => s.Crianca.Codigo == crianca);
+            var existeCrianca = sacolasFamilia.FirstOrDefault(s => s.Crianca.Codigo == crianca.Codigo);
             if (existeCrianca != null)
             {
                 validationResult.Add("Já existe a Criança na sacola");
                 return validationResult;
             }
 
-            var representante = repRepresentante.ObterTodos().FirstOrDefault(f => f.FamiliaRepresentada.Codigo == criancaSacola.Familia.Codigo);
-            var familiaRepresentante = representante == null ? criancaSacola.Familia : representante.FamiliaRepresentante;
+            var representante = repRepresentante.ObterTodos().FirstOrDefault(f => f.FamiliaRepresentada.Codigo == crianca.Familia.Codigo);
+            var familiaRepresentante = representante == null ? crianca.Familia : representante.FamiliaRepresentante;
 
             //atualizar a criança
-            criancaSacola.Kit = repKit.ObterKitPorIdade(criancaSacola.Idade, criancaSacola.Sexo, criancaSacola.NecessidadeEspecial);
+            crianca.Kit = repKit.ObterKitPorIdade(crianca.Idade, crianca.Sexo, crianca.NecessidadeEspecial);
 
             var sacola = new Sacola
             {
                 SacolaFamilia = numeroSacolaFamilia,
-                Crianca = criancaSacola,
-                Familia = criancaSacola.Familia,
+                Crianca = crianca,
+                Familia = crianca.Familia,
                 FamiliaRepresentante = familiaRepresentante,
-                Kit = criancaSacola.Kit,
+                Kit = crianca.Kit,
                 Impressa = false,
-                Nivel = criancaSacola.Familia.Nivel,
+                Nivel = crianca.Familia.Nivel,
                 Liberado = true,
-                Sexo = criancaSacola.Sexo
+                Sexo = crianca.Sexo
             };
 
             Adicionar(sacola);
@@ -356,6 +401,8 @@ namespace Jack.Domain.Services
             dadoQrCode.AppendLine();
             dadoQrCode.AppendFormat("Calçado: {0} - Roupa: {1}", crianca.Calcado, crianca.Roupa);
             dadoQrCode.AppendLine();
+            dadoQrCode.AppendFormat("Mãe: {0}", crianca.Familia.Nome);
+            dadoQrCode.AppendLine();
             dadoQrCode.AppendFormat("Itens");
             dadoQrCode.AppendLine();
 
@@ -366,6 +413,12 @@ namespace Jack.Domain.Services
                 dadoQrCode.AppendLine();
             }
 
+            var colaborador = crianca.Colaboradores.FirstOrDefault(col => col.Ano == AnoCorrente);
+            if (colaborador != null)
+            {
+                dadoQrCode.AppendFormat("Colaborador: {0} ", colaborador.Colaborador);
+                dadoQrCode.AppendLine();
+            }
             return dadoQrCode.ToString();
 
         }
@@ -489,6 +542,7 @@ namespace Jack.Domain.Services
                         foreach (var familia in familias)
                         {
                             var criancas = new List<Crianca>();
+                            familiaService.AtualizarSimSacola(familia.Codigo);
                             bool add;
                             foreach (var crianca in familia.Criancas)
                             {
@@ -568,6 +622,36 @@ namespace Jack.Domain.Services
 
             return sacola;
         }
+        public IList<Sacola> PesquisarSacolas(int kit, int nivel)
+        {
+            var sacola = ObterTodos().ToList();
+
+
+            if (kit != 0)
+            {
+                sacola = sacola.Where(s => s.Kit.Codigo == kit).ToList();
+            }
+
+            if (nivel != 0)
+            {
+                sacola = sacola.Where(s => s.Nivel.Codigo == nivel).ToList();
+            }
+
+            //deixando só os colaboradores do ano
+            sacola.ForEach(s => s.Crianca.Colaboradores = s.Crianca.Colaboradores.Where(c => c.Ano == AnoCorrente).ToList());
+
+            return sacola;
+        }
+
+        public IList<Sacola> PesquisarSacolas(int familia)
+        {
+            var sacola = ObterTodos().Where(s => s.Familia.Codigo == familia).ToList().ToList();
+
+            //deixando só os colaboradores do ano
+            sacola.ForEach(s => s.Crianca.Colaboradores = s.Crianca.Colaboradores.Where(c => c.Ano == AnoCorrente).ToList());
+
+            return sacola;
+        }
 
         public IList<Sacola> ObterSacolaParaImpressao(string sacolasNumero, int ano)
         {
@@ -576,7 +660,7 @@ namespace Jack.Domain.Services
             var numeros = sacolasNumero.Split(',').ToList();
 
             //falta filtrar as sacolas de acordo com a string
-            numeros.ForEach(num => 
+            numeros.ForEach(num =>
                                 sacolas.Add(sacola.FirstOrDefault(
                                     sac => sac.Codigo.ToString() == num)));
 
@@ -584,6 +668,18 @@ namespace Jack.Domain.Services
             sacola.ForEach(s => s.Crianca.Colaboradores = s.Crianca.Colaboradores.Where(c => c.Ano == ano).ToList());
 
             return sacola;
+        }
+        public IList<Familia> ObterFamilias(int nivel)
+        {
+
+            return repSacola.ObterFamilias(nivel).ToList();
+        }
+
+        public IList<Familia> ObterFamiliasDisponiveis()
+        {
+            var familias = repFamilia.ObterTodos();
+
+            return familias.Where(f => !f.Sacolinha && f.Criancas.Count > 0).ToList();
         }
 
     }

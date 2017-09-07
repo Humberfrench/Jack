@@ -23,35 +23,35 @@
             <td style="width:85px;"></td>
         </tr>
         <tr>
-            <td colspan="8">@Html.Partial("Header")</td>
+            <td colspan="8">@Html.Partial("_SacolaHeader")</td>
             <td colspan="2">
                 <div class="" style="width: 150px;">
                     <h6 style="width: 140px; text-align: center">Número da Sacola</h6>
                     <div style="width: 140px; text-align: center" class="NumFamilia">67</div>
                 </div>
             </td>
-            <td colspan="2"><div id="divImagemChave"></div></td>
+            <td colspan="2"><div id="divImagemChave0"></div></td>
         </tr>
         <tr>
             <td>&nbsp;</td>
             <td colspan="10">
-                @Html.Partial("SubHeader")
+                @Html.Partial("_SacolaSubHeader")
             </td>
             <td>&nbsp;</td>
         </tr>
         <tr>
             <td>&nbsp;</td>
             <td colspan="5">
-                <h5><strong>Nome da Criança</strong></h5>
+                <h4><strong>Nome da Criança</strong></h4>
                 <h4>José da Silva Santos da Silva</h4>
             </td>
             <td colspan="1">
-                <h5><strong>Sexo</strong></h5>
-                <h4>Masculino</h4>
+                <h4><strong>Sexo</strong></h4>
+                <h5>Masculino</h5>
             </td>
             <td colspan="2">
-                <h5><strong>Idade</strong></h5>
-                <h4>7 Anos e 11 Meses</h4>
+                <h4><strong>Idade</strong></h4>
+                <h5>7 Anos e 11 Meses</h5>
             </td>
             <td colspan="2">
                 <h5><strong>É uma Criança Grande/Gordinha</strong></h5>
@@ -61,19 +61,19 @@
         <tr>
             <td>&nbsp;</td>
             <td colspan="4">
-                <h5><strong>Nome da Mãe/Família</strong></h5>
-                <h5>Maria da Silva Santos da Silva</h5>
+                <h4><strong>Nome da Mãe/Família</strong></h4>
+                <h4>Maria da Silva Santos da Silva</h4>
             </td>
             <td colspan="4">
-                <h5><strong>Colaborador</strong></h5>
-                <h5>David Gabriel</h5>
+                <h4><strong>Colaborador</strong></h4>
+                <h4>David Gabriel</h4>
             </td>
             <td colspan="1">
-                <h5><strong>Calçado</strong></h5>
-                <h3>34</h3>
+                <h4><strong>Calçado</strong></h4>
+                <h4>34</h4>
             </td>
             <td colspan="1">
-                <h5><strong>Roupa</strong></h5>
+                <h4><strong>Roupa</strong></h4>
                 <h3>10</h3>
             </td>
             <td>&nbsp;</td>
@@ -88,7 +88,7 @@
         <tr>
             <td>&nbsp;</td>
             <td colspan="10">
-                @Html.Partial("Footer")
+                @Html.Partial("_SacolaFooter")
             </td>
             <td>&nbsp;</td>
         </tr> 
@@ -127,7 +127,7 @@
                     <div style="width: 140px; text-align: center" class="NumFamilia">67</div>
                 </div>
             </td>
-            <td colspan="2"><div id="divImagemChave"></div></td>
+            <td colspan="2"><div id="divImagemChave1"></div></td>
         </tr>
         <tr>
             <td>&nbsp;</td>
@@ -201,7 +201,6 @@
 </div>
 @section scripts
 {
-    @Scripts.Render("~/plugins/dataTables")
     @Scripts.Render("~/script/main/Sacolas")
     @Scripts.Render("~/script/Sacolas/Modelo")
 }

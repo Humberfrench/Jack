@@ -72,6 +72,7 @@ C:\Humberto\Projetos\Jack\Jack.Web\bin\Elmah.dll
 C:\Humberto\Projetos\Jack\Jack.Web\bin\Jack.Application.dll
 C:\Humberto\Projetos\Jack\Jack.Web\bin\Jack.Application.ViewModel.dll
 C:\Humberto\Projetos\Jack\Jack.Web\bin\Jack.Domain.dll
+C:\Humberto\Projetos\Jack\Jack.Web\bin\Jack.Domain.Services.dll
 C:\Humberto\Projetos\Jack\Jack.Web\bin\Jack.DomainValidator.dll
 C:\Humberto\Projetos\Jack\Jack.Web\bin\Jack.Extensions.dll
 C:\Humberto\Projetos\Jack\Jack.Web\bin\Jack.Library.dll
@@ -99,6 +100,7 @@ C:\Humberto\Projetos\Jack\Jack.Web\bin\FluentNHibernate.dll
 C:\Humberto\Projetos\Jack\Jack.Web\bin\AutoMapper.dll
 C:\Humberto\Projetos\Jack\Jack.Web\bin\Iesi.Collections.dll
 C:\Humberto\Projetos\Jack\Jack.Web\bin\Jack.Application.ViewModel.pdb
+C:\Humberto\Projetos\Jack\Jack.Web\bin\Jack.Domain.Services.pdb
 C:\Humberto\Projetos\Jack\Jack.Web\bin\Jack.DomainValidator.pdb
 C:\Humberto\Projetos\Jack\Jack.Web\bin\Jack.Domain.pdb
 C:\Humberto\Projetos\Jack\Jack.Web\bin\Jack.Extensions.pdb
@@ -130,5 +132,3 @@ C:\Humberto\Projetos\Jack\Jack.Web\bin\Iesi.Collections.xml
 C:\Humberto\Projetos\Jack\Jack.Web\obj\Release\Jack.Web.csprojResolveAssemblyReference.cache
 C:\Humberto\Projetos\Jack\Jack.Web\obj\Release\Jack.Web.dll
 C:\Humberto\Projetos\Jack\Jack.Web\obj\Release\Jack.Web.pdb
-C:\Humberto\Projetos\Jack\Jack.Web\bin\Jack.Domain.Services.dll
-C:\Humberto\Projetos\Jack\Jack.Web\bin\Jack.Domain.Services.pdb

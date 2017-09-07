@@ -9,7 +9,7 @@ using System.Collections.Generic;
 
 namespace Jack.Application
 {
-    public class KitServiceApp : IKitServiceApp
+    public class KitServiceApp : AppServiceBase, IKitServiceApp
     {
 
         private readonly IKitService _service;

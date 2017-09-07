@@ -60,6 +60,12 @@ namespace Jack.Application
             return Mapper.Map<IEnumerable<ColaboradorCriancaViewModel>>(colaboradorCrianca);
         }
 
+        public ColaboradorViewModel ObterColaborador(int crianca, int ano)
+        {
+            var colaboradorCrianca = _service.ObterColaborador(crianca, ano);
+            return Mapper.Map<ColaboradorViewModel>(colaboradorCrianca);
+        }
+
         public void Dispose()
         {
             GC.SuppressFinalize(this);

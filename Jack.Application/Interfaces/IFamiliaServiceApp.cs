@@ -17,7 +17,7 @@ namespace Jack.Application.Interfaces
         IEnumerable<FamiliaViewModel> ObterFamiliasBanidas();
         ValidationResult AtualizarFamiliaParaBanida(int familiaId);
         ValidationResult LiberarFamiliaBanida(int familiaId);
-
+        ValidationResult AtualizarSimSacola(int familiaId);
 
     }
 }

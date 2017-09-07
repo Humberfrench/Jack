@@ -68,7 +68,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseRepository.cs" />
-    <Compile Include="Extends.cs" />
     <Compile Include="LogRepository.cs" />
     <Compile Include="LogSacolasRepository.cs" />
     <Compile Include="Mappings\MapLogSacolas.cs" />
@@ -76,6 +75,7 @@
     <Compile Include="Mappings\MapParametro.cs" />
     <Compile Include="Mappings\MapRepresentante.cs" />
     <Compile Include="Mappings\MapFeriado.cs" />
+    <Compile Include="Mappings\MapSacolaHistorico.cs" />
     <Compile Include="Mappings\MapSacola.cs" />
     <Compile Include="Mappings\MapStatusCrianca.cs" />
     <Compile Include="Mappings\MapStatusFamilia.cs" />
@@ -97,6 +97,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="CalcadoRepository.cs" />
     <Compile Include="NivelRepository.cs" />
+    <Compile Include="SacolaHistoricoRepository.cs" />
     <Compile Include="StatusCriancaRepository.cs" />
     <Compile Include="StatusFamiliaRepository.cs" />
     <Compile Include="KitItemRepository.cs" />

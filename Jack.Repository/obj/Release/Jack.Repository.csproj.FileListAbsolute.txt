@@ -45,9 +45,10 @@ C:\Humberto\Projetos\Jack\Jack.Repository\bin\Release\Dapper.dll
 C:\Humberto\Projetos\Jack\Jack.Repository\bin\Release\FluentNHibernate.dll
 C:\Humberto\Projetos\Jack\Jack.Repository\bin\Release\Iesi.Collections.dll
 C:\Humberto\Projetos\Jack\Jack.Repository\bin\Release\Jack.Domain.dll
+C:\Humberto\Projetos\Jack\Jack.Repository\bin\Release\Jack.DomainValidator.dll
 C:\Humberto\Projetos\Jack\Jack.Repository\bin\Release\Jack.Extensions.dll
 C:\Humberto\Projetos\Jack\Jack.Repository\bin\Release\NHibernate.dll
-C:\Humberto\Projetos\Jack\Jack.Repository\bin\Release\Jack.DomainValidator.dll
+C:\Humberto\Projetos\Jack\Jack.Repository\bin\Release\Jack.DomainValidator.pdb
 C:\Humberto\Projetos\Jack\Jack.Repository\bin\Release\Jack.Domain.pdb
 C:\Humberto\Projetos\Jack\Jack.Repository\bin\Release\Jack.Extensions.pdb
 C:\Humberto\Projetos\Jack\Jack.Repository\bin\Release\Dapper.xml
@@ -55,7 +56,6 @@ C:\Humberto\Projetos\Jack\Jack.Repository\bin\Release\FluentNHibernate.pdb
 C:\Humberto\Projetos\Jack\Jack.Repository\bin\Release\FluentNHibernate.xml
 C:\Humberto\Projetos\Jack\Jack.Repository\bin\Release\Iesi.Collections.xml
 C:\Humberto\Projetos\Jack\Jack.Repository\bin\Release\NHibernate.xml
-C:\Humberto\Projetos\Jack\Jack.Repository\bin\Release\Jack.DomainValidator.pdb
 C:\Humberto\Projetos\Jack\Jack.Repository\obj\Release\Jack.Repository.csprojResolveAssemblyReference.cache
 C:\Humberto\Projetos\Jack\Jack.Repository\obj\Release\Jack.Repository.dll
 C:\Humberto\Projetos\Jack\Jack.Repository\obj\Release\Jack.Repository.pdb

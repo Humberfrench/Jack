@@ -150,6 +150,12 @@ namespace Jack.Web
             kernel.Bind<ISacolaRepository>().To<SacolaRepository>();
             #endregion
 
+            #region Sacola Histórico
+            kernel.Bind<ISacolaHistoricoServiceApp>().To<SacolaHistoricoServiceApp>();
+            kernel.Bind<ISacolaHistoricoService>().To<SacolaHistoricoService>();
+            kernel.Bind<ISacolaHistoricoRepository>().To<SacolaHistoricoRepository>();
+            #endregion
+
             #region Status Crianca
             kernel.Bind<IStatusCriancaServiceApp>().To<StatusCriancaServiceApp>();
             kernel.Bind<IStatusCriancaService>().To<StatusCriancaService>();
