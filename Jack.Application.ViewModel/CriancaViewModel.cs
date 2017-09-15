@@ -70,7 +70,7 @@ namespace Jack.Application.ViewModel
         public virtual DateTime DataAtualizacao { get; set; }
 
         public virtual DateTime DataCriacao { get; set; }
-        public virtual DateTime DataAtualizacaoVestuario { get; set; }
+        public virtual DateTime? DataAtualizacaoVestuario { get; set; }
 
         public virtual SacolaViewModel Sacola { get; set; }
 

@@ -95,6 +95,7 @@ namespace Jack.Domain.Services
             }
             else
             {
+                crianca.DataCriacao = DateTime.Now;
                 crianca.Familia = repFamilia.ObterPorId(item.Familia.Codigo);
                 crianca.Kit = repKit.ObterPorId(item.Kit.Codigo);
                 crianca.TipoParentesco = repTipoParentesco.ObterPorId(item.TipoParentesco.Codigo);
@@ -109,12 +110,12 @@ namespace Jack.Domain.Services
             crianca.DataNascimento = item.DataNascimento;
             crianca.CalculaIdade();
             crianca.DocumentoOk = item.DocumentoOk;
-
-            //alterando o campo de atualização de vestimenta
-            if((crianca.Roupa != item.Roupa) || (crianca.Calcado != item.Calcado))
-            {
+            //crianca.DataAtualizacaoVestuario = null;
+            ////alterando o campo de atualização de vestimenta
+            //if ((crianca.Roupa != item.Roupa) || (crianca.Calcado != item.Calcado))
+            //{
                 crianca.DataAtualizacaoVestuario = DateTime.Now;
-            }
+            //}
 
             crianca.Roupa = item.Roupa;
             crianca.Calcado = item.Calcado;

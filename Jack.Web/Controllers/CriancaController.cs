@@ -110,7 +110,7 @@ namespace Jack.Web.Controllers
             ViewBag.PresencaJustificada = "";
             ViewBag.FamiliaId = familia;
             ViewBag.Nivel = 0;
-            ViewBag.Acoes = "disabled=disabled";
+            ViewBag.Acoes = "";
 
             var listaDados = criancaAppService.ObterCriancas(familia).OrderBy(c => c.Nome).ToList();
             var criancaDado = listaDados.FirstOrDefault();
