@@ -28,6 +28,18 @@ namespace Jack.Application
             return _service.Excluir(id);
         }
 
+        public IEnumerable<ColaboradorCriancaViewModel> ObterSacolasColaborador(int colaborador)
+        {
+            var criancas = _service.ObterSacolasColaborador(colaborador);
+            return Mapper.Map<IEnumerable<ColaboradorCriancaViewModel>>(criancas);
+        }
+
+        public IEnumerable<ColaboradorCriancaViewModel> ObterSacolasColaborador(int colaborador, int ano)
+        {
+            var criancas = _service.ObterSacolasColaborador(colaborador, ano);
+            return Mapper.Map<IEnumerable<ColaboradorCriancaViewModel>>(criancas);
+        }
+
         public ColaboradorViewModel ObterPorId(int id)
         {
             var colaborador = _service.ObterPorId(id);

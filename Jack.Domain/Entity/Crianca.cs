@@ -50,7 +50,7 @@ namespace Jack.Domain.Entity
         private StatusCrianca status;
         private DateTime dataAtualizacao;
         private DateTime dataCriacao;
-        private DateTime? dataAtualizacaoVestuario;
+        private DateTime dataAtualizacaoVestuario;
         private IList<ColaboradorCrianca> colaboradores;
         private Sacola sacola;
 
@@ -318,7 +318,7 @@ namespace Jack.Domain.Entity
             }
         }
 
-        public virtual DateTime? DataAtualizacaoVestuario
+        public virtual DateTime DataAtualizacaoVestuario
         {
             get
             {
@@ -352,6 +352,7 @@ namespace Jack.Domain.Entity
                 sacola = value;
             }
         }
+
 
         public virtual bool VerifyCalcado()
         {

@@ -13,30 +13,32 @@
 <br />
 <div class="panel" style="width: 1020px;">
     <table style="width: 1020px;">
-        <tr>
-            <td style="width:85px;"></td>
-            <td style="width:85px;"></td>
-            <td style="width:85px;"></td>
-            <td style="width:85px;"></td>
-            <td style="width:85px;"></td>
-            <td style="width:85px;"></td>
-            <td style="width:85px;"></td>
-            <td style="width:85px;"></td>
-            <td style="width:85px;"></td>
-            <td style="width:85px;"></td>
-            <td style="width:85px;"></td>
-            <td style="width:85px;"></td>
-        </tr>
+        <colgroup>
+            <col style="width:85px;"/>
+            <col style="width:85px;"/>
+            <col style="width:85px;"/>
+            <col style="width:85px;"/>
+            <col style="width:85px;"/>
+            <col style="width:85px;"/>
+            <col style="width:85px;"/>
+            <col style="width:85px;"/>
+            <col style="width:85px;"/>
+            <col style="width:85px;"/>
+            <col style="width:85px;"/>
+            <col style="width:85px;"/>
+        </colgroup>
         <tr>
             <td colspan="8">@Html.Partial("_SacolaHeader")</td>
             <td colspan="2">
                 <div class="" style="width: 150px;">
-                    <h6 style="width: 140px; text-align: center">Número da Sacola</h6>
+                    <h6 style="width: 140px; text-align: center"><strong>Número da Sacola</strong></h6>
                     <div style="width: 140px; text-align: center" class="NumFamilia">@Model.SacolaFamilia</div>
                 </div>
             </td>
-            <td colspan="2"><div id="divImagemChave"></div></td>
+            <td colspan="2">
+                <img src="data:image;base64,@Convert.ToBase64String(Model.QrCode)" width="128" height="128"/></td>
         </tr>
+
         <tr>
             <td>&nbsp;</td>
             <td colspan="10">
@@ -48,7 +50,7 @@
             <td>&nbsp;</td>
             <td colspan="5">
                 <h5><strong>Nome da Criança</strong></h5>
-                <h4>@Model.Crianca.Nome</h4>
+                <h4><strong>@Model.Crianca.Nome</strong></h4>
             </td>
             <td colspan="1">
                 <h5><strong>Sexo</strong></h5>
@@ -60,7 +62,7 @@
             </td>
             <td colspan="2">
                 <h5>
-                    if(@Model.Crianca.CriancaGrande)
+                    @if(@Model.Crianca.CriancaGrande)
                     {
                     <strong>É uma Criança Grande/Gordinha</strong>
                     }

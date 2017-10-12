@@ -105,6 +105,13 @@ namespace Jack.Web
             cssInspinia.Orderer = new AsIsBundleOrderer();
             bundles.Add(cssInspinia);
 
+            var cssClear = new StyleBundle("~/Content/cssClear");
+            cssClear.Include("~/Content/bootstrap.min.css",
+                "~/Content/animate.css",
+                "~/Content/main.css");
+            cssClear.Orderer = new AsIsBundleOrderer();
+            bundles.Add(cssClear);
+
             // Font Awesome icons
             var cssAwesome = new StyleBundle("~/font-awesome/css");
             cssAwesome.Include("~/fonts/font-awesome/css/font-awesome.min.css", new CssRewriteUrlTransform());

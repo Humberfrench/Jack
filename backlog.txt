@@ -1,0 +1,7 @@
+Tela de Pesquisa de Sacolas
+- Impressão de Sacolas
+- Adicionar Colaborador a criança
+
+
+Telas:
+- Liberar Sacola : Por nível (Lista de Espera)

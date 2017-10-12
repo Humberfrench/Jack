@@ -2,6 +2,7 @@
 using Jack.Application.ViewModel;
 using Jack.Library;
 using System.Collections.Generic;
+using System.Linq;
 using System.Web.Mvc;
 
 namespace Jack.Web.Controllers
@@ -35,18 +36,18 @@ namespace Jack.Web.Controllers
             #region BreadCrumb
             var breadCrumb = new BreadCrumbETitulo
             {
-                Titulo = "Crianças",
+                Titulo = "Colaborador",
                 BreadCrumbs = new List<BreadCrumb>
                 {
-                 new BreadCrumb {LinkText = "Crianças", ActionName = "Index", ControllerName = "Crianca"},
-                 new BreadCrumb {LinkText = "Lista", ActionName = "Index", ControllerName = "Crianca"}
+                 new BreadCrumb {LinkText = "Colaborador", ActionName = "Index", ControllerName = "Colaborador"},
+                 new BreadCrumb {LinkText = "Lista", ActionName = "Index", ControllerName = "Colaborador"}
                 }
             };
 
             TempData["BreadCrumETitulo"] = breadCrumb;
             #endregion
 
-            var listaDados =colaboradorAppService.ObterTodos();
+            var listaDados = colaboradorAppService.ObterTodos();
             return View(listaDados);
         }
 
@@ -58,11 +59,11 @@ namespace Jack.Web.Controllers
             #region BreadCrumb
             var breadCrumb = new BreadCrumbETitulo
             {
-                Titulo = "Tipo de Item",
+                Titulo = "Colaborador",
                 BreadCrumbs = new List<BreadCrumb>
                 {
-                 new BreadCrumb {LinkText = "Tipo de Item", ActionName = "Index", ControllerName = "TipoItem"},
-                 new BreadCrumb {LinkText = "Filtro", ActionName = "Filtro", ControllerName = "TipoItem"}
+                 new BreadCrumb {LinkText = "Colaborador", ActionName = "Index", ControllerName = "Colaborador"},
+                 new BreadCrumb {LinkText = "Filtro", ActionName = "Filtro", ControllerName = "Colaborador"}
                 }
             };
 
@@ -134,6 +135,52 @@ namespace Jack.Web.Controllers
             return Json(retorno, JsonRequestBehavior.AllowGet);
         }
 
+        [Route("Pesquisa/Criancas")]
+        public ActionResult PesquisaCriancas(int colaborador, int ano)
+        {
+
+            #region BreadCrumb
+            var breadCrumb = new BreadCrumbETitulo
+            {
+                Titulo = "Colaborador",
+                BreadCrumbs = new List<BreadCrumb>
+                {
+                    new BreadCrumb {LinkText = "Colaborador", ActionName = "Index", ControllerName = "Colaborador"},
+                    new BreadCrumb {LinkText = "Pesquisa Crianças", ActionName = "PesquisaCriancas", ControllerName = "Colaborador"}
+                }
+            };
+
+            #endregion
+            var listaDados = colaboradorAppService.ObterSacolasColaborador(colaborador, ano);
+            return View(listaDados);
+        }
+
+        [Route("Criancas/{colaborador}/{ano}")]
+        public ActionResult Criancas(int colaborador, int ano)
+        {
+
+
+            ViewBag.Colaborador = ObterColaboradorParaCombo();
+            return View();
+        }
+
+        #endregion
+
+        #region Private Methods
+        private IList<ColaboradorViewModel> ObterColaborador()
+        {
+            var dados = colaboradorAppService.ObterTodos().OrderBy(c => c.Nome).ToList();
+            return dados;
+        }
+
+        private SelectList ObterColaboradorParaCombo()
+        {
+            var dados = ObterColaborador();
+            dados.Insert(0, new ColaboradorViewModel { Codigo = 0, Nome = "Selecione Colaborador" });
+            var dadosSelect = new SelectList(dados, "Codigo", "Nome");
+
+            return dadosSelect;
+        }
 
         #endregion
 

@@ -401,12 +401,12 @@ Crianca.Editar = function (id)
 
         if (dataObj.Consistente)
         {
-            $("#Consistente").prop('checked', 'checked');
+            $("#ConsistenteEdit").prop('checked', 'checked');
         }
 
         if (dataObj.Sacolinha)
         {
-            $("#Sacolinha").prop('checked', 'checked');
+            $("#SacolinhaEdit").prop('checked', 'checked');
         }
 
         if (dataObj.DocumentoOk)
@@ -416,7 +416,7 @@ Crianca.Editar = function (id)
 
         if (dataObj.MoralCrista)
         {
-            $("#MoralCrista").prop('checked', 'checked');
+            $("#MoralCristaEdit").prop('checked', 'checked');
         }
 
         //obter apenas calçado e roupa padrão
@@ -490,10 +490,10 @@ Crianca.Gravar = function ()
     opcoes.dadoEnvio.DataNascimento = $("#DataNascimento").val();
 
     opcoes.dadoEnvio.CriancaGrande = $("#CriancaGrande").prop('checked');
-    opcoes.dadoEnvio.NecessidadeEspecial = $("#NecessidadeEspecial").prop('checked');
-    opcoes.dadoEnvio.Consistente = $("#Consistente").prop('checked');
-    opcoes.dadoEnvio.Sacolinha = $("#Sacolinha").prop('checked');
-    opcoes.dadoEnvio.MoralCrista = $("#MoralCrista").prop('checked');
+    opcoes.dadoEnvio.NecessidadeEspecial = $("#NecessidadeEspecialEdit").prop('checked');
+    opcoes.dadoEnvio.Consistente = $("#ConsistenteEdit").prop('checked');
+    opcoes.dadoEnvio.Sacolinha = $("#SacolinhaEdit").prop('checked');
+    opcoes.dadoEnvio.MoralCrista = $("#MoralCristaEdit").prop('checked');
     opcoes.dadoEnvio.DocumentoOk = $("#DocumentoOk").prop('checked');
 
     Ajax.Execute(opcoes);

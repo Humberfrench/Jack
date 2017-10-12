@@ -83,11 +83,14 @@
                                     </td>
 
                                     <td style="text-align:right;">
+                                        <a class="btn btn-danger btn-sm" href="@Url.Action("Criancas",new {colaborador = @item.Codigo, ano = DateTime.Now.Year})" target="_new">
+                                            <i class="glyphicon glyphicon-star" data-toggle="tooltip" data-placement="top" title="Crianças do Colaborador em @DateTime.Now.Year"></i>
+                                        </a>
                                         <button type="button" class="btn btn-success btn-sm" onclick="Edit('@item.Codigo')">
                                             <i class="glyphicon glyphicon-pencil" data-toggle="tooltip" data-placement="top" title="Editar Registro"></i>
                                         </button>
                                         <button type="button" id="Excluir" name="Excluir" class="btn btn-danger btn-sm" onclick="ExcluirConfirmar('@item.Codigo','@item.Nome')">
-                                            <i class=" glyphicon glyphicon-trash" data-toggle="tooltip" data-placement="top" title="Excluir Registro">
+                                            <i class="glyphicon glyphicon-trash" data-toggle="tooltip" data-placement="top" title="Excluir Registro">
                                             </i>
                                         </button>
                                     </td>

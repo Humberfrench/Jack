@@ -18,6 +18,7 @@ namespace Jack.Repository.Mappings
             Map(x => x.Sexo).Column("Sexo").Not.Nullable();
             Map(x => x.Impressa).Column("Impressa").Not.Nullable();
             Map(x => x.Liberado).Column("Liberado").Not.Nullable();
+            Map(x => x.QrCode).Column("QrCode").Nullable();
 
             //References
             References(x => x.Familia).Column("Familia").Not.Nullable().Not.LazyLoad();

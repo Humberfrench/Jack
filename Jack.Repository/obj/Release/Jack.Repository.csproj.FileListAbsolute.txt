@@ -59,3 +59,14 @@ C:\Humberto\Projetos\Jack\Jack.Repository\bin\Release\NHibernate.xml
 C:\Humberto\Projetos\Jack\Jack.Repository\obj\Release\Jack.Repository.csprojResolveAssemblyReference.cache
 C:\Humberto\Projetos\Jack\Jack.Repository\obj\Release\Jack.Repository.dll
 C:\Humberto\Projetos\Jack\Jack.Repository\obj\Release\Jack.Repository.pdb
+C:\Humberto\Projetos\Jack\Jack.Repository\bin\Release\System.Web.Mvc.dll
+C:\Humberto\Projetos\Jack\Jack.Repository\bin\Release\System.Web.Razor.dll
+C:\Humberto\Projetos\Jack\Jack.Repository\bin\Release\System.Web.WebPages.Razor.dll
+C:\Humberto\Projetos\Jack\Jack.Repository\bin\Release\System.Web.WebPages.dll
+C:\Humberto\Projetos\Jack\Jack.Repository\bin\Release\Microsoft.Web.Infrastructure.dll
+C:\Humberto\Projetos\Jack\Jack.Repository\bin\Release\System.Web.WebPages.Deployment.dll
+C:\Humberto\Projetos\Jack\Jack.Repository\bin\Release\System.Web.Mvc.xml
+C:\Humberto\Projetos\Jack\Jack.Repository\bin\Release\System.Web.Razor.xml
+C:\Humberto\Projetos\Jack\Jack.Repository\bin\Release\System.Web.WebPages.Razor.xml
+C:\Humberto\Projetos\Jack\Jack.Repository\bin\Release\System.Web.WebPages.xml
+C:\Humberto\Projetos\Jack\Jack.Repository\bin\Release\System.Web.WebPages.Deployment.xml

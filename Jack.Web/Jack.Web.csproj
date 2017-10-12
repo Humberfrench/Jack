@@ -2141,6 +2141,10 @@
     <Content Include="Views\Shared\_SacolaSubHeader.cshtml" />
     <Content Include="Views\Sacolas\Kit.cshtml" />
     <Content Include="Views\Sacolas\AdicionarFamilia.cshtml" />
+    <Content Include="Views\Sacolas\Prints.cshtml" />
+    <Content Include="Views\Sacolas\UpdateQrCodes.cshtml" />
+    <Content Include="Views\Colaborador\Criancas.cshtml" />
+    <Content Include="Views\Colaborador\PesquisaCriancas.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

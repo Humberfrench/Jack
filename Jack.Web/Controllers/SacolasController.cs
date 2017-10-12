@@ -466,7 +466,22 @@ namespace Jack.Web.Controllers
             }
             return View(sacolaPrint);
         }
+        [HttpGet]
+        [Route("Pesquisar/Prints/{sacola}")]
+        public ActionResult Prints(string sacola)
+        {
+            var sacolaPrint = sacolaAppService.ObterSacolaParaImpressao(sacola, DateTime.Now.Year);
 
+            return View(sacolaPrint);
+        }
+        [HttpGet]
+        [Route("Update/QrCodes")]
+        public ActionResult UpdateQrCodes()
+        {
+            sacolaAppService.AtualizarQrCodeSacolas();
+
+            return View();
+        }
         #endregion
 
         #region Métodos Privados

@@ -25,6 +25,7 @@ namespace Jack.Domain.Entity
         private Nivel nivel;
         private bool impressa;
         private bool liberado;
+        private byte[] qrCode;
 
         public virtual int Codigo
         {
@@ -156,6 +157,21 @@ namespace Jack.Domain.Entity
                 liberado = value;
             }
         }
+
+        public virtual byte[] QrCode
+        {
+            get
+            {
+                return qrCode;
+            }
+            set
+            {
+                qrCode = value;
+            }
+        }
+
+
+
 
     }
 }

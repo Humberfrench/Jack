@@ -82,6 +82,9 @@ C:\Humberto\Projetos\Jack\Jack.Repository\bin\Debug\NHibernate.xml
 C:\Humberto\Projetos\Jack\Jack.Repository\obj\Debug\Jack.Repository.csprojResolveAssemblyReference.cache
 C:\Humberto\Projetos\Jack\Jack.Repository\obj\Debug\Jack.Repository.dll
 C:\Humberto\Projetos\Jack\Jack.Repository\obj\Debug\Jack.Repository.pdb
+D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Repository\obj\Debug\Jack.Repository.csprojResolveAssemblyReference.cache
+D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Repository\obj\Debug\Jack.Repository.dll
+D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Repository\obj\Debug\Jack.Repository.pdb
 D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Repository\bin\Debug\Jack.Repository.dll.config
 D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Repository\bin\Debug\Jack.Repository.dll
 D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Repository\bin\Debug\Jack.Repository.pdb
@@ -100,6 +103,14 @@ D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Repository\bin\Debug\FluentNHi
 D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Repository\bin\Debug\FluentNHibernate.xml
 D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Repository\bin\Debug\Iesi.Collections.xml
 D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Repository\bin\Debug\NHibernate.xml
-D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Repository\obj\Debug\Jack.Repository.csprojResolveAssemblyReference.cache
-D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Repository\obj\Debug\Jack.Repository.dll
-D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Repository\obj\Debug\Jack.Repository.pdb
+C:\Humberto\Projetos\Jack\Jack.Repository\bin\Debug\System.Web.Mvc.dll
+C:\Humberto\Projetos\Jack\Jack.Repository\bin\Debug\System.Web.Razor.dll
+C:\Humberto\Projetos\Jack\Jack.Repository\bin\Debug\System.Web.WebPages.Razor.dll
+C:\Humberto\Projetos\Jack\Jack.Repository\bin\Debug\System.Web.WebPages.dll
+C:\Humberto\Projetos\Jack\Jack.Repository\bin\Debug\Microsoft.Web.Infrastructure.dll
+C:\Humberto\Projetos\Jack\Jack.Repository\bin\Debug\System.Web.WebPages.Deployment.dll
+C:\Humberto\Projetos\Jack\Jack.Repository\bin\Debug\System.Web.Mvc.xml
+C:\Humberto\Projetos\Jack\Jack.Repository\bin\Debug\System.Web.Razor.xml
+C:\Humberto\Projetos\Jack\Jack.Repository\bin\Debug\System.Web.WebPages.Razor.xml
+C:\Humberto\Projetos\Jack\Jack.Repository\bin\Debug\System.Web.WebPages.xml
+C:\Humberto\Projetos\Jack\Jack.Repository\bin\Debug\System.Web.WebPages.Deployment.xml

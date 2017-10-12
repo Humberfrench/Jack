@@ -47,6 +47,10 @@ namespace Jack.Application.ViewModel
         [DisplayFormat(NullDisplayText = "")]
         public bool Impressa { get; set; }
 
+        [Display(Name = "QrCode")]
+        [DisplayFormat(NullDisplayText = "")]
+        public byte[] QrCode { get; set; }
+
         [Display(Name = "Liberado")]
         [DisplayFormat(NullDisplayText = "")]
         public bool Liberado { get; set; }

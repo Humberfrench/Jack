@@ -9,7 +9,6 @@
         {
             return ConfigurationManager.AppSettings[key];
         }
-
         public static bool GetBoolean(string key)
         {
             var valor = ConfigurationManager.AppSettings[key];
@@ -23,7 +22,6 @@
             }
             return false;
         }
-
         public static int GetInt(string key)
         {
 
@@ -34,12 +32,10 @@
 
             return retorno;
 
-
         }
         public static string GetConnectionString(string key)
         {
             return ConfigurationManager.ConnectionStrings[key].ConnectionString;
         }
-
     }
 }

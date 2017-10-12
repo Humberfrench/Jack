@@ -73,6 +73,7 @@
     <Compile Include="Entity\TipoItem.cs" />
     <Compile Include="Entity\TipoParentesco.cs" />
     <Compile Include="Enum\enumGrauParentesco.cs" />
+    <Compile Include="Enum\enumNivel.cs" />
     <Compile Include="Enum\enumStatusFamilia.cs" />
     <Compile Include="Enum\enumStatusCrianca.cs" />
     <Compile Include="Helpers\Idade.cs" />

@@ -1,0 +1,42 @@
+﻿@using Jack.Application.ViewModel
+@model IEnumerable<ColaboradorCriancaViewModel>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Criancas</title>
+    @Styles.Render("~/Content/cssClear")
+</head>
+<body>
+    <div class="container">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Família</th>
+                    <th>Idade</th>
+                    <th>Calçado</th>
+                    <th>Roupa</th>
+                </tr>
+            </thead>
+            @foreach(var item in Model)
+            {
+                <thead>
+                <tr>
+                    <td>@item.Crianca.Nome</td>
+                    <td>@item.Crianca.Familia.Nome</td>
+                    <td>@item.Crianca.IdadeNominal</td>
+                    <td>@item.Crianca.Calcado</td>
+                    <td>@item.Crianca.Roupa</td>
+                </tr>
+                </thead>
+            }
+        </table>
+    </div>
+</body>
+</html>

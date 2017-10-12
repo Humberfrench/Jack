@@ -14,3 +14,14 @@ C:\Humberto\Projetos\Jack\Jack.Application.ViewModel\bin\Release\Newtonsoft.Json
 C:\Humberto\Projetos\Jack\Jack.Application.ViewModel\obj\Release\Jack.Application.ViewModel.csprojResolveAssemblyReference.cache
 C:\Humberto\Projetos\Jack\Jack.Application.ViewModel\obj\Release\Jack.Application.ViewModel.dll
 C:\Humberto\Projetos\Jack\Jack.Application.ViewModel\obj\Release\Jack.Application.ViewModel.pdb
+C:\Humberto\Projetos\Jack\Jack.Application.ViewModel\bin\Release\System.Web.Mvc.dll
+C:\Humberto\Projetos\Jack\Jack.Application.ViewModel\bin\Release\System.Web.Razor.dll
+C:\Humberto\Projetos\Jack\Jack.Application.ViewModel\bin\Release\System.Web.WebPages.Razor.dll
+C:\Humberto\Projetos\Jack\Jack.Application.ViewModel\bin\Release\System.Web.WebPages.dll
+C:\Humberto\Projetos\Jack\Jack.Application.ViewModel\bin\Release\Microsoft.Web.Infrastructure.dll
+C:\Humberto\Projetos\Jack\Jack.Application.ViewModel\bin\Release\System.Web.WebPages.Deployment.dll
+C:\Humberto\Projetos\Jack\Jack.Application.ViewModel\bin\Release\System.Web.Mvc.xml
+C:\Humberto\Projetos\Jack\Jack.Application.ViewModel\bin\Release\System.Web.Razor.xml
+C:\Humberto\Projetos\Jack\Jack.Application.ViewModel\bin\Release\System.Web.WebPages.Razor.xml
+C:\Humberto\Projetos\Jack\Jack.Application.ViewModel\bin\Release\System.Web.WebPages.xml
+C:\Humberto\Projetos\Jack\Jack.Application.ViewModel\bin\Release\System.Web.WebPages.Deployment.xml

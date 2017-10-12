@@ -5,6 +5,7 @@ namespace Jack.Domain.Interfaces.Repository
 {
     public interface IFamiliaRepository : IRepositoryBase<Familia>
     {
-        IEnumerable<Familia> ObterFamiliaPresencaJustificada();     
+        IEnumerable<Familia> ObterFamiliaPresencaJustificada();
+        Nivel ObterNivel(int id);
     }
 }

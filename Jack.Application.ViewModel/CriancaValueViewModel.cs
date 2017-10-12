@@ -11,6 +11,7 @@ namespace Jack.Application.ViewModel
         public bool CadastroNovo { get; set; }
         public bool NescessidadeEspecial { get; set; } 
         public bool CriancaGrande { get; set; }
+        public bool MoralCrista { get; set; }
         public virtual int Calcado { get; set; }
         public virtual string Roupa { get; set; }
     }

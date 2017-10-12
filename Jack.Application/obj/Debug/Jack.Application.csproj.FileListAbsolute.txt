@@ -104,6 +104,8 @@ C:\Humberto\Projetos\Jack\Jack.Application\bin\Debug\System.ComponentModel.DataA
 C:\Humberto\Projetos\Jack\Jack.Application\obj\Debug\Jack.Application.csprojResolveAssemblyReference.cache
 C:\Humberto\Projetos\Jack\Jack.Application\obj\Debug\Jack.Application.dll
 C:\Humberto\Projetos\Jack\Jack.Application\obj\Debug\Jack.Application.pdb
+C:\Humberto\Projetos\Jack\Jack.Application\bin\Debug\Newtonsoft.Json.dll
+C:\Humberto\Projetos\Jack\Jack.Application\bin\Debug\Newtonsoft.Json.xml
 D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Application\bin\Debug\Jack.Application.dll.config
 D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Application\bin\Debug\Jack.Application.dll
 D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Application\bin\Debug\Jack.Application.pdb
@@ -123,3 +125,14 @@ D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Application\bin\Debug\Newtonso
 D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Application\obj\Debug\Jack.Application.csprojResolveAssemblyReference.cache
 D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Application\obj\Debug\Jack.Application.dll
 D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Application\obj\Debug\Jack.Application.pdb
+C:\Humberto\Projetos\Jack\Jack.Application\bin\Debug\System.Web.Mvc.dll
+C:\Humberto\Projetos\Jack\Jack.Application\bin\Debug\System.Web.Razor.dll
+C:\Humberto\Projetos\Jack\Jack.Application\bin\Debug\System.Web.WebPages.Razor.dll
+C:\Humberto\Projetos\Jack\Jack.Application\bin\Debug\System.Web.WebPages.dll
+C:\Humberto\Projetos\Jack\Jack.Application\bin\Debug\Microsoft.Web.Infrastructure.dll
+C:\Humberto\Projetos\Jack\Jack.Application\bin\Debug\System.Web.WebPages.Deployment.dll
+C:\Humberto\Projetos\Jack\Jack.Application\bin\Debug\System.Web.Mvc.xml
+C:\Humberto\Projetos\Jack\Jack.Application\bin\Debug\System.Web.Razor.xml
+C:\Humberto\Projetos\Jack\Jack.Application\bin\Debug\System.Web.WebPages.Razor.xml
+C:\Humberto\Projetos\Jack\Jack.Application\bin\Debug\System.Web.WebPages.xml
+C:\Humberto\Projetos\Jack\Jack.Application\bin\Debug\System.Web.WebPages.Deployment.xml

@@ -46,7 +46,7 @@ $(document).ready(function ()
     $("#PesquisarFiltro").click(function ()
     {
         var nome = $("#PesquisarNome").val();
-        Familia.Pesquisar(nome);
+        Familia.PesquisarFiltro(nome);
     });
 
     $("#PesquisarStatus").click(function () {
@@ -122,7 +122,7 @@ Familia.LiberarBloqueio = function (familia)
     };
 
     opcoes.dadoEnvio = new Object;
-    opcoes.dadoEnvio.id = familia;
+    opcoes.dadoEnvio.id = codigo;
     opcoes.type = 'POST';
     opcoes.async = false;
 
@@ -253,7 +253,7 @@ Familia.Pesquisar = function (nome)
     }
 }
 
-Familia.Pesquisar2 = function (nome)
+Familia.PesquisarFiltro = function (nome)
 {
 
     if (nome === '')

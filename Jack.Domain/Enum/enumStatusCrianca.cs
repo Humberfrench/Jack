@@ -17,6 +17,8 @@
         DiferencaGrandeRoupas = 13,
         CadastroNovo = 14,
         CriancaExcedente = 15,
-        CriancaExcedenteRemovidaPelaFamilia = 16
+        CriancaExcedenteRemovidaPelaFamilia = 16,
+        CriancaPerdida = 17,
+        CriancaEmInvestigacao = 18
     }
 }

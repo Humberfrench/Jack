@@ -10,13 +10,13 @@ namespace Jack.Extensions
 {
     public static class Basic
     {
-        public static string ToJSON<T>(this List<T> obj)
+        public static string ToJson<T>(this List<T> obj)
         {
             JavaScriptSerializer serializer = new JavaScriptSerializer();
             return serializer.Serialize(obj);
         }
 
-        public static string ToJSON(this object obj)
+        public static string ToJson(this object obj)
         {
             JavaScriptSerializer serializer = new JavaScriptSerializer();
             return serializer.Serialize(obj);
@@ -437,14 +437,18 @@ namespace Jack.Extensions
         public static string GetFirstName(this string name)
         {
 
-            string[] names = name.Split(' ');
-            return string.Format("{0}", names.First());
+            var names = name.Split(' ');
+            return $"{names.First()}";
 
         }
 
         public static bool IsNullOrEmptyOrWhiteSpace(this string value)
         {
             return string.IsNullOrEmpty(value) || string.IsNullOrWhiteSpace(value);
+        }
+        public static bool Preenchido(this string value)
+        {
+            return !value.IsNullOrEmptyOrWhiteSpace();
         }
 
         public static bool IsNull(this object value)

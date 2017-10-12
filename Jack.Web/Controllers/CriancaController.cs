@@ -114,23 +114,20 @@ namespace Jack.Web.Controllers
 
             var listaDados = criancaAppService.ObterCriancas(familia).OrderBy(c => c.Nome).ToList();
             var criancaDado = listaDados.FirstOrDefault();
-            if (criancaDado != null)
-            {
-                var familiaDado = criancaDado.Familia;
+            var familiaDado = criancaDado?.Familia;
 
-                if (familiaDado != null)
-                {
-                    ViewBag.Nivel = familiaDado.Nivel.Nome;
-                    ViewBag.Presencas = familiaDado.QuantidadePresencas;
-                    ViewBag.Criancas = familiaDado.QuantidadeCriancas;
-                    ViewBag.PermiteExcedente = familiaDado.PermiteExcedenteCriancas ? "checked=checked" : "";
-                    ViewBag.Consistente = familiaDado.PermiteExcedenteCriancas ? "checked=checked" : "";
-                    ViewBag.Sacolinha = familiaDado.Sacolinha ? "checked=checked" : "";
-                    ViewBag.PresencaJustificada = familiaDado.PresencaJustificada ? "checked=checked" : "";
-                    var percCriancas = ((double)familiaDado.QuantidadeCriancas / (double)parametros.NumeroMaximoCricancas) * 100;
-                    ViewBag.PercentualCriancas = string.Format("{0} %", percCriancas);
-                    ViewBag.Acoes = "";
-                }
+            if (familiaDado != null)
+            {
+                ViewBag.Nivel = familiaDado.Nivel.Nome;
+                ViewBag.Presencas = familiaDado.QuantidadePresencas;
+                ViewBag.Criancas = familiaDado.QuantidadeCriancas;
+                ViewBag.PermiteExcedente = familiaDado.PermiteExcedenteCriancas ? "checked=checked" : "";
+                ViewBag.Consistente = familiaDado.PermiteExcedenteCriancas ? "checked=checked" : "";
+                ViewBag.Sacolinha = familiaDado.Sacolinha ? "checked=checked" : "";
+                ViewBag.PresencaJustificada = familiaDado.PresencaJustificada ? "checked=checked" : "";
+                var percCriancas = ((double)familiaDado.QuantidadeCriancas / (double)parametros.NumeroMaximoCricancas) * 100;
+                ViewBag.PercentualCriancas = $"{percCriancas} %";
+                ViewBag.Acoes = "";
             }
 
 

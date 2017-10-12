@@ -115,8 +115,6 @@
     <Compile Include="TipoItemRepository.cs" />
     <Compile Include="UnityOfWork\IRepository.cs" />
     <Compile Include="UnityOfWork\IUnityOfWork.cs" />
-    <Compile Include="UnityOfWork\NHibernateHelper.cs" />
-    <Compile Include="UnityOfWork\NHProvider.cs" />
     <Compile Include="UnityOfWork\Repository.cs" />
     <Compile Include="UnityOfWork\UnityOfWork.cs" />
   </ItemGroup>

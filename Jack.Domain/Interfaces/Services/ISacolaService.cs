@@ -10,6 +10,10 @@ namespace Jack.Domain.Interfaces.Services
         byte[] GerarQrCode(int width, int height, Sacola sacola);
         byte[] GerarQrCode(int width, int height, int crianca);
         byte[] GerarQrCodeSacola(int width, int height, int sacola);
+
+        void AtualizarQrCodeSacolas();
+        ValidationResult AtualizarQrCodeSacolas(int id);
+
         ValidationResult Liberar(int id);
         IEnumerable<Familia> ObterFamiliasSacola();
         IEnumerable<Sacola> ObterSacolasLivres(int ano, bool? liberado);

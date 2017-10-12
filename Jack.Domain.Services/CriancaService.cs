@@ -95,7 +95,6 @@ namespace Jack.Domain.Services
             }
             else
             {
-                crianca.DataCriacao = DateTime.Now;
                 crianca.Familia = repFamilia.ObterPorId(item.Familia.Codigo);
                 crianca.Kit = repKit.ObterPorId(item.Kit.Codigo);
                 crianca.TipoParentesco = repTipoParentesco.ObterPorId(item.TipoParentesco.Codigo);
@@ -110,12 +109,12 @@ namespace Jack.Domain.Services
             crianca.DataNascimento = item.DataNascimento;
             crianca.CalculaIdade();
             crianca.DocumentoOk = item.DocumentoOk;
-            //crianca.DataAtualizacaoVestuario = null;
-            ////alterando o campo de atualização de vestimenta
-            //if ((crianca.Roupa != item.Roupa) || (crianca.Calcado != item.Calcado))
-            //{
+
+            //alterando o campo de atualização de vestimenta
+            if((crianca.Roupa != item.Roupa) || (crianca.Calcado != item.Calcado))
+            {
                 crianca.DataAtualizacaoVestuario = DateTime.Now;
-            //}
+            }
 
             crianca.Roupa = item.Roupa;
             crianca.Calcado = item.Calcado;
@@ -311,8 +310,10 @@ namespace Jack.Domain.Services
                     NescessidadeEspecial = crianca.NecessidadeEspecial,
                     CadastroNovo = false,
                     Calcado = crianca.Calcado,
-                    Roupa = crianca.Roupa
+                    Roupa = crianca.Roupa ,
+                    MoralCrista = crianca.MoralCrista
                 });
+            var moralCrista = crianca.MoralCrista;
 
             crianca.Idade = valCrianca.Idade;
             crianca.IdadeNominal = valCrianca.IdadeNominal;
@@ -382,7 +383,8 @@ namespace Jack.Domain.Services
                 NecessidadeEspecial = criancaValue.NescessidadeEspecial,
                 CriancaGrande = criancaValue.CriancaGrande,
                 Calcado = criancaValue.Calcado,
-                Roupa = criancaValue.Roupa
+                Roupa = criancaValue.Roupa ,
+                MoralCrista = criancaValue.MoralCrista
             };
 
             crianca.CalculaIdade();

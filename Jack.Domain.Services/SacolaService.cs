@@ -328,6 +328,30 @@ namespace Jack.Domain.Services
             }
 
         }
+        public void AtualizarQrCodeSacolas()
+        {
+            var sacolas = ObterTodos();
+            foreach (var sacola in sacolas)
+            {
+                sacola.QrCode = GerarQrCode(128, 128, sacola);
+                repSacola.Atualizar(sacola);
+
+            }
+        }
+        public ValidationResult AtualizarQrCodeSacolas(int id)
+        {
+            var sacola = repSacola.ObterPorId(id);
+
+            if (sacola == null)
+            {
+                validationResult.Add("Sacola não encontrada");
+                return validationResult;
+            }
+            sacola.QrCode = GerarQrCode(128, 128, sacola);
+            repSacola.Atualizar(sacola);
+
+            return validationResult;
+        }
 
         public ValidationResult Liberar(int id)
         {
@@ -447,10 +471,22 @@ namespace Jack.Domain.Services
 
             #region 6 - formando o registro da sacola e inserindo.
             var sacolas = new List<Sacola>();
+            familias = familias.OrderBy(f => f.Nivel.Codigo).ThenBy(f => f.Nome);
             foreach (var familia in familias)
             {
                 sacolaFamilia++;
                 var representante = repRepresentante.ObterRepresentante(familia.Codigo) ?? familia;
+
+                // aqui: se a familia tem representante, pegar o nivel e gravar, se não pegar nivel da familia
+
+                //ver caso iracy, sem criança - status 98....
+                var nivel = familia.Nivel;
+                if (representante.Codigo != familia.Codigo)
+                {
+                    nivel = repFamilia.ObterNivel(representante.Codigo);
+                }
+
+                //ordernar isso.....
                 foreach (var crianca in familia.Criancas)
                 {
                     sacolaGeral++;
@@ -460,11 +496,11 @@ namespace Jack.Domain.Services
                         Codigo = sacolaGeral,
                         SacolaFamilia = sacolaFamilia,
                         Crianca = crianca,
-                        Nivel = familia.Nivel,
+                        Nivel = nivel,
                         Familia = familia,
                         FamiliaRepresentante = representante,
                         Impressa = false,
-                        Liberado = familia.Nivel.Codigo == 1 ? true : false,
+                        Liberado = nivel.Codigo == 1 ? true : false,
                         Kit = crianca.Kit,
                         Sexo = crianca.Sexo
 
@@ -665,9 +701,9 @@ namespace Jack.Domain.Services
                                     sac => sac.Codigo.ToString() == num)));
 
             //deixando só os colaboradores do ano
-            sacola.ForEach(s => s.Crianca.Colaboradores = s.Crianca.Colaboradores.Where(c => c.Ano == ano).ToList());
+            sacolas.ForEach(s => s.Crianca.Colaboradores = s.Crianca.Colaboradores.Where(c => c.Ano == ano).ToList());
 
-            return sacola;
+            return sacolas;
         }
         public IList<Familia> ObterFamilias(int nivel)
         {

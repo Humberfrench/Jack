@@ -1,0 +1,141 @@
+﻿@using Jack.Application.ViewModel;
+@using Jack.Extensions
+@model IEnumerable<SacolaViewModel>
+
+
+@{
+    ViewBag.Title = "Modelo";
+    Layout = "~/Views/Shared/_etiqueta.cshtml";
+    var registro = 1;
+    var registros = Model.Count();
+}
+@foreach (var item in Model)
+{
+    <input type="hidden" id="Crianca" name="Crianca" value="@item.Crianca.Codigo" />
+    <br />
+    <div class="panel" style="width: 1020px;">
+        <table style="width: 1020px;">
+            <colgroup>
+                <col style="width:85px;"/>
+                <col style="width:85px;"/>
+                <col style="width:85px;"/>
+                <col style="width:85px;"/>
+                <col style="width:85px;"/>
+                <col style="width:85px;"/>
+                <col style="width:85px;"/>
+                <col style="width:85px;"/>
+                <col style="width:85px;"/>
+                <col style="width:85px;"/>
+                <col style="width:85px;"/>
+                <col style="width:85px;"/>
+            </colgroup>
+            <tr>
+                <td colspan="8">@Html.Partial("_SacolaHeader")</td>
+                <td colspan="2">
+                    <div class="" style="width: 150px;">
+                        <h6 style="width: 140px; text-align: center"><strong>Número da Sacola</strong></h6>
+                        <div style="width: 140px; text-align: center" class="NumFamilia">@item.SacolaFamilia</div>
+                    </div>
+                </td>
+                <td colspan="2">
+                <img src="data:image;base64,@Convert.ToBase64String(item.QrCode)" width="128" height="128"/></td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td colspan="10">
+                    @Html.Partial("_SacolaSubHeader")
+                </td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td colspan="5">
+                    <h5><strong>Nome da Criança</strong></h5>
+                    <h4><strong>@item.Crianca.Nome</strong></h4>
+                </td>
+                <td colspan="1">
+                    <h5><strong>Sexo</strong></h5>
+                    <h4>@item.Crianca.Sexo.ToSexo()</h4>
+                </td>
+                <td colspan="2">
+                    <h5><strong>Idade</strong></h5>
+                    <h4>@item.Crianca.IdadeNominal</h4>
+                </td>
+                <td colspan="2">
+                    <h5>
+                        @if (@item.Crianca.CriancaGrande)
+                        {
+                            <strong>É uma Criança Grande/Gordinha</strong>
+                        }
+                    </h5>
+                </td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td colspan="4">
+                    <h5><strong>Nome da Mãe/Família</strong></h5>
+                    <h5>@item.Familia.Nome</h5>
+                </td>
+                <td colspan="4">
+                    <h5><strong>Colaborador</strong></h5>
+                    <h5>
+                        @{
+                            var colaborador = "Não Associado";
+                            if (item.Crianca.Colaboradores.FirstOrDefault() != null)
+                            {
+                                colaborador = item.Crianca.Colaboradores.FirstOrDefault().Colaborador.Nome;
+                            }
+                        }
+                        @colaborador
+                    </h5>
+                </td>
+                <td colspan="1">
+                    <h5><strong>Calçado</strong></h5>
+                    <h3>@item.Crianca.Calcado</h3>
+                </td>
+                <td colspan="1">
+                    <h5><strong>Roupa</strong></h5>
+                    <h3>@item.Crianca.Roupa</h3>
+                </td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td colspan="10">
+                    @Html.Partial("Kit", @item.Kit)
+                </td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td colspan="10">
+                    @Html.Partial("_SacolaFooter")
+                </td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td style="font-size:8px;">Controle Interno:</td>
+                <td style="font-size:8px;">Sacola - @item.Codigo</td>
+                <td style="font-size:8px;">Familia - @item.Familia.Codigo</td>
+                <td style="font-size:8px;">Criança - @item.Crianca.Codigo</td>
+                <td style="font-size:8px;">Kit - @item.Kit.Codigo</td>
+                <td colspan="6">&nbsp;</td>
+            </tr>
+        </table>
+    </div>
+    <br />
+    if ((registro < registros ) && (registro % 2) == 0)
+    {
+        <div class="page-break">&nbsp;</div>
+    }
+    registro++;
+}
+@section scripts
+{
+    @Scripts.Render("~/script/Sacolas/Print")
+}
+
+
+

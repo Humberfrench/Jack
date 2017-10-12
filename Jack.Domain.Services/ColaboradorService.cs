@@ -11,17 +11,20 @@ namespace Jack.Domain.Services
     public class ColaboradorService : ServiceBase<Colaborador>, IColaboradorService
     {
 
-        private readonly IColaboradorRepository repository;
+        private readonly IColaboradorRepository repColaborador;
+        private readonly IColaboradorCriancaRepository repColaboradorCrianca;
         private readonly ISacolaRepository repSacola;
         private readonly ValidationResult validationResult = new ValidationResult();
 
-        public ColaboradorService(IColaboradorRepository repository,
+        public ColaboradorService(IColaboradorRepository repColaborador,
+                                  IColaboradorCriancaRepository repColaboradorCrianca,
                                   ISacolaRepository repSacola)
-            : base(repository)
+            : base(repColaborador)
         {
-            this.repository = repository;
+            this.repColaborador = repColaborador;
+            this.repColaboradorCrianca = repColaboradorCrianca;
             this.repSacola = repSacola;
-       }
+        }
         public IEnumerable<Colaborador> Filtrar(string nome)
         {
             var registros = Pesquisar(p => p.Nome.ToLower().Contains(nome.ToLower())).ToList();
@@ -52,15 +55,15 @@ namespace Jack.Domain.Services
                 return validationResult;
             }
 
-            repository.Excluir(item);
+            repColaborador.Excluir(item);
 
             return validationResult;
 
         }
 
-        public IEnumerable<QuantidadeSacolasColaborador>ObterQuantidadeSacolasColaborador(int ano, int nivelMaximo)
+        public IEnumerable<QuantidadeSacolasColaborador> ObterQuantidadeSacolasColaborador(int ano, int nivelMaximo)
         {
-            return repository.ObterQuantidadeSacolasColaborador(ano, nivelMaximo);   
+            return repColaborador.ObterQuantidadeSacolasColaborador(ano, nivelMaximo);
         }
 
         public IEnumerable<ColaboradorCrianca> ObterSacolasColaborador(int colaborador)
@@ -72,6 +75,12 @@ namespace Jack.Domain.Services
                 sac => sac.Crianca.Sacola = repSacola.ObterSacolaPorCrianca(sac.Crianca.Codigo));
 
             return colaboradores.Criancas;
+        }
+        public IEnumerable<ColaboradorCrianca> ObterSacolasColaborador(int colaborador, int ano)
+        {
+            var colaboradores = repColaboradorCrianca.ObterTodos().Where(cc => cc.Ano == ano && cc.Colaborador.Codigo == colaborador);
+
+            return colaboradores;
         }
 
     }

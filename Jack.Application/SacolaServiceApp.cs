@@ -52,6 +52,11 @@ namespace Jack.Application
             return service.AddCrianca(crianca);
         }
 
+        public ValidationResult AtualizarQrCodeSacolas(int id)
+        {
+            return service.AtualizarQrCodeSacolas(id);
+        }
+
         public ValidationResult Liberar(int id)
         {
             return service.Liberar(id);
@@ -96,11 +101,16 @@ namespace Jack.Application
             return service.GerarQrCodeSacola(width, height, sacola);
         }
 
+        public void AtualizarQrCodeSacolas()
+        {
+            service.AtualizarQrCodeSacolas();
+        }
 
-        public IEnumerable<SacolaValueViewModel> ObterSacolaParaImpressao(string sacolasNumero, int ano)
+
+        public IEnumerable<SacolaViewModel> ObterSacolaParaImpressao(string sacolasNumero, int ano)
         {
             var sacola = service.ObterSacolaParaImpressao(sacolasNumero, ano);
-            return Mapper.Map<IEnumerable<SacolaValueViewModel>>(sacola);
+            return Mapper.Map<IEnumerable<SacolaViewModel>>(sacola);
         }
 
 

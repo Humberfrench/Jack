@@ -101,6 +101,7 @@ namespace Jack.Domain.Services
                 familia.PermiteExcedenteRepresentantes = item.PermiteExcedenteRepresentantes;
                 familia.PresencaJustificada = item.PresencaJustificada;
                 familia.Sacolinha = item.Sacolinha;
+                familia.Nivel = item.Nivel;
 
                 if (!familia.IsValid())
                 {
@@ -197,8 +198,8 @@ namespace Jack.Domain.Services
                 return familia;
             }
 
-            // sem crianças
-            if (!familia.TemCriancas())
+            // sem crianças..
+            if ((!familia.TemCriancas()) && (familia.Representantes.Count == 0))
             {
                 AtualizarFamiliaNivel99(ref familia, EnumStatusFamilia.FamiliaSemCrianca);
                 if (gravar)
@@ -211,7 +212,7 @@ namespace Jack.Domain.Services
             }
 
             // com crianças, mas todas maiores ou inelegíveis
-            if (familia.TemCriancasMaiores())
+            if ((familia.TemCriancasMaiores()) && (familia.Representantes.Count == 0))
             {
                 AtualizarFamiliaNivel99(ref familia, EnumStatusFamilia.FamiliaSemCrianca);
                 if (gravar)
@@ -233,6 +234,18 @@ namespace Jack.Domain.Services
                 AddLog(familia.Codigo, EnumStatusFamilia.FamiliaSemDocumentacao.Int(), nameof(AtualizarFamilia), "Familia Sem Documentação");
                 return familia;
             }
+            if (familia.PresencaJustificada)
+            {
+                familia.Nivel = repNivel.ObterPorId(1);
+                familia.Status = ObterStatus(EnumStatusFamilia.DadosOk.Int()); // ok
+                AtualizarPresencas(familia);
+                if (gravar)
+                {
+                    Atualizar(familia);
+                }
+                return familia;
+            }
+
             //sem presença
             if (familia.FamiliaSemPresenca())
             {
@@ -249,17 +262,6 @@ namespace Jack.Domain.Services
             //Criancas
             AtualizaStatusPorCrianca(ref familia);
 
-            if (familia.PresencaJustificada)
-            {
-                familia.Nivel = repNivel.ObterPorId(1);
-                familia.Status = ObterStatus(EnumStatusFamilia.DadosOk.Int()); // ok
-                AtualizarPresencas(familia);
-                if (gravar)
-                {
-                    Atualizar(familia);
-                }
-                return familia;
-            }
 
             if (gravar)
             {
@@ -518,7 +520,16 @@ namespace Jack.Domain.Services
 
         private void AtualizarFamiliaNivel99(ref Familia familia, EnumStatusFamilia status)
         {
-            familia.Nivel = repNivel.ObterPorId(99);
+            //se familia tem presenças: Status 98, se não 99
+
+            if (familia.Presencas.Any(p => p.Reuniao.AnoCorrente == DateTime.Now.Year))
+            {
+                familia.Nivel = repNivel.ObterPorId(EnumNivel.Nivel98.Int());
+            }
+            else
+            {
+                familia.Nivel = repNivel.ObterPorId(EnumNivel.Nivel99.Int());
+            }
             familia.Status = ObterStatus(status.Int());
             familia.Consistente = false;
             familia.Sacolinha = false;

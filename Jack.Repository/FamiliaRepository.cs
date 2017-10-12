@@ -6,38 +6,13 @@ using System.Collections.Generic;
 
 namespace Jack.Repository
 {
-    public class FamiliaRepository : Repository<Familia>, IFamiliaRepository
+    public class FamiliaRepository : BaseRepository<Familia>, IFamiliaRepository
     {
         private readonly IUnityOfWork UnitWork;
         public FamiliaRepository(IUnityOfWork unitWork)
             : base(unitWork)
         {
             UnitWork = unitWork;
-        }
-
-        public void Adicionar(Familia entity)
-        {
-            UnitWork.Salvar(entity);
-        }
-
-        public void Atualizar(Familia entity)
-        {
-            UnitWork.Salvar(entity);
-        }
-
-        public void Excluir(Familia entity)
-        {
-            UnitWork.Excluir(entity);
-        }
-
-        public Familia ObterPorId(int id)
-        {
-            return base.GetById(id);
-        }
-
-        public IEnumerable<Familia> ObterTodos()
-        {
-            return base.GetAll();
         }
 
         public IEnumerable<Familia> ObterFamiliaPresencaJustificada()
@@ -56,5 +31,9 @@ namespace Jack.Repository
             return result;
         }
 
+        public Nivel ObterNivel(int id)
+        {
+            return base.GetById(id).Nivel;
+        }
     }
 }

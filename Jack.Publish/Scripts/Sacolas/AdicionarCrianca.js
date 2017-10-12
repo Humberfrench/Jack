@@ -55,7 +55,6 @@ AdicionarCrianca.AdicionarCriancaNaSacola = function (id)
         else
         {
             Mensagens.Sucesso(dataObj.Mensagem);
-            AdicionarCrianca.LimparForm();
             setTimeout(function ()
             {
                 location.reload();

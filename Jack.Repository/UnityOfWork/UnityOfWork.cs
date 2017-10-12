@@ -20,7 +20,7 @@ namespace Jack.Repository.UnityOfWork
         {
             lock (Factorylock)
             {
-                Configuration cfg = new Configuration();
+                var cfg = new Configuration();
                 cfg.Configure();
 
                 SessionFactory = Fluently.Configure(cfg)
@@ -39,7 +39,6 @@ namespace Jack.Repository.UnityOfWork
         }
         public void Salvar(IEntidade entidade)
         {
-            //Session.Clear();
             BeginTransaction();
             Session.SaveOrUpdate(entidade);
             Commit();
@@ -75,23 +74,6 @@ namespace Jack.Repository.UnityOfWork
             }
         }
 
-        public static void CreationDb()
-        {
-            //FluentConfiguration config = Fluently.Configure()
-            //    .Database(MsSqlConfiguration.MsSql2008.ConnectionString("Data Source=.\\Web;Initial Catalog=dbCECAM16;Integrated Security=False;User ID=sa;Password=123456"))
-            //    .Mappings(m => m.FluentMappings.Add<Mappings.AlunoMap>())
-            //    .Mappings(m => m.FluentMappings.Add<Mappings.AtividadesPreferidaMap>())
-            //    .Mappings(m => m.FluentMappings.Add<Mappings.CaracteristicaMap>())
-            //    .Mappings(m => m.FluentMappings.Add<Mappings.EvangelizadorMap>())
-            //    .Mappings(m => m.FluentMappings.Add<Mappings.ProblemasSaudeMap>())
-            //    .Mappings(m => m.FluentMappings.Add<Mappings.ResponsavelMap>())
-            //    .Mappings(m => m.FluentMappings.Add<Mappings.StatusMap>())
-            //    .Mappings(m => m.FluentMappings.Add<Mappings.TurmaMap>());
-
-            //config.ExposeConfiguration(
-            //          c => new SchemaExport(c).Execute(true, true, false))
-            //     .BuildConfiguration();
-        }
     }
 }
 

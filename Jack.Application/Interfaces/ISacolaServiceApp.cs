@@ -12,9 +12,11 @@ namespace Jack.Application.Interfaces
         byte[] GerarQrCode(int width, int height, SacolaViewModel sacola);
         byte[] GerarQrCode(int width, int height, int crianca);
         byte[] GerarQrCodeSacola(int width, int height, int sacola);
+        void AtualizarQrCodeSacolas();
+        ValidationResult AtualizarQrCodeSacolas(int id);
         ValidationResult Liberar(int id);
         IEnumerable<FamiliaViewModel> ObterFamiliasSacola();
-        IEnumerable<SacolaValueViewModel> ObterSacolaParaImpressao(string sacolasNumero, int ano);
+        IEnumerable<SacolaViewModel> ObterSacolaParaImpressao(string sacolasNumero, int ano);
         IEnumerable<SacolaViewModel> ObterSacolasLivres(int ano, bool? liberado);
         IEnumerable<SacolaViewModel> ObterSacolasLivres(int nivel = 0, int liberado = 2);
         IEnumerable<SacolaViewModel> ObterSacolasLivres(bool? liberado, int ano, int nivel = 0, int familia = 0, string sexo = "", int kit = 0);

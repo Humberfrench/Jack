@@ -12,6 +12,7 @@ namespace Jack.Domain.Interfaces.Services
         ValidationResult Excluir(int id);
         IEnumerable<QuantidadeSacolasColaborador> ObterQuantidadeSacolasColaborador(int ano, int nivelMaximo);
         IEnumerable<ColaboradorCrianca> ObterSacolasColaborador(int colaborador);
-        
+        IEnumerable<ColaboradorCrianca> ObterSacolasColaborador(int colaborador, int ano);
+
     }
 }

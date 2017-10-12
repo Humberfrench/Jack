@@ -46,7 +46,7 @@ $(document).ready(function ()
     $("#PesquisarFiltro").click(function ()
     {
         var nome = $("#PesquisarNome").val();
-        Familia.Pesquisar(nome);
+        Familia.PesquisarFiltro(nome);
     });
 
     $("#PesquisarStatus").click(function () {
@@ -253,7 +253,7 @@ Familia.Pesquisar = function (nome)
     }
 }
 
-Familia.Pesquisar2 = function (nome)
+Familia.PesquisarFiltro = function (nome)
 {
 
     if (nome === '')
