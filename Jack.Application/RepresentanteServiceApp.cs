@@ -1,6 +1,4 @@
-﻿using AutoMapper;
-using Jack.Application.AutoMapper;
-using Jack.Application.Interfaces;
+﻿using Jack.Application.Interfaces;
 using Jack.Application.ViewModel;
 using Jack.Domain.Entity;
 using Jack.Domain.Interfaces.Services;
@@ -14,12 +12,10 @@ namespace Jack.Application
     {
 
         private readonly IRepresentanteService _service;
-        private readonly IMapper Mapper;
 
         public RepresentanteServiceApp(IRepresentanteService representanteService)
         {
             _service = representanteService;
-            Mapper = AutoMapperConfig.Config.CreateMapper();
         }
 
         public ValidationResult Gravar(RepresentanteViewModel representante)

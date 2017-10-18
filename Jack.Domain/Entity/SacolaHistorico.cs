@@ -11,7 +11,6 @@ namespace Jack.Domain.Entity
             sacolaFamilia = 0;
             sacola = 0;
             sexo = string.Empty;
-            impressa = false;
             liberado = false;
         }
 
@@ -25,7 +24,6 @@ namespace Jack.Domain.Entity
         private string sexo;
         private Kit kit;
         private Nivel nivel;
-        private bool impressa;
         private bool liberado;
 
         public virtual int Codigo
@@ -145,7 +143,6 @@ namespace Jack.Domain.Entity
                 nivel = value;
             }
         }
-
 
         public virtual bool Liberado
         {

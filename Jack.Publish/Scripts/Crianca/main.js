@@ -34,6 +34,8 @@ $(document).ready(function ()
     Crianca.URLObterParametro = $("#URLObterParametro").val();
     Crianca.MontarTabela();
 
+
+    $("#Familia").select2();
     $("#Familia").val(null);
     if ($("#CodigoFamilia").val() !== 0)
     {

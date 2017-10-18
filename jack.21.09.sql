@@ -89,9 +89,12 @@ JOIN Familia f
 ON s.FamiliaRepresentante = f.Codigo
 JOIN Crianca c
 ON s.Crianca = c.Codigo
-AND c.Codigo NOT IN (SELECT Crianca From ColaboradorCrianca Where  Ano = 2017)
+---AND c.Codigo NOT IN (SELECT Crianca From ColaboradorCrianca Where  Ano = 2017)
 ORDER BY s.Nivel, c.MedidaIdade desc, c.Idade , c.Sexo, c.Nome
 
+select * from Sacolas
+
+UPDATE Sacolas set Codigo = id
 
 SELECT * FROM ColaboradorCrianca 
 WHERE Colaborador = 5 and Crianca IN (351) and Ano = 2017
@@ -107,6 +110,15 @@ Group By f.Nome, s.Nivel
 ORDER BY s.Nivel, f.Nome 
 
 
+SELECT s.Codigo, s.SacolaFamilia, F.Nome, c.Nome, c.Sexo, c.IdadeNominal, c.Calcado, c.Roupa, s.Nivel, s.Liberado
+FROM Sacolas s
+JOIN Familia f
+ON s.FamiliaRepresentante = f.Codigo
+JOIN Crianca c
+ON s.Crianca = c.Codigo
+AND c.Codigo IN (SELECT Crianca From ColaboradorCrianca Where  Ano = 2017 and Colaborador = 32)
+ORDER BY s.Nivel, c.MedidaIdade desc, c.Idade , c.Sexo, c.Nome
+
 --conferir alunos como TALITA!!!!!
 -- filha RN da luciana Caetano
 -- duda, isabella
@@ -120,4 +132,13 @@ SELECT Crianca FROM ColaboradorCrianca WHERE Ano = 2017 and Colaborador = 33)
 
 
 
-2,4,6,7,9,10,11,13,14,16,17,21,22,27,28,29,30,31,34,41,63,64,80,81,92,101,105,116,119,120
+SELECT s.Codigo, s.SacolaFamilia, F.Nome, c.Nome, c.Sexo, c.IdadeNominal, c.Calcado, c.Roupa, s.Nivel, s.Liberado
+FROM Sacolas s
+JOIN Familia f
+ON s.FamiliaRepresentante = f.Codigo
+JOIN Crianca c
+ON s.Crianca = c.Codigo
+ORDER BY s.Nivel, f.Nome, c.MedidaIdade desc, c.Idade , c.Sexo, c.Nome
+
+
+select * from familia order by nome

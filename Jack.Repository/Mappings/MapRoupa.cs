@@ -9,7 +9,7 @@ namespace Jack.Repository.Mappings
         public MapRoupa()
         {
             //Table
-            Table("Roupa");
+            Table(nameof(Roupa));
             LazyLoad();
 
             //Fields

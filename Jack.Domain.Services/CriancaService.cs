@@ -111,7 +111,7 @@ namespace Jack.Domain.Services
             crianca.DocumentoOk = item.DocumentoOk;
 
             //alterando o campo de atualização de vestimenta
-            if((crianca.Roupa != item.Roupa) || (crianca.Calcado != item.Calcado))
+            if ((crianca.Roupa != item.Roupa) || (crianca.Calcado != item.Calcado))
             {
                 crianca.DataAtualizacaoVestuario = DateTime.Now;
             }
@@ -256,6 +256,8 @@ namespace Jack.Domain.Services
 
         public ValidationResult AtualizaCriancas()
         {
+            //TODO: Crianças agora terão melhor consistencia para Roupas!
+            // Tabela de roupas tem DE ATE nos tamanhos normais e grande.
             return AtualizaCriancas(true);
         }
 
@@ -310,7 +312,7 @@ namespace Jack.Domain.Services
                     NescessidadeEspecial = crianca.NecessidadeEspecial,
                     CadastroNovo = false,
                     Calcado = crianca.Calcado,
-                    Roupa = crianca.Roupa ,
+                    Roupa = crianca.Roupa,
                     MoralCrista = crianca.MoralCrista
                 });
             var moralCrista = crianca.MoralCrista;
@@ -383,7 +385,7 @@ namespace Jack.Domain.Services
                 NecessidadeEspecial = criancaValue.NescessidadeEspecial,
                 CriancaGrande = criancaValue.CriancaGrande,
                 Calcado = criancaValue.Calcado,
-                Roupa = criancaValue.Roupa ,
+                Roupa = criancaValue.Roupa,
                 MoralCrista = criancaValue.MoralCrista
             };
 

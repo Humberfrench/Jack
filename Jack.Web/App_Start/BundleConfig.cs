@@ -273,7 +273,7 @@ namespace Jack.Web
             bundles.Add(cssFootable);
 
             // Select2 Styless
-            var cssSelect2 = new StyleBundle("~/plugins/Select2");
+            var cssSelect2 = new StyleBundle("~/Content/plugins/Select2");
             cssSelect2.Include("~/Content/plugins/select2/select2.min.css");
             cssSelect2.Orderer = new AsIsBundleOrderer();
             bundles.Add(cssSelect2);

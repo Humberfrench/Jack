@@ -22,6 +22,22 @@ namespace Jack.Application.ViewModel
         [DisplayFormat(NullDisplayText = "")]
         public virtual string TamanhoMaior { get; set; }
 
+        [Display(Name = "Tamanho Sugerido De")]
+        [DisplayFormat(NullDisplayText = "")]
+        public virtual string TamanhoSugeridoDe { get; set; }
+
+        [Display(Name = "Tamanho Sugerido Até")]
+        [DisplayFormat(NullDisplayText = "")]
+        public virtual string TamanhoSugeridoAte { get; set; }
+
+        [Display(Name = "Tamanho Sugerido Maior De")]
+        [DisplayFormat(NullDisplayText = "")]
+        public virtual string TamanhoSugeridoMaiorDe { get; set; }
+
+        [Display(Name = "Tamanho Sugerido Maior Até")]
+        [DisplayFormat(NullDisplayText = "")]
+        public virtual string TamanhoSugeridoMaiorAte { get; set; }
+
         [Display(Name = "Idade")]
         [DisplayFormat(NullDisplayText = "")]
         public virtual int Idade { get; set; }

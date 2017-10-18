@@ -340,7 +340,8 @@ namespace Jack.Domain.Services
 
         public void AtualizaNivel(ref Familia familia)
         {
-
+            //TODO: Observar para preparar para o nível 6
+            //TODO: Não deixar nivel 98 ir para sacola.
             var ano = DateTime.Now.Year;
 
             var reunioesFeitas = ObterQuantidadeReunioesAno(ano);

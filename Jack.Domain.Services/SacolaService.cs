@@ -167,32 +167,32 @@ namespace Jack.Domain.Services
                                                       string sexo = "",
                                                       int kit = 0)
         {
-            var sacolas = ObterSacolasLivres(ano, liberado);
+            var sacolas = ObterSacolasLivres(ano, liberado).ToList();
 
             if (nivel != 0)
             {
-                sacolas = sacolas.Where(s => s.Nivel.Codigo == nivel);
+                sacolas = sacolas.Where(s => s.Nivel.Codigo == nivel).ToList();
             }
 
             if (familia != 0)
             {
-                sacolas = sacolas.Where(s => s.Familia.Codigo == familia);
+                sacolas = sacolas.Where(s => s.Familia.Codigo == familia).ToList();
             }
 
             if (sexo != "0")
             {
-                sacolas = sacolas.Where(s => s.Sexo == sexo);
+                sacolas = sacolas.Where(s => s.Sexo == sexo).ToList();
             }
 
             if (kit != 0)
             {
-                sacolas = sacolas.Where(s => s.Kit.Codigo == kit);
+                sacolas = sacolas.Where(s => s.Kit.Codigo == kit).ToList();
             }
 
-            if (liberado.HasValue)
-            {
-                sacolas = sacolas.Where(s => s.Liberado == liberado.Value).ToList();
-            }
+            //if (liberado.HasValue)
+            //{
+            //    sacolas = sacolas.Where(s => s.Liberado == liberado.Value).ToList();
+            //}
 
             return sacolas;
         }

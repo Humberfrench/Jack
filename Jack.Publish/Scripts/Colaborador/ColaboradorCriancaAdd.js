@@ -42,13 +42,13 @@ Colaborador.Pesquisar = function ()
     switch (liberado)
     {
     case '1':
-        opcoes.liberado = true;
+        opcoes.dadoEnvio.liberado = true;
         break;
     case '2':
-        opcoes.liberado = true;
+        opcoes.dadoEnvio.liberado = true;
         break;
     default:
-        opcoes.liberado = null;
+        opcoes.dadoEnvio.liberado = null;
         break;
     }
 

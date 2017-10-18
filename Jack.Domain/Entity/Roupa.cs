@@ -9,6 +9,11 @@ namespace Jack.Domain.Entity
         {
             codigo = 0;
             tamanho = string.Empty;
+            tamanhoMaior = string.Empty;
+            tamanhoSugeridoDe = string.Empty;
+            tamanhoSugeridoAte = string.Empty;
+            tamanhoSugeridoMaiorDe = string.Empty;
+            tamanhoSugeridoMaiorAte = string.Empty;
             idade = 0;
             medidaIdade = string.Empty;
 
@@ -18,6 +23,10 @@ namespace Jack.Domain.Entity
         private string descricao;
         private string tamanho;
         private string tamanhoMaior;
+        private string tamanhoSugeridoDe;
+        private string tamanhoSugeridoAte;
+        private string tamanhoSugeridoMaiorDe;
+        private string tamanhoSugeridoMaiorAte;
         private int idade;
         private string medidaIdade;
 
@@ -32,7 +41,6 @@ namespace Jack.Domain.Entity
                 codigo = value;
             }
         }
-
         public virtual string Descricao
         {
             get
@@ -44,8 +52,6 @@ namespace Jack.Domain.Entity
                 descricao = value;
             }
         }
-
-
         public virtual string Tamanho
         {
             get
@@ -57,7 +63,6 @@ namespace Jack.Domain.Entity
                 tamanho = value;
             }
         }
-
         public virtual string TamanhoMaior
         {
             get
@@ -69,7 +74,50 @@ namespace Jack.Domain.Entity
                 tamanhoMaior = value;
             }
         }
-
+        public virtual string TamanhoSugeridoDe
+        {
+            get
+            {
+                return tamanhoSugeridoDe;
+            }
+            set
+            {
+                tamanhoSugeridoDe = value;
+            }
+        }
+        public virtual string TamanhoSugeridoAte
+        {
+            get
+            {
+                return tamanhoSugeridoAte;
+            }
+            set
+            {
+                tamanhoSugeridoAte = value;
+            }
+        }
+        public virtual string TamanhoSugeridoMaiorDe
+        {
+            get
+            {
+                return tamanhoSugeridoMaiorDe;
+            }
+            set
+            {
+                tamanhoSugeridoMaiorDe = value;
+            }
+        }
+        public virtual string TamanhoSugeridoMaiorAte
+        {
+            get
+            {
+                return tamanhoSugeridoMaiorAte;
+            }
+            set
+            {
+                tamanhoSugeridoMaiorAte = value;
+            }
+        }
         public virtual int Idade
         {
             get
@@ -81,7 +129,6 @@ namespace Jack.Domain.Entity
                 idade = value;
             }
         }
-
         public virtual string MedidaIdade
         {
             get
