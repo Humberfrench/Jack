@@ -41,10 +41,13 @@
                         <div class="col-lg-2" style="text-align:center;">
                             <br />
                             <button id="Pesquisar" class="btn btn-primary btn-md" data-toggle="tooltip" data-placement="top" title="Pesquisar" onclick="return SacolasPesquisa.Pesquisar();">
-                                <i class="glyphicon glyphicon-search"></i>
+                                <i class="fa fa-search"></i>
                             </button>
                             <button id="Imprimir" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Imprimir Selecionados" onclick="return SacolasPesquisa.ImprimirSelecionados();">
-                                <i class="glyphicon glyphicon-print"></i>
+                                <i class="fa fa-print"></i>
+                            </button>
+                            <button id="UpdateQrCode" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Update Todos QRCodes" onclick="return SacolasPesquisa.UpdateQrCode();">
+                                <i class="fa fa-qrcode"></i>
                             </button>
                         </div>
                         <div class="col-lg-2">
@@ -106,7 +109,7 @@
                                             <strong>Colaborador: </strong>@colaborador<br />
                                         </td>
                                         <td class="project-actions">
-                                            <button type="button" class="btn btn-success btn-sm" onclick="return SacolasPesquisa.GerarQrCode(256, 256, '@item.Crianca.Codigo', '@Url.Action("GerarQrCode", "ImpressaoSacolas")');"><i class="fa fa-print"></i> QrCode </button>
+                                            <button type="button" class="btn btn-success btn-sm" onclick="return SacolasPesquisa.GerarQrCode(256, 256, '@item.Crianca.Codigo', '@Url.Action("GerarQrCode", "ImpressaoSacolas")');"><i class="fa fa-qrcode"></i> QrCode </button>
                                             <button type="button" class="btn btn-danger btn-sm" onclick="return window.open('/Sacolas/Pesquisar/Print/' + '@item.Codigo', '_new')"><i class="fa fa-print"></i> Imprimir </button>
                                             <button type="button" class="btn btn-danger btn-sm" onclick="return SacolasPesquisa.PopUpColaborador('@item.Codigo')" @verBotaoColaborador><i class="fa fa-heart"></i> Colaborador </button>
                                         </td>

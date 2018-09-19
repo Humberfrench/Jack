@@ -17,7 +17,7 @@ namespace Jack.Web.Controllers
                 Titulo = "Home",
                 BreadCrumbs = new List<BreadCrumb>
                 {
-                 new BreadCrumb {LinkText = "Home", ActionName = "Index", ControllerName = "Home"}
+                 new BreadCrumb {LinkText = "Home", ActionName = nameof(Index), ControllerName = "Home"}
                 }
             };
 

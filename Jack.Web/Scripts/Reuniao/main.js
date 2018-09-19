@@ -25,6 +25,15 @@ $(document).ready(function ()
     Reuniao.URLAutoComplete = $("#URLAutoComplete").val();
     Reuniao.URLMontarDataReuniao = $("#URLMontarDataReuniao").val();
 
+    $("select.form-control.input-sm").select2(
+        {
+            minimumResultsForSearch: Infinity,
+            theme: "classic"
+        });
+    $("#AnoPesquisa").select2({
+        theme: "classic"
+    });
+
     $("#AnoPesquisa").val($("#AnoValue").val());
 
     $("#Gravar").click(function ()

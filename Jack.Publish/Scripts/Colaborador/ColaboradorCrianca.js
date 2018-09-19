@@ -18,6 +18,21 @@ Colaborador.URLObterPresencas = '';
 
 $(document).ready(function ()
 {
+
+    $("select.form-control.input-sm").select2(
+        {
+            minimumResultsForSearch: Infinity,
+            theme: "classic"
+    });
+
+    $("#Colaborador").select2({
+        theme: "classic"
+    });
+    
+    $("#Ano").select2({
+        theme: "classic"
+    });
+    
     if ($("#ColaboradorId").val() !== 0)
     {
         $("#Colaborador").val($("#ColaboradorId").val());

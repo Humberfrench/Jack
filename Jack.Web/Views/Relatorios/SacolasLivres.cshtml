@@ -1,0 +1,69 @@
+﻿@using Jack.Extensions
+@{
+    ViewBag.Title = "Pesquisa de Sacolas Livres";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+
+    IEnumerable<SelectListItem> nivelLista = ViewBag.Nivel as IEnumerable<SelectListItem>;
+    IEnumerable<SelectListItem> kitLista = ViewBag.Kit as IEnumerable<SelectListItem>;
+}
+
+<input type="hidden" id="URLSacolasLivres" name="URLSacolasLivres" value="@Url.Action("SacolasLivres")" />
+
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>Pesquisa de Sacolas Livres</h5>
+                </div>
+                <div class="ibox-content">
+                    <div class="row">
+                        <div class="col-lg-1">&nbsp;</div>
+                        <div class="col-lg-2">
+                            <label id="labelAno" for="Ano">Ano</label>
+                            <select name="Ano" id="Ano" class="form-control m-b">
+                                <option value="0">Ano</option>
+                                <option value="2014">2014</option>
+                                <option value="2015">2015</option>
+                                <option value="2016">2016</option>
+                                <option value="2017">2017</option>
+                                <option value="2018">2018</option>
+                                <option value="2019">2019</option>
+                                <option value="2020">2020</option>
+                                <option value="2021">2021</option>
+                                <option value="2022">2022</option>
+                            </select>
+                        </div>
+                        <div class="col-lg-2">
+                            <label id="labelLiberado" for="Liberado">Liberado</label>
+                            <select name="Liberado" id="Liberado" class="form-control m-b">
+                                <option value="1">Liberado</option>
+                                <option value="2">Não Liberado</option>
+                            </select>
+                        </div>
+                        <div class="col-lg-4">
+                            <label id="labelKit" for="Kit">Kit</label>
+                            @Html.DropDownList("Kit", kitLista, new { @id = "Kit", @class = "form-control m-b" })
+                            <input type="hidden" value="@ViewBag.ColaboradorId" id="ColaboradorId" name="ColaboradorId" />
+                        </div>
+                        <div class="col-lg-2">
+                            <label id="labelNivel" for="Nivel">Nível</label>
+                            @Html.DropDownList("Nivel", nivelLista, new { @id = "Nivel", @class = "form-control m-b" })
+                            <input type="hidden" value="@ViewBag.ColaboradorId" id="ColaboradorId" name="ColaboradorId" />
+                        </div>
+                        <div class="col-lg-1" style="text-align:center;">
+                            <br />
+                            <button id="Pesquisar" class="btn btn-primary btn-md" data-toggle="tooltip" data-placement="top" title="Pesquisar" onclick="return Colaborador.Pesquisar();">
+                                <i class="glyphicon glyphicon-search"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section scripts
+{
+    @Scripts.Render("~/script/SacolasLivres")
+}

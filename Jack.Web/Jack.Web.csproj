@@ -13,7 +13,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Jack.Web</RootNamespace>
     <AssemblyName>Jack.Web</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <UseIISExpress>false</UseIISExpress>
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
@@ -35,6 +35,7 @@
     <AssemblyInfoVersionSettings>None.None.None.Increment</AssemblyInfoVersionSettings>
     <PrimaryVersionType>AssemblyVersionAttribute</PrimaryVersionType>
     <AssemblyVersion>3.0.0.92</AssemblyVersion>
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -63,20 +64,18 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="SimpleInjector, Version=4.3.0.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
+      <HintPath>..\packages\SimpleInjector.4.3.0\lib\net45\SimpleInjector.dll</HintPath>
+    </Reference>
+    <Reference Include="SimpleInjector.Integration.Web, Version=4.0.12.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
+      <HintPath>..\packages\SimpleInjector.Integration.Web.4.0.12\lib\net40\SimpleInjector.Integration.Web.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Ninject, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
-      <HintPath>..\packages\Ninject.3.2.2.0\lib\net45-full\Ninject.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Ninject.Web.Common, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
-      <HintPath>..\packages\Ninject.Web.Common.3.2.3.0\lib\net45-full\Ninject.Web.Common.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Ninject.Web.Mvc, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
-      <HintPath>..\packages\Ninject.MVC5.3.2.1.0\lib\net45-full\Ninject.Web.Mvc.dll</HintPath>
+    <Reference Include="SimpleInjector.Integration.Web.Mvc, Version=4.0.12.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
+      <HintPath>..\packages\SimpleInjector.Integration.Web.Mvc.4.0.12\lib\net40\SimpleInjector.Integration.Web.Mvc.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System.Data.DataSetExtensions" />
@@ -92,9 +91,15 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.6\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
       <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.6\lib\net45\System.Web.Mvc.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.Optimization, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
@@ -102,11 +107,27 @@
     </Reference>
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.6\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.6\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.6\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.6\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
     <Reference Include="System.Xml.Linq" />
+    <Reference Include="WebActivator, Version=1.4.4.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebActivator.1.4.4\lib\net40\WebActivator.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="WebActivatorEx, Version=2.0.0.0, Culture=neutral, PublicKeyToken=7b26dc2a43f6a0d4, processorArchitecture=MSIL">
       <HintPath>..\packages\WebActivatorEx.2.2.0\lib\net40\WebActivatorEx.dll</HintPath>
       <Private>True</Private>
@@ -117,27 +138,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="System.Web.Razor">
-      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Web.Webpages">
-      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Webpages.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Web.Webpages.Deployment">
-      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Webpages.Deployment.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Web.Webpages.Razor">
-      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Webpages.Razor.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Web.Helpers">
-      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.Web.Infrastructure">
       <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
       <Private>True</Private>
-    </Reference>
-    <Reference Include="System.Web.Mvc">
-      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -145,6 +148,11 @@
     <Content Include="App_Readme\Elmah.SqlServer.txt" />
     <Content Include="App_Readme\Elmah.txt" />
     <Content Include="Content\animate.css" />
+    <Content Include="Content\awesomplete\awesomplete.base.css" />
+    <Content Include="Content\awesomplete\awesomplete.css" />
+    <Content Include="Content\awesomplete\awesomplete.js" />
+    <Content Include="Content\awesomplete\awesomplete.min.js" />
+    <Content Include="Content\awesomplete\awesomplete.theme.css" />
     <Content Include="Content\bootstrap-datepicker.css" />
     <Content Include="Content\bootstrap-datepicker.min.css" />
     <Content Include="Content\bootstrap-datepicker.standalone.css" />
@@ -1311,19 +1319,16 @@
     <Content Include="Scripts\bootstrap-datepicker.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <Content Include="Content\bootstrap-datepicker3.standalone.min.css.map" />
-    <Content Include="Content\bootstrap-datepicker3.standalone.css.map" />
-    <Content Include="Content\bootstrap-datepicker3.min.css.map" />
-    <Content Include="Content\bootstrap-datepicker3.css.map" />
-    <Content Include="Content\bootstrap-datepicker.standalone.min.css.map" />
-    <Content Include="Content\bootstrap-datepicker.standalone.css.map" />
-    <Content Include="Content\bootstrap-datepicker.min.css.map" />
-    <Content Include="Content\bootstrap-datepicker.css.map" />
     <Content Include="Content\DataTables\css\semanticui.scss" />
     <Content Include="Content\DataTables\css\mixins.scss" />
     <Content Include="Content\DataTables\css\common.scss" />
+    <Content Include="Content\awesomplete\awesomplete.css.map" />
+    <Content Include="Content\awesomplete\awesomplete.min.js.map" />
+    <Content Include="Content\bootstrap-datepicker3.standalone.css.map" />
+    <Content Include="Content\bootstrap-datepicker3.css.map" />
+    <Content Include="Content\bootstrap-datepicker.standalone.css.map" />
+    <Content Include="Content\bootstrap-datepicker.css.map" />
     <None Include="Properties\PublishProfiles\1.pubxml" />
-    <None Include="Scripts\jquery-3.1.1.intellisense.js" />
     <Content Include="Scripts\DataTables\autoFill.bootstrap.js" />
     <Content Include="Scripts\DataTables\autoFill.bootstrap.min.js" />
     <Content Include="Scripts\DataTables\autoFill.bootstrap4.js" />
@@ -1400,13 +1405,18 @@
     <Content Include="Scripts\DataTables\responsive.jqueryui.min.js" />
     <Content Include="Scripts\DataTables\responsive.semanticui.js" />
     <Content Include="Scripts\DataTables\responsive.semanticui.min.js" />
-    <Content Include="Scripts\jquery-3.1.1.js" />
-    <Content Include="Scripts\jquery-3.1.1.min.js" />
-    <Content Include="Scripts\jquery-3.1.1.slim.js" />
-    <Content Include="Scripts\jquery-3.1.1.slim.min.js" />
+    <None Include="Scripts\jquery-3.2.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.2.1.js" />
+    <Content Include="Scripts\jquery-3.2.1.min.js" />
+    <Content Include="Scripts\jquery-3.2.1.slim.js" />
+    <Content Include="Scripts\jquery-3.2.1.slim.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker-en-CA.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.ar-tn.min.js" />
     <Content Include="Scripts\locales\bootstrap-datepicker.ar.min.js" />
     <Content Include="Scripts\locales\bootstrap-datepicker.az.min.js" />
     <Content Include="Scripts\locales\bootstrap-datepicker.bg.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.bn.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.br.min.js" />
     <Content Include="Scripts\locales\bootstrap-datepicker.bs.min.js" />
     <Content Include="Scripts\locales\bootstrap-datepicker.ca.min.js" />
     <Content Include="Scripts\locales\bootstrap-datepicker.cs.min.js" />
@@ -1416,6 +1426,9 @@
     <Content Include="Scripts\locales\bootstrap-datepicker.el.min.js" />
     <Content Include="Scripts\locales\bootstrap-datepicker.en-AU.min.js" />
     <Content Include="Scripts\locales\bootstrap-datepicker.en-GB.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.en-IE.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.en-NZ.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.en-ZA.min.js" />
     <Content Include="Scripts\locales\bootstrap-datepicker.eo.min.js" />
     <Content Include="Scripts\locales\bootstrap-datepicker.es.min.js" />
     <Content Include="Scripts\locales\bootstrap-datepicker.et.min.js" />
@@ -1427,6 +1440,7 @@
     <Content Include="Scripts\locales\bootstrap-datepicker.fr.min.js" />
     <Content Include="Scripts\locales\bootstrap-datepicker.gl.min.js" />
     <Content Include="Scripts\locales\bootstrap-datepicker.he.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.hi.min.js" />
     <Content Include="Scripts\locales\bootstrap-datepicker.hr.min.js" />
     <Content Include="Scripts\locales\bootstrap-datepicker.hu.min.js" />
     <Content Include="Scripts\locales\bootstrap-datepicker.hy.min.js" />
@@ -1438,6 +1452,7 @@
     <Content Include="Scripts\locales\bootstrap-datepicker.ka.min.js" />
     <Content Include="Scripts\locales\bootstrap-datepicker.kh.min.js" />
     <Content Include="Scripts\locales\bootstrap-datepicker.kk.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.km.min.js" />
     <Content Include="Scripts\locales\bootstrap-datepicker.ko.min.js" />
     <Content Include="Scripts\locales\bootstrap-datepicker.kr.min.js" />
     <Content Include="Scripts\locales\bootstrap-datepicker.lt.min.js" />
@@ -1450,6 +1465,7 @@
     <Content Include="Scripts\locales\bootstrap-datepicker.nl-BE.min.js" />
     <Content Include="Scripts\locales\bootstrap-datepicker.nl.min.js" />
     <Content Include="Scripts\locales\bootstrap-datepicker.no.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.oc.min.js" />
     <Content Include="Scripts\locales\bootstrap-datepicker.pl.min.js" />
     <Content Include="Scripts\locales\bootstrap-datepicker.pt-BR.min.js" />
     <Content Include="Scripts\locales\bootstrap-datepicker.pt.min.js" />
@@ -1457,6 +1473,7 @@
     <Content Include="Scripts\locales\bootstrap-datepicker.rs-latin.min.js" />
     <Content Include="Scripts\locales\bootstrap-datepicker.rs.min.js" />
     <Content Include="Scripts\locales\bootstrap-datepicker.ru.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.si.min.js" />
     <Content Include="Scripts\locales\bootstrap-datepicker.sk.min.js" />
     <Content Include="Scripts\locales\bootstrap-datepicker.sl.min.js" />
     <Content Include="Scripts\locales\bootstrap-datepicker.sq.min.js" />
@@ -1464,9 +1481,13 @@
     <Content Include="Scripts\locales\bootstrap-datepicker.sr.min.js" />
     <Content Include="Scripts\locales\bootstrap-datepicker.sv.min.js" />
     <Content Include="Scripts\locales\bootstrap-datepicker.sw.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.ta.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.tg.min.js" />
     <Content Include="Scripts\locales\bootstrap-datepicker.th.min.js" />
     <Content Include="Scripts\locales\bootstrap-datepicker.tr.min.js" />
     <Content Include="Scripts\locales\bootstrap-datepicker.uk.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.uz-cyrl.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.uz-latn.min.js" />
     <Content Include="Scripts\locales\bootstrap-datepicker.vi.min.js" />
     <Content Include="Scripts\locales\bootstrap-datepicker.zh-CN.min.js" />
     <Content Include="Scripts\locales\bootstrap-datepicker.zh-TW.min.js" />
@@ -1479,6 +1500,7 @@
     <Content Include="Scripts\plugins\jquery-mask-plugin\jquery.mask.min.js" />
     <Content Include="Scripts\Presenca\PresencaReunioes.js" />
     <Content Include="Scripts\Processar\main.js" />
+    <Content Include="Scripts\Relatorios\SacolasLivres.js" />
     <Content Include="Scripts\Roupa\main.js" />
     <Content Include="Scripts\Calcado\main.js" />
     <Content Include="Scripts\Colaborador\main.js" />
@@ -1504,6 +1526,8 @@
     <Content Include="Scripts\Sacolas\QrCode.js" />
     <Content Include="Scripts\Sacolas\SacolasPesquisa.js" />
     <Content Include="Scripts\StatusCrianca\main.js" />
+    <Content Include="Scripts\StatusTratamento\main.js" />
+    <Content Include="Scripts\TipoDeProblema\main.js" />
     <Content Include="Scripts\StatusFamilia\main.js" />
     <Content Include="Scripts\Feriado\main.js" />
     <Content Include="Scripts\Reuniao\main.js" />
@@ -1932,6 +1956,9 @@
     <Content Include="Scripts\util\QrCode.js" />
     <Content Include="Scripts\util\mensagens.js" />
     <Content Include="Scripts\util\util.js" />
+    <Content Include="Scripts\jquery-3.2.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.2.1.min.map" />
+    <None Include="Scripts\_references.js" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -1941,6 +1968,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\SimpleInjectorInitializer.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\CalcadoController.cs" />
     <Compile Include="Controllers\ColaboradorController.cs" />
@@ -1957,16 +1985,20 @@
     <Compile Include="Controllers\ParametroController.cs" />
     <Compile Include="Controllers\PresencaController.cs" />
     <Compile Include="Controllers\ProcessarController.cs" />
+    <Compile Include="Controllers\RelatoriosController.cs" />
     <Compile Include="Controllers\RepresentanteController.cs" />
     <Compile Include="Controllers\ReuniaoController.cs" />
     <Compile Include="Controllers\RoupaController.cs" />
     <Compile Include="Controllers\SacolasController.cs" />
     <Compile Include="Controllers\StatusCriancaController.cs" />
     <Compile Include="Controllers\StatusFamiliaController.cs" />
+    <Compile Include="Controllers\StatusTratamentoController.cs" />
+    <Compile Include="Controllers\TipoDeProblemaController.cs" />
     <Compile Include="Controllers\TipoParentescoController.cs" />
     <Compile Include="Controllers\TipoItemController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\SiteController.cs" />
+    <Compile Include="Controllers\TratamentoController.cs" />
     <Compile Include="ElmahExceptionFilter.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -2074,7 +2106,6 @@
     <Content Include="Views\Representante\Representantes.cshtml" />
     <Content Include="Views\ColaboradorCrianca\Index.cshtml" />
     <Content Include="Views\ColaboradorCrianca\Adicionar.cshtml" />
-    <Content Include="Views\ColaboradorCrianca\ListaSacolas.cshtml" />
     <Content Include="Views\Sacolas\Index.cshtml" />
     <Content Include="Views\Colaborador\Edicao.cshtml" />
     <Content Include="Views\Colaborador\Exclusao.cshtml" />
@@ -2109,8 +2140,6 @@
     <Content Include="Views\Reuniao\Index.cshtml" />
     <Content Include="Views\Reuniao\Exclusao.cshtml" />
     <Content Include="Views\Reuniao\Edicao.cshtml" />
-    <Content Include="Scripts\jquery-3.1.1.slim.min.map" />
-    <Content Include="Scripts\jquery-3.1.1.min.map" />
     <Content Include="Views\Representante\Edicao.cshtml" />
     <Content Include="Views\ImpressaoSacolas\QrCode.cshtml" />
     <Content Include="Views\Processar\Index.cshtml" />
@@ -2143,8 +2172,20 @@
     <Content Include="Views\Sacolas\AdicionarFamilia.cshtml" />
     <Content Include="Views\Sacolas\Prints.cshtml" />
     <Content Include="Views\Sacolas\UpdateQrCodes.cshtml" />
-    <Content Include="Views\Colaborador\Criancas.cshtml" />
     <Content Include="Views\Colaborador\PesquisaCriancas.cshtml" />
+    <Content Include="Views\Relatorios\SacolasLivres.cshtml" />
+    <Content Include="Views\Relatorios\SacolasColaborador.cshtml" />
+    <Content Include="Views\ColaboradorCrianca\ListaSacolas.cshtml" />
+    <Content Include="Views\Relatorios\SacolasLivresLista.cshtml" />
+    <Content Include="Views\Colaborador\Criancas.cshtml" />
+    <Content Include="Views\StatusTratamento\Edicao.cshtml" />
+    <Content Include="Views\StatusTratamento\Exclusao.cshtml" />
+    <Content Include="Views\StatusTratamento\Index.cshtml" />
+    <Content Include="Views\TipoDeProblema\Edicao.cshtml" />
+    <Content Include="Views\TipoDeProblema\Exclusao.cshtml" />
+    <Content Include="Views\TipoDeProblema\Index.cshtml" />
+    <Content Include="Views\Tratamento\Detalhe.cshtml" />
+    <Content Include="Views\Tratamento\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -2160,33 +2201,25 @@
       <Project>{aeb5842e-8f8e-41b0-a8cf-1f05152ada5c}</Project>
       <Name>Jack.Application.ViewModel</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Jack.Domain.Services\Jack.Domain.Services.csproj">
-      <Project>{b1761fc7-07b9-4d15-a264-d83c43d1776e}</Project>
-      <Name>Jack.Domain.Services</Name>
+    <ProjectReference Include="..\Jack.Application\Jack.Application.csproj">
+      <Project>{0f74e976-88e7-4168-b1c6-5a97c4e69682}</Project>
+      <Name>Jack.Application</Name>
     </ProjectReference>
     <ProjectReference Include="..\Jack.DomainValidator\Jack.DomainValidator.csproj">
       <Project>{d1d4158a-1ffb-48b4-9584-47e032be352a}</Project>
       <Name>Jack.DomainValidator</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Jack.Domain\Jack.Domain.csproj">
-      <Project>{f7b3290e-90da-4d22-ac2a-9543ce892909}</Project>
-      <Name>Jack.Domain</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Jack.Extensions\Jack.Extensions.csproj">
       <Project>{0e63a054-3d47-4cde-bd08-7ca8782c5555}</Project>
       <Name>Jack.Extensions</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Jack.Ioc\Jack.Ioc.csproj">
+      <Project>{2012add8-8d15-4d72-aa25-b24c315bb174}</Project>
+      <Name>Jack.Ioc</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Jack.Library\Jack.Library.csproj">
       <Project>{08a4638f-7190-48dd-b8c2-9c131b517cd2}</Project>
       <Name>Jack.Library</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Jack.Repository\Jack.Repository.csproj">
-      <Project>{b6acf504-4dcb-4efb-89fa-e94ff2eb4459}</Project>
-      <Name>Jack.Repository</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Jack.Application\Jack.Application.csproj">
-      <Project>{0f74e976-88e7-4168-b1c6-5a97c4e69682}</Project>
-      <Name>Jack.Application</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

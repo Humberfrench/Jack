@@ -21,6 +21,16 @@ $(document).ready(function ()
 {
     AdicionarCrianca.URLGravar = $("#URLGravar").val();
     AdicionarCrianca.MontarTabela();
+
+    $("select.form-control.input-sm").select2(
+        {
+            minimumResultsForSearch: Infinity,
+            theme: "classic"
+        });
+    $("#Familia").select2({
+        theme: "classic"
+    });
+
     if ($("#CodigoFamilia").val() !== 0)
     {
         $("#Familia").val($("#CodigoFamilia").val());

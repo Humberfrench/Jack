@@ -1,4 +1,5 @@
 ﻿@using Jack.Application.ViewModel
+@using Jack.Extensions
 @model IEnumerable<ColaboradorCriancaViewModel>
 @{
     Layout = null;
@@ -18,6 +19,7 @@
             <thead>
                 <tr>
                     <th>Nome</th>
+                    <th>Sexo</th>
                     <th>Família</th>
                     <th>Idade</th>
                     <th>Calçado</th>
@@ -27,13 +29,14 @@
             @foreach(var item in Model)
             {
                 <thead>
-                <tr>
-                    <td>@item.Crianca.Nome</td>
-                    <td>@item.Crianca.Familia.Nome</td>
-                    <td>@item.Crianca.IdadeNominal</td>
-                    <td>@item.Crianca.Calcado</td>
-                    <td>@item.Crianca.Roupa</td>
-                </tr>
+                    <tr>
+                        <td>@item.Crianca.Nome</td>
+                        <td>@item.Crianca.Sexo.ToSexo()</td>
+                        <td>@item.Crianca.Familia.Nome</td>
+                        <td>@item.Crianca.IdadeNominal</td>
+                        <td>@item.Crianca.Calcado</td>
+                        <td>@item.Crianca.Roupa</td>
+                    </tr>
                 </thead>
             }
         </table>

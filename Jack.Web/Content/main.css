@@ -12,7 +12,7 @@
     left: 0;
     height: 100%;
     width: 100%;
-    background: rgba(255, 255, 255, 0.80) url('../images/ajax-loader02.gif') 50% 50% no-repeat;
+    background: rgba(255, 255, 255, 0.80) url('../images/ajax-loader11.gif') 50% 50% no-repeat;
 }
 
 /* When the body has the loading class, we turn
@@ -30,3 +30,4 @@ body.loading .modalLoading
 }
 
 /* ----------------------------------------------------------------------------------------- */
+

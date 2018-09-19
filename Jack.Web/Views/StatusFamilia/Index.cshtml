@@ -53,6 +53,7 @@
                                 <th>#</th>
                                 <th>Descricao</th>
                                 <th>Permite Sacola</th>
+                                <th>Processa Status</th>
                                 <th>&nbsp;</th>
                             </tr>
                         </thead>
@@ -69,6 +70,9 @@
                                     </td>
                                     <td>
                                         @item.PermiteSacola.ToSimNao()
+                                    </td>
+                                    <td>
+                                        @item.ProcessaStatus.ToSimNao()
                                     </td>
                                     <td style="text-align:right;">
                                         <button type="button" class="btn btn-success btn-sm" onclick="Edit('@item.Codigo')">

@@ -14,6 +14,16 @@ $(document).ready(function ()
     Presenca.URLListaFamilias = $("#URLListaFamilias").val();
     Presenca.URLGravar = $("#URLGravar").val();
 
+    $("#Ano").select2({
+        theme: "classic"
+    });
+    $("#Reuniao").select2({
+        theme: "classic"
+    });
+    $("#Letra").select2({
+        theme: "classic"
+    });
+
     $("#Ano").change(function ()
     {
         Presenca.ObterReunioes($("#Ano").val());
@@ -23,7 +33,7 @@ $(document).ready(function ()
     {
         var reuniao = $("#Reuniao").val();
         var letra = $("#Letra").val();
-        if (reuniao == undefined)
+        if (reuniao === undefined)
         {
             Mensagens.Erro('Parametros da Pesquisa inconsistentes e ou faltando', 'Problemas no Formulário');
             return false;

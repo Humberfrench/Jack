@@ -107,25 +107,34 @@
                                         <input type="text" id="Roupa_@item.Codigo" name="Roupa_@item.Codigo" value="@item.Roupa" class="form-control" style="width: 50px;" />
                                     </td>
                                     <td style="text-align: center;">
-                                        <button type="button" id="AcertoRoupa" name="AcertoRoupa" style="width:36px;" class=" btn btn-warning btn-sm" onclick="return AcertoDados.AcertarDado('@item.RoupaPadrao','#Roupa_@item.Codigo')">
-                                            @item.RoupaPadrao
-                                        </button>
+                                        @if (item.PermiteSacola)
+                                        {
+                                            <button type="button" id="AcertoRoupa" name="AcertoRoupa" style="width: 36px;" class=" btn btn-warning btn-sm" onclick="return AcertoDados.AcertarDado('@item.RoupaPadrao', '#Roupa_@item.Codigo')">
+                                                @item.RoupaPadrao
+                                            </button>
+                                        }
                                     </td>
                                     <td style="text-align: center;">
                                         <input type="text" id="Calcado_@item.Codigo" name="Calcado_@item.Codigo" value="@item.Calcado" class="form-control" style="width: 50px;" onkeypress="return Util.SomenteNumeros(event)" />
                                     </td>
                                     <td style="text-align: center;">
-                                        <button type="button" id="AcertoCalcado" name="AcertoCalcado" style="width:36px;" class="btn btn-warning btn-sm" onclick="return AcertoDados.AcertarDado('@item.CalcadoPadrao','#Calcado_@item.Codigo')">
-                                            @item.CalcadoPadrao
-                                        </button>
+                                        @if (item.PermiteSacola)
+                                        {
+                                            <button type="button" id="AcertoCalcado" name="AcertoCalcado" style="width:36px;" class="btn btn-warning btn-sm" onclick="return AcertoDados.AcertarDado('@item.CalcadoPadrao','#Calcado_@item.Codigo')">
+                                                @item.CalcadoPadrao
+                                            </button>
+                                        }
                                     </td>
                                     <td>
                                         @Html.DisplayFor(modelItem => item.Status)
                                     </td>
                                     <td style="text-align:right;">
-                                        <button type="button" class="btn btn-danger btn-sm" onclick="return AcertoDados.Gravar('@item.Codigo','#Calcado_@item.Codigo','#Roupa_@item.Codigo','#TipoParentesco_@item.Codigo' )">
-                                            <i class="glyphicon glyphicon-floppy-disk" data-toggle="tooltip" data-placement="top" title="Processar Dados da AcertoDados"></i>&nbsp;Atualizar
-                                        </button>
+                                        @if (item.PermiteSacola)
+                                        {
+                                            <button type="button" class="btn btn-danger btn-sm" onclick="return AcertoDados.Gravar('@item.Codigo','#Calcado_@item.Codigo','#Roupa_@item.Codigo','#TipoParentesco_@item.Codigo' )">
+                                                <i class="glyphicon glyphicon-floppy-disk" data-toggle="tooltip" data-placement="top" title="Processar Dados da AcertoDados"></i>&nbsp;Atualizar
+                                            </button>
+                                        }
                                     </td>
                                 </tr>
                             }
@@ -142,7 +151,7 @@
 {
     @Scripts.Render("~/plugins/dataTables")
     @Scripts.Render("~/plugins/dataPicker")
-    @Scripts.Render("~/plugins/Knob")   
+    @Scripts.Render("~/plugins/Knob")
     @Scripts.Render("~/plugins/Moment")
     @Scripts.Render("~/script/Crianca/acerto/Dados")
 }

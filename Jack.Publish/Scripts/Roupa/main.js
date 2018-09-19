@@ -37,10 +37,14 @@ Roupa.MontarTabela = function ()
         "dom": '<"top"li>rt<"bottom"p><"clear">',
         "pagingType": "numbers",
         "aoColumnDefs": [
-            { "aTargets": [0], "asSorting": ["asc"], "bSortable": true },
-            { "aTargets": [1], "bSortable": true },
-            { "aTargets": [2], "bSortable": true },
-            { "aTargets": [3], "bSortable": true }
+            { "aTargets": [0], "bSortable": false },
+            { "aTargets": [1], "bSortable": false },
+            { "aTargets": [2], "bSortable": false },
+            { "aTargets": [3], "bSortable": false },
+            { "aTargets": [4], "bSortable": false },
+            { "aTargets": [5], "bSortable": false },
+            { "aTargets": [6], "bSortable": false },
+            { "aTargets": [7], "bSortable": false }
         ]
     });
 }

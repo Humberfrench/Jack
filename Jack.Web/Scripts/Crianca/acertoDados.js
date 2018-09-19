@@ -22,6 +22,17 @@ $(document).ready(function ()
     {
         $("#Familia").val($("#CodigoFamilia").val()); 
     }
+
+    $("#Familia").select2({
+        theme: "classic"
+    });
+
+    $("select[name=TipoParentesco]").select2(
+        {
+            minimumResultsForSearch: Infinity,
+            theme: "classic"
+        });
+
     $("#Status").val(14);
 
     $("#PercentualCriancas").knob(

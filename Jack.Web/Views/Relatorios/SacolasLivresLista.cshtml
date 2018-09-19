@@ -1,0 +1,48 @@
+﻿@using Jack.Application.ViewModel
+@model IEnumerable<SacolaDtoViewModel>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Criancas</title>
+    @Styles.Render("~/Content/cssClear")
+</head>
+<body>
+    <div class="container">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Código</th>
+                    <th>Num.Sac.</th>
+                    <th>Nome</th>
+                    <th>Sexo</th>
+                    <th>Família</th>
+                    <th>Idade</th>
+                    <th>Calçado</th>
+                    <th>Roupa</th>
+                </tr>
+            </thead>
+            @foreach (var item in Model)
+            {
+                <thead>
+                    <tr>
+                        <td>@item.Codigo</td>
+                        <td>@item.SacolaFamilia</td>
+                        <td>@item.Crianca</td>
+                        <td>@item.Sexo</td>
+                        <td>@item.Familia</td>
+                        <td>@item.IdadeNominal</td>
+                        <td>@item.Calcado</td>
+                        <td>@item.Roupa</td>
+                    </tr>
+                </thead>
+            }
+        </table>
+    </div>
+</body>
+</html>

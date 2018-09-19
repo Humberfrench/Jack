@@ -68,13 +68,16 @@ namespace Jack.Web.Controllers
             ViewBag.Presencas = 0;
             ViewBag.Criancas = 0;
             ViewBag.PercentualCriancas = 0;
+            ViewBag.CriancasAtivas = 0;
             ViewBag.PermiteExcedente = "";
             ViewBag.Consistente = "";
             ViewBag.Sacolinha = "";
             ViewBag.PresencaJustificada = "";
             ViewBag.FamiliaId = 0;
             ViewBag.Nivel = 0;
+            ViewBag.StatusDescricao = "";
             ViewBag.Acoes = "disabled=disabled";
+            ViewBag.NomeRepresentante = "";
             var listaDados = new List<CriancaViewModel>();
             return View(listaDados);
         }
@@ -110,9 +113,12 @@ namespace Jack.Web.Controllers
             ViewBag.PresencaJustificada = "";
             ViewBag.FamiliaId = familia;
             ViewBag.Nivel = 0;
+            ViewBag.StatusDescricao = "";
             ViewBag.Acoes = "";
+            ViewBag.Excedente = "";
+            ViewBag.CriancasAtivas = 0;
 
-            var listaDados = criancaAppService.ObterCriancas(familia).OrderBy(c => c.Nome).ToList();
+            var listaDados = criancaAppService.ObterCriancasTela(familia);
             var criancaDado = listaDados.FirstOrDefault();
             var familiaDado = criancaDado?.Familia;
 
@@ -121,13 +127,18 @@ namespace Jack.Web.Controllers
                 ViewBag.Nivel = familiaDado.Nivel.Nome;
                 ViewBag.Presencas = familiaDado.QuantidadePresencas;
                 ViewBag.Criancas = familiaDado.QuantidadeCriancas;
+                ViewBag.CriancasAtivas = familiaDado.QuantidadeCriancasAtivas;
                 ViewBag.PermiteExcedente = familiaDado.PermiteExcedenteCriancas ? "checked=checked" : "";
                 ViewBag.Consistente = familiaDado.PermiteExcedenteCriancas ? "checked=checked" : "";
                 ViewBag.Sacolinha = familiaDado.Sacolinha ? "checked=checked" : "";
                 ViewBag.PresencaJustificada = familiaDado.PresencaJustificada ? "checked=checked" : "";
-                var percCriancas = ((double)familiaDado.QuantidadeCriancas / (double)parametros.NumeroMaximoCricancas) * 100;
+                var percCriancas = ((double)familiaDado.QuantidadeCriancasAtivas / (double)parametros.NumeroMaximoCricancas) * 100;
                 ViewBag.PercentualCriancas = $"{percCriancas} %";
                 ViewBag.Acoes = "";
+                ViewBag.StatusDescricao = familiaDado.Status.Descricao;
+                ViewBag.Excedente = (familiaDado.QuantidadeCriancas < parametros.NumeroMaximoCricancas) ? "checked=checked" : "";
+                ViewBag.NomeRepresentante = familiaAppService.ObterRepresentante(familia);
+
             }
 
 
@@ -159,7 +170,7 @@ namespace Jack.Web.Controllers
         {
             var crianca = criancaAppService.ValidaCrianca(criancaValue);
 
-            crianca.Status.Criancas.Clear();
+            //crianca.Status.Criancas = null;
             crianca.Kit.Criancas.Clear();
             crianca.Kit.Items.Clear();
             crianca.Familia = null;
@@ -406,7 +417,7 @@ namespace Jack.Web.Controllers
             var tipoParentesco = new TipoParentescoViewModel
             {
                 Codigo = 0,
-                Descricao = "Selecione Tipo de Parentesco"
+                Descricao = "Selecione"
             };
             dados.Insert(0, tipoParentesco);
             return dados;

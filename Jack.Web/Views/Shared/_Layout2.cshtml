@@ -19,6 +19,8 @@
     @Styles.Render("~/plugins/toastr")
     @Styles.Render("~/Content/css")
     @Styles.Render("~/font-awesome/css")
+    @Styles.Render("~/Content/plugins/Select2")
+    <meta name="description" content="CECAM" />
 </head>
 <body class="skin-2 top-navigation">
 
@@ -55,10 +57,8 @@
     @Scripts.Render("~/bundles/inspinia")
     @Scripts.Render("~/bundles/toastr")
     @Scripts.Render("~/plugins/Moment")
+    @Scripts.Render("~/plugins/select2")
     @Scripts.Render("~/script/main")
-
-
-
 
     <!-- Handler for local scripts -->
     @RenderSection("scripts", required: false)

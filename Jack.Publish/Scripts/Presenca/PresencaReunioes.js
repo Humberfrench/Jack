@@ -11,7 +11,24 @@ Presenca.URLObterReunioes = $("#URLObterReunioes").val();
 
 $(document).ready(function ()
 {
+    Presenca.MontarTabela();
+
+    $("#Ano").select2({
+        theme: "classic"
+    });
+
+    $("#Reuniao").select2({
+        theme: "classic"
+    });
+
+    $("select.form-control.input-sm").select2(
+        {
+            minimumResultsForSearch: Infinity,
+            theme: "classic"
+        });
+
     $("#Ano").val($("#AnoPresenca").val());
+
     if (($("#Ano").val() !== '') || ($("#Ano").val() !== '0'))
     {
         Presenca.ObterReunioes($("#Ano").val());
@@ -26,7 +43,7 @@ $(document).ready(function ()
     $("#Pesquisar").click(function ()
     {
         var reuniao = $("#Reuniao").val();
-        if (reuniao == undefined)
+        if (reuniao === undefined)
         {
             Mensagens.Erro('Parametros da Pesquisa inconsistentes e ou faltando', 'Problemas no Formulário');
             return false;
@@ -94,6 +111,13 @@ Presenca.ObterReunioes = function (ano)
                 optionData += Util.ObterLista(listaReunioes[intCont].Codigo, listaReunioes[intCont].DataTexto);
             }
             $("#Reuniao").html(optionData);
+
+            if (($("#ReuniaoSelecionada").val() !== undefined) ||
+                ($("#ReuniaoSelecionada").val() !== null) ||
+                ($("#ReuniaoSelecionada").val() !== ''))
+            {
+                $("#Reuniao").val($("#ReuniaoSelecionada").val());
+            }
 
         };
 

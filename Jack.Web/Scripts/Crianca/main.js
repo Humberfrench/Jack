@@ -35,7 +35,15 @@ $(document).ready(function ()
     Crianca.MontarTabela();
 
 
-    $("#Familia").select2();
+    $("select.form-control.input-sm").select2(
+        {
+            minimumResultsForSearch: Infinity,
+            theme: "classic"
+        });
+    $("#Familia").select2({
+        theme: "classic"
+    });
+
     $("#Familia").val(null);
     if ($("#CodigoFamilia").val() !== 0)
     {
@@ -48,17 +56,17 @@ $(document).ready(function ()
 
     $("#ProcessarFamilia").click(function ()
     {
-        Familia.ProcessarFamilia($("#CodigoFamilia").val());
+        Crianca.ProcessarFamilia($("#CodigoFamilia").val());
     });
 
     $("#ProcessarPresenca").click(function ()
     {
-        Familia.ProcessarPresenca($("#CodigoFamilia").val());
+        Crianca.ProcessarPresenca($("#CodigoFamilia").val());
     });
 
     $("#ProcessarCriancas").click(function ()
     {
-        Familia.ProcessarCriancas($("#CodigoFamilia").val());
+        Crianca.ProcessarCriancas($("#CodigoFamilia").val());
     });
 
     $("#Status").val(14);

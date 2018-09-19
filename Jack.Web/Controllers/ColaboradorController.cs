@@ -136,6 +136,26 @@ namespace Jack.Web.Controllers
         }
 
         [Route("Pesquisa/Criancas")]
+        public ActionResult PesquisaCriancas()
+        {
+
+            #region BreadCrumb
+            var breadCrumb = new BreadCrumbETitulo
+            {
+                Titulo = "Colaborador",
+                BreadCrumbs = new List<BreadCrumb>
+                {
+                    new BreadCrumb {LinkText = "Colaborador", ActionName = "Index", ControllerName = "Colaborador"},
+                    new BreadCrumb {LinkText = "Pesquisa Crianças", ActionName = "PesquisaCriancas", ControllerName = "Colaborador"}
+                }
+            };
+
+            #endregion
+            var listaDados = new List<ColaboradorCriancaViewModel>();
+            return View("Criancas", listaDados);
+        }
+
+        [Route("Pesquisa/Criancas/{colaborador}/{ano}")]
         public ActionResult PesquisaCriancas(int colaborador, int ano)
         {
 
@@ -152,16 +172,7 @@ namespace Jack.Web.Controllers
 
             #endregion
             var listaDados = colaboradorAppService.ObterSacolasColaborador(colaborador, ano);
-            return View(listaDados);
-        }
-
-        [Route("Criancas/{colaborador}/{ano}")]
-        public ActionResult Criancas(int colaborador, int ano)
-        {
-
-
-            ViewBag.Colaborador = ObterColaboradorParaCombo();
-            return View();
+            return View("Criancas", listaDados);
         }
 
         #endregion

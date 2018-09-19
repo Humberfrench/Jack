@@ -26,3 +26,4 @@ packages.zip/
 Jack.Application.ViewModel/Jack.Application/obj/
 Jack.Application.ViewModel/Jack.Application/bin/
 Jack.Domain.Services.zip
+.vs/

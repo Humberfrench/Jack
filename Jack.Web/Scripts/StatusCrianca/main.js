@@ -122,6 +122,7 @@ StatusCrianca.LimparForm = function ()
     $("#Codigo").val('0');
     $("#Descricao").val('');
     $("#PermiteSacola").prop('checked', '');
+    $("#ProcessaStatus").prop('checked', '');
 }
 
 StatusCrianca.Edit = function (codigo)
@@ -139,6 +140,10 @@ StatusCrianca.Edit = function (codigo)
         {
             $("#PermiteSacola").prop('checked', 'checked');
         }
+        if (dataObj.ProcessaStatus)
+        {
+            $("#ProcessaStatus").prop('checked', 'checked');
+        }
     };
 
     opcoes.dadoEnvio = new Object;
@@ -153,7 +158,8 @@ StatusCrianca.Gravar = function ()
     if (StatusCrianca.Consistir($("#Descricao").val()))
     {
         var token = $('input[name="__RequestVerificationToken"]').val();
-        var opcional = $("#PermiteSacola").prop('checked');
+        var permiteSacola = $("#PermiteSacola").prop('checked');
+        var processaStatus = $("#ProcessaStatus").prop('checked');
 
         var opcoes = new Object;
         opcoes.url = StatusCrianca.URLGravar;
@@ -181,7 +187,8 @@ StatusCrianca.Gravar = function ()
         opcoes.dadoEnvio = new Object;
         opcoes.dadoEnvio.Codigo = $("#Codigo").val();
         opcoes.dadoEnvio.Descricao = $("#Descricao").val();
-        opcoes.dadoEnvio.PermiteSacola = opcional;
+        opcoes.dadoEnvio.PermiteSacola = permiteSacola;
+        opcoes.dadoEnvio.ProcessaStatus = processaStatus;
         opcoes.type = 'POST';
         opcoes.async = false;
 

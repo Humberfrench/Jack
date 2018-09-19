@@ -65,7 +65,13 @@ namespace Jack.Web.Controllers
             ViewBag.Nivel = ObterNivelParaCombo();
             ViewBag.Reuniao = ObterReuniaoParaCombo();
 
+
+
             var listaDados = familiaAppService.ObterTodos().OrderBy(c => c.Nome);
+            var familias = listaDados.Select(f => f.Nome);
+
+            ViewBag.FamiliasAutoComplete = string.Join(",", familias);
+
             return View(listaDados);
         }
 
@@ -372,7 +378,7 @@ namespace Jack.Web.Controllers
         [Route(nameof(ProcessarPresenca))]
         public ActionResult ProcessarPresenca(int id)
         {
-            var processarResult = criancaAppService.AtualizaCriancas(id);
+            var processarResult = familiaAppService.AtualizarFamiliaComPresencaParaRepresentantes(id,true);
 
             object retorno;
             if (processarResult.IsValid)

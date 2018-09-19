@@ -81,7 +81,7 @@ namespace Jack.Web.Controllers
         [Route("Gravar")]
         public ActionResult Gravar(StatusFamiliaViewModel statusFamilia)
         {
-            var gravarResult = statusFamiliaAppService .Gravar(statusFamilia);
+            var gravarResult = statusFamiliaAppService.Gravar(statusFamilia);
             object retorno;
             if (gravarResult.IsValid)
             {

@@ -1,0 +1,115 @@
+﻿@using Jack.Application.ViewModel
+@using Jack.Extensions
+@model IEnumerable<TratamentoViewModel>
+
+@Styles.Render("~/Content/plugins/dataTables/dataTablesStyles")
+@{
+    ViewBag.Title = "Tratamento";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+    IEnumerable<SelectListItem> familiaLista = ViewBag.Familia as IEnumerable<SelectListItem>;
+}
+
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-12 col-md-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>Família</h5>
+                    <div class="ibox-tools">
+                        <button type="button" id="Novo" name="Novo"
+                                class="btn btn-success btn-lg"
+                                data-toggle="tooltip" data-placement="top"
+                                title="Novo Registro">
+                            <i class="fa fa-file"></i>&nbsp;Novo
+                        </button>
+                        <button type="button" id="AtualizarPagina" name="AtualizarPagina"
+                                class="btn btn-danger btn-lg"
+                                data-toggle="tooltip" data-placement="top"
+                                title="Atualizar Página" onclick="return location.reload();">
+                            <i class="fa fa-refresh"></i>&nbsp;Atualizar
+                        </button>
+                    </div>
+                </div>
+                <div class="ibox-content">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6">
+                            <label id="labelFamilia" for="Familia">Família</label>
+                            @Html.DropDownList("Familia", familiaLista, new { @id = "Familia", @class = "form-control m-b" })
+                            <input type="hidden" value="@ViewBag.FamiliaId" id="CodigoFamilia" name="CodigoFamilia" />
+                        </div>
+                        <div class="col-lg-1 col-md-1" style="text-align:center;">
+                            <br />
+                            <button id="Pesquisar" class="btn btn-primary btn-md" data-toggle="tooltip" data-placement="top" title="Pesquisar" onclick="return Crianca.Pesquisar();">
+                                <i class="glyphicon glyphicon-search"></i>
+                            </button>
+                        </div>
+                        <div class="col-lg-5 col-md-5">&nbsp;</div>
+
+                    </div>
+                </div>
+                <div class="ibox-content">
+                    <table class="table table-striped table-hover" id="TableFamilia">
+                        <thead>
+                            <tr>
+                                <th>@Html.DisplayNameFor(model => model.Familia.Nome)</th>
+                                <th>@Html.DisplayNameFor(model => model.DescricaoProblema)</th>
+                                <th>@Html.DisplayNameFor(model => model.StatusTratamento.Descricao)</th>
+                                <th>@Html.DisplayNameFor(model => model.DataInicio)</th>
+                                <th>@Html.DisplayNameFor(model => model.DataFim)</th>
+                                <th>@Html.DisplayNameFor(model => model.Familia.Contato)</th>
+                                <th>&nbsp;</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Familia.Nome)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.DescricaoProblema)
+                                    </td>
+                                    <td style="text-align:center;">
+                                        @Html.DisplayFor(modelItem => item.StatusTratamento.Descricao)
+                                    </td>
+                                    <td style="text-align:center;">
+                                        @Html.DisplayFor(modelItem => item.DataInicio)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.DataFim)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Familia.Contato)
+                                    </td>
+                                    <td style="text-align:right;">
+                                        <button type="button" class="btn btn-warning btn-sm" onclick="return Familia.ProcessarCriancas('@item.TratamentoId')">
+                                            <i class="glyphicon glyphicon-flag" data-toggle="tooltip" data-placement="top" title="Finalizar Tratamento"></i>
+                                        </button>
+                                        <button type="button" id="Cancelar" name="Cancelar" class="btn btn-danger btn-sm" onclick="return Cancelar('@item.TratamentoId')">
+                                            <i class="glyphicon glyphicon-trash" data-toggle="tooltip" data-placement="top" title="Cancelar Tratamento">
+                                            </i>
+                                        </button>
+                                        <button type="button" class="btn btn-success btn-sm" onclick="return Familia.Editar('@item.TratamentoId')">
+                                            <i class="glyphicon glyphicon-pencil" data-toggle="tooltip" data-placement="top" title="Editar Tratamento"></i>
+                                        </button>
+
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts
+{
+    @Scripts.Render("~/plugins/dataTables")
+    @Scripts.Render("~/script/Tratamento/main")
+}
+
+

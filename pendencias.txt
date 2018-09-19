@@ -1,0 +1,12 @@
+Jack
+Acertar Codigo, quando add nova sacola
+acertar QR code quando add nova sacola
+Ver dados, e por que quando todas crian ças estao ok, menos uma dá status = 98.
+
+
+
+
+
+cadastro pessoa juridica. ebank e infobank
+
+acertos amf - fase 3

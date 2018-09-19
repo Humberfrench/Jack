@@ -10,6 +10,27 @@ $(document).ready(function ()
 {
     SacolasPesquisa.MontarTabela();
 
+
+    $("select.form-control.input-sm").select2(
+        {
+            minimumResultsForSearch: Infinity,
+            theme: "classic"
+        });
+
+    $("#Nivel").select2({
+        theme: "classic"
+    });
+
+
+    $("#Familia").select2({
+        theme: "classic"
+    });
+
+
+    $("#Kit").select2({
+        theme: "classic"
+    });
+
     $("#Pesquisar").click(function ()
     {
         var nome = $("#PesquisarNome").val();
@@ -33,10 +54,10 @@ $(document).ready(function ()
 SacolasPesquisa.MontarTabela = function ()
 {
     $('#TableSacolaPesquisa').DataTable({
-        "searching": false,
+        "searching": true,
         "autoWidth": false,
         "order": [],
-        "lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "Todos"]],
+        "lengthMenu": [[10, 25, 50, 100, -1], [10, 25, 50, 100, "Todos"]],
         "language": {
             "sEmptyTable": "Nenhum registro encontrado",
             "sInfo": "Mostrando de _START_ até _END_ de _TOTAL_ registros",
@@ -91,9 +112,6 @@ SacolasPesquisa.ObterFamilias = function (nivel)
         }
 
     }
-
-    //opcoes.dadoEnvio = new Object;
-    //opcoes.dadoEnvio.nivel = nivel;
 
     Ajax.Get(opcoes);
 

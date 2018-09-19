@@ -4,7 +4,6 @@
 
 @Styles.Render("~/Content/plugins/dataTables/dataTablesStyles")
 @Styles.Render("~/plugins/awesomeCheckboxStyles")
-@Styles.Render("~/Content/plugins/Select2")
 @{
     ViewBag.Title = "Crianças";
     Layout = "~/Views/Shared/_Layout2.cshtml";
@@ -79,12 +78,16 @@
                             <input type="text" name="Criancas" id="Criancas" readonly="readonly" class="form-control m-b" value="@ViewBag.Criancas" style="width:75%;">
                         </div>
                         <div class="col-lg-1">
+                            <label id="labelCriancas" for="Criancas">Ativas</label>
+                            <input type="text" name="Criancas" id="Criancas" readonly="readonly" class="form-control m-b" value="@ViewBag.CriancasAtivas" style="width:75%;">
+                        </div>
+                        <div class="col-lg-1">
                             <label id="labelPresencas" for="Presencas">Presenças</label>
                             <input type="text" name="Presencas" id="Presencas" readonly="readonly" class="form-control m-b" value="@ViewBag.Presencas" style="width:75%;">
                         </div>
-                        <div class="col-lg-2">
+                        <div class="col-lg-1">
                             <label id="labelNivel" for="Nivel">Nível</label>
-                            <input type="text" name="Nivel" id="Nivel" readonly="readonly" class="form-control m-b" value="@ViewBag.Nivel" style="width:75%;">
+                            <input type="text" name="Nivel" id="Nivel" readonly="readonly" class="form-control m-b" value="@ViewBag.Nivel">
                         </div>
                         <div class="col-lg-2">
                             <label id="labelPercentualCriancas" for="Criancas">% Crianças</label><br />
@@ -93,32 +96,38 @@
 
                     </div>
                     <div class="row">
-                        <div class="col-md-1">&nbsp;</div>
-                        <div class="col-md-3">
+                        <div class="col-md-2">
                             <div class="checkbox checkbox-primary">
                                 <input type="checkbox" name="PresencaJustificada" id="PresencaJustificada" disabled="disabled" @ViewBag.PresencaJustificada>
                                 <label id="labelPresencaJustificada" for="PresencaJustificada">Presenca Justificada</label>
                             </div>
                         </div>
-                        <div class="col-md-3">
+                        <div class="col-md-2">
                             <div class="checkbox checkbox-primary">
                                 <input type="checkbox" name="PermiteExcedente" id="PermiteExcedente" disabled="disabled" @ViewBag.PermiteExcedente>
                                 <label id="labelPermiteExcedente" for="PermiteExcedente">Permite Excedentes</label>
                             </div>
                         </div>
-                        <div class="col-md-2">
+                        <div class="col-md-1">
                             <div class="checkbox checkbox-primary">
                                 <input type="checkbox" name="Consistente" id="Consistente" disabled="disabled" @ViewBag.Consistente>
                                 <label id="labelConsistente" for="Consistente">Consistente?</label>
                             </div>
                         </div>
-                        <div class="col-md-2">
+                        <div class="col-md-1">
                             <div class="checkbox checkbox-primary">
                                 <input type="checkbox" name="Sacolinha" id="Sacolinha" disabled="disabled" @ViewBag.Sacolinha>
                                 <label id="labelSacolinha" for="Sacolinha">Sacolinha?</label>
                             </div>
                         </div>
-                        <div class="col-md-1">&nbsp;</div>
+                        <div class="col-lg-3">
+                            <label id="labelRepresentante" for="Representante">Representante</label>
+                            <input type="text" name="Representante" id="Representante" readonly="readonly" class="form-control m-b" value="@ViewBag.NomeRepresentante">
+                        </div>                        
+                        <div class="col-lg-3">
+                            <label id="labelStatus" for="StatusDescricao">Status</label>
+                            <input type="text" name="StatusDescricao" id="StatusDescricao" readonly="readonly" class="form-control m-b" value="@ViewBag.StatusDescricao">
+                        </div>
                     </div>
                 </div>
                 <div class="ibox-content">
@@ -215,6 +224,5 @@
     @Scripts.Render("~/plugins/Moment")
     @Scripts.Render("~/bundles/jquery-mask-plugin")
     @Scripts.Render("~/plugins/knob")
-    @Scripts.Render("~/plugins/select2")
     @Scripts.Render("~/script/Crianca/main")
 }

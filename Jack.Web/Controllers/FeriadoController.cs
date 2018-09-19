@@ -6,6 +6,7 @@ using System.Web.Mvc;
 
 namespace Jack.Web.Controllers
 {
+    [RoutePrefix("Feriado")]
     public class FeriadoController : BaseController
     {
         #region Vars
@@ -79,7 +80,7 @@ namespace Jack.Web.Controllers
         [Route("Gravar")]
         public ActionResult Gravar(FeriadoViewModel feriado)
         {
-            var gravarResult = feriadoAppService .Gravar(feriado);
+            var gravarResult = feriadoAppService.Gravar(feriado);
             object retorno;
             if (gravarResult.IsValid)
             {

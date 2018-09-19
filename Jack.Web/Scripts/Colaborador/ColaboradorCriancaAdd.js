@@ -11,6 +11,41 @@ Colaborador.URLListaSacolas = '';
 
 $(document).ready(function ()
 {
+
+    $("select.form-control.input-sm").select2(
+        {
+            minimumResultsForSearch: Infinity,
+            theme: "classic"
+        });
+
+    $("#Colaborador").select2({
+        theme: "classic"
+    });
+
+    $("#Ano").select2({
+        theme: "classic"
+    });
+
+    $("#Sexo").select2({
+        theme: "classic"
+    });
+
+    $("#Liberado").select2({
+        theme: "classic"
+    });
+
+    $("#Familia").select2({
+        theme: "classic"
+    });
+
+    $("#Kit").select2({
+        theme: "classic"
+    });
+
+    $("#Nivel").select2({
+        theme: "classic"
+    });
+
     Colaborador.URLListaSacolas = $("#URLListaSacolas").val();
 });
 
