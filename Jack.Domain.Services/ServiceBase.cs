@@ -35,15 +35,15 @@ namespace Jack.Domain.Services
             _repository.Atualizar(obj);
         }
 
-        public void Dispose()
-        {
-        //    _repository.Dispose();
-        }
-
         public IEnumerable<TEntity> Pesquisar(Expression<Func<TEntity, bool>> predicate)
         {
             return _repository.Pesquisar(predicate);
         }
+        public void Dispose()
+        {
+            _repository.Dispose();
+        }
+
 
     }
 }

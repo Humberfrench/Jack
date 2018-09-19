@@ -1,4 +1,5 @@
 ﻿using Jack.Domain.Entity;
+using Jack.Domain.ObjectValue;
 using System.Collections.Generic;
 
 namespace Jack.Domain.Interfaces.Repository
@@ -7,5 +8,6 @@ namespace Jack.Domain.Interfaces.Repository
     {
         Sacola ObterSacolaPorCrianca(int crianca);
         IEnumerable<Familia> ObterFamilias(int nivel);
+        IEnumerable<SacolaDto> ObterSacolasLivres(int ano, int liberado, int nivel, int kit);
     }
 }

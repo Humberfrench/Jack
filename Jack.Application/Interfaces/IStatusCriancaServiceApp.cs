@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace Jack.Application.Interfaces
 {
-    public interface IStatusCriancaServiceApp : IServiceBase<StatusCriancaViewModel>
+    public interface IStatusCriancaServiceApp : IServiceBaseApp<StatusCriancaViewModel>
     {
         IEnumerable<StatusCriancaViewModel> Filtrar(string nome);
         ValidationResult Gravar(StatusCriancaViewModel entity);

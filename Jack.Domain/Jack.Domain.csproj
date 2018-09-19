@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Jack.Domain</RootNamespace>
     <AssemblyName>Jack.Domain</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <SccProjectName>SAK</SccProjectName>
     <SccLocalPath>SAK</SccLocalPath>
@@ -21,6 +21,7 @@
     <AssemblyVersionSettings>None.None.None.Increment</AssemblyVersionSettings>
     <AssemblyFileVersionSettings>None.None.None.Increment</AssemblyFileVersionSettings>
     <AssemblyInfoVersionSettings>None.None.None.Increment</AssemblyInfoVersionSettings>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -70,8 +71,12 @@
     <Compile Include="Entity\Roupa.cs" />
     <Compile Include="Entity\StatusFamilia.cs" />
     <Compile Include="Entity\StatusCrianca.cs" />
+    <Compile Include="Entity\TipoDeProblema.cs" />
+    <Compile Include="Entity\StatusTratamento.cs" />
     <Compile Include="Entity\TipoItem.cs" />
     <Compile Include="Entity\TipoParentesco.cs" />
+    <Compile Include="Entity\Tratamento.cs" />
+    <Compile Include="Entity\TratamentoTipoDeProblema.cs" />
     <Compile Include="Enum\enumGrauParentesco.cs" />
     <Compile Include="Enum\enumNivel.cs" />
     <Compile Include="Enum\enumStatusFamilia.cs" />
@@ -102,6 +107,10 @@
     <Compile Include="Interfaces\Repository\IFeriadoRepository.cs" />
     <Compile Include="Interfaces\Repository\ITipoParentescoRepository.cs" />
     <Compile Include="Interfaces\Repository\ITipoItemRepository.cs" />
+    <Compile Include="Interfaces\Repository\ITratamentoRepository.cs" />
+    <Compile Include="Interfaces\Repository\IStatusTratamentoRepository.cs" />
+    <Compile Include="Interfaces\Repository\ITipoDeProblemaRepository.cs" />
+    <Compile Include="Interfaces\Repository\ITratamentoTiposDeProblemaRepository.cs" />
     <Compile Include="Interfaces\Services\IParametroService.cs" />
     <Compile Include="Interfaces\Services\IRoupaService.cs" />
     <Compile Include="Interfaces\Services\ISacolaHistoricoService.cs" />
@@ -122,8 +131,12 @@
     <Compile Include="Interfaces\Services\ICriancaService.cs" />
     <Compile Include="Interfaces\Services\IFamiliaService.cs" />
     <Compile Include="Interfaces\Services\IFeriadoService.cs" />
+    <Compile Include="Interfaces\Services\IStatusTratamentoService.cs" />
     <Compile Include="Interfaces\Services\ITipoParentescoService.cs" />
     <Compile Include="Interfaces\Services\ITipoItemService.cs" />
+    <Compile Include="Interfaces\Services\ITipoDeProblemaService.cs" />
+    <Compile Include="Interfaces\Services\ITratamentoService.cs" />
+    <Compile Include="Interfaces\Services\ITratamentoTiposDeProblemaService.cs" />
     <Compile Include="ObjectValue\CriancaValue.cs" />
     <Compile Include="ObjectValue\CriancaVestimenta.cs" />
     <Compile Include="ObjectValue\DatasReuniao.cs" />
@@ -131,6 +144,7 @@
     <Compile Include="ObjectValue\ItemValue.cs" />
     <Compile Include="ObjectValue\QuantidadeSacolasColaborador.cs" />
     <Compile Include="ObjectValue\RoupaValue.cs" />
+    <Compile Include="ObjectValue\SacolaDto.cs" />
     <Compile Include="ObjectValue\SacolaValue.cs" />
     <Compile Include="ObjectValue\Stats.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

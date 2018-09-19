@@ -2,7 +2,7 @@
 
 namespace Jack.Application.Interfaces
 {
-    public interface ISacolaHistoricoServiceApp : IServiceBase<SacolaHistoricoViewModel>
+    public interface ISacolaHistoricoServiceApp : IServiceBaseApp<SacolaHistoricoViewModel>
     {
 
 

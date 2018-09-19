@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace Jack.Application.Interfaces
 {
-    public interface IRepresentanteServiceApp : IServiceBase<RepresentanteViewModel>
+    public interface IRepresentanteServiceApp : IServiceBaseApp<RepresentanteViewModel>
     {
         ValidationResult Gravar(int familiaRepresentante, int familiaRepresentada, int tipoParentesco);
         ValidationResult Gravar(int codigo, int tipoParentesco, bool ativo);
@@ -12,6 +12,6 @@ namespace Jack.Application.Interfaces
         ValidationResult Desativar(int id);
         ValidationResult Gravar(RepresentanteViewModel representante);
         ValidationResult Excluir(int id);
-        IEnumerable<FamiliaViewModel> ObterFamilias(int familia); 
+        IEnumerable<FamiliaViewModel> ObterFamilias(int familia);
     }
 }

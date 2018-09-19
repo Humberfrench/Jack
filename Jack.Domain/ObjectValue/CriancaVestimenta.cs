@@ -20,6 +20,7 @@ namespace Jack.Domain.ObjectValue
         public virtual string IdadeNominal { get; set; }
         public virtual string IdadeNominalReduzida { get; set; }
         public virtual string Status { get; set; }
+        public virtual bool PermiteSacola { get; set; }
     }
 }
 

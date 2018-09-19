@@ -11,78 +11,88 @@ namespace Jack.Application
     public class FamiliaServiceApp : AppServiceBase, IFamiliaServiceApp
     {
 
-        private readonly IFamiliaService _service;
+        private readonly IFamiliaService service;
 
         public FamiliaServiceApp(IFamiliaService familiaService)
         {
-            _service = familiaService;
+            service = familiaService;
+        }
+
+        public string ObterRepresentante(int familiaId)
+        {
+            return service.ObterRepresentante(familiaId);
         }
 
         public ValidationResult Gravar(FamiliaViewModel familia)
         {
             var familiaSalvar = Mapper.Map<Familia>(familia);
-            return _service.Gravar(familiaSalvar);
+            return service.Gravar(familiaSalvar);
         }
 
         public ValidationResult Gravar(FamiliaViewModel familia, int reuniao)
         {
             var familiaSalvar = Mapper.Map<Familia>(familia);
-            return _service.Gravar(familiaSalvar, reuniao);
+            return service.Gravar(familiaSalvar, reuniao);
         }
 
         public ValidationResult Excluir(int id)
         {
-            return _service.Excluir(id);
+            return service.Excluir(id);
         }
         public ValidationResult AtualizarSimSacola(int familiaId)
         {
-            return _service.AtualizarSimSacola(familiaId);
+            return service.AtualizarSimSacola(familiaId);
+        }
+
+        public ValidationResult AtualizarFamiliaComPresencaParaRepresentantes(int id, bool gravar = true)
+        {
+            return service.AtualizarFamiliaComPresencaParaRepresentantes(id,gravar);
         }
 
         public ValidationResult AtualizarFamilia(int id, bool gravar = true)
         {
-            var familia = _service.AtualizarFamilia(id, gravar);
+            var familia = service.AtualizarFamilia(id, gravar);
             return familia;
         }
 
         public ValidationResult AtualizarPresencas(FamiliaViewModel familia)
         {
             var familiaSalvar = Mapper.Map<Familia>(familia);
-            return _service.AtualizarPresencas(familiaSalvar);
+            return service.AtualizarPresencas(familiaSalvar);
         }
 
         public IEnumerable<FamiliaViewModel> ObterFamiliasBanidas()
         {
-            var familia = _service.ObterFamiliasBanidas();
+            var familia = service.ObterFamiliasBanidas();
             return Mapper.Map<IEnumerable<FamiliaViewModel>>(familia);
         }
 
         public ValidationResult AtualizarFamiliaParaBanida(int familiaId)
         {
-            return _service.AtualizarFamiliaParaBanida(familiaId);
+            return service.AtualizarFamiliaParaBanida(familiaId);
         }
 
         public ValidationResult LiberarFamiliaBanida(int familiaId)
         {
-            return _service.LiberarFamiliaBanida(familiaId);
+            return service.LiberarFamiliaBanida(familiaId);
         }
 
 
         public FamiliaViewModel ObterPorId(int id)
         {
-            var familia = _service.ObterPorId(id);
+            var familia = service.ObterPorId(id);
             return Mapper.Map<FamiliaViewModel>(familia);
         }
 
         public IEnumerable<FamiliaViewModel> ObterTodos()
         {
-            var familia = _service.ObterTodos();
+            var familia = service.ObterTodos();
             return Mapper.Map<IEnumerable<FamiliaViewModel>>(familia);
         }
 
         public IEnumerable<FamiliaViewModel> Filtrar(string nome)
         {
-            var familia = _service.Filtrar(nome);
+            var familia = service.Filtrar(nome);
             return Mapper.Map<IEnumerable<FamiliaViewModel>>(familia);
         }
 
@@ -93,13 +103,19 @@ namespace Jack.Application
 
         public IEnumerable<FamiliaViewModel> ObterNaoSacolas()
         {
-            var familia = _service.ObterNaoSacolas();
+            var familia = service.ObterNaoSacolas();
             return Mapper.Map<IEnumerable<FamiliaViewModel>>(familia);
         }
 
         public IEnumerable<FamiliaViewModel> ObterPorStatus(int status)
         {
-            var familia = _service.ObterPorStatus(status);
+            var familia = service.ObterPorStatus(status);
+            return Mapper.Map<IEnumerable<FamiliaViewModel>>(familia);
+        }
+
+        public IEnumerable<FamiliaViewModel> ObterTodosTratamento()
+        {
+            var familia = service.ObterTodosTratamento();
             return Mapper.Map<IEnumerable<FamiliaViewModel>>(familia);
         }
     }

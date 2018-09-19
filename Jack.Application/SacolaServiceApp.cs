@@ -194,5 +194,11 @@ namespace Jack.Application
             var familias = service.ObterFamiliasDisponiveis();
             return Mapper.Map<List<FamiliaViewModel>>(familias);
         }
+
+        public IEnumerable<SacolaDtoViewModel> ObterSacolasLivres(int ano, int liberado, int nivel, int kit)
+        {
+            var sacolas = service.ObterSacolasLivres(ano, liberado, nivel, kit);
+            return Mapper.Map<List<SacolaDtoViewModel>>(sacolas);
+        }
     }
 }

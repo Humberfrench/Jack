@@ -34,6 +34,24 @@ namespace Jack.Domain.Entity
             anoCorrente = 0;
         }
 
+        //SELECT[Codigo]
+        //,[IdadeLimite]
+        //,[IdadeLimiteExcecao]
+        //,[TemIdadeLimiteExcecao]
+        //,[LimiteIdadeMoralCrista]
+        //,[CalcadoLimite]
+        //,[NumeroMaximoCricancas]
+        //,[NumeroMaximoRepresentantes]
+        //,[NumeroMaximoCricancasRepresentantes]
+        //,[PodeUltrapassarNumeroMaximoFilhos]
+        //,[PrimeiroSabado]
+        //,[SegundoSabado]
+        //,[TerceiroSabado]
+        //,[AnoCorrente]
+        //,[PodeGerarNovasSacolas]
+        //,[AjusteAutomaticoNoProcessamento]
+        //FROM[dbJack].[dbo].[Parametros]
+
         private int codigo;
         private int idadeLimite;
         private int idadeLimiteExcecao;

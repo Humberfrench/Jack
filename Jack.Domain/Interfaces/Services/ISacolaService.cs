@@ -1,4 +1,5 @@
 ﻿using Jack.Domain.Entity;
+using Jack.Domain.ObjectValue;
 using Jack.DomainValidator;
 using System.Collections.Generic;
 
@@ -34,6 +35,6 @@ namespace Jack.Domain.Interfaces.Services
         ValidationResult AddCrianca(Crianca crianca);
         ValidationResult AddFamilia(int familia);
         IList<Familia> ObterFamiliasDisponiveis();
-
+        IEnumerable<SacolaDto> ObterSacolasLivres(int ano, int liberado, int nivel, int kit);
     }
 }

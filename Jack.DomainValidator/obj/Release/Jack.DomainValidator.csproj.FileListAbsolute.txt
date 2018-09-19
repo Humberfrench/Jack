@@ -12,3 +12,12 @@ C:\Humberto\Projetos\Jack\Jack.DomainValidator\bin\Release\Newtonsoft.Json.xml
 C:\Humberto\Projetos\Jack\Jack.DomainValidator\obj\Release\Jack.DomainValidator.csprojResolveAssemblyReference.cache
 C:\Humberto\Projetos\Jack\Jack.DomainValidator\obj\Release\Jack.DomainValidator.dll
 C:\Humberto\Projetos\Jack\Jack.DomainValidator\obj\Release\Jack.DomainValidator.pdb
+C:\Humberto\Desenvolvimento\Jack\Jack.DomainValidator\bin\Release\Jack.DomainValidator.dll
+C:\Humberto\Desenvolvimento\Jack\Jack.DomainValidator\bin\Release\Jack.DomainValidator.pdb
+C:\Humberto\Desenvolvimento\Jack\Jack.DomainValidator\bin\Release\Newtonsoft.Json.dll
+C:\Humberto\Desenvolvimento\Jack\Jack.DomainValidator\bin\Release\Newtonsoft.Json.xml
+C:\Humberto\Desenvolvimento\Jack\Jack.DomainValidator\obj\Release\Jack.DomainValidator.csprojAssemblyReference.cache
+C:\Humberto\Desenvolvimento\Jack\Jack.DomainValidator\obj\Release\Jack.DomainValidator.csproj.CoreCompileInputs.cache
+C:\Humberto\Desenvolvimento\Jack\Jack.DomainValidator\obj\Release\Jack.DomainValidator.csproj.CopyComplete
+C:\Humberto\Desenvolvimento\Jack\Jack.DomainValidator\obj\Release\Jack.DomainValidator.dll
+C:\Humberto\Desenvolvimento\Jack\Jack.DomainValidator\obj\Release\Jack.DomainValidator.pdb

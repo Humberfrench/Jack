@@ -4,7 +4,7 @@ using System.Linq.Expressions;
 
 namespace Jack.Domain.Interfaces.Services
 {
-    public interface IServiceBaseReadOnly<TEntity>
+    public interface IServiceBaseReadOnly<TEntity> : IDisposable
       where TEntity : class
     {
         TEntity ObterPorId(int id);

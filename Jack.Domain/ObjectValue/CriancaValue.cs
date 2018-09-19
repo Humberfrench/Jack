@@ -9,6 +9,8 @@ namespace Jack.Domain.ObjectValue
         public string Nome { get; set; }
         public string Sexo { get; set; }
         public bool CadastroNovo { get; set; }
+        public int Status { get; set; }
+        public bool ProcessaStatus { get; set; }
         public bool NescessidadeEspecial { get; set; }
         public bool CriancaGrande { get; set; }
         public bool MoralCrista { get; set; }

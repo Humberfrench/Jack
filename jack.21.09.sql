@@ -83,14 +83,7 @@ select * from Presenca where Familia = 261 order by reuniao
 select * from Colaborador
 
 
-SELECT s.Codigo, s.SacolaFamilia, F.Nome, c.Nome, c.Sexo, c.IdadeNominal, c.Calcado, c.Roupa, s.Nivel, s.Liberado
-FROM Sacolas s
-JOIN Familia f
-ON s.FamiliaRepresentante = f.Codigo
-JOIN Crianca c
-ON s.Crianca = c.Codigo
----AND c.Codigo NOT IN (SELECT Crianca From ColaboradorCrianca Where  Ano = 2017)
-ORDER BY s.Nivel, c.MedidaIdade desc, c.Idade , c.Sexo, c.Nome
+
 
 select * from Sacolas
 
@@ -116,7 +109,7 @@ JOIN Familia f
 ON s.FamiliaRepresentante = f.Codigo
 JOIN Crianca c
 ON s.Crianca = c.Codigo
-AND c.Codigo IN (SELECT Crianca From ColaboradorCrianca Where  Ano = 2017 and Colaborador = 32)
+AND c.Codigo IN (SELECT Crianca From ColaboradorCrianca Where  Ano = 2017 and Colaborador = 28)
 ORDER BY s.Nivel, c.MedidaIdade desc, c.Idade , c.Sexo, c.Nome
 
 --conferir alunos como TALITA!!!!!
@@ -128,7 +121,8 @@ ORDER BY s.Nivel, c.MedidaIdade desc, c.Idade , c.Sexo, c.Nome
 SELECT * FROM ColaboradorCrianca WHERE Ano = 2017
 
 SELECT Codigo From Sacolas WHERE Crianca In(
-SELECT Crianca FROM ColaboradorCrianca WHERE Ano = 2017 and Colaborador = 33)
+SELECT Crianca FROM ColaboradorCrianca WHERE Ano = 2017 and Colaborador = 43)
+
 
 
 
@@ -142,3 +136,69 @@ ORDER BY s.Nivel, f.Nome, c.MedidaIdade desc, c.Idade , c.Sexo, c.Nome
 
 
 select * from familia order by nome
+
+select * from Sacolas
+WHERE Crianca NOT IN (SELECT Crianca From ColaboradorCrianca where Ano = 2017)
+AND Liberado = 1
+
+
+SELECT s.Codigo, s.SacolaFamilia, F.Nome, c.Nome, c.Sexo, c.IdadeNominal, c.Calcado, c.Roupa, s.Nivel, s.Liberado
+FROM Sacolas s
+JOIN Familia f
+ON s.FamiliaRepresentante = f.Codigo
+JOIN Crianca c
+ON s.Crianca = c.Codigo
+AND c.Codigo NOT IN (SELECT Crianca From ColaboradorCrianca Where  Ano = 2017)
+AND Liberado = 1
+ORDER BY s.Nivel, c.MedidaIdade desc, c.Idade , c.Sexo, c.Nome
+
+--porfamilia
+SELECT s.Codigo, s.SacolaFamilia, F.Nome, c.Nome, c.Sexo, c.IdadeNominal, c.Calcado, c.Roupa, s.Nivel, s.Liberado
+FROM Sacolas s
+JOIN Familia f
+ON s.FamiliaRepresentante = f.Codigo
+JOIN Crianca c
+ON s.Crianca = c.Codigo
+AND c.Codigo NOT IN (SELECT Crianca From ColaboradorCrianca Where  Ano = 2017)
+AND Liberado = 0
+ORDER BY s.Nivel, F.Nome, s.SacolaFamilia, c.MedidaIdade desc, c.Idade , c.Sexo, c.Nome
+
+--quantitativo todos
+SELECT Idade, MedidaIdade, Count(1) Quantidade
+FROM Crianca
+WHERE Codigo IN (
+select Crianca from Sacolas
+WHERE Crianca NOT IN (SELECT Crianca From ColaboradorCrianca where Ano = 2017)
+AND Liberado = 1)
+GROUP BY Idade, MedidaIdade
+ORDER BY MedidaIdade Desc, idade
+
+--quantitativo com sexo
+SELECT Idade, MedidaIdade, Sexo, Count(1) Quantidade
+FROM Crianca
+WHERE Codigo IN (
+select Crianca from Sacolas
+WHERE Crianca NOT IN (SELECT Crianca From ColaboradorCrianca where Ano = 2017)
+AND Liberado = 1)
+GROUP BY Idade, Sexo, MedidaIdade
+ORDER BY MedidaIdade Desc, idade, Sexo
+
+delete from sacolas where id >= 641
+
+
+
+SELECT s.Codigo, s.SacolaFamilia, F.Nome, c.Nome, c.Sexo, c.IdadeNominal, c.Calcado, c.Roupa, s.Nivel, s.Liberado
+FROM Sacolas s
+JOIN Familia f
+ON s.FamiliaRepresentante = f.Codigo
+JOIN Crianca c
+ON s.Crianca = c.Codigo
+AND c.Codigo NOT IN (SELECT Crianca From ColaboradorCrianca Where  Ano = 2017)
+AND s.Liberado = 1
+ORDER BY  c.MedidaIdade desc, c.Idade , c.Sexo, c.Nome
+
+
+
+
+
+309,307,139,138,79,285,140,106,136,141,137,38,78,283,282,39,124,23,174,176,175,84,143,324

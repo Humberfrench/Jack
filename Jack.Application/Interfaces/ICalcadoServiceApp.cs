@@ -2,7 +2,7 @@
 
 namespace Jack.Application.Interfaces
 {
-    public interface ICalcadoServiceApp : IServiceBase<CalcadoViewModel>
+    public interface ICalcadoServiceApp : IServiceBaseApp<CalcadoViewModel>
     {
 
     }

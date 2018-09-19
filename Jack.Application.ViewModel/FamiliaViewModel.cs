@@ -1,12 +1,12 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
-using Newtonsoft.Json;
 
 namespace Jack.Application.ViewModel
 {
-    public class FamiliaViewModel 
+    public class FamiliaViewModel
     {
 
         #region "Construtor"
@@ -17,16 +17,18 @@ namespace Jack.Application.ViewModel
             sacolas = new List<SacolaViewModel>();
             presencas = new List<PresencaViewModel>();
             representantes = new List<RepresentanteViewModel>();
+            tratamento = new List<TratamentoViewModel>();
         }
 
         #endregion
-        
+
         #region Fields
 
         private IList<CriancaViewModel> criancas;
         private IList<SacolaViewModel> sacolas;
         private IList<PresencaViewModel> presencas;
         private IList<RepresentanteViewModel> representantes;
+        private IList<TratamentoViewModel> tratamento;
 
         #endregion
 
@@ -66,6 +68,26 @@ namespace Jack.Application.ViewModel
         [MaxLength(50)]
         public virtual string Contato { get; set; }
 
+        [Display(Name = "Endereço Família")]
+        [DisplayFormat(NullDisplayText = "")]
+        [MaxLength(50)]
+        public virtual string EnderecoFamilia { get; set; }
+
+        [Display(Name = "Bairro")]
+        [DisplayFormat(NullDisplayText = "")]
+        [MaxLength(30)]
+        public virtual string Bairro { get; set; }
+
+        [Display(Name = "Cidade")]
+        [DisplayFormat(NullDisplayText = "")]
+        [MaxLength(50)]
+        public virtual string Cidade { get; set; }
+
+        [Display(Name = "Estado")]
+        [DisplayFormat(NullDisplayText = "")]
+        [MaxLength(2)]
+        public virtual string Estado { get; set; }
+
         [Display(Name = "Nível")]
         [DisplayFormat(NullDisplayText = "")]
         public virtual NivelViewModel Nivel { get; set; }
@@ -86,11 +108,15 @@ namespace Jack.Application.ViewModel
         [DisplayFormat(NullDisplayText = "")]
         public virtual StatusFamiliaViewModel Status { get; set; }
 
+        [Display(Name = "Ativo")]
+        [DisplayFormat(NullDisplayText = "")]
+        public bool Ativo { get; set; }
+
         [JsonIgnore]
         [Display(Name = "Crianças")]
         [DisplayFormat(NullDisplayText = "")]
         public virtual IList<CriancaViewModel> Criancas
-         {
+        {
             get
             {
                 return criancas;
@@ -104,7 +130,7 @@ namespace Jack.Application.ViewModel
         [JsonIgnore]
         [Display(Name = "Sacolas")]
         [DisplayFormat(NullDisplayText = "")]
-        public virtual IList<SacolaViewModel> Sacolas 
+        public virtual IList<SacolaViewModel> Sacolas
         {
             get
             {
@@ -127,7 +153,7 @@ namespace Jack.Application.ViewModel
         [JsonIgnore]
         [Display(Name = "Presenças")]
         [DisplayFormat(NullDisplayText = "")]
-        public IList<PresencaViewModel> Presencas 
+        public IList<PresencaViewModel> Presencas
         {
             get
             {
@@ -136,6 +162,20 @@ namespace Jack.Application.ViewModel
             set
             {
                 presencas = value;
+            }
+        }
+        [JsonIgnore]
+        [Display(Name = "Tratamento")]
+        [DisplayFormat(NullDisplayText = "")]
+        public virtual IList<TratamentoViewModel> Tratamento
+        {
+            get
+            {
+                return tratamento;
+            }
+            set
+            {
+                tratamento = value;
             }
         }
 
@@ -160,6 +200,14 @@ namespace Jack.Application.ViewModel
             get
             {
                 return Criancas.ToList().Count;
+            }
+        }
+        [Display(Name = "Crianças")]
+        public int QuantidadeCriancasAtivas
+        {
+            get
+            {
+                return Criancas.Where(c => c.Status.PermiteSacola).ToList().Count;
             }
         }
 

@@ -436,7 +436,6 @@ namespace Jack.Extensions
 
         public static string GetFirstName(this string name)
         {
-
             var names = name.Split(' ');
             return $"{names.First()}";
 
@@ -459,6 +458,20 @@ namespace Jack.Extensions
         public static bool ToBoolean(this int value)
         {
             return (value == 1);
+        }
+
+        public static string FormatarTelefone(this string telefone, string ddd)
+        {
+            return $"{ddd}-{telefone}";
+        }
+        public static string FormatarTelefone(this string telefone, string ddi, string ddd)
+        {
+            return $"({ddi}) {ddd}-{telefone}";
+        }
+
+        public static bool Compare(this string valor, string destino)
+        {
+            return string.Compare(valor, destino, StringComparison.OrdinalIgnoreCase) == 0;
         }
 
     }

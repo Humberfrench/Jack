@@ -170,12 +170,16 @@ namespace Jack.Domain.Services
         {
             var familias = repFamilia.ObterFamiliaPresencaJustificada().ToList();
             var parametro = repParametros.Obter();
-            var reunioes = repReuniao.ObterTodosAteHoje(parametro.AnoCorrente, DateTime.Now).ToList();
+            var reunioes = repReuniao.ObterTodosAteHoje(parametro.AnoCorrente).ToList();
             foreach (var reuniao in reunioes)
             {
                 foreach (var familia in familias)
                 {
-                    var retValidator = Gravar(reuniao, familia);
+                    var presente = repPresenca.ObterDadoPresencaExistente(familia.Codigo, reuniao.Codigo);
+                    if (!presente.HasValue)
+                    {
+                        var retValidator = Gravar(reuniao.Codigo, familia.Codigo);
+                    }
                     //Anulando o validatos dado a problema de quantidade
                     //retValidator.Erros.ToList().ForEach(e => validationResult.Add(e));
                 }
@@ -192,10 +196,37 @@ namespace Jack.Domain.Services
             foreach (var familia in familiasRepresentante)
             {
 
+                var reunioes = repPresenca.ObterTodosPorFamilia(familia.FamiliaRepresentante.Codigo, parametro.AnoCorrente);
+                foreach (var reuniao in reunioes)
+                {
+                    var presente = repPresenca.ObterDadoPresencaExistente(familia.FamiliaRepresentada.Codigo, reuniao);
+                    if (!presente.HasValue)
+                    {
+                        var retValidator = Gravar(reuniao, familia.FamiliaRepresentada.Codigo);
+                    }
+                    //Anulando o validatos dado a problema de quantidade
+                    //retValidator.Erros.ToList().ForEach(e => validationResult.Add(e));
+                }
+            }
+
+            return validationResult;
+        }
+        public ValidationResult ProcessarPresencaRepresentantes(int id)
+        {
+            var familiasRepresentante = repRepresentante.ObterTodos().Where(rep => rep.FamiliaRepresentante.Codigo == id).ToList(); ;
+            var parametro = repParametros.Obter();
+
+            foreach (var familia in familiasRepresentante)
+            {
+
                 var reunioes = repPresenca.ObterTodosPorFamilia(familia.FamiliaRepresentante.Codigo);
                 foreach (var reuniao in reunioes)
                 {
-                    var retValidator = Gravar(reuniao, familia.FamiliaRepresentada.Codigo);
+                    var presente = repPresenca.ObterDadoPresencaExistente(familia.FamiliaRepresentada.Codigo, reuniao);
+                    if (!presente.HasValue)
+                    {
+                        var retValidator = Gravar(reuniao, familia.FamiliaRepresentada.Codigo);
+                    }
                     //Anulando o validatos dado a problema de quantidade
                     //retValidator.Erros.ToList().ForEach(e => validationResult.Add(e));
                 }

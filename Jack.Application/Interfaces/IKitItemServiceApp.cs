@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace Jack.Application.Interfaces
 {
-    public interface IKitItemServiceApp : IServiceBase<KitItemViewModel>
+    public interface IKitItemServiceApp : IServiceBaseApp<KitItemViewModel>
     {
         ValidationResult Gravar(KitItemViewModel entity);
         ValidationResult Excluir(int id);

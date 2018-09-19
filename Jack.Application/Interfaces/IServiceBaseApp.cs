@@ -2,7 +2,7 @@
 
 namespace Jack.Application.Interfaces
 {
-    public interface IServiceBase<TEntity>
+    public interface IServiceBaseApp<TEntity>
       where TEntity : class
     {
         TEntity ObterPorId(int id);

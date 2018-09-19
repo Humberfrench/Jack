@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace Jack.Application.Interfaces
 {
-    public interface IColaboradorCriancaServiceApp : IServiceBase<ColaboradorCriancaViewModel>
+    public interface IColaboradorCriancaServiceApp : IServiceBaseApp<ColaboradorCriancaViewModel>
     {
         IEnumerable<ColaboradorCriancaViewModel> Obter(int id, int ano);
         ValidationResult Excluir(int id);

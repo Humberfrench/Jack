@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace Jack.Application.Interfaces
 {
-    public interface IReuniaoServiceApp : IServiceBase<ReuniaoViewModel>
+    public interface IReuniaoServiceApp : IServiceBaseApp<ReuniaoViewModel>
     {
         ValidationResult Gravar(ReuniaoViewModel entity);
         ValidationResult Excluir(int id);

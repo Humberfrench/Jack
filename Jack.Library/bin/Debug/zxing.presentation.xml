@@ -108,32 +108,8 @@
         </member>
         <member name="T:ZXing.Rendering.WriteableBitmapRenderer">
             <summary>
-            Renders a <see cref="T:ZXing.Common.BitMatrix"/> to a <see cref="T:System.Windows.Media.Imaging.WriteableBitmap"/>
+            Renders a <see cref="T:ZXing.Common.BitMatrix" /> to a <see cref="T:System.Windows.Media.Imaging.WriteableBitmap" />
             </summary>
-        </member>
-        <member name="M:ZXing.Rendering.WriteableBitmapRenderer.#ctor">
-            <summary>
-            Initializes a new instance of the <see cref="T:ZXing.Rendering.WriteableBitmapRenderer"/> class.
-            </summary>
-        </member>
-        <member name="M:ZXing.Rendering.WriteableBitmapRenderer.Render(ZXing.Common.BitMatrix,ZXing.BarcodeFormat,System.String)">
-            <summary>
-            Renders the specified matrix.
-            </summary>
-            <param name="matrix">The matrix.</param>
-            <param name="format">The format.</param>
-            <param name="content">The content.</param>
-            <returns></returns>
-        </member>
-        <member name="M:ZXing.Rendering.WriteableBitmapRenderer.Render(ZXing.Common.BitMatrix,ZXing.BarcodeFormat,System.String,ZXing.Common.EncodingOptions)">
-            <summary>
-            Renders the specified matrix.
-            </summary>
-            <param name="matrix">The matrix.</param>
-            <param name="format">The format.</param>
-            <param name="content">The content.</param>
-            <param name="options">The options.</param>
-            <returns></returns>
         </member>
         <member name="P:ZXing.Rendering.WriteableBitmapRenderer.Foreground">
             <summary>
@@ -190,6 +166,30 @@
             <value>
             The font weight.
             </value>
+        </member>
+        <member name="M:ZXing.Rendering.WriteableBitmapRenderer.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:ZXing.Rendering.WriteableBitmapRenderer"/> class.
+            </summary>
+        </member>
+        <member name="M:ZXing.Rendering.WriteableBitmapRenderer.Render(ZXing.Common.BitMatrix,ZXing.BarcodeFormat,System.String)">
+            <summary>
+            Renders the specified matrix.
+            </summary>
+            <param name="matrix">The matrix.</param>
+            <param name="format">The format.</param>
+            <param name="content">The content.</param>
+            <returns></returns>
+        </member>
+        <member name="M:ZXing.Rendering.WriteableBitmapRenderer.Render(ZXing.Common.BitMatrix,ZXing.BarcodeFormat,System.String,ZXing.Common.EncodingOptions)">
+            <summary>
+            Renders the specified matrix.
+            </summary>
+            <param name="matrix">The matrix.</param>
+            <param name="format">The format.</param>
+            <param name="content">The content.</param>
+            <param name="options">The options.</param>
+            <returns></returns>
         </member>
     </members>
 </doc>

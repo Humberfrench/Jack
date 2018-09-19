@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace Jack.Application.Interfaces
 {
-    public interface ITipoItemServiceApp : IServiceBase<TipoItemViewModel>
+    public interface ITipoItemServiceApp : IServiceBaseApp<TipoItemViewModel>
     {
         IEnumerable<TipoItemViewModel> Filtrar(string nome);
         ValidationResult Gravar(TipoItemViewModel entity);

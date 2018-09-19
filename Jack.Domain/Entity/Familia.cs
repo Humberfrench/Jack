@@ -25,7 +25,11 @@ namespace Jack.Domain.Entity
             permiteExcedenteCriancas = false;
             permiteExcedenteRepresentantes = false;
             contato = string.Empty;
+            estado = string.Empty;
+            cidade = string.Empty;
+            bairro = string.Empty;
             fake = false;
+            enderecoFamilia = string.Empty;
             presencaJustificada = false;
             blackListPasso1 = false;
             blackListPasso2 = false;
@@ -33,6 +37,7 @@ namespace Jack.Domain.Entity
             sacolas = new List<Sacola>();
             presencas = new List<Presenca>();
             representantes = new List<Representante>();
+            tratamento = new List<Tratamento>();
             dataAtualizacao = new DateTime();
             dataCriacao = new DateTime();
         }
@@ -43,11 +48,16 @@ namespace Jack.Domain.Entity
 
         private int codigo;
         private string nome;
+        private bool ativo;
         private bool sacolinha;
         private bool consistente;
         private bool permiteExcedenteCriancas;
         private bool permiteExcedenteRepresentantes;
         private string contato;
+        private string enderecoFamilia;
+        private string bairro;
+        private string cidade;
+        private string estado;
         private bool fake;
         private bool presencaJustificada;
         private bool blackListPasso1;
@@ -60,6 +70,7 @@ namespace Jack.Domain.Entity
         private DateTime dataCriacao;
         private IList<Presenca> presencas;
         private IList<Representante> representantes;
+        private IList<Tratamento> tratamento;
         private ValidationResult validationResult;
         private bool? isValid;
         #endregion
@@ -113,6 +124,17 @@ namespace Jack.Domain.Entity
                 consistente = value;
             }
         }
+        public virtual bool Ativo
+        {
+            get
+            {
+                return ativo;
+            }
+            set
+            {
+                ativo = value;
+            }
+        }
 
         public virtual bool PermiteExcedenteCriancas
         {
@@ -147,6 +169,51 @@ namespace Jack.Domain.Entity
             set
             {
                 contato = value;
+            }
+        }
+
+        public virtual string EnderecoFamilia
+        {
+            get
+            {
+                return enderecoFamilia;
+            }
+            set
+            {
+                enderecoFamilia = value;
+            }
+        }
+        public virtual string Bairro
+        {
+            get
+            {
+                return bairro;
+            }
+            set
+            {
+                bairro = value;
+            }
+        }
+        public virtual string Cidade
+        {
+            get
+            {
+                return cidade;
+            }
+            set
+            {
+                cidade = value;
+            }
+        }
+        public virtual string Estado
+        {
+            get
+            {
+                return estado;
+            }
+            set
+            {
+                estado = value;
             }
         }
 
@@ -294,6 +361,18 @@ namespace Jack.Domain.Entity
             }
         }
 
+        public virtual IList<Tratamento> Tratamento
+        {
+            get
+            {
+                return tratamento;
+            }
+            set
+            {
+                tratamento = value;
+            }
+        }
+
         #endregion
 
         #region Methods
@@ -334,6 +413,11 @@ namespace Jack.Domain.Entity
             return (numeroPresencas == 0);
         }
 
+        public virtual bool FamiliaSemPresenca(int ano)
+        {
+            var numeroPresencas = Presencas.Where(p => p.Reuniao.AnoCorrente == ano).ToList().Count;
+            return (numeroPresencas == 0);
+        }
         public virtual bool FamiliaBanida()
         {
             return Status.Codigo == EnumStatusFamilia.FamiliaBanidaPorProblemas.Int();
@@ -346,7 +430,7 @@ namespace Jack.Domain.Entity
 
         public virtual bool FamiliaComTotalDeCriancasEmExcesso()
         {
-            return Status.Codigo == EnumStatusFamilia.CriancasDaFamilaEDoRepresentanteExcedido.Int();
+            return Status.Codigo == EnumStatusFamilia.CriancasDaFamiliaEDoRepresentanteExcedido.Int();
         }
 
         public virtual bool FamiliaRepresentanteEmExcesso()

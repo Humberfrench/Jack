@@ -57,5 +57,8 @@ namespace Jack.Application.ViewModel
 
         [Display(Name = "Status")]
         public virtual string Status { get; set; }
+
+        [Display(Name = "Permite Sacola")]
+        public virtual bool PermiteSacola { get; set; }
     }
 }

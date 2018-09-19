@@ -97,7 +97,13 @@ namespace Jack.Application
             return Mapper.Map<IEnumerable<CriancaViewModel>>(crianca);
         }
 
-        public IEnumerable<CriancaViewModel> ObterCriancasSacola(int familia)
+         public IEnumerable<CriancaViewModel> ObterCriancasTela(int familia)
+        {
+            var crianca = criancaService.ObterCriancasTela(familia);
+            return Mapper.Map<IEnumerable<CriancaViewModel>>(crianca);
+        }
+
+       public IEnumerable<CriancaViewModel> ObterCriancasSacola(int familia)
         {
             var crianca = criancaService.ObterCriancasSacola(familia);
             return Mapper.Map<IEnumerable<CriancaViewModel>>(crianca);

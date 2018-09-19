@@ -38,6 +38,7 @@ namespace Jack.Application.AutoMapper
                 cfg.CreateMap<StatusCrianca, StatusCriancaViewModel>().MaxDepth(2);
                 cfg.CreateMap<TipoItem, TipoItemViewModel>().MaxDepth(2);
                 cfg.CreateMap<TipoParentesco, TipoParentescoViewModel>().MaxDepth(2);
+                cfg.CreateMap<SacolaDto, SacolaDtoViewModel>();
                 cfg.CreateMap<CalcadoViewModel, Calcado>();
                 cfg.CreateMap<ColaboradorViewModel, Colaborador>();
                 cfg.CreateMap<ColaboradorCriancaViewModel, ColaboradorCrianca>();
@@ -63,6 +64,7 @@ namespace Jack.Application.AutoMapper
                 cfg.CreateMap<StatusCriancaViewModel, StatusCrianca>();
                 cfg.CreateMap<TipoItemViewModel, TipoItem>();
                 cfg.CreateMap<TipoParentescoViewModel, TipoParentesco>();
+                cfg.CreateMap<SacolaDtoViewModel, SacolaDto>();
             });
 
             Config.AssertConfigurationIsValid();

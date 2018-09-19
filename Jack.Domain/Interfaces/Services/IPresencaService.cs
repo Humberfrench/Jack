@@ -17,5 +17,6 @@ namespace Jack.Domain.Interfaces.Services
         IEnumerable<Familia> ObterFamiliasDisponiveis(int reuniao, string letra);
         ValidationResult ProcessarPresencaGarantida();
         ValidationResult ProcessarPresencaRepresentantes();
+        ValidationResult ProcessarPresencaRepresentantes(int id);
     }
 }

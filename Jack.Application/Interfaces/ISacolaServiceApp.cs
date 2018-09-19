@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace Jack.Application.Interfaces
 {
-    public interface ISacolaServiceApp : IServiceBase<SacolaViewModel>
+    public interface ISacolaServiceApp : IServiceBaseApp<SacolaViewModel>
     {
 
         ValidationResult AddCrianca(int crianca);
@@ -33,6 +33,7 @@ namespace Jack.Application.Interfaces
         ValidationResult AddCrianca(CriancaViewModel crianca);
         ValidationResult AddFamilia(int familia);
         IList<FamiliaViewModel> ObterFamiliasDisponiveis();
+        IEnumerable<SacolaDtoViewModel> ObterSacolasLivres(int ano, int liberado, int nivel, int kit);
 
     }
 }

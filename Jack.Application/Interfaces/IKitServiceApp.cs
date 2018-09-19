@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace Jack.Application.Interfaces
 {
-    public interface IKitServiceApp : IServiceBase<KitViewModel>
+    public interface IKitServiceApp : IServiceBaseApp<KitViewModel>
     {
         IEnumerable<KitViewModel> Filtrar(string nome);
         ValidationResult Gravar(KitViewModel entity);

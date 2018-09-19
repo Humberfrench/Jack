@@ -5,25 +5,25 @@ using System.Linq;
 namespace Jack.DomainValidator
 {
     [Serializable]
-    public class ValidationResult
+    public class ValidationResult : IDisposable
     {
-        private readonly List<ValidationError> errors = new List<ValidationError>();
+        private readonly List<ValidationError> errors;
 
-        public void Add(ValidationError error)
+        public ValidationResult()
         {
-            this.errors.Add(error);
+            errors = new List<ValidationError>();
         }
+
+        public void Add(ValidationError error) => errors.Add(error);
 
         public void Add(params ValidationResult[] validationResults)
         {
-            if (validationResults != null)
+            if (validationResults == null) return;
+            foreach (var result in from result in validationResults
+                                   where result != null
+                                   select result)
             {
-                foreach (var result in from result in validationResults
-                                       where result != null
-                                       select result)
-                {
-                    this.errors.AddRange(result.errors);
-                }
+                this.errors.AddRange(result.errors);
             }
         }
 
@@ -58,15 +58,13 @@ namespace Jack.DomainValidator
             }
         }
 
-        public IList<ValidationError> Erros { get { return errors; } }
+        public IList<ValidationError> Erros => errors;
 
-        public bool IsValid
-        {
-            get
-            {
-                return !errors.Any(vr => vr.Erro);
-            }
-        }
+        public IList<ValidationError> AllErrors => errors.Where(e => e.Erro).ToList();
+
+        public IList<ValidationError> Warnings => errors.Where(e => !e.Erro).ToList();
+
+        public bool IsValid => !errors.Any(vr => vr.Erro);
 
         public string Messagem { get; set; }
 
@@ -76,13 +74,10 @@ namespace Jack.DomainValidator
 
         public bool ProblemaDeInfraestrutura { get; set; }
 
-        public bool Warning
-        {
-            get
-            {
-                return this.errors.Count(vr => vr.Erro) != this.Erros.Count();
-            }
-        }
+        public bool Warning => this.errors.Count(vr => vr.Erro) != this.Erros.Count();
+
+        public void Dispose() => GC.SuppressFinalize(this);
+
     }
 }
 

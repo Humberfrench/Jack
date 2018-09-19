@@ -1,12 +1,12 @@
 ﻿using Jack.Domain.Entity;
 using Jack.Domain.Interfaces.Repository;
 using Jack.Domain.Interfaces.Services;
+using Jack.Domain.ObjectValue;
 using Jack.DomainValidator;
 using Jack.Extensions;
 using Jack.Library;
 using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Linq;
 using System.Text;
 
@@ -301,6 +301,21 @@ namespace Jack.Domain.Services
 
             Adicionar(sacola);
 
+            //atualizar o ccodigo da sacola
+            var sacolaAdded = repSacola.ObterSacolaPorCrianca(crianca.Codigo);
+            var id = sacolaAdded.Id;
+            sacolaAdded.Codigo = id;
+
+            repSacola.Atualizar(sacolaAdded);
+
+            //
+            var validation = AtualizarQrCodeSacolas(id);
+
+            if (!validation.IsValid)
+            {
+                validation.Erros.ToList().ForEach(e => validationResult.Add(e));
+            }
+
             return validationResult;
         }
 
@@ -451,6 +466,10 @@ namespace Jack.Domain.Services
         {
             return ProcessarSacolas(ano, true);
         }
+        public IEnumerable<SacolaDto> ObterSacolasLivres(int ano, int liberado, int nivel, int kit)
+        {
+            return repSacola.ObterSacolasLivres(ano, liberado, nivel, kit);
+        }
 
         public List<Sacola> ProcessarSacolas(int ano, bool todas)
         {
@@ -471,6 +490,7 @@ namespace Jack.Domain.Services
 
             #region 6 - formando o registro da sacola e inserindo.
             var sacolas = new List<Sacola>();
+            //conferir numero da sacola da familia, alterado aqui
             familias = familias.OrderBy(f => f.Nivel.Codigo).ThenBy(f => f.Nome);
             foreach (var familia in familias)
             {
@@ -480,6 +500,7 @@ namespace Jack.Domain.Services
                 // aqui: se a familia tem representante, pegar o nivel e gravar, se não pegar nivel da familia
 
                 //ver caso iracy, sem criança - status 98....
+                //está deixando familia com status 98, onde trem uma criança sem documento e o resto ok
                 var nivel = familia.Nivel;
                 if (representante.Codigo != familia.Codigo)
                 {
@@ -500,13 +521,13 @@ namespace Jack.Domain.Services
                         Familia = familia,
                         FamiliaRepresentante = representante,
                         Impressa = false,
-                        Liberado = nivel.Codigo == 1 ? true : false,
+                        Liberado = nivel.Codigo == 1,
                         Kit = crianca.Kit,
                         Sexo = crianca.Sexo
 
                     };
 
-                    repSacola.Adicionar(sacola);
+                    //repSacola.Adicionar(sacola);
                     AddLog(sacola.Familia.Codigo,
                            sacola.FamiliaRepresentante.Codigo,
                            sacola.Crianca.Codigo,
@@ -516,6 +537,29 @@ namespace Jack.Domain.Services
 
                 }
             }
+            //TODO: Reordenar familias pela representante, e devolver
+            // it's done, basta conferir a geração
+            sacolaGeral = 1;
+            var sacolasOrdenadas = sacolas.OrderBy(f => f.Nivel.Codigo).ThenBy(f=>f.FamiliaRepresentante.Nome).ToList();
+
+            var nomeRepresentate = sacolasOrdenadas[0].FamiliaRepresentante.Nome;
+
+            for (var cont = 0; cont < sacolasOrdenadas.Count; cont++)
+            {
+                var sacola = sacolasOrdenadas[cont];
+                if (nomeRepresentate != sacola.FamiliaRepresentante.Nome)
+                {
+                    nomeRepresentate = sacola.FamiliaRepresentante.Nome;
+                    sacolaGeral++;
+                }
+
+                sacola.SacolaFamilia = sacolaGeral;
+                sacola.QrCode = GerarQrCode(128, 128, sacola.Crianca);
+                repSacola.Adicionar(sacola);
+
+
+            }
+
             #endregion
 
             return sacolas;
@@ -538,8 +582,10 @@ namespace Jack.Domain.Services
                                                     repStatusCrianca, repKit,
                                                     repCalcado, repRoupa,
                                                     repParametros,
-                                                    repTipoParentesco, repSacola,
-                                                    repLog))
+                                                    repTipoParentesco, repSacola, 
+                                                    repNivel, repStatusFamilia, 
+                                                    repReuniao, repPresenca, 
+                                                    repRepresentante, repLog))
             {
                 retValidator = criancaService.AtualizaCriancas(todas);
                 retValidator.Erros.ToList().ForEach(e => validationResult.Add(e));
@@ -558,9 +604,9 @@ namespace Jack.Domain.Services
 
                     #region 3 - processa dados de famílias
                     using (var familiaService = new FamiliaService(repFamilia, repNivel,
-                                                            repStatusFamilia, repStatusCrianca,
-                                                            repReuniao, repPresenca,
-                                                            repParametros, repLog))
+                                                                   repStatusFamilia, repStatusCrianca,
+                                                                   repReuniao, repPresenca,
+                                                                   repParametros, repRepresentante, repLog))
                     {
                         familiaService.AtualizarFamilias();
                         #endregion
@@ -613,7 +659,6 @@ namespace Jack.Domain.Services
                         }
 
                         #endregion
-
                         return familias.ToList();
                     }
                 }

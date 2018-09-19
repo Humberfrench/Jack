@@ -8,6 +8,7 @@ namespace Jack.Domain.Interfaces.Services
     public interface ICriancaService : IServiceBase<Crianca>
     {
         IEnumerable<Crianca> ObterCriancas(int familia);
+        IEnumerable<Crianca> ObterCriancasTela(int familia);
         IEnumerable<Crianca> ObterCriancasSacola(int familia);
         ValidationResult Gravar(Crianca entity);
         ValidationResult GravarDados(int crianca, int calcado, string roupa, int tipoParentesco);

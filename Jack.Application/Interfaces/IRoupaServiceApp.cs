@@ -2,7 +2,7 @@
 
 namespace Jack.Application.Interfaces
 {
-    public interface IRoupaServiceApp : IServiceBase<RoupaViewModel>
+    public interface IRoupaServiceApp : IServiceBaseApp<RoupaViewModel>
     {
     }
 }

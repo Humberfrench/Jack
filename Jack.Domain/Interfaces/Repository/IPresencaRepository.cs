@@ -11,5 +11,6 @@ namespace Jack.Domain.Interfaces.Repository
         IEnumerable<Familia> ObterFamiliasDisponiveis(int reuniao);
         IEnumerable<Familia> ObterFamiliasDisponiveis(int reuniao, string letra);
         IEnumerable<int> ObterTodosPorFamilia(int familia);
+        IEnumerable<int> ObterTodosPorFamilia(int familia, int ano);
     }
 }

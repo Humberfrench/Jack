@@ -40,7 +40,15 @@ namespace Jack.Domain.Entity
             permiteSacola = pPermiteSacola;
             familias = new List<Familia>();
         }
-
+        public StatusFamilia(int intCodigo, string strDescricao, bool pPermiteSacola, bool pProcessaStatus)
+            : this()
+        {
+            codigo = intCodigo;
+            descricao = strDescricao;
+            permiteSacola = pPermiteSacola;
+            processaStatus = pProcessaStatus;
+            familias = new List<Familia>();
+        }
         #endregion
 
         #region "Fields"
@@ -48,6 +56,7 @@ namespace Jack.Domain.Entity
         private string descricao;
         private bool permiteSacola;
         private IList<Familia> familias;
+        private bool processaStatus;
         #endregion
 
         public virtual int Codigo
@@ -86,6 +95,17 @@ namespace Jack.Domain.Entity
             }
         }
 
+        public virtual bool ProcessaStatus
+        {
+            get
+            {
+                return processaStatus;
+            }
+            set
+            {
+                processaStatus = value;
+            }
+        }
         public virtual IList<Familia> Familias
         {
             get

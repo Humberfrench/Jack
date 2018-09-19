@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace Jack.Application.Interfaces
 {
-    public interface IColaboradorServiceApp : IServiceBase<ColaboradorViewModel>
+    public interface IColaboradorServiceApp : IServiceBaseApp<ColaboradorViewModel>
     {
         IEnumerable<ColaboradorViewModel> Filtrar(string nome);
         ValidationResult Gravar(ColaboradorViewModel entity);

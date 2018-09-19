@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Jack.Application.ViewModel</RootNamespace>
     <AssemblyName>Jack.Application.ViewModel</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <SccProjectName>SAK</SccProjectName>
     <SccLocalPath>SAK</SccLocalPath>
@@ -23,6 +23,7 @@
     <AssemblyVersionSettings>None.None.None.None</AssemblyVersionSettings>
     <AssemblyFileVersionSettings>None.None.None.None</AssemblyFileVersionSettings>
     <AssemblyInfoVersionSettings>None.None.None.None</AssemblyInfoVersionSettings>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -42,9 +43,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -74,6 +74,7 @@
     <Compile Include="RepresentanteViewModel.cs" />
     <Compile Include="ReuniaoViewModel.cs" />
     <Compile Include="RoupaViewModel.cs" />
+    <Compile Include="SacolaDtoViewModel.cs" />
     <Compile Include="SacolaValueViewModel.cs" />
     <Compile Include="SacolaHistoricoViewModel.cs" />
     <Compile Include="SacolaViewModel.cs" />
@@ -82,8 +83,12 @@
     <Compile Include="StatusFamiliaViewModel.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="StatusTratamentoViewModel.cs" />
     <Compile Include="TipoItemViewModel.cs" />
     <Compile Include="TipoParentescoViewModel.cs" />
+    <Compile Include="TipoDeProblemaViewModel.cs" />
+    <Compile Include="TratamentoViewModel.cs" />
+    <Compile Include="TratamentoTipoDeProblemaViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Jack.Extensions\Jack.Extensions.csproj">

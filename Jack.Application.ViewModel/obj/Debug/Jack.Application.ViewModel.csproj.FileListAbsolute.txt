@@ -1,8 +1,3 @@
-C:\Desenvolvimento\Sistemas\jack\Jack.Application.ViewModel\bin\Debug\Jack.Application.ViewModel.dll
-C:\Desenvolvimento\Sistemas\jack\Jack.Application.ViewModel\bin\Debug\Jack.Application.ViewModel.pdb
-C:\Desenvolvimento\Sistemas\jack\Jack.Application.ViewModel\obj\Debug\Jack.Application.ViewModel.csprojResolveAssemblyReference.cache
-C:\Desenvolvimento\Sistemas\jack\Jack.Application.ViewModel\obj\Debug\Jack.Application.ViewModel.dll
-C:\Desenvolvimento\Sistemas\jack\Jack.Application.ViewModel\obj\Debug\Jack.Application.ViewModel.pdb
 C:\Users\humberto.almeida.ext\Documents\Visual Studio 2013\Projects\Jack\Jack.Application.ViewModel\bin\Debug\Jack.Application.ViewModel.dll
 C:\Users\humberto.almeida.ext\Documents\Visual Studio 2013\Projects\Jack\Jack.Application.ViewModel\bin\Debug\Jack.Application.ViewModel.pdb
 C:\Users\humberto.almeida.ext\Documents\Visual Studio 2013\Projects\Jack\Jack.Application.ViewModel\bin\Debug\Jack.Extensions.dll
@@ -10,17 +5,6 @@ C:\Users\humberto.almeida.ext\Documents\Visual Studio 2013\Projects\Jack\Jack.Ap
 C:\Users\humberto.almeida.ext\Documents\Visual Studio 2013\Projects\Jack\Jack.Application.ViewModel\obj\Debug\Jack.Application.ViewModel.csprojResolveAssemblyReference.cache
 C:\Users\humberto.almeida.ext\Documents\Visual Studio 2013\Projects\Jack\Jack.Application.ViewModel\obj\Debug\Jack.Application.ViewModel.dll
 C:\Users\humberto.almeida.ext\Documents\Visual Studio 2013\Projects\Jack\Jack.Application.ViewModel\obj\Debug\Jack.Application.ViewModel.pdb
-C:\Desenvolvimento\Sistemas\jack\Jack.Application.ViewModel\bin\Debug\Jack.Extensions.dll
-C:\Desenvolvimento\Sistemas\jack\Jack.Application.ViewModel\bin\Debug\Jack.Extensions.pdb
-C:\Humberto\Projetos\Jack\Jack.Application.ViewModel\bin\Debug\Jack.Application.ViewModel.dll
-C:\Humberto\Projetos\Jack\Jack.Application.ViewModel\bin\Debug\Jack.Application.ViewModel.pdb
-C:\Humberto\Projetos\Jack\Jack.Application.ViewModel\bin\Debug\Jack.Extensions.dll
-C:\Humberto\Projetos\Jack\Jack.Application.ViewModel\bin\Debug\Jack.Extensions.pdb
-C:\Humberto\Projetos\Jack\Jack.Application.ViewModel\obj\Debug\Jack.Application.ViewModel.csprojResolveAssemblyReference.cache
-C:\Humberto\Projetos\Jack\Jack.Application.ViewModel\obj\Debug\Jack.Application.ViewModel.dll
-C:\Humberto\Projetos\Jack\Jack.Application.ViewModel\obj\Debug\Jack.Application.ViewModel.pdb
-C:\Humberto\Projetos\Jack\Jack.Application.ViewModel\bin\Debug\Newtonsoft.Json.dll
-C:\Humberto\Projetos\Jack\Jack.Application.ViewModel\bin\Debug\Newtonsoft.Json.xml
 D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Application.ViewModel\bin\Debug\Jack.Application.ViewModel.dll
 D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Application.ViewModel\bin\Debug\Jack.Application.ViewModel.pdb
 D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Application.ViewModel\bin\Debug\Jack.Extensions.dll
@@ -30,14 +14,92 @@ D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Application.ViewModel\bin\Debu
 D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Application.ViewModel\obj\Debug\Jack.Application.ViewModel.csprojResolveAssemblyReference.cache
 D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Application.ViewModel\obj\Debug\Jack.Application.ViewModel.dll
 D:\Desenvolvimento\Sistema.Web\Capitain Jack\Jack.Application.ViewModel\obj\Debug\Jack.Application.ViewModel.pdb
+C:\Humberto\Projetos\Jack\Jack.Application.ViewModel\bin\Debug\Jack.Application.ViewModel.dll
+C:\Humberto\Projetos\Jack\Jack.Application.ViewModel\bin\Debug\Jack.Application.ViewModel.pdb
+C:\Humberto\Projetos\Jack\Jack.Application.ViewModel\bin\Debug\Jack.Extensions.dll
+C:\Humberto\Projetos\Jack\Jack.Application.ViewModel\bin\Debug\Newtonsoft.Json.dll
 C:\Humberto\Projetos\Jack\Jack.Application.ViewModel\bin\Debug\System.Web.Mvc.dll
 C:\Humberto\Projetos\Jack\Jack.Application.ViewModel\bin\Debug\System.Web.Razor.dll
 C:\Humberto\Projetos\Jack\Jack.Application.ViewModel\bin\Debug\System.Web.WebPages.Razor.dll
 C:\Humberto\Projetos\Jack\Jack.Application.ViewModel\bin\Debug\System.Web.WebPages.dll
 C:\Humberto\Projetos\Jack\Jack.Application.ViewModel\bin\Debug\Microsoft.Web.Infrastructure.dll
 C:\Humberto\Projetos\Jack\Jack.Application.ViewModel\bin\Debug\System.Web.WebPages.Deployment.dll
+C:\Humberto\Projetos\Jack\Jack.Application.ViewModel\bin\Debug\Jack.Extensions.pdb
+C:\Humberto\Projetos\Jack\Jack.Application.ViewModel\bin\Debug\Newtonsoft.Json.xml
 C:\Humberto\Projetos\Jack\Jack.Application.ViewModel\bin\Debug\System.Web.Mvc.xml
 C:\Humberto\Projetos\Jack\Jack.Application.ViewModel\bin\Debug\System.Web.Razor.xml
 C:\Humberto\Projetos\Jack\Jack.Application.ViewModel\bin\Debug\System.Web.WebPages.Razor.xml
 C:\Humberto\Projetos\Jack\Jack.Application.ViewModel\bin\Debug\System.Web.WebPages.xml
 C:\Humberto\Projetos\Jack\Jack.Application.ViewModel\bin\Debug\System.Web.WebPages.Deployment.xml
+C:\Humberto\Projetos\Jack\Jack.Application.ViewModel\obj\Debug\Jack.Application.ViewModel.csprojResolveAssemblyReference.cache
+C:\Humberto\Projetos\Jack\Jack.Application.ViewModel\obj\Debug\Jack.Application.ViewModel.dll
+C:\Humberto\Projetos\Jack\Jack.Application.ViewModel\obj\Debug\Jack.Application.ViewModel.pdb
+C:\Humberto\Zip\Jack\Jack.Application.ViewModel\obj\Debug\Jack.Application.ViewModel.csprojResolveAssemblyReference.cache
+C:\Humberto\Zip\Jack\Jack.Application.ViewModel\obj\Debug\Jack.Application.ViewModel.dll
+C:\Humberto\Zip\Jack\Jack.Application.ViewModel\obj\Debug\Jack.Application.ViewModel.pdb
+C:\Humberto\Desenvolvimento\Jack\Jack.Application.ViewModel\bin\Debug\Jack.Application.ViewModel.dll
+C:\Humberto\Desenvolvimento\Jack\Jack.Application.ViewModel\bin\Debug\Jack.Application.ViewModel.pdb
+C:\Humberto\Desenvolvimento\Jack\Jack.Application.ViewModel\bin\Debug\Jack.Extensions.dll
+C:\Humberto\Desenvolvimento\Jack\Jack.Application.ViewModel\bin\Debug\Newtonsoft.Json.dll
+C:\Humberto\Desenvolvimento\Jack\Jack.Application.ViewModel\bin\Debug\System.Web.Mvc.dll
+C:\Humberto\Desenvolvimento\Jack\Jack.Application.ViewModel\bin\Debug\System.Web.Razor.dll
+C:\Humberto\Desenvolvimento\Jack\Jack.Application.ViewModel\bin\Debug\System.Web.WebPages.Razor.dll
+C:\Humberto\Desenvolvimento\Jack\Jack.Application.ViewModel\bin\Debug\System.Web.WebPages.dll
+C:\Humberto\Desenvolvimento\Jack\Jack.Application.ViewModel\bin\Debug\Microsoft.Web.Infrastructure.dll
+C:\Humberto\Desenvolvimento\Jack\Jack.Application.ViewModel\bin\Debug\System.Web.WebPages.Deployment.dll
+C:\Humberto\Desenvolvimento\Jack\Jack.Application.ViewModel\bin\Debug\Jack.Extensions.pdb
+C:\Humberto\Desenvolvimento\Jack\Jack.Application.ViewModel\bin\Debug\Newtonsoft.Json.xml
+C:\Humberto\Desenvolvimento\Jack\Jack.Application.ViewModel\bin\Debug\System.Web.Mvc.xml
+C:\Humberto\Desenvolvimento\Jack\Jack.Application.ViewModel\bin\Debug\System.Web.Razor.xml
+C:\Humberto\Desenvolvimento\Jack\Jack.Application.ViewModel\bin\Debug\System.Web.WebPages.Razor.xml
+C:\Humberto\Desenvolvimento\Jack\Jack.Application.ViewModel\bin\Debug\System.Web.WebPages.xml
+C:\Humberto\Desenvolvimento\Jack\Jack.Application.ViewModel\bin\Debug\System.Web.WebPages.Deployment.xml
+C:\Humberto\Desenvolvimento\Jack\Jack.Application.ViewModel\obj\Debug\Jack.Application.ViewModel.csprojAssemblyReference.cache
+C:\Humberto\Desenvolvimento\Jack\Jack.Application.ViewModel\obj\Debug\Jack.Application.ViewModel.csproj.CoreCompileInputs.cache
+C:\Humberto\Desenvolvimento\Jack\Jack.Application.ViewModel\obj\Debug\Jack.Application.ViewModel.csproj.CopyComplete
+C:\Humberto\Desenvolvimento\Jack\Jack.Application.ViewModel\obj\Debug\Jack.Application.ViewModel.dll
+C:\Humberto\Desenvolvimento\Jack\Jack.Application.ViewModel\obj\Debug\Jack.Application.ViewModel.pdb
+C:\Desenvolvimento\Sistemas\Jack\Jack.Application.ViewModel\bin\Debug\Jack.Application.ViewModel.dll
+C:\Desenvolvimento\Sistemas\Jack\Jack.Application.ViewModel\bin\Debug\Jack.Application.ViewModel.pdb
+C:\Desenvolvimento\Sistemas\Jack\Jack.Application.ViewModel\bin\Debug\Jack.Extensions.dll
+C:\Desenvolvimento\Sistemas\Jack\Jack.Application.ViewModel\bin\Debug\Newtonsoft.Json.dll
+C:\Desenvolvimento\Sistemas\Jack\Jack.Application.ViewModel\bin\Debug\System.Web.Mvc.dll
+C:\Desenvolvimento\Sistemas\Jack\Jack.Application.ViewModel\bin\Debug\System.Web.WebPages.dll
+C:\Desenvolvimento\Sistemas\Jack\Jack.Application.ViewModel\bin\Debug\System.Web.WebPages.Razor.dll
+C:\Desenvolvimento\Sistemas\Jack\Jack.Application.ViewModel\bin\Debug\System.Web.Razor.dll
+C:\Desenvolvimento\Sistemas\Jack\Jack.Application.ViewModel\bin\Debug\Microsoft.Web.Infrastructure.dll
+C:\Desenvolvimento\Sistemas\Jack\Jack.Application.ViewModel\bin\Debug\System.Web.WebPages.Deployment.dll
+C:\Desenvolvimento\Sistemas\Jack\Jack.Application.ViewModel\bin\Debug\Jack.Extensions.pdb
+C:\Desenvolvimento\Sistemas\Jack\Jack.Application.ViewModel\bin\Debug\Newtonsoft.Json.xml
+C:\Desenvolvimento\Sistemas\Jack\Jack.Application.ViewModel\bin\Debug\System.Web.Mvc.xml
+C:\Desenvolvimento\Sistemas\Jack\Jack.Application.ViewModel\bin\Debug\System.Web.WebPages.xml
+C:\Desenvolvimento\Sistemas\Jack\Jack.Application.ViewModel\bin\Debug\System.Web.WebPages.Razor.xml
+C:\Desenvolvimento\Sistemas\Jack\Jack.Application.ViewModel\bin\Debug\System.Web.Razor.xml
+C:\Desenvolvimento\Sistemas\Jack\Jack.Application.ViewModel\bin\Debug\System.Web.WebPages.Deployment.xml
+C:\Desenvolvimento\Sistemas\Jack\Jack.Application.ViewModel\obj\Debug\Jack.Application.ViewModel.csprojResolveAssemblyReference.cache
+C:\Desenvolvimento\Sistemas\Jack\Jack.Application.ViewModel\obj\Debug\Jack.Application.ViewModel.csproj.CoreCompileInputs.cache
+C:\Desenvolvimento\Sistemas\Jack\Jack.Application.ViewModel\obj\Debug\Jack.Application.ViewModel.csproj.CopyComplete
+C:\Desenvolvimento\Sistemas\Jack\Jack.Application.ViewModel\obj\Debug\Jack.Application.ViewModel.dll
+C:\Desenvolvimento\Sistemas\Jack\Jack.Application.ViewModel\obj\Debug\Jack.Application.ViewModel.pdb
+C:\Humberto\Desenvolvimento\CapitainJack\Jack.Application.ViewModel\bin\Debug\Jack.Application.ViewModel.dll
+C:\Humberto\Desenvolvimento\CapitainJack\Jack.Application.ViewModel\bin\Debug\Jack.Application.ViewModel.pdb
+C:\Humberto\Desenvolvimento\CapitainJack\Jack.Application.ViewModel\bin\Debug\Jack.Extensions.dll
+C:\Humberto\Desenvolvimento\CapitainJack\Jack.Application.ViewModel\bin\Debug\Newtonsoft.Json.dll
+C:\Humberto\Desenvolvimento\CapitainJack\Jack.Application.ViewModel\bin\Debug\System.Web.Mvc.dll
+C:\Humberto\Desenvolvimento\CapitainJack\Jack.Application.ViewModel\bin\Debug\System.Web.WebPages.dll
+C:\Humberto\Desenvolvimento\CapitainJack\Jack.Application.ViewModel\bin\Debug\System.Web.WebPages.Razor.dll
+C:\Humberto\Desenvolvimento\CapitainJack\Jack.Application.ViewModel\bin\Debug\System.Web.Razor.dll
+C:\Humberto\Desenvolvimento\CapitainJack\Jack.Application.ViewModel\bin\Debug\Microsoft.Web.Infrastructure.dll
+C:\Humberto\Desenvolvimento\CapitainJack\Jack.Application.ViewModel\bin\Debug\System.Web.WebPages.Deployment.dll
+C:\Humberto\Desenvolvimento\CapitainJack\Jack.Application.ViewModel\bin\Debug\Jack.Extensions.pdb
+C:\Humberto\Desenvolvimento\CapitainJack\Jack.Application.ViewModel\bin\Debug\Newtonsoft.Json.xml
+C:\Humberto\Desenvolvimento\CapitainJack\Jack.Application.ViewModel\bin\Debug\System.Web.Mvc.xml
+C:\Humberto\Desenvolvimento\CapitainJack\Jack.Application.ViewModel\bin\Debug\System.Web.WebPages.xml
+C:\Humberto\Desenvolvimento\CapitainJack\Jack.Application.ViewModel\bin\Debug\System.Web.WebPages.Razor.xml
+C:\Humberto\Desenvolvimento\CapitainJack\Jack.Application.ViewModel\bin\Debug\System.Web.Razor.xml
+C:\Humberto\Desenvolvimento\CapitainJack\Jack.Application.ViewModel\bin\Debug\System.Web.WebPages.Deployment.xml
+C:\Humberto\Desenvolvimento\CapitainJack\Jack.Application.ViewModel\obj\Debug\Jack.Application.ViewModel.csprojAssemblyReference.cache
+C:\Humberto\Desenvolvimento\CapitainJack\Jack.Application.ViewModel\obj\Debug\Jack.Application.ViewModel.csproj.CoreCompileInputs.cache
+C:\Humberto\Desenvolvimento\CapitainJack\Jack.Application.ViewModel\obj\Debug\Jack.Application.ViewModel.csproj.CopyComplete
+C:\Humberto\Desenvolvimento\CapitainJack\Jack.Application.ViewModel\obj\Debug\Jack.Application.ViewModel.dll
+C:\Humberto\Desenvolvimento\CapitainJack\Jack.Application.ViewModel\obj\Debug\Jack.Application.ViewModel.pdb

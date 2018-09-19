@@ -49,6 +49,7 @@ namespace Jack.Domain.Entity
         private int codigo;
         private string descricao;
         private bool permiteSacola;
+        private bool processaStatus;
         private IList<Familia> familias;
         private IList<Crianca> criancas;
         #endregion
@@ -86,6 +87,18 @@ namespace Jack.Domain.Entity
             set
             {
                 permiteSacola = value;
+            }
+        }
+
+        public virtual bool ProcessaStatus
+        {
+            get
+            {
+                return processaStatus;
+            }
+            set
+            {
+                processaStatus = value;
             }
         }
 

@@ -7,5 +7,7 @@ namespace Jack.Domain.Interfaces.Repository
     {
         IEnumerable<Familia> ObterFamiliaPresencaJustificada();
         Nivel ObterNivel(int id);
+        IEnumerable<Familia> ObterTodosTratamento();
+
     }
 }

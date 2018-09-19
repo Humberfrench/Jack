@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace Jack.Application.Interfaces
 {
-    public interface IPresencaServiceApp : IServiceBase<PresencaViewModel>
+    public interface IPresencaServiceApp : IServiceBaseApp<PresencaViewModel>
     {
         ValidationResult Gravar(int reuniao, int familia);
         ValidationResult Gravar(ReuniaoViewModel reuniao, FamiliaViewModel familia);
@@ -14,4 +14,4 @@ namespace Jack.Application.Interfaces
         IEnumerable<FamiliaViewModel> ObterFamiliasDisponiveis(int reuniao, string letra);
         ValidationResult ProcessarPresencaGarantida();
     }
-}             
+}

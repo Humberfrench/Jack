@@ -4,9 +4,10 @@ using System.Collections.Generic;
 
 namespace Jack.Application.Interfaces
 {
-    public interface ICriancaServiceApp : IServiceBase<CriancaViewModel>
+    public interface ICriancaServiceApp : IServiceBaseApp<CriancaViewModel>
     {
         IEnumerable<CriancaViewModel> ObterCriancas(int familia);
+        IEnumerable<CriancaViewModel> ObterCriancasTela(int familia);
         IEnumerable<CriancaViewModel> ObterCriancasSacola(int familia);
         ValidationResult Gravar(CriancaViewModel entity);
         ValidationResult GravarDados(int crianca, int calcado, string roupa, int tipoParentesco);

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace Jack.Application.Interfaces
 {
-    public interface INivelServiceApp : IServiceBase<NivelViewModel>
+    public interface INivelServiceApp : IServiceBaseApp<NivelViewModel>
     {
         IEnumerable<NivelViewModel> Filtrar(string nome);
         ValidationResult Gravar(NivelViewModel entity);

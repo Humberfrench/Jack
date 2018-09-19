@@ -25,8 +25,15 @@ namespace Jack.Domain.Services
         private readonly ISacolaRepository repSacola;
         private readonly ITipoParentescoRepository repTipoParentesco;
         private readonly ILogRepository repLog;
-        private readonly Parametro Parametro;
+        private readonly Parametro parametro;
 
+        private readonly INivelRepository repNivel;
+        private readonly IStatusFamiliaRepository repStatusFamilia;
+        private readonly IReuniaoRepository repReuniao;
+        private readonly IPresencaRepository repPresenca;
+        private readonly IRepresentanteRepository repRepresentante;
+
+        private readonly FamiliaService familiaService;
 
         private readonly ValidationResult validationResult = new ValidationResult();
 
@@ -39,6 +46,11 @@ namespace Jack.Domain.Services
                               IParametroRepository repParametros,
                               ITipoParentescoRepository repTipoParentesco,
                               ISacolaRepository repSacola,
+                              INivelRepository repNivel,
+                              IStatusFamiliaRepository repStatusFamilia,
+                              IReuniaoRepository repReuniao,
+                              IPresencaRepository repPresenca,
+                              IRepresentanteRepository repRepresentante,
                               ILogRepository repLog)
             : base(repCrianca)
         {
@@ -52,12 +64,40 @@ namespace Jack.Domain.Services
             this.repTipoParentesco = repTipoParentesco;
             this.repSacola = repSacola;
             this.repLog = repLog;
-            Parametro = repParametros.Obter();
+
+            this.repNivel = repNivel;
+            this.repStatusFamilia = repStatusFamilia;
+            this.repReuniao = repReuniao;
+            this.repPresenca = repPresenca;
+            this.repRepresentante = repRepresentante;
+
+            familiaService = new FamiliaService(repFamilia, repNivel, repStatusFamilia, repStatus, repReuniao, repPresenca, repParametros, repRepresentante, repLog);
+
+            parametro = repParametros.Obter();
         }
 
         public IEnumerable<Crianca> ObterCriancas(int familia)
         {
+            //para trazer página atualziada, caso esteja lento rever.
+            familiaService.AtualizarFamilia(familia);
+            familiaService.AtualizarFamiliaComPresencaParaRepresentantes(familia);
+            AtualizaCriancas(familia);
+
             var registros = Pesquisar(p => p.Familia.Codigo == familia).OrderBy(c => c.Nome).ToList();
+            return registros;
+        }
+        public IEnumerable<Crianca> ObterCriancasTela(int familia)
+        {
+            //para trazer página atualziada, caso esteja lento rever.
+            familiaService.AtualizarFamilia(familia);
+            familiaService.AtualizarFamiliaComPresencaParaRepresentantes(familia);
+            AtualizaCriancas(familia);
+
+            var registrosAtivos = Pesquisar(p => p.Familia.Codigo == familia && p.Status.PermiteSacola).OrderBy(c => c.Nome).ToList();
+            var registrosInativos = Pesquisar(p => p.Familia.Codigo == familia && !p.Status.PermiteSacola).OrderBy(c => c.Nome).ToList();
+
+            var registros = registrosAtivos.Union(registrosInativos);
+
             return registros;
         }
 
@@ -78,7 +118,8 @@ namespace Jack.Domain.Services
         {
             var crianca = new Crianca
             {
-                DataCriacao = DateTime.Now
+                DataCriacao = DateTime.Now,
+                 
             };
 
             if (item.Codigo != 0)
@@ -98,6 +139,7 @@ namespace Jack.Domain.Services
                 crianca.Familia = repFamilia.ObterPorId(item.Familia.Codigo);
                 crianca.Kit = repKit.ObterPorId(item.Kit.Codigo);
                 crianca.TipoParentesco = repTipoParentesco.ObterPorId(item.TipoParentesco.Codigo);
+                crianca.Status = repStatus.ObterPorId(EnumStatusCrianca.CadastroNovo.Int());
             }
 
 
@@ -230,11 +272,6 @@ namespace Jack.Domain.Services
             var familia = repFamilia.ObterPorId(familiaId);
             var criancas = familia.Criancas.ToList();
 
-            //Parallel.ForEach(criancas, crianca =>
-            //{
-            //    AtualizaCrianca(crianca.Codigo, true);
-            //});
-
             foreach (var crianca in criancas)
             {
                 AtualizaCrianca(crianca.Codigo, true);
@@ -272,9 +309,9 @@ namespace Jack.Domain.Services
             }
             else
             {
-                criancas = ObterTodos().Where(c => c.Idade <= Parametro.IdadeLimite && c.MedidaIdade == "A").ToList();
+                criancas = ObterTodos().Where(c => c.Idade <= parametro.IdadeLimite && c.MedidaIdade == "A").ToList();
                 ObterTodos()
-                    .Where(c => c.Idade > Parametro.IdadeLimite && c.MedidaIdade == "A" && c.MoralCrista)
+                    .Where(c => c.Idade > parametro.IdadeLimite && c.MedidaIdade == "A" && c.MoralCrista)
                     .ToList()
                     .ForEach(cr => criancas.Add(cr));
             }
@@ -313,7 +350,10 @@ namespace Jack.Domain.Services
                     CadastroNovo = false,
                     Calcado = crianca.Calcado,
                     Roupa = crianca.Roupa,
-                    MoralCrista = crianca.MoralCrista
+                    MoralCrista = crianca.MoralCrista,
+                    ProcessaStatus = crianca.Status.ProcessaStatus,
+                    Status = crianca.Status.Codigo
+                    
                 });
             var moralCrista = crianca.MoralCrista;
 
@@ -325,6 +365,7 @@ namespace Jack.Domain.Services
             crianca.Calcado = valCrianca.Calcado;
             crianca.Roupa = valCrianca.Roupa;
             crianca.Status = valCrianca.Status;
+
 
             if (crianca.DocumentoOk)
             {
@@ -366,6 +407,11 @@ namespace Jack.Domain.Services
 
         public IEnumerable<CriancaVestimenta> ObterDadosCriancaVestimentas(int familia)
         {
+            //para trazer página atualziada, caso esteja lento rever.
+            familiaService.AtualizarFamilia(familia);
+            familiaService.AtualizarFamiliaComPresencaParaRepresentantes(familia);
+            AtualizaCriancas(familia);
+
             var criancas = repCrianca.ObterDadosCriancaVestimentas(familia).AsParallel().ToList();
 
             criancas.ForEach(cr => cr.CalcadoPadrao = repCalcado.ObterPorSexoIdade(cr.Sexo, cr.Idade, cr.MedidaIdade));
@@ -386,12 +432,14 @@ namespace Jack.Domain.Services
                 CriancaGrande = criancaValue.CriancaGrande,
                 Calcado = criancaValue.Calcado,
                 Roupa = criancaValue.Roupa,
-                MoralCrista = criancaValue.MoralCrista
+                MoralCrista = criancaValue.MoralCrista,
+                Status = repStatus.ObterPorId(criancaValue.Status)
             };
 
             crianca.CalculaIdade();
             crianca.Kit = repKit.ObterKitPorIdade(crianca.Idade, crianca.Sexo, crianca.NecessidadeEspecial);
 
+            if (!criancaValue.ProcessaStatus) return crianca;
             if (criancaValue.CadastroNovo)
             {
                 crianca.Status = repStatus.ObterPorId(EnumStatusCrianca.CadastroNovo.Int());
@@ -402,9 +450,42 @@ namespace Jack.Domain.Services
                 ValidarCalcadoERoupa(ref crianca);
             }
 
+            AjusteStatus(ref crianca);
+
             return crianca;
         }
 
+        private void AjusteStatus(ref Crianca crianca)
+        {
+            //status de ropupa  2,3,4,5,6,9,13
+            //status abaixo não entram, aqui => ProcessaStatus == false
+            //status de excedente 15,16
+            // inativo fora - 12 e 17
+            // investigando - não mexer
+
+
+            if (!crianca.IdadePermitida(parametro.IdadeLimite))
+            {
+                crianca.Status = repStatus.ObterPorId(EnumStatusCrianca.CriancaMaior.Int());
+            }
+
+            if (crianca.CriancaMaiorMoralCrista(parametro.LimiteIdadeMoralCrista))
+            {
+                if ((crianca.MedidaIdade == "A") && (crianca.Idade >= parametro.LimiteIdadeMoralCrista))
+                {
+                    crianca.Status = repStatus.ObterPorId(EnumStatusCrianca.CriancaMaiorLiberadaMoralCrista.Int());
+                }
+                crianca.Status = repStatus.ObterPorId(EnumStatusCrianca.CriancaMaiorNaoLiberadaMoralCrista.Int());
+            }
+
+            crianca.Consistente = crianca.Status.PermiteSacola;
+
+            if (crianca.Consistente)
+            {
+                crianca.Status = repStatus.ObterPorId(EnumStatusCrianca.DadosOk.Int());
+            }
+
+        }
         private void ValidarCalcadoERoupa(ref Crianca crianca)
         {
 
@@ -456,7 +537,7 @@ namespace Jack.Domain.Services
                 //moral crista - temp para ajustar os dados
                 if (crianca.CriancaMaiorMoralCrista())
                 {
-                    if (crianca.Idade > Parametro.LimiteIdadeMoralCrista)
+                    if (crianca.Idade > parametro.LimiteIdadeMoralCrista)
                     {
                         crianca.Status = repStatus.ObterPorId(EnumStatusCrianca.CriancaMaiorNaoLiberadaMoralCrista.Int());
                         AddLog(crianca.Codigo, EnumStatusCrianca.CriancaMaiorNaoLiberadaMoralCrista.Int(), "ValidarCalcadoERoupa", "Criança com idade não permitida, ex-aluno Moral Cristã");
@@ -481,14 +562,14 @@ namespace Jack.Domain.Services
             #region Consistencia do Calçado
 
             #region Informações para trabalho na consistencia de calçado
-            var limiteCalcado = Parametro.CalcadoLimite;
+            var limiteCalcado = parametro.CalcadoLimite;
             var calcadoService = new CalcadoService(repCalcado);
             var sexo = crianca.Sexo == "I" ? "M" : crianca.Sexo;
             var calcado = calcadoService.ObterCalcadoCrianca(crianca.Idade, crianca.MedidaIdade, sexo);
             var diferenca = (crianca.Calcado - calcado.Numero);
             var diferencaAbsoluta = Math.Abs((crianca.Calcado - calcado.Numero));
             #endregion
-            if (Parametro.AjusteAutomaticoNoProcessamento)
+            if (parametro.AjusteAutomaticoNoProcessamento)
             {
                 // ajusto para tamanho menores apenas, para atualizar 
                 // se for maior é por que a mãe informou maior. ai consisto

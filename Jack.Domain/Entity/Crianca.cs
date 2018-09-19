@@ -365,7 +365,7 @@ namespace Jack.Domain.Entity
             return Roupa != "99";
         }
 
-        public virtual bool IdadePermitida()
+        public virtual bool IdadePermitida(int limite = 10)
         {
             DateTime dataBase = new DateTime(DateTime.Now.Year, 12, 31);
             int anos = idade; //dataBase.Year - dataNascimento.Year;
@@ -374,7 +374,7 @@ namespace Jack.Domain.Entity
                 (dataBase.Month == dataNascimento.Month && dataBase.Day < dataNascimento.Day))
                 anos--;
 
-            if (anos < 11)
+            if (anos <= limite)
             {
                 return true;
             }
@@ -382,7 +382,7 @@ namespace Jack.Domain.Entity
             return MoralCrista;
         }
 
-        public virtual bool CriancaMaiorMoralCrista()
+        public virtual bool CriancaMaiorMoralCrista(int limite = 10)
         {
             DateTime dataBase = new DateTime(DateTime.Now.Year, 12, 31);
             int anos = dataBase.Year - dataNascimento.Year;
@@ -391,7 +391,7 @@ namespace Jack.Domain.Entity
                 (dataBase.Month == dataNascimento.Month && dataBase.Day < dataNascimento.Day))
                 anos--;
 
-            return ((anos > 10) && (MoralCrista));
+            return ((anos > limite) && (MoralCrista));
         }
 
         public virtual void CalculaIdade()
@@ -401,19 +401,23 @@ namespace Jack.Domain.Entity
             idade = oIdade.Anos;
             idadeNominal = $"{oIdade.Anos} anos e {oIdade.Meses} Meses";
             idadeNominalReduzida = $"{oIdade.Anos}A{oIdade.Meses}M";
+
             if (oIdade.Meses == 0)
             {
                 idadeNominal = $"{oIdade.Anos} anos";
                 idadeNominalReduzida = $"{oIdade.Anos}A";
             }
+
             if (oIdade.Anos == 0)
             {
                 idadeNominal = $"{oIdade.Meses} meses";
                 idadeNominalReduzida = $"{oIdade.Meses}M";
             }
+
             medidaIdade = "A";
             if (idade == 0)
             {
+                idade = oIdade.Meses;
                 medidaIdade = "M";
             }
         }

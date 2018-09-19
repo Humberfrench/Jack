@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace Jack.Application.Interfaces
 {
-    public interface ITipoParentescoServiceApp : IServiceBase<TipoParentescoViewModel>
+    public interface ITipoParentescoServiceApp : IServiceBaseApp<TipoParentescoViewModel>
     {
         IEnumerable<TipoParentescoViewModel> Filtrar(string nome);
         ValidationResult Gravar(TipoParentescoViewModel entity);

@@ -4,7 +4,7 @@ using System.Linq.Expressions;
 
 namespace Jack.Domain.Interfaces.Repository
 {
-    public interface IRepositoryBase<TEntity>
+    public interface IRepositoryBase<TEntity> : IDisposable
       where TEntity : class
     {
         void Adicionar(TEntity entity);
