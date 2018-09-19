@@ -15,6 +15,7 @@ namespace Jack.Repository.Mappings
             Id(x => x.Codigo).Column("Codigo");
             Map(x => x.Descricao).Column("Descricao").Not.Nullable();
             Map(x => x.PermiteSacola).Column("PermiteSacola").Not.Nullable();
+            Map(x => x.ProcessaStatus).Column("ProcessaStatus").Not.Nullable();
 
             ////References
             HasMany(x => x.Familias).KeyColumn("Status").Inverse().Not.LazyLoad();

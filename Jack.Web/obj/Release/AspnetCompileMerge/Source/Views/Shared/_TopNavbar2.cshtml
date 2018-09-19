@@ -21,6 +21,7 @@
                         <li><a href="@Url.Action("Index","Representante")">Representantes</a></li>
                         <li><a href="@Url.Action("Adicionar", "ColaboradorCrianca")">Adicionar Sacolas a Colaborador</a></li>
                         <li><a href="@Url.Action("AdicionarCrianca", "Sacolas")">Adicionar Criança à Sacolas</a></li>
+                        <li><a href="@Url.Action("AdicionarFamilia", "Sacolas")">Adicionar Crianças de Uma Família à Sacolas</a></li>
                         <li><a href="@Url.Action("FamiliasBanidas","Familia")">Tratamento Família Status 13 - Banido</a></li>
                         <li><a href="">Trocar Criança de Família</a></li>
                     </ul>
@@ -55,14 +56,30 @@
                     </ul>
                 </li>
                 <li class="dropdown">
+                    <a aria-expanded="false" role="button" href="#" class="dropdown-toggle" data-toggle="dropdown">Relatórios<span class="caret"></span></a>
+                    <ul role="menu" class="dropdown-menu">
+                        <li><a href="@Url.Action("SacolasLivres", "Relatorios")">Lista Sacolas Livres</a></li>
+                        <li><a href="@Url.Action("SacolasLivres", "Relatorios")">Lista Sacolas Por Colaborador</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
                     <a aria-expanded="false" role="button" href="#" class="dropdown-toggle" data-toggle="dropdown">Processamento<span class="caret"></span></a>
                     <ul role="menu" class="dropdown-menu">
                         <li><a href="@Url.Action("GerarSacolas", "Sacolas")">Gerar Sacolas</a></li>
+                        <li><a href="@Url.Action("UpdateQrCodes", "Sacolas")">Atualizar QR Codes</a></li>
                         <li><a href="@Url.Action("Index", "Processar")">Processar Dados</a></li>
                         <li><a href="@Url.Action("Pesquisar", "Sacolas")">Imprimir Sacolas</a></li>
                     </ul>
                 </li>
+                <li class="dropdown">
+                    <a aria-expanded="false" role="button" href="#" class="dropdown-toggle" data-toggle="dropdown">Tratamento<span class="caret"></span></a>
+                    <ul role="menu" class="dropdown-menu">
+                        <li><a href="@Url.Action("Index", "Tratamento")">Tratamento</a></li>
+                        <li><a href="@Url.Action("Index", "TipoDeProblema")">Tipo de Problema</a></li>
+                        <li><a href="@Url.Action("Index", "StatusTratamento")">Status Tratamento</a></li>
 
+                    </ul>
+                </li>
             </ul>
             <ul class="nav navbar-top-links navbar-right">
                 <li>

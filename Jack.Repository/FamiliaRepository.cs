@@ -31,6 +31,17 @@ namespace Jack.Repository
             return result;
         }
 
+        public IEnumerable<Familia> ObterTodosTratamento()
+        {
+            var sql = @"SELECT Codigo, Nome, EnderecoFamilia, Bairro, Cidade, Estado, Contato
+                        FROM Familia
+                        WHERE   Codigo in (SELECT DISTINCT FamiliaId FROM Tratamento)";
+
+            var result = Session.Connection.Query<Familia>(sql);
+
+            return result;
+        }
+
         public Nivel ObterNivel(int id)
         {
             return base.GetById(id).Nivel;

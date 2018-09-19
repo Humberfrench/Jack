@@ -1,291 +1,307 @@
-﻿body
-{
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 14px;
-  line-height: 1.42857143;
-  color: #333;
-  background-color: #fff;
+﻿body {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.42857143;
+    color: #333;
+    background-color: #fff;
 }
+
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700");
 @import url("https://fonts.googleapis.com/css?family=Roboto:400,300,500,700");
 
-h1, h2, h3, h4, h5, h6 {
-  font-weight: 100; 
+@media print {
+    table {
+        float: none !important;
+    }
 
-}
+    div {
+        float: none !important;
+    }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-.h1,
-.h2,
-.h3,
-.h4,
-.h5,
-.h6 {
-  font-family: inherit;
-  font-weight: 500;
-  line-height: 1.1;
-  color: inherit;
-}
-h1 small,
-h2 small,
-h3 small,
-h4 small,
-h5 small,
-h6 small,
-.h1 small,
-.h2 small,
-.h3 small,
-.h4 small,
-.h5 small,
-.h6 small,
-h1 .small,
-h2 .small,
-h3 .small,
-h4 .small,
-h5 .small,
-h6 .small,
-.h1 .small,
-.h2 .small,
-.h3 .small,
-.h4 .small,
-.h5 .small,
-.h6 .small {
-  font-weight: normal;
-  line-height: 1;
-  color: #777;
-}
-h1,
-.h1,
-h2,
-.h2,
-h3,
-.h3 {
-  margin-top: 20px;
-  margin-bottom: 10px;
-}
-h1 small,
-.h1 small,
-h2 small,
-.h2 small,
-h3 small,
-.h3 small,
-h1 .small,
-.h1 .small,
-h2 .small,
-.h2 .small,
-h3 .small,
-.h3 .small {
-  font-size: 65%;
-}
-h4,
-.h4,
-h5,
-.h5,
-h6,
-.h6 {
-  margin-top: 10px;
-  margin-bottom: 10px;
-}
-h4 small,
-.h4 small,
-h5 small,
-.h5 small,
-h6 small,
-.h6 small,
-h4 .small,
-.h4 .small,
-h5 .small,
-.h5 .small,
-h6 .small,
-.h6 .small {
-  font-size: 75%;
-}
-h1,
-.h1 {
-  font-size: 32px;
-}
-h2,
-.h2 {
-  font-size: 28px;
-}
-h3,
-.h3 {
-  font-size: 24px;
-}
-h4,
-.h4 {
-  font-size: 16px;
-}
-h5,
-.h5 {
-  font-size: 12px;
-}
-h6,
-.h6 {
-  font-size: 10px;
-}
+    .page-break {
+        page-break-inside: avoid;
+        page-break-before: always;
+    }
 
+    .dont-print {
+        display: none;
+    }
 
-/* my non responsive bootstrap :) - because it's to print uai!'*/
-  .container 
-  {
-    width: 1020px;
-  }
-.container:before,
-.container:after,
-.panel-body:before,
-.panel-body:after
-  {
-  display: table;
-  content: " ";
-  }
+    h1, h2, h3, h4, h5, h6 {
+        font-weight: 200;
+        line-height: 1.0;
+    }
 
-.row
-{
-    display: block;
-}
-.panel
-{
-  margin-bottom: 20px;
-  background-color: #fff;
-  border: 1px solid transparent;
-  border-color: #ddd;
-  border-radius: 4px;
-  box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
-}
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    .h1,
+    .h2,
+    .h3,
+    .h4,
+    .h5,
+    .h6 {
+        font-family: inherit;
+        font-weight: 400;
+        line-height: 1.0;
+        color: inherit;
+    }
 
-.NumFamilia
-{
-    font-family: inherit;
-    font-size: 68px;
-    font-weight: bold;
-    text-shadow: rgba(0, 0, 0, 0.5) -1px 0, rgba(0, 0, 0, 0.3) 0 -1px, rgba(255, 255, 255, 0.5) 0 1px, rgba(0, 0, 0, 0.3) -1px -2px;
-    width: 170px;
-    text-align: left;
-    vertical-align: top;
-}
+        h1 small,
+        h2 small,
+        h3 small,
+        h4 small,
+        h5 small,
+        h6 small,
+        .h1 small,
+        .h2 small,
+        .h3 small,
+        .h4 small,
+        .h5 small,
+        .h6 small,
+        h1 .small,
+        h2 .small,
+        h3 .small,
+        h4 .small,
+        h5 .small,
+        h6 .small,
+        .h1 .small,
+        .h2 .small,
+        .h3 .small,
+        .h4 .small,
+        .h5 .small,
+        .h6 .small {
+            font-weight: normal;
+            line-height: 1;
+            color: #777;
+        }
 
-/* To Conferir. Se usar Passar Acima deste Comment, para futuramente ser excluido*/
+    h1,
+    .h1,
+    h2,
+    .h2,
+    h3,
+    .h3 {
+        margin-top: 20px;
+        margin-bottom: 10px;
+    }
+
+        h1 small,
+        .h1 small,
+        h2 small,
+        .h2 small,
+        h3 small,
+        .h3 small,
+        h1 .small,
+        .h1 .small,
+        h2 .small,
+        .h2 .small,
+        h3 .small,
+        .h3 .small {
+            font-size: 65%;
+        }
+
+    h4,
+    .h4,
+    h5,
+    .h5,
+    h6,
+    .h6 {
+        margin-top: 2px;
+        margin-bottom: 2px;
+    }
+
+        h4 small,
+        .h4 small,
+        h5 small,
+        .h5 small,
+        h6 small,
+        .h6 small,
+        h4 .small,
+        .h4 .small,
+        h5 .small,
+        .h5 .small,
+        h6 .small,
+        .h6 .small {
+            font-size: 75%;
+        }
+
+    h1,
+    .h1 {
+        font-size: 35px;
+    }
+
+    h2,
+    .h2 {
+        font-size: 30px;
+    }
+
+    h3,
+    .h3 {
+        font-size: 26px;
+    }
+
+    h4,
+    .h4 {
+        font-size: 20px;
+    }
+
+    h5,
+    .h5 {
+        font-size: 16px;
+    }
+
+    h6,
+    .h6 {
+        font-size: 12px;
+    }
 
 
-.HeadCECAMBig
-{
-    font-family: Verdana, Tahona, Arial, Helvetica, sans-serif;
-    font-size: 30px;
-    font-weight: bold;
-    text-shadow: rgba(0, 0, 0, 0.5) -1px 0, rgba(0, 0, 0, 0.3) 0 -1px, rgba(255, 255, 255, 0.5) 0 1px, rgba(0, 0, 0, 0.3) -1px -2px;
-    height: 40px;
-    line-height: 80px;
-    vertical-align: middle;
-    text-align: center;
-}
+    /* my non responsive bootstrap :) - because it's to print uai!'*/
+    .container {
+        width: 1020px;
+        float: none !important;
+    }
 
-.HeadCECAMSoft
-{
-    font-family: Verdana, Tahona, Arial, Helvetica, sans-serif;
-    font-size: 24px;
-    height: 30px;
-    line-height: 30px;
-    vertical-align: middle;
-    text-align: center;
-}
+        .container:before,
+        .container:after,
+        .panel-body:before,
+        .panel-body:after {
+            display: table;
+            content: " ";
+        }
 
-.HeadCECAMSmall
-{
-    font-family: Verdana, Tahona, Arial, Helvetica, sans-serif;
-    font-size: 16px;
-    height: 20px;
-    line-height: 20px;
-    vertical-align: middle;
-    text-align: center;
-}
+    .row {
+        display: block;
+    }
 
-.LinhaHeadCECAMBig
-{
-    height: 70px;
-}
+    .panel {
+        margin-bottom: 15px;
+        background-color: #fff;
+        border: 2px solid transparent;
+        border-color: #444;
+        border-radius: 4px;
+        box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+        float: none !important;
+    }
 
-.LinhaHeadCECAMSoft
-{
-    height: 30px;
-}
+    .NumFamilia {
+        font-family: inherit;
+        font-size: 86px;
+        font-weight: bold;
+        text-shadow: rgba(0, 0, 0, 0.5) -1px 0, rgba(0, 0, 0, 0.3) 0 -1px, rgba(255, 255, 255, 0.5) 0 1px, rgba(0, 0, 0, 0.3) -1px -2px;
+        width: 170px;
+        text-align: left;
+        vertical-align: top;
+    }
 
-.LinhaHeadCECAMSmall
-{
-    height: 20px;
-}
+    /* To Conferir. Se usar Passar Acima deste Comment, para futuramente ser excluido*/
 
-.text
-{
-    font-family: Verdana, Tahona, Arial, Helvetica, sans-serif;
-    font-size: 12px;
-    line-height: 14px;
-    vertical-align: middle;
-    text-align: justify;
-}
 
-.textItem
-{
-    font-family: Verdana, Tahona, Arial, Helvetica, sans-serif;
-    font-size: 13px;
-    line-height: 15px;
-    vertical-align: middle;
-    text-align: justify;
-}
+    .HeadCECAMBig {
+        font-family: Verdana, Tahona, Arial, Helvetica, sans-serif;
+        font-size: 30px;
+        font-weight: bold;
+        text-shadow: rgba(0, 0, 0, 0.5) -1px 0, rgba(0, 0, 0, 0.3) 0 -1px, rgba(255, 255, 255, 0.5) 0 1px, rgba(0, 0, 0, 0.3) -1px -2px;
+        height: 40px;
+        line-height: 80px;
+        vertical-align: middle;
+        text-align: center;
+    }
 
-.textCrianca
-{
-    font-family: Verdana, Tahona, Arial, Helvetica, sans-serif;
-    font-size: 16px;
-    height: 18px;
-    line-height: 20px;
-    vertical-align: middle;
-    text-align: justify;
-}
+    .HeadCECAMSoft {
+        font-family: Verdana, Tahona, Arial, Helvetica, sans-serif;
+        font-size: 24px;
+        height: 30px;
+        line-height: 30px;
+        vertical-align: middle;
+        text-align: center;
+    }
 
-.textCriancaDetail
-{
-    font-family: Verdana, Tahona, Arial, Helvetica, sans-serif;
-    font-size: 15px;
-    height: 16px;
-    line-height: 20px;
-    vertical-align: middle;
-    text-align: justify;
-}
+    .HeadCECAMSmall {
+        font-family: Verdana, Tahona, Arial, Helvetica, sans-serif;
+        font-size: 16px;
+        height: 20px;
+        line-height: 20px;
+        vertical-align: middle;
+        text-align: center;
+    }
 
-.Box
-{
-    text-align: justify;
-    font-family: Verdana, Tahona, Arial, Helvetica, sans-serif;
-    font-size: 12px;
-    vertical-align: top;
-    border: 1px solid #888;
-    /*border radius*/
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
-}
+    .LinhaHeadCECAMBig {
+        height: 70px;
+    }
 
-.tableSacola
-{
-    width: 1024px;
-    margin: 0 auto;
-    vertical-align: top;
-    border: 1px solid #888;
-    /*border radius*/
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
-}
+    .LinhaHeadCECAMSoft {
+        height: 30px;
+    }
 
-b
-{
-    font-weight: bold;
+    .LinhaHeadCECAMSmall {
+        height: 20px;
+    }
+
+    .text {
+        font-family: Verdana, Tahona, Arial, Helvetica, sans-serif;
+        font-size: 12px;
+        line-height: 14px;
+        vertical-align: middle;
+        text-align: justify;
+    }
+
+    .textItem {
+        font-family: Verdana, Tahona, Arial, Helvetica, sans-serif;
+        font-size: 13px;
+        line-height: 15px;
+        vertical-align: middle;
+        text-align: justify;
+    }
+
+    .textCrianca {
+        font-family: Verdana, Tahona, Arial, Helvetica, sans-serif;
+        font-size: 16px;
+        height: 18px;
+        line-height: 20px;
+        vertical-align: middle;
+        text-align: justify;
+    }
+
+    .textCriancaDetail {
+        font-family: Verdana, Tahona, Arial, Helvetica, sans-serif;
+        font-size: 15px;
+        height: 16px;
+        line-height: 20px;
+        vertical-align: middle;
+        text-align: justify;
+    }
+
+    .Box {
+        text-align: justify;
+        font-family: Verdana, Tahona, Arial, Helvetica, sans-serif;
+        font-size: 12px;
+        vertical-align: top;
+        border: 1px solid #888;
+        /*border radius*/
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+    }
+
+    .tableSacola {
+        width: 1024px;
+        margin: 0 auto;
+        vertical-align: top;
+        border: 1px solid #888;
+        /*border radius*/
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+    }
+
+    b {
+        font-weight: bold;
+    }
 }

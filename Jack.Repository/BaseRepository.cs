@@ -1,5 +1,6 @@
 ﻿using Jack.Domain.Interfaces;
 using Jack.Repository.UnityOfWork;
+using System;
 using System.Collections.Generic;
 namespace Jack.Repository
 {
@@ -41,5 +42,13 @@ namespace Jack.Repository
         {
             //pr_truncate_table
         }
+
+        public new void Dispose()
+        {
+            base.Dispose();
+            GC.SuppressFinalize(this);
+
+        }
+
     }
 }

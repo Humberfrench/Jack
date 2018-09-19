@@ -19,11 +19,20 @@
                     <table class="table table-striped table-hover" id="TableRoupa">
                         <thead>
                             <tr>
-                                <th>Descrição</th>
-                                <th>Tamanho Sugerido</th>
-                                <th>Tamanho Maior</th>
-                                <th>Idade</th>
+                                <th rowspan="2">Descrição</th>
+                                <th rowspan="2">Tamanho</th>
+                                <th rowspan="2">Tamanho Maior</th>
+                                <th colspan="2">Tamanho Sugerido</th>
+                                <th colspan="2">Tamanho Maior Sugerido</th>
+                                <th rowspan="2">Idade</th>
                             </tr>
+                        <tr>
+                            <th>De</th>
+                            <th>Até</th>
+                            <th>De</th>
+                            <th>Até</th>
+                        </tr>
+
                         </thead>
                         <tbody>
                             @foreach (var item in Model)
@@ -38,6 +47,21 @@
                                     <td>
                                         @Html.DisplayFor(modelItem => item.TamanhoMaior)
                                     </td>
+                                    
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.TamanhoSugeridoDe)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.TamanhoSugeridoAte)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.TamanhoSugeridoMaiorDe)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.TamanhoSugeridoMaiorAte)
+                                    </td>
+
+
                                     <td>
                                         @Html.DisplayFor(modelItem => item.IdadeCompleta)
                                     </td>

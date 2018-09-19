@@ -4,6 +4,7 @@ using FluentNHibernate.Conventions.Inspections;
 using Jack.Domain.Interfaces;
 using NHibernate;
 using NHibernate.Cfg;
+using System;
 
 namespace Jack.Repository.UnityOfWork
 {
@@ -72,6 +73,11 @@ namespace Jack.Repository.UnityOfWork
                 _transaction.Rollback();
                 throw;
             }
+        }
+
+        public void Dispose()
+        {
+            GC.SuppressFinalize(this);
         }
 
     }

@@ -22,7 +22,7 @@ namespace Jack.Repository
                                 cr.Roupa, 99 as CalcadoPadrao, '99' as RoupaPadrao, cr.NecessidadeEspecial, 
                                 cr.CriancaGrande, cr.IdadeNominal, cr.IdadeNominalReduzida,
                                 cr.TipoParentesco as TipoParentescoId, tp.Descricao as TipoParentesco,
-                                st.Descricao as Status, fa.Nome as Familia
+                                st.Descricao as Status, fa.Nome as Familia, st.PermiteSacola
                         FROM	Crianca cr
                         JOIN	StatusCrianca st
                         ON		cr.Status = st.Codigo
@@ -36,7 +36,7 @@ namespace Jack.Repository
                                 cr.Roupa, 99 as CalcadoPadrao, '99' as RoupaPadrao, cr.NecessidadeEspecial, 
                                 cr.CriancaGrande, cr.IdadeNominal, cr.IdadeNominalReduzida,
                                 cr.TipoParentesco as TipoParentescoId, tp.Descricao as TipoParentesco,
-                                st.Descricao as Status, fa.Nome as Familia
+                                st.Descricao as Status, fa.Nome as Familia, st.PermiteSacola
                         FROM	Crianca cr
                         JOIN	StatusCrianca st
                         ON		cr.Status = st.Codigo
@@ -47,7 +47,7 @@ namespace Jack.Repository
                                                WHERE FamiliaRepresentante = @familia)
                         JOIN    TipoParentesco tp
                         ON      tp.Codigo = cr.TipoParentesco
-                        ORDER BY fa.Nome, cr.Nome";
+                        ORDER BY st.PermiteSacola DESC, fa.Nome, cr.Nome";
 
             var result = Session.Connection.Query<CriancaVestimenta>(sql, new { familia });
             return result;

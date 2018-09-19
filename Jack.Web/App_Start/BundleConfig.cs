@@ -21,6 +21,10 @@ namespace Jack.Web
             RegisterToastrBundle(ref bundles);
             #endregion
 
+            #region Toastr
+            RegisterAwesomepleteBundle(ref bundles);
+            #endregion
+
             #region Main Bundles
             RegisterMainBundle(ref bundles);
             #endregion
@@ -735,6 +739,21 @@ namespace Jack.Web
 
         }
 
+        private static void RegisterAwesomepleteBundle(ref BundleCollection bundles)
+        {
+            // toastr notification styles
+            var cssToaStr = new StyleBundle("~/plugins/awesomplete");
+            cssToaStr.Include("~/Content/awesomplete/awesomplete.css");
+            bundles.Add(cssToaStr);
+
+            // toastr notification 
+            var jssToastr = new ScriptBundle("~/bundles/awesomplete");
+            jssToastr.Include("~/Content/awesomplete/awesomplete.js");
+
+            jssToastr.Orderer = new AsIsBundleOrderer();
+            bundles.Add(jssToastr);
+
+        }
         private static void RegisterMainBundle(ref BundleCollection bundles)
         {
 
@@ -851,6 +870,11 @@ namespace Jack.Web
             jssSacolas.Orderer = new AsIsBundleOrderer();
             bundles.Add(jssSacolas);
 
+            jssSacolas = new ScriptBundle("~/script/SacolasLivres");
+            jssSacolas.Include("~/Scripts/Relatorios/SacolasLivres.js");
+            jssSacolas.Orderer = new AsIsBundleOrderer();
+            bundles.Add(jssSacolas);
+
             jssSacolas = new ScriptBundle("~/script/Sacolas/Pesquisa");
             jssSacolas.Include("~/Scripts/Sacolas/SacolasPesquisa.js");
             jssSacolas.Orderer = new AsIsBundleOrderer();
@@ -939,6 +963,10 @@ namespace Jack.Web
             jssStatus.Orderer = new AsIsBundleOrderer();
             bundles.Add(jssStatus);
 
+            jssStatus = new ScriptBundle("~/script/Status/Tratamento");
+            jssStatus.Include("~/Scripts/StatusTratamento/main.js");
+            jssStatus.Orderer = new AsIsBundleOrderer();
+            bundles.Add(jssStatus);
         }
 
         private static void RegisterNivelBundle(ref BundleCollection bundles)

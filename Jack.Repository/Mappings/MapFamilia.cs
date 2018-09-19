@@ -19,6 +19,10 @@ namespace Jack.Repository.Mappings
             Map(x => x.Consistente).Column("Consistente").Not.Nullable();
             Map(x => x.PermiteExcedenteCriancas).Column("PermiteExcedenteCriancas").Not.Nullable();
             Map(x => x.PermiteExcedenteRepresentantes).Column("PermiteExcedenteRepresentantes").Not.Nullable();
+            Map(x => x.EnderecoFamilia).Column("EnderecoFamilia").Nullable();
+            Map(x => x.Bairro).Column("Bairro").Nullable();
+            Map(x => x.Cidade).Column("Cidade").Nullable();
+            Map(x => x.Estado).Column("Estado").Nullable();
             Map(x => x.Contato).Column("Contato").Nullable();
             Map(x => x.DataAtualizacao).Column("DataAtualizacao").Nullable();
             Map(x => x.DataCriacao).Column("DataCriacao").Nullable();
@@ -28,14 +32,14 @@ namespace Jack.Repository.Mappings
             Map(x => x.PresencaJustificada).Column("PresencaJustificada").Not.Nullable();
 
             //References
-            References(x => x.Nivel).Column("Nivel").Not.Nullable().Not.LazyLoad(); 
+            References(x => x.Nivel).Column("Nivel").Not.Nullable().Not.LazyLoad();
             References(x => x.Status).Column("Status").Not.Nullable().Not.LazyLoad();
 
             //HasMany
-            HasMany(x => x.Criancas).KeyColumn("Familia").Inverse().Not.LazyLoad(); 
+            HasMany(x => x.Criancas).KeyColumn("Familia").Inverse().Not.LazyLoad();
             HasMany(x => x.Presencas).KeyColumn("Familia").Inverse().Not.LazyLoad();
-            HasMany(x => x.Representantes).KeyColumn("FamiliaRepresentante").Inverse().Not.LazyLoad(); 
-
+            HasMany(x => x.Representantes).KeyColumn("FamiliaRepresentante").Inverse().Not.LazyLoad();
+            HasMany(x => x.Tratamento).KeyColumn("FamiliaId").Not.LazyLoad();
         }
     }
 }

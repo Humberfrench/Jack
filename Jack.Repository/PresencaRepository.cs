@@ -94,6 +94,7 @@ namespace Jack.Repository
                          WHERE	Codigo NOT IN(SELECT Familia 
 					                         FROM	Presenca 
 					                         WHERE	Reuniao = {reuniao})
+                         AND Ativo = 1
                          ORDER BY Nome";
             var result = Conn.Query<Familia>(sql);
             return result;
@@ -107,7 +108,8 @@ namespace Jack.Repository
 					                         FROM	Presenca 
 					                         WHERE	Reuniao = {reuniao})
                          And		Nome like '{letra}%'
-                         ORDER BY Nome";
+                        AND Ativo = 1
+                        ORDER BY Nome";
             var result = Conn.Query<Familia>(sql);
             return result;
         }
@@ -131,6 +133,17 @@ namespace Jack.Repository
 
             return result;
         }
+        public IEnumerable<int> ObterTodosPorFamilia(int familia, int ano)
+        {
+            var sql = $@"SELECT distinct Reuniao  
+                        FROM Presenca
+                        WHERE Reuniao IN (SELECT Codigo FROM Reuniao
+                        WHERE AnoCorrente = {ano})
+						AND	p.Familia = {familia}
+						ORDER BY p.Reuniao";
+            var result = Conn.Query<int>(sql);
 
+            return result;
+        }
     }
 }

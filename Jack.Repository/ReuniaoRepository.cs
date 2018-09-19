@@ -52,14 +52,14 @@ namespace Jack.Repository
             return dado.Count > 0;
         }
 
-        public IEnumerable<Reuniao> ObterTodosAteHoje(int ano, DateTime data)
+        public IEnumerable<Reuniao> ObterTodosAteHoje(int ano)
         {
-            var sql = @"SELECT  * 
+            var sql = $@"SELECT  * 
                         FROM    Reuniao 
-                        WHERE   AnoCorrente = @ano
-                        AND     convert(varchar(8), Data ,112) = @data";
+                        WHERE   AnoCorrente = {ano}
+                        AND     data < getdate()";
 
-            var dado = Conn.Query<Reuniao>(sql, new { ano = ano, data = data.ToAnsiDate() }).ToList();
+            var dado = Conn.Query<Reuniao>(sql).ToList();
 
             return dado;
         }

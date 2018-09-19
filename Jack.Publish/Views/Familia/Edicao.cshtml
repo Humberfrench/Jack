@@ -17,10 +17,14 @@
             <div class="modal-body">
                 <div class="row">
                     <div class="col-md-1">&nbsp;</div>
-                    <div class="col-md-10">
+                    <div class="col-md-7">
                         <label id="labelNome" for="Nome">Código</label>
                         <input type="hidden" id="Codigo" name="Codigo" value="" class="form-control m-b-md" />
                         <input type="text" id="Nome" name="Nome" value="" class="form-control m-b-md" placeholder="Nome da Mãe" maxlength="75" />
+                    </div>
+                    <div class="col-md-3">
+                        <label id="labelContato" for="Contato">Contato</label>
+                        <input type="text" id="Contato" name="Contato" value="" class="form-control m-b-md" placeholder="Contato" maxlength="50" />
                     </div>
                     <div class="col-md-1">&nbsp;</div>
                 </div>
@@ -30,19 +34,35 @@
                         <div class="checkbox checkbox-primary">
                             <input type="checkbox" name="MarcarPresenca" id="MarcarPresenca">
                             <label id="labelMarcarPresenca" for="MarcarPresenca">Marcar Presença</label>
-                        </div> 
+                        </div>
                         @Html.DropDownList("Reunioes", reunioesLista, new { @id = "Reunioes", @class = "form-control m-b" })
                     </div>
                     <div class="col-md-1">&nbsp;</div>
-                    
+
                 </div>
                 <div class="row">
                     <div class="col-md-1">&nbsp;</div>
-                    <div class="col-md-5">
-                        <label id="labelContato" for="Contato">Contato</label>
-                        <input type="text" id="Contato" name="Contato" value="" class="form-control m-b-md" placeholder="Contato" maxlength="50" />
+                    <div class="col-md-7">
+                        <label id="labelEndereco" for="Endereco">Endereço</label>
+                        <input type="text" id="Endereco" name="Endereco" value="" class="form-control m-b-md" placeholder="Endereço" maxlength="50" />
                     </div>
-                    <div class="col-md-5">
+                    <div class="col-md-3">
+                        <label id="labelBairro" for="Bairro">Bairro</label>
+                        <input type="text" id="Contato" name="Bairro" value="" class="form-control m-b-md" placeholder="Bairro" maxlength="30" />
+                    </div>
+                    <div class="col-md-1">&nbsp;</div>
+                </div>
+                <div class="row">
+                    <div class="col-md-1">&nbsp;</div>
+                    <div class="col-md-4">
+                        <label id="labelCidade" for="Contato">Cidade</label>
+                        <input type="text" id="Cidade" name="Cidade" value="" class="form-control m-b-md" placeholder="Cidade" maxlength="50" />
+                    </div>
+                    <div class="col-md-2">
+                        <label id="labelEstado" for="Estado">Estado</label>
+                        <input type="text" id="Estado" name="Estado" value="" class="form-control m-b-md" placeholder="Estado" maxlength="2" />
+                    </div>
+                    <div class="col-md-4">
                         <label id="labelStatus" for="Status">Status</label>
                         @Html.DropDownList("Status", statusLista, new { @id = "Status", @class = "form-control m-b" })
                     </div>
@@ -62,7 +82,7 @@
                         <label id="labelDataAtualizacao" for="DataAtualizacao">Data Alteração</label>
                         <input type="text" id="DataAtualizacao" name="DataAtualizacao" class="form-control m-b-md" readonly="readonly" />
                     </div>
-                   <div class="col-md-1">&nbsp;</div>
+                    <div class="col-md-1">&nbsp;</div>
                 </div>
                 <div class="row">
                     <div class="col-md-1">&nbsp;</div>
@@ -78,7 +98,7 @@
                             <label id="labelSacolinha" for="Sacolinha">Sacolinha?</label>
                         </div>
                     </div>
-                   <div class="col-md-3">
+                    <div class="col-md-3">
                         <div class="checkbox checkbox-primary" data-toggle="tooltip" data-placement="top" title="Família que ganha presença sem precisar comparecer a Reunião.">
                             <input type="checkbox" name="PresencaJustificada" id="PresencaJustificada">
                             <label id="labelPresencaJustificada" for="PresencaJustificada">Presenca Justificada</label>

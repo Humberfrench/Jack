@@ -18,13 +18,8 @@ namespace Jack.Repository.UnityOfWork
             _unitOfWork = (UnityOfWork)unitOfWork;
         }
 
-        protected ISession Session
-        {
-            get
-            {
-                return _unitOfWork.Session;
-            }
-        }
+        protected ISession Session => _unitOfWork.Session;
+
         protected IDbConnection Conn
         {
             get
@@ -46,5 +41,10 @@ namespace Jack.Repository.UnityOfWork
             return Session.Query<T>().Where(predicate);
         }
 
+        public void Dispose()
+        {
+            _unitOfWork?.Dispose();
+            GC.SuppressFinalize(this);
+        }
     }
 }

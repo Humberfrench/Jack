@@ -37,6 +37,8 @@ $(document).ready(function ()
     Familia.URLLiberarBloqueio = $("#URLLiberarBloqueio").val();
     Familia.URLBloquear = $("#URLBloquear").val();
 
+    //autocomplete => PesquisarNome
+
     $("#Pesquisar").click(function ()
     {
         var nome = $("#PesquisarNome").val();
@@ -46,7 +48,7 @@ $(document).ready(function ()
     $("#PesquisarFiltro").click(function ()
     {
         var nome = $("#PesquisarNome").val();
-        Familia.Pesquisar(nome);
+        Familia.PesquisarFiltro(nome);
     });
 
     $("#PesquisarStatus").click(function () {
@@ -163,11 +165,11 @@ Familia.Bloquear = function (familia)
 Familia.MontarTabela = function ()
 {
     $('#TableFamilia').DataTable({
-        "searching": false,
+        //"searching": true,
         "autoWidth": false,
         "order": [],
-        "lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "Todos"]],
-        "language": {
+        "lengthMenu": [[10, 25, 50, 100, -1], [10, 25, 50, 100, "Todos"]],
+                "language": {
             "sEmptyTable": "Nenhum registro encontrado",
             "sInfo": "Mostrando de _START_ até _END_ de _TOTAL_ registros",
             "sInfoEmpty": "Mostrando 0 até 0 de 0 registros",
@@ -253,7 +255,7 @@ Familia.Pesquisar = function (nome)
     }
 }
 
-Familia.Pesquisar2 = function (nome)
+Familia.PesquisarFiltro = function (nome)
 {
 
     if (nome === '')
@@ -292,6 +294,12 @@ Familia.LimparForm = function ()
     $("#Contato").val('');
     $("#DataAtualizacao").val('');
     $("#DataCriacao").val('');
+
+    $("#Endereco").val('');
+    $("#Bairro").val('');
+    $("#Cidade").val('');
+    $("#Estado").val('');
+
 
     $("#Nivel").prop('disabled', 'disabled');
     $("#Nivel").val('99');
@@ -342,6 +350,11 @@ Familia.Editar = function (codigo)
         $("#DataCriacao").val(dataValueInc);
         $("#Nivel").val(dataObj.Nivel.Codigo);
         $("#Nivel").prop('disabled', 'disabled');
+
+        $("#Endereco").val(dataObj.Endereco);
+        $("#Bairro").val(dataObj.Bairro);
+        $("#Cidade").val(dataObj.Cidade);
+        $("#Estado").val(dataObj.Estado);
 
         $("#Status").val(dataObj.Status.Codigo);
         $("#Status").prop('disabled', 'disabled');
@@ -438,6 +451,11 @@ Familia.Gravar = function ()
         opcoes.dadoEnvio.Nome = $("#Nome").val();
         opcoes.dadoEnvio.Contato = $("#Contato").val();
         opcoes.dadoEnvio.DataCriacao = $("#DataCriacao").val();
+
+        opcoes.dadoEnvio.Endereco = $("#Endereco").val();
+        opcoes.dadoEnvio.Bairro = $("#Bairro").val();
+        opcoes.dadoEnvio.Cidade = $("#Cidade").val();
+        opcoes.dadoEnvio.Estado = $("#Estado").val();
 
         opcoes.dadoEnvio.Nivel = new Object;
         opcoes.dadoEnvio.Nivel.Codigo = $("#Nivel").val();

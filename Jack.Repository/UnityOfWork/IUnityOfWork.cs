@@ -1,8 +1,9 @@
 ﻿using Jack.Domain.Interfaces;
+using System;
 
 namespace Jack.Repository.UnityOfWork
 {
-    public interface IUnityOfWork
+    public interface IUnityOfWork : IDisposable
     {
         void BeginTransaction();
         void Commit();

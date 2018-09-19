@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace Jack.Repository
 {
-    public class KitRepository   : Repository<Kit>, IKitRepository
+    public class KitRepository : Repository<Kit>, IKitRepository
     {
         private readonly IUnityOfWork UnitWork;
         public KitRepository(IUnityOfWork unitWork)
@@ -37,7 +37,7 @@ namespace Jack.Repository
 
         public IEnumerable<Kit> ObterTodos()
         {
-           return base.GetAll();
+            return base.GetAll();
         }
 
         public Kit ObterKitPorIdade(int idade, string sexo, bool necessidadeEspecial)
@@ -45,7 +45,9 @@ namespace Jack.Repository
             return GetAll().FirstOrDefault(k => k.IdadeMinima <= idade
                                              && k.IdadeMaxima >= idade
                                              && k.Sexo == sexo
-                                             && k.NecessidadeEspecial == necessidadeEspecial);            
+                                             && k.NecessidadeEspecial == necessidadeEspecial);
         }
+
+
     }
 }

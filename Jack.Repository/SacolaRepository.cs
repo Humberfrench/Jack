@@ -1,6 +1,7 @@
 ﻿using Dapper;
 using Jack.Domain.Entity;
 using Jack.Domain.Interfaces.Repository;
+using Jack.Domain.ObjectValue;
 using Jack.Repository.UnityOfWork;
 using System.Collections.Generic;
 using System.Linq;
@@ -62,6 +63,26 @@ namespace Jack.Repository
 
             sacola.ForEach(s => s.Crianca.Colaboradores = s.Crianca.Colaboradores.Where(c => c.Ano == ano).ToList());
             return sacola;
+        }
+
+        public IEnumerable<SacolaDto> ObterSacolasLivres(int ano, int liberado, int nivel, int kit)
+        {
+            var sql = $@"SELECT s.Codigo, s.SacolaFamilia, F.Nome as Familia, c.Nome as Crianca, c.Sexo, 
+                         c.IdadeNominal, c.Calcado, c.Roupa, s.Nivel, s.Liberado
+                         FROM Sacolas s
+                         JOIN Familia f
+                         ON s.FamiliaRepresentante = f.Codigo
+                         JOIN Crianca c
+                         ON s.Crianca = c.Codigo
+                         AND c.Codigo NOT IN (SELECT Crianca From ColaboradorCrianca Where  Ano = {ano})
+                         AND (s.Liberado = {liberado} Or {liberado} = 0)
+                         AND (s.Nivel = {nivel} Or {nivel} = 0)
+                         AND (s.Kit = {kit} Or {kit} = 0)
+                         ORDER BY  c.MedidaIdade desc, c.Idade , c.Sexo, c.Nome";
+
+            var sacolas = Conn.Query<SacolaDto>(sql);
+
+            return sacolas;
         }
 
         //public IEnumerable<SacolaValue> ObterSacolaParaImpressao(string sacolasNumero, int ano)
