@@ -437,7 +437,12 @@ namespace Jack.Domain.Services
             };
 
             crianca.CalculaIdade();
-            crianca.Kit = repKit.ObterKitPorIdade(crianca.Idade, crianca.Sexo, crianca.NecessidadeEspecial);
+            var idade = 0;
+            if (string.Equals(crianca.MedidaIdade, "A", StringComparison.CurrentCultureIgnoreCase))
+            {
+                idade = crianca.Idade;
+            }
+            crianca.Kit = repKit.ObterKitPorIdade(idade, crianca.Sexo, crianca.NecessidadeEspecial);
 
             if (!criancaValue.ProcessaStatus) return crianca;
             if (criancaValue.CadastroNovo)
