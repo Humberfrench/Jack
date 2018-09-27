@@ -368,8 +368,11 @@ namespace Jack.Domain.Entity
         public virtual bool IdadePermitida(int limite = 10)
         {
             DateTime dataBase = new DateTime(DateTime.Now.Year, 12, 31);
-            int anos = idade; //dataBase.Year - dataNascimento.Year;
-
+            int anos = 0; //dataBase.Year - dataNascimento.Year;
+            if (medidaIdade == "A")
+            {
+                anos = idade;
+            }
             if (dataBase.Month < dataNascimento.Month ||
                 (dataBase.Month == dataNascimento.Month && dataBase.Day < dataNascimento.Day))
                 anos--;
@@ -385,7 +388,12 @@ namespace Jack.Domain.Entity
         public virtual bool CriancaMaiorMoralCrista(int limite = 10)
         {
             DateTime dataBase = new DateTime(DateTime.Now.Year, 12, 31);
-            int anos = dataBase.Year - dataNascimento.Year;
+
+            int anos = 0; //dataBase.Year - dataNascimento.Year;
+            if (medidaIdade == "A")
+            {
+                anos = idade;
+            }
 
             if (dataBase.Month < dataNascimento.Month ||
                 (dataBase.Month == dataNascimento.Month && dataBase.Day < dataNascimento.Day))

@@ -243,16 +243,16 @@ namespace Jack.Domain.Services
             }
 
             //sem Documentacao
-            if (!familia.TemDocumentacaoTodasCriancas())
-            {
-                AtualizarFamiliaNivel99(ref familia, EnumStatusFamilia.FamiliaSemDocumentacao);
-                if (gravar)
-                {
-                    Gravar(familia);
-                }
-                AddLog(familia.Codigo, EnumStatusFamilia.FamiliaSemDocumentacao.Int(), nameof(AtualizarFamilia), "Familia Sem Documentação");
-                return familia;
-            }
+            //if (!familia.TemDocumentacaoTodasCriancas())
+            //{
+            //    AtualizarFamiliaNivel99(ref familia, EnumStatusFamilia.FamiliaSemDocumentacao);
+            //    if (gravar)
+            //    {
+            //        Gravar(familia);
+            //    }
+            //    AddLog(familia.Codigo, EnumStatusFamilia.FamiliaSemDocumentacao.Int(), nameof(AtualizarFamilia), "Familia Sem Documentação");
+            //    return familia;
+            //}
             if (familia.PresencaJustificada)
             {
                 familia.Nivel = repNivel.ObterPorId(1);

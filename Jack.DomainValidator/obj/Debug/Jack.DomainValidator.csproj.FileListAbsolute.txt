@@ -47,3 +47,11 @@ C:\Humberto\Desenvolvimento\CapitainJack\Jack.DomainValidator\obj\Debug\Jack.Dom
 C:\Humberto\Desenvolvimento\CapitainJack\Jack.DomainValidator\obj\Debug\Jack.DomainValidator.csproj.CopyComplete
 C:\Humberto\Desenvolvimento\CapitainJack\Jack.DomainValidator\obj\Debug\Jack.DomainValidator.dll
 C:\Humberto\Desenvolvimento\CapitainJack\Jack.DomainValidator\obj\Debug\Jack.DomainValidator.pdb
+D:\Desenvolvimento\Sistema.Web\CapitainJack\Jack.DomainValidator\bin\Debug\Jack.DomainValidator.dll
+D:\Desenvolvimento\Sistema.Web\CapitainJack\Jack.DomainValidator\bin\Debug\Jack.DomainValidator.pdb
+D:\Desenvolvimento\Sistema.Web\CapitainJack\Jack.DomainValidator\bin\Debug\Newtonsoft.Json.dll
+D:\Desenvolvimento\Sistema.Web\CapitainJack\Jack.DomainValidator\bin\Debug\Newtonsoft.Json.xml
+D:\Desenvolvimento\Sistema.Web\CapitainJack\Jack.DomainValidator\obj\Debug\Jack.DomainValidator.csproj.CoreCompileInputs.cache
+D:\Desenvolvimento\Sistema.Web\CapitainJack\Jack.DomainValidator\obj\Debug\Jack.DomainValidator.csproj.CopyComplete
+D:\Desenvolvimento\Sistema.Web\CapitainJack\Jack.DomainValidator\obj\Debug\Jack.DomainValidator.dll
+D:\Desenvolvimento\Sistema.Web\CapitainJack\Jack.DomainValidator\obj\Debug\Jack.DomainValidator.pdb
