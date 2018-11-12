@@ -241,7 +241,7 @@ namespace Jack.Web.Controllers
             #endregion
 
             var listaDados = sacolaAppService.ObterFamiliasDisponiveis();
-            return View(listaDados);
+            return View(listaDados.ToList());
         }
 
         [Route(nameof(GerarSacolas))]
