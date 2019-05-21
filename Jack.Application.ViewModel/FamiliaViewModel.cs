@@ -117,14 +117,8 @@ namespace Jack.Application.ViewModel
         [DisplayFormat(NullDisplayText = "")]
         public virtual IList<CriancaViewModel> Criancas
         {
-            get
-            {
-                return criancas;
-            }
-            set
-            {
-                criancas = value;
-            }
+            get => criancas;
+            set => criancas = value;
         }
 
         [JsonIgnore]
@@ -132,14 +126,8 @@ namespace Jack.Application.ViewModel
         [DisplayFormat(NullDisplayText = "")]
         public virtual IList<SacolaViewModel> Sacolas
         {
-            get
-            {
-                return sacolas;
-            }
-            set
-            {
-                sacolas = value;
-            }
+            get => sacolas;
+            set => sacolas = value;
         }
 
         [Display(Name = "Data de Atualização")]
@@ -155,61 +143,32 @@ namespace Jack.Application.ViewModel
         [DisplayFormat(NullDisplayText = "")]
         public IList<PresencaViewModel> Presencas
         {
-            get
-            {
-                return presencas;
-            }
-            set
-            {
-                presencas = value;
-            }
+            get => presencas;
+            set => presencas = value;
         }
         [JsonIgnore]
         [Display(Name = "Tratamento")]
         [DisplayFormat(NullDisplayText = "")]
         public virtual IList<TratamentoViewModel> Tratamento
         {
-            get
-            {
-                return tratamento;
-            }
-            set
-            {
-                tratamento = value;
-            }
+            get => tratamento;
+            set => tratamento = value;
         }
 
         [JsonIgnore]
-        [Display(Name = "Representantes")]
+        [Display(Name = "Repr.")]
         [DisplayFormat(NullDisplayText = "")]
         public IList<RepresentanteViewModel> Representantes
         {
-            get
-            {
-                return representantes;
-            }
-            set
-            {
-                representantes = value;
-            }
+            get => representantes;
+            set => representantes = value;
         }
 
         [Display(Name = "Crianças")]
-        public int QuantidadeCriancas
-        {
-            get
-            {
-                return Criancas.ToList().Count;
-            }
-        }
+        public int QuantidadeCriancas => Criancas.ToList().Count;
+
         [Display(Name = "Crianças")]
-        public int QuantidadeCriancasAtivas
-        {
-            get
-            {
-                return Criancas.Where(c => c.Status.PermiteSacola).ToList().Count;
-            }
-        }
+        public int QuantidadeCriancasAtivas => Criancas.Where(c => c.Status.PermiteSacola).ToList().Count;
 
         [Display(Name = "Presenças")]
         public int QuantidadePresencas
@@ -220,14 +179,7 @@ namespace Jack.Application.ViewModel
             }
         }
 
-        [Display(Name = nameof(Representantes))]
-        public int QuantidadeFamiliasRepresentadas
-        {
-            get
-            {
-                return Representantes.ToList().Count;
-            }
-        }
-
+        [Display(Name = "Repr.")]
+        public int QuantidadeFamiliasRepresentadas => Representantes.ToList().Count;
     }
 }
