@@ -6,7 +6,7 @@ using Jack.Domain.ObjectValue;
 
 namespace Jack.Application.AutoMapper
 {
-    public class AutoMapperConfig
+    public static class AutoMapperConfig
     {
         public static MapperConfiguration Config;
         public static void RegisterMappings()
