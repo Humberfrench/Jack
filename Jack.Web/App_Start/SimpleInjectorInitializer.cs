@@ -5,7 +5,7 @@ namespace Jack.Web.App_Start
     using Ioc;
     using SimpleInjector;
     using SimpleInjector.Integration.Web;
-    using SimpleInjector.Integration.Web.Mvc;
+    using SimpleInjector.Integration.Web.Mvc; 
     using System.Reflection;
     using System.Web.Mvc;
 

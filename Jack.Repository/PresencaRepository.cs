@@ -136,7 +136,7 @@ namespace Jack.Repository
         public IEnumerable<int> ObterTodosPorFamilia(int familia, int ano)
         {
             var sql = $@"SELECT distinct Reuniao  
-                        FROM Presenca
+                        FROM Presenca p
                         WHERE Reuniao IN (SELECT Codigo FROM Reuniao
                         WHERE AnoCorrente = {ano})
 						AND	p.Familia = {familia}
