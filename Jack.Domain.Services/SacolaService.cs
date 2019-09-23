@@ -659,7 +659,12 @@ namespace Jack.Domain.Services
                         }
 
                         #endregion
-                        return familias.ToList();
+
+                        var familiasRetorno = familias.Where(f => f.Status.Codigo != 11 &&
+                                                                  f.Status.Codigo != 12 && 
+                                                                  f.Status.Codigo != 13).ToList();
+
+                        return familiasRetorno;
                     }
                 }
             }

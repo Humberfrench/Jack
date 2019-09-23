@@ -63,3 +63,4 @@ D:\Desenvolvimento\Sistemas\Jack\Jack.DomainValidator\obj\Debug\Jack.DomainValid
 D:\Desenvolvimento\Sistemas\Jack\Jack.DomainValidator\obj\Debug\Jack.DomainValidator.csproj.CopyComplete
 D:\Desenvolvimento\Sistemas\Jack\Jack.DomainValidator\obj\Debug\Jack.DomainValidator.dll
 D:\Desenvolvimento\Sistemas\Jack\Jack.DomainValidator\obj\Debug\Jack.DomainValidator.pdb
+D:\Desenvolvimento\Sistemas\Jack\Jack.DomainValidator\obj\Debug\Jack.DomainValidator.csprojAssemblyReference.cache
