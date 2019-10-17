@@ -2187,6 +2187,8 @@
     <Content Include="Views\TipoDeProblema\Index.cshtml" />
     <Content Include="Views\Tratamento\Detalhe.cshtml" />
     <Content Include="Views\Tratamento\Index.cshtml" />
+    <Content Include="Views\Sacolas\PrintsUmAUm.cshtml" />
+    <Content Include="Views\Shared\_SacolaHeaderUnica.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

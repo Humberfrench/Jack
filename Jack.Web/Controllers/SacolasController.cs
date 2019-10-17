@@ -466,6 +466,7 @@ namespace Jack.Web.Controllers
             }
             return View(sacolaPrint);
         }
+
         [HttpGet]
         [Route("Pesquisar/Prints/{sacola}")]
         public ActionResult Prints(string sacola)
@@ -474,6 +475,16 @@ namespace Jack.Web.Controllers
 
             return View(sacolaPrint);
         }
+
+        [HttpGet]
+        [Route("Pesquisar/Prints/Unica/{sacola}")]
+        public ActionResult PrintsUmAUm(string sacola)
+        {
+            var sacolaPrint = sacolaAppService.ObterSacolaParaImpressao(sacola, DateTime.Now.Year);
+
+            return View(sacolaPrint);
+        }
+
         [HttpGet]
         [Route("Update/QrCodes")]
         public ActionResult UpdateQrCodes()
@@ -482,6 +493,7 @@ namespace Jack.Web.Controllers
 
             return View();
         }
+
         #endregion
 
         #region Métodos Privados
