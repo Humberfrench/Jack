@@ -473,6 +473,10 @@ namespace Jack.Domain.Services
             {
                 crianca.Status = repStatus.ObterPorId(EnumStatusCrianca.CriancaMaior.Int());
             }
+            else
+            {
+                crianca.Status = repStatus.ObterPorId(EnumStatusCrianca.DadosOk.Int());
+            }
 
             if (crianca.CriancaMaiorMoralCrista(parametro.LimiteIdadeMoralCrista))
             {

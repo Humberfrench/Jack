@@ -322,9 +322,9 @@ namespace Jack.Domain.Services
         public void ValidarCrianca(Crianca crianca)
         {
 
-            if (!crianca.IdadePermitida())
+            if (!crianca.IdadePermitida(Parametro.IdadeLimite))
             {
-                validationResult.Add("Criança Maior que 10 anos e não participante da Escolinha.");
+                validationResult.Add($"Criança Maior que {Parametro.IdadeLimite} anos e não participante da Escolinha.");
             }
 
             if (!crianca.VerifyCalcado())
